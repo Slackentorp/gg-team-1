@@ -6,10 +6,13 @@ public class CameraRotation : MonoBehaviour
 {
 	[SerializeField, Tooltip("Controls the camera's turning speed.")]
 	private float cameraTurnSpeed;
+	private Vector3 mousePos, mouseOrigin;
+	//TouchInput touchInput; 
 	Camera mainCamera;
 
 	void Start()
 	{
+		//touchInput = GetComponent<TouchInput>();
 		mainCamera = Camera.main;
 	}
 
@@ -21,8 +24,29 @@ public class CameraRotation : MonoBehaviour
 
 	private void RotateCameraAroundSelf()
 	{
-		mainCamera.transform.Rotate(0f, Input.GetAxis("Horizontal") * cameraTurnSpeed, 0f, Space.World);
-		mainCamera.transform.Rotate(-Input.GetAxis("Vertical") * cameraTurnSpeed, 0f, 0f, Space.Self);
+		if (MouseClicked())
+		{
+			if (UnityEditor.EditorApplication.isRemoteConnected && Input.touchCount > 0)
+			{
+				mainCamera.transform.Rotate(0f, Input.touches[0].deltaPosition.x * cameraTurnSpeed, 0f, Space.World);
+				mainCamera.transform.Rotate(-Input.touches[0].deltaPosition.y * cameraTurnSpeed, 0f, 0f, Space.Self);
+			}
+			else
+			{
+				mainCamera.transform.Rotate(0f, Input.GetAxis("Mouse X") * cameraTurnSpeed, 0f, Space.World);
+				mainCamera.transform.Rotate(-Input.GetAxis("Mouse Y") * cameraTurnSpeed, 0f, 0f, Space.Self);
+			}
+		}
+	}
+
+	private bool MouseClicked()
+	{
+		if (Input.GetMouseButton(0))
+		{
+			return true;
+		}
+
+		return false; 
 	}
 
 }
