@@ -1,31 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Gamelogic.Extensions;
 using UnityEngine;
 
-public class CameraRotation : MonoBehaviour
+public class CameraRotation : Singleton<CameraRotation>
 {
-	[SerializeField, Tooltip("Controls the camera's turning speed.")]
-	private float cameraTurnSpeed;
-	Camera mainCamera;
+    [SerializeField, Tooltip("Controls the camera's turning speed.")]
+    private float cameraTurnSpeed;
 
-	void Start()
-	{
-		mainCamera = Camera.main;
-	}
+    private Vector3 mousePos, mouseOrigin;
+    private int invert = 1;
+    
+    Camera mainCamera;
 
-	private void FixedUpdate()
-	{
-		RotateCameraAroundSelf();
-	}
+    void Start()
+    {
+        mainCamera = Camera.main;
+    }
 
+    private void FixedUpdate()
+    {
+        RotateCameraAroundSelf();
+    }
 
-	private void RotateCameraAroundSelf()
-	{
-		mainCamera.transform.Rotate(0f, Input.GetAxis("Horizontal") * cameraTurnSpeed, 0f, Space.World);
-		mainCamera.transform.Rotate(-Input.GetAxis("Vertical") * cameraTurnSpeed, 0f, 0f, Space.Self);
-	}
+    public void InvertRotation()
+    {
+        invert *= -1;
+    }
 
+    private void RotateCameraAroundSelf()
+    {
+            if (
+                Input.touchCount > 0)
+            {
+                mainCamera.transform.Rotate(0f,
+                    -Input.touches[0].deltaPosition.x * cameraTurnSpeed / 10 * invert,
+                    0f, Space.World);
+                mainCamera.transform.Rotate(
+                    Input.touches[0].deltaPosition.y * cameraTurnSpeed / 10 * invert, 0f,
+                    0f, Space.Self);
+            }
+        
+    }
 }
-	
-	
-	

@@ -71,7 +71,7 @@ namespace Assets.Scripts.Managers
 
                 if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
-                    GameObject touchObject = hit.transform.gameObject;
+                    GameObject touchObject = hit.transform.root.gameObject;
                     ITouchInput touchInput =
                         touchObject.GetComponent<ITouchInput>();
                     if (touchInput == null)
@@ -176,7 +176,7 @@ namespace Assets.Scripts.Managers
 
                 if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
-                    GameObject touchObject = hit.transform.gameObject;
+                    GameObject touchObject = hit.transform.root.gameObject;
                     ITouchInput touchInput =
                         touchObject.GetComponent<ITouchInput>();
                     if (touchInput == null)
