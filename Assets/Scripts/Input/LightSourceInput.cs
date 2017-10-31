@@ -10,6 +10,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
 
     public void OnTap(Touch finger)
     {
+        EventBus.Instance.SetMothPosition(transform.position + LandingPosition);
     }
 
     public void OnTouchDown(Touch finger)
@@ -17,9 +18,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     }
 
     public void OnTouchUp(Touch finger)
-    {
-        print("On touchup");
-        EventBus.Instance.SetMothPosition(transform.position + LandingPosition);
+    {        
     }
 
     public void OnToucHold(Touch finger)

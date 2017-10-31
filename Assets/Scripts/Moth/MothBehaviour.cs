@@ -9,6 +9,8 @@ public class MothBehaviour : MonoBehaviour
     [SerializeField]
     private float timeScale = 1;
 
+    private IEnumerator lerp;
+
     void OnValidate()
     {
         if (timeScale < 1)
@@ -19,7 +21,12 @@ public class MothBehaviour : MonoBehaviour
 
     public void SetMothPosition(Vector3 position)
     {
-        StartCoroutine(SmoothLerpPosition(transform.gameObject, position));
+        if (lerp != null)
+        {
+            StopCoroutine(lerp);
+        }
+        lerp = SmoothLerpPosition(transform.gameObject, position);
+        StartCoroutine(lerp);
     }
 
 
