@@ -17,6 +17,80 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Moth" ID="{445A0E3C-BB45-4ADA-9EA2-57AFC84BC67B}" ShortID="90425324">
+					<ChildrenList>
+						<Event Name="MOTH_START_FLIGHT" ID="{42DDC5BA-946A-4A80-8D37-64684D345CA2}"/>
+						<Event Name="MOTH_END_FLIGHT" ID="{55124FC1-C5D1-41D4-8A94-2636E35D9F51}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Ambience" ID="{CB63D89D-9A5B-4F67-BE53-36CC1D55B2DE}" ShortID="586050579">
+					<ChildrenList>
+						<Folder Name="Cars" ID="{4437D36C-FEA3-4050-A735-33F3861491FA}" ShortID="362618201">
+							<ChildrenList>
+								<Event Name="CAR_PASS" ID="{0DA6AEB2-DB75-445E-B125-1782D0AF67D8}">
+									<ChildrenList>
+										<Action Name="" ID="{8A60C6B0-66B1-414A-8F00-BCAA9AAB58B8}" ShortID="1055997972">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Random Car Pass" ID="{2CDD15D1-C028-43A2-A836-096F7811CD88}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="City" ID="{AF9AAE43-6A6C-489A-BB7A-C3D77044E274}" ShortID="160917443">
+							<ChildrenList>
+								<Event Name="AMBIENCE_CITY" ID="{27FD9E2A-3722-4927-9C92-A36C7A658416}">
+									<ChildrenList>
+										<Action Name="" ID="{DB536824-FCD6-4B19-8E6E-A2BC06BCAA20}" ShortID="728516185">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="City Ambience Base" ID="{35B5821B-5A6A-4666-8668-5B1A1B5F68D4}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Event Name="INTERACTIBLE_MOVE" ID="{93ADC84C-4788-4971-9EFB-1B094D0BAB9F}">
+					<ChildrenList>
+						<Action Name="" ID="{30521C8F-A41F-476F-A187-F3677A274949}" ShortID="1006545021">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Move Paper" ID="{A6EBC3C1-6CA9-41AA-8148-E9BE96A2DE62}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="INTERACTIBLE_PICK_UP" ID="{FA102543-9663-4336-B968-C536003B5E01}">
+					<ChildrenList>
+						<Action Name="" ID="{49AC6E6E-7999-4027-BA7B-50A343B52D7A}" ShortID="916753318">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pick Paper Up" ID="{CF3CB5DA-A79C-4138-BC09-B5F74B12453F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
