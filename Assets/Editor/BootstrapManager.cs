@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [InitializeOnLoad]
-public class BootstrapManager
+public class BootstrapLoader
 {
     static string bootstrapSceneName = "Bootstrap";
-    static BootstrapManager()
+    static BootstrapLoader()
     {
         if (EditorApplication.isPlayingOrWillChangePlaymode)
         {
