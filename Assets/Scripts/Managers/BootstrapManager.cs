@@ -30,6 +30,7 @@ public class BootstrapManager : MonoBehaviour
             {
                 gameCamera.transform.position = levelCamera.transform.position;
                 gameCamera.transform.rotation = levelCamera.transform.rotation;
+                gameCamera.GetComponent<CameraTranslation>().SetMoth(levelCamera.GetComponent<CameraTranslation>().GetMoth());
                 Destroy(levelCamera);
             }
             else
