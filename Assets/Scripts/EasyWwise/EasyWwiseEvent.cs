@@ -11,7 +11,8 @@ public class EasyWwiseEvent : MonoBehaviour
     {
         if (ChosenType == EasyWWiseEventType.Awake)
         {
-            print(ChosenType);
+            print("Awake: " + WwiseEventID);
+            AkSoundEngine.PostEvent(WwiseEventID, gameObject);
         }
     }
 
@@ -19,8 +20,8 @@ public class EasyWwiseEvent : MonoBehaviour
     {
         if (ChosenType == EasyWWiseEventType.Start)
         {
-            print(WwiseEventID);
-            print(ChosenType);
+            print("Start: " + WwiseEventID);
+            AkSoundEngine.PostEvent(WwiseEventID, gameObject);
         }
     }
 
@@ -28,7 +29,8 @@ public class EasyWwiseEvent : MonoBehaviour
     {
         if (ChosenType == EasyWWiseEventType.OnTriggerEnter)
         {
-            print(ChosenType);
+            print("On Trigger Enter: " +WwiseEventID);
+            AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
         }
     }
 
@@ -36,7 +38,8 @@ public class EasyWwiseEvent : MonoBehaviour
     {
         if (ChosenType == EasyWWiseEventType.OnTriggerStay)
         {
-            print(ChosenType);
+            print("On Trigger Stay: " + WwiseEventID);
+            AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
         }
     }
 
@@ -44,7 +47,8 @@ public class EasyWwiseEvent : MonoBehaviour
     {
         if (ChosenType == EasyWWiseEventType.OnTriggerExit)
         {
-            print(ChosenType);
+            print("On Trigger Exit: " + WwiseEventID);
+            AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
         }
     }
 
@@ -52,7 +56,8 @@ public class EasyWwiseEvent : MonoBehaviour
     {
         if (ChosenType == EasyWWiseEventType.OnCollisionEnter)
         {
-            print(ChosenType);
+            print("On Collision Enter: " + WwiseEventID);
+            AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
         }
     }
 
@@ -60,7 +65,8 @@ public class EasyWwiseEvent : MonoBehaviour
     {
         if (ChosenType == EasyWWiseEventType.OnCollisionStay)
         {
-            print(ChosenType);
+            print("On Collision Stay: " + WwiseEventID);
+            AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
         }
     }
 
@@ -68,7 +74,8 @@ public class EasyWwiseEvent : MonoBehaviour
     {
         if (ChosenType == EasyWWiseEventType.OnCollisionExit)
         {
-            print(ChosenType);
+            print("On Trigger Exit: " + WwiseEventID);
+            AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
         }
     }
 
