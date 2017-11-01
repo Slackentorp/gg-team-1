@@ -35,13 +35,16 @@ public class BootstrapManager : MonoBehaviour
             }
             else
             {
-                Debug.LogError( "No camera with tag 'Level Camera' " +
+                Debug.LogWarning( "No camera with tag 'Level Camera' " +
                                 "was found in level. Using default settings.");
             }
         }
         else
         {
+            // Sound scape
             SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            // Apartment
+            SceneManager.LoadScene(2, LoadSceneMode.Additive);
             StartCoroutine(DelayReload());
         }
     }
