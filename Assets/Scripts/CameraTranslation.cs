@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraTranslation : MonoBehaviour {
 
@@ -15,13 +13,17 @@ public class CameraTranslation : MonoBehaviour {
 	
 	void Start ()
 	{
-		mainCamera = Camera.main;
+	    mainCamera = GetComponent<Camera>();
 	}
 
 	void LateUpdate ()
 	{
-		difference  = Vector3.Distance(mainCamera.transform.position, moth.transform.position);
-		AboveDistance();
+	    if (moth != null)
+	    {
+	        difference = Vector3.Distance(mainCamera.transform.position, moth.transform.position);
+	        AboveDistance();
+        }
+		
 	}
 
 	void AboveDistance()
@@ -35,5 +37,15 @@ public class CameraTranslation : MonoBehaviour {
 			mainCamera.transform.position = mainCamera.transform.position;
 		}
 	}
+
+    public void SetMoth(GameObject target)
+    {
+        moth = target;
+    }
+
+    public GameObject GetMoth()
+    {
+        return moth;
+    }
 
 }

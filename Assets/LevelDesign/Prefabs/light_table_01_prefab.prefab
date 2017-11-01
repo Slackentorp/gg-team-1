@@ -36,7 +36,9 @@ GameObject:
   - component: {fileID: 4689450192384688}
   - component: {fileID: 33275887440131912}
   - component: {fileID: 23874371131498928}
-  m_Layer: 0
+  - component: {fileID: 65554898594569194}
+  - component: {fileID: 114337413505848792}
+  m_Layer: 8
   m_Name: light_table_mockup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,14 +81,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1218086663684066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 1}
+  m_LocalPosition: {x: 5, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4689450192384688}
   - {fileID: 4221318777830522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 12.55, z: 0}
 --- !u!4 &4689450192384688
 Transform:
   m_ObjectHideFlags: 1
@@ -142,6 +144,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1569663192851676}
   m_Mesh: {fileID: 4300000, guid: 476b6f1499eaefa45970a593ae80f827, type: 3}
+--- !u!65 &65554898594569194
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569663192851676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21990588, y: 0.21990412, z: 0.32033977}
+  m_Center: {x: -0.00000036423134, y: -0.00000074922866, z: 0.1601695}
 --- !u!108 &108419497921159978
 Light:
   m_ObjectHideFlags: 1
@@ -178,3 +192,15 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114337413505848792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569663192851676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc1a45fd9a6cef45a7909ab1bf3a3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LandingPosition: {x: 0, y: 0.29, z: 0}

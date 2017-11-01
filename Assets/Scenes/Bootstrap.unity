@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 393633186}
   - component: {fileID: 393633185}
   - component: {fileID: 393633184}
+  - component: {fileID: 393633187}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -140,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df485f8285394ff69c643cadf885e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePath: Audio/GeneratedSoundBanks
+  basePath: Audio\GeneratedSoundBanks
   language: English(US)
   defaultPoolSize: 4096
   lowerPoolSize: 2048
@@ -175,6 +176,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &393633187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393633183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa01442264c7541ee8502c61bf715c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: a3f05248ad655f46a842d7cd605a271b
+  bankName: MAIN_BANK
+  loadAsynchronous: 0
+  decodeBank: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
 --- !u!1 &964487256
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +290,7 @@ GameObject:
   - component: {fileID: 1869819399}
   - component: {fileID: 1869819395}
   - component: {fileID: 1869819400}
+  - component: {fileID: 1869819401}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -377,4 +398,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __messageText: 
-  cameraTurnSpeed: 0.2
+  cameraTurnSpeed: 0.5
+--- !u!114 &1869819401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1869819394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba853f22b232402479b801b6dd1d04d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moth: {fileID: 0}
+  maxDistance: 1
+  followSpeed: 1

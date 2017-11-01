@@ -30,17 +30,21 @@ public class BootstrapManager : MonoBehaviour
             {
                 gameCamera.transform.position = levelCamera.transform.position;
                 gameCamera.transform.rotation = levelCamera.transform.rotation;
+                gameCamera.GetComponent<CameraTranslation>().SetMoth(levelCamera.GetComponent<CameraTranslation>().GetMoth());
                 Destroy(levelCamera);
             }
             else
             {
-                Debug.LogError( "No camera with tag 'Level Camera' " +
+                Debug.LogWarning( "No camera with tag 'Level Camera' " +
                                 "was found in level. Using default settings.");
             }
         }
         else
         {
+            // Sound scape
             SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            // Apartment
+            SceneManager.LoadScene(2, LoadSceneMode.Additive);
             StartCoroutine(DelayReload());
         }
     }
