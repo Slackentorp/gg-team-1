@@ -1,0 +1,25 @@
+var class_ak_initializer =
+[
+    [ "Initialize", "class_ak_initializer.html#ab1447ff06a00ee733c40562b6339d685", null ],
+    [ "basePath", "class_ak_initializer.html#a7f076dd0e4cc4747748f7ac6a8c00719", null ],
+    [ "c_CallbackManagerBufferSize", "class_ak_initializer.html#a0e2b50f665a0182140dc4817bc08c599", null ],
+    [ "c_DefaultPoolSize", "class_ak_initializer.html#a395316c39dc936c62b34d7ea4823e220", null ],
+    [ "c_EngineLogging", "class_ak_initializer.html#ad803e3dc47143f0d4ae3ad62e67ae1b9", null ],
+    [ "c_Language", "class_ak_initializer.html#a1738fb5b18776a8823b9f1f5ee4f3d98", null ],
+    [ "c_LowerPoolSize", "class_ak_initializer.html#a0e09953478adc8605f364fead6d27e73", null ],
+    [ "c_MemoryCutoffThreshold", "class_ak_initializer.html#a36aed5665b1441c7387677e4ce82671a", null ],
+    [ "c_MonitorPoolSize", "class_ak_initializer.html#aee7c419f082fb9efe8c1888354423075", null ],
+    [ "c_MonitorQueuePoolSize", "class_ak_initializer.html#a70d093104cc299e810be8996f9801297", null ],
+    [ "c_PreparePoolSize", "class_ak_initializer.html#a7805541870c6e12c514b49bf1bfe3a37", null ],
+    [ "c_StreamingPoolSize", "class_ak_initializer.html#acb77b55871f7f0064167ecd94f3721b8", null ],
+    [ "callbackManagerBufferSize", "class_ak_initializer.html#ab6c3dbc62719b6b60e98c17dce1a5ecd", null ],
+    [ "defaultPoolSize", "class_ak_initializer.html#a6613e983d87e27f8a3ae48179315a25a", null ],
+    [ "engineLogging", "class_ak_initializer.html#abd1c0404c70c29eac80418ccd82ddd67", null ],
+    [ "language", "class_ak_initializer.html#a7b2e1b02c1daec919f44c207cd5962db", null ],
+    [ "lowerPoolSize", "class_ak_initializer.html#a13aac8b63d6f29ed93f6e4f5248837b9", null ],
+    [ "memoryCutoffThreshold", "class_ak_initializer.html#a8d27338bde6e07856157a9bd4e7a84fd", null ],
+    [ "monitorPoolSize", "class_ak_initializer.html#a8d18284524394d1b6c7c0a7c2f3edf01", null ],
+    [ "monitorQueuePoolSize", "class_ak_initializer.html#a45f39202f4caeed74023b0419c744e8c", null ],
+    [ "preparePoolSize", "class_ak_initializer.html#a6d254ca456111a568740040b45343cd3", null ],
+    [ "streamingPoolSize", "class_ak_initializer.html#a5272b0e07e4a20fdfeac2d9c66235f90", null ]
+];

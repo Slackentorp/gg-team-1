@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['fbarduration',['fBarDuration',['../class_ak_segment_info.html#a49b215e5d80e910920fa0b983afab381',1,'AkSegmentInfo']]],
+  ['fbeatduration',['fBeatDuration',['../class_ak_segment_info.html#a07cfad2aac746c24cefdf496593c3ce9',1,'AkSegmentInfo']]],
+  ['fcenterpct',['fCenterPct',['../class_ak_positioning_info.html#a0cc77e19a66ecae25da346ce35996636',1,'AkPositioningInfo']]],
+  ['fconemaxattenuation',['fConeMaxAttenuation',['../class_ak_positioning_info.html#a98f663a96b8481f46e5dd88ae19c1d4a',1,'AkPositioningInfo']]],
+  ['fcontrolvalue',['fControlValue',['../class_ak_aux_send_value.html#a32b929d6fd2692ee5dac46538b263126',1,'AkAuxSendValue']]],
+  ['fdefaultpoolratiothreshold',['fDefaultPoolRatioThreshold',['../class_ak_init_settings.html#a953a65fd04688d2d27e209494206b4a4',1,'AkInitSettings']]],
+  ['fduration',['fDuration',['../class_ak_duration_callback_info.html#a26eb0424d486b7191e59bca20dda29f8',1,'AkDurationCallbackInfo']]],
+  ['festimatedduration',['fEstimatedDuration',['../class_ak_duration_callback_info.html#ae406469db50414ba86710ae17977dd2c',1,'AkDurationCallbackInfo']]],
+  ['fgridduration',['fGridDuration',['../class_ak_segment_info.html#ad31a45feb2b17c1e3ca7095d08935ea6',1,'AkSegmentInfo']]],
+  ['fgridoffset',['fGridOffset',['../class_ak_segment_info.html#a9a84d66c679a573a51e397a19e2ea045',1,'AkSegmentInfo']]],
+  ['finnerangle',['fInnerAngle',['../class_ak_positioning_info.html#ac28c33d049d5be75a4141986356b7b36',1,'AkPositioningInfo']]],
+  ['fmaxdistance',['fMaxDistance',['../class_ak_positioning_info.html#a0d632fe6b7dc06606b0803c642dbf2cd',1,'AkPositioningInfo']]],
+  ['fnext',['fNext',['../class_ak_ramp.html#a30031f1d440606718121fa4b66189fd4',1,'AkRamp']]],
+  ['fouterangle',['fOuterAngle',['../class_ak_positioning_info.html#a1af8892102ba1e36406068d543896d2e',1,'AkPositioningInfo']]],
+  ['fprev',['fPrev',['../class_ak_ramp.html#a6598238abaeb7f38fe43c754caedc8dc',1,'AkRamp']]],
+  ['fstreaminglookaheadratio',['fStreamingLookAheadRatio',['../class_ak_music_settings.html#adaa27009a605a110a491f2354378ce46',1,'AkMusicSettings']]],
+  ['ftargetautostmbufferlength',['fTargetAutoStmBufferLength',['../class_ak_device_settings.html#ae38dd61cd9b950c069f38c1fba72d520',1,'AkDeviceSettings']]],
+  ['fvolauxgamedefatmaxdist',['fVolAuxGameDefAtMaxDist',['../class_ak_positioning_info.html#a78aa61ba7af3400b4827094a396b5730',1,'AkPositioningInfo']]],
+  ['fvolauxuserdefatmaxdist',['fVolAuxUserDefAtMaxDist',['../class_ak_positioning_info.html#a4caac76fb1b9be1be2737b159056ef60',1,'AkPositioningInfo']]],
+  ['fvoldryatmaxdist',['fVolDryAtMaxDist',['../class_ak_positioning_info.html#aa8ba87f524ba30dd581f4b7867cc3701',1,'AkPositioningInfo']]]
+];

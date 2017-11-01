@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['touchdirection',['TouchDirection',['../_i_touch_input_8cs.html#a1a5557a21a8dc66512a97dfe18d340fa',1,'ITouchInput.cs']]]
+  ['akactiononeventtype',['AkActionOnEventType',['../_ak_action_on_event_type_8cs.html#a536475347778ba280b5fa1a605390989',1,'AkActionOnEventType.cs']]],
+  ['akaudiodevicestate',['AkAudioDeviceState',['../_ak_audio_device_state_8cs.html#a3095a5c69f4c12a6362aaa77cd1ac476',1,'AkAudioDeviceState.cs']]],
+  ['akbankcontent',['AkBankContent',['../_ak_bank_content_8cs.html#a0b3687075d222fbf9faed48d9ea51f45',1,'AkBankContent.cs']]],
+  ['akbushierarchyflags',['AkBusHierarchyFlags',['../_ak_bus_hierarchy_flags_8cs.html#ac7bd7d8471d2c267060e84dac01f423b',1,'AkBusHierarchyFlags.cs']]],
+  ['akcallbacktype',['AkCallbackType',['../_ak_callback_type_8cs.html#a948c083ff18dc4c8dfe1d32cb0eb6732',1,'AkCallbackType.cs']]],
+  ['akchannelconfigtype',['AkChannelConfigType',['../_ak_channel_config_type_8cs.html#a9e3e31d9ff388daa593222da7672a999',1,'AkChannelConfigType.cs']]],
+  ['akchannelordering',['AkChannelOrdering',['../_ak_channel_ordering_8cs.html#acfe5ce0b8ad10466123690b39be9592d',1,'AkChannelOrdering.cs']]],
+  ['akconnectiontype',['AkConnectionType',['../_ak_connection_type_8cs.html#a6f995e33d25d16eac499fb607bde0e4b',1,'AkConnectionType.cs']]],
+  ['akcurveinterpolation',['AkCurveInterpolation',['../_ak_curve_interpolation_8cs.html#a77872044bca52a4d20324739154f2399',1,'AkCurveInterpolation.cs']]],
+  ['akglobalcallbacklocation',['AkGlobalCallbackLocation',['../_ak_global_callback_location_8cs.html#ae7a5e30e1402c7cf90d1b47420911676',1,'AkGlobalCallbackLocation.cs']]],
+  ['akgrouptype',['AkGroupType',['../_ak_group_type_8cs.html#ad07fa9c8b684c00b6405a38f0ac798bc',1,'AkGroupType.cs']]],
+  ['akmeteringflags',['AkMeteringFlags',['../_ak_metering_flags_8cs.html#a29f798f121cb4138f9c92f8421d5e729',1,'AkMeteringFlags.cs']]],
+  ['aknodetype',['AkNodeType',['../_ak_node_type_8cs.html#aff59e232653c34f78b9d9e1d1fda3f26',1,'AkNodeType.cs']]],
+  ['akpannertype',['AkPannerType',['../_ak_panner_type_8cs.html#ac990962850376b3dd5ec12ec1a2615f4',1,'AkPannerType.cs']]],
+  ['akpanningrule',['AkPanningRule',['../_ak_panning_rule_8cs.html#a6a7a16f5e74370707bb7bff7fb29a112',1,'AkPanningRule.cs']]],
+  ['akplugintype',['AkPluginType',['../_ak_plugin_type_8cs.html#af1a95e76b0e2a003e7edb2ad6f4043f4',1,'AkPluginType.cs']]],
+  ['akpositionsourcetype',['AkPositionSourceType',['../_ak_position_source_type_8cs.html#a79b278ec691e58fa7b1016e1cca1ddb4',1,'AkPositionSourceType.cs']]],
+  ['akresult',['AKRESULT',['../_a_k_r_e_s_u_l_t_8cs.html#a64f7d1f79613cc4dcc49a4efba6caa63',1,'AKRESULT.cs']]],
+  ['aksourcechannelordering',['AkSourceChannelOrdering',['../_ak_source_channel_ordering_8cs.html#acc88765441193f3a4bfb8ac6d6bf1828',1,'AkSourceChannelOrdering.cs']]]
 ];
