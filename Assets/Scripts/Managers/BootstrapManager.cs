@@ -15,7 +15,8 @@ public class BootstrapManager : MonoBehaviour
         Scene levelScene = new Scene();
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
-            if (!SceneManager.GetSceneAt(i).name.Equals("Bootstrap"))
+            if (!SceneManager.GetSceneAt(i).name.Equals("Bootstrap") &&
+                !SceneManager.GetSceneAt(i).name.Equals("SoundScape"))
             {
                 levelScene = SceneManager.GetSceneAt(i);
                 break;
