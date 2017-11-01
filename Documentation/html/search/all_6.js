@@ -1,4 +1,31 @@
 var searchData=
 [
-  ['left',['Left',['../_i_touch_input_8cs.html#a1a5557a21a8dc66512a97dfe18d340faa945d5e233cf7d6240f6b783b36a374ff',1,'ITouchInput.cs']]]
+  ['fbarduration',['fBarDuration',['../class_ak_segment_info.html#a49b215e5d80e910920fa0b983afab381',1,'AkSegmentInfo']]],
+  ['fbeatduration',['fBeatDuration',['../class_ak_segment_info.html#a07cfad2aac746c24cefdf496593c3ce9',1,'AkSegmentInfo']]],
+  ['fcenterpct',['fCenterPct',['../class_ak_positioning_info.html#a0cc77e19a66ecae25da346ce35996636',1,'AkPositioningInfo']]],
+  ['fconemaxattenuation',['fConeMaxAttenuation',['../class_ak_positioning_info.html#a98f663a96b8481f46e5dd88ae19c1d4a',1,'AkPositioningInfo']]],
+  ['fcontrolvalue',['fControlValue',['../class_ak_aux_send_value.html#a32b929d6fd2692ee5dac46538b263126',1,'AkAuxSendValue']]],
+  ['fdefaultpoolratiothreshold',['fDefaultPoolRatioThreshold',['../class_ak_init_settings.html#a953a65fd04688d2d27e209494206b4a4',1,'AkInitSettings']]],
+  ['fduration',['fDuration',['../class_ak_duration_callback_info.html#a26eb0424d486b7191e59bca20dda29f8',1,'AkDurationCallbackInfo']]],
+  ['festimatedduration',['fEstimatedDuration',['../class_ak_duration_callback_info.html#ae406469db50414ba86710ae17977dd2c',1,'AkDurationCallbackInfo']]],
+  ['fgridduration',['fGridDuration',['../class_ak_segment_info.html#ad31a45feb2b17c1e3ca7095d08935ea6',1,'AkSegmentInfo']]],
+  ['fgridoffset',['fGridOffset',['../class_ak_segment_info.html#a9a84d66c679a573a51e397a19e2ea045',1,'AkSegmentInfo']]],
+  ['findex',['FindEx',['../class_ak_playlist_array.html#a63b6a3baad8633c592c02a5cfe57e8cd',1,'AkPlaylistArray']]],
+  ['finditembyname',['FindItemByName',['../class_a_k_1_1_wwise_1_1_tree_view_1_1_tree_view_item.html#aa0e3b35fcc613429776314c7a007782d',1,'AK::Wwise::TreeView::TreeViewItem']]],
+  ['finishedplaying',['FinishedPlaying',['../class_ak_multi_pos_event.html#a4ba87507c2addc29bc5221fcbd20085c',1,'AkMultiPosEvent']]],
+  ['finnerangle',['fInnerAngle',['../class_ak_positioning_info.html#ac28c33d049d5be75a4141986356b7b36',1,'AkPositioningInfo']]],
+  ['first_5fchild',['FIRST_CHILD',['../class_a_k_1_1_wwise_1_1_tree_view_1_1_tree_view_item.html#a6edff30bfa199428fdfbe3621a7c8aaea32afcab24b1d62d19565623c98657dd4',1,'AK::Wwise::TreeView::TreeViewItem']]],
+  ['fixslashes',['FixSlashes',['../class_ak_base_path_getter.html#a9b02ad773f8170a2158c5389f140bf8d',1,'AkBasePathGetter.FixSlashes(ref string path, char separatorChar, char badChar, bool addTrailingSlash)'],['../class_ak_base_path_getter.html#a3172c3c8cc95a5915b9cec50feca05e5',1,'AkBasePathGetter.FixSlashes(ref string path)']]],
+  ['fixtouchdelta',['FixTouchDelta',['../class_assets_1_1_scripts_1_1_managers_1_1_input_manager.html#a6863e6138ac3ef5dc3ee9523a53c7c80',1,'Assets::Scripts::Managers::InputManager']]],
+  ['fmaxdistance',['fMaxDistance',['../class_ak_positioning_info.html#a0d632fe6b7dc06606b0803c642dbf2cd',1,'AkPositioningInfo']]],
+  ['fnext',['fNext',['../class_ak_ramp.html#a30031f1d440606718121fa4b66189fd4',1,'AkRamp']]],
+  ['folder',['FOLDER',['../class_ak_wwise_project_data.html#a501a1e5fe9bdcf58c8864631eb35880da80dc13242b57656668e67c9ca779ccb3',1,'AkWwiseProjectData']]],
+  ['forward',['forward',['../class_ak_game_obj_position_data.html#a2c04f09472a117fe8015161a07e06a6a',1,'AkGameObjPositionData']]],
+  ['fouterangle',['fOuterAngle',['../class_ak_positioning_info.html#a1af8892102ba1e36406068d543896d2e',1,'AkPositioningInfo']]],
+  ['fprev',['fPrev',['../class_ak_ramp.html#a6598238abaeb7f38fe43c754caedc8dc',1,'AkRamp']]],
+  ['fstreaminglookaheadratio',['fStreamingLookAheadRatio',['../class_ak_music_settings.html#adaa27009a605a110a491f2354378ce46',1,'AkMusicSettings']]],
+  ['ftargetautostmbufferlength',['fTargetAutoStmBufferLength',['../class_ak_device_settings.html#ae38dd61cd9b950c069f38c1fba72d520',1,'AkDeviceSettings']]],
+  ['fvolauxgamedefatmaxdist',['fVolAuxGameDefAtMaxDist',['../class_ak_positioning_info.html#a78aa61ba7af3400b4827094a396b5730',1,'AkPositioningInfo']]],
+  ['fvolauxuserdefatmaxdist',['fVolAuxUserDefAtMaxDist',['../class_ak_positioning_info.html#a4caac76fb1b9be1be2737b159056ef60',1,'AkPositioningInfo']]],
+  ['fvoldryatmaxdist',['fVolDryAtMaxDist',['../class_ak_positioning_info.html#aa8ba87f524ba30dd581f4b7867cc3701',1,'AkPositioningInfo']]]
 ];
