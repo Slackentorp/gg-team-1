@@ -27,6 +27,7 @@ namespace Assets.Scripts.Managers
 
         private float lastMouseClick;
         private Vector2 lastMousePos;
+        private string debugLastInput;
 
         // Use this for initialization
         void Start()
@@ -52,11 +53,15 @@ namespace Assets.Scripts.Managers
             {
                 CheckMouse();
             }
-        
 #else
         CheckTouch();
 #endif
+        }
 
+        void OnGUI()
+        {
+            GUI.contentColor = Color.cyan;
+            GUI.Label(new Rect(0, 0, 200, 200), debugLastInput);
         }
 
         void CheckTouch()
@@ -68,10 +73,11 @@ namespace Assets.Scripts.Managers
             {
                 Ray ray = mainCamera.ScreenPointToRay(t.position);
                 RaycastHit hit;
-
+               
                 if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
-                    GameObject touchObject = hit.transform.root.gameObject;
+                    Debug.DrawLine(mainCamera.ScreenToWorldPoint(t.position), hit.point);
+                    GameObject touchObject = hit.transform.gameObject;
                     ITouchInput touchInput =
                         touchObject.GetComponent<ITouchInput>();
                     if (touchInput == null)
@@ -90,25 +96,31 @@ namespace Assets.Scripts.Managers
                         Time.time - ts.onTouchTime <= tapTimeThreshold)
                     {
                         touchInput.OnTap(t);
+                        debugLastInput = "Tap";
                         objectOnTouchDownState.Remove(touchObject);
                     }
                     else
                     {
                         switch (t.phase) {
                             case TouchPhase.Began:
+                                debugLastInput = "Down";
                                 touchInput.OnTouchDown(t);
                                 objectOnTouchDownState[touchObject] = new TouchState(Time.time, t);
                                 break;
                             case TouchPhase.Moved:
+                                debugLastInput = "Hold";
                                 touchInput.OnToucHold(t);
                                 break;
                             case TouchPhase.Ended:
+                                debugLastInput = "Ended";
                                 HandleOnTouchExit(touchObject, touchInput, new TouchState(Time.time, t));
                                 break;
                             case TouchPhase.Stationary:
+                                debugLastInput = "Hold";
                                 touchInput.OnToucHold(t);
                                 break;
                             case TouchPhase.Canceled:
+                                debugLastInput = "Exit";
                                 HandleOnTouchExit(touchObject, touchInput, new TouchState(Time.time, t));
                                 break;
                         }
