@@ -23,7 +23,8 @@ public class TouchRotation : MonoBehaviour, ITouchInput
     public void OnTap(Touch finger)
     {
         print("Tap");
-        transform.rotation = Quaternion.AngleAxis(rotationAmount, transform.up);
+        print(transform.up);
+        transform.rotation *= Quaternion.AngleAxis(rotationAmount, transform.up);
     }
 
     public void OnTouchDown(Touch finger)
