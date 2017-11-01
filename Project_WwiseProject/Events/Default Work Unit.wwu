@@ -91,6 +91,44 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Puzzles" ID="{804443FD-D136-4407-A437-AE603B8EE6C5}" ShortID="671669688">
+					<ChildrenList>
+						<Folder Name="1" ID="{1EA9868E-0B6A-4C7D-8E11-F7FBE20CD948}" ShortID="676694931">
+							<ChildrenList>
+								<Event Name="PAINTING_STARTTURNING" ID="{E56B8409-2161-4DE7-989D-CB0431C64C1B}">
+									<ChildrenList>
+										<Action Name="" ID="{7CCCB64B-AE93-46A5-95F7-FE590B791E5A}" ShortID="790418102">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Slide Painting" ID="{E00643EC-1CF8-4479-A0BA-7D8D43519A0F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="PAINTING_STOPTURNING" ID="{631CD828-853D-45AE-A08F-219BDA121047}">
+									<ChildrenList>
+										<Action Name="" ID="{4A3F0ADD-0C95-416C-9953-645494FBFE2B}" ShortID="890945156">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.4"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Slide Painting" ID="{E00643EC-1CF8-4479-A0BA-7D8D43519A0F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
