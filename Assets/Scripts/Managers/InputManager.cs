@@ -25,6 +25,7 @@ namespace Assets.Scripts.Managers
         private readonly Dictionary<GameObject, TouchState> frameTouches = new Dictionary<GameObject, TouchState>();
         private readonly Dictionary<GameObject, TouchState> objectOnTouchDownState = new Dictionary<GameObject, TouchState>();
 
+        [SerializeField]
         private float lastMouseClick;
         private Vector2 lastMousePos;
         private string debugLastInput;
@@ -158,29 +159,24 @@ namespace Assets.Scripts.Managers
                 {
                     position = Input.mousePosition
                 };
-                if (Input.GetMouseButtonDown(0) &&
-                    Time.time < lastMouseClick + tapTimeThreshold)
-                {
-                    t.phase = TouchPhase.Stationary;
-                    t.tapCount = 2;
-                    lastMouseClick = Time.time;
-                }
-                else if (Input.GetMouseButton(0))
-                {
-                    t.phase = TouchPhase.Stationary;
-                    t.deltaPosition = lastMousePos - Input.mousePosition.To2DXY();
-                    lastMousePos = Input.mousePosition.To2DXY();
-                }
-                else if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     t.phase = TouchPhase.Began;
                     lastMouseClick = Time.time;
                     lastMousePos = Input.mousePosition.To2DXY();
                 }
+                else if (Input.GetMouseButton(0))
+                {
+                    t.phase = TouchPhase.Stationary;
+                    t.deltaPosition =
+                        lastMousePos - Input.mousePosition.To2DXY();
+                    lastMousePos = Input.mousePosition.To2DXY();
+                }
                 else if (Input.GetMouseButtonUp(0))
                 {
                     t.phase = TouchPhase.Ended;
-                    t.deltaPosition = lastMousePos - Input.mousePosition.To2DXY();
+                    t.deltaPosition =
+                        lastMousePos - Input.mousePosition.To2DXY();
                 }
 
                 Ray ray = mainCamera.ScreenPointToRay(t.position);
@@ -188,7 +184,7 @@ namespace Assets.Scripts.Managers
 
                 if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
-                    GameObject touchObject = hit.transform.root.gameObject;
+                    GameObject touchObject = hit.transform.gameObject;
                     ITouchInput touchInput =
                         touchObject.GetComponent<ITouchInput>();
                     if (touchInput == null)
