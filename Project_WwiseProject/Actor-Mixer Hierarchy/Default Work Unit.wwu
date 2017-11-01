@@ -1231,19 +1231,19 @@
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>60</Value>
+										<Value>54</Value>
 									</ValueList>
 								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
-										<Value>23</Value>
+										<Value>12</Value>
 									</ValueList>
 								</Property>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-910</Value>
+										<Value>-810</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{9AEEBC13-841D-4799-8305-93D4CDB27F27}" ShortID="266124475">
@@ -1303,7 +1303,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-19</Value>
+										<Value>-23</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1397,6 +1397,11 @@
 								<RandomSequenceContainer Name="Move Paper" ID="{A6EBC3C1-6CA9-41AA-8148-E9BE96A2DE62}" ShortID="737808955">
 									<PropertyList>
 										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1621,7 +1626,7 @@
 														<Property Name="TrimEnd" Type="Real64" Value="1.15588780507386"/>
 														<Property Name="VolumeOffset" Type="Real64">
 															<ValueList>
-																<Value>2.3</Value>
+																<Value>6.7</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -1652,7 +1657,7 @@
 														<Property Name="TrimEnd" Type="Real64" Value="3.67610219974309"/>
 														<Property Name="VolumeOffset" Type="Real64">
 															<ValueList>
-																<Value>6</Value>
+																<Value>12.9</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -1675,6 +1680,11 @@
 										<Property Name="Pitch" Type="int32">
 											<ValueList>
 												<Value>330</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1778,6 +1788,11 @@
 												<Value>-380</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1798,7 +1813,7 @@
 												<Property Name="TrimEnd" Type="Real64" Value="29.9609138453069"/>
 												<Property Name="VolumeOffset" Type="Real64">
 													<ValueList>
-														<Value>3.5</Value>
+														<Value>9.7</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1818,6 +1833,13 @@
 				<Folder Name="Puzzle" ID="{94195760-C3BB-47C3-A9AD-270E1EE03E58}" ShortID="1000398142">
 					<ChildrenList>
 						<RandomSequenceContainer Name="Reward" ID="{BECB9BE1-BB47-484E-B490-EB99B39AD935}" ShortID="493334866">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
