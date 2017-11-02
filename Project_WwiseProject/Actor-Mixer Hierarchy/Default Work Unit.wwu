@@ -297,6 +297,7 @@
 									<ChildrenList>
 										<BlendContainer Name="City Ambience Base" ID="{35B5821B-5A6A-4666-8668-5B1A1B5F68D4}" ShortID="710111716">
 											<PropertyList>
+												<Property Name="OverrideConversion" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<RTPCList>
 														<RTPC Name="" ID="{0219C143-7BFF-468B-BAAA-995F6F966339}" ShortID="938812123">
@@ -328,7 +329,7 @@
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+													<ObjectRef Name="Really compressed mono" ID="{67179E8B-05DB-4110-A418-07CD164CC880}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -340,7 +341,7 @@
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 														<Property Name="Lowpass" Type="int16">
 															<ValueList>
-																<Value>29</Value>
+																<Value>49</Value>
 															</ValueList>
 														</Property>
 														<Property Name="Volume" Type="Real64">
@@ -376,9 +377,14 @@
 												<Sound Name="City_Quiet" ID="{EC681301-F841-4931-AD0C-18966E68240A}" ShortID="306482434">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+														<Property Name="Lowpass" Type="int16">
+															<ValueList>
+																<Value>66</Value>
+															</ValueList>
+														</Property>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-12</Value>
+																<Value>1</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -448,7 +454,7 @@
 													<PropertyList>
 														<Property Name="Lowpass" Type="int16">
 															<ValueList>
-																<Value>45</Value>
+																<Value>49</Value>
 															</ValueList>
 															<ModifierList>
 																<ModifierInfo>
@@ -456,15 +462,16 @@
 																</ModifierInfo>
 															</ModifierList>
 														</Property>
+														<Property Name="OverrideConversion" Type="bool" Value="True"/>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-7</Value>
+																<Value>-18</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+															<ObjectRef Name="Really compressed mono" ID="{67179E8B-05DB-4110-A418-07CD164CC880}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -1841,7 +1848,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>-8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1854,25 +1861,6 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Reward_01" ID="{29219A95-E05E-49D9-B9F8-5DCC8AF2DA50}" ShortID="676248508">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Reward_01" ID="{9CED7F92-155B-4F44-86D1-479DC7F7A99D}" ShortID="538456504">
-											<Language>SFX</Language>
-											<AudioFile>Reward_01.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Reward_01" ID="{9CED7F92-155B-4F44-86D1-479DC7F7A99D}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Sound Name="Reward_02" ID="{4D7CED61-4E8A-406F-B092-FF1B491E1954}" ShortID="992857231">
 									<ReferenceList>
 										<Reference Name="Conversion">
