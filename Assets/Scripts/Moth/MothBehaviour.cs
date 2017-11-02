@@ -35,7 +35,7 @@ public class MothBehaviour : MonoBehaviour
     IEnumerator SmoothLerpPosition(GameObject affect, Vector3 target)
     {
         Vector3 startPosition = affect.transform.position;
-
+        AkSoundEngine.PostEvent("MOTH_START_FLIGHT", gameObject);
         MothSpeed = 1f; 
 
         float time = 0;
@@ -47,6 +47,7 @@ public class MothBehaviour : MonoBehaviour
             yield return null;
         }
 
-        MothSpeed = 0f; 
+        MothSpeed = 0f;
+        AkSoundEngine.PostEvent("MOTH_END_FLIGHT", gameObject);
     }
 }
