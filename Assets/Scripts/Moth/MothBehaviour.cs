@@ -9,6 +9,8 @@ public class MothBehaviour : MonoBehaviour
     [SerializeField]
     private float timeScale = 1;
 
+    public float MothSpeed { get; set; }
+
     private IEnumerator lerp;
 
     void OnValidate()
@@ -33,6 +35,8 @@ public class MothBehaviour : MonoBehaviour
     IEnumerator SmoothLerpPosition(GameObject affect, Vector3 target)
     {
         Vector3 startPosition = affect.transform.position;
+        AkSoundEngine.PostEvent("MOTH_START_FLIGHT", gameObject);
+        MothSpeed = 1f; 
 
         float time = 0;
         while (time < lerpCurve.keys[lerpCurve.length - 1].time)
@@ -42,5 +46,8 @@ public class MothBehaviour : MonoBehaviour
                 lerpCurve.Evaluate(time));
             yield return null;
         }
+
+        MothSpeed = 0f;
+        AkSoundEngine.PostEvent("MOTH_END_FLIGHT", gameObject);
     }
 }
