@@ -7,7 +7,7 @@
 					<PropertyList>
 						<Property Name="Channels" Type="int32">
 							<ValueList>
-								<Value Platform="Android">4</Value>
+								<Value Platform="Android">1</Value>
 								<Value Platform="Windows">4</Value>
 								<Value Platform="Mac">4</Value>
 							</ValueList>
@@ -21,9 +21,9 @@
 						</Property>
 						<Property Name="MaxSampleRate" Type="int32">
 							<ValueList>
-								<Value Platform="Android">0</Value>
-								<Value Platform="Windows">0</Value>
-								<Value Platform="Mac">0</Value>
+								<Value Platform="Android">44100</Value>
+								<Value Platform="Windows">44100</Value>
+								<Value Platform="Mac">44100</Value>
 							</ValueList>
 						</Property>
 						<Property Name="MinSampleRate" Type="int32">
@@ -38,6 +38,11 @@
 								<Value Platform="Android">0</Value>
 								<Value Platform="Windows">0</Value>
 								<Value Platform="Mac">0</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseDither" Type="bool">
+							<ValueList>
+								<Value>True</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>

@@ -13,8 +13,23 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID AMBIENCE_CITY = 3831078465U;
+        static const AkUniqueID CAR_PASS = 590963579U;
+        static const AkUniqueID INTERACTIBLE_MOVE = 1850631425U;
+        static const AkUniqueID INTERACTIBLE_PICK_UP = 3799301303U;
+        static const AkUniqueID MOTH_END_FLIGHT = 410314580U;
+        static const AkUniqueID MOTH_START_FLIGHT = 541555517U;
+        static const AkUniqueID PAINTING_STARTTURNING = 3267891723U;
+        static const AkUniqueID PAINTING_STOPTURNING = 1004102471U;
         static const AkUniqueID TEST_EVENT = 4258653052U;
     } // namespace EVENTS
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID MOTH_DOPPLER = 3334266196U;
+        static const AkUniqueID MOTH_SPEED = 4010911193U;
+        static const AkUniqueID TENSION = 1571361561U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
