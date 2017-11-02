@@ -10,9 +10,14 @@ public class TouchRotation : MonoBehaviour, ITouchInput
 	// Use this for initialization
 	void Start ()
 	{
-	    puzzleController =
-	        transform.parent.GetComponent<RotationPuzzleController>();
-	    rotationAmount = puzzleController.GetRotationAmount();
+	    puzzleController = RotationPuzzleController.Instance;
+
+	    if (puzzleController == null)
+	    {
+	        print("No puzzlecontroller found in scene");
+	    }
+
+        rotationAmount = puzzleController.GetRotationAmount();
 	}
 	
 	// Update is called once per frame
@@ -22,9 +27,8 @@ public class TouchRotation : MonoBehaviour, ITouchInput
 
     public void OnTap(Touch finger)
     {
-        print("Tap");
-        print(transform.up);
         transform.rotation *= Quaternion.AngleAxis(rotationAmount, transform.up);
+        puzzleController.CheckForSolution();
     }
 
     public void OnTouchDown(Touch finger)
