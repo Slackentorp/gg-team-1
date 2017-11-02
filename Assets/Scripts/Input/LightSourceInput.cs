@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Gamelogic.Extensions;
+using UnityEngine;
 
 /// <summary>
 /// Touch input specifically for light sources
@@ -10,7 +11,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
 
     public void OnTap(Touch finger)
     {
-        EventBus.Instance.SetMothPosition(transform.position + LandingPosition);
+        EventBus.Instance.SetMothPosition(transform.TransformPoint(LandingPosition));
     }
 
     public void OnTouchDown(Touch finger)
@@ -35,8 +36,8 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere(transform.position + LandingPosition, .1f);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawSphere(transform.TransformPoint(LandingPosition), .05f);
     }
 
 
