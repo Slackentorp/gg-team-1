@@ -1238,6 +1238,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4602397321561018}
   - component: {fileID: 95506131062345564}
+  - component: {fileID: 114016208774104446}
+  - component: {fileID: 114128804496929628}
   m_Layer: 0
   m_Name: moth
   m_TagString: Untagged
@@ -2110,7 +2112,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777836328640882}
-  m_LocalRotation: {x: 0.604689, y: 0.7399048, z: -0.16385227, w: -0.2450398}
+  m_LocalRotation: {x: 0.604689, y: 0.7399048, z: -0.16385227, w: -0.24503979}
   m_LocalPosition: {x: 0.019287484, y: -0.017480483, z: -0.007474829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2988,6 +2990,54 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114016208774104446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1812740556910856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0761c8f0413627341b8b99bfa1f4458f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.8038171
+      value: 0.9467747
+      inSlope: 0.39065698
+      outSlope: 0.39065698
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  timeScale: 1
+--- !u!114 &114128804496929628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1812740556910856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9713966fbfc481049a9c5373bb4592ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distMultiplier: 10
 --- !u!137 &137321150240230044
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
