@@ -19,7 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4781800914595844}
-  m_Layer: 0
+  - component: {fileID: 114748336645008348}
+  - component: {fileID: 65189717556307522}
+  m_Layer: 8
   m_Name: light_floor_01_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,9 +38,7 @@ GameObject:
   - component: {fileID: 4815705517481370}
   - component: {fileID: 33563553257564514}
   - component: {fileID: 23460005136254602}
-  - component: {fileID: 114264007803312912}
-  - component: {fileID: 65056185929283654}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: light_floor_mockup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1021890304876304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.444, y: -0.026, z: 3.817}
+  m_LocalPosition: {x: 9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4815705517481370}
@@ -144,18 +144,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198062365593068}
   m_Mesh: {fileID: 4300000, guid: 0184aa6052fd0954da63622935692c9e, type: 3}
---- !u!65 &65056185929283654
+--- !u!65 &65189717556307522
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1198062365593068}
+  m_GameObject: {fileID: 1021890304876304}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07511762, y: 0.07144039, z: 0.20786704}
-  m_Center: {x: 0, y: 6.223829e-17, z: 1.0043794}
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!108 &108779417251756760
 Light:
   m_ObjectHideFlags: 1
@@ -166,7 +166,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 0, a: 1}
-  m_Intensity: 3
+  m_Intensity: 2
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -175,9 +175,9 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 0.2
+    m_NormalBias: 0
+    m_NearPlane: 0.4
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -192,15 +192,15 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114264007803312912
+--- !u!114 &114748336645008348
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1198062365593068}
+  m_GameObject: {fileID: 1021890304876304}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfc1a45fd9a6cef45a7909ab1bf3a3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LandingPosition: {x: 0, y: 1.35, z: 0}
+  LandingPosition: {x: 0, y: 1.2, z: 0}
