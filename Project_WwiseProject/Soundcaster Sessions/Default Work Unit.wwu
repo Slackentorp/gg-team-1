@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{7F62A842-5A84-4B48-BA5B-FBE31E0F41F3}" SchemaVersion="80">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{7F62A842-5A84-4B48-BA5B-FBE31E0F41F3}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{7F62A842-5A84-4B48-BA5B-FBE31E0F41F3}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Ambience" ID="{7BEA1518-C743-4401-9C0D-7448E2F77E77}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="AMBIENCE_CITY" ID="{27FD9E2A-3722-4927-9C92-A36C7A658416}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="CAR_PASS" ID="{0DA6AEB2-DB75-445E-B125-1782D0AF67D8}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}"/>
+							<Value>44.1828254847645</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}"/>
+							<Value>1.382</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Puzzles" ID="{857C52F5-B477-4EE8-BC3F-B8634EFF9822}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="PAINTING_STARTTURNING" ID="{E56B8409-2161-4DE7-989D-CB0431C64C1B}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PAINTING_STOPTURNING" ID="{631CD828-853D-45AE-A08F-219BDA121047}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}"/>
+							<Value>44</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}"/>
+							<Value>1</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="SOLVED" ID="{3FB38530-87CA-45FF-ADC0-13F7A8116496}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>
