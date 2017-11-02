@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Globalization;
+using Console = System.Console;
 
 public class Builder : ScriptableObject
 {
@@ -11,6 +12,7 @@ public class Builder : ScriptableObject
 
     static string appName = "MOTH";
     static string targetDir = @"C:\Users\dadiu\OneDrive - Aalborg Universitet\Team 1 GG\Builds";
+    static string targetDirDemand = @"C:\Users\dadiu\OneDrive - Aalborg Universitet\Team 1 GG\Builds\ondemand";
 
     // Windows Standalone build
     public static void PerformStandaloneWindowsBuild()
@@ -56,12 +58,16 @@ public class Builder : ScriptableObject
         string targetDirWithDate = targetDir + date + "_" + platform;
 
         String[] arguments = Environment.GetCommandLineArgs();
-        if(arguments.Length > 7)
+        if(arguments.Length == 8)
         {
             targetDirWithDate += "_" + arguments[7]; 
+        } else if (arguments.Length > 8)
+        {
+            targetDirWithDate = targetDirDemand + "/" + arguments[8];
         }
         
         targetDirWithDate += "/" + executeableName;
+		UnityEngine.Debug.Log("Building to: " +targetDirWithDate);
 
         string res = BuildPipeline.BuildPlayer(scenes, targetDirWithDate, buildTarget, buildOptions);
         if (res.Length > 0)
