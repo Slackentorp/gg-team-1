@@ -30,16 +30,27 @@ public class CameraRotation : Singleton<CameraRotation>
 
     private void RotateCameraAroundSelf()
     {
-            if (
-                Input.touchCount > 0)
-            {
-                mainCamera.transform.Rotate(0f,
-                    -Input.touches[0].deltaPosition.x * cameraTurnSpeed / 10 * invert,
-                    0f, Space.World);
-                mainCamera.transform.Rotate(
-                    Input.touches[0].deltaPosition.y * cameraTurnSpeed / 10 * invert, 0f,
-                    0f, Space.Self);
-            }
-        
+#if UNITY_EDITOR
+        if (Input.GetMouseButton(0))
+        {
+            mainCamera.transform.Rotate(0f,
+                -Input.GetAxis("Mouse X") * cameraTurnSpeed * invert,
+                0f, Space.World);
+            mainCamera.transform.Rotate(
+                Input.GetAxis("Mouse Y") * cameraTurnSpeed * invert, 0f,
+                0f, Space.Self);
+        }
+#endif
+        if (Input.touchCount > 0)
+        {
+            mainCamera.transform.Rotate(0f,
+                -Input.touches[0].deltaPosition.x * cameraTurnSpeed / 10 *
+                invert,
+                0f, Space.World);
+            mainCamera.transform.Rotate(
+                Input.touches[0].deltaPosition.y * cameraTurnSpeed / 10 *
+                invert, 0f,
+                0f, Space.Self);
+        }
     }
 }

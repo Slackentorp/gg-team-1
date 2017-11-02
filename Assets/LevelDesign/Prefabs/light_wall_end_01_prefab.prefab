@@ -35,7 +35,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4043671651694004}
-  m_Layer: 0
+  - component: {fileID: 114504174760879480}
+  - component: {fileID: 65847557516219264}
+  m_Layer: 8
   m_Name: light_wall_end_01_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,8 +54,6 @@ GameObject:
   - component: {fileID: 4977096262995078}
   - component: {fileID: 33456924973808110}
   - component: {fileID: 23595652011046474}
-  - component: {fileID: 65395481122781112}
-  - component: {fileID: 114284259519590836}
   m_Layer: 0
   m_Name: light_wall_end_mockup
   m_TagString: Untagged
@@ -144,18 +144,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945982244869898}
   m_Mesh: {fileID: 4300000, guid: bf3a5b020a93b534784d5d379f8f0a95, type: 3}
---- !u!65 &65395481122781112
+--- !u!65 &65847557516219264
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1945982244869898}
+  m_GameObject: {fileID: 1328699124241308}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.10000001, y: 0.19070092, z: 0.38278103}
-  m_Center: {x: 0, y: -0.095350415, z: 0}
+  m_Size: {x: 0.2, y: 0.4, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!108 &108253505076069408
 Light:
   m_ObjectHideFlags: 1
@@ -167,7 +167,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_Intensity: 3
-  m_Range: 2
+  m_Range: 0.7
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -175,9 +175,9 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 0
+    m_NormalBias: 0
+    m_NearPlane: 0.02
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -192,15 +192,15 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114284259519590836
+--- !u!114 &114504174760879480
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1945982244869898}
+  m_GameObject: {fileID: 1328699124241308}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfc1a45fd9a6cef45a7909ab1bf3a3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LandingPosition: {x: 0, y: 0, z: 0.29}
+  LandingPosition: {x: 0, y: 0, z: 0.4}
