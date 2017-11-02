@@ -67,6 +67,7 @@ public class Builder : ScriptableObject
         }
         
         targetDirWithDate += "/" + executeableName;
+		UnityEngine.Debug.Log("Building to: " +targetDirWithDate);
 
         string res = BuildPipeline.BuildPlayer(scenes, targetDirWithDate, buildTarget, buildOptions);
         if (res.Length > 0)
