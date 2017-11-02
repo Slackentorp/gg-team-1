@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{5B946481-3CC7-4F30-A881-530D9C8A41CC}'
-    m_lastTimePsrt1: 1479961856
-    m_lastTimePart2: -1999298259
+    m_lastTimePsrt1: 676960512
+    m_lastTimePart2: -1999298045
     List:
     - Name: AMBIENCE_CITY
       Path: Default Work Unit/Ambience/City/AMBIENCE_CITY
@@ -66,6 +66,16 @@ MonoBehaviour:
         ObjectType: 3
       ID: -495665993
       Guid: 432510fa63963643b968c536003b5e01
+      maxAttenuation: 0
+    - Name: LIVINGROOM_ENTER
+      Path: Default Work Unit/LIVINGROOM_ENTER
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: LIVINGROOM_ENTER
+        ObjectType: 3
+      ID: 1275729080
+      Guid: 6a43776b6db30741a7214baf006199b3
       maxAttenuation: 0
     - Name: MOTH_END_FLIGHT
       Path: Default Work Unit/Moth/MOTH_END_FLIGHT
@@ -119,6 +129,40 @@ MonoBehaviour:
       ID: 1004102471
       Guid: 28d81c633d85ae45a08f219bda121047
       maxAttenuation: 0
+    - Name: PUZZLE_SOLVED
+      Path: Default Work Unit/Puzzles/PUZZLE_SOLVED
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Puzzles
+        ObjectType: 4
+      - ElementName: PUZZLE_SOLVED
+        ObjectType: 3
+      ID: 1107599359
+      Guid: dccb905694ae2a4ca21713e31f1255f2
+      maxAttenuation: 0
+    - Name: PUZZLE_SOLVING
+      Path: Default Work Unit/Puzzles/PUZZLE_SOLVING
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Puzzles
+        ObjectType: 4
+      - ElementName: PUZZLE_SOLVING
+        ObjectType: 3
+      ID: -1036185964
+      Guid: 1fa5e35e659efd4e9b47a67f2516f15b
+      maxAttenuation: 0
+    - Name: STORYBITE_TEST
+      Path: Default Work Unit/STORYBITE_TEST
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: STORYBITE_TEST
+        ObjectType: 3
+      ID: 2130706069
+      Guid: 56b4d3abf58d124681473f6d06749713
+      maxAttenuation: 0
     - Name: TEST_EVENT
       Path: Default Work Unit/TEST_EVENT
       PathAndIcons:
@@ -140,9 +184,38 @@ MonoBehaviour:
   - PhysicalPath: States/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}'
-    m_lastTimePsrt1: 1394794624
-    m_lastTimePart2: -1999298417
-    List: []
+    m_lastTimePsrt1: 1641666176
+    m_lastTimePart2: -1999298054
+    List:
+    - Name: PUZZLE_STATE
+      Path: Default Work Unit/PUZZLE_STATE
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: PUZZLE_STATE
+        ObjectType: 9
+      ID: -33491441
+      Guid: e741daebe36de14d8b472b571837a3ee
+      values:
+      - None
+      - SOLVED
+      - SOLVING
+      - UNSOLVED
+      ValueIcons:
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: SOLVED
+        ObjectType: 8
+      - ElementName: SOLVING
+        ObjectType: 8
+      - ElementName: UNSOLVED
+        ObjectType: 8
+      valueIDs: db3ba32cf6594bfd77a2a7b9471a705e
+      ValueGuids:
+      - bytes: 7ba7931fa8d0b64cb97e172cbe5aae73
+      - bytes: 3085b33fca87ff45adc013f7a8116496
+      - bytes: 5525f66d4171734e8cdc8ef09af88da3
+      - bytes: c3269a8f6d006740807d406a1c72e3bd
   SwitchWwu:
   - PhysicalPath: Switches/Default Work Unit.wwu
     ParentPhysicalPath: 
@@ -154,8 +227,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1A2081CF-DCB7-4EA2-8AF3-F1959DD07304}'
-    m_lastTimePsrt1: 804994560
-    m_lastTimePart2: -1999298258
+    m_lastTimePsrt1: 406960512
+    m_lastTimePart2: -1999298045
     List:
     - Name: MAIN_BANK
       Path: Default Work Unit/MAIN_BANK
@@ -170,8 +243,8 @@ MonoBehaviour:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}'
-    m_lastTimePsrt1: 1479961856
-    m_lastTimePart2: -1999298259
+    m_lastTimePsrt1: 1641666176
+    m_lastTimePart2: -1999298054
     List:
     - Name: MOTH_DOPPLER
       Path: Default Work Unit/MOTH_DOPPLER
@@ -211,8 +284,6 @@ MonoBehaviour:
   - /Project_WwiseProject
   - /Project_WwiseProject/Events
   - /Project_WwiseProject/Events/Default Work Unit
-  - /Project_WwiseProject/Events/Default Work Unit/Ambience
-  - /Project_WwiseProject/Events/Default Work Unit/Ambience/City
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

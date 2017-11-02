@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID PAINTING_STOPTURNING = 1004102471U;
         static const AkUniqueID PUZZLE_SOLVED = 1107599359U;
         static const AkUniqueID PUZZLE_SOLVING = 3258781332U;
+        static const AkUniqueID STORYBITE_TEST = 2130706069U;
         static const AkUniqueID TEST_EVENT = 4258653052U;
     } // namespace EVENTS
 
