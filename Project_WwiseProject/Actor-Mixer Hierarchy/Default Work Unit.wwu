@@ -1841,7 +1841,36 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Story Events" ID="{B6864095-7AD1-4041-AD8D-53BC739FE53D}" ShortID="358534840"/>
+				<Folder Name="Story Events" ID="{B6864095-7AD1-4041-AD8D-53BC739FE53D}" ShortID="358534840">
+					<ChildrenList>
+						<Sound Name="A photograph" ID="{4B8370FB-6CF9-4459-B512-965BD5BC48C0}" ShortID="427901479">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="A photograph" ID="{DE717AC1-F325-436B-894B-203A20B7771D}" ShortID="642368182">
+									<Language>SFX</Language>
+									<AudioFile>A photograph.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="A photograph" ID="{DE717AC1-F325-436B-894B-203A20B7771D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 				<Folder Name="Puzzle" ID="{94195760-C3BB-47C3-A9AD-270E1EE03E58}" ShortID="1000398142">
 					<ChildrenList>
 						<RandomSequenceContainer Name="Reward" ID="{BECB9BE1-BB47-484E-B490-EB99B39AD935}" ShortID="493334866">
