@@ -38,7 +38,6 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
 
     public void OnTouchUp(Touch finger)
     {
-        CallEvent();
     }
 
     private void CallEvent()

@@ -4,7 +4,7 @@ using Gamelogic.Extensions;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RotationPuzzleController : Singleton<RotationPuzzleController>
+public class RotationPuzzleController : BasePuzzle
 {
     [SerializeField, Tooltip("The amount the picture frames will rotate with on tap")]
     private float rotationAmount;
