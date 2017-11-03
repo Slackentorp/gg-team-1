@@ -78,27 +78,50 @@ public class CameraController : MonoBehaviour
 
     private void RotateCameraAroundSelf()
     {
+        bool pressed = false;
+        float newAngleY = 0, newAngleX = 0;
 #if UNITY_EDITOR
         if (Input.GetMouseButton(0))
         {
-            transform.Rotate(0f,
-                -Input.GetAxis("Mouse X") * cameraTurnSpeed * -1,
-                0f, Space.World);
-            transform.Rotate(
-                Input.GetAxis("Mouse Y") * cameraTurnSpeed * -1, 0f,
-                0f, Space.Self);
+            newAngleY =
+                -Input.GetAxis("Mouse X") * cameraTurnSpeed;
+            newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
         }
 #endif
         if (Input.touchCount > 0)
         {
-            transform.Rotate(0f,
-                -Input.touches[0].deltaPosition.x * cameraTurnSpeed / 10 *
-                -1,
-                0f, Space.World);
-            transform.Rotate(
-                Input.touches[0].deltaPosition.y * cameraTurnSpeed / 10 *
-                -1, 0f,
-                0f, Space.Self);
+            newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
+                        10;
+            newAngleX = Input.touches[0].deltaPosition.y *
+                        cameraTurnSpeed / 10;
+        }
+
+        if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
+            !(newAngleY < 0))
+        {
+            return;
+        }
+        // Horizontal rotation(Yaw)
+        Vector3 localUpAxis =
+            transform.InverseTransformDirection(Vector3.up);
+        transform.rotation *=
+            Quaternion.AngleAxis(newAngleY, localUpAxis);
+
+        // Vertical rotation (Pitch)
+        Quaternion q = Quaternion.AngleAxis(newAngleX, Vector3.right);
+        Quaternion finalRot = transform.rotation * q;
+        Vector3 transformed = finalRot * Vector3.up;
+
+        // Project the transformed vector onto the Right axis
+        Vector3 flattened = transformed -
+                            Vector3.Dot(transformed, Vector3.right) *
+                            Vector3.right;
+        flattened = flattened.normalized;
+        float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
+
+        if (a < 1.5f)
+        {
+            transform.rotation *= q;
         }
 
     }
@@ -108,11 +131,11 @@ public class CameraController : MonoBehaviour
     {
         TargetPos.position = target;
     }
-    
+
     public void SetStoryTarget(Vector3 target, Vector3 orientation)
     {
         TargetPos.position = target;
-        TargetRot = orientation; 
+        TargetRot = orientation;
     }
 
     public void SetStoryRotation(Vector3 dir)
