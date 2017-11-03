@@ -9,7 +9,10 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
     [SerializeField, Tooltip("If the event requires fixed camera.")]
     private bool fixedCamera = false;
     [SerializeField, Tooltip("If the event requires fixed camera, where should it be?")]
-    private Vector3 fixedCamPos; 
+    private Vector3 fixedCamPos;
+
+    public bool FixedCamera { get { return fixedCamera; } }
+    public Vector3 FixedCamPos { get { return fixedCamPos; } }
 
     public void OnSwipe(Touch finger, TouchDirection direction)
     {
@@ -17,7 +20,7 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
 
     public void OnTap(Touch finger)
     {
-        CallEvent(); 
+        CallEvent();
     }
 
     public void OnTouchDown(Touch finger)
@@ -30,17 +33,18 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
 
     public void OnToucHold(Touch finger)
     {
-       
+
     }
 
     public void OnTouchUp(Touch finger)
     {
-        CallEvent(); 
+        CallEvent();
     }
 
     private void CallEvent()
     {
-        print("Plays bite: " + storyBiteName); 
+        print("Plays bite: " + storyBiteName);
+        EventBus.Instance.TriggerStoryBite(this); 
         AkSoundEngine.PostEvent(storyBiteName, this.gameObject);
     }
 

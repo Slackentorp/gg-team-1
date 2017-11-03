@@ -569,6 +569,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1931850780506170, guid: 32c3c0248e1344c499bcb81bebb5826d,
     type: 2}
   m_PrefabInternal: {fileID: 1614688462}
+--- !u!114 &207303211 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114488181631805974, guid: 32c3c0248e1344c499bcb81bebb5826d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1614688462}
+  m_Script: {fileID: 11500000, guid: 0761c8f0413627341b8b99bfa1f4458f, type: 3}
 --- !u!4 &218595800 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4569891754336302, guid: c206049aed3793e48a57e344bbaf0481,
@@ -2293,6 +2299,11 @@ Prefab:
       propertyPath: storyBiteName
       value: STORYBITE_TEST
       objectReference: {fileID: 0}
+    - target: {fileID: 114057742480724590, guid: dc861e85964a9d84fa6cb987aaee370a,
+        type: 2}
+      propertyPath: fixedCamera
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dc861e85964a9d84fa6cb987aaee370a, type: 2}
   m_IsPrefabParent: 0
@@ -3533,14 +3544,13 @@ GameObject:
   - component: {fileID: 1410988885}
   - component: {fileID: 1410988884}
   - component: {fileID: 1410988883}
-  - component: {fileID: 1410988889}
   m_Layer: 0
   m_Name: Level Camera
   m_TagString: Level Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1410988883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3549,11 +3559,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1410988882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3fea180435af014093c9f34a9ae25de, type: 3}
+  m_Script: {fileID: 11500000, guid: 00a3de5e52846674286d5d6f1f10080a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  __messageText: 
-  cameraTurnSpeed: 0.2
+  maxDistance: 2
+  followSpeed: 1
+  cameraTurnSpeed: 1
+  targetPos: {fileID: 0}
 --- !u!114 &1410988884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3642,20 +3654,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 19.29, y: 20.884, z: 0}
---- !u!114 &1410988889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1410988882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba853f22b232402479b801b6dd1d04d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moth: {fileID: 207303207}
-  maxDistance: 0
-  followSpeed: 0
 --- !u!1 &1417983519
 GameObject:
   m_ObjectHideFlags: 0
@@ -5363,6 +5361,11 @@ Prefab:
       propertyPath: startLight
       value: 
       objectReference: {fileID: 1156391510}
+    - target: {fileID: 114763383372758958, guid: be8176ea3a3831e419a6c0dabcb99fab,
+        type: 2}
+      propertyPath: mothBehaviour
+      value: 
+      objectReference: {fileID: 207303211}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be8176ea3a3831e419a6c0dabcb99fab, type: 2}
   m_IsPrefabParent: 0
