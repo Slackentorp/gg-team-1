@@ -1242,46 +1242,25 @@
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Reverb_livingroom" ID="{15279453-A672-4F5D-8661-BDBC44113891}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<Sound Name="Flying" ID="{C7A38437-C86F-4A62-A9AA-7E396855109D}" ShortID="396087161">
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>54</Value>
+										<Value>55</Value>
 									</ValueList>
 								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-430</Value>
+										<Value>-1470</Value>
 									</ValueList>
 									<RTPCList>
-										<RTPC Name="" ID="{9AEEBC13-841D-4799-8305-93D4CDB27F27}" ShortID="266124475">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{C1B2E5AB-1411-4398-9515-1E799778DDEB}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="65537"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>-50</XPos>
-														<YPos>-460</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>50</XPos>
-														<YPos>329</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
 										<RTPC Name="" ID="{45750F76-DED9-4426-97AD-899AEFA4BF38}" ShortID="105030597">
 											<ReferenceList>
 												<Reference Name="ControlInput">
@@ -1295,12 +1274,12 @@
 												<PointList>
 													<Point>
 														<XPos>0</XPos>
-														<YPos>-1317</YPos>
+														<YPos>-660</YPos>
 														<Flags>5</Flags>
 													</Point>
 													<Point>
-														<XPos>4.00276</XPos>
-														<YPos>-384</YPos>
+														<XPos>1.28808</XPos>
+														<YPos>11</YPos>
 														<Flags>0</Flags>
 													</Point>
 													<Point>
@@ -1315,16 +1294,44 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-35</Value>
+										<Value>-42</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{93B9D20E-03E9-4F79-BE77-4584D3BC1F3A}" ShortID="546935811">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{3DD02302-462C-4E3D-984D-FBC969CA64EA}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>0.24129</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>1.57895</XPos>
+														<YPos>-0.14809</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>10</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-								</Reference>
-								<Reference Name="Effect0" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
-									<ObjectRef Name="Chorus_Like" ID="{EEE0CC86-8CA5-4DBC-A6B7-568FCB26F290}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
