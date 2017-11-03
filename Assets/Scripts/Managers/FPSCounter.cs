@@ -32,20 +32,11 @@ public class FPSCounter : MonoBehaviour
 
         deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
         //print(fps);
-        if (fps > minFps)
+        if (fps > minFps && instantiatedObject != null)
         {
             instantiatedCounter++;
             offset += .1f;
             Instantiate(instantiatedObject, new Vector3(offset, 0, 0), Quaternion.identity);
-
-            Component[] filters = GetComponentsInChildren(typeof(MeshFilter));
-            int tris = 0;
-            int verts = 0;
-            foreach (MeshFilter f in filters)
-            {
-                tris += f.sharedMesh.triangles.Length / 3;
-                verts += f.sharedMesh.vertexCount;
-            }
         }
     }
 
@@ -55,8 +46,8 @@ public class FPSCounter : MonoBehaviour
 
         GUIStyle style = new GUIStyle();
 
-        Rect rect = new Rect(0, 0, w, h * 2 / 100);
-        Rect rect2 = new Rect(0, 30, w, h * 2 / 100);
+        Rect rect = new Rect(50, 30, w, h * 2 / 100);
+        Rect rect2 = new Rect(50, 50, w, h * 2 / 100);
         style.alignment = TextAnchor.UpperLeft;
         style.fontSize = h * 2 / 100;
         style.normal.textColor = new Color(0.0f, 0.0f, 0.5f, 1.0f);
