@@ -35,7 +35,7 @@ public class FPSCounter : MonoBehaviour
         if (fps > minFps)
         {
             instantiatedCounter++;
-            offset += 0.1f;
+            offset += .1f;
             Instantiate(instantiatedObject, new Vector3(offset, 0, 0), Quaternion.identity);
 
             Component[] filters = GetComponentsInChildren(typeof(MeshFilter));
@@ -69,25 +69,3 @@ public class FPSCounter : MonoBehaviour
         GUI.Label(rect2, text2, style);
     }
 }
-
-//using UnityEngine;
-//using System.Collections;
- 
-//public class PrintPolyCount : MonoBehaviour
-//{
-
-//    // Use this for initialization
-//    void Start()
-//    {
-//        Component[] filters = GetComponentsInChildren(typeof(MeshFilter));
-//        int tris = 0;
-//        int verts = 0;
-//        foreach (MeshFilter f in filters)
-//        {
-//            tris += f.sharedMesh.triangles.Length / 3;
-//            verts += f.sharedMesh.vertexCount;
-//        }
-//        Debug.Log(name + " triangles = " + tris + " vertices = " + verts);
-//    }
-
-//}
