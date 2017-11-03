@@ -13,17 +13,17 @@ public class CameraController : MonoBehaviour
 	private Vector3 targetPos;
 	private Vector3 targetRot;
 	private Vector3 prevPos;
-	
 
-	public  Vector3 TargetPos
+
+	public Vector3 TargetPos
 	{
 		get
 		{
-			return targetPos;  
+			return targetPos;
 		}
 		set
 		{
-			Vector3	tmp = targetPos;
+			Vector3 tmp = targetPos;
 			targetPos = value;
 			prevPos = tmp;
 		}
@@ -57,6 +57,53 @@ public class CameraController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		MoveCameraToStoryBit();
+
+		RotateCameraTowardsObject();
+
+		ReturnToPreStoryPoint();
+
+		CheckIfTargetPosIsNull();
+
+		FollowMoth();
+
+		RotationFixedOrFree();
+	}
+
+	private void FixedUpdate()
+	{
+		RotateCameraAroundSelf();
+	}
+
+	private void RotateCameraAroundSelf()
+	{
+#if UNITY_EDITOR
+		if (Input.GetMouseButton(0))
+		{
+			transform.Rotate(0f,
+				-Input.GetAxis("Mouse X") * cameraTurnSpeed * -1,
+				0f, Space.World);
+			transform.Rotate(
+				Input.GetAxis("Mouse Y") * cameraTurnSpeed * -1, 0f,
+				0f, Space.Self);
+		}
+#endif
+		if (Input.touchCount > 0)
+		{
+			transform.Rotate(0f,
+				-Input.touches[0].deltaPosition.x * cameraTurnSpeed / 10 *
+				-1,
+				0f, Space.World);
+			transform.Rotate(
+				Input.touches[0].deltaPosition.y * cameraTurnSpeed / 10 *
+				-1, 0f,
+				0f, Space.Self);
+		}
+
+	}
+
+	private void MoveCameraToStoryBit()
+	{
 		if (Input.GetMouseButtonDown(0))
 		{
 			RaycastHit hit;
@@ -69,6 +116,9 @@ public class CameraController : MonoBehaviour
 				}
 			}
 		}
+	}
+	private void RotateCameraTowardsObject()
+	{
 
 		if (Input.GetMouseButtonDown(1))
 		{
@@ -82,19 +132,33 @@ public class CameraController : MonoBehaviour
 				}
 			}
 		}
+	}
 
+	private void ReturnToPreStoryPoint()
+	{
 		if (Input.GetKey(KeyCode.Space))
 		{
 			TargetPos = prevPos;
 		}
+	}
 
+	private void CheckIfTargetPosIsNull()
+	{
 		if (targetPos == null)
 		{
-			return; 
+			return;
 		}
-		transform.position = Vector3.Lerp(transform.position, TargetPos, 
+	}
+
+	private void FollowMoth()
+	{
+		transform.position = Vector3.Lerp(transform.position, TargetPos,
 										  followSpeed * Time.deltaTime
 										  * (TooFarFromMoth() ? 1f : 0f));
+	}
+
+	private void RotationFixedOrFree()
+	{
 		if (Mathf.Abs(TargetRot.magnitude) > 0.1f)
 		{
 			transform.forward = Vector3.Lerp(transform.forward, TargetRot,
@@ -105,24 +169,4 @@ public class CameraController : MonoBehaviour
 			RotateCameraAroundSelf();
 		}
 	}
-
-	private void FixedUpdate()
-	{
-		RotateCameraAroundSelf();
-	}
-
-	private void RotateCameraAroundSelf()
-	{
-		if (Input.touchCount > 0)
-		{
-			transform.Rotate(0f,
-				-Input.touches[0].deltaPosition.x * cameraTurnSpeed / 10 * -1,
-				0f, Space.World);
-			transform.Rotate(
-				Input.touches[0].deltaPosition.y * cameraTurnSpeed / 10 * -1, 0f,
-				0f, Space.Self);
-		}
-
-	}
-
 }
