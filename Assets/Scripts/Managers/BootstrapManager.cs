@@ -15,7 +15,8 @@ public class BootstrapManager : MonoBehaviour
         Scene levelScene = new Scene();
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
-            if (!SceneManager.GetSceneAt(i).name.Equals("Bootstrap"))
+            if (!SceneManager.GetSceneAt(i).name.Equals("Bootstrap") &&
+                !SceneManager.GetSceneAt(i).name.Equals("SoundScape"))
             {
                 levelScene = SceneManager.GetSceneAt(i);
                 break;
@@ -35,13 +36,16 @@ public class BootstrapManager : MonoBehaviour
             }
             else
             {
-                Debug.LogError( "No camera with tag 'Level Camera' " +
+                Debug.LogWarning( "No camera with tag 'Level Camera' " +
                                 "was found in level. Using default settings.");
             }
         }
         else
         {
+            // Sound scape
             SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            // Apartment
+            SceneManager.LoadScene(2, LoadSceneMode.Additive);
             StartCoroutine(DelayReload());
         }
     }
