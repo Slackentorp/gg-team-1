@@ -40,5 +40,8 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
         Gizmos.DrawSphere(transform.TransformPoint(LandingPosition), .05f);
     }
 
-
+    public Vector3 GetLandingPos()
+    {
+        return LandingPosition; 
+    }
 }

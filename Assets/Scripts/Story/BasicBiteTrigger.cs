@@ -40,12 +40,13 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
 
     private void CallEvent()
     {
+        print("Plays bite: " + storyBiteName); 
         AkSoundEngine.PostEvent(storyBiteName, this.gameObject);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(transform.position + fixedCamPos, .1f);
+        Gizmos.DrawSphere(transform.position + fixedCamPos, .05f);
     }
 }
