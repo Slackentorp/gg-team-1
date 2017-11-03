@@ -25,8 +25,10 @@ namespace Assets.Scripts.Managers
         private readonly Dictionary<GameObject, TouchState> frameTouches = new Dictionary<GameObject, TouchState>();
         private readonly Dictionary<GameObject, TouchState> objectOnTouchDownState = new Dictionary<GameObject, TouchState>();
 
+        [SerializeField]
         private float lastMouseClick;
         private Vector2 lastMousePos;
+        private string debugLastInput;
 
         // Use this for initialization
         void Start()
@@ -52,11 +54,15 @@ namespace Assets.Scripts.Managers
             {
                 CheckMouse();
             }
-        
 #else
         CheckTouch();
 #endif
+        }
 
+        void OnGUI()
+        {
+            GUI.contentColor = Color.cyan;
+            GUI.Label(new Rect(0, 0, 200, 200), debugLastInput);
         }
 
         void CheckTouch()
@@ -68,10 +74,11 @@ namespace Assets.Scripts.Managers
             {
                 Ray ray = mainCamera.ScreenPointToRay(t.position);
                 RaycastHit hit;
-
+               
                 if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
-                    GameObject touchObject = hit.transform.root.gameObject;
+                    Debug.DrawLine(mainCamera.ScreenToWorldPoint(t.position), hit.point);
+                    GameObject touchObject = hit.transform.gameObject;
                     ITouchInput touchInput =
                         touchObject.GetComponent<ITouchInput>();
                     if (touchInput == null)
@@ -90,25 +97,31 @@ namespace Assets.Scripts.Managers
                         Time.time - ts.onTouchTime <= tapTimeThreshold)
                     {
                         touchInput.OnTap(t);
+                        debugLastInput = "Tap";
                         objectOnTouchDownState.Remove(touchObject);
                     }
                     else
                     {
                         switch (t.phase) {
                             case TouchPhase.Began:
+                                debugLastInput = "Down";
                                 touchInput.OnTouchDown(t);
                                 objectOnTouchDownState[touchObject] = new TouchState(Time.time, t);
                                 break;
                             case TouchPhase.Moved:
+                                debugLastInput = "Hold";
                                 touchInput.OnToucHold(t);
                                 break;
                             case TouchPhase.Ended:
+                                debugLastInput = "Ended";
                                 HandleOnTouchExit(touchObject, touchInput, new TouchState(Time.time, t));
                                 break;
                             case TouchPhase.Stationary:
+                                debugLastInput = "Hold";
                                 touchInput.OnToucHold(t);
                                 break;
                             case TouchPhase.Canceled:
+                                debugLastInput = "Exit";
                                 HandleOnTouchExit(touchObject, touchInput, new TouchState(Time.time, t));
                                 break;
                         }
@@ -146,29 +159,24 @@ namespace Assets.Scripts.Managers
                 {
                     position = Input.mousePosition
                 };
-                if (Input.GetMouseButtonDown(0) &&
-                    Time.time < lastMouseClick + tapTimeThreshold)
-                {
-                    t.phase = TouchPhase.Stationary;
-                    t.tapCount = 2;
-                    lastMouseClick = Time.time;
-                }
-                else if (Input.GetMouseButton(0))
-                {
-                    t.phase = TouchPhase.Stationary;
-                    t.deltaPosition = lastMousePos - Input.mousePosition.To2DXY();
-                    lastMousePos = Input.mousePosition.To2DXY();
-                }
-                else if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     t.phase = TouchPhase.Began;
                     lastMouseClick = Time.time;
                     lastMousePos = Input.mousePosition.To2DXY();
                 }
+                else if (Input.GetMouseButton(0))
+                {
+                    t.phase = TouchPhase.Stationary;
+                    t.deltaPosition =
+                        lastMousePos - Input.mousePosition.To2DXY();
+                    lastMousePos = Input.mousePosition.To2DXY();
+                }
                 else if (Input.GetMouseButtonUp(0))
                 {
                     t.phase = TouchPhase.Ended;
-                    t.deltaPosition = lastMousePos - Input.mousePosition.To2DXY();
+                    t.deltaPosition =
+                        lastMousePos - Input.mousePosition.To2DXY();
                 }
 
                 Ray ray = mainCamera.ScreenPointToRay(t.position);
@@ -176,7 +184,7 @@ namespace Assets.Scripts.Managers
 
                 if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
-                    GameObject touchObject = hit.transform.root.gameObject;
+                    GameObject touchObject = hit.transform.gameObject;
                     ITouchInput touchInput =
                         touchObject.GetComponent<ITouchInput>();
                     if (touchInput == null)

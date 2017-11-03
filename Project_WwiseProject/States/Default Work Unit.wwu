@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}" SchemaVersion="80">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="PUZZLE_STATE" ID="{EBDA41E7-6DE3-4DE1-8B47-2B571837A3EE}">
+					<ChildrenList>
+						<State Name="None" ID="{1F93A77B-D0A8-4CB6-B97E-172CBE5AAE73}"/>
+						<State Name="UNSOLVED" ID="{8F9A26C3-006D-4067-807D-406A1C72E3BD}"/>
+						<State Name="SOLVING" ID="{6DF62555-7141-4E73-8CDC-8EF09AF88DA3}"/>
+						<State Name="SOLVED" ID="{3FB38530-87CA-45FF-ADC0-13F7A8116496}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>
