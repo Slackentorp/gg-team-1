@@ -68,7 +68,11 @@ public class CombinationPuzzleController : BasePuzzle
                     pictureFrame.correctPostion + pictureFrame.originPosition;
                 pictureFrame.transform.rotation =
                     Quaternion.Euler(pictureFrame.correctRotation);
-                Destroy(pictureFrame);
+                if (Application.isPlaying)
+                {
+                    Destroy(pictureFrame);
+                }
+
             }
         }
     }
