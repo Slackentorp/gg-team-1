@@ -25,8 +25,6 @@ namespace Assets.Scripts.Managers
         private readonly Dictionary<GameObject, TouchState> frameTouches = new Dictionary<GameObject, TouchState>();
         private readonly Dictionary<GameObject, TouchState> objectOnTouchDownState = new Dictionary<GameObject, TouchState>();
 
-        [SerializeField]
-        private float lastMouseClick;
         private Vector2 lastMousePos;
         private string debugLastInput;
 
@@ -105,12 +103,12 @@ namespace Assets.Scripts.Managers
                         switch (t.phase) {
                             case TouchPhase.Began:
                                 debugLastInput = "Down";
-                                touchInput.OnTouchDown(t);
+                                touchInput.OnTouchDown(t, hit.point);
                                 objectOnTouchDownState[touchObject] = new TouchState(Time.time, t);
                                 break;
                             case TouchPhase.Moved:
                                 debugLastInput = "Hold";
-                                touchInput.OnToucHold(t);
+                                touchInput.OnToucHold(t, hit.point);
                                 break;
                             case TouchPhase.Ended:
                                 debugLastInput = "Ended";
@@ -118,7 +116,7 @@ namespace Assets.Scripts.Managers
                                 break;
                             case TouchPhase.Stationary:
                                 debugLastInput = "Hold";
-                                touchInput.OnToucHold(t);
+                                touchInput.OnToucHold(t, hit.point);
                                 break;
                             case TouchPhase.Canceled:
                                 debugLastInput = "Exit";
@@ -162,7 +160,6 @@ namespace Assets.Scripts.Managers
                 if (Input.GetMouseButtonDown(0))
                 {
                     t.phase = TouchPhase.Began;
-                    lastMouseClick = Time.time;
                     lastMousePos = Input.mousePosition.To2DXY();
                 }
                 else if (Input.GetMouseButton(0))
@@ -209,19 +206,19 @@ namespace Assets.Scripts.Managers
                         switch (t.phase)
                         {
                             case TouchPhase.Began:
-                                touchInput.OnTouchDown(t);
+                                touchInput.OnTouchDown(t, hit.point);
                                 objectOnTouchDownState.Add(touchObject,
                                     new TouchState(Time.time, t));
                                 break;
                             case TouchPhase.Moved:
-                                touchInput.OnToucHold(t);
+                                touchInput.OnToucHold(t, hit.point);
                                 break;
                             case TouchPhase.Ended:
                                 HandleOnTouchExit(touchObject, touchInput,
                                     new TouchState(Time.time, t));
                                 break;
                             case TouchPhase.Stationary:
-                                touchInput.OnToucHold(t);
+                                touchInput.OnToucHold(t, hit.point);
                                 break;
                             case TouchPhase.Canceled:
                                 HandleOnTouchExit(touchObject, touchInput,
@@ -253,6 +250,9 @@ namespace Assets.Scripts.Managers
         {
             TouchState onTapState = new TouchState(0, new Touch());
             objectOnTouchDownState.TryGetValue(touchObject, out onTapState);
+            if (objectOnTouchDownState.ContainsKey(touchObject)) {
+                objectOnTouchDownState.Remove(touchObject);
+            }
 
             // Detect a swipe
             // Accounts for how straight the swipe is, and the magnitude^2 of the swipe vector
@@ -289,10 +289,7 @@ namespace Assets.Scripts.Managers
                 }
                 
             }
-            if (objectOnTouchDownState.ContainsKey(touchObject))
-            {
-                objectOnTouchDownState.Remove(touchObject);
-            }
+            
         }
 
         public struct TouchState

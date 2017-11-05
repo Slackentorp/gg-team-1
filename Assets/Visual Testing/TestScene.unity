@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 147034488}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Level Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,11 +313,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 147034487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3fea180435af014093c9f34a9ae25de, type: 3}
+  m_Script: {fileID: 11500000, guid: 00a3de5e52846674286d5d6f1f10080a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  __messageText: 
-  cameraTurnSpeed: 20
+  maxDistance: 1
+  followSpeed: 1
+  cameraTurnSpeed: 1
+  targetPos: {fileID: 0}
 --- !u!124 &147034489
 Behaviour:
   m_ObjectHideFlags: 0
@@ -5537,7 +5539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df485f8285394ff69c643cadf885e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePath: Audio\GeneratedSoundBanks
+  basePath: Audio/GeneratedSoundBanks
   language: English(US)
   defaultPoolSize: 4096
   lowerPoolSize: 2048
@@ -7950,7 +7952,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893559379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 354, y: 241, z: 0}
+  m_LocalPosition: {x: 1024, y: 768, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1146986815}

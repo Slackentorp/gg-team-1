@@ -1,24 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Gamelogic.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BootstrapManager : MonoBehaviour
+public class BootstrapManager : Singleton<BootstrapManager>
 {
     [SerializeField]
     private Camera gameCamera;
 
+    private Scene levelScene;
+
     // Use this for initialization
     void Start()
     {
-        Scene levelScene = new Scene();
+        levelScene = new Scene();
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             if (!SceneManager.GetSceneAt(i).name.Equals("Bootstrap") &&
                 !SceneManager.GetSceneAt(i).name.Equals("SoundScape"))
             {
                 levelScene = SceneManager.GetSceneAt(i);
+                SceneManager.SetActiveScene(levelScene);
                 break;
             }
         }
@@ -41,17 +45,37 @@ public class BootstrapManager : MonoBehaviour
         }
         else
         {
-            // Sound scape
-            SceneManager.LoadScene(1, LoadSceneMode.Additive);
-            // Apartment
-            SceneManager.LoadScene(2, LoadSceneMode.Additive);
             StartCoroutine(DelayReload());
         }
     }
 
     IEnumerator DelayReload()
     {
-        yield return new WaitForSeconds(1);
+        AsyncOperation soundScapeLoad =
+            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        AsyncOperation apartmentLoad =
+            SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+
+        while (!soundScapeLoad.isDone || !apartmentLoad.isDone)
+        {
+            yield return null;
+        }
         Start();
     }
+
+    public void ChangeLevelScene(string level)
+    {
+        StartCoroutine(AsyncChangeLevelScene(level));
+    }
+
+    private IEnumerator AsyncChangeLevelScene(string level)
+    {
+        AsyncOperation unload = SceneManager.UnloadSceneAsync(levelScene);
+        while (!unload.isDone) {
+            yield return null;
+        }
+        Start();
+    }
+
+
 }
