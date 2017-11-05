@@ -8,8 +8,6 @@ public class CameraTranslation : MonoBehaviour
 
 	[SerializeField, Tooltip("Specifies the object the camera follows")]
 	GameObject moth;
-	[SerializeField]
-	Camera camera;
 	[SerializeField, Tooltip("Sets the distance that the camera can move away from moth")]
 	float maxDistance;
 	[SerializeField, Tooltip("Decides the speed of which the camera follow the moth")]
@@ -53,7 +51,7 @@ public class CameraTranslation : MonoBehaviour
 	{
 		if (moth != null && isLocked == false)
 		{
-			difference = Vector3.Distance(camera.transform.position, moth.transform.position);
+			difference = Vector3.Distance(transform.position, moth.transform.position);
 			AboveDistance();
 		}
 
@@ -63,11 +61,7 @@ public class CameraTranslation : MonoBehaviour
 	{
 		if (difference * maxDistance > maxDistance)
 		{
-			camera.transform.position = Vector3.Lerp(camera.transform.position, moth.transform.position, followSpeed * Time.deltaTime);
-		}
-		else
-		{
-			return;
+			transform.position = Vector3.Lerp(transform.position, moth.transform.position, followSpeed * Time.deltaTime);
 		}
 	}
 
@@ -86,7 +80,7 @@ public class CameraTranslation : MonoBehaviour
 		if (isMoving) return;
 		isMoving = true;
 		isLocked = true;
-		cameraStartPos = camera.transform.position;
+		cameraStartPos = transform.position;
 		Debug.Log("Story Object clicked");
 		StartCoroutine(CameraPosChange());
 		StartCoroutine(CameraRotationChange());
@@ -103,7 +97,7 @@ public class CameraTranslation : MonoBehaviour
 
 			yield return null;
 		}
-		cameraStartPos = camera.transform.position;
+		cameraStartPos = transform.position;
 		Debug.Log("Camera Position Changed");
 	}
 
@@ -143,20 +137,20 @@ public class CameraTranslation : MonoBehaviour
 	{
 		if (Input.touchCount > 0)
 		{
-			camera.transform.Rotate(0f,
+			transform.Rotate(0f,
 				-Input.touches[0].deltaPosition.x * cameraTurnSpeed / 10 * invert,
 				0f, Space.World);
-			camera.transform.Rotate(
+			transform.Rotate(
 				Input.touches[0].deltaPosition.y * cameraTurnSpeed / 10 * invert, 0f,
 				0f, Space.Self);
 		}
 
 		if (Input.GetMouseButtonDown(0))
 		{
-			camera.transform.Rotate(0f,
+			transform.Rotate(0f,
 				-Input.mousePosition.x * cameraTurnSpeed / 10 * invert,
 				0f, Space.World);
-			camera.transform.Rotate(
+			transform.Rotate(
 				Input.GetAxis("MOUSE y") * cameraTurnSpeed / 10 * invert, 0f,
 				0f, Space.Self);
 		}

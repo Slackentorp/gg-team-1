@@ -78,7 +78,6 @@ public class CameraController : MonoBehaviour
 
     private void RotateCameraAroundSelf()
     {
-        bool pressed = false;
         float newAngleY = 0, newAngleX = 0;
 #if UNITY_EDITOR
         if (Input.GetMouseButton(0))

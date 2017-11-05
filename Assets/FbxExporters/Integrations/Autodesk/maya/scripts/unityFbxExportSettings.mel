@@ -23,3 +23,10 @@ FBXExportConvertUnitString cm;
 
 // Axis Conversion
 FBXExportUpAxis y;
+
+
+// Animations
+FBXExportBakeComplexAnimation -v true;
+FBXExportBakeComplexStart -v 0;
+FBXExportBakeComplexEnd -v `playbackOptions -query -animationEndTime`;
+FBXExportBakeComplexStep -v 1;

@@ -2,10 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BasePuzzle
+public abstract class BasePuzzle : MonoBehaviour
 {
-    // Subclasses have to implement Tick
-    public abstract void Tick();
+    public string onSolvedWwiseEvent, onSolvedStorybitName;
+    public bool isSolved;
+    public abstract void CheckForSolution();
 
+    public virtual void OnBeginSolving()
+    {
+        
+    }
 
+    public virtual void OnSolved()
+    {
+        isSolved = true;
+        if (!string.IsNullOrEmpty(onSolvedWwiseEvent))
+        {
+            AkSoundEngine.PostEvent(onSolvedWwiseEvent, gameObject);
+        }
+        if (!string.IsNullOrEmpty(onSolvedStorybitName))
+        {
+            // TODO: Implement story bit call
+            print("Triggering storybit: " +onSolvedStorybitName);
+        }
+    }
 }

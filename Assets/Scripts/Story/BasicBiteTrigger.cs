@@ -23,7 +23,7 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
         CallEvent();
     }
 
-    public void OnTouchDown(Touch finger)
+    public void OnTouchDown(Touch finger, Vector3 worldPos)
     {
     }
 
@@ -31,7 +31,7 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
     {
     }
 
-    public void OnToucHold(Touch finger)
+    public void OnToucHold(Touch finger, Vector3 worldPos)
     {
 
     }

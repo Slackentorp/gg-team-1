@@ -41,17 +41,21 @@ public class BootstrapManager : MonoBehaviour
         }
         else
         {
-            // Sound scape
-            SceneManager.LoadScene(1, LoadSceneMode.Additive);
-            // Apartment
-            SceneManager.LoadScene(2, LoadSceneMode.Additive);
             StartCoroutine(DelayReload());
         }
     }
 
     IEnumerator DelayReload()
     {
-        yield return new WaitForSeconds(1);
+        AsyncOperation soundScapeLoad =
+            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        AsyncOperation apartmentLoad =
+            SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+
+        while (!soundScapeLoad.isDone || !apartmentLoad.isDone)
+        {
+            yield return null;
+        }
         Start();
     }
 }

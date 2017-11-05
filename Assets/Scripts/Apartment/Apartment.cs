@@ -1,6 +1,8 @@
 ﻿using Gamelogic.Extensions;
 using UnityEngine;
 
+
+#pragma warning disable 0414
 public class Apartment : MonoBehaviour
 {
     [SerializeField, ReadOnly]

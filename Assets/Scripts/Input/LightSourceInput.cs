@@ -21,7 +21,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
         }
     }
 
-    public void OnTouchDown(Touch finger)
+    public void OnTouchDown(Touch finger, Vector3 worldPos)
     {
     }
 
@@ -29,7 +29,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     {        
     }
 
-    public void OnToucHold(Touch finger)
+    public void OnToucHold(Touch finger, Vector3 worldPos)
     {
     }
 
