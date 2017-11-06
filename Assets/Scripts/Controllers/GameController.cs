@@ -47,6 +47,12 @@ public class GameController : Singleton<GameController>
         }
     }
 
+    public void SolveTutorial()
+    {
+        print("Yaw"); 
+        lightController.TurnOnMainLights(); 
+    }
+
     public void StartGame()
     {
         gameCamera.SetTarget(startLamp.GetComponent<LightSourceInput>().CameraPosition);

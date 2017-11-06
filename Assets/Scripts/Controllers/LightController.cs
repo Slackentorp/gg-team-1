@@ -8,6 +8,9 @@ public class LightController : MonoBehaviour
     private List<LightSourceInput> lightSources;
 
     [SerializeField]
+    private List<LightSourceInput> mainLights; 
+
+    [SerializeField]
     private List<bool> lightsOn;
 
     public void LoadLights()
@@ -23,6 +26,14 @@ public class LightController : MonoBehaviour
             lightsOn.Add(tmp[i].Lit); 
         }
       //  TurnOffAllLights(); 
+    }
+
+    public void TurnOnMainLights()
+    {
+        foreach (var item in mainLights)
+        {
+            item.Lit = true;
+        }
     }
 
     private void TurnOffAllLights()
