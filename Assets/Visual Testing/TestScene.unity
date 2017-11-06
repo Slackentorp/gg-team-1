@@ -298,9 +298,11 @@ GameObject:
   - component: {fileID: 147034494}
   - component: {fileID: 147034493}
   - component: {fileID: 147034488}
+  - component: {fileID: 147034495}
+  - component: {fileID: 147034496}
   m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: Level Camera
+  m_Name: CamCam
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +371,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 147034487}
   m_LocalRotation: {x: 0.08459427, y: 0.027714241, z: 0.00052431447, w: 0.99602985}
-  m_LocalPosition: {x: 2.41, y: -1.56, z: -3.47}
+  m_LocalPosition: {x: 2.39, y: -0.61, z: -2.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -386,7 +388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: e261d27e8c04a62459b6a61c205f259d, type: 2}
 --- !u!114 &147034493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +421,34 @@ MonoBehaviour:
     initialListenerList: []
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &147034495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 147034487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64695c63fbdaf145b945fb056327d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goLeft: {x: 2.39, y: -1.56, z: -2.48}
+  goRight: {x: -1.62, y: -0.61, z: -2.48}
+--- !u!114 &147034496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 147034487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1a92d89ca207b42802ddb2f2f84cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiatedObject: {fileID: 0}
+  instantiatedCounter: 0
+  minFps: 30
+  fps: 0
 --- !u!1 &149207219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1289,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -185983680
+  randomSeed: -99281000
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6185,7 +6214,7 @@ ReflectionProbe:
   m_HDR: 0
   m_BoxProjection: 1
   m_RenderDynamicObjects: 0
-  m_UseOcclusionCulling: 0
+  m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
 --- !u!4 &1206278301
@@ -7952,7 +7981,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893559379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 418, y: 207, z: 0}
+  m_LocalPosition: {x: 482.5, y: 247, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1146986815}

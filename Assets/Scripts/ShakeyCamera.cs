@@ -5,7 +5,9 @@ using UnityEngine;
 public class ShakeyCamera : MonoBehaviour
 {
     private Vector3 cameraPosition;
+    [SerializeField]
     private Vector3 goLeft = new Vector3(-1.32f, -0.98f, -1.52f);
+    [SerializeField]
     private Vector3 goRight = new Vector3(2.32f, -0.98f, -1.52f);
     private float time = 3f;
 
