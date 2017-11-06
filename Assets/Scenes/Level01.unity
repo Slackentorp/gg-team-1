@@ -6912,8 +6912,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 920067078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 354, y: 221.5, z: 0}
-  m_LocalScale: {x: 0.73833334, y: 0.73833334, z: 0.73833334}
+  m_LocalPosition: {x: 321.5, y: 241, z: 0}
+  m_LocalScale: {x: 0.80333334, y: 0.80333334, z: 0.80333334}
   m_Children:
   - {fileID: 1103938031}
   - {fileID: 1547731271}
@@ -7421,6 +7421,7 @@ GameObject:
   - component: {fileID: 1103938031}
   - component: {fileID: 1103938033}
   - component: {fileID: 1103938032}
+  - component: {fileID: 1103938034}
   m_Layer: 5
   m_Name: TitleText
   m_TagString: Untagged
@@ -7435,7 +7436,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1103938030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -479.45822, y: 300, z: 0}
+  m_LocalPosition: {x: -400.20746, y: 300, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 920067082}
@@ -7485,6 +7486,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1103938030}
+--- !u!114 &1103938034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1103938030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9d9a08be8a5154a8c1844bc1b72fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationPropertyName: GAMENAME
 --- !u!1001 &1118388308
 Prefab:
   m_ObjectHideFlags: 0
@@ -12476,6 +12489,7 @@ GameObject:
   - component: {fileID: 1547731273}
   - component: {fileID: 1547731272}
   - component: {fileID: 1547731274}
+  - component: {fileID: 1547731275}
   m_Layer: 5
   m_Name: TapToStart
   m_TagString: Untagged
@@ -12557,6 +12571,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1547731275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1547731270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9d9a08be8a5154a8c1844bc1b72fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationPropertyName: STARTO
 --- !u!1001 &1563611786
 Prefab:
   m_ObjectHideFlags: 0

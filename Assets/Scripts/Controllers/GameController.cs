@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using EasyButtons;
 using UnityEngine;
 using Gamelogic.Extensions;
 using UnityEngine.UI; 
@@ -20,6 +21,7 @@ public class GameController : Singleton<GameController>
 
     private List<bool> puzzleSolved; 
 
+	private LocalizationManager localization;
     private GameObject mothObject; 
     private CameraController gameCamera;
     private LightController lightController; 
@@ -28,7 +30,21 @@ public class GameController : Singleton<GameController>
     void Start()
     {
         lightController = GetComponent<LightController>(); 
+		localization = new LocalizationManager();
     }
+
+    [ContextMenu("DAN")]
+    void SetDanish()
+    {
+        localization.SetDanish();
+    }
+
+    [ContextMenu("ENG")]
+    void SetEnglish()
+    {
+        localization.SetEnglish();
+    }
+
 
     private void Update()
     {
