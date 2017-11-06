@@ -1258,7 +1258,7 @@
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-1470</Value>
+										<Value>-1110</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{45750F76-DED9-4426-97AD-899AEFA4BF38}" ShortID="105030597">
@@ -1290,11 +1290,43 @@
 												</PointList>
 											</Curve>
 										</RTPC>
+										<RTPC Name="" ID="{65B8D3AB-1AD2-409E-920A-3221AF4F7E99}" ShortID="299127045">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<Custom>
+														<ModulatorLfo Name="Modulator LFO (Custom)" ID="{5CE47B29-1AF4-4784-BC36-C3BB758A2F80}" ShortID="1011971041">
+															<PropertyList>
+																<Property Name="LfoFrequency" Type="Real64" Value="6.76"/>
+																<Property Name="LfoSmoothing" Type="Real64" Value="2"/>
+																<Property Name="LfoWaveform" Type="int32" Value="5"/>
+															</PropertyList>
+														</ModulatorLfo>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{DD10CB0D-CB5E-4C3E-AADC-A24209531B5D}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>0</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>1185</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
 									</RTPCList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-42</Value>
+										<Value>-37</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{93B9D20E-03E9-4F79-BE77-4584D3BC1F3A}" ShortID="546935811">
@@ -1868,6 +1900,10 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="A photograph" ID="{DE717AC1-F325-436B-894B-203A20B7771D}" ShortID="642368182">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="1.3450953636067"/>
+										<Property Name="TrimBegin" Type="Real64" Value="2.282586071575"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>A photograph.wav</AudioFile>
 								</AudioFileSource>
@@ -1975,6 +2011,327 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<Folder Name="Map" ID="{6BB17729-E6A1-40DB-B404-B2DB948337CF}" ShortID="673976697">
+							<ChildrenList>
+								<BlendContainer Name="Press Pin" ID="{79268D88-83BE-4BD4-B74A-4BDFFABD5C77}" ShortID="420927583">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-11</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Rattle" ID="{BB88FE61-1708-420F-BB95-21E37EE17087}" ShortID="325988079">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-450</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Rattle" ID="{BA7AC3E5-691D-4890-BF6E-170A0D5DA979}" ShortID="453281666">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Rattle" ID="{8778F4D1-3E27-4838-BC4A-97C627C91E02}" ShortID="606185163">
+															<Language>SFX</Language>
+															<AudioFile>Rattle.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Rattle" ID="{8778F4D1-3E27-4838-BC4A-97C627C91E02}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Rattle_1" ID="{1071C99E-36B2-4362-A15F-D85A6308BA03}" ShortID="1001378752">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Rattle_1" ID="{0580035E-6E25-4BB5-9D4C-D8B94790E39A}" ShortID="208200834">
+															<Language>SFX</Language>
+															<AudioFile>Rattle_1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Rattle_1" ID="{0580035E-6E25-4BB5-9D4C-D8B94790E39A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Rattle_2" ID="{C1A2C83A-29AC-4F4A-8440-80F22DC2814C}" ShortID="36852999">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Rattle_2" ID="{FBB9A889-633E-4AE1-8BF1-A3933D61DFEC}" ShortID="791677628">
+															<Language>SFX</Language>
+															<AudioFile>Rattle_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Rattle_2" ID="{FBB9A889-633E-4AE1-8BF1-A3933D61DFEC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Rattle_3" ID="{CE08D703-8172-48B7-B11B-B523A04349E5}" ShortID="589447261">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Rattle_3" ID="{4AADE45A-9CEA-4156-A086-B4791CC66F14}" ShortID="145004352">
+															<Language>SFX</Language>
+															<AudioFile>Rattle_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Rattle_3" ID="{4AADE45A-9CEA-4156-A086-B4791CC66F14}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Rattle_4" ID="{7F3B4E23-BF49-48BA-9805-AF1FFA78CB5E}" ShortID="1071515145">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Rattle_4" ID="{AB91C51C-D356-4B1F-BBAD-B757CCF91416}" ShortID="372989033">
+															<Language>SFX</Language>
+															<AudioFile>Rattle_4.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Rattle_4" ID="{AB91C51C-D356-4B1F-BBAD-B757CCF91416}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Rattle_5" ID="{4CB41B23-88D3-4CC3-81DA-0A47DEA5F372}" ShortID="1058612161">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Rattle_5" ID="{F549410B-6196-48D2-B7E0-5B041F7CA2E8}" ShortID="1044749691">
+															<Language>SFX</Language>
+															<AudioFile>Rattle_5.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Rattle_5" ID="{F549410B-6196-48D2-B7E0-5B041F7CA2E8}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Rattle_6" ID="{9F75FCD4-DFDE-42BA-AF8D-8507C92801CD}" ShortID="869779568">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Rattle_6" ID="{4690A652-7E8D-44FB-87AE-5EF0B9D4A350}" ShortID="276167098">
+															<Language>SFX</Language>
+															<AudioFile>Rattle_6.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Rattle_6" ID="{4690A652-7E8D-44FB-87AE-5EF0B9D4A350}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Button" ID="{A45D4F49-5192-4FA9-BE8D-3ED04B2702F3}" ShortID="159406415">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_CLOSE" ID="{00D8F08B-A09E-43A4-BD03-547D4CCBD293}" ShortID="558305278">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_CLOSE" ID="{3F4499A7-2662-41CC-9789-76FF9D8DE7DF}" ShortID="977938458">
+															<Language>SFX</Language>
+															<AudioFile>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_CLOSE.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_CLOSE" ID="{3F4499A7-2662-41CC-9789-76FF9D8DE7DF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_FAR" ID="{70D3FEC9-3AD2-4029-A4BE-0F0FF0BCA210}" ShortID="397784217">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_FAR" ID="{3B122656-5DEB-4FEE-9E2B-A68CC4C7C06B}" ShortID="718195452">
+															<Language>SFX</Language>
+															<AudioFile>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_FAR.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_FAR" ID="{3B122656-5DEB-4FEE-9E2B-A68CC4C7C06B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE" ID="{5921E983-8C1A-4D83-BE57-4C1E8C16A083}" ShortID="866959984">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE" ID="{2E411D4F-E634-4FA4-A8C8-C378448B2EA4}" ShortID="649696666">
+															<Language>SFX</Language>
+															<AudioFile>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE" ID="{2E411D4F-E634-4FA4-A8C8-C378448B2EA4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_FAR" ID="{D0CD9853-9565-4213-9A19-2F1CCFBD2209}" ShortID="357436074">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_FAR" ID="{0837EE22-0470-4940-8902-2AF809196167}" ShortID="596382529">
+															<Language>SFX</Language>
+															<AudioFile>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_FAR.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_FAR" ID="{0837EE22-0470-4940-8902-2AF809196167}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE" ID="{BE66AF63-4082-48E3-9A72-DE2939E27E43}" ShortID="866469094">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE" ID="{705EE874-434A-4E86-AD29-3A6BF20A04E4}" ShortID="622479333">
+															<Language>SFX</Language>
+															<AudioFile>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE" ID="{705EE874-434A-4E86-AD29-3A6BF20A04E4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR" ID="{BDCB6D93-5E2E-43BD-9DD8-76FCD33CB18F}" ShortID="105591390">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR" ID="{B6E2ED98-A65F-4DF8-AD8C-2A5FCD775372}" ShortID="961599924">
+															<Language>SFX</Language>
+															<AudioFile>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR" ID="{B6E2ED98-A65F-4DF8-AD8C-2A5FCD775372}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</BlendContainer>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

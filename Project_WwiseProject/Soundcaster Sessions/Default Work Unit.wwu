@@ -34,12 +34,12 @@
 				<SoundcasterSession Name="Puzzles" ID="{857C52F5-B477-4EE8-BC3F-B8634EFF9822}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="PAINTING_STARTTURNING" ID="{E56B8409-2161-4DE7-989D-CB0431C64C1B}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
-							<Position X="0" Y="0"/>
+							<ObjectRef Name="Map Puzzle" ID="{66634383-203D-4675-B409-ABCAB50EB0C8}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+							<Position X="1" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="PAINTING_STOPTURNING" ID="{631CD828-853D-45AE-A08F-219BDA121047}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
-							<Position X="1" Y="0"/>
+							<ObjectRef Name="TESTMAPBUTTON" ID="{470764D5-ABA0-4A32-8980-20FB1D7F2F43}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="2" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -48,8 +48,24 @@
 							<Value>44</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="SFX_VOLUME" ID="{DD2FA790-5B47-47E9-8B9A-7BF350D45065}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MUSIC_VOLUME" ID="{2516B5BA-68F0-4E04-9F17-B0414481BF14}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}"/>
 							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="OBJECT_SPEED" ID="{3152E94B-B9B8-4F41-A102-C62BE0E7E47F}"/>
+							<Value>50</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}"/>
@@ -59,7 +75,9 @@
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="SOLVED" ID="{3FB38530-87CA-45FF-ADC0-13F7A8116496}"/>
 					</CurrentStateList>
-					<CurrentSwitchList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="PIN_8" ID="{69EB40DC-2AAC-4450-897B-CD2917BAFDEC}"/>
+					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>

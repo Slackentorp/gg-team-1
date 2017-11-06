@@ -4,6 +4,11 @@
 		<WorkUnit Name="Default Work Unit" ID="{5AEFA858-9085-4EEB-BAC0-241662F05877}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<ReferenceList>
+						<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Gentle_Program_Compressor_Minus_20dB_RMS" ID="{D3F1F88E-4123-4C05-946B-1B036BAC2DFD}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+					</ReferenceList>
 					<ChildrenList>
 						<AuxBus Name="Reverb_livingroom" ID="{15279453-A672-4F5D-8661-BDBC44113891}">
 							<ReferenceList>
