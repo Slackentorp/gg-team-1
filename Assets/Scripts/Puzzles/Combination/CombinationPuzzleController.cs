@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Gamelogic.Extensions;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -16,6 +17,11 @@ public class CombinationPuzzleController : BasePuzzle
          "Allowed angular difference between the solution rotation and current rotation of the object, before it snaps into place")]
     private float mercyRotation;
 
+    [SerializeField]
+    private string onCorrectWwiseEvent;
+    [SerializeField, Range(0,1)]
+    private float onCorrectBrightness = 1;
+
     private PictureFrameTouch[] pictureFrames;
 
     void OnEnable()
@@ -29,7 +35,7 @@ public class CombinationPuzzleController : BasePuzzle
 
     void Start()
     {
-        CheckForSolution();
+        CheckForSolution(null);
     }
 
     private void Update()
@@ -46,8 +52,13 @@ public class CombinationPuzzleController : BasePuzzle
         }
     }
 
-    public override void CheckForSolution()
+    public override void CheckForSolution(Component sender)
     {
+        //Safeguard because the script is in edit mode
+        if (!Application.isPlaying)
+        {
+            return;
+        }
         foreach (PictureFrameTouch pictureFrame in pictureFrames)
         {
             if (pictureFrame == null || !pictureFrame.enabled)
@@ -64,6 +75,15 @@ public class CombinationPuzzleController : BasePuzzle
             if (distance <= mercySquaredDistance &&
                 angleDifference <= mercyRotation)
             {
+
+                if ( (sender == pictureFrame || sender == null) && !string.IsNullOrEmpty(onCorrectWwiseEvent))
+                {
+                    print("Setting correct");
+                    AkSoundEngine.PostEvent(onCorrectWwiseEvent, pictureFrame.gameObject);
+                    Renderer rend = pictureFrame.gameObject.GetComponent<Renderer>();
+                    rend.material.color = rend.material.color.WithBrightness(onCorrectBrightness);
+                }
+
                 pictureFrame.transform.position =
                     pictureFrame.correctPostion + pictureFrame.originPosition;
                 pictureFrame.transform.rotation =
