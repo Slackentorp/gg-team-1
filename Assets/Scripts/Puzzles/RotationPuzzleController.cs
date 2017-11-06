@@ -4,9 +4,9 @@ using Gamelogic.Extensions;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RotationPuzzleController : Singleton<RotationPuzzleController>
+public class RotationPuzzleController : BasePuzzle
 {
-    [SerializeField, Tooltip("The amount the picture frames will rotate with on tap")]
+   /* [SerializeField, Tooltip("The amount the picture frames will rotate with on tap")]
     private float rotationAmount;
     [SerializeField, Tooltip("The allowed deviation in degrees of the correct rotation")]
     private float slack;
@@ -50,5 +50,13 @@ public class RotationPuzzleController : Singleton<RotationPuzzleController>
     {
         public GameObject pictureFrame;
         public float correctYRotation;
+    }
+
+    public override void Tick()
+    {
+    }*/
+
+    public override void CheckForSolution()
+    {
     }
 }
