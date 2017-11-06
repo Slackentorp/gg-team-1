@@ -1,6 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{6F05DAE4-775F-43F6-B307-66B50FCC66F5}" SchemaVersion="80">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{6F05DAE4-775F-43F6-B307-66B50FCC66F5}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{6F05DAE4-775F-43F6-B307-66B50FCC66F5}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="MAP_SWITCH" ID="{C48B5A1A-ECF2-45BE-8A0E-AE824A113B8A}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="PIN_1" ID="{A518F51E-05B8-4112-997C-0D78CBD70DE8}"/>
+						<Switch Name="PIN_2" ID="{1F2495F5-84C6-4BB6-9629-A9A823330CD7}"/>
+						<Switch Name="PIN_3" ID="{0C3F0B66-B274-4390-94E4-E5C6E9FCF998}"/>
+						<Switch Name="PIN_4" ID="{618EE424-9647-4CC0-8BB5-49166724C3B4}"/>
+						<Switch Name="PIN_5" ID="{7C53D589-22D6-448F-91E1-F5E71C24C595}"/>
+						<Switch Name="PIN_6" ID="{8DA7F1F3-234A-44B6-A9EC-450E17183D32}"/>
+						<Switch Name="PIN_7" ID="{C61CE31C-2DED-49E9-BA39-F7FBDD9D9AE4}"/>
+						<Switch Name="PIN_8" ID="{69EB40DC-2AAC-4450-897B-CD2917BAFDEC}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}"/>
+						<Curve Name="" ID="{6555E09F-98E3-4755-BE68-1DAACE80870F}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>1</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>0.86318</XPos>
+									<YPos>1</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>1.96959</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>2.92736</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>3.97973</XPos>
+									<YPos>4</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>4.92568</XPos>
+									<YPos>5</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>5.90709</XPos>
+									<YPos>6</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>6.93581</XPos>
+									<YPos>7</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>7.91723</XPos>
+									<YPos>8</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>7.96959</XPos>
+									<YPos>8</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>9</XPos>
+									<YPos>8</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
+				<SwitchGroup Name="STAR_SWITCH" ID="{18BC39D0-B716-4D51-AF81-CCD0EA622989}">
+					<ChildrenList>
+						<Switch Name="STAR_1" ID="{A47BCE39-39E5-47DA-9AC1-B818C71EAD68}"/>
+						<Switch Name="STAR_2" ID="{5381D6D7-0176-4422-B12C-115EC92E2EAC}"/>
+						<Switch Name="STAR_3" ID="{ED95535A-7796-4A1C-8533-16C7F952603B}"/>
+						<Switch Name="STAR_4" ID="{1C4A8336-09A3-4078-9EBF-C3CFA3AA6030}"/>
+						<Switch Name="STAR_5" ID="{22CEAC13-7A42-4E40-804F-FFC00E140F80}"/>
+						<Switch Name="STAR_6" ID="{C524A7EE-40DA-43ED-A551-B80C54961C8D}"/>
+						<Switch Name="STAR_7" ID="{9A01DCD2-B111-444B-8A9A-9A2E96AAFF1C}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>
