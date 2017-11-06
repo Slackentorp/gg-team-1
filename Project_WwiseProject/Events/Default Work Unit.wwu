@@ -19,8 +19,57 @@
 				</Event>
 				<Folder Name="Moth" ID="{445A0E3C-BB45-4ADA-9EA2-57AFC84BC67B}" ShortID="90425324">
 					<ChildrenList>
-						<Event Name="MOTH_START_FLIGHT" ID="{42DDC5BA-946A-4A80-8D37-64684D345CA2}"/>
-						<Event Name="MOTH_END_FLIGHT" ID="{55124FC1-C5D1-41D4-8A94-2636E35D9F51}"/>
+						<Event Name="MOTH_START_FLIGHT" ID="{42DDC5BA-946A-4A80-8D37-64684D345CA2}">
+							<ChildrenList>
+								<Action Name="" ID="{FF5372AE-DD8B-437E-B8D9-04B21AD0F526}" ShortID="249918596">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Flying" ID="{C7A38437-C86F-4A62-A9AA-7E396855109D}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{C43C680B-27E3-4D6E-9E76-E560D664388C}" ShortID="772145103">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="36"/>
+										<Property Name="SeekPercent" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{4FEEC1E6-9927-4235-B7AA-2AFF32E32A58}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="51"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Flying" ID="{C7A38437-C86F-4A62-A9AA-7E396855109D}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="MOTH_END_FLIGHT" ID="{55124FC1-C5D1-41D4-8A94-2636E35D9F51}">
+							<ChildrenList>
+								<Action Name="" ID="{6A6AC83C-BFF7-495A-A13D-DFF4FD1594AE}" ShortID="190452616">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Flying" ID="{C7A38437-C86F-4A62-A9AA-7E396855109D}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Ambience" ID="{CB63D89D-9A5B-4F67-BE53-36CC1D55B2DE}" ShortID="586050579">
@@ -93,40 +142,6 @@
 				</Event>
 				<Folder Name="Puzzles" ID="{804443FD-D136-4407-A437-AE603B8EE6C5}" ShortID="671669688">
 					<ChildrenList>
-						<Folder Name="1" ID="{1EA9868E-0B6A-4C7D-8E11-F7FBE20CD948}" ShortID="676694931">
-							<ChildrenList>
-								<Event Name="PAINTING_STARTTURNING" ID="{E56B8409-2161-4DE7-989D-CB0431C64C1B}">
-									<ChildrenList>
-										<Action Name="" ID="{7CCCB64B-AE93-46A5-95F7-FE590B791E5A}" ShortID="790418102">
-											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="1"/>
-												<Property Name="FadeTime" Type="Real64" Value="0.3"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Slide Painting" ID="{E00643EC-1CF8-4479-A0BA-7D8D43519A0F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
-								<Event Name="PAINTING_STOPTURNING" ID="{631CD828-853D-45AE-A08F-219BDA121047}">
-									<ChildrenList>
-										<Action Name="" ID="{4A3F0ADD-0C95-416C-9953-645494FBFE2B}" ShortID="890945156">
-											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="2"/>
-												<Property Name="FadeTime" Type="Real64" Value="0.4"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Slide Painting" ID="{E00643EC-1CF8-4479-A0BA-7D8D43519A0F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
-							</ChildrenList>
-						</Folder>
 						<Event Name="PUZZLE_SOLVED" ID="{5690CBDC-AE94-4C2A-A217-13E31F1255F2}">
 							<ChildrenList>
 								<Action Name="" ID="{B56BC533-B72F-4CF1-8474-CE486E967DCF}" ShortID="428617817">
@@ -142,6 +157,34 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="PUZZLE_SOLVING" ID="{5EE3A51F-9E65-4EFD-9B47-A67F2516F15B}"/>
+						<Folder Name="Map" ID="{5B8FEEB3-D540-4E55-A490-89F060B2970E}" ShortID="880547239">
+							<ChildrenList>
+								<Event Name="MAP_FAILED" ID="{823C2C48-B9AC-4CF2-8737-B2229367E803}"/>
+								<Event Name="MAPBUTTON_PRESS" ID="{C8E15731-EB84-4456-B0BD-4B5F740248C6}"/>
+								<Event Name="MAPBUTTON_PRESS_NOMUSIC" ID="{A5DD2EC0-0C97-4D89-8441-B9B88BDA27EB}"/>
+							</ChildrenList>
+						</Folder>
+						<Event Name="S" ID="{76D206EF-E09E-4842-80F4-01DF7049CFBF}"/>
+						<Folder Name="Star" ID="{78792C36-8AF4-4036-AC9B-AC61F6E1196A}" ShortID="187017807">
+							<ChildrenList>
+								<Event Name="STARBUTTON_PRESS" ID="{DCC0D8EB-316E-4147-B7CC-EC972B14EACC}"/>
+								<Event Name="STAR_FAILED" ID="{C1D45650-6AD3-40A6-8CFF-27AB32767DC2}"/>
+								<Event Name="STARBUTTON_PRESS_NOMUSIC" ID="{5366C436-5CEC-402B-BEE7-67879A3B5C70}"/>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Lightbulb" ID="{874AAD25-EE05-4305-9739-9998C611005B}" ShortID="459595533">
+							<ChildrenList>
+								<Event Name="BULB_PICK_UP" ID="{8F4666CD-2C85-4531-B040-A91FB2CF70DA}"/>
+								<Event Name="BULB_FAILED" ID="{D3A22A56-0460-43D6-9721-B4262726A9B5}"/>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="PicturePuzzle" ID="{F9E6DB2F-5BFC-4D18-A4F6-3B029455A7F1}" ShortID="1015551174">
+							<ChildrenList>
+								<Event Name="PIECE_PICK" ID="{42778470-5BCC-4831-BD83-EA0D8F17F829}"/>
+								<Event Name="PIECE_PLACED_WRONG" ID="{4AF9DD12-0003-4658-8B47-9FF5714E306D}"/>
+								<Event Name="PIECE_PLACED_RIGHT" ID="{73D1437D-0E91-48A3-AE12-5A3402C67952}"/>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Event Name="LIVINGROOM_ENTER" ID="{6B77436A-B36D-4107-A721-4BAF006199B3}">
@@ -183,6 +226,45 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="TESTMAPBUTTON" ID="{470764D5-ABA0-4A32-8980-20FB1D7F2F43}">
+					<ChildrenList>
+						<Action Name="" ID="{6A39E047-F878-4A9C-83AA-74FD5A95D627}" ShortID="969984776">
+							<PropertyList>
+								<Property Name="AbsoluteOrRelative" Type="int16" Value="1"/>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{0F09D926-9559-4312-A963-DE52EEB7B7A1}" ShortID="782365914">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Press Pin" ID="{79268D88-83BE-4BD4-B74A-4BDFFABD5C77}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="Menu" ID="{94258F84-A1BE-446C-BE7E-92C9D07FF104}" ShortID="129051626">
+					<ChildrenList>
+						<Event Name="INGAMEMENU_OPEN" ID="{659A4558-69D7-4BFA-9DEE-01EF3CF51783}"/>
+						<Event Name="INGAMEMENU_CLOSE" ID="{EF24F210-D567-4C5D-8E62-A28E4A1E1F49}"/>
+						<Event Name="MAINMENU_OPEN" ID="{F57412A0-CBED-4E0E-B4C5-358AA27E86A0}"/>
+						<Event Name="MENUBUTTON_PRESS" ID="{E13D8E67-5FB2-4A15-A3C0-5680A7B8EDBA}"/>
+						<Event Name="MENU_START_GAME" ID="{13549D70-DC0E-4887-8B18-E9012C0D2CF3}"/>
+						<Event Name="SFX_MUTE" ID="{A7EC4BB8-F6DB-480A-820B-B7917930C421}"/>
+						<Event Name="SFX_UNMUTE" ID="{188A2BD4-EFEC-4A25-8404-DE3D4C50C600}"/>
+						<Event Name="MUSIC_MUTE" ID="{BA8F99F7-1F3A-403D-9E10-AE4EC7211D48}"/>
+						<Event Name="MUSIC_UNMUTE" ID="{BD145799-48F2-4814-9F82-264BCFBE4C25}"/>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
