@@ -11,4 +11,12 @@ public class EventBus : Singleton<EventBus>
     {
         moth.SendMessage("SetMothPosition", position);
     }
+
+    public void TriggerStoryBite(BasicBiteTrigger bite)
+    {
+        if (bite.FixedCamera)
+        {
+            GameObject.FindObjectOfType<CameraController>().SendMessage("SetStoryTarget", bite.FixedCamPos);
+        }
+    }
 }
