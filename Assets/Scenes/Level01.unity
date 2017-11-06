@@ -1041,7 +1041,7 @@ Prefab:
     - target: {fileID: 114795286797243044, guid: 4c307a4506bab7b4da052b0472a9697d,
         type: 2}
       propertyPath: IsLit
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1818498547257926, guid: 4c307a4506bab7b4da052b0472a9697d, type: 2}
       propertyPath: m_Name
@@ -1079,6 +1079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 299387022}
   - component: {fileID: 299387023}
+  - component: {fileID: 299387024}
   m_Layer: 8
   m_Name: Tmp_TutorialPuzzle
   m_TagString: Untagged
@@ -1112,6 +1113,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 1, z: 0.55}
   m_Center: {x: 0, y: 0, z: 0.22}
+--- !u!114 &299387024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 299387021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289764128fc94d742b5337859bd34d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &303828721
 Prefab:
   m_ObjectHideFlags: 0
@@ -6165,7 +6177,7 @@ Prefab:
     - target: {fileID: 114297779280991586, guid: d4e5175565b43494b8df850f98ec0ef5,
         type: 2}
       propertyPath: IsLit
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1939843460386364, guid: d4e5175565b43494b8df850f98ec0ef5, type: 2}
       propertyPath: m_Name
