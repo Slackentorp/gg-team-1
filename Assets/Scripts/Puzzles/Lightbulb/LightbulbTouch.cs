@@ -143,6 +143,7 @@ public class LightbulbTouch : MonoBehaviour, ITouchInput
     {
         gameobject.transform.position = position;
         gameobject.transform.rotation = rotation;
+        gameobject.transform.localScale = transform.localScale;
 
         LightbulbTouch lbt = gameobject.GetComponent<LightbulbTouch>();
         lbt.startRotation = rotation;
