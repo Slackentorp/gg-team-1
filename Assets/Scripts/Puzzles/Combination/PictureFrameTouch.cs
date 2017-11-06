@@ -23,7 +23,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
     private void Start()
     {
-        originPosition = transform.position;
+   //     originPosition = transform.position;
     }
 
     private void OnDrawGizmos()

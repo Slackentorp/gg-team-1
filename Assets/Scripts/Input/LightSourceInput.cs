@@ -10,7 +10,15 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     [SerializeField]
     private Vector3 LandingPosition;
     [SerializeField]
-    private bool IsLit = true;
+    private Vector3 cameraPosition; 
+    [SerializeField]
+    private bool IsLit = false;
+
+    public bool Lit
+    {
+        get { return IsLit; }
+        set { IsLit = value; }
+    }
 
 
     public void OnTap(Touch finger)
@@ -26,7 +34,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     }
 
     public void OnTouchUp(Touch finger)
-    {        
+    {
     }
 
     public void OnToucHold(Touch finger, Vector3 worldPos)
@@ -43,8 +51,8 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(transform.TransformPoint(LandingPosition), .05f);
+        Gizmos.DrawIcon(transform.TransformPoint(LandingPosition), "MothIcon.tif", true);
+        Gizmos.DrawIcon(transform.TransformPoint(cameraPosition), "CameraIcon.tif", true);
     }
 
     [System.Serializable]
@@ -56,6 +64,6 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
 
     public Vector3 GetLandingPos()
     {
-        return LandingPosition; 
+        return LandingPosition;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EasyButtons;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -46,6 +47,7 @@ public class CombinationPuzzleController : BasePuzzle
         }
     }
 
+    [Button]
     public override void CheckForSolution()
     {
         foreach (PictureFrameTouch pictureFrame in pictureFrames)
