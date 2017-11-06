@@ -10,7 +10,8 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     [SerializeField]
     private Vector3 LandingPosition;
     [SerializeField]
-    private bool IsLit;
+    private bool IsLit = true;
+
 
     public void OnTap(Touch finger)
     {
@@ -20,7 +21,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
         }
     }
 
-    public void OnTouchDown(Touch finger)
+    public void OnTouchDown(Touch finger, Vector3 worldPos)
     {
     }
 
@@ -28,7 +29,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     {        
     }
 
-    public void OnToucHold(Touch finger)
+    public void OnToucHold(Touch finger, Vector3 worldPos)
     {
     }
 
@@ -51,5 +52,10 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     {
         public GameObject Model;
         public Material LitMaterial;
+    }
+
+    public Vector3 GetLandingPos()
+    {
+        return LandingPosition; 
     }
 }
