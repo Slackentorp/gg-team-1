@@ -10,9 +10,11 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     [SerializeField]
     private Vector3 LandingPosition;
     [SerializeField]
-    private Vector3 cameraPosition; 
+    private Vector3 cameraPosition;
     [SerializeField]
     private bool IsLit = false;
+
+    public Vector3 CameraPosition { get { return transform.position + (cameraPosition); } }
 
     public bool Lit
     {
@@ -26,6 +28,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
         if (IsLit)
         {
             EventBus.Instance.SetMothPosition(transform.TransformPoint(LandingPosition));
+            GameController.Instance.SetCameraTarget(CameraPosition);
         }
     }
 

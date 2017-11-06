@@ -22,7 +22,7 @@ public class LightController : MonoBehaviour
             lightSources.Add(tmp[i]);
             lightsOn.Add(tmp[i].Lit); 
         }
-        TurnOffAllLights(); 
+      //  TurnOffAllLights(); 
     }
 
     private void TurnOffAllLights()

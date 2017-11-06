@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Gamelogic.Extensions; 
+using Gamelogic.Extensions;
+using UnityEngine.UI; 
 
 public class GameController : Singleton<GameController>
 {
@@ -12,12 +13,15 @@ public class GameController : Singleton<GameController>
     private GameObject startLamp;
 
     [SerializeField]
+    private Transform cameraStartPosition; 
+
+    [SerializeField]
     private List<LightSourceInput> puzzleOneLights; 
 
     private List<bool> puzzleSolved; 
 
     private GameObject mothObject; 
-    private Camera gameCamera;
+    private CameraController gameCamera;
     private LightController lightController; 
 
     // Use this for initialization
@@ -43,23 +47,31 @@ public class GameController : Singleton<GameController>
         }
     }
 
-    public void SetupScene(Camera gameCamera)
+    public void StartGame()
+    {
+        gameCamera.SetTarget(startLamp.GetComponent<LightSourceInput>().CameraPosition);
+        gameCamera.SetStoryCam(false);
+    }
+
+    public void SetupScene(Camera newGameCamera)
     {
         EventBus.Instance.SetMothPosition(startLamp.transform.TransformPoint(startLamp.GetComponent<LightSourceInput>().GetLandingPos()));
-        SetGameCamera(gameCamera);
-        mothObject = gameCamera.GetComponent<CameraController>().TargetPos.gameObject;
+        SetGameCamera(newGameCamera.gameObject);
+        mothObject = gameCamera.TargetPos.gameObject;
         gameCamera.transform.forward = (gameCamera.transform.position - mothObject.transform.position).normalized;
+        gameCamera.SetStoryTarget(cameraStartPosition);
         lightController.LoadLights();
     }
 
-    public void SetGameCamera(Camera newCam)
+    public void SetGameCamera(GameObject newCam)
     {
-        gameCamera = newCam; 
+        gameCamera = newCam.GetComponent<CameraController>(); 
     }
 
     public void SetCameraTarget(Vector3 position)
     {
-        gameCamera.GetComponent<CameraController>().TargetPos.position = position; 
+        gameCamera.TargetPos.position = position;
+        gameCamera.SetStoryCam(false); 
     }
 
     public void GoToCameraTarget()
