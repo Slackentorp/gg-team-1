@@ -30,7 +30,7 @@ public class BootstrapManager : Singleton<BootstrapManager>
         {
             GameObject[] rootGameObjects = levelScene.GetRootGameObjects();
             GameObject levelCamera =
-                rootGameObjects.FirstOrDefault(o => o.tag == "Level Camera");
+                rootGameObjects.FirstOrDefault(o => o.CompareTag("Level Camera"));
             if (levelCamera != null)
             {
                 gameCamera.transform.position = levelCamera.transform.position;
