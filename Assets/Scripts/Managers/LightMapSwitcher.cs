@@ -8,9 +8,7 @@ public class LightMapSwitcher : MonoBehaviour
     private int[] myLightMapIndex;
     private Renderer lmRenderer;
 
-    [SerializeField]
-    private Texture2D[] customLights;
-
+    private Texture2D[] customLights, currentTexture;
     [SerializeField]
     private Texture2D[] lightsOn;
     [SerializeField]
@@ -19,17 +17,25 @@ public class LightMapSwitcher : MonoBehaviour
     private Texture2D[] lightsOff;
     [SerializeField]
     private Texture2D[] lightsDirOff;
+    [SerializeField]
+    private int lightNumber;
+    private int[] lightArray;
+    [SerializeField]
+    private GameObject[] sceneLights;
 
     public LightmapData[] _lightsOnMaps;
 
     public LightmapData[] _lightsOffMaps;
 
-    public LightmapData[] _currentData;
+    public LightmapData[] _newData, _currentData;
 
     private GameObject[] allObjects;
 
     void Start()
     {
+        //_newData = _lightsOffMaps;
+        //LightmapSettings.lightmaps = _newData;
+
         LightMapAssinger();
 
         LightMapIndexFinder();
@@ -37,13 +43,13 @@ public class LightMapSwitcher : MonoBehaviour
 
     public void SetLightsOn()
     {
-        print("lights On!");
+        print("All Lights On!");
         LightmapSettings.lightmaps = _lightsOnMaps;
     }
 
     public void SetLightsOff()
     {
-        print("lights Off!");
+        print("All Lights Off!");
         LightmapSettings.lightmaps = _lightsOffMaps;
     }
 
@@ -77,9 +83,7 @@ public class LightMapSwitcher : MonoBehaviour
     public void LightMapIndexFinder()
     {
         allObjects = FindObjectsOfType<GameObject>();
-        arrayTrack = 0;
         myLightMapIndex = new int[allObjects.Length];
-        //print("arrayLengt: " + allObjects.Length);
 
         foreach (GameObject obj in allObjects)
         {
@@ -87,36 +91,53 @@ public class LightMapSwitcher : MonoBehaviour
             {
                 lmRenderer = obj.GetComponent<Renderer>();
                 myLightMapIndex[arrayTrack] = lmRenderer.lightmapIndex;
-                //print("arrayIndex: " + lmRenderer.lightmapIndex);
-                arrayTrack++;
             }
         }
     }
 
     public void SwitchLightNr()
     {
+        
         foreach (GameObject obj in allObjects)
         {
+            _currentData = LightmapSettings.lightmaps;
+            print("imHere1");
             if (obj.GetComponent<Renderer>() != null)
             {
+                print("imHere2");
                 lmRenderer = obj.GetComponent<Renderer>();
-                if (lmRenderer.lightmapIndex == 0)
+
+                if (lmRenderer.lightmapIndex == lightNumber)
                 {
-                    _currentData = new LightmapData[3];
-                    for (int i = 0; i < 3; i++)
+                    print("imHere3");
+                    _newData = new LightmapData[sceneLights.Length];
+                    for (int i = 0; i < sceneLights.Length; i++)
                     {
-                        _currentData[i] = new LightmapData();
-                        print("imHere");
-                        customLights = lightsOn;
-                        customLights[0] = lightsOff[0];
-                        _currentData[i].lightmapColor = customLights[i];
+                        print("imHere4");
+                        _newData[i] = new LightmapData();
+                        customLights = new Texture2D[sceneLights.Length];
+                        customLights[i] = _currentData[i].lightmapColor;
+                        customLights[lightNumber] = lightsOn[lightNumber];
+ 
+                        _newData[i].lightmapColor = customLights[i];
                     }
-                    LightmapSettings.lightmaps = _currentData;
+                    LightmapSettings.lightmaps = _newData;
                 }
                 //myLightMapIndex[arrayTrack] = lmRenderer.lightmapIndex;
                 arrayTrack++;
             }
         }
     }
-
 }
+//public void AssignLights()
+//{
+
+//    for (int i = 0; i < sceneLights.Length; i++)
+//    {
+//        lightArray[i]
+//    }
+//}
+
+//struct{
+
+//}
