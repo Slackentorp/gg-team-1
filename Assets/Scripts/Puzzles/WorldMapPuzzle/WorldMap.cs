@@ -16,6 +16,9 @@ public class WorldMap : MonoBehaviour
 	private GameObject objectHit;
 	private int lampsLit = 1;
 
+    [SerializeField]
+    private GameObject particles; 
+
 	void Start()
 	{
 		rend = new Renderer[lights.Length];
@@ -37,7 +40,8 @@ public class WorldMap : MonoBehaviour
 		}
 		if (lampsLit == lights.Length)
 		{
-			Debug.Log("Puzzle Done");
+			//Debug.Log("Puzzle Done");
+            particles.SetActive(true);
 		}
 	}
 
