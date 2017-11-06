@@ -48,6 +48,7 @@ public class MothBehaviour : MonoBehaviour
         }
 
         MothSpeed = 0f;
+        //GameController.Instance.GoToCameraTarget();
         AkSoundEngine.PostEvent("MOTH_END_FLIGHT", gameObject);
         inTransit = false;
     }

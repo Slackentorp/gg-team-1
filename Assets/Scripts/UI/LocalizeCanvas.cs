@@ -13,6 +13,7 @@ public class LocalizeCanvas : MonoBehaviour
 
     void OnEnable()
     {
+        SetupLanguage();
         LocalizationManager.OnChangeLanguage += SetupLanguage;
     }
 
