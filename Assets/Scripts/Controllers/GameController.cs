@@ -49,7 +49,6 @@ public class GameController : Singleton<GameController>
 
     public void SolveTutorial()
     {
-        print("Yaw"); 
         lightController.TurnOnMainLights(); 
     }
 

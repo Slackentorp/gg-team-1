@@ -6,6 +6,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class LightBulbPuzzleController : BasePuzzle
 {
+
     public GameObject SolutionRack
     {
         private set { _solutionRack = value; }
@@ -54,7 +55,8 @@ public class LightBulbPuzzleController : BasePuzzle
 	    if (enabledBulbs == 0)
         {
 	        OnSolved();
-	    }
+
+        }
     }
 
     public override void CheckForSolution(Component sender)
