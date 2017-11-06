@@ -23,6 +23,7 @@ public class MothBehaviour : MonoBehaviour
 
     public void SetMothPosition(Vector3 position)
     {
+        print("I got pos: " + position); 
         if (lerp != null)
         {
             StopCoroutine(lerp);
