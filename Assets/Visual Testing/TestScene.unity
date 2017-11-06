@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 67856ddd709db684a80885f25147574b,
+  m_LightingDataAsset: {fileID: 112000004, guid: 67856ddd709db684a80885f25147574b,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -9413,11 +9413,11 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 807934757}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.78255576, b: 0.50735295, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 4.61
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -10775,6 +10775,10 @@ Prefab:
       propertyPath: m_ScaleInLightmap
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: c1dade78e59e90446afc890ae981a519, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a7aca566132840449ae93305dcc4f06, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1dade78e59e90446afc890ae981a519, type: 3}
   m_IsPrefabParent: 0
@@ -11046,11 +11050,11 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495074144}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.78255576, b: 0.50735295, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 5.04
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -12450,14 +12454,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightsOn:
-  - {fileID: 2800000, guid: 739e074601129504fa5d9ba9ac9daeda, type: 3}
-  - {fileID: 2800000, guid: c72fe9394c623d741af339f357449c7a, type: 3}
-  - {fileID: 2800000, guid: 5821d290fcfc61744b76e57015a31fcd, type: 3}
-  lightsDirOn: []
-  lightsOff:
   - {fileID: 2800000, guid: 2ad11f8dd1a76f143984c56baf57b961, type: 3}
   - {fileID: 2800000, guid: 5a1a0c1faada8be4eae8e91bf868858a, type: 3}
   - {fileID: 2800000, guid: 7556af835fcaabd4b9d3fb8236a28653, type: 3}
+  lightsDirOn: []
+  lightsOff:
+  - {fileID: 2800000, guid: f20a2692e30529b48bce89f64927585d, type: 3}
+  - {fileID: 2800000, guid: 069a3e081d27e964290f9305472a5f2a, type: 3}
+  - {fileID: 2800000, guid: 862575e0e4fc8524da2df0331cd3ff58, type: 3}
   lightsDirOff: []
   lightNumber: 0
   sceneLights:
