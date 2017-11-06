@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Managers;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -87,7 +88,7 @@ public class CameraController : MonoBehaviour
             newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
         }
 #endif
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !InputManager.Instance.isTouchingObject)
         {
             newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
                         10;

@@ -10,8 +10,10 @@ namespace Assets.Scripts.Managers
     /// Manager class that watches and keeps track of touch events and sends commands to the appropiate objects
     /// when OnTouchDown, OnTouchHold, OnTouchUp, OnTap, and swipe is being detected.
     /// </summary>
-    public class InputManager : MonoBehaviour
+    public class InputManager : Singleton<InputManager>
     {
+        public bool isTouchingObject;
+
         [SerializeField]
         private InputHandlerSettings settings;
 
@@ -67,6 +69,7 @@ namespace Assets.Scripts.Managers
         {
             Dictionary<GameObject, TouchState> previousFrameTouches = new Dictionary<GameObject, TouchState>(frameTouches);
             frameTouches.Clear();
+            isTouchingObject = false;
 
             foreach (Touch t in Input.touches)
             {
@@ -83,7 +86,8 @@ namespace Assets.Scripts.Managers
                     {
                         continue;
                     }
-                    
+                    isTouchingObject = true;
+
                     frameTouches[touchObject] = new TouchState(Time.time, t);
 
                     TouchState ts;
@@ -131,14 +135,16 @@ namespace Assets.Scripts.Managers
             // indicating that a touch was canceled
             foreach (var oldObject in previousFrameTouches)
             {
-                if (!frameTouches.ContainsKey(oldObject.Key))
+                TouchState ts;
+                if (!frameTouches.TryGetValue(oldObject.Key, out ts))
                 {
                     // On Touch up should always have been called at this point, but the object still lingers
                     if (oldObject.Value.onTouchObject.phase != TouchPhase.Ended)
                     {
-                        HandleOnTouchExit(oldObject.Key, oldObject.Key.GetComponent<ITouchInput>(), oldObject.Value);
+                        HandleOnTouchExit(oldObject.Key,
+                            oldObject.Key.GetComponent<ITouchInput>(),
+                            oldObject.Value);
                     }
-                    
                 }
             }
         }
@@ -179,7 +185,7 @@ namespace Assets.Scripts.Managers
                 Ray ray = mainCamera.ScreenPointToRay(t.position);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit, touchInputMask))
+                if (Physics.Raycast(ray, out hit, 10f, touchInputMask))
                 {
                     GameObject touchObject = hit.transform.gameObject;
                     ITouchInput touchInput =
@@ -206,9 +212,18 @@ namespace Assets.Scripts.Managers
                         switch (t.phase)
                         {
                             case TouchPhase.Began:
-                                touchInput.OnTouchDown(t, hit.point);
-                                objectOnTouchDownState.Add(touchObject,
-                                    new TouchState(Time.time, t));
+                                TouchState tmp;
+                                if (!objectOnTouchDownState.TryGetValue(
+                                    touchObject, out tmp))
+                                {
+                                    touchInput.OnTouchDown(t, hit.point);
+                                    objectOnTouchDownState.Add(touchObject,
+                                        new TouchState(Time.time, t));
+                                }
+                                else
+                                {
+                                    RefreshDictionary(touchObject);
+                                }
                                 break;
                             case TouchPhase.Moved:
                                 touchInput.OnToucHold(t, hit.point);
@@ -233,7 +248,8 @@ namespace Assets.Scripts.Managers
             // indicating that a touch was canceled
             foreach (var oldObject in previousFrameTouches)
             {
-                if (!frameTouches.ContainsKey(oldObject.Key))
+                TouchState ts;
+                if (!frameTouches.TryGetValue(oldObject.Key, out ts))
                 {
                     // On Touch up should always have been called at this point, but the object still lingers
                     if (oldObject.Value.onTouchObject.phase != TouchPhase.Ended)
@@ -248,9 +264,9 @@ namespace Assets.Scripts.Managers
 
         void HandleOnTouchExit(GameObject touchObject, ITouchInput touchInput, TouchState touchState)
         {
-            TouchState onTapState = new TouchState(0, new Touch());
-            objectOnTouchDownState.TryGetValue(touchObject, out onTapState);
-            if (objectOnTouchDownState.ContainsKey(touchObject)) {
+            TouchState onTapState;
+            if (!objectOnTouchDownState.TryGetValue(touchObject, out onTapState))
+            {
                 objectOnTouchDownState.Remove(touchObject);
             }
 
@@ -285,11 +301,20 @@ namespace Assets.Scripts.Managers
                 }
                 else
                 {
-                    touchInput.OnTouchExit();
+                    if (touchInput != null)
+                    {
+                        touchInput.OnTouchExit();
+                    }
+                    
                 }
                 
             }
             
+        }
+
+        public void RefreshDictionary(GameObject go)
+        {
+            objectOnTouchDownState.Remove(go);
         }
 
         public struct TouchState

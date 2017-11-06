@@ -56,7 +56,7 @@ public class RotationPuzzleController : BasePuzzle
     {
     }*/
 
-    public override void CheckForSolution()
+    public override void CheckForSolution(Component t)
     {
     }
 }
