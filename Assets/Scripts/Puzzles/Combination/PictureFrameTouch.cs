@@ -14,8 +14,11 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     [SerializeField]
     private Color gizmoColor = Color.black;
 
+    [SerializeField]
+    private string pickupWwiseEvent, placeWwiseEvent;
+
     [SerializeField, Tooltip("Allowed directions to move")]
-    private DirectionsStruct Directions;
+    private BasePuzzle.DirectionsStruct Directions;
     
     private Vector3 distanceWorldPos;
     private Renderer cachedRenderer;
@@ -60,10 +63,12 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
             controller.OnBeginSolving();
         }
         distanceWorldPos = worldPos - transform.position;
+        PlayEvent(pickupWwiseEvent);
     }
 
     public void OnTouchUp(Touch finger)
     {
+        PlayEvent(placeWwiseEvent);
     }
 
     public void OnToucHold(Touch finger, Vector3 worldPos)
@@ -80,26 +85,29 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
             newPosition.z = transform.position.z;
         }
 
+        
+
         if (controller != null)
         {
-            controller.CheckForSolution();
+            controller.CheckForSolution(this);
         }
         transform.position = newPosition;
     }
 
     public void OnTouchExit()
     {
+        PlayEvent(placeWwiseEvent);
     }
 
     public void OnSwipe(Touch finger, TouchDirection direction)
     {
     }
 
-    [System.Serializable]
-    private struct DirectionsStruct
+    private void PlayEvent(string wwiseevent)
     {
-        public bool X;
-        public bool Y;
-        public bool Z;
+        if (string.IsNullOrEmpty(wwiseevent))
+        {
+            AkSoundEngine.PostEvent(wwiseevent, gameObject);
+        }
     }
 }
