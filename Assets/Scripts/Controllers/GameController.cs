@@ -31,6 +31,7 @@ public class GameController : Singleton<GameController>
     {
         lightController = GetComponent<LightController>(); 
 		localization = new LocalizationManager();
+        mothObject = BootstrapManager.Instance.mothObject;  
     }
 
     [ContextMenu("DAN")]
