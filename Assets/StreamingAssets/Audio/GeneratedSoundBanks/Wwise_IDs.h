@@ -27,6 +27,7 @@ namespace AK
         static const AkUniqueID MENU_START_GAME = 1931074718U;
         static const AkUniqueID MENUBUTTON_PRESS = 1512987680U;
         static const AkUniqueID MOTH_END_FLIGHT = 410314580U;
+        static const AkUniqueID MOTH_HIT_WINDOW = 1669806022U;
         static const AkUniqueID MOTH_START_FLIGHT = 541555517U;
         static const AkUniqueID MUG_PLACED_RIGHT = 2200206093U;
         static const AkUniqueID MUG_PLACED_WRONG = 3572297172U;
@@ -36,6 +37,7 @@ namespace AK
         static const AkUniqueID PIECE_PICK = 394109931U;
         static const AkUniqueID PIECE_PLACED_RIGHT = 2720771844U;
         static const AkUniqueID PIECE_PLACED_WRONG = 2177473561U;
+        static const AkUniqueID PUZZLE_LEAVING = 1963600256U;
         static const AkUniqueID PUZZLE_SOLVED = 1107599359U;
         static const AkUniqueID PUZZLE_SOLVING = 3258781332U;
         static const AkUniqueID SFX_MUTE = 2835551186U;
@@ -45,6 +47,7 @@ namespace AK
         static const AkUniqueID STARBUTTON_PRESS_NOMUSIC = 2345344986U;
         static const AkUniqueID STORYBITE_TEST = 2130706069U;
         static const AkUniqueID TELEVISION = 3098926425U;
+        static const AkUniqueID TEST_EVENT = 4258653052U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
     } // namespace EVENTS
 

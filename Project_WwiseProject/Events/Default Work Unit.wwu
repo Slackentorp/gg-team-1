@@ -39,6 +39,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{4F6B6984-8619-429C-8C5F-3E1FFEDDF2E1}" ShortID="270863545">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MOTH_FLY_LOUD" ID="{90173BB2-32C7-45F8-B403-8C88AA4FC722}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="MOTH_END_FLIGHT" ID="{55124FC1-C5D1-41D4-8A94-2636E35D9F51}">
@@ -51,6 +61,74 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Flying" ID="{C7A38437-C86F-4A62-A9AA-7E396855109D}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F1CA4737-0BB4-48DE-A7E0-5DD7863DA684}" ShortID="726283029">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Moth landing" ID="{1580B7FB-B12F-491D-9A87-C89FEBB6F215}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E562FB59-2205-49F4-9B70-6397B87B5638}" ShortID="67022652">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MOTH_FLY_LOUD" ID="{90173BB2-32C7-45F8-B403-8C88AA4FC722}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="MOTH_HIT_WINDOW" ID="{0665CD8B-4687-436D-9727-B2CB3BA38A16}">
+							<ChildrenList>
+								<Action Name="" ID="{218DBF67-633A-4894-999C-2355449F6080}" ShortID="904071393">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{A18EC0F1-354D-4783-A7BD-5195AED44976}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="0.1"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Glass ring" ID="{174C0FA6-EF84-471A-B9B5-1B2628055C24}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{07C29D4C-3A25-4E3B-B072-9A7DE4620EF6}" ShortID="553442660">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{D502280A-D133-4650-B8DF-2AD514CE13F4}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hit window" ID="{D28A57BA-A320-45E2-8531-70EB9B00A0BB}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -170,7 +248,20 @@
 						</Folder>
 						<Folder Name="Lightbulb" ID="{874AAD25-EE05-4305-9739-9998C611005B}" ShortID="459595533">
 							<ChildrenList>
-								<Event Name="BULB_PICK_UP" ID="{8F4666CD-2C85-4531-B040-A91FB2CF70DA}"/>
+								<Event Name="BULB_PICK_UP" ID="{8F4666CD-2C85-4531-B040-A91FB2CF70DA}">
+									<ChildrenList>
+										<Action Name="" ID="{4AC60ABE-C0BF-4359-B3B8-90566026F5D2}" ShortID="694292593">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Pick up" ID="{7CA70915-5F07-48C7-8B60-10951EA1649C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 								<Event Name="BULB_PLACED_WRONG" ID="{D3A22A56-0460-43D6-9721-B4262726A9B5}">
 									<ChildrenList>
 										<Action Name="" ID="{4A0F5404-9610-428A-88A9-4AF0EB44527F}" ShortID="166859793">
@@ -204,6 +295,51 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{37F879A7-E571-4CCB-BE15-B8690DA35292}" ShortID="263899932">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="Delay" Type="Real64" Value="0.2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Crackle" ID="{AD27127A-E10D-434E-8A5F-030E74D6677A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{086E57D9-7473-4B19-9DF4-C1DDCC7B90B1}" ShortID="535379686">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="Delay" Type="Real64" Value="0.1">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{00C3A490-2061-4D9B-AA55-2CB4CD9053D1}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="0.1"/>
+																	<Property Name="Min" Type="Real64" Value="-0.1"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AC power" ID="{53D831AB-EEBE-4B89-A5BA-6C61DA3AD139}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{4212E877-379B-4BB2-A859-CF6C0852361C}" ShortID="6199698">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="Delay" Type="Real64" Value="0.3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Boom" ID="{C3F41537-D97C-44D4-B6E2-3D762E17499C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -325,6 +461,7 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="PUZZLE_LEAVING" ID="{4F68F291-2DC3-4506-83CD-77334C114BA1}"/>
 					</ChildrenList>
 				</Folder>
 				<Event Name="STORYBITE_TEST" ID="{ABD3B456-8DF5-4612-8147-3F6D06749713}">
@@ -537,6 +674,20 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="TEST_EVENT" ID="{A64C4A31-1DCA-4D1A-8F0D-E56A8E0CBCC6}">
+					<ChildrenList>
+						<Action Name="" ID="{8291A17B-D7DE-4200-93B8-DDCDBE16D9BF}" ShortID="815910405">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Exploration Music" ID="{92C0621E-7466-4CFA-A5F8-CBD08BC38C2A}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
