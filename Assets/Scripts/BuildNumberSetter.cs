@@ -11,14 +11,16 @@ public class BuildNumberSetter : MonoBehaviour
         t.text = "Build: " + Application.version;
         if (buildInfo != null)
         {
-            foreach (var s in buildInfo.text.Split('\n'))
+            foreach (string s in buildInfo.text.Split('\n'))
             {
                 string ss = s;
-                if (s.Length > 20)
+                int i = ss.IndexOf(':');
+                ss = ss.Replace("\\n", "");
+                if (ss.ToLower().Contains("commit"))
                 {
-                    ss = s.Substring(0, 7);
+                    ss = ss.Substring(0, Mathf.Min(i + 9, ss.Length));
                 }
-                t.text += "\n" +ss;
+                t.text += "\n" + ss;
             }
         }
         
