@@ -25,6 +25,10 @@ public class CombinationPuzzleController : BasePuzzle
     [SerializeField, Tooltip("Specify the bounds of the puzzle. This is the area the pieces can be dragged within")]
     private Vector3 bounds;
 
+    [SerializeField, Tooltip("The distance picture frames should be raised when picked up")]
+    private float raiseAmount = .15f;
+    public float RaiseAmount { get { return raiseAmount; } }
+
     public Vector3 Bounds { get { return bounds; }}
 
     private PictureFrameTouch[] pictureFrames;

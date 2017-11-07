@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Gamelogic.Extensions;
 using UnityEngine;
 
 public class PictureFrameTouch : MonoBehaviour, ITouchInput
@@ -23,6 +24,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     private Vector3 distanceWorldPos;
     private Renderer cachedRenderer;
     private MeshFilter cachedMeshFilter;
+    private float originalRaise;
 
     private void Start()
     {
@@ -58,23 +60,26 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
     public void OnTouchDown(Touch finger, Vector3 worldPos)
     {
-        print("Down");
         if (controller != null)
         {
             controller.OnBeginSolving();
+            originalRaise = transform.position.y;
+            transform.SetY(controller.RaiseAmount);
         }
         distanceWorldPos = worldPos - transform.position;
         PlayEvent(pickupWwiseEvent);
+        
+       
     }
 
     public void OnTouchUp(Touch finger)
     {
         PlayEvent(placeWwiseEvent);
+        transform.SetY(originalRaise);
     }
 
     public void OnToucHold(Touch finger, Vector3 worldPos)
     {
-        print("Hold");
         Vector3 newPosition = worldPos - distanceWorldPos;
 
         if (!Directions.X) {
@@ -100,6 +105,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     public void OnTouchExit()
     {
         PlayEvent(placeWwiseEvent);
+        transform.SetY(originalRaise);
     }
 
     public void OnSwipe(Touch finger, TouchDirection direction)
