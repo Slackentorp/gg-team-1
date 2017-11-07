@@ -16,6 +16,8 @@ public class WorldMap : MonoBehaviour
 	private GameObject objectHit;
 	private int lampsLit = 1;
 
+    public bool worldMapCompleted; //Placeholder i suppose
+
     [SerializeField]
     private GameObject particles; 
 
@@ -40,6 +42,7 @@ public class WorldMap : MonoBehaviour
 		}
 		if (lampsLit == lights.Length)
 		{
+            worldMapCompleted = true;
 			//Debug.Log("Puzzle Done");
             particles.SetActive(true);
 		}
