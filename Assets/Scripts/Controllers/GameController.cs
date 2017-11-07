@@ -27,7 +27,7 @@ public class GameController : Singleton<GameController>
     private LightController lightController; 
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         lightController = GetComponent<LightController>(); 
 		localization = new LocalizationManager();

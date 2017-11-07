@@ -14,7 +14,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     [SerializeField]
     private bool IsLit = false;
 
-    public Vector3 CameraPosition { get { return transform.position + (cameraPosition); } }
+    public Vector3 CameraPosition { get { return transform.TransformPoint(cameraPosition); } }
 
     public bool Lit
     {

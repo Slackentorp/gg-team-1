@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Managers;
+using Gamelogic.Extensions;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
-public class LightbulbTouch : MonoBehaviour, ITouchInput
+public class LightbulbTouch : MonoBehaviour
 {
     [HideInInspector]
     public LightBulbPuzzleController controller;
@@ -13,30 +14,35 @@ public class LightbulbTouch : MonoBehaviour, ITouchInput
     public GameObject correctContact;
 
     [HideInInspector]
-    public GameObject copyOf, pool;
+    public GameObject copyOf;
 
     [SerializeField]
     private float scaleConstant;
     private GameObject instantiatedCopy;
-    private Vector3 startPos;
+    public Vector3 startPos;
     private Quaternion startRotation;
     private Vector3 startSize;
     private GameObject solutionRack;
     private Vector3 distanceWorldPos;
     private BoxCollider boxCollider;
 
+    public Vector3 rackUp, rackDirection, rackNormal;
+    public bool isColliding;
 
     // Use this for initialization
     void Start ()
     {
         if (!isCopy)
         {
-            pool = Instantiate(gameObject, new Vector3(0, -100, 0), Quaternion.identity);
-            pool.GetComponent<LightbulbTouch>().isCopy = true;
+        //    pool = Instantiate(gameObject, new Vector3(0, -100, 0), Quaternion.identity);
+            //pool.transform.parent = transform.parent;
+          //  pool.GetComponent<LightbulbTouch>().isCopy = true;
         }
-
-        boxCollider = GetComponent<BoxCollider>();
         
+        boxCollider = GetComponent<BoxCollider>();
+        startRotation = transform.rotation;
+        startPos = transform.position;
+        startSize = boxCollider.size;
 
         if (controller != null)
 	    {
@@ -47,10 +53,36 @@ public class LightbulbTouch : MonoBehaviour, ITouchInput
 	
 	// Update is called once per frame
 	void Update () {
+	    if (isCopy)
+	    {
+	        Debug.DrawLine(startPos, startPos + rackUp, Color.blue);
+	        Debug.DrawLine(startPos, startPos + rackDirection.normalized, Color.green);
+	        Debug.DrawLine(startPos, rackNormal, Color.red);
+	        
+	    }
+
+	    /*if (controller != null) {
+	        controller.CheckForSolution(this);
+	    }*/
+
     }
 
     public void OnTap(Touch finger)
     {
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("RackWall"))
+        {
+            isColliding = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other) {
+        if (other.CompareTag("RackWall")) {
+            isColliding = false;
+        }
     }
 
     public void OnTouchDown(Touch finger, Vector3 worldPos)
@@ -65,12 +97,13 @@ public class LightbulbTouch : MonoBehaviour, ITouchInput
             controller.OnBeginSolving();
         }
 
-        ProjectedVectors pv = ComputeProjectedPosition(worldPos);
+        ProjectedVectors pv = ComputeProjectedPosition(transform.position);
         
-
-        pool = poolInstantiate(pool, pv.Projection, transform.rotation);
-        pool.GetComponent<LightbulbTouch>().copyOf = gameObject;
-        AkSoundEngine.PostEvent(controller.OnPickupWwiseEvent, pool);
+        
+        GameObject copy = Instantiate(gameObject, transform.position, transform.rotation);
+        copy.GetComponent<LightbulbTouch>().copyOf = gameObject;
+        copy.GetComponent<LightbulbTouch>().isCopy = true;
+        AkSoundEngine.PostEvent(controller.OnPickupWwiseEvent, copy);
 
     }
 
@@ -78,7 +111,7 @@ public class LightbulbTouch : MonoBehaviour, ITouchInput
     {
         if (isCopy)  
         {
-            poolDestroy(gameObject);
+          //  Destroy(gameObject);
             AkSoundEngine.PostEvent(controller.OnIncorrectPlacementWwiseEvent,
                 gameObject);
         }
@@ -122,41 +155,24 @@ public class LightbulbTouch : MonoBehaviour, ITouchInput
 
     private ProjectedVectors ComputeProjectedPosition(Vector3 newPosition)
     {
-        Vector3 rackDirection = startPos - solutionRack.transform.position;
+        rackDirection = solutionRack.transform.position - startPos;
         Vector3 tmp = startPos;
         tmp.y = solutionRack.transform.position.y;
         tmp.x = 0;
         tmp.z = 0;
-        Vector3 rackUp = startPos + tmp;
+        rackUp = startPos + tmp;
+        rackUp = Quaternion.AngleAxis(90, Vector3.right) * rackDirection;
 
-        Vector3 rackNormal = Vector3.Cross(rackDirection.normalized, rackUp.normalized);
-        Vector3 projection = Vector3.ProjectOnPlane(newPosition, rackNormal.normalized);
+        rackNormal = Quaternion.AngleAxis(90, Vector3.up) * rackUp;
+        Plane pl = new Plane(startPos, solutionRack.transform.position, Vector3.Lerp(startPos, solutionRack.transform.position, .5f).WithY(0.25f));
+
+        Vector3 projection = pl.ClosestPointOnPlane(newPosition);
 
         ProjectedVectors pv = new ProjectedVectors();
         pv.Projection = projection;
         pv.Direction = rackDirection;
 
         return pv;
-    }
-
-    GameObject poolInstantiate(GameObject gameobject, Vector3 position, Quaternion rotation)
-    {
-        gameobject.transform.position = position;
-        gameobject.transform.rotation = rotation;
-        gameobject.transform.localScale = transform.localScale;
-
-        LightbulbTouch lbt = gameobject.GetComponent<LightbulbTouch>();
-        lbt.startRotation = rotation;
-        lbt.startPos = position;
-        lbt.startSize = boxCollider.size;
-
-        return gameobject;
-    }
-
-    void poolDestroy(GameObject gameobject) {
-        gameobject.transform.position = new Vector3(0,-100,0);
-        gameobject.transform.rotation = Quaternion.identity;
-        InputManager.Instance.RefreshDictionary(gameobject);
     }
 
     private struct ProjectedVectors

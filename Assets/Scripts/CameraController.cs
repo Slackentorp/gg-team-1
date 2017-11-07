@@ -23,6 +23,7 @@ public class CameraController : MonoBehaviour
     private bool storyCam = true;
 
     public bool isDebug = true;
+    public static bool isMouseTouchingObject;
 
 
     public Transform TargetPos
@@ -105,14 +106,14 @@ public class CameraController : MonoBehaviour
     {
         float newAngleY = 0, newAngleX = 0;
 #if UNITY_EDITOR
-        if (Input.GetMouseButton(0) && !InputManager.Instance.isTouchingObject)
+        if (Input.GetMouseButton(0) && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
         {
             newAngleY =
                 -Input.GetAxis("Mouse X") * cameraTurnSpeed;
             newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
         }
 #endif
-        if (Input.touchCount > 0 && !InputManager.Instance.isTouchingObject)
+        if (Input.touchCount > 0 && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
         {
             newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
                         10;

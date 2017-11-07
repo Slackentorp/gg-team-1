@@ -27,8 +27,10 @@ public abstract class BasePuzzle : MonoBehaviour
             print("Triggering storybit: " +onSolvedStorybitName);
         }
 
-
-        particles.SetActive(true);
+        if (particles != null)
+        {
+            particles.SetActive(true);
+        }
         print("Everything is correct");
     }
 
