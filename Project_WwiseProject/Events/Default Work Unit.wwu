@@ -56,7 +56,53 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="MOTH_HIT_WINDOW" ID="{0665CD8B-4687-436D-9727-B2CB3BA38A16}"/>
+						<Event Name="MOTH_HIT_WINDOW" ID="{0665CD8B-4687-436D-9727-B2CB3BA38A16}">
+							<ChildrenList>
+								<Action Name="" ID="{218DBF67-633A-4894-999C-2355449F6080}" ShortID="904071393">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{A18EC0F1-354D-4783-A7BD-5195AED44976}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="0.1"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Glass ring" ID="{174C0FA6-EF84-471A-B9B5-1B2628055C24}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{07C29D4C-3A25-4E3B-B072-9A7DE4620EF6}" ShortID="553442660">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{D502280A-D133-4650-B8DF-2AD514CE13F4}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hit window" ID="{D28A57BA-A320-45E2-8531-70EB9B00A0BB}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Ambience" ID="{CB63D89D-9A5B-4F67-BE53-36CC1D55B2DE}" ShortID="586050579">

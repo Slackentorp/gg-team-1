@@ -79,6 +79,53 @@
 						<CurrentSwitchRef Name="PIN_8" ID="{69EB40DC-2AAC-4450-897B-CD2917BAFDEC}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
+				<SoundcasterSession Name="Moth" ID="{11A76492-0094-47BC-ACC3-1E9029C8B68B}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="MOTH_START_FLIGHT" ID="{42DDC5BA-946A-4A80-8D37-64684D345CA2}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MOTH_HIT_WINDOW" ID="{0665CD8B-4687-436D-9727-B2CB3BA38A16}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}"/>
+							<Value>44</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFX_VOLUME" ID="{DD2FA790-5B47-47E9-8B9A-7BF350D45065}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MUSIC_VOLUME" ID="{2516B5BA-68F0-4E04-9F17-B0414481BF14}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="OBJECT_SPEED" ID="{3152E94B-B9B8-4F41-A102-C62BE0E7E47F}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}"/>
+							<Value>0</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="PIN_1" ID="{A518F51E-05B8-4112-997C-0D78CBD70DE8}"/>
+						<CurrentSwitchRef Name="STAR_1" ID="{A47BCE39-39E5-47DA-9AC1-B818C71EAD68}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundcasterSessions>
