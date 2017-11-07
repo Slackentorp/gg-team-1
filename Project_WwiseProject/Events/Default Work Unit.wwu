@@ -39,6 +39,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{4F6B6984-8619-429C-8C5F-3E1FFEDDF2E1}" ShortID="270863545">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MOTH_FLY_LOUD" ID="{90173BB2-32C7-45F8-B403-8C88AA4FC722}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="MOTH_END_FLIGHT" ID="{55124FC1-C5D1-41D4-8A94-2636E35D9F51}">
@@ -51,6 +61,27 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Flying" ID="{C7A38437-C86F-4A62-A9AA-7E396855109D}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F1CA4737-0BB4-48DE-A7E0-5DD7863DA684}" ShortID="726283029">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Moth landing" ID="{1580B7FB-B12F-491D-9A87-C89FEBB6F215}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E562FB59-2205-49F4-9B70-6397B87B5638}" ShortID="67022652">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MOTH_FLY_LOUD" ID="{90173BB2-32C7-45F8-B403-8C88AA4FC722}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
