@@ -10,6 +10,8 @@ public class BootstrapManager : Singleton<BootstrapManager>
     [SerializeField]
     private Camera gameCamera;
 
+    public GameObject mothObject; 
+
     private Scene levelScene;
 
     // Use this for initialization
