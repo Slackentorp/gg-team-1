@@ -16,9 +16,9 @@ public class BuildNumberSetter : MonoBehaviour
                 string ss = s;
                 int i = ss.IndexOf(':');
                 ss = ss.Replace("\\n", "");
-                if (ss.Length - i > 8)
+                if (ss.ToLower().Contains("commit"))
                 {
-                    ss = ss.Substring(0, Mathf.Min(i + 8, ss.Length));
+                    ss = ss.Substring(0, Mathf.Min(i + 9, ss.Length));
                 }
                 t.text += "\n" + ss;
             }
