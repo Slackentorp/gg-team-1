@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Managers;
+using Gamelogic.Extensions;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -36,13 +38,23 @@ public class LightBulbPuzzleController : BasePuzzle
     
 
     private LightbulbTouch[] lightbulbs;
-    private readonly GameObject solutionRack;
+    private Transform mainCamera;
+    private Transform activeBulb;
+    private Vector3 bulbStartPos;
+    private Quaternion bulbStartRotation;
+    private Plane activePlane;
+    private LightbulbTouch activeLightBulbComponent;
 
     void OnEnable() {
         lightbulbs = GetComponentsInChildren<LightbulbTouch>();
         foreach (var bulb in lightbulbs) {
             bulb.controller = this;
         }
+    }
+
+    void Start()
+    {
+        mainCamera = Camera.main.transform;
     }
 	
 	// Update is called once per frame
@@ -55,7 +67,63 @@ public class LightBulbPuzzleController : BasePuzzle
 	    if (enabledBulbs == 0)
         {
 	        OnSolved();
+        }
 
+	    if (Input.GetMouseButtonDown(0))
+	    {
+	        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	        RaycastHit hit;
+            if(Physics.Raycast(ray, out hit))
+	        {
+	            if (hit.transform.CompareTag("Bulb"))
+	            {
+	                activeBulb = hit.transform;
+	                bulbStartPos = activeBulb.position;
+	                bulbStartRotation = activeBulb.rotation;
+                    activePlane = new Plane(bulbStartPos, SolutionRack.transform.position, Vector3.Lerp(bulbStartPos, SolutionRack.transform.position, .5f).WithY(0.25f));
+	                CameraController.isMouseTouchingObject = true;
+	                activeLightBulbComponent =
+	                    activeBulb.GetComponent<LightbulbTouch>();
+
+	            }
+	        }
+	        // Raycast to bulb
+            // If hit, set activeBulb to raycast.hit
+	    }
+	    if (activeLightBulbComponent == null)
+	    {
+	        activeBulb = null;
+	    }
+        // #Opkast
+        if (Input.GetMouseButton(0) && activeBulb != null)
+	    {
+	        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	        float rayDistance;
+	        if (activePlane.Raycast(ray, out rayDistance))
+	        {
+                Vector3 nextPos = ray.GetPoint(rayDistance);
+	       //     float distToObject = Vector3.SqrMagnitude(mainCamera.position - nextPos);
+	       /*     float distToRack = Vector3.Magnitude(mainCamera.position - activeLightBulbComponent.correctContact.transform.position);
+                print("Distance to Object: " + rayDistance + " - Dist to Rack: " + distToRack);
+                */
+                    activeBulb.position = nextPos;
+                
+	           
+
+	            float distanceTraveled = (transform.position - SolutionRack.transform.position).sqrMagnitude;
+	            float travelLength = (bulbStartPos - SolutionRack.transform.position).sqrMagnitude;
+	            float lerpVal = 1 - (distanceTraveled / travelLength);
+
+	            activeBulb.rotation = Quaternion.Slerp(bulbStartRotation, Quaternion.LookRotation(SolutionRack.transform.position - bulbStartPos) * Quaternion.Euler(0, 135, 0), lerpVal);
+	            CheckForSolution(activeLightBulbComponent);
+            }
+
+        }
+	    if (Input.GetMouseButtonUp(0))
+	    {
+	        // activeBulb == null
+	        activeBulb = null;
+	        CameraController.isMouseTouchingObject = false;
         }
     }
 
@@ -86,4 +154,25 @@ public class LightBulbPuzzleController : BasePuzzle
             } 
         }
     }
+
+    private ProjectedVectors ComputeProjectedPosition(Vector3 newPosition) {
+        Vector3 rackDirection = SolutionRack.transform.position - bulbStartPos;
+        Vector3 rackUp = Quaternion.AngleAxis(90, Vector3.right) * rackDirection;
+
+        Plane pl = new Plane(bulbStartPos, SolutionRack.transform.position, Vector3.Lerp(bulbStartPos, SolutionRack.transform.position, .5f).WithY(0.25f));
+
+        Vector3 projection = pl.ClosestPointOnPlane(newPosition);
+
+        ProjectedVectors pv = new ProjectedVectors();
+        pv.Projection = projection;
+        pv.Direction = rackDirection;
+
+        return pv;
+    }
+
+    private struct ProjectedVectors {
+        public Vector3 Projection;
+        public Vector3 Direction;
+    }
+
 }
