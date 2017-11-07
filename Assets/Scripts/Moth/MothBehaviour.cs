@@ -10,8 +10,8 @@ public class MothBehaviour : MonoBehaviour
     private float timeScale = 1;
 
     public float MothSpeed { get; set; }
-
-    private IEnumerator lerp;
+    
+    private bool inTransit;
 
     void OnValidate()
     {
@@ -23,12 +23,12 @@ public class MothBehaviour : MonoBehaviour
 
     public void SetMothPosition(Vector3 position)
     {
-        if (lerp != null)
+        if (!inTransit)
         {
-            StopCoroutine(lerp);
+            inTransit = true;
+            IEnumerator lerp = SmoothLerpPosition(transform.gameObject, position);
+            StartCoroutine(lerp);
         }
-        lerp = SmoothLerpPosition(transform.gameObject, position);
-        StartCoroutine(lerp);
     }
 
 
@@ -48,6 +48,8 @@ public class MothBehaviour : MonoBehaviour
         }
 
         MothSpeed = 0f;
+        //GameController.Instance.GoToCameraTarget();
         AkSoundEngine.PostEvent("MOTH_END_FLIGHT", gameObject);
+        inTransit = false;
     }
 }

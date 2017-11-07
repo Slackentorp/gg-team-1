@@ -154,7 +154,7 @@ namespace Assets.Scripts.Managers
             Dictionary<GameObject, TouchState> previousFrameTouches =
                 new Dictionary<GameObject, TouchState>(frameTouches);
             frameTouches.Clear();
-            
+            isTouchingObject = false;
 
             if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) ||
                 Input.GetMouseButtonUp(0))
@@ -194,6 +194,9 @@ namespace Assets.Scripts.Managers
                     {
                         return;
                     }
+                    isTouchingObject = true;
+
+
                     frameTouches.Add(touchObject, new TouchState(Time.time, t));
 
                     TouchState ts;
