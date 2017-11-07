@@ -73,11 +73,72 @@
 													<ClipList>
 														<MusicClip Name="No light" ID="{396F5582-C76A-4BD5-BC03-2E6844737B37}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="218181.836734694"/>
-																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="2000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="205107.540485744"/>
+																<Property Name="FadeInDuration" Type="Real64" Value="2442.52136759363"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="4392.92288727572"/>
+																<Property Name="PlayAt" Type="Real64" Value="-2000"/>
 															</PropertyList>
 															<AudioSourceRef Name="No light" ID="{51999A18-88F8-45BF-94B0-6E3005872CFA}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{E85AB2EE-8A49-4534-954D-32E7F277048E}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>2</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>205.10754</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{7514017F-266D-444F-8D35-F88B976422D7}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>2</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>205.10754</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{A7A78F69-0EB9-4928-AB94-F6A397F10703}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>2</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>205.10754</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -89,7 +150,7 @@
 										<MusicCue Name="Exit Cue" ID="{1F749D58-F4A0-477D-BC64-77FDB088636B}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="218181.836734694"/>
+												<Property Name="TimeMs" Type="Real64" Value="200000"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
@@ -113,6 +174,7 @@
 									<ChildrenList>
 										<MusicPlaylistItem Name="" ID="{F485BCC8-BBBD-440F-BDDB-4B34B49D4513}" ShortID="425102264">
 											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
 												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 											</PropertyList>
 											<SegmentRef Name="No light" ID="{310FE666-CE60-4DFE-A393-CD2EF7733819}"/>

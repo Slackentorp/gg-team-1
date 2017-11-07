@@ -46,6 +46,7 @@ namespace AK
         static const AkUniqueID STARBUTTON_PRESS_NOMUSIC = 2345344986U;
         static const AkUniqueID STORYBITE_TEST = 2130706069U;
         static const AkUniqueID TELEVISION = 3098926425U;
+        static const AkUniqueID TEST_EVENT = 4258653052U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
     } // namespace EVENTS
 
