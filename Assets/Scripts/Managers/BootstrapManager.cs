@@ -30,7 +30,7 @@ public class BootstrapManager : Singleton<BootstrapManager>
         {
             GameObject[] rootGameObjects = levelScene.GetRootGameObjects();
             GameObject levelCamera =
-                rootGameObjects.FirstOrDefault(o => o.tag == "Level Camera");
+                rootGameObjects.FirstOrDefault(o => o.CompareTag("Level Camera"));
             if (levelCamera != null)
             {
                 gameCamera.transform.position = levelCamera.transform.position;
@@ -42,6 +42,7 @@ public class BootstrapManager : Singleton<BootstrapManager>
                 Debug.LogWarning( "No camera with tag 'Level Camera' " +
                                 "was found in level. Using default settings.");
             }
+            GameController.Instance.SetupScene(gameCamera); 
         }
         else
         {

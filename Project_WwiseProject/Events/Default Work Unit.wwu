@@ -3,20 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="TEST_EVENT" ID="{C6C83C94-399C-4A47-A5D7-7E4B98D8B134}">
-					<ChildrenList>
-						<Action Name="" ID="{7B98811D-62F9-4C9B-8A28-00F57FCA0275}" ShortID="576262123">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="TestTrack" ID="{41CF5678-A17A-4ACE-A9B2-C160C2087E08}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="Moth" ID="{445A0E3C-BB45-4ADA-9EA2-57AFC84BC67B}" ShortID="90425324">
 					<ChildrenList>
 						<Event Name="MOTH_START_FLIGHT" ID="{42DDC5BA-946A-4A80-8D37-64684D345CA2}">
@@ -110,36 +96,22 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="LIVINGROOM_ENTER" ID="{6B77436A-B36D-4107-A721-4BAF006199B3}">
+							<ChildrenList>
+								<Action Name="" ID="{2CB784F4-C46F-42C5-BDA5-B1E7248A9046}" ShortID="897490340">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Exploration Music" ID="{92C0621E-7466-4CFA-A5F8-CBD08BC38C2A}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="INTERACTIBLE_MOVE" ID="{93ADC84C-4788-4971-9EFB-1B094D0BAB9F}">
-					<ChildrenList>
-						<Action Name="" ID="{30521C8F-A41F-476F-A187-F3677A274949}" ShortID="1006545021">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Move Paper" ID="{A6EBC3C1-6CA9-41AA-8148-E9BE96A2DE62}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="INTERACTIBLE_PICK_UP" ID="{FA102543-9663-4336-B968-C536003B5E01}">
-					<ChildrenList>
-						<Action Name="" ID="{49AC6E6E-7999-4027-BA7B-50A343B52D7A}" ShortID="916753318">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Pick Paper Up" ID="{CF3CB5DA-A79C-4138-BC09-B5F74B12453F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="Puzzles" ID="{804443FD-D136-4407-A437-AE603B8EE6C5}" ShortID="671669688">
 					<ChildrenList>
 						<Event Name="PUZZLE_SOLVED" ID="{5690CBDC-AE94-4C2A-A217-13E31F1255F2}">
@@ -160,14 +132,38 @@
 						<Folder Name="Map" ID="{5B8FEEB3-D540-4E55-A490-89F060B2970E}" ShortID="880547239">
 							<ChildrenList>
 								<Event Name="MAP_FAILED" ID="{823C2C48-B9AC-4CF2-8737-B2229367E803}"/>
-								<Event Name="MAPBUTTON_PRESS" ID="{C8E15731-EB84-4456-B0BD-4B5F740248C6}"/>
-								<Event Name="MAPBUTTON_PRESS_NOMUSIC" ID="{A5DD2EC0-0C97-4D89-8441-B9B88BDA27EB}"/>
+								<Event Name="MAPBUTTON_PRESS" ID="{C8E15731-EB84-4456-B0BD-4B5F740248C6}">
+									<ChildrenList>
+										<Action Name="" ID="{AFDE6F36-73F1-447B-96BD-B8BD49077F9F}" ShortID="973968847">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Press Pin" ID="{79268D88-83BE-4BD4-B74A-4BDFFABD5C77}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
-						<Event Name="S" ID="{76D206EF-E09E-4842-80F4-01DF7049CFBF}"/>
 						<Folder Name="Star" ID="{78792C36-8AF4-4036-AC9B-AC61F6E1196A}" ShortID="187017807">
 							<ChildrenList>
-								<Event Name="STARBUTTON_PRESS" ID="{DCC0D8EB-316E-4147-B7CC-EC972B14EACC}"/>
+								<Event Name="STARBUTTON_PRESS" ID="{DCC0D8EB-316E-4147-B7CC-EC972B14EACC}">
+									<ChildrenList>
+										<Action Name="" ID="{E1B9FDAC-0A0A-4E73-8BC5-48F379073597}" ShortID="767762211">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lightswitch" ID="{C874BE78-7BE0-4DEE-9FBC-CE98F2E7C517}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 								<Event Name="STAR_FAILED" ID="{C1D45650-6AD3-40A6-8CFF-27AB32767DC2}"/>
 								<Event Name="STARBUTTON_PRESS_NOMUSIC" ID="{5366C436-5CEC-402B-BEE7-67879A3B5C70}"/>
 							</ChildrenList>
@@ -175,32 +171,162 @@
 						<Folder Name="Lightbulb" ID="{874AAD25-EE05-4305-9739-9998C611005B}" ShortID="459595533">
 							<ChildrenList>
 								<Event Name="BULB_PICK_UP" ID="{8F4666CD-2C85-4531-B040-A91FB2CF70DA}"/>
-								<Event Name="BULB_FAILED" ID="{D3A22A56-0460-43D6-9721-B4262726A9B5}"/>
+								<Event Name="BULB_PLACED_WRONG" ID="{D3A22A56-0460-43D6-9721-B4262726A9B5}">
+									<ChildrenList>
+										<Action Name="" ID="{4A0F5404-9610-428A-88A9-4AF0EB44527F}" ShortID="166859793">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="Delay" Type="Real64" Value="0.3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Breaking" ID="{811D8D96-CDEB-4FC8-8CA8-5F600158996F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{D2C9FA2C-DDF6-4527-8B42-CEBB9B7CBF4F}" ShortID="156723736">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Screw In" ID="{369E6482-2AC7-418C-A407-6E38897659DF}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{B285B457-2103-492B-BE28-05DD3E78A790}" ShortID="437393824">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="Delay" Type="Real64" Value="0.3"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+												<Property Name="Scope" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="BULB_PLACED_RIGHT" ID="{31AEECE7-9DD0-43B1-AA49-D00DCAC184A6}">
+									<ChildrenList>
+										<Action Name="" ID="{2755E680-9EED-47AE-90DB-D6D836A63864}" ShortID="87957893">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Screw In" ID="{369E6482-2AC7-418C-A407-6E38897659DF}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{D5E534A1-83AD-43DD-B5BD-E055A51A087F}" ShortID="277923927">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="Delay" Type="Real64" Value="0.3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{5F61E890-73CE-401D-8456-73003B79CAF2}" ShortID="647724282">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="Delay" Type="Real64" Value="0.2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Turn on" ID="{8E256CAF-46EA-43F4-95E4-D2D71C8B9434}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="PicturePuzzle" ID="{F9E6DB2F-5BFC-4D18-A4F6-3B029455A7F1}" ShortID="1015551174">
 							<ChildrenList>
-								<Event Name="PIECE_PICK" ID="{42778470-5BCC-4831-BD83-EA0D8F17F829}"/>
-								<Event Name="PIECE_PLACED_WRONG" ID="{4AF9DD12-0003-4658-8B47-9FF5714E306D}"/>
-								<Event Name="PIECE_PLACED_RIGHT" ID="{73D1437D-0E91-48A3-AE12-5A3402C67952}"/>
+								<Event Name="PIECE_PICK" ID="{42778470-5BCC-4831-BD83-EA0D8F17F829}">
+									<ChildrenList>
+										<Action Name="" ID="{4679AADA-473A-48A5-8FDE-5C61B531F6F1}" ShortID="954973098">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Pick Paper Up" ID="{CF3CB5DA-A79C-4138-BC09-B5F74B12453F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="PIECE_PLACED_WRONG" ID="{4AF9DD12-0003-4658-8B47-9FF5714E306D}">
+									<ChildrenList>
+										<Action Name="" ID="{F6EB77C5-B9E8-4BDD-9000-7237D3752C36}" ShortID="85703286">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Move Paper" ID="{A6EBC3C1-6CA9-41AA-8148-E9BE96A2DE62}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="PIECE_PLACED_RIGHT" ID="{73D1437D-0E91-48A3-AE12-5A3402C67952}">
+									<ChildrenList>
+										<Action Name="" ID="{51F7EBC9-9111-4E6C-A398-4EB1075F26AC}" ShortID="603623263">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Move Paper" ID="{A6EBC3C1-6CA9-41AA-8148-E9BE96A2DE62}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Kitchen" ID="{BFB368E6-CBEE-4D31-9AAE-A38C97E725E1}" ShortID="810612285">
+							<ChildrenList>
+								<Event Name="MUG_PLACED_WRONG" ID="{9F5459DA-137D-47F6-9E64-5F86E26D7D91}">
+									<ChildrenList>
+										<Action Name="" ID="{847A17A7-1E83-4BB2-970F-4DB7B0A45B93}" ShortID="743100759">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Place mug" ID="{7999A153-A103-4F9F-8FEF-14B7D18F4CFE}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="MUG_PLACED_RIGHT" ID="{6C2ADBF8-0980-4EA1-93DA-AEED211FDB0D}">
+									<ChildrenList>
+										<Action Name="" ID="{ECB301D1-EAFF-4F21-AA93-946C4CF36D52}" ShortID="826968290">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Place mug" ID="{7999A153-A103-4F9F-8FEF-14B7D18F4CFE}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Event Name="LIVINGROOM_ENTER" ID="{6B77436A-B36D-4107-A721-4BAF006199B3}">
-					<ChildrenList>
-						<Action Name="" ID="{2CB784F4-C46F-42C5-BDA5-B1E7248A9046}" ShortID="897490340">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Exploration Music" ID="{92C0621E-7466-4CFA-A5F8-CBD08BC38C2A}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="STORYBITE_TEST" ID="{ABD3B456-8DF5-4612-8147-3F6D06749713}">
 					<ChildrenList>
 						<Action Name="" ID="{99F7A127-6061-4C36-972B-B0EBE1983EBE}" ShortID="567964011">
@@ -254,15 +380,161 @@
 				</Event>
 				<Folder Name="Menu" ID="{94258F84-A1BE-446C-BE7E-92C9D07FF104}" ShortID="129051626">
 					<ChildrenList>
-						<Event Name="INGAMEMENU_OPEN" ID="{659A4558-69D7-4BFA-9DEE-01EF3CF51783}"/>
-						<Event Name="INGAMEMENU_CLOSE" ID="{EF24F210-D567-4C5D-8E62-A28E4A1E1F49}"/>
+						<Event Name="INGAMEMENU_OPEN" ID="{659A4558-69D7-4BFA-9DEE-01EF3CF51783}">
+							<ChildrenList>
+								<Action Name="" ID="{E1833ACC-FA75-49B5-BD37-A876D73854B2}" ShortID="328549769">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="7"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="StoryEvents" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{EB609B52-BF1E-42DB-914D-22AE67B72C32}" ShortID="169332828">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="29"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Highpass" Type="int16" Value="50"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MUSIC" ID="{D394A765-B185-4D32-97A6-9746AD373EF0}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="INGAMEMENU_CLOSE" ID="{EF24F210-D567-4C5D-8E62-A28E4A1E1F49}">
+							<ChildrenList>
+								<Action Name="" ID="{75F1EA71-59EA-4D7C-A366-1131AE70CB49}" ShortID="1048109277">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="9"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="StoryEvents" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{3FFE9C87-B0E0-456A-AE15-AFD279BCF72B}" ShortID="50090048">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="30"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MUSIC" ID="{D394A765-B185-4D32-97A6-9746AD373EF0}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="MAINMENU_OPEN" ID="{F57412A0-CBED-4E0E-B4C5-358AA27E86A0}"/>
 						<Event Name="MENUBUTTON_PRESS" ID="{E13D8E67-5FB2-4A15-A3C0-5680A7B8EDBA}"/>
 						<Event Name="MENU_START_GAME" ID="{13549D70-DC0E-4887-8B18-E9012C0D2CF3}"/>
-						<Event Name="SFX_MUTE" ID="{A7EC4BB8-F6DB-480A-820B-B7917930C421}"/>
-						<Event Name="SFX_UNMUTE" ID="{188A2BD4-EFEC-4A25-8404-DE3D4C50C600}"/>
-						<Event Name="MUSIC_MUTE" ID="{BA8F99F7-1F3A-403D-9E10-AE4EC7211D48}"/>
-						<Event Name="MUSIC_UNMUTE" ID="{BD145799-48F2-4814-9F82-264BCFBE4C25}"/>
+						<Event Name="SFX_MUTE" ID="{A7EC4BB8-F6DB-480A-820B-B7917930C421}">
+							<ChildrenList>
+								<Action Name="" ID="{69541EF5-76FF-4237-BD71-329D1C39EC06}" ShortID="740513012">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="12"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+										<Property Name="Volume" Type="Real64" Value="-96"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFX_UNMUTE" ID="{188A2BD4-EFEC-4A25-8404-DE3D4C50C600}">
+							<ChildrenList>
+								<Action Name="" ID="{C827C591-44BE-44B8-9F50-F0D5BA6C8779}" ShortID="1000694647">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="MUSIC_MUTE" ID="{BA8F99F7-1F3A-403D-9E10-AE4EC7211D48}">
+							<ChildrenList>
+								<Action Name="" ID="{49F6ECAA-94C0-4FA3-83EF-523A9C75A2D7}" ShortID="113708654">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="12"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+										<Property Name="Volume" Type="Real64" Value="-96"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MUSIC" ID="{D394A765-B185-4D32-97A6-9746AD373EF0}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="MUSIC_UNMUTE" ID="{BD145799-48F2-4814-9F82-264BCFBE4C25}">
+							<ChildrenList>
+								<Action Name="" ID="{D412A47A-C76B-4D85-A749-87B47071AB3D}" ShortID="779809424">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MUSIC" ID="{D394A765-B185-4D32-97A6-9746AD373EF0}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Story Events" ID="{BE0E9764-C28E-49BC-8956-F5645C1CED9C}" ShortID="282217027"/>
+				<Folder Name="Story Bites" ID="{66843E3E-AE81-4618-9A2A-6CE8A36A3A17}" ShortID="885852091">
+					<ChildrenList>
+						<Event Name="Photograph_1" ID="{5752CFF9-4C1D-4607-A6AF-15A96AC4DDE5}">
+							<ChildrenList>
+								<Action Name="" ID="{A9A4AE00-3778-4298-808B-002F6B4C772B}" ShortID="289908015">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="A photograph_alpha" ID="{5B8A5CC9-743C-48C6-8B88-FA40BF33CCCC}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Television" ID="{BF7D4AE8-9791-4FE7-8DDF-85FB06BD8CBE}">
+							<ChildrenList>
+								<Action Name="" ID="{EF02E7F3-B611-4E92-AF4D-61F108049D1A}" ShortID="725322520">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="We needed a tv_alpha" ID="{67265EC7-BDC7-422C-AE24-CF6BB84D0348}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

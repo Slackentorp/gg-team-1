@@ -5,8 +5,9 @@ using UnityEngine;
 public abstract class BasePuzzle : MonoBehaviour
 {
     public string onSolvedWwiseEvent, onSolvedStorybitName;
+    public GameObject particles;
     public bool isSolved;
-    public abstract void CheckForSolution();
+    public abstract void CheckForSolution(Component sender);
 
     public virtual void OnBeginSolving()
     {
@@ -25,5 +26,16 @@ public abstract class BasePuzzle : MonoBehaviour
             // TODO: Implement story bit call
             print("Triggering storybit: " +onSolvedStorybitName);
         }
+
+
+        particles.SetActive(true);
+        print("Everything is correct");
+    }
+
+    [System.Serializable]
+    public struct DirectionsStruct {
+        public bool X;
+        public bool Y;
+        public bool Z;
     }
 }
