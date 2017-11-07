@@ -22,6 +22,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private bool storyCam = true;
 
+    public bool isDebug = true;
+
 
     public Transform TargetPos
     {
@@ -60,6 +62,11 @@ public class CameraController : MonoBehaviour
     {
         if (TargetPos == null)
             TargetPos = transform;
+
+        if (isDebug)
+        {
+            SetStoryCam(false);
+        }
     }
 
     // Update is called once per frame
@@ -151,16 +158,19 @@ public class CameraController : MonoBehaviour
 
     public void SetStoryTarget(Transform target)
     {
+        if (isDebug) return;
         TargetPos = target;
     }
 
     public void SetStoryTarget(Vector3 target)
     {
+        if (isDebug) return;
         TargetPos.position = target;
     }
 
     public void SetStoryTarget(Vector3 target, Vector3 orientation)
     {
+        if (isDebug) return;
         TargetPos.position = target;
         TargetRot = orientation;
     }

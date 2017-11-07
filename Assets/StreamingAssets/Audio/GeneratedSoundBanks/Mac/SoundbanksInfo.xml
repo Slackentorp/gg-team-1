@@ -22,7 +22,7 @@
 			<Path>MAIN_BANK.bnk</Path>
 			<IncludedEvents>
 				<Event Id="3831078465" Name="AMBIENCE_CITY" ObjectPath="\Events\Default Work Unit\Ambience\City\AMBIENCE_CITY"/>
-				<Event Id="3545095724" Name="BULB_PICK_UP" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PICK_UP" MaxAttenuation="0.000000"/>
+				<Event Id="3545095724" Name="BULB_PICK_UP" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PICK_UP"/>
 				<Event Id="4019917531" Name="BULB_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PLACED_RIGHT"/>
 				<Event Id="2218639190" Name="BULB_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PLACED_WRONG"/>
 				<Event Id="590963579" Name="CAR_PASS" ObjectPath="\Events\Default Work Unit\Ambience\Cars\CAR_PASS"/>
@@ -34,7 +34,8 @@
 				<Event Id="3111840605" Name="MAPBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Puzzles\Map\MAPBUTTON_PRESS"/>
 				<Event Id="1931074718" Name="MENU_START_GAME" ObjectPath="\Events\Default Work Unit\Menu\MENU_START_GAME" MaxAttenuation="0.000000"/>
 				<Event Id="1512987680" Name="MENUBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Menu\MENUBUTTON_PRESS" MaxAttenuation="0.000000"/>
-				<Event Id="410314580" Name="MOTH_END_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_END_FLIGHT" MaxAttenuation="0.000000"/>
+				<Event Id="410314580" Name="MOTH_END_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_END_FLIGHT"/>
+				<Event Id="1669806022" Name="MOTH_HIT_WINDOW" ObjectPath="\Events\Default Work Unit\Moth\MOTH_HIT_WINDOW"/>
 				<Event Id="541555517" Name="MOTH_START_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_START_FLIGHT"/>
 				<Event Id="2200206093" Name="MUG_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\Kitchen\MUG_PLACED_RIGHT"/>
 				<Event Id="3572297172" Name="MUG_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\Kitchen\MUG_PLACED_WRONG"/>
@@ -44,6 +45,7 @@
 				<Event Id="394109931" Name="PIECE_PICK" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PICK"/>
 				<Event Id="2720771844" Name="PIECE_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_RIGHT"/>
 				<Event Id="2177473561" Name="PIECE_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_WRONG"/>
+				<Event Id="1963600256" Name="PUZZLE_LEAVING" ObjectPath="\Events\Default Work Unit\Puzzles\PUZZLE_LEAVING" MaxAttenuation="0.000000"/>
 				<Event Id="1107599359" Name="PUZZLE_SOLVED" ObjectPath="\Events\Default Work Unit\Puzzles\PUZZLE_SOLVED"/>
 				<Event Id="3258781332" Name="PUZZLE_SOLVING" ObjectPath="\Events\Default Work Unit\Puzzles\PUZZLE_SOLVING" MaxAttenuation="0.000000"/>
 				<Event Id="2835551186" Name="SFX_MUTE" ObjectPath="\Events\Default Work Unit\Menu\SFX_MUTE" MaxAttenuation="0.000000"/>
@@ -53,6 +55,7 @@
 				<Event Id="2345344986" Name="STARBUTTON_PRESS_NOMUSIC" ObjectPath="\Events\Default Work Unit\Puzzles\Star\STARBUTTON_PRESS_NOMUSIC" MaxAttenuation="0.000000"/>
 				<Event Id="2130706069" Name="STORYBITE_TEST" ObjectPath="\Events\Default Work Unit\STORYBITE_TEST"/>
 				<Event Id="3098926425" Name="Television" ObjectPath="\Events\Default Work Unit\Story Bites\Television"/>
+				<Event Id="4258653052" Name="TEST_EVENT" ObjectPath="\Events\Default Work Unit\TEST_EVENT"/>
 				<Event Id="3443637649" Name="TESTMAPBUTTON" ObjectPath="\Events\Default Work Unit\TESTMAPBUTTON"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -92,6 +95,10 @@
 					<ShortName>MUG_Dull_Wood_Surface_Drop_Series.wav</ShortName>
 					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_DAEBA002.wem</Path>
 				</File>
+				<File Id="97043590" Language="SFX">
+					<ShortName>BULB_AC_NOISE.wav</ShortName>
+					<Path>SFX/BULB_AC_NOISE_56A9E84E.wem</Path>
+				</File>
 				<File Id="106102015" Language="SFX">
 					<ShortName>Police_Siren_PSEM.198.wav</ShortName>
 					<Path>SFX/Police_Siren_PSEM.198_31813313.wem</Path>
@@ -103,6 +110,10 @@
 				<File Id="138948462" Language="SFX">
 					<ShortName>Crumbling Printer Paper 9.wav</ShortName>
 					<Path>SFX/Crumbling Printer Paper 9_942EC1BB.wem</Path>
+				</File>
+				<File Id="141821625" Language="SFX">
+					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
+					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_A60C2F0B.wem</Path>
 				</File>
 				<File Id="145004352" Language="SFX">
 					<ShortName>Rattle_3.wav</ShortName>
@@ -120,6 +131,10 @@
 					<ShortName>RATH - Rain Hard Loop 08.wav</ShortName>
 					<Path>SFX/RATH - Rain Hard Loop 08_8FF9A2E1.wem</Path>
 				</File>
+				<File Id="191639381" Language="SFX">
+					<ShortName>HIT_WINDOW_SOFT_1.wav</ShortName>
+					<Path>SFX/HIT_WINDOW_SOFT_1_379244B3.wem</Path>
+				</File>
 				<File Id="195093296" Language="SFX">
 					<ShortName>Glass,Bottle,Break,Smash,Messy.wav</ShortName>
 					<Path>SFX/Glass,Bottle,Break,Smash,Messy_379244B3.wem</Path>
@@ -132,6 +147,10 @@
 					<ShortName>Rattle_1.wav</ShortName>
 					<Path>SFX/Rattle_1_E8E612C0.wem</Path>
 				</File>
+				<File Id="208842304" Language="SFX">
+					<ShortName>HIT_WINDOW_SOFT.wav</ShortName>
+					<Path>SFX/HIT_WINDOW_SOFT_379244B3.wem</Path>
+				</File>
 				<File Id="229842446" Language="SFX">
 					<ShortName>201788__st303__room-with-buzz-incandescent-light-bulb.wav</ShortName>
 					<Path>SFX/201788__st303__room-with-buzz-incandescent-light-bulb_9A2C41A9.wem</Path>
@@ -140,9 +159,21 @@
 					<ShortName>light_switch_019.wav</ShortName>
 					<Path>SFX/light_switch_019_379244B3.wem</Path>
 				</File>
+				<File Id="251313862" Language="SFX">
+					<ShortName>HIT_WINDOW_SOFT_2.wav</ShortName>
+					<Path>SFX/HIT_WINDOW_SOFT_2_379244B3.wem</Path>
+				</File>
 				<File Id="276167098" Language="SFX">
 					<ShortName>Rattle_6.wav</ShortName>
 					<Path>SFX/Rattle_6_E8E612C0.wem</Path>
+				</File>
+				<File Id="316028559" Language="SFX">
+					<ShortName>BULB_PICK_UP.wav</ShortName>
+					<Path>SFX/BULB_PICK_UP_514190A4.wem</Path>
+				</File>
+				<File Id="321766520" Language="SFX">
+					<ShortName>HIT_WINDOW_SOFT_6.wav</ShortName>
+					<Path>SFX/HIT_WINDOW_SOFT_6_379244B3.wem</Path>
 				</File>
 				<File Id="326688811" Language="SFX">
 					<ShortName>BULB_SCREW_3.wav</ShortName>
@@ -159,6 +190,14 @@
 				<File Id="372989033" Language="SFX">
 					<ShortName>Rattle_4.wav</ShortName>
 					<Path>SFX/Rattle_4_E8E612C0.wem</Path>
+				</File>
+				<File Id="412104274" Language="SFX">
+					<ShortName>HIT_WINDOW_SOFT_3.wav</ShortName>
+					<Path>SFX/HIT_WINDOW_SOFT_3_379244B3.wem</Path>
+				</File>
+				<File Id="484877283" Language="SFX">
+					<ShortName>MOTH_LANDING_1.wav</ShortName>
+					<Path>SFX/MOTH_LANDING_1_379244B3.wem</Path>
 				</File>
 				<File Id="486017468" Language="SFX">
 					<ShortName>corvette arrive.wav</ShortName>
@@ -216,13 +255,37 @@
 					<ShortName>Crumbling Printer Paper 9.wav</ShortName>
 					<Path>SFX/Crumbling Printer Paper 9_F50ABB7E.wem</Path>
 				</File>
+				<File Id="691659001" Language="SFX">
+					<ShortName>Bluezone-BC0214-beep-mine-explosion-002.wav</ShortName>
+					<Path>SFX/Bluezone-BC0214-beep-mine-explosion-002_317D25E4.wem</Path>
+				</File>
 				<File Id="718195452" Language="SFX">
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_FAR.wav</ShortName>
 					<Path>SFX/BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_FAR_E8E612C0.wem</Path>
 				</File>
+				<File Id="721782407" Language="SFX">
+					<ShortName>explosion_large_08.wav</ShortName>
+					<Path>SFX/explosion_large_08_0FD4686C.wem</Path>
+				</File>
+				<File Id="742990135" Language="SFX">
+					<ShortName>MOTH_LANDING.wav</ShortName>
+					<Path>SFX/MOTH_LANDING_379244B3.wem</Path>
+				</File>
+				<File Id="746538295" Language="SFX">
+					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
+					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_D013E06F.wem</Path>
+				</File>
+				<File Id="777357154" Language="SFX">
+					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
+					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_77B92761.wem</Path>
+				</File>
 				<File Id="791677628" Language="SFX">
 					<ShortName>Rattle_2.wav</ShortName>
 					<Path>SFX/Rattle_2_E8E612C0.wem</Path>
+				</File>
+				<File Id="801093171" Language="SFX">
+					<ShortName>Cannon_Blast_PSEM.050.wav</ShortName>
+					<Path>SFX/Cannon_Blast_PSEM.050_7831DF6D.wem</Path>
 				</File>
 				<File Id="808012157" Language="SFX">
 					<ShortName>Reward_05.wav</ShortName>
@@ -252,6 +315,10 @@
 					<ShortName>MUG_Dull_Wood_Surface_Drop_Series.wav</ShortName>
 					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_D43C390D.wem</Path>
 				</File>
+				<File Id="921649304" Language="SFX">
+					<ShortName>BULB_PICK_UP_2.wav</ShortName>
+					<Path>SFX/BULB_PICK_UP_2_D62BDFFB.wem</Path>
+				</File>
 				<File Id="946869893" Language="SFX">
 					<ShortName>Detunized_Urban-Crows_12c.wav</ShortName>
 					<Path>SFX/Detunized_Urban-Crows_12c_B5E058FE.wem</Path>
@@ -259,6 +326,10 @@
 				<File Id="951030059" Language="SFX">
 					<ShortName>birds_outside_002_wide.wav</ShortName>
 					<Path>SFX/birds_outside_002_wide_31813313.wem</Path>
+				</File>
+				<File Id="953140640" Language="SFX">
+					<ShortName>BULB_PICK_UP_1.wav</ShortName>
+					<Path>SFX/BULB_PICK_UP_1_69180F84.wem</Path>
 				</File>
 				<File Id="961599924" Language="SFX">
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR.wav</ShortName>
@@ -280,6 +351,14 @@
 					<ShortName>Rajdoot,motorcycle,kick,start,rev,away,slow.wav</ShortName>
 					<Path>SFX/Rajdoot,motorcycle,kick,start,rev,away,slow_379244B3.wem</Path>
 				</File>
+				<File Id="991979302" Language="SFX">
+					<ShortName>HIT_WINDOW_SOFT_7.wav</ShortName>
+					<Path>SFX/HIT_WINDOW_SOFT_7_379244B3.wem</Path>
+				</File>
+				<File Id="992088354" Language="SFX">
+					<ShortName>MOTH_FLY_LOUD.wav</ShortName>
+					<Path>SFX/MOTH_FLY_LOUD_D62779EF.wem</Path>
+				</File>
 				<File Id="992203550" Language="SFX">
 					<ShortName>Paper Handling and Turning Sequence.wav</ShortName>
 					<Path>SFX/Paper Handling and Turning Sequence_C3353445.wem</Path>
@@ -288,6 +367,10 @@
 					<ShortName>No light.wav</ShortName>
 					<Path>SFX/No light_005E2381.wem</Path>
 				</File>
+				<File Id="995027928" Language="SFX">
+					<ShortName>MOTH_LANDING_2.wav</ShortName>
+					<Path>SFX/MOTH_LANDING_2_379244B3.wem</Path>
+				</File>
 				<File Id="1009401605" Language="SFX">
 					<ShortName>Car_Ford_Focus_2009_Accel_Slowly_PSEM.051.wav</ShortName>
 					<Path>SFX/Car_Ford_Focus_2009_Accel_Slowly_PSEM.051_379244B3.wem</Path>
@@ -295,6 +378,14 @@
 				<File Id="1044749691" Language="SFX">
 					<ShortName>Rattle_5.wav</ShortName>
 					<Path>SFX/Rattle_5_E8E612C0.wem</Path>
+				</File>
+				<File Id="1062689332" Language="SFX">
+					<ShortName>Bug_Zapper_PSEM.043.wav</ShortName>
+					<Path>SFX/Bug_Zapper_PSEM.043_B7848B08.wem</Path>
+				</File>
+				<File Id="1063253616" Language="SFX">
+					<ShortName>HIT_WINDOW_SOFT_4.wav</ShortName>
+					<Path>SFX/HIT_WINDOW_SOFT_4_379244B3.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
