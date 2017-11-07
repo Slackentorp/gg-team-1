@@ -16,8 +16,8 @@ public class CameraController : MonoBehaviour
     private Vector3 targetRot;
     private Transform prevPos;
 
-    [SerializeField]
-    private Transform menuPosition;
+    /*[SerializeField]
+    private Transform menuPosition;*/
 
     [SerializeField]
     private bool storyCam = true;
