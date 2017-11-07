@@ -22,6 +22,7 @@ public class PuzzleChecker : MonoBehaviour
     private Vector3 endLightPosition, mothPosition;
     [SerializeField]
     private GameObject endGameCanvas;
+
     private float distanceToEndLight;
 
     void Start()
@@ -33,26 +34,18 @@ public class PuzzleChecker : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
+        //if (Input.GetKeyDown(KeyCode.F1))
+        //{
             UpdatePuzzels();
-        }
+        //}
         if (Input.GetKeyDown(KeyCode.F2))
         {
             SolveAllPuzzels();
         }
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
+       // if (Input.GetKeyDown(KeyCode.F3))
+       // {
             DistanceCheck();
-        }
-
-        //mothPosition = getGameController.mothObject.transform.position;
-        //distanceToEndLight = Vector3.Distance(mothPosition, endLightPosition);
-        //if (distanceToEndLight < 0.35)
-        //{
-        //    print("GG");
         //}
-
     }
 
     private void UpdatePuzzels()
@@ -64,7 +57,7 @@ public class PuzzleChecker : MonoBehaviour
                 bool thisPuzzelStatus = puzzels[i].GetComponent<TMPTutorialPuzzle>().solved;
                 SolvedPuzzels[i] = thisPuzzelStatus;
 
-                print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
+                //print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
             }
 
             if (puzzels[i].GetComponent<WorldMap>() != null)
@@ -72,7 +65,7 @@ public class PuzzleChecker : MonoBehaviour
                 bool thisPuzzelStatus = puzzels[i].GetComponent<WorldMap>().worldMapCompleted;
                 SolvedPuzzels[i] = thisPuzzelStatus;
 
-                print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
+                //print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
             }
 
             if (puzzels[i].GetComponent<BasePuzzle>() != null)
@@ -80,7 +73,7 @@ public class PuzzleChecker : MonoBehaviour
                 bool thisPuzzelStatus = puzzels[i].GetComponent<BasePuzzle>().isSolved;
                 SolvedPuzzels[i] = thisPuzzelStatus;
 
-                print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
+                //print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
             }
         }
 
@@ -114,15 +107,19 @@ public class PuzzleChecker : MonoBehaviour
     {
         mothPosition = getGameController.mothObject.transform.position;
         distanceToEndLight = Vector3.Distance(mothPosition, endLightPosition);
-        if (distanceToEndLight < 0.35)
+        //print(distanceToEndLight);
+        if (distanceToEndLight < 1)
         {
-            print("GG");
+            //print("GG");
             endGameCanvas.SetActive(true);
         }
     }
 
     public void LoadScene()
     {
-        SceneManager.LoadScene("Level01", LoadSceneMode.Single);
+        Application.Quit();
+        //endGameCanvas.SetActive(false);
+        //BootstrapManager.Instance.ChangeLevelScene("Bootstrap");
+        //BootstrapManager.Instance.ChangeLevelScene("AlphaLevelTesting");
     }
 }
