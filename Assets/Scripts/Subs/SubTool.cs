@@ -25,7 +25,7 @@ public class SubTool : MonoBehaviour
     void Start()
     {
         StartTalking();
-        g_markersPlayingID = AkSoundEngine.PostEvent("Television", gameObject, (uint)AkCallbackType.AK_EnableGetSourcePlayPosition);
+        g_markersPlayingID = AkSoundEngine.PostEvent("Photograph_1", gameObject, (uint)AkCallbackType.AK_EnableGetSourcePlayPosition);
         
         //g_markersPlayingID = AkSoundEngine.PostEvent("TEST_EVENT", gameObject, (uint)AkCallbackType.AK_EnableGetSourcePlayPosition);
         
@@ -43,7 +43,6 @@ public class SubTool : MonoBehaviour
 
         TextAsset temp = Resources.Load("hi") as TextAsset;
         fileLines = temp.text.Split('\n'); //split them in lines
-        Debug.Log("totaly here");       //add each line to the list
         foreach (string line in fileLines)
         {
             subLines.Add(line);
@@ -86,15 +85,16 @@ public class SubTool : MonoBehaviour
     // Now handle lip synchronization by using uPosition
     void ShowSubs()
     {
-
         
         if (nextSubtitle < subtitleText.Count)
         {
+            int ag = 1;
+            float haha = (float)ag;
             
             AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
             float timeInMs = Time.deltaTime * 1000;
             int realMs = (int)timeInMs;
-            uPosition = uPosition / 1000;
+            uPosition = uPosition / 100;
 
             //Debug.Log(Time.deltaTime);
             Debug.Log(uPosition);
@@ -109,7 +109,26 @@ public class SubTool : MonoBehaviour
                 nextSubtitle++;
             }
 
+            /* if (nextSubtitle < subtitleText.Count)
+        {
+            
+            AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
+            float timeInMs = Time.deltaTime * 1000;
+            int realMs = (int)timeInMs;
+            uPosition = uPosition / 10;
 
+            //Debug.Log(Time.deltaTime);
+            Debug.Log(uPosition);
+            if (subtitleTimings[nextSubtitle] < (uPosition + Time.deltaTime) &&
+                subtitleTimings[nextSubtitle] > (uPosition - Time.deltaTime))
+            {
+                hui.SetActive(true);
+                Debug.Log(subtitleTimings[nextSubtitle]);
+                StartCoroutine(Wait(nextSubtitle));
+
+                subtitlesToShow.text = subtitleText[nextSubtitle];
+                nextSubtitle++;
+            }*/
 
             /*
             if(audio.timeSamples/_RATE > subtitleTimings[nextSubtitle])
