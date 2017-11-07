@@ -70,7 +70,9 @@ public class GameController : Singleton<GameController>
 
     public void StartGame()
     {
-        gameCamera.SetTarget(startLamp.GetComponent<LightSourceInput>().CameraPosition);
+		gameCamera.transform.position = startLamp.GetComponent<LightSourceInput>().CameraPosition;
+		gameCamera.transform.forward = (startLamp.transform.position - gameCamera.transform.position).normalized; 
+		gameCamera.SetTarget(startLamp.GetComponent<LightSourceInput>().CameraPosition);
         gameCamera.SetStoryCam(false);
     }
 
@@ -78,10 +80,11 @@ public class GameController : Singleton<GameController>
     {
         EventBus.Instance.SetMothPosition(startLamp.transform.TransformPoint(startLamp.GetComponent<LightSourceInput>().GetLandingPos()));
         SetGameCamera(newGameCamera.gameObject);
-        mothObject = gameCamera.TargetPos.gameObject;
-        gameCamera.transform.forward = (gameCamera.transform.position - mothObject.transform.position).normalized;
-        gameCamera.SetStoryTarget(cameraStartPosition);
+        /*mothObject = gameCamera.TargetPos.gameObject;*/
+		//gameCamera.transform.position = (gameCamera.transform.position - mothObject.transform.position).normalized;
+		gameCamera.TargetPos = cameraStartPosition;
         lightController.LoadLights();
+		StartGame();
     }
 
     public void SetGameCamera(GameObject newCam)
@@ -93,11 +96,6 @@ public class GameController : Singleton<GameController>
     {
         gameCamera.TargetPos.position = position;
         gameCamera.SetStoryCam(false); 
-    }
-
-    public void GoToCameraTarget()
-    {
-
     }
 
     public void SetMothObject(GameObject moth)
