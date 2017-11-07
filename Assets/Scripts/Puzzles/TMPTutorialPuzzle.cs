@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class TMPTutorialPuzzle : MonoBehaviour, ITouchInput 
 {
-    private bool solved = false;
+    public bool solved = false;
 
     [SerializeField]
     private GameObject particles; 

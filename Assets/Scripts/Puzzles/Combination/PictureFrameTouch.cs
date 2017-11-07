@@ -61,6 +61,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         if (controller != null)
         {
             controller.OnBeginSolving();
+            print("Bla");
         }
         distanceWorldPos = worldPos - transform.position;
         PlayEvent(pickupWwiseEvent);
