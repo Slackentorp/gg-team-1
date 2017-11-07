@@ -185,7 +185,7 @@ namespace Assets.Scripts.Managers
                 Ray ray = mainCamera.ScreenPointToRay(t.position);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit, 10f, touchInputMask))
+                if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
                     GameObject touchObject = hit.transform.gameObject;
                     ITouchInput touchInput =

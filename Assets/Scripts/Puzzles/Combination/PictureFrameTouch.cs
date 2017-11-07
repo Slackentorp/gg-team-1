@@ -58,6 +58,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
     public void OnTouchDown(Touch finger, Vector3 worldPos)
     {
+        print("Down");
         if (controller != null)
         {
             controller.OnBeginSolving();
@@ -73,6 +74,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
     public void OnToucHold(Touch finger, Vector3 worldPos)
     {
+        print("Hold");
         Vector3 newPosition = worldPos - distanceWorldPos;
 
         if (!Directions.X) {
@@ -84,14 +86,15 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         if (!Directions.Z) {
             newPosition.z = transform.position.z;
         }
-
         
-
         if (controller != null)
         {
             controller.CheckForSolution(this);
+            if(BoundsContain(controller.Bounds, controller.transform.position, newPosition))
+            {
+                transform.position = newPosition;
+            }
         }
-        transform.position = newPosition;
     }
 
     public void OnTouchExit()
@@ -109,5 +112,25 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         {
             AkSoundEngine.PostEvent(wwiseevent, gameObject);
         }
+    }
+
+    /// <summary>
+    /// Checks whether the position is contained in bounds
+    /// </summary>
+    /// <param name="bounds">A Vector3 specifiying the bounds</param>
+    /// <param name="center">A Vector3 specifiying the center of the bounds</param>
+    /// <param name="position">A Vector3 position to check if is inside the bounds</param>
+    /// <returns></returns>
+    private bool BoundsContain(Vector3 bounds, Vector3 center, Vector3 position)
+    {
+        float halfX = bounds.x / 2;
+        float halfZ = bounds.z / 2;
+        if (position.x <= center.x + halfX && position.x >= center.x - halfX
+            && position.z <= center.z + halfZ && position.z >= center.z - halfZ)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
