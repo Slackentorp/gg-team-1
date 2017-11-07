@@ -16,9 +16,9 @@ public class BuildNumberSetter : MonoBehaviour
                 string ss = s;
                 int i = ss.IndexOf(':');
                 ss = ss.Replace("\\n", "");
-                if (ss.Length - i > 20)
+                if (ss.Length - i > 8)
                 {
-                    ss = ss.Substring(0, Mathf.Max(15 + i, ss.Length));
+                    ss = ss.Substring(0, Mathf.Min(i + 8, ss.Length));
                 }
                 t.text += "\n" + ss;
             }
