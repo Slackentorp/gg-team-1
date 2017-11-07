@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using EasyButtons;
 
 public class LightMapSwitcher : MonoBehaviour
 {
     private int arrayTrack;
-    private int[] myLightMapIndex;
+    public int[] myLightMapIndex;
     private Renderer lmRenderer;
 
     private Texture2D[] customLights, currentTexture;
@@ -36,9 +37,9 @@ public class LightMapSwitcher : MonoBehaviour
         //_newData = _lightsOffMaps;
         //LightmapSettings.lightmaps = _newData;
 
-        LightMapAssinger();
+       
 
-        LightMapIndexFinder();
+     //   LightMapIndexFinder();
     }
 
     public void SetLightsOn()
@@ -80,6 +81,7 @@ public class LightMapSwitcher : MonoBehaviour
         }
     }
 
+    [Button]
     public void LightMapIndexFinder()
     {
         allObjects = FindObjectsOfType<GameObject>();
@@ -93,6 +95,7 @@ public class LightMapSwitcher : MonoBehaviour
                 myLightMapIndex[arrayTrack] = lmRenderer.lightmapIndex;
             }
         }
+        LightMapAssinger();
     }
 
     public void SwitchLightNr()
