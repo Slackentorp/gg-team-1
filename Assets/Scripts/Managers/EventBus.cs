@@ -12,6 +12,11 @@ public class EventBus : Singleton<EventBus>
         moth.SendMessage("SetMothPosition", position);
     }
 
+    public void SetCameraPosition(Vector3 position)
+    {
+        GameController.Instance.SetCameraTarget(position); 
+    }
+
     public void TriggerStoryBite(BasicBiteTrigger bite)
     {
         if (bite.FixedCamera)

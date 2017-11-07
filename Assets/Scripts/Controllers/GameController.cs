@@ -2,28 +2,44 @@
 using System.Collections.Generic;
 using EasyButtons;
 using UnityEngine;
+using Gamelogic.Extensions;
+using UnityEngine.UI; 
 
-public class GameController : MonoBehaviour
+public class GameController : Singleton<GameController>
 {
     [SerializeField]
     private PauseState GameState;
 
+    [SerializeField]
+    private GameObject startLamp;
 
-    private LocalizationManager localization;
+    [SerializeField]
+    private Transform cameraStartPosition; 
+
+    [SerializeField]
+    private List<LightSourceInput> puzzleOneLights; 
+
+    private List<bool> puzzleSolved; 
+
+	private LocalizationManager localization;
+    private GameObject mothObject; 
+    private CameraController gameCamera;
+    private LightController lightController; 
 
     // Use this for initialization
     void Start()
     {
-        localization = new LocalizationManager();
+        lightController = GetComponent<LightController>(); 
+		localization = new LocalizationManager();
     }
 
-    [Button]
+    [ContextMenu("DAN")]
     void SetDanish()
     {
         localization.SetDanish();
     }
 
-    [Button]
+    [ContextMenu("ENG")]
     void SetEnglish()
     {
         localization.SetEnglish();
@@ -32,7 +48,61 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //ActivateLightSource();
+            lightController.LoadLights();
+        }
+    }
+
+    private void ActivateLightSource()
+    {
+        foreach (var item in puzzleOneLights)
+        {
+            item.Lit = !item.Lit; 
+        }
+    }
+
+    public void SolveTutorial()
+    {
+        lightController.TurnOnMainLights(); 
+    }
+
+    public void StartGame()
+    {
+        gameCamera.SetTarget(startLamp.GetComponent<LightSourceInput>().CameraPosition);
+        gameCamera.SetStoryCam(false);
+    }
+
+    public void SetupScene(Camera newGameCamera)
+    {
+        EventBus.Instance.SetMothPosition(startLamp.transform.TransformPoint(startLamp.GetComponent<LightSourceInput>().GetLandingPos()));
+        SetGameCamera(newGameCamera.gameObject);
+        mothObject = gameCamera.TargetPos.gameObject;
+        gameCamera.transform.forward = (gameCamera.transform.position - mothObject.transform.position).normalized;
+        gameCamera.SetStoryTarget(cameraStartPosition);
+        lightController.LoadLights();
+    }
+
+    public void SetGameCamera(GameObject newCam)
+    {
+        gameCamera = newCam.GetComponent<CameraController>(); 
+    }
+
+    public void SetCameraTarget(Vector3 position)
+    {
+        gameCamera.TargetPos.position = position;
+        gameCamera.SetStoryCam(false); 
+    }
+
+    public void GoToCameraTarget()
+    {
+
+    }
+
+    public void SetMothObject(GameObject moth)
+    {
+        mothObject = moth; 
     }
 
     public enum PauseState
