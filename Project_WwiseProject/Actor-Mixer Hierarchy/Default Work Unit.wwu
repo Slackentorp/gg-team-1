@@ -2414,7 +2414,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-11</Value>
+												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2756,6 +2756,324 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="201788__st303__room-with-buzz-incandescent-light-bulb" ID="{A447030A-B7BC-488A-A59E-ECCE76228EC6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="AC power" ID="{53D831AB-EEBE-4B89-A5BA-6C61DA3AD139}" ShortID="447556120">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="BULB_AC_NOISE" ID="{80B93A91-8E5D-4D22-A939-ADC47C75D000}" ShortID="368090381">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-7</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BULB_AC_NOISE" ID="{BA8A48A2-F614-4B9C-A5D8-FD29D6552B17}" ShortID="97043590">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0244463689534854"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.529671327325519"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.44166439909297"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.06586168637197"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>BULB_AC_NOISE.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BULB_AC_NOISE" ID="{BA8A48A2-F614-4B9C-A5D8-FD29D6552B17}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Crackle" ID="{AD27127A-E10D-434E-8A5F-030E74D6677A}" ShortID="292404242">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>450</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Bug_Zapper_PSEM_043" ID="{79E8D33C-F967-43E8-AB1F-FDD5AFB7A06F}" ShortID="875034748">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Bug_Zapper_PSEM_043" ID="{9C511A3F-E5C4-4CBB-83AB-F5B19D72D6BD}" ShortID="1062689332">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.109768265682657"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.394969741697417"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.610585977859779"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Bug_Zapper_PSEM.043.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Bug_Zapper_PSEM_043" ID="{9C511A3F-E5C4-4CBB-83AB-F5B19D72D6BD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Boom" ID="{C3F41537-D97C-44D4-B6E2-3D762E17499C}" ShortID="1055102649">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-16</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Bluezone-BC0214-beep-mine-explosion-002" ID="{9862F0CC-8D2C-487D-844E-C6CC5265C977}" ShortID="971443989">
+											<PropertyList>
+												<Property Name="Highpass" Type="int16">
+													<ValueList>
+														<Value>23</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-810</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Bluezone-BC0214-beep-mine-explosion-002" ID="{0F770121-6BE6-46F0-8D57-5CBD7F51FA10}" ShortID="691659001">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.57634627774849"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.673881801675159"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.25022807942365"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Bluezone-BC0214-beep-mine-explosion-002.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Bluezone-BC0214-beep-mine-explosion-002" ID="{0F770121-6BE6-46F0-8D57-5CBD7F51FA10}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Cannon_Blast_PSEM_050" ID="{8A923187-F7A0-4DE0-ACD8-AB75E37D66BB}" ShortID="711415170">
+											<PropertyList>
+												<Property Name="Highpass" Type="int16">
+													<ValueList>
+														<Value>33</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>1210</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Cannon_Blast_PSEM_050" ID="{5F9A7D09-33F2-4490-9D96-8482A2EBA0FB}" ShortID="801093171">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.728135793357934"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.39430258302583"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Cannon_Blast_PSEM.050.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Cannon_Blast_PSEM_050" ID="{5F9A7D09-33F2-4490-9D96-8482A2EBA0FB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="explosion_large_08" ID="{3F51856A-9F08-43E1-9EE5-56ABB85ECEF5}" ShortID="609642782">
+											<PropertyList>
+												<Property Name="Highpass" Type="int16">
+													<ValueList>
+														<Value>35</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>830</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="explosion_large_08" ID="{27213D5E-9C6D-49DC-AFAE-9E2B090DC315}" ShortID="721782407">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.699771909594097"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.699771909594097"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>explosion_large_08.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="explosion_large_08" ID="{27213D5E-9C6D-49DC-AFAE-9E2B090DC315}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Pick up" ID="{7CA70915-5F07-48C7-8B60-10951EA1649C}" ShortID="564917592">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>180</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="BULB_PICK_UP" ID="{4B99FB61-3F61-48DE-9A63-97739384F7B4}" ShortID="425584406">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BULB_PICK_UP" ID="{AACF4E22-71A1-4E42-AD17-3CC574CFF616}" ShortID="316028559">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.150517157416472"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.191379203587954"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>BULB_PICK_UP.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BULB_PICK_UP" ID="{AACF4E22-71A1-4E42-AD17-3CC574CFF616}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="BULB_PICK_UP_1" ID="{6549552F-8403-407C-871B-37FCEBDF2987}" ShortID="491143675">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BULB_PICK_UP_1" ID="{F1F820CA-26E8-46CA-A53F-0A332D591FC4}" ShortID="953140640">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.164106483921982"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.172963024324121"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>BULB_PICK_UP_1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BULB_PICK_UP_1" ID="{F1F820CA-26E8-46CA-A53F-0A332D591FC4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="BULB_PICK_UP_2" ID="{F2962D76-6728-41E1-B8C2-DA83A8FE91D1}" ShortID="70561454">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BULB_PICK_UP_2" ID="{72483963-92AB-4377-8B4F-684281B9D4BD}" ShortID="921649304">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0658983859226348"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0198155985641489"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.2617502321962"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>BULB_PICK_UP_2.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BULB_PICK_UP_2" ID="{72483963-92AB-4377-8B4F-684281B9D4BD}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>

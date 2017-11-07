@@ -22,7 +22,7 @@
 			<Path>MAIN_BANK.bnk</Path>
 			<IncludedEvents>
 				<Event Id="3831078465" Name="AMBIENCE_CITY" ObjectPath="\Events\Default Work Unit\Ambience\City\AMBIENCE_CITY"/>
-				<Event Id="3545095724" Name="BULB_PICK_UP" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PICK_UP" MaxAttenuation="0.000000"/>
+				<Event Id="3545095724" Name="BULB_PICK_UP" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PICK_UP"/>
 				<Event Id="4019917531" Name="BULB_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PLACED_RIGHT"/>
 				<Event Id="2218639190" Name="BULB_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PLACED_WRONG"/>
 				<Event Id="590963579" Name="CAR_PASS" ObjectPath="\Events\Default Work Unit\Ambience\Cars\CAR_PASS"/>
@@ -35,6 +35,7 @@
 				<Event Id="1931074718" Name="MENU_START_GAME" ObjectPath="\Events\Default Work Unit\Menu\MENU_START_GAME" MaxAttenuation="0.000000"/>
 				<Event Id="1512987680" Name="MENUBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Menu\MENUBUTTON_PRESS" MaxAttenuation="0.000000"/>
 				<Event Id="410314580" Name="MOTH_END_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_END_FLIGHT" MaxAttenuation="0.000000"/>
+				<Event Id="1669806022" Name="MOTH_HIT_WINDOW" ObjectPath="\Events\Default Work Unit\Moth\MOTH_HIT_WINDOW" MaxAttenuation="0.000000"/>
 				<Event Id="541555517" Name="MOTH_START_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_START_FLIGHT"/>
 				<Event Id="2200206093" Name="MUG_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\Kitchen\MUG_PLACED_RIGHT"/>
 				<Event Id="3572297172" Name="MUG_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\Kitchen\MUG_PLACED_WRONG"/>
@@ -92,6 +93,10 @@
 					<ShortName>MUG_Dull_Wood_Surface_Drop_Series.wav</ShortName>
 					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_786D646F.wem</Path>
 				</File>
+				<File Id="97043590" Language="SFX">
+					<ShortName>BULB_AC_NOISE.wav</ShortName>
+					<Path>SFX/BULB_AC_NOISE_92E3F427.wem</Path>
+				</File>
 				<File Id="106102015" Language="SFX">
 					<ShortName>Police_Siren_PSEM.198.wav</ShortName>
 					<Path>SFX/Police_Siren_PSEM.198_6DB458CF.wem</Path>
@@ -143,6 +148,10 @@
 				<File Id="276167098" Language="SFX">
 					<ShortName>Rattle_6.wav</ShortName>
 					<Path>SFX/Rattle_6_B52A7F01.wem</Path>
+				</File>
+				<File Id="316028559" Language="SFX">
+					<ShortName>BULB_PICK_UP.wav</ShortName>
+					<Path>SFX/BULB_PICK_UP_05233131.wem</Path>
 				</File>
 				<File Id="326688811" Language="SFX">
 					<ShortName>BULB_SCREW_3.wav</ShortName>
@@ -216,13 +225,25 @@
 					<ShortName>Crumbling Printer Paper 9.wav</ShortName>
 					<Path>SFX/Crumbling Printer Paper 9_D6E7B33B.wem</Path>
 				</File>
+				<File Id="691659001" Language="SFX">
+					<ShortName>Bluezone-BC0214-beep-mine-explosion-002.wav</ShortName>
+					<Path>SFX/Bluezone-BC0214-beep-mine-explosion-002_05D66EC9.wem</Path>
+				</File>
 				<File Id="718195452" Language="SFX">
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_FAR.wav</ShortName>
 					<Path>SFX/BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_FAR_B52A7F01.wem</Path>
 				</File>
+				<File Id="721782407" Language="SFX">
+					<ShortName>explosion_large_08.wav</ShortName>
+					<Path>SFX/explosion_large_08_A33087C1.wem</Path>
+				</File>
 				<File Id="791677628" Language="SFX">
 					<ShortName>Rattle_2.wav</ShortName>
 					<Path>SFX/Rattle_2_B52A7F01.wem</Path>
+				</File>
+				<File Id="801093171" Language="SFX">
+					<ShortName>Cannon_Blast_PSEM.050.wav</ShortName>
+					<Path>SFX/Cannon_Blast_PSEM.050_F2250DE4.wem</Path>
 				</File>
 				<File Id="808012157" Language="SFX">
 					<ShortName>Reward_05.wav</ShortName>
@@ -252,6 +273,10 @@
 					<ShortName>MUG_Dull_Wood_Surface_Drop_Series.wav</ShortName>
 					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_E8B68054.wem</Path>
 				</File>
+				<File Id="921649304" Language="SFX">
+					<ShortName>BULB_PICK_UP_2.wav</ShortName>
+					<Path>SFX/BULB_PICK_UP_2_5B9110C6.wem</Path>
+				</File>
 				<File Id="946869893" Language="SFX">
 					<ShortName>Detunized_Urban-Crows_12c.wav</ShortName>
 					<Path>SFX/Detunized_Urban-Crows_12c_9DC972BA.wem</Path>
@@ -259,6 +284,10 @@
 				<File Id="951030059" Language="SFX">
 					<ShortName>birds_outside_002_wide.wav</ShortName>
 					<Path>SFX/birds_outside_002_wide_6DB458CF.wem</Path>
+				</File>
+				<File Id="953140640" Language="SFX">
+					<ShortName>BULB_PICK_UP_1.wav</ShortName>
+					<Path>SFX/BULB_PICK_UP_1_E04C7F1D.wem</Path>
 				</File>
 				<File Id="961599924" Language="SFX">
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR.wav</ShortName>
@@ -295,6 +324,10 @@
 				<File Id="1044749691" Language="SFX">
 					<ShortName>Rattle_5.wav</ShortName>
 					<Path>SFX/Rattle_5_B52A7F01.wem</Path>
+				</File>
+				<File Id="1062689332" Language="SFX">
+					<ShortName>Bug_Zapper_PSEM.043.wav</ShortName>
+					<Path>SFX/Bug_Zapper_PSEM.043_6CD1D551.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
