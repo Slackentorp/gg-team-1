@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Managers;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -14,6 +15,12 @@ public class CameraController : MonoBehaviour
     private Transform targetPos;
     private Vector3 targetRot;
     private Transform prevPos;
+
+    [SerializeField]
+    private Transform menuPosition;
+
+    [SerializeField]
+    private bool storyCam = true;
 
 
     public Transform TargetPos
@@ -58,17 +65,23 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //MoveCameraToStoryBit();
-
-        //RotateCameraTowardsObject();
-
-        //ReturnToPreStoryPoint();
-
         CheckIfTargetPosIsNull();
 
-        MoveTowardsTarget();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            storyCam = !storyCam; 
+        }
 
-        CameraRotation();
+        if (storyCam)
+        {
+            RotateCameraTowardsObject();
+        }
+        else
+        {
+            CameraRotation();
+        }
+
+        MoveTowardsTarget();
     }
 
     private void FixedUpdate()
@@ -76,18 +89,23 @@ public class CameraController : MonoBehaviour
         //RotateCameraAroundSelf();
     }
 
+    public void SetStoryCam(bool val)
+    {
+        storyCam = val;
+    }
+
     private void RotateCameraAroundSelf()
     {
         float newAngleY = 0, newAngleX = 0;
 #if UNITY_EDITOR
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !InputManager.Instance.isTouchingObject)
         {
             newAngleY =
                 -Input.GetAxis("Mouse X") * cameraTurnSpeed;
             newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
         }
 #endif
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !InputManager.Instance.isTouchingObject)
         {
             newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
                         10;
@@ -125,6 +143,16 @@ public class CameraController : MonoBehaviour
 
     }
 
+    public void SetTarget(Vector3 newTarget)
+    {
+        TargetPos.position = newTarget; 
+    }
+
+
+    public void SetStoryTarget(Transform target)
+    {
+        TargetPos = target;
+    }
 
     public void SetStoryTarget(Vector3 target)
     {
@@ -165,6 +193,10 @@ public class CameraController : MonoBehaviour
     }
     private void RotateCameraTowardsObject()
     {
+        transform.forward = Vector3.Lerp(transform.forward, TargetPos.forward,
+                                  followSpeed * Time.deltaTime); 
+        //transform.rotation = Quaternion.Euler(Vector3.Lerp(transform.position, TargetPos.rotation.eulerAngles,
+        //                          followSpeed * Time.deltaTime));
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -198,9 +230,9 @@ public class CameraController : MonoBehaviour
 
     private void MoveTowardsTarget()
     {
+        //float stop = (TooFarFromTarget() ? 1f : 0f) * (storyCam ? 1f : 0f); 
         transform.position = Vector3.Lerp(transform.position, TargetPos.position,
-                                          followSpeed * Time.deltaTime
-                                          * (TooFarFromTarget() ? 1f : 0f));
+                                          followSpeed * Time.deltaTime); // * stop); 
     }
 
     private void CameraRotation()
