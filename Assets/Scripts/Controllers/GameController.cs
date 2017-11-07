@@ -22,7 +22,7 @@ public class GameController : Singleton<GameController>
     private List<bool> puzzleSolved; 
 
 	private LocalizationManager localization;
-    private GameObject mothObject; 
+    public GameObject mothObject; 
     private CameraController gameCamera;
     private LightController lightController; 
 
