@@ -18,9 +18,18 @@ public class CombinationPuzzleController : BasePuzzle
     private float mercyRotation;
 
     [SerializeField]
-    private string onCorrectWwiseEvent;
+    private string onCorrectWwiseEvent, onIncorrectWwiseEvent;
     [SerializeField, Range(0,1)]
     private float onCorrectBrightness = 1;
+
+    [SerializeField, Tooltip("Specify the bounds of the puzzle. This is the area the pieces can be dragged within")]
+    private Vector3 bounds;
+
+    [SerializeField, Tooltip("The distance picture frames should be raised when picked up")]
+    private float raiseAmount = .15f;
+    public float RaiseAmount { get { return raiseAmount; } }
+
+    public Vector3 Bounds { get { return bounds; }}
 
     private PictureFrameTouch[] pictureFrames;
 
@@ -45,6 +54,10 @@ public class CombinationPuzzleController : BasePuzzle
             return;
         }
         int enabledFrames = pictureFrames.Count(o => o != null);
+
+        int correctFrames = pictureFrames.Length + 1 - enabledFrames;
+        AkSoundEngine.SetState("PICTUREPUZZLE_STATE", "PIECE_" + correctFrames);
+
         if (enabledFrames == 0)
         {
             print("Everything is correct");
@@ -52,6 +65,10 @@ public class CombinationPuzzleController : BasePuzzle
         }
     }
 
+    /// <summary>
+    /// Loops through all picture pieces, and destroys the touch component on pieces where the position is correct
+    /// </summary>
+    /// <param name="sender"></param>
     public override void CheckForSolution(Component sender)
     {
         //Safeguard because the script is in edit mode
@@ -95,5 +112,20 @@ public class CombinationPuzzleController : BasePuzzle
 
             }
         }
+
+        // Pictureframe hasn't been destroyed, so it must be wrong
+        if (sender != null)
+        {
+            AkSoundEngine.PostEvent(onIncorrectWwiseEvent, sender.gameObject);
+        }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Matrix4x4 rotationMatrix = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
+        Gizmos.matrix *= rotationMatrix;
+        Gizmos.DrawWireCube(transform.position, bounds);    
+    }
+    
 }

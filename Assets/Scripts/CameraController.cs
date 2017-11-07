@@ -158,16 +158,19 @@ public class CameraController : MonoBehaviour
 
     public void SetStoryTarget(Transform target)
     {
+        if (isDebug) return;
         TargetPos = target;
     }
 
     public void SetStoryTarget(Vector3 target)
     {
+        if (isDebug) return;
         TargetPos.position = target;
     }
 
     public void SetStoryTarget(Vector3 target, Vector3 orientation)
     {
+        if (isDebug) return;
         TargetPos.position = target;
         TargetRot = orientation;
     }
