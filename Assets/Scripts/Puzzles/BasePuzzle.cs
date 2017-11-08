@@ -32,6 +32,8 @@ public abstract class BasePuzzle : MonoBehaviour
             particles.SetActive(true);
         }
         print("Everything is correct");
+        CameraController.isMouseTouchingObject = false;
+        CheckForSolution(null);
     }
 
     [System.Serializable]
