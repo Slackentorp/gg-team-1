@@ -280,13 +280,13 @@
 											<PropertyList>
 												<Property Name="Lowpass" Type="int16">
 													<ValueList>
-														<Value>51</Value>
+														<Value>53</Value>
 													</ValueList>
 												</Property>
 												<Property Name="OverrideConversion" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-8</Value>
+														<Value>-6</Value>
 													</ValueList>
 													<RTPCList>
 														<RTPC Name="" ID="{0219C143-7BFF-468B-BAAA-995F6F966339}" ShortID="938812123">
@@ -328,11 +328,6 @@
 												<Sound Name="City_Loud" ID="{550D6600-4FD9-44EA-A511-868141D3CE03}" ShortID="109378145">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>49</Value>
-															</ValueList>
-														</Property>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
 																<Value>-9</Value>
@@ -774,11 +769,6 @@
 												<Sound Name="Protests_Our_Streets_01_Downtown" ID="{F18B93F8-D194-4588-AA39-5EE53A1BE984}" ShortID="31167797">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>48</Value>
-															</ValueList>
-														</Property>
 														<Property Name="Pitch" Type="int32">
 															<ValueList>
 																<Value>-100</Value>
@@ -3842,9 +3832,28 @@
 					</ChildrenList>
 				</Folder>
 				<ActorMixer Name="StoryEvents" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" ShortID="896599731">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+						</Reference>
+						<Reference Name="Effect0">
+							<Custom>
+								<Effect Name="Wwise Meter (Custom)" ID="{DE9B47E6-E25F-45B1-B1BD-2F3E1E8FFC92}" ShortID="278927619" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+									<PropertyList>
+										<Property Name="MeterMode" Type="int32" Value="1"/>
+									</PropertyList>
+									<PluginData>
+	<GameParameter Name="STORYEVENT_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+</PluginData>
+								</Effect>
+							</Custom>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -3912,7 +3921,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>4</Value>
+												<Value>3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3936,6 +3945,83 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="We needed a tv_alpha" ID="{66B6E79B-DE76-4521-B1AD-151A0211C99D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Careless Painters_alpha" ID="{F63DF7DE-8654-4474-8232-FB6F3D91869B}" ShortID="916818834">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Careless Painters_alpha" ID="{7FF569CD-6610-4A36-8898-F784530E647E}" ShortID="542604851">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="5.56637040941838"/>
+												<Property Name="TrimEnd" Type="Real64" Value="29.0741321384642"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Careless Painters_alpha.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Careless Painters_alpha" ID="{7FF569CD-6610-4A36-8898-F784530E647E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Happy New Year_alpha" ID="{93E0DD08-1F33-4949-A95A-E0DCCD327458}" ShortID="714452725">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Happy New Year_alpha" ID="{E70D146A-EDB1-4FEA-8523-89E4EA2485F7}" ShortID="851879152">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="5.76415603584607"/>
+												<Property Name="TrimEnd" Type="Real64" Value="13.8389977156914"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Happy New Year_alpha.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Happy New Year_alpha" ID="{E70D146A-EDB1-4FEA-8523-89E4EA2485F7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Map_alpha" ID="{9E707192-10A4-482C-BD65-380EA7763CE2}" ShortID="420278528">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Map_alpha" ID="{F8A875C1-5C4D-459C-BA38-531F589D2FC9}" ShortID="31525892">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.173901347993072"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="7.4197908477044"/>
+												<Property Name="TrimBegin" Type="Real64" Value="2.80174393988838"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Map_alpha.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Map_alpha" ID="{F8A875C1-5C4D-459C-BA38-531F589D2FC9}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

@@ -22,14 +22,16 @@
 			<Path>MAIN_BANK.bnk</Path>
 			<IncludedEvents>
 				<Event Id="3831078465" Name="AMBIENCE_CITY" ObjectPath="\Events\Default Work Unit\Ambience\City\AMBIENCE_CITY"/>
-				<Event Id="3545095724" Name="BULB_PICK_UP" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PICK_UP"/>
+				<Event Id="3545095724" Name="BULB_PICK_UP" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PICK_UP" MaxAttenuation="0.000000"/>
 				<Event Id="4019917531" Name="BULB_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PLACED_RIGHT"/>
 				<Event Id="2218639190" Name="BULB_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\Lightbulb\BULB_PLACED_WRONG"/>
 				<Event Id="590963579" Name="CAR_PASS" ObjectPath="\Events\Default Work Unit\Ambience\Cars\CAR_PASS"/>
 				<Event Id="1571339874" Name="INGAMEMENU_CLOSE" ObjectPath="\Events\Default Work Unit\Menu\INGAMEMENU_CLOSE" MaxAttenuation="0.000000"/>
 				<Event Id="4165127606" Name="INGAMEMENU_OPEN" ObjectPath="\Events\Default Work Unit\Menu\INGAMEMENU_OPEN" MaxAttenuation="0.000000"/>
+				<Event Id="2031596562" Name="Lightbulb" ObjectPath="\Events\Default Work Unit\Story Bites\Lightbulb"/>
 				<Event Id="1275729080" Name="LIVINGROOM_ENTER" ObjectPath="\Events\Default Work Unit\Ambience\LIVINGROOM_ENTER"/>
 				<Event Id="3307976374" Name="MAINMENU_OPEN" ObjectPath="\Events\Default Work Unit\Menu\MAINMENU_OPEN" MaxAttenuation="0.000000"/>
+				<Event Id="1048449605" Name="Map" ObjectPath="\Events\Default Work Unit\Story Bites\Map"/>
 				<Event Id="1594770167" Name="MAP_FAILED" ObjectPath="\Events\Default Work Unit\Puzzles\Map\MAP_FAILED" MaxAttenuation="0.000000"/>
 				<Event Id="3111840605" Name="MAPBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Puzzles\Map\MAPBUTTON_PRESS"/>
 				<Event Id="1931074718" Name="MENU_START_GAME" ObjectPath="\Events\Default Work Unit\Menu\MENU_START_GAME" MaxAttenuation="0.000000"/>
@@ -45,7 +47,6 @@
 				<Event Id="394109931" Name="PIECE_PICK" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PICK"/>
 				<Event Id="2720771844" Name="PIECE_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_RIGHT"/>
 				<Event Id="2177473561" Name="PIECE_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_WRONG"/>
-				<Event Id="1963600256" Name="PUZZLE_LEAVING" ObjectPath="\Events\Default Work Unit\Puzzles\PUZZLE_LEAVING" MaxAttenuation="0.000000"/>
 				<Event Id="1107599359" Name="PUZZLE_SOLVED" ObjectPath="\Events\Default Work Unit\Puzzles\PUZZLE_SOLVED"/>
 				<Event Id="3258781332" Name="PUZZLE_SOLVING" ObjectPath="\Events\Default Work Unit\Puzzles\PUZZLE_SOLVING" MaxAttenuation="0.000000"/>
 				<Event Id="2835551186" Name="SFX_MUTE" ObjectPath="\Events\Default Work Unit\Menu\SFX_MUTE" MaxAttenuation="0.000000"/>
@@ -54,8 +55,8 @@
 				<Event Id="3543172817" Name="STARBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Puzzles\Star\STARBUTTON_PRESS"/>
 				<Event Id="2345344986" Name="STARBUTTON_PRESS_NOMUSIC" ObjectPath="\Events\Default Work Unit\Puzzles\Star\STARBUTTON_PRESS_NOMUSIC" MaxAttenuation="0.000000"/>
 				<Event Id="2130706069" Name="STORYBITE_TEST" ObjectPath="\Events\Default Work Unit\STORYBITE_TEST"/>
+				<Event Id="1922983904" Name="Storyevent_1" ObjectPath="\Events\Default Work Unit\Story Events\Storyevent_1"/>
 				<Event Id="3098926425" Name="Television" ObjectPath="\Events\Default Work Unit\Story Bites\Television"/>
-				<Event Id="4258653052" Name="TEST_EVENT" ObjectPath="\Events\Default Work Unit\TEST_EVENT"/>
 				<Event Id="3443637649" Name="TESTMAPBUTTON" ObjectPath="\Events\Default Work Unit\TESTMAPBUTTON"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -69,11 +70,15 @@
 				</File>
 				<File Id="22010400" Language="SFX">
 					<ShortName>A photograph_alpha.wav</ShortName>
-					<Path>SFX/A photograph_alpha_36283F8B.wem</Path>
+					<Path>SFX/A photograph_alpha_2F275AB3.wem</Path>
 				</File>
 				<File Id="28899600" Language="SFX">
 					<ShortName>Reward_03.wav</ShortName>
 					<Path>SFX/Reward_03_379244B3.wem</Path>
+				</File>
+				<File Id="31525892" Language="SFX">
+					<ShortName>Map_alpha.wav</ShortName>
+					<Path>SFX/Map_alpha_4D87B14E.wem</Path>
 				</File>
 				<File Id="41802519" Language="SFX">
 					<ShortName>Paper Handling and Turning Sequence.wav</ShortName>
@@ -85,7 +90,7 @@
 				</File>
 				<File Id="86692628" Language="SFX">
 					<ShortName>194685__kingsrow__breakingvase01.wav</ShortName>
-					<Path>SFX/194685__kingsrow__breakingvase01_6CF9D616.wem</Path>
+					<Path>SFX/194685__kingsrow__breakingvase01_7F7F9263.wem</Path>
 				</File>
 				<File Id="89270064" Language="SFX">
 					<ShortName>cadillac_1960_30mph_driveby_LtoR_001.wav</ShortName>
@@ -93,11 +98,7 @@
 				</File>
 				<File Id="91542294" Language="SFX">
 					<ShortName>MUG_Dull_Wood_Surface_Drop_Series.wav</ShortName>
-					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_DAEBA002.wem</Path>
-				</File>
-				<File Id="97043590" Language="SFX">
-					<ShortName>BULB_AC_NOISE.wav</ShortName>
-					<Path>SFX/BULB_AC_NOISE_56A9E84E.wem</Path>
+					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_37BAC2B6.wem</Path>
 				</File>
 				<File Id="106102015" Language="SFX">
 					<ShortName>Police_Siren_PSEM.198.wav</ShortName>
@@ -113,7 +114,7 @@
 				</File>
 				<File Id="141821625" Language="SFX">
 					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
-					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_A60C2F0B.wem</Path>
+					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_B7E173A7.wem</Path>
 				</File>
 				<File Id="145004352" Language="SFX">
 					<ShortName>Rattle_3.wav</ShortName>
@@ -121,7 +122,7 @@
 				</File>
 				<File Id="145128839" Language="SFX">
 					<ShortName>We needed a tv_alpha.wav</ShortName>
-					<Path>SFX/We needed a tv_alpha_27B08AEF.wem</Path>
+					<Path>SFX/We needed a tv_alpha_6B8AB730.wem</Path>
 				</File>
 				<File Id="172808139" Language="SFX">
 					<ShortName>Reward_04.wav</ShortName>
@@ -141,7 +142,7 @@
 				</File>
 				<File Id="198297861" Language="SFX">
 					<ShortName>194683__kingsrow__breakingvase03.wav</ShortName>
-					<Path>SFX/194683__kingsrow__breakingvase03_D206481F.wem</Path>
+					<Path>SFX/194683__kingsrow__breakingvase03_BAB87337.wem</Path>
 				</File>
 				<File Id="208200834" Language="SFX">
 					<ShortName>Rattle_1.wav</ShortName>
@@ -153,7 +154,7 @@
 				</File>
 				<File Id="229842446" Language="SFX">
 					<ShortName>201788__st303__room-with-buzz-incandescent-light-bulb.wav</ShortName>
-					<Path>SFX/201788__st303__room-with-buzz-incandescent-light-bulb_9A2C41A9.wem</Path>
+					<Path>SFX/201788__st303__room-with-buzz-incandescent-light-bulb_7D4F9767.wem</Path>
 				</File>
 				<File Id="243956854" Language="SFX">
 					<ShortName>light_switch_019.wav</ShortName>
@@ -167,10 +168,6 @@
 					<ShortName>Rattle_6.wav</ShortName>
 					<Path>SFX/Rattle_6_E8E612C0.wem</Path>
 				</File>
-				<File Id="316028559" Language="SFX">
-					<ShortName>BULB_PICK_UP.wav</ShortName>
-					<Path>SFX/BULB_PICK_UP_514190A4.wem</Path>
-				</File>
 				<File Id="321766520" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_6.wav</ShortName>
 					<Path>SFX/HIT_WINDOW_SOFT_6_379244B3.wem</Path>
@@ -181,7 +178,7 @@
 				</File>
 				<File Id="326711593" Language="SFX">
 					<ShortName>MUG_Dull_Wood_Surface_Drop_Series.wav</ShortName>
-					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_147AE10C.wem</Path>
+					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_47AF54FD.wem</Path>
 				</File>
 				<File Id="326962797" Language="SFX">
 					<ShortName>megane rs u turn.wav</ShortName>
@@ -205,7 +202,7 @@
 				</File>
 				<File Id="494118861" Language="SFX">
 					<ShortName>235540__simosco__lamp-click-on-off.wav</ShortName>
-					<Path>SFX/235540__simosco__lamp-click-on-off_672A0F0E.wem</Path>
+					<Path>SFX/235540__simosco__lamp-click-on-off_48B0EFE2.wem</Path>
 				</File>
 				<File Id="504967435" Language="SFX">
 					<ShortName>Grabbing Paper 03.wav</ShortName>
@@ -218,6 +215,10 @@
 				<File Id="541851934" Language="SFX">
 					<ShortName>Flying.wav</ShortName>
 					<Path>SFX/Flying_81BF8AB2.wem</Path>
+				</File>
+				<File Id="542604851" Language="SFX">
+					<ShortName>Careless Painters_alpha.wav</ShortName>
+					<Path>SFX/Careless Painters_alpha_A528E4D3.wem</Path>
 				</File>
 				<File Id="546932971" Language="SFX">
 					<ShortName>button_on_off_064.wav</ShortName>
@@ -257,7 +258,7 @@
 				</File>
 				<File Id="691659001" Language="SFX">
 					<ShortName>Bluezone-BC0214-beep-mine-explosion-002.wav</ShortName>
-					<Path>SFX/Bluezone-BC0214-beep-mine-explosion-002_317D25E4.wem</Path>
+					<Path>SFX/Bluezone-BC0214-beep-mine-explosion-002_D0E7E658.wem</Path>
 				</File>
 				<File Id="718195452" Language="SFX">
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_FAR.wav</ShortName>
@@ -265,7 +266,7 @@
 				</File>
 				<File Id="721782407" Language="SFX">
 					<ShortName>explosion_large_08.wav</ShortName>
-					<Path>SFX/explosion_large_08_0FD4686C.wem</Path>
+					<Path>SFX/explosion_large_08_48DFE764.wem</Path>
 				</File>
 				<File Id="742990135" Language="SFX">
 					<ShortName>MOTH_LANDING.wav</ShortName>
@@ -273,11 +274,11 @@
 				</File>
 				<File Id="746538295" Language="SFX">
 					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
-					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_D013E06F.wem</Path>
+					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_70127A9A.wem</Path>
 				</File>
 				<File Id="777357154" Language="SFX">
 					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
-					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_77B92761.wem</Path>
+					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_4583614E.wem</Path>
 				</File>
 				<File Id="791677628" Language="SFX">
 					<ShortName>Rattle_2.wav</ShortName>
@@ -285,7 +286,7 @@
 				</File>
 				<File Id="801093171" Language="SFX">
 					<ShortName>Cannon_Blast_PSEM.050.wav</ShortName>
-					<Path>SFX/Cannon_Blast_PSEM.050_7831DF6D.wem</Path>
+					<Path>SFX/Cannon_Blast_PSEM.050_5DED416A.wem</Path>
 				</File>
 				<File Id="808012157" Language="SFX">
 					<ShortName>Reward_05.wav</ShortName>
@@ -293,11 +294,15 @@
 				</File>
 				<File Id="815467655" Language="SFX">
 					<ShortName>235540__simosco__lamp-click-on-off.wav</ShortName>
-					<Path>SFX/235540__simosco__lamp-click-on-off_59CF610A.wem</Path>
+					<Path>SFX/235540__simosco__lamp-click-on-off_661378CA.wem</Path>
 				</File>
 				<File Id="840028210" Language="SFX">
 					<ShortName>corvette 0-120-0.wav</ShortName>
 					<Path>SFX/corvette 0-120-0_379244B3.wem</Path>
+				</File>
+				<File Id="851879152" Language="SFX">
+					<ShortName>Happy New Year_alpha.wav</ShortName>
+					<Path>SFX/Happy New Year_alpha_CB997068.wem</Path>
 				</File>
 				<File Id="863795838" Language="SFX">
 					<ShortName>Protests_Our_Streets_01_Downtown.wav</ShortName>
@@ -313,11 +318,7 @@
 				</File>
 				<File Id="895837590" Language="SFX">
 					<ShortName>MUG_Dull_Wood_Surface_Drop_Series.wav</ShortName>
-					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_D43C390D.wem</Path>
-				</File>
-				<File Id="921649304" Language="SFX">
-					<ShortName>BULB_PICK_UP_2.wav</ShortName>
-					<Path>SFX/BULB_PICK_UP_2_D62BDFFB.wem</Path>
+					<Path>SFX/MUG_Dull_Wood_Surface_Drop_Series_4AF162BF.wem</Path>
 				</File>
 				<File Id="946869893" Language="SFX">
 					<ShortName>Detunized_Urban-Crows_12c.wav</ShortName>
@@ -326,10 +327,6 @@
 				<File Id="951030059" Language="SFX">
 					<ShortName>birds_outside_002_wide.wav</ShortName>
 					<Path>SFX/birds_outside_002_wide_31813313.wem</Path>
-				</File>
-				<File Id="953140640" Language="SFX">
-					<ShortName>BULB_PICK_UP_1.wav</ShortName>
-					<Path>SFX/BULB_PICK_UP_1_69180F84.wem</Path>
 				</File>
 				<File Id="961599924" Language="SFX">
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR.wav</ShortName>
@@ -345,7 +342,7 @@
 				</File>
 				<File Id="980128403" Language="SFX">
 					<ShortName>235540__simosco__lamp-click-on-off.wav</ShortName>
-					<Path>SFX/235540__simosco__lamp-click-on-off_ABA0E5F8.wem</Path>
+					<Path>SFX/235540__simosco__lamp-click-on-off_1A37BD38.wem</Path>
 				</File>
 				<File Id="989804104" Language="SFX">
 					<ShortName>Rajdoot,motorcycle,kick,start,rev,away,slow.wav</ShortName>
@@ -357,7 +354,7 @@
 				</File>
 				<File Id="992088354" Language="SFX">
 					<ShortName>MOTH_FLY_LOUD.wav</ShortName>
-					<Path>SFX/MOTH_FLY_LOUD_D62779EF.wem</Path>
+					<Path>SFX/MOTH_FLY_LOUD_86134CF9.wem</Path>
 				</File>
 				<File Id="992203550" Language="SFX">
 					<ShortName>Paper Handling and Turning Sequence.wav</ShortName>
@@ -378,10 +375,6 @@
 				<File Id="1044749691" Language="SFX">
 					<ShortName>Rattle_5.wav</ShortName>
 					<Path>SFX/Rattle_5_E8E612C0.wem</Path>
-				</File>
-				<File Id="1062689332" Language="SFX">
-					<ShortName>Bug_Zapper_PSEM.043.wav</ShortName>
-					<Path>SFX/Bug_Zapper_PSEM.043_B7848B08.wem</Path>
 				</File>
 				<File Id="1063253616" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_4.wav</ShortName>
