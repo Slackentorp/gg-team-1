@@ -93,6 +93,7 @@ public class LightMapSwitcher : MonoBehaviour
             {
                 lmRenderer = obj.GetComponent<Renderer>();
                 myLightMapIndex[arrayTrack] = lmRenderer.lightmapIndex;
+                arrayTrack++;
             }
         }
         LightMapAssinger();
@@ -104,19 +105,19 @@ public class LightMapSwitcher : MonoBehaviour
         foreach (GameObject obj in allObjects)
         {
             _currentData = LightmapSettings.lightmaps;
-            print("imHere1");
+
             if (obj.GetComponent<Renderer>() != null)
             {
-                print("imHere2");
+
                 lmRenderer = obj.GetComponent<Renderer>();
 
                 if (lmRenderer.lightmapIndex == lightNumber)
                 {
-                    print("imHere3");
+
                     _newData = new LightmapData[sceneLights.Length];
                     for (int i = 0; i < sceneLights.Length; i++)
                     {
-                        print("imHere4");
+
                         _newData[i] = new LightmapData();
                         customLights = new Texture2D[sceneLights.Length];
                         customLights[i] = _currentData[i].lightmapColor;
@@ -139,8 +140,4 @@ public class LightMapSwitcher : MonoBehaviour
 //    {
 //        lightArray[i]
 //    }
-//}
-
-//struct{
-
 //}
