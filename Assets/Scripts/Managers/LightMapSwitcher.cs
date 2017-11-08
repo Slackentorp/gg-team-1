@@ -25,6 +25,8 @@ public class LightMapSwitcher : MonoBehaviour
     private int[] lightArray;
     [SerializeField]
     private GameObject[] sceneLights;
+    [SerializeField]
+    private GameObject[] getLamps;
 
     public LightmapData[] _lightsOnMaps;
 
@@ -164,6 +166,14 @@ public class LightMapSwitcher : MonoBehaviour
                 //myLightMapIndex[arrayTrack] = lmRenderer.lightmapIndex;
                 arrayTrack++;
             }
+        }
+    }
+
+    private void MaterialEmissionSwitch()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            //getLamps.
         }
     }
 }

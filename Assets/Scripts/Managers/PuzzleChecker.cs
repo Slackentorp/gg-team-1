@@ -29,7 +29,7 @@ public class PuzzleChecker : MonoBehaviour
     {
         _SolvedPuzzels = new bool[puzzels.Length];
         endLightPosition = endLight.transform.position;
-        mothPosition = GameController.Instance.mothObject.transform.position;
+        mothPosition = BootstrapManager.Instance.mothObject.transform.position;
     }
 
     void Update()
@@ -105,7 +105,7 @@ public class PuzzleChecker : MonoBehaviour
 
     private void DistanceCheck()
     {
-        mothPosition = GameController.Instance.mothObject.transform.position;
+        mothPosition = BootstrapManager.Instance.mothObject.transform.position;
         distanceToEndLight = Vector3.Distance(mothPosition, endLightPosition);
         //print(distanceToEndLight);
         if (distanceToEndLight < 1)
