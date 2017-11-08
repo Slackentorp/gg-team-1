@@ -87,6 +87,30 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="MOTH_HIT_WINDOW" ID="{489DDCB3-7C3B-418F-8A99-22B1CF369882}">
+							<ChildrenList>
+								<Action Name="" ID="{759C15DC-74D8-42FC-936E-33886DC7BD06}" ShortID="900166103">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Glass ring" ID="{174C0FA6-EF84-471A-B9B5-1B2628055C24}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{DAD0EF35-1735-4DC0-AA94-0533B27869C2}" ShortID="504746233">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hit window" ID="{D28A57BA-A320-45E2-8531-70EB9B00A0BB}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Ambience" ID="{CB63D89D-9A5B-4F67-BE53-36CC1D55B2DE}" ShortID="586050579">
@@ -235,6 +259,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{2781A3E0-4433-4C6D-971B-37C7CFD4C4C5}" ShortID="351331621">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="Delay" Type="Real64" Value="0.3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Boom" ID="{C3F41537-D97C-44D4-B6E2-3D762E17499C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

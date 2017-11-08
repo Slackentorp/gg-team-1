@@ -1220,6 +1220,7 @@
 				</Folder>
 				<ActorMixer Name="Moth" ID="{36C3990D-956D-471E-B4E8-1E86B509FA48}" ShortID="885581033">
 					<PropertyList>
+						<Property Name="PositioningType" Type="int16" Value="1"/>
 						<Property Name="UserAuxSendVolume0" Type="Real64">
 							<ValueList>
 								<Value>-9</Value>
@@ -1227,6 +1228,58 @@
 						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<Custom>
+								<Attenuation Name="Attenuation (Custom)" ID="{588E6941-EA3B-4C8C-A93B-3517FB4A7778}" ShortID="414102781">
+									<CurveUsageInfoList>
+										<VolumeDryUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+												<Curve Name="VolumeDry" ID="{A70E2C81-39E8-4089-92C8-1029EA793418}">
+													<PropertyList>
+														<Property Name="Flags" Type="int32" Value="3"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>0</XPos>
+															<YPos>0</YPos>
+															<Flags>5</Flags>
+														</Point>
+														<Point>
+															<XPos>2.66458</XPos>
+															<YPos>-200</YPos>
+															<Flags>0</Flags>
+														</Point>
+														<Point>
+															<XPos>100</XPos>
+															<YPos>-200</YPos>
+															<Flags>37</Flags>
+														</Point>
+													</PointList>
+												</Curve>
+											</CurveUsageInfo>
+										</VolumeDryUsage>
+										<VolumeWetGameUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetGameUsage>
+										<VolumeWetUserUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetUserUsage>
+										<LowPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</LowPassFilterUsage>
+										<HighPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</HighPassFilterUsage>
+										<SpreadUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</SpreadUsage>
+										<FocusUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</FocusUsage>
+									</CurveUsageInfoList>
+								</Attenuation>
+							</Custom>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 						</Reference>
@@ -1242,19 +1295,19 @@
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>62</Value>
+										<Value>66</Value>
 									</ValueList>
 								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
-										<Value>18</Value>
+										<Value>12</Value>
 									</ValueList>
 								</Property>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-560</Value>
+										<Value>-530</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{45750F76-DED9-4426-97AD-899AEFA4BF38}" ShortID="105030597">
@@ -1270,7 +1323,7 @@
 												<PointList>
 													<Point>
 														<XPos>0</XPos>
-														<YPos>-660</YPos>
+														<YPos>-895</YPos>
 														<Flags>5</Flags>
 													</Point>
 													<Point>
@@ -1281,6 +1334,30 @@
 													<Point>
 														<XPos>10</XPos>
 														<YPos>197</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+										<RTPC Name="" ID="{3171DA98-E2C3-4707-A3B4-9ECBBFFD9A52}" ShortID="939534357">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{6424E9F9-31E1-4A62-9232-ACFE313F0600}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>-50</XPos>
+														<YPos>-943</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>50</XPos>
+														<YPos>943</YPos>
 														<Flags>37</Flags>
 													</Point>
 												</PointList>
@@ -1425,7 +1502,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>9</Value>
+										<Value>11</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -1615,7 +1692,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-13</Value>
+										<Value>-10</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -1928,13 +2005,18 @@
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>27</Value>
+										<Value>47</Value>
 									</ValueList>
 								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>80</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-9</Value>
+										<Value>-21</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2001,6 +2083,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="Moth landing" ID="{1580B7FB-B12F-491D-9A87-C89FEBB6F215}" ShortID="974409948">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -3077,6 +3166,11 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Breaking" ID="{811D8D96-CDEB-4FC8-8CA8-5F600158996F}" ShortID="992536597">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-130</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-2</Value>

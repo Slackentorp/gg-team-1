@@ -80,6 +80,19 @@ namespace AK
             } // namespace STATE
         } // namespace BULB_STATE
 
+        namespace PICTUREPUZZLE_STATE
+        {
+            static const AkUniqueID GROUP = 2001893719U;
+
+            namespace STATE
+            {
+                static const AkUniqueID PIECE_1 = 2533340105U;
+                static const AkUniqueID PIECE_2 = 2533340106U;
+                static const AkUniqueID PIECE_3 = 2533340107U;
+                static const AkUniqueID PIECE_4 = 2533340108U;
+            } // namespace STATE
+        } // namespace PICTUREPUZZLE_STATE
+
         namespace PUZZLE_STATE
         {
             static const AkUniqueID GROUP = 4261475855U;
