@@ -17,6 +17,7 @@ public abstract class BasePuzzle : MonoBehaviour
     public virtual void OnSolved()
     {
         isSolved = true;
+        AkSoundEngine.PostEvent("PUZZLE_SOLVED", gameObject);
         if (!string.IsNullOrEmpty(onSolvedWwiseEvent))
         {
             AkSoundEngine.PostEvent(onSolvedWwiseEvent, gameObject);

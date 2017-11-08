@@ -32,7 +32,7 @@ public class WorldMap : BasePuzzle
 
 	public void CheckSolution(GameObject sender)
 	{
-		
+	    AkSoundEngine.PostEvent("MAPBUTTON_PRESS", sender);
 		if (lampsLit < lights.Length)
 		{
 			objectHit = sender;
@@ -62,15 +62,22 @@ public class WorldMap : BasePuzzle
 		{
 			if (value != lampsLit+1)
 			{
+                // Wrong
 				lampsLit = 1;
 				TurnColorsOff(lampsLit);
 				rend[lampsLit - 1].material.color = colorOn;
-			}
+			    AkSoundEngine.SetSwitch("MAP_SWITCH", "PIN_1", objClicked);
+			    AkSoundEngine.PostEvent("MAP_FAILED", objClicked);
+                print("MAP_SWITCH: PIN_1");
+            }
 			else
 			{
+                // Right
 				lampsLit++;
 				rend[lampsLit - 1].material.color = colorOn;
-			}
+			    AkSoundEngine.SetSwitch("MAP_SWITCH", "PIN_" + lampsLit, objClicked);
+			    print("MAP_SWITCH: PIN_" + lampsLit);
+            }
 		}
 	}
 
