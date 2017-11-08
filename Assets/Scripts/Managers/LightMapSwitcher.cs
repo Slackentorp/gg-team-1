@@ -13,6 +13,8 @@ public class LightMapSwitcher : MonoBehaviour
     [SerializeField]
     private Texture2D[] lightsOn;
     [SerializeField]
+    private PuzzleChecker getPuzzelChecker;
+    [SerializeField]
     private Texture2D[] lightsDirOn;
     [SerializeField]
     private Texture2D[] lightsOff;
@@ -32,26 +34,58 @@ public class LightMapSwitcher : MonoBehaviour
 
     private GameObject[] allObjects;
 
+    private bool lightSwitchON = true, lightSwitchOFF, solvedTutorial;
+
     void Start()
     {
+        LightMapAssinger();
+        SetLightsOff();
+
+        //LightMapAssinger();
+
         //_newData = _lightsOffMaps;
         //LightmapSettings.lightmaps = _newData;
 
-       
 
-     //   LightMapIndexFinder();
+
+        //   LightMapIndexFinder();
+    }
+
+    private void Update()
+    {
+        if (getPuzzelChecker._SolvedPuzzels[0] && !solvedTutorial)
+        {
+            //LightMapAssinger();
+            SetLightsOn();
+            solvedTutorial = true;
+        }
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            if (!lightSwitchOFF)
+            {
+                SetLightsOff();
+            }
+            else if (!lightSwitchON)
+            {
+                SetLightsOn();
+            }
+        }
     }
 
     public void SetLightsOn()
     {
         print("All Lights On!");
         LightmapSettings.lightmaps = _lightsOnMaps;
+        lightSwitchON = true;
+        lightSwitchOFF = false;
     }
 
     public void SetLightsOff()
     {
         print("All Lights Off!");
         LightmapSettings.lightmaps = _lightsOffMaps;
+        lightSwitchON = false;
+        lightSwitchOFF = true;
     }
 
     public void LightMapAssinger()
@@ -101,7 +135,7 @@ public class LightMapSwitcher : MonoBehaviour
 
     public void SwitchLightNr()
     {
-        
+
         foreach (GameObject obj in allObjects)
         {
             _currentData = LightmapSettings.lightmaps;
@@ -122,7 +156,7 @@ public class LightMapSwitcher : MonoBehaviour
                         customLights = new Texture2D[sceneLights.Length];
                         customLights[i] = _currentData[i].lightmapColor;
                         customLights[lightNumber] = lightsOn[lightNumber];
- 
+
                         _newData[i].lightmapColor = customLights[i];
                     }
                     LightmapSettings.lightmaps = _newData;

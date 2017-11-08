@@ -9,7 +9,7 @@ public class PuzzleChecker : MonoBehaviour
     //[SerializeField]
     //private int nrOfPuzzels = 4;
     [SerializeField]
-    private bool[] SolvedPuzzels;
+    public bool[] _SolvedPuzzels;
     [SerializeField]
     private GameObject[] puzzels;
     [SerializeField]
@@ -27,7 +27,7 @@ public class PuzzleChecker : MonoBehaviour
 
     void Start()
     {
-        SolvedPuzzels = new bool[puzzels.Length];
+        _SolvedPuzzels = new bool[puzzels.Length];
         endLightPosition = endLight.transform.position;
         mothPosition = GameController.Instance.mothObject.transform.position;
     }
@@ -55,7 +55,7 @@ public class PuzzleChecker : MonoBehaviour
             if (puzzels[i].GetComponent<TMPTutorialPuzzle>() != null)
             {
                 bool thisPuzzelStatus = puzzels[i].GetComponent<TMPTutorialPuzzle>().solved;
-                SolvedPuzzels[i] = thisPuzzelStatus;
+                _SolvedPuzzels[i] = thisPuzzelStatus;
 
                 //print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
             }
@@ -63,7 +63,7 @@ public class PuzzleChecker : MonoBehaviour
             if (puzzels[i].GetComponent<WorldMap>() != null)
             {
                 bool thisPuzzelStatus = puzzels[i].GetComponent<WorldMap>().worldMapCompleted;
-                SolvedPuzzels[i] = thisPuzzelStatus;
+                _SolvedPuzzels[i] = thisPuzzelStatus;
 
                 //print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
             }
@@ -71,7 +71,7 @@ public class PuzzleChecker : MonoBehaviour
             if (puzzels[i].GetComponent<BasePuzzle>() != null)
             {
                 bool thisPuzzelStatus = puzzels[i].GetComponent<BasePuzzle>().isSolved;
-                SolvedPuzzels[i] = thisPuzzelStatus;
+                _SolvedPuzzels[i] = thisPuzzelStatus;
 
                 //print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
             }
@@ -84,7 +84,7 @@ public class PuzzleChecker : MonoBehaviour
     {
         for (int i = 0; i < puzzels.Length; i++)
         {
-            SolvedPuzzels[i] = true;
+            _SolvedPuzzels[i] = true;
         }
 
         CheckWinCondition();
@@ -94,7 +94,7 @@ public class PuzzleChecker : MonoBehaviour
     {
         for (int i = 0; i < puzzels.Length; i++)
         {
-            if (!SolvedPuzzels[i])
+            if (!_SolvedPuzzels[i])
             {
                 return;
             }
