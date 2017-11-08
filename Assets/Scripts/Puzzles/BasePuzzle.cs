@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BasePuzzle : MonoBehaviour
 {
-    public string onSolvedWwiseEvent, onSolvedStorybitName;
+    public string onSolvedWwiseEvent, onSolvedStorybitName, onIncorrectPlacementWwiseEvent, onPickupWwiseEvent;
     public GameObject particles;
     public bool isSolved;
     public abstract void CheckForSolution(Component sender);
@@ -32,6 +32,8 @@ public abstract class BasePuzzle : MonoBehaviour
             particles.SetActive(true);
         }
         print("Everything is correct");
+        CameraController.isMouseTouchingObject = false;
+        CheckForSolution(null);
     }
 
     [System.Serializable]

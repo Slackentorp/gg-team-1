@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldMap : MonoBehaviour
+public class WorldMap : BasePuzzle
 {
 	[SerializeField]
 	private GameObject[] lights;
@@ -17,9 +17,7 @@ public class WorldMap : MonoBehaviour
 	private int lampsLit = 1;
 
     public bool worldMapCompleted; //Placeholder i suppose
-
-    [SerializeField]
-    private GameObject particles; 
+    
 
 	void Start()
 	{
@@ -45,6 +43,7 @@ public class WorldMap : MonoBehaviour
             worldMapCompleted = true;
 			//Debug.Log("Puzzle Done");
             particles.SetActive(true);
+            OnSolved();
 		}
 	}
 
@@ -87,4 +86,8 @@ public class WorldMap : MonoBehaviour
 			r.material.color = colorOff;
 		}
 	}
+
+    public override void CheckForSolution(Component sender)
+    {
+    }
 }
