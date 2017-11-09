@@ -8,7 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b89692df7d34ede8f7d4fbbeb5551b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dc34004327ccf945885d75cacc21c9c, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
   CurrentPluginConfig: 
@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{5B946481-3CC7-4F30-A881-530D9C8A41CC}'
-    m_lastTimePsrt1: -25576003
-    m_lastTimePart2: -1999297060
+    m_lastTimePsrt1: 286436505
+    m_lastTimePart2: -1999296838
     List:
     - Name: AMBIENCE_CITY
       Path: Default Work Unit\Ambience\City\AMBIENCE_CITY
@@ -113,6 +113,18 @@ MonoBehaviour:
       ID: -129839690
       Guid: 58459a65d769fa4b9dee01ef3cf51783
       maxAttenuation: 0
+    - Name: Lightbulb
+      Path: Default Work Unit\Story Bites\Lightbulb
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Story Bites
+        ObjectType: 4
+      - ElementName: Lightbulb
+        ObjectType: 3
+      ID: 2031596562
+      Guid: 1cf6a46450fe9e4a8be8fab09676ae52
+      maxAttenuation: 0
     - Name: LIVINGROOM_ENTER
       Path: Default Work Unit\Ambience\LIVINGROOM_ENTER
       PathAndIcons:
@@ -136,6 +148,18 @@ MonoBehaviour:
         ObjectType: 3
       ID: -986990922
       Guid: a01274f5edcb0e4eb4c5358aa27e86a0
+      maxAttenuation: 0
+    - Name: Map
+      Path: Default Work Unit\Story Bites\Map
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Story Bites
+        ObjectType: 4
+      - ElementName: Map
+        ObjectType: 3
+      ID: 1048449605
+      Guid: 40e4e4cc8853884fbd7f1ca21e273380
       maxAttenuation: 0
     - Name: MAP_FAILED
       Path: Default Work Unit\Puzzles\Map\MAP_FAILED
@@ -200,7 +224,19 @@ MonoBehaviour:
         ObjectType: 3
       ID: 410314580
       Guid: c14f1255d1c5d4418a942636e35d9f51
-      maxAttenuation: 0
+      maxAttenuation: 100
+    - Name: MOTH_HIT_WINDOW
+      Path: Default Work Unit\Moth\MOTH_HIT_WINDOW
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Moth
+        ObjectType: 4
+      - ElementName: MOTH_HIT_WINDOW
+        ObjectType: 3
+      ID: 1669806022
+      Guid: b3dc9d483b7c8f418a9922b1cf369882
+      maxAttenuation: 100
     - Name: MOTH_START_FLIGHT
       Path: Default Work Unit\Moth\MOTH_START_FLIGHT
       PathAndIcons:
@@ -212,7 +248,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: 541555517
       Guid: bac5dd426a94804a8d3764684d345ca2
-      maxAttenuation: 0
+      maxAttenuation: 100
     - Name: MUG_PLACED_RIGHT
       Path: Default Work Unit\Puzzles\Kitchen\MUG_PLACED_RIGHT
       PathAndIcons:
@@ -419,6 +455,18 @@ MonoBehaviour:
       ID: 2130706069
       Guid: 56b4d3abf58d124681473f6d06749713
       maxAttenuation: 0
+    - Name: Storyevent_1
+      Path: Default Work Unit\Story Events\Storyevent_1
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Story Events
+        ObjectType: 4
+      - ElementName: Storyevent_1
+        ObjectType: 3
+      ID: 1922983904
+      Guid: fd69fb3d4053f84085170d649fc1deaa
+      maxAttenuation: 0
     - Name: Television
       Path: Default Work Unit\Story Bites\Television
       PathAndIcons:
@@ -445,8 +493,8 @@ MonoBehaviour:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{5AEFA858-9085-4EEB-BAC0-241662F05877}'
-    m_lastTimePsrt1: -1001924519
-    m_lastTimePart2: -1999297095
+    m_lastTimePsrt1: 287992241
+    m_lastTimePart2: -1999296838
     List:
     - Name: Reverb_livingroom
       Path: Default Work Unit\Master Audio Bus\SFX\Reverb_livingroom
@@ -465,8 +513,8 @@ MonoBehaviour:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}'
-    m_lastTimePsrt1: -1373316815
-    m_lastTimePart2: -1999297247
+    m_lastTimePsrt1: 290777884
+    m_lastTimePart2: -1999296838
     List:
     - Name: ARRANGEMENT_STATE
       Path: Default Work Unit\ARRANGEMENT_STATE
@@ -538,6 +586,64 @@ MonoBehaviour:
       - bytes: 6b512fc05287ba4b9081644399682c11
       - bytes: 55a72b3572a23a489363c7d88533c0e7
       - bytes: 18e093415e448849bec2a45a8b47222f
+    - Name: INSIDE_STATE
+      Path: Default Work Unit\INSIDE_STATE
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: INSIDE_STATE
+        ObjectType: 9
+      ID: -1695850681
+      Guid: b406e0343ef22241bd30826fdbb0106e
+      values:
+      - INSIDE
+      - None
+      - OUTSIDE
+      ValueIcons:
+      - ElementName: INSIDE
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: OUTSIDE
+        ObjectType: 8
+      valueIDs: 95d0cbd3db3ba32cbef61c1a
+      ValueGuids:
+      - bytes: 496084933a8c3d4aa925fae4963f37e7
+      - bytes: bcab804cdc03194d8e13a0c71c4c2c89
+      - bytes: 04da835782eccf49abadc60310acdb63
+    - Name: PICTUREPUZZLE_STATE
+      Path: Default Work Unit\PICTUREPUZZLE_STATE
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: PICTUREPUZZLE_STATE
+        ObjectType: 9
+      ID: 2001893719
+      Guid: b3bf18eb6a4e0240b0a05a273cf571bc
+      values:
+      - None
+      - PIECE_1
+      - PIECE_2
+      - PIECE_3
+      - PIECE_4
+      ValueIcons:
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: PIECE_1
+        ObjectType: 8
+      - ElementName: PIECE_2
+        ObjectType: 8
+      - ElementName: PIECE_3
+        ObjectType: 8
+      - ElementName: PIECE_4
+        ObjectType: 8
+      valueIDs: db3ba32cc9b3ff96cab3ff96cbb3ff96ccb3ff96
+      ValueGuids:
+      - bytes: 5fa3b39716098c47bc8e1c4245e17009
+      - bytes: 3341c41fd76caf4a8ca9554144717420
+      - bytes: 0b0de0d9e0a0f944a582439a7aa72dcb
+      - bytes: 37e7d7147e4d1541b84641f53997b1a1
+      - bytes: b7f677468805bb40aab4dce2f0e8f6ec
     - Name: PUZZLE_STATE
       Path: Default Work Unit\PUZZLE_STATE
       PathAndIcons:
@@ -571,8 +677,8 @@ MonoBehaviour:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{6F05DAE4-775F-43F6-B307-66B50FCC66F5}'
-    m_lastTimePsrt1: -1373176807
-    m_lastTimePart2: -1999297247
+    m_lastTimePsrt1: 290827921
+    m_lastTimePart2: -1999296838
     List:
     - Name: MAP_SWITCH
       Path: Default Work Unit\MAP_SWITCH
@@ -664,8 +770,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1A2081CF-DCB7-4EA2-8AF3-F1959DD07304}'
-    m_lastTimePsrt1: -1001644503
-    m_lastTimePart2: -1999297095
+    m_lastTimePsrt1: 290677817
+    m_lastTimePart2: -1999296838
     List:
     - Name: MAIN_BANK
       Path: Default Work Unit\MAIN_BANK
@@ -680,8 +786,8 @@ MonoBehaviour:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}'
-    m_lastTimePsrt1: -1375466938
-    m_lastTimePart2: -1999297247
+    m_lastTimePsrt1: 286486546
+    m_lastTimePart2: -1999296838
     List:
     - Name: MAP_BUTTON_NUMBER
       Path: Default Work Unit\MAP_BUTTON_NUMBER
@@ -737,6 +843,15 @@ MonoBehaviour:
         ObjectType: 13
       ID: 1564184899
       Guid: 90a72fdd475be9478b9a7bf350d45065
+    - Name: STORYEVENT_VOLUME
+      Path: Default Work Unit\STORYEVENT_VOLUME
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: STORYEVENT_VOLUME
+        ObjectType: 13
+      ID: 962818873
+      Guid: ab47d49544e1b847aa04315efb7b3b73
     - Name: TENSION
       Path: Default Work Unit\TENSION
       PathAndIcons:
@@ -750,15 +865,14 @@ MonoBehaviour:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{9F39FB59-761B-480E-8634-41221354910D}'
-    m_lastTimePsrt1: 334549447
-    m_lastTimePart2: -1999298483
+    m_lastTimePsrt1: 290867941
+    m_lastTimePart2: -1999296838
     List: []
-  ExpandedItems:
-  - /Project_WwiseProject
+  ExpandedItems: []
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
-  basePath: Audio/GeneratedSoundBanks
+  basePath: Audio\GeneratedSoundBanks
   language: English(US)
   defaultPoolSize: 4096
   lowerPoolSize: 2048

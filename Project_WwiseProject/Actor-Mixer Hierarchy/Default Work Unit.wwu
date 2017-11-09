@@ -280,13 +280,13 @@
 											<PropertyList>
 												<Property Name="Lowpass" Type="int16">
 													<ValueList>
-														<Value>51</Value>
+														<Value>53</Value>
 													</ValueList>
 												</Property>
 												<Property Name="OverrideConversion" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-8</Value>
+														<Value>-6</Value>
 													</ValueList>
 													<RTPCList>
 														<RTPC Name="" ID="{0219C143-7BFF-468B-BAAA-995F6F966339}" ShortID="938812123">
@@ -328,11 +328,6 @@
 												<Sound Name="City_Loud" ID="{550D6600-4FD9-44EA-A511-868141D3CE03}" ShortID="109378145">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>49</Value>
-															</ValueList>
-														</Property>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
 																<Value>-9</Value>
@@ -774,11 +769,6 @@
 												<Sound Name="Protests_Our_Streets_01_Downtown" ID="{F18B93F8-D194-4588-AA39-5EE53A1BE984}" ShortID="31167797">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>48</Value>
-															</ValueList>
-														</Property>
 														<Property Name="Pitch" Type="int32">
 															<ValueList>
 																<Value>-100</Value>
@@ -1220,6 +1210,7 @@
 				</Folder>
 				<ActorMixer Name="Moth" ID="{36C3990D-956D-471E-B4E8-1E86B509FA48}" ShortID="885581033">
 					<PropertyList>
+						<Property Name="PositioningType" Type="int16" Value="1"/>
 						<Property Name="UserAuxSendVolume0" Type="Real64">
 							<ValueList>
 								<Value>-9</Value>
@@ -1227,6 +1218,58 @@
 						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<Custom>
+								<Attenuation Name="Attenuation (Custom)" ID="{588E6941-EA3B-4C8C-A93B-3517FB4A7778}" ShortID="414102781">
+									<CurveUsageInfoList>
+										<VolumeDryUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+												<Curve Name="VolumeDry" ID="{A70E2C81-39E8-4089-92C8-1029EA793418}">
+													<PropertyList>
+														<Property Name="Flags" Type="int32" Value="3"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>0</XPos>
+															<YPos>0</YPos>
+															<Flags>5</Flags>
+														</Point>
+														<Point>
+															<XPos>2.66458</XPos>
+															<YPos>-200</YPos>
+															<Flags>0</Flags>
+														</Point>
+														<Point>
+															<XPos>100</XPos>
+															<YPos>-200</YPos>
+															<Flags>37</Flags>
+														</Point>
+													</PointList>
+												</Curve>
+											</CurveUsageInfo>
+										</VolumeDryUsage>
+										<VolumeWetGameUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetGameUsage>
+										<VolumeWetUserUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetUserUsage>
+										<LowPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</LowPassFilterUsage>
+										<HighPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</HighPassFilterUsage>
+										<SpreadUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</SpreadUsage>
+										<FocusUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</FocusUsage>
+									</CurveUsageInfoList>
+								</Attenuation>
+							</Custom>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 						</Reference>
@@ -1242,19 +1285,19 @@
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>62</Value>
+										<Value>66</Value>
 									</ValueList>
 								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
-										<Value>18</Value>
+										<Value>12</Value>
 									</ValueList>
 								</Property>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-560</Value>
+										<Value>-530</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{45750F76-DED9-4426-97AD-899AEFA4BF38}" ShortID="105030597">
@@ -1270,7 +1313,7 @@
 												<PointList>
 													<Point>
 														<XPos>0</XPos>
-														<YPos>-660</YPos>
+														<YPos>-895</YPos>
 														<Flags>5</Flags>
 													</Point>
 													<Point>
@@ -1281,6 +1324,30 @@
 													<Point>
 														<XPos>10</XPos>
 														<YPos>197</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+										<RTPC Name="" ID="{3171DA98-E2C3-4707-A3B4-9ECBBFFD9A52}" ShortID="939534357">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{6424E9F9-31E1-4A62-9232-ACFE313F0600}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>-50</XPos>
+														<YPos>-943</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>50</XPos>
+														<YPos>943</YPos>
 														<Flags>37</Flags>
 													</Point>
 												</PointList>
@@ -1425,7 +1492,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>9</Value>
+										<Value>11</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -1615,7 +1682,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-13</Value>
+										<Value>-10</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -1928,13 +1995,18 @@
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>27</Value>
+										<Value>47</Value>
 									</ValueList>
 								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>80</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-9</Value>
+										<Value>-21</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2001,6 +2073,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="Moth landing" ID="{1580B7FB-B12F-491D-9A87-C89FEBB6F215}" ShortID="974409948">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -3077,6 +3156,11 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Breaking" ID="{811D8D96-CDEB-4FC8-8CA8-5F600158996F}" ShortID="992536597">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-130</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-2</Value>
@@ -3748,9 +3832,28 @@
 					</ChildrenList>
 				</Folder>
 				<ActorMixer Name="StoryEvents" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" ShortID="896599731">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+						</Reference>
+						<Reference Name="Effect0">
+							<Custom>
+								<Effect Name="Wwise Meter (Custom)" ID="{DE9B47E6-E25F-45B1-B1BD-2F3E1E8FFC92}" ShortID="278927619" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+									<PropertyList>
+										<Property Name="MeterMode" Type="int32" Value="1"/>
+									</PropertyList>
+									<PluginData>
+	<GameParameter Name="STORYEVENT_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+</PluginData>
+								</Effect>
+							</Custom>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -3818,7 +3921,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>4</Value>
+												<Value>3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3842,6 +3945,83 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="We needed a tv_alpha" ID="{66B6E79B-DE76-4521-B1AD-151A0211C99D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Careless Painters_alpha" ID="{F63DF7DE-8654-4474-8232-FB6F3D91869B}" ShortID="916818834">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Careless Painters_alpha" ID="{7FF569CD-6610-4A36-8898-F784530E647E}" ShortID="542604851">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="5.56637040941838"/>
+												<Property Name="TrimEnd" Type="Real64" Value="29.0741321384642"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Careless Painters_alpha.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Careless Painters_alpha" ID="{7FF569CD-6610-4A36-8898-F784530E647E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Happy New Year_alpha" ID="{93E0DD08-1F33-4949-A95A-E0DCCD327458}" ShortID="714452725">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Happy New Year_alpha" ID="{E70D146A-EDB1-4FEA-8523-89E4EA2485F7}" ShortID="851879152">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="5.76415603584607"/>
+												<Property Name="TrimEnd" Type="Real64" Value="13.8389977156914"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Happy New Year_alpha.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Happy New Year_alpha" ID="{E70D146A-EDB1-4FEA-8523-89E4EA2485F7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Map_alpha" ID="{9E707192-10A4-482C-BD65-380EA7763CE2}" ShortID="420278528">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Map_alpha" ID="{F8A875C1-5C4D-459C-BA38-531F589D2FC9}" ShortID="31525892">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.173901347993072"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="7.4197908477044"/>
+												<Property Name="TrimBegin" Type="Real64" Value="2.80174393988838"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Map_alpha.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Map_alpha" ID="{F8A875C1-5C4D-459C-BA38-531F589D2FC9}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

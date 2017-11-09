@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldMap : MonoBehaviour
+public class WorldMap : BasePuzzle
 {
 	[SerializeField]
 	private GameObject[] lights;
@@ -17,9 +17,7 @@ public class WorldMap : MonoBehaviour
 	private int lampsLit = 1;
 
     public bool worldMapCompleted; //Placeholder i suppose
-
-    [SerializeField]
-    private GameObject particles; 
+    
 
 	void Start()
 	{
@@ -34,7 +32,7 @@ public class WorldMap : MonoBehaviour
 
 	public void CheckSolution(GameObject sender)
 	{
-		
+	    AkSoundEngine.PostEvent("MAPBUTTON_PRESS", sender);
 		if (lampsLit < lights.Length)
 		{
 			objectHit = sender;
@@ -45,6 +43,7 @@ public class WorldMap : MonoBehaviour
             worldMapCompleted = true;
 			//Debug.Log("Puzzle Done");
             particles.SetActive(true);
+            OnSolved();
 		}
 	}
 
@@ -63,15 +62,22 @@ public class WorldMap : MonoBehaviour
 		{
 			if (value != lampsLit+1)
 			{
+                // Wrong
 				lampsLit = 1;
 				TurnColorsOff(lampsLit);
 				rend[lampsLit - 1].material.color = colorOn;
-			}
+			    AkSoundEngine.SetSwitch("MAP_SWITCH", "PIN_1", objClicked);
+			    AkSoundEngine.PostEvent("MAP_FAILED", objClicked);
+                print("MAP_SWITCH: PIN_1");
+            }
 			else
 			{
+                // Right
 				lampsLit++;
 				rend[lampsLit - 1].material.color = colorOn;
-			}
+			    AkSoundEngine.SetSwitch("MAP_SWITCH", "PIN_" + lampsLit, objClicked);
+			    print("MAP_SWITCH: PIN_" + lampsLit);
+            }
 		}
 	}
 
@@ -87,4 +93,8 @@ public class WorldMap : MonoBehaviour
 			r.material.color = colorOff;
 		}
 	}
+
+    public override void CheckForSolution(Component sender)
+    {
+    }
 }

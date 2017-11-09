@@ -32,7 +32,7 @@ public class UIAudioSettings : MonoBehaviour
 
     public void SliderChange()
     {
-        AkSoundEngine.SetRTPCValue(audioType + "_SLIDER", levelSlider.value); 
+        AkSoundEngine.SetRTPCValue(audioType + "_VOLUME", levelSlider.value); 
     }
 
     public void Mute()
