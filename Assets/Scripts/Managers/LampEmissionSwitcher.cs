@@ -15,6 +15,8 @@ public class LampEmissionSwitcher : MonoBehaviour
     private ParticleSystem particleSystemLamp;
     private bool lampParticleStatus;
     private Renderer rend;
+    private bool checkLightsONOnce;
+    private bool check = true;
 
 
     // Use this for initialization
@@ -32,7 +34,11 @@ public class LampEmissionSwitcher : MonoBehaviour
     {
         if (GC._SolvedPuzzels[0])
         {
-            SwitchLampState();
+            if (check)
+            {
+                SwitchLampState();
+                check = false;
+            }
         }
         if (Input.GetKeyDown(KeyCode.F1))
         {
