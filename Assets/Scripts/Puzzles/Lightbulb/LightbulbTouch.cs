@@ -67,10 +67,6 @@ public class LightbulbTouch : MonoBehaviour
 
     }
 
-    public void OnTap(Touch finger)
-    {
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("RackWall"))
@@ -83,74 +79,6 @@ public class LightbulbTouch : MonoBehaviour
         if (other.CompareTag("RackWall")) {
             isColliding = false;
         }
-    }
-
-    public void OnTouchDown(Touch finger, Vector3 worldPos)
-    {
-        distanceWorldPos = worldPos - transform.position;
-        if (isCopy)
-        {
-            return;
-        }
-        if (controller != null)
-        {
-            controller.OnBeginSolving();
-        }
-
-        ProjectedVectors pv = ComputeProjectedPosition(transform.position);
-        
-        
-        GameObject copy = Instantiate(gameObject, transform.position, transform.rotation);
-        copy.GetComponent<LightbulbTouch>().copyOf = gameObject;
-        copy.GetComponent<LightbulbTouch>().isCopy = true;
-        AkSoundEngine.PostEvent(controller.OnPickupWwiseEvent, copy);
-
-    }
-
-    public void OnTouchUp(Touch finger)
-    {
-        if (isCopy)  
-        {
-          //  Destroy(gameObject);
-            AkSoundEngine.PostEvent(controller.OnIncorrectPlacementWwiseEvent,
-                gameObject);
-        }
-    }
-
-    public void OnToucHold(Touch finger, Vector3 worldPos)
-    {
-        if (!isCopy)
-        {
-            return;
-        }
-        Vector3 newPosition = worldPos - distanceWorldPos;
-
-        ProjectedVectors pv = ComputeProjectedPosition(newPosition);
-        float distanceTraveled = (transform.position - solutionRack.transform.position).sqrMagnitude;
-        float travelLength = (startPos - solutionRack.transform.position).sqrMagnitude;
-        float lerpVal = 1 - (distanceTraveled / travelLength);
-
-        transform.rotation = Quaternion.Slerp(startRotation, Quaternion.LookRotation(pv.Direction) * Quaternion.Euler(0,-90,0), lerpVal);
-        transform.position = pv.Projection;
-
-        // Scale collider by screen space
-        boxCollider.size = startSize * (1 + lerpVal + scaleConstant);
-
-        if (controller != null)
-        {
-            controller.CheckForSolution(this);
-        }
-    }
-
-    public void OnTouchExit()
-    {
-        if (isCopy) {
-           // Destroy(gameObject);
-        }
-    }
-
-    public void OnSwipe(Touch finger, TouchDirection direction)
-    {
     }
 
     private ProjectedVectors ComputeProjectedPosition(Vector3 newPosition)

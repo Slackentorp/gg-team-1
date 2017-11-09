@@ -14,17 +14,6 @@ public class LightBulbPuzzleController : BasePuzzle
         private set { _solutionRack = value; }
         get { return _solutionRack; }
     }
-    public string OnPickupWwiseEvent
-    {
-        private set { onPicupWwiseEvent = value; }
-        get { return onPicupWwiseEvent; }
-    }
-
-    public string OnIncorrectPlacementWwiseEvent
-    {
-        private set { onIncorrectPlacementWwiseEvent = value; }
-        get { return onIncorrectPlacementWwiseEvent; }
-    }
 
     [SerializeField]
     private GameObject _solutionRack;
@@ -33,9 +22,6 @@ public class LightBulbPuzzleController : BasePuzzle
     private float mercyDistance = 1;
     [SerializeField]
     private string onCorrectPlacementWwiseEvent;
-
-    private string onPicupWwiseEvent, onIncorrectPlacementWwiseEvent;
-    
 
     private LightbulbTouch[] lightbulbs;
     private Transform mainCamera;
@@ -64,6 +50,9 @@ public class LightBulbPuzzleController : BasePuzzle
 	    }
 
         int enabledBulbs = lightbulbs.Count(o => o != null);
+	    int correctBulbs = lightbulbs.Length - enabledBulbs;
+	    AkSoundEngine.SetState("BULB_STATE", "BULB_" + correctBulbs);
+
 	    if (enabledBulbs == 0)
         {
 	        OnSolved();
@@ -84,6 +73,8 @@ public class LightBulbPuzzleController : BasePuzzle
 	                CameraController.isMouseTouchingObject = true;
 	                activeLightBulbComponent =
 	                    activeBulb.GetComponent<LightbulbTouch>();
+	                AkSoundEngine.PostEvent(onPickupWwiseEvent,
+	                    activeBulb.gameObject);
 
 	            }
 	        }
@@ -102,13 +93,7 @@ public class LightBulbPuzzleController : BasePuzzle
 	        if (activePlane.Raycast(ray, out rayDistance))
 	        {
                 Vector3 nextPos = ray.GetPoint(rayDistance);
-	       //     float distToObject = Vector3.SqrMagnitude(mainCamera.position - nextPos);
-	       /*     float distToRack = Vector3.Magnitude(mainCamera.position - activeLightBulbComponent.correctContact.transform.position);
-                print("Distance to Object: " + rayDistance + " - Dist to Rack: " + distToRack);
-                */
                     activeBulb.position = nextPos;
-                
-	           
 
 	            float distanceTraveled = (transform.position - SolutionRack.transform.position).sqrMagnitude;
 	            float travelLength = (bulbStartPos - SolutionRack.transform.position).sqrMagnitude;
@@ -121,7 +106,11 @@ public class LightBulbPuzzleController : BasePuzzle
         }
 	    if (Input.GetMouseButtonUp(0))
 	    {
-	        // activeBulb == null
+	        if (activeLightBulbComponent != null)
+	        {
+	            AkSoundEngine.PostEvent(onIncorrectPlacementWwiseEvent,
+	                activeLightBulbComponent.gameObject);
+            }
 	        activeBulb = null;
 	        CameraController.isMouseTouchingObject = false;
         }
