@@ -12,6 +12,7 @@ public class SubTool : MonoBehaviour
     public List<string> subtitleText = new List<string>();
     public List<string> durationsString = new List<string>();
     public List<float> durations = new List<float>();
+
     public float duration;
     public int uPosition = 0;
     private int nextSubtitle = 0;
