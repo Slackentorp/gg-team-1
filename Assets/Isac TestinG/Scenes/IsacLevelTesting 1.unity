@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38074008, b: 0.35872707, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731716, g: 0.13414739, b: 0.12107863, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 9
     m_Resolution: 2
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 2
+    m_MixedBakeMode: 0
     m_BakeBackend: 0
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3621,6 +3621,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[5]
       value: 
       objectReference: {fileID: 2100000, guid: ee3e758b122effe4d9700842c97c36d7, type: 2}
+    - target: {fileID: 100046, guid: 8a2124ca0b44682428f0a97800b74fa2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 8a2124ca0b44682428f0a97800b74fa2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a2124ca0b44682428f0a97800b74fa2, type: 3}
   m_IsPrefabParent: 0
@@ -9440,7 +9448,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4306065820651542, guid: ff0c52e188abf3f42a536426e3c6393c, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4306065820651542, guid: ff0c52e188abf3f42a536426e3c6393c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -10014,6 +10022,7 @@ MonoBehaviour:
   LandingPosition: {x: 0, y: 1.2, z: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
   IsLit: 1
+  isSwitchable: 0
 --- !u!95 &1346339158
 Animator:
   serializedVersion: 3
@@ -12354,6 +12363,7 @@ MonoBehaviour:
   LandingPosition: {x: 0, y: 1.2, z: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
   IsLit: 1
+  isSwitchable: 0
 --- !u!4 &1958698553 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4557748903448542, guid: 5303b5839cd61c548a4a06981e4010c2,
