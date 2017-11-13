@@ -6,20 +6,16 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml.Linq;
 
-[XmlRoot("subsCollection")]
+[XmlRoot("subsEnglish")]
 public class XMLReader : MonoBehaviour
 {
     [XmlArray("subs")]
     [XmlArrayItem("subsId")]
-    Dictionary<string, Sub> subsToLoad = new Dictionary<string, Sub>();
     List<string> subsToLoad2 = new List<string>();
-    List<Sub> subsToLoad3 = new List<Sub>();
-    public List<Sub> subs = new List<Sub>();
     [XmlAttribute("id")]
-    public int id;
+    public int subsId;
     [XmlAttribute("text")]
     public string text;
-
     [XmlAttribute("startPos")]
     public float startingPos;
     [XmlAttribute("duration")]
@@ -48,8 +44,8 @@ public class XMLReader : MonoBehaviour
                     {
                         case "subsId":
                             reader1.Read();//we put this because otherwise it just reas the ID tag and doesnt go through there
-                            id = reader1.ReadContentAsInt();
-                            ids.Insert(0,id);
+                            subsId = reader1.ReadContentAsInt();
+                            ids.Insert(0, subsId);
                             break;
 
                         case "startPos":
@@ -79,7 +75,7 @@ public class XMLReader : MonoBehaviour
     {
         {
 
-            string filepath = Application.dataPath + @"/Data/gamexmldata.xml";
+            string filepath = Application.dataPath + @"/gamexmldata.xml";
             XmlDocument xmlDoc = new XmlDocument();
 
             if (File.Exists(filepath))
@@ -90,24 +86,27 @@ public class XMLReader : MonoBehaviour
 
                // elmRoot.RemoveAll(); // remove all inside the transforms node.
 
-                XmlElement elmNew = xmlDoc.CreateElement("subsCollection"); // create the rotation node.
+               // XmlElement elmNew = xmlDoc.CreateElement("subsEnglish"); // we want to make a tickable option for what language type subtitles i am making
+                // create the rotation node.
 
-                XmlElement elmSubs = xmlDoc.CreateElement("subs"); // create the x node.
+                //XmlElement elmSubs = xmlDoc.CreateElement("subs"); // create the x node.
                 // apply to the node text the values of the variable.
 
-                XmlElement rotation_X = xmlDoc.CreateElement("x"); // create the x node.
-                rotation_X.InnerText = x;
+               // XmlElement rotation_X = xmlDoc.CreateElement("subsId"); // create the x node.
+               // rotation_X.InnerText = subsId;
 
-                XmlElement rotation_Y = xmlDoc.CreateElement("y"); // create the y node.
-                rotation_Y.InnerText = y; // apply to the node text the values of the variable.
+                //XmlElement rotation_Y = xmlDoc.CreateElement("startPos"); // create the y node.
+                //rotation_Y.InnerText = startPos; // apply to the node text the values of the variable.
 
-                XmlElement rotation_Z = xmlDoc.CreateElement(" "); // create the z node.
-                rotation_Z.InnerText = z; // apply to the node text the values of the variable.
+                //XmlElement rotation_Z = xmlDoc.CreateElement("duration"); // create the z node.
+               // rotation_Z.InnerText = duration; // apply to the node text the values of the variable.
 
-                elmNew.AppendChild(rotation_X); // make the rotation node the parent.
-                elmNew.AppendChild(rotation_Y); // make the rotation node the parent.
-                elmNew.AppendChild(rotation_Z); // make the rotation node the parent.
-                elmRoot.AppendChild(elmNew); // make the transform node the parent.
+                //XmlElement rotation_Z = xmlDoc.CreateElement("text"); // create the z node.
+               // rotation_Z.InnerText = text;
+                //elmNew.AppendChild(rotation_X); // make the rotation node the parent.
+               /// elmNew.AppendChild(rotation_Y); // make the rotation node the parent.
+               // elmNew.AppendChild(rotation_Z); // make the rotation node the parent.
+               // elmRoot.AppendChild(elmNew); // make the transform node the parent.
 
                 xmlDoc.Save(filepath); // save file.
             }
