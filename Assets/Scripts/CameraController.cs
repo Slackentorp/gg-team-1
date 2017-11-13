@@ -5,151 +5,200 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField, Tooltip("Sets the distance that the camera can move away from moth")]
-    float maxDistance = 2.0f;
-    [SerializeField, Tooltip("Decides the speed of which the camera follow the moth")]
-    float followSpeed = 1.0f;
-    [SerializeField, Tooltip("Determines the turn speed of the camera")]
-    float cameraTurnSpeed = 1.0f;
-    [SerializeField]
-    private Transform targetPos;
-    private Vector3 targetRot;
-    private Transform prevPos;
+	[SerializeField, Tooltip("Sets the distance that the camera can move away from moth")]
+	float maxDistance = 2.0f;
+	[SerializeField, Tooltip("Decides the speed of which the camera follow the moth")]
+	float followSpeed = 1.0f;
+	[SerializeField, Tooltip("Determines the turn speed of the camera")]
+	float cameraTurnSpeed = 1.0f;
+	[SerializeField]
+	private Transform targetPos;
+	//[SerializeField]
+	//private GameObject moth;
+	private Vector3 targetRot;
+	private Transform prevPos;
 
-    /*[SerializeField]
-    private Transform menuPosition;*/
+	[SerializeField]
+	private bool storyCam = true;
 
-    [SerializeField]
-    private bool storyCam = true;
-
-    public bool isDebug = true;
-    public static bool isMouseTouchingObject;
+	public bool isDebug = true;
+	public static bool isMouseTouchingObject;
 
 
-    public Transform TargetPos
-    {
-        get
-        {
-            return targetPos;
-        }
-        set
-        {
-            Transform tmp = targetPos;
-            targetPos = value;
-            prevPos = tmp;
-        }
-    }
+	public Transform TargetPos
+	{
+		get
+		{
+			return targetPos;
+		}
+		set
+		{
+			Transform tmp = targetPos;
+			targetPos = value;
+			prevPos = tmp;
+		}
+	}
 
-    public Vector3 TargetRot
-    {
-        get
-        {
-            return targetRot;
-        }
-        set
-        {
-            targetRot = value;
-        }
-    }
+	public Vector3 TargetRot
+	{
+		get
+		{
+			return targetRot;
+		}
+		set
+		{
+			targetRot = value;
+		}
+	}
 
-    private bool TooFarFromTarget()
-    {
-        float dist = Vector3.Distance(transform.position, TargetPos.position);
-        return dist > maxDistance;
-    }
-    
-    // Use this for initialization
-    void Start()
-    {
-        if (TargetPos == null)
-            TargetPos = transform;
+	private bool TooFarFromTarget()
+	{
+		float dist = Vector3.Distance(transform.position, TargetPos.position);
+		return dist > maxDistance;
+	}
 
-        if (isDebug)
-        {
-            SetStoryCam(false);
-        }
-    }
+	// Use this for initialization
+	void Start()
+	{
+		if (TargetPos == null)
+			TargetPos = transform;
 
-    // Update is called once per frame
-    void Update()
-    {
-        CheckIfTargetPosIsNull();
+		if (isDebug)
+		{
+			SetStoryCam(false);
+		}
+	}
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            storyCam = !storyCam; 
-        }
+	// Update is called once per frame
+	void Update()
+	{
+		CheckIfTargetPosIsNull();
 
-        if (storyCam)
-        {
-            RotateCameraTowardsObject();
-        }
-        else
-        {
-            CameraRotation();
-        }
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			storyCam = !storyCam;
+		}
 
-        MoveTowardsTarget();
-    }
+		if (storyCam)
+		{
+			RotateCameraTowardsObject();
+		}
+		else
+		{
+			CameraRotation();
+		}
 
-    private void FixedUpdate()
-    {
-        //RotateCameraAroundSelf();
-    }
+		MoveTowardsTarget();
+	}
 
-    public void SetStoryCam(bool val)
-    {
-        storyCam = val;
-    }
+	public void SetStoryCam(bool val)
+	{
+		storyCam = val;
+	}
 
-    private void RotateCameraAroundSelf()
-    {
-        float newAngleY = 0, newAngleX = 0;
+	private void RotateCameraAroundSelf()
+	{
+		float newAngleY = 0, newAngleX = 0;
 #if UNITY_EDITOR
-        if (Input.GetMouseButton(0) && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
-        {
-            newAngleY =
-                -Input.GetAxis("Mouse X") * cameraTurnSpeed;
-            newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
-        }
+		if (Input.GetMouseButton(0) && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
+		{
+			newAngleY =
+				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
+			newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
+		}
 #endif
-        if (Input.touchCount > 0 && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
-        {
-            newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
-                        10;
-            newAngleX = Input.touches[0].deltaPosition.y *
-                        cameraTurnSpeed / 10;
-        }
+		if (Input.touchCount > 0 && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
+		{
+			newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
+						10;
+			newAngleX = Input.touches[0].deltaPosition.y *
+						cameraTurnSpeed / 10;
+		}
 
-        if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
-            !(newAngleY < 0))
-        {
-            return;
-        }
-        // Horizontal rotation(Yaw)
-        Vector3 localUpAxis =
-            transform.InverseTransformDirection(Vector3.up);
-        transform.rotation *=
-            Quaternion.AngleAxis(newAngleY, localUpAxis);
+		if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
+			!(newAngleY < 0))
+		{
+			return;
+		}
+		// Horizontal rotation(Yaw)
+		Vector3 localUpAxis =
+			transform.InverseTransformDirection(Vector3.up);
+		transform.rotation *=
+			Quaternion.AngleAxis(newAngleY, localUpAxis);
 
-        // Vertical rotation (Pitch)
-        Quaternion q = Quaternion.AngleAxis(newAngleX, Vector3.right);
-        Quaternion finalRot = transform.rotation * q;
-        Vector3 transformed = finalRot * Vector3.up;
+		// Vertical rotation (Pitch)
+		Quaternion q = Quaternion.AngleAxis(newAngleX, Vector3.right);
+		Quaternion finalRot = transform.rotation * q;
+		Vector3 transformed = finalRot * Vector3.up;
 
-        // Project the transformed vector onto the Right axis
-        Vector3 flattened = transformed -
-                            Vector3.Dot(transformed, Vector3.right) *
-                            Vector3.right;
-        flattened = flattened.normalized;
-        float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
+		// Project the transformed vector onto the Right axis
+		Vector3 flattened = transformed -
+							Vector3.Dot(transformed, Vector3.right) *
+							Vector3.right;
+		flattened = flattened.normalized;
+		float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
 
-        if (a < 1.5f)
-        {
-            transform.rotation *= q;
-        }
+		if (a < 1.5f)
+		{
+			transform.rotation *= q;
+		}
 
-    }
+	}
+
+	void RotateAroundMoth()
+	{
+		float newAngleY = 0, newAngleX = 0;
+#if UNITY_EDITOR
+		if (Input.GetMouseButton(0) && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
+		{
+			newAngleY =
+				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
+			newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
+		}
+#endif
+		if (Input.touchCount > 0 && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
+		{
+			newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
+						10;
+			newAngleX = Input.touches[0].deltaPosition.y *
+						cameraTurnSpeed / 10;
+		}
+
+		if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
+			!(newAngleY < 0))
+		{
+			return;
+		}
+
+		// Horizontal rotation(Yaw)
+		Vector3 localUpAxis =
+			transform.InverseTransformDirection(Vector3.up);
+		transform.rotation *=
+			Quaternion.AngleAxis(newAngleY, localUpAxis);
+
+		// Vertical rotation (Pitch)
+		Quaternion q = Quaternion.AngleAxis(newAngleX, Vector3.right);
+		Quaternion finalRot = transform.rotation * q;
+		Vector3 transformed = finalRot * Vector3.up;
+
+		// Project the transformed vector onto the Right axis
+		Vector3 flattened = transformed -
+							Vector3.Dot(transformed, Vector3.right) *
+							Vector3.right;
+		flattened = flattened.normalized;
+		float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
+
+		if (a < 1.5f)
+		{
+			transform.rotation *= q;
+		}
+
+	}
+
+	void DisplaceCameraFromMoth()
+	{
+		
+	}
 
     public void SetTarget(Vector3 newTarget)
     {
@@ -206,8 +255,6 @@ public class CameraController : MonoBehaviour
     {
         transform.forward = Vector3.Lerp(transform.forward, TargetPos.forward,
                                   followSpeed * Time.deltaTime); 
-        //transform.rotation = Quaternion.Euler(Vector3.Lerp(transform.position, TargetPos.rotation.eulerAngles,
-        //                          followSpeed * Time.deltaTime));
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -241,9 +288,8 @@ public class CameraController : MonoBehaviour
 
     private void MoveTowardsTarget()
     {
-        //float stop = (TooFarFromTarget() ? 1f : 0f) * (storyCam ? 1f : 0f); 
         transform.position = Vector3.Lerp(transform.position, TargetPos.position,
-                                          followSpeed * Time.deltaTime); // * stop); 
+                                          followSpeed * Time.deltaTime);
     }
 
     private void CameraRotation()
