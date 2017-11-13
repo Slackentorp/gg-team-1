@@ -12,7 +12,7 @@ public class TMPTutorialPuzzle : MonoBehaviour, ITouchInput
     public void OnTap(Touch finger)
     {
         solved = true;
-        GameController.Instance.SolveTutorial();
+  //      GameController.Instance.SolveTutorial();
         particles.SetActive(true);
     }
 

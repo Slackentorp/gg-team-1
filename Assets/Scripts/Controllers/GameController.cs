@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameController : Singleton<GameController>
 {
-    [SerializeField]
+ /*   [SerializeField]
     private PauseState GameState;
 
     [SerializeField]
@@ -81,7 +81,7 @@ public class GameController : Singleton<GameController>
     {
         EventBus.Instance.SetMothPosition(startLamp.transform.TransformPoint(startLamp.GetComponent<LightSourceInput>().GetLandingPos()));
         SetGameCamera(newGameCamera.gameObject);
-        /*mothObject = gameCamera.TargetPos.gameObject;*/
+        /*mothObject = gameCamera.TargetPos.gameObject;
 		//gameCamera.transform.position = (gameCamera.transform.position - mothObject.transform.position).normalized;
 		gameCamera.TargetPos = cameraStartPosition;
         lightController.LoadLights();
@@ -108,5 +108,5 @@ public class GameController : Singleton<GameController>
     {
         PAUSED,
         PLAYING
-    }
+    }*/
 }
