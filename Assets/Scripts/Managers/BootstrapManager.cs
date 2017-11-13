@@ -44,8 +44,8 @@ public class BootstrapManager : Singleton<BootstrapManager>
                 Debug.LogWarning( "No camera with tag 'Level Camera' " +
                                 "was found in level. Using default settings.");
             }
-            GameController.Instance.SetupScene(gameCamera);
-            GameController.Instance.SetMothObject(mothObject);
+        //    GameController.Instance.SetupScene(gameCamera);
+         //   GameController.Instance.SetMothObject(mothObject);
         }
         else
         {

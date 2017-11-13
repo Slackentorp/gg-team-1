@@ -14,14 +14,14 @@ public class EventBus : Singleton<EventBus>
 
     public void SetCameraPosition(Vector3 position)
     {
-        GameController.Instance.SetCameraTarget(position); 
+    //    GameController.Instance.SetCameraTarget(position); 
     }
 
     public void TriggerStoryBite(BasicBiteTrigger bite)
     {
         if (bite.FixedCamera)
         {
-            GameObject.FindObjectOfType<CameraController>().SendMessage("SetStoryTarget", bite.FixedCamPos);
+        //    GameObject.FindObjectOfType<CameraController>().SendMessage("SetStoryTarget", bite.FixedCamPos);
         }
     }
 }

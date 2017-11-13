@@ -111,7 +111,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
         if (IsLit)
         {
             EventBus.Instance.SetMothPosition(transform.TransformPoint(LandingPosition));
-            GameController.Instance.SetCameraTarget(CameraPosition);
+       //     GameController.Instance.SetCameraTarget(CameraPosition);
         }
     }
 
