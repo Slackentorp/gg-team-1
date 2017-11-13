@@ -51,8 +51,10 @@ public class LightMapSwitcher : MonoBehaviour
 
     void Start()
     {
-        LightMapAssinger2();
-        SetLightsOff();
+        //LightMapAssinger2();
+        //SetLightsOff();
+
+        LightMapAssigner();
 
         //LightMapAssinger();
 
@@ -66,22 +68,10 @@ public class LightMapSwitcher : MonoBehaviour
 
     private void Update()
     {
-        if (getPuzzelChecker._SolvedPuzzels[0] && !solvedTutorial)
-        {
-            //LightMapAssinger();
-            SetLightsOn();
-            solvedTutorial = true;
-        }
+       
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            if (!lightSwitchOFF)
-            {
-                SetLightsOff();
-            }
-            else if (!lightSwitchON)
-            {
-                SetLightsOn();
-            }
+            LightMapSwitch();
         }
     }
 
@@ -182,6 +172,7 @@ public class LightMapSwitcher : MonoBehaviour
                 break;
             case 8:
                 LightmapSettings.lightmaps = lightMapData_8;
+                tmpInt = 0;
                 break;
         }
     }
