@@ -9,7 +9,7 @@ public class SwapCameraToolEvent : ScriptableWizard {
     Quaternion qaty;
     Vector3 vecy;
     GameObject gameObjecty;
-    [MenuItem("InspectionCamera Tool/Toly")]
+    [MenuItem("Tools/Inspection Camera")]
     static void SelectAllOfTagWizard()
     {
         ScriptableWizard.DisplayWizard<SwapCameraToolEvent>("InspectionCamera Tool", "Swap Cameras", "Return back");//first and second buttons
