@@ -110,8 +110,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1218086663684066}
-  m_LocalRotation: {x: -0, y: 0.35229665, z: -0, w: 0.9358884}
-  m_LocalPosition: {x: -2.791, y: 1.448, z: -0.809}
+  m_LocalRotation: {x: -0, y: -0.9387171, z: -0, w: 0.34468862}
+  m_LocalPosition: {x: -5.715, y: 0.717, z: 2.804}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4046572064104954}
@@ -119,7 +119,7 @@ Transform:
   - {fileID: 4221318777830522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 41.256, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -139.67401, z: 0}
 --- !u!4 &4803571381504852
 Transform:
   m_ObjectHideFlags: 1
@@ -196,8 +196,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.76470596, b: 0.46274513, a: 1}
-  m_Intensity: 2.5
-  m_Range: 1.2
+  m_Intensity: 1.4
+  m_Range: 4
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -234,8 +234,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LandingPosition: {x: 0, y: 0.4, z: 0}
-  cameraPosition: {x: 0.42, y: 0.48, z: 0.34}
+  cameraPosition: {x: -0.23, y: 0.5, z: -0.44}
   IsLit: 1
+  isSwitchable: 0
 --- !u!198 &198352562446326960
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -296,7 +297,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 895064193
+  randomSeed: 501079004
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1648,7 +1649,7 @@ ParticleSystem:
     inWorldSpace: 0
     randomizePerFrame: 0
   ExternalForcesModule:
-    enabled: 1
+    enabled: 0
     multiplier: 1
   ClampVelocityModule:
     enabled: 0
