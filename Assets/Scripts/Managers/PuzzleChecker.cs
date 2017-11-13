@@ -60,14 +60,6 @@ public class PuzzleChecker : MonoBehaviour
                 //print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
             }
 
-            if (puzzels[i].GetComponent<WorldMap>() != null)
-            {
-                bool thisPuzzelStatus = puzzels[i].GetComponent<WorldMap>().worldMapCompleted;
-                _SolvedPuzzels[i] = thisPuzzelStatus;
-
-                //print("PuzzelSolved: " + i + "-" + thisPuzzelStatus);
-            }
-
             if (puzzels[i].GetComponent<BasePuzzle>() != null)
             {
                 bool thisPuzzelStatus = puzzels[i].GetComponent<BasePuzzle>().isSolved;
