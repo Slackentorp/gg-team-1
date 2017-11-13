@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasicBiteTrigger : MonoBehaviour, ITouchInput
 {
     [SerializeField, Tooltip("The event which should be called.")]
-    private string storyBiteName;
+    private string fragmentName;
     [SerializeField, Tooltip("If the event requires fixed camera.")]
     private bool fixedCamera = false;
     [SerializeField, Tooltip("If the event requires fixed camera, where should it be?")]
@@ -42,9 +42,9 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
 
     private void CallEvent()
     {
-        print("Plays bite: " + storyBiteName);
+        print("Plays bite: " + fragmentName);
         EventBus.Instance.TriggerStoryBite(this); 
-        AkSoundEngine.PostEvent(storyBiteName, this.gameObject);
+        AkSoundEngine.PostEvent(fragmentName, this.gameObject);
     }
 
     private void OnDrawGizmos()

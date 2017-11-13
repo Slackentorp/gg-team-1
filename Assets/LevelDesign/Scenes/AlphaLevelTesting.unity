@@ -8930,7 +8930,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 389391346}
-  - component: {fileID: 389391348}
   m_Layer: 0
   m_Name: WorldMapHandler (1)
   m_TagString: Untagged
@@ -8938,30 +8937,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &389391348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114698643173072158, guid: 5ba0131f99835c04281ae8bfb8cf3342,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 389391347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd7eb98f431505458645fb5a6a6a53a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onSolvedWwiseEvent: 
-  onSolvedStorybitName: 
-  onIncorrectPlacementWwiseEvent: 
-  onPickupWwiseEvent: 
-  particles: {fileID: 342381806}
-  isSolved: 0
-  lights:
-  - {fileID: 968202334}
-  - {fileID: 1009017299}
-  colorOff: {r: 0.5441177, g: 0.5161116, b: 0.5161116, a: 0}
-  colorOn: {r: 0.07644895, g: 0.74264705, b: 0.24644421, a: 0}
-  worldMapCompleted: 0
 --- !u!1001 &391276847
 Prefab:
   m_ObjectHideFlags: 0
@@ -11434,7 +11409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6a4d78070b5f14ebab072f2d9e8422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woldMap: {fileID: 389391348}
+  woldMap: {fileID: 0}
 --- !u!23 &968202336
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11875,7 +11850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6a4d78070b5f14ebab072f2d9e8422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woldMap: {fileID: 389391348}
+  woldMap: {fileID: 0}
 --- !u!23 &1009017302
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12125,7 +12100,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 846690171}
-  - component: {fileID: 1082531247}
   m_Layer: 0
   m_Name: Lightbulb Puzzle
   m_TagString: Untagged
@@ -12133,27 +12107,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1082531247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114202433145057274, guid: 177c652479834db4491e1416bee7b30e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1082531246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48c68e1b5031404387d8e964e453122, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onSolvedWwiseEvent: Lightbulb
-  onSolvedStorybitName: 
-  onIncorrectPlacementWwiseEvent: BULB_PLACED_WRONG
-  onPickupWwiseEvent: BULB_PICK_UP
-  particles: {fileID: 0}
-  isSolved: 0
-  _solutionRack: {fileID: 2067118820}
-  mercyDistance: 0.2
-  onCorrectPlacementWwiseEvent: BULB_PLACED_RIGHT
 --- !u!4 &1084896713 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4915702153126446, guid: dc861e85964a9d84fa6cb987aaee370a,
@@ -12533,7 +12486,6 @@ GameObject:
   - component: {fileID: 1140066741}
   - component: {fileID: 1140066746}
   - component: {fileID: 1140066745}
-  - component: {fileID: 1140066744}
   - component: {fileID: 1140066743}
   - component: {fileID: 1140066742}
   m_Layer: 8
@@ -12586,28 +12538,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.1, z: 0.1}
   m_Center: {x: 0.07552001, y: 0, z: 0.0000000037252903}
---- !u!114 &1140066744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114023078132112190, guid: 177c652479834db4491e1416bee7b30e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1140066740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2254e4b1e07700c48891b9f33dedbf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 1082531247}
-  isCopy: 0
-  correctContact: {fileID: 1523162823}
-  copyOf: {fileID: 0}
-  scaleConstant: 0.35
-  startPos: {x: 0, y: 0, z: 0}
-  rackUp: {x: 0, y: 0, z: 0}
-  rackDirection: {x: 0, y: 0, z: 0}
-  rackNormal: {x: 0, y: 0, z: 0}
-  isColliding: 0
 --- !u!33 &1140066745
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -13209,7 +13139,8 @@ Prefab:
       propertyPath: onSolvedWwiseEvent
       value: Map
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114698643173072158, guid: 5ba0131f99835c04281ae8bfb8cf3342, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5ba0131f99835c04281ae8bfb8cf3342, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1275755745 stripped
@@ -13304,7 +13235,6 @@ GameObject:
   - component: {fileID: 1305734628}
   - component: {fileID: 1305734633}
   - component: {fileID: 1305734632}
-  - component: {fileID: 1305734631}
   - component: {fileID: 1305734630}
   - component: {fileID: 1305734629}
   m_Layer: 8
@@ -13357,28 +13287,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.1, z: 0.1}
   m_Center: {x: 0.07552001, y: 0, z: 0.0000000037252903}
---- !u!114 &1305734631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114870026889658106, guid: 177c652479834db4491e1416bee7b30e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1305734627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2254e4b1e07700c48891b9f33dedbf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 1082531247}
-  isCopy: 0
-  correctContact: {fileID: 1534754104}
-  copyOf: {fileID: 0}
-  scaleConstant: 0.35
-  startPos: {x: 0, y: 0, z: 0}
-  rackUp: {x: 0, y: 0, z: 0}
-  rackDirection: {x: 0, y: 0, z: 0}
-  rackNormal: {x: 0, y: 0, z: 0}
-  isColliding: 0
 --- !u!33 &1305734632
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17279,7 +17187,6 @@ GameObject:
   - component: {fileID: 1979550519}
   - component: {fileID: 1979550524}
   - component: {fileID: 1979550523}
-  - component: {fileID: 1979550522}
   - component: {fileID: 1979550521}
   - component: {fileID: 1979550520}
   m_Layer: 8
@@ -17332,28 +17239,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.1, z: 0.1}
   m_Center: {x: 0.07552001, y: 0, z: 0.0000000037252903}
---- !u!114 &1979550522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114001668752980614, guid: 177c652479834db4491e1416bee7b30e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1979550518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2254e4b1e07700c48891b9f33dedbf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 1082531247}
-  isCopy: 0
-  correctContact: {fileID: 288783380}
-  copyOf: {fileID: 0}
-  scaleConstant: 0.35
-  startPos: {x: 0, y: 0, z: 0}
-  rackUp: {x: 0, y: 0, z: 0}
-  rackDirection: {x: 0, y: 0, z: 0}
-  rackNormal: {x: 0, y: 0, z: 0}
-  isColliding: 0
 --- !u!33 &1979550523
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17564,7 +17449,6 @@ GameObject:
   - component: {fileID: 2017300311}
   - component: {fileID: 2017300316}
   - component: {fileID: 2017300315}
-  - component: {fileID: 2017300314}
   - component: {fileID: 2017300313}
   - component: {fileID: 2017300312}
   m_Layer: 8
@@ -17617,28 +17501,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.1, z: 0.1}
   m_Center: {x: 0.07552001, y: 0, z: 0.0000000037252903}
---- !u!114 &2017300314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114095204748607494, guid: 177c652479834db4491e1416bee7b30e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2017300310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2254e4b1e07700c48891b9f33dedbf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 1082531247}
-  isCopy: 0
-  correctContact: {fileID: 780789807}
-  copyOf: {fileID: 0}
-  scaleConstant: 0.35
-  startPos: {x: 0, y: 0, z: 0}
-  rackUp: {x: 0, y: 0, z: 0}
-  rackDirection: {x: 0, y: 0, z: 0}
-  rackNormal: {x: 0, y: 0, z: 0}
-  isColliding: 0
 --- !u!33 &2017300315
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17953,7 +17815,14 @@ Prefab:
       propertyPath: endGameCanvas
       value: 
       objectReference: {fileID: 1139217595}
-    m_RemovedComponents: []
+    - target: {fileID: 114763383372758958, guid: be8176ea3a3831e419a6c0dabcb99fab,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114050354582090944, guid: be8176ea3a3831e419a6c0dabcb99fab, type: 2}
+    - {fileID: 114893460963174514, guid: be8176ea3a3831e419a6c0dabcb99fab, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: be8176ea3a3831e419a6c0dabcb99fab, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2050819792
