@@ -13,6 +13,8 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     private Vector3 cameraPosition;
     [SerializeField]
     private bool IsLit = false;
+    [SerializeField]
+    private bool isSwitchable = false;
 
     public Vector3 CameraPosition { get { return transform.TransformPoint(cameraPosition); } }
 
@@ -20,6 +22,12 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     {
         get { return IsLit; }
         set { IsLit = value; }
+    }
+
+    public bool ISSwitchable
+    {
+        get { return isSwitchable; }
+        set { isSwitchable = value; }
     }
 
 
