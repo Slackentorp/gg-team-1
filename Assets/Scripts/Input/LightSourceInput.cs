@@ -17,12 +17,18 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     private bool isSwitchable = false;
 
     [SerializeField]
+    private GameObject[] getFragments;
+
+    [SerializeField]
     private Material lampMaterialOn, lampMaterialOff;
     private ParticleSystem particleSystemLamp;
     private bool lampParticleStatus;
     private Renderer rend;
     // private currentLightmap;
     private State currentLampState;
+    private bool[] localFragmentsState = new bool[3];
+
+    private bool isActivated;
 
     public Vector3 CameraPosition { get { return transform.TransformPoint(cameraPosition); } }
 
@@ -38,19 +44,56 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
         set { isSwitchable = value; }
     }
 
+    public bool LampActivated
+    {
+        get { return isActivated; }
+        set { isActivated = value; }
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F4))
+        //if (Input.GetKeyDown(KeyCode.F4))
+        //{
+        //    LampOFF();
+        //}
+        //if (Input.GetKeyDown(KeyCode.F5))
+        //{
+        //    LampON();
+        //}
+        //if (Input.GetKeyDown(KeyCode.F6))
+        //{
+        //    LampFlickering();
+        //}
+        FragmentChecker();
+    }
+
+    public void FragmentChecker()
+    {
+        for (int i = 0; i < localFragmentsState.Length; i++)
+        {
+            //print("local: " + localFragmentsState.Length);
+            //print("frag: " + getFragments.Length);
+            localFragmentsState[i] = getFragments[i].GetComponent<Fragment>().HasPlayed;
+        }
+
+        if (!localFragmentsState[0] && !localFragmentsState[1] && !localFragmentsState[2])
         {
             LampOFF();
         }
-        if (Input.GetKeyDown(KeyCode.F5))
+        else if (localFragmentsState[0] || localFragmentsState[1] || localFragmentsState[2])
         {
-            LampON();
-        }
-        if (Input.GetKeyDown(KeyCode.F6))
-        {
-            LampFlickering();
+            if(localFragmentsState[0] && localFragmentsState[1])
+            {
+                LampON();
+            }
+            else if(localFragmentsState[1] && localFragmentsState[2])
+            {
+                LampON();
+            }
+            else
+            {
+                LampFlickering();
+            }
         }
     }
 
@@ -80,9 +123,9 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     private void LightSwitch(State currentLampState)
     {
         if (GetComponentInChildren<Renderer>() != null &&
-            GetComponentInChildren<ParticleSystem>() != null)
+           GetComponentInChildren<ParticleSystem>() != null)
         {
-            rend = GetComponentsInChildren<Renderer>()[1];
+            rend = GetComponentsInChildren<Renderer>()[0];
             particleSystemLamp = GetComponentsInChildren<ParticleSystem>()[0];
 
             if (currentLampState == State.LAMP_OFF)
@@ -111,7 +154,6 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
         if (IsLit)
         {
             EventBus.Instance.SetMothPosition(transform.TransformPoint(LandingPosition));
-       //     GameController.Instance.SetCameraTarget(CameraPosition);
         }
     }
 
