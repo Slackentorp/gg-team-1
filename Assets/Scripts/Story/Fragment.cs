@@ -50,20 +50,20 @@ public class Fragment : MonoBehaviour, ITouchInput
     }
 
 
-    public void OnTap(Touch finger)
+    public void OnTap()
     {
         Play(); 
     }
 
-    public void OnTouchDown(Touch finger, Vector3 worldPos)
+    public void OnTouchDown(Vector3 worldPos)
     {
     }
 
-    public void OnTouchUp(Touch finger)
+    public void OnTouchUp()
     {
     }
 
-    public void OnToucHold(Touch finger, Vector3 worldPos)
+    public void OnToucHold(Vector3 worldPos)
     {
     }
 
@@ -71,7 +71,7 @@ public class Fragment : MonoBehaviour, ITouchInput
     {
     }
 
-    public void OnSwipe(Touch finger, TouchDirection direction)
+    public void OnSwipe(TouchDirection direction)
     {
     }
 }

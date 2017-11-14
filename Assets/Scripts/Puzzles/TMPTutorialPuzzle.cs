@@ -9,24 +9,24 @@ public class TMPTutorialPuzzle : MonoBehaviour, ITouchInput
 
     [SerializeField]
     private GameObject particles; 
-    public void OnTap(Touch finger)
+    public void OnTap()
     {
         solved = true;
   //      GameController.Instance.SolveTutorial();
         particles.SetActive(true);
     }
 
-    public void OnTouchDown(Touch finger, Vector3 worldPos)
+    public void OnTouchDown(Vector3 worldPos)
     {
 
     }
 
-    public void OnTouchUp(Touch finger)
+    public void OnTouchUp()
     {
 
     }
 
-    public void OnToucHold(Touch finger, Vector3 worldPos)
+    public void OnToucHold(Vector3 worldPos)
     {
 
     }
@@ -36,7 +36,7 @@ public class TMPTutorialPuzzle : MonoBehaviour, ITouchInput
 
     }
 
-    public void OnSwipe(Touch finger, TouchDirection direction)
+    public void OnSwipe( TouchDirection direction)
     {
     }
 }
