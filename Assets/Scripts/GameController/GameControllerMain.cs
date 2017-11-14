@@ -33,6 +33,14 @@ public class GameControllerMain : Singleton<GameControllerMain>
         }
     }
 
+    private void OnGUI()
+    {
+        if (currentState != null)
+        {
+            currentState.InternalOnGUI();
+        }
+    }
+
     [ContextMenu("DAN")]
     void SetDanish() {
         localization.SetDanish();
