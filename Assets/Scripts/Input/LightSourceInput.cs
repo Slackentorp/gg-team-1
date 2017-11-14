@@ -63,6 +63,11 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
         Fragment.FragmentCall -= FragmentChecker;
     }
 
+    //private void Update()
+    //{
+    //    FragmentChecker();
+    //}
+
     public void FragmentChecker()
     {
         for (int i = 0; i < localFragmentsState.Length; i++)
@@ -81,10 +86,6 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
                 LampON();
             }
             else if(localFragmentsState[1] && localFragmentsState[2])
-            {
-                LampON();
-            }
-            else if (localFragmentsState[0] && localFragmentsState[2])
             {
                 LampON();
             }
