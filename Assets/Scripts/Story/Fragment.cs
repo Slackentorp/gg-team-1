@@ -29,6 +29,9 @@ public class Fragment : MonoBehaviour
         }
     }
 
+    public delegate void FragmentAction();
+    public static event FragmentAction FragmentCall;
+
     private void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Touch Object");
@@ -40,6 +43,7 @@ public class Fragment : MonoBehaviour
     public void Play(EasyWwiseCallback Callback)
     {
         HasPlayed = true;
+        FragmentCall();
         Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
         AkSoundEngine.PostEvent(storyFragment, gameObject, (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
     }
