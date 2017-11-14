@@ -57,7 +57,7 @@ namespace Assets.Scripts.Managers
 #endif
         }
 
-        void OnGUI()
+        public void OnGUI()
         {
             GUI.contentColor = Color.cyan;
             GUI.Label(new Rect(0, 0, 200, 200), debugLastInput);

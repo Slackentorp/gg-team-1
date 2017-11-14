@@ -51,4 +51,9 @@ public class RunState : GameState
 
         // Should return what GameObject is being touched, and the type of touch
     }
+
+    public override void InternalOnGUI()
+    {
+        gm.InputManager.OnGUI();
+    }
 }

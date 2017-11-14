@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorWallController : MonoBehaviour {
+public class DoorWallController : MonoBehaviour
+{
 
     [SerializeField]
     private GameObject[] roomLamps;
     private ParticleSystem doorParticleSystem;
     private bool[] getLamps = new bool[3];
 
-	void Start ()
+    void OnEnable()
     {
-		
-	}
-	
-	void Update ()
+        LightSourceInput.LightSourceCall += LampChecker;
+    }
+
+    void OnDisable()
     {
-        LampChecker();
+        LightSourceInput.LightSourceCall -= LampChecker;
     }
 
     void LampChecker()
@@ -26,7 +27,7 @@ public class DoorWallController : MonoBehaviour {
             getLamps[i] = roomLamps[i].GetComponent<LightSourceInput>().LampActivated;
         }
 
-        if ((getLamps[0] && getLamps[1]) && 
+        if ((getLamps[0] && getLamps[1]) &&
             (getLamps[0] && getLamps[2]) &&
             (getLamps[1] && getLamps[2]))
         {

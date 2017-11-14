@@ -28,6 +28,9 @@ public class Fragment : MonoBehaviour, ITouchInput
         }
     }
 
+    public delegate void FragmentAction();
+    public static event FragmentAction FragmentCall;
+
     private void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Touch Object");
@@ -39,6 +42,7 @@ public class Fragment : MonoBehaviour, ITouchInput
     public void Play()
     {
         HasPlayed = true;
+        FragmentCall();
         Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
         AkSoundEngine.PostEvent(storyFragment, this.gameObject);
     }

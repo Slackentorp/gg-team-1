@@ -50,10 +50,23 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
         set { isActivated = value; }
     }
 
-    private void Update()
+    public delegate void LightSourceAction();
+    public static event LightSourceAction LightSourceCall;
+
+    void OnEnable()
     {
-        FragmentChecker();
+        Fragment.FragmentCall += FragmentChecker;
     }
+
+    void OnDisable()
+    {
+        Fragment.FragmentCall -= FragmentChecker;
+    }
+
+    //private void Update()
+    //{
+    //    FragmentChecker();
+    //}
 
     public void FragmentChecker()
     {
@@ -81,6 +94,8 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
                 LampFlickering();
             }
         }
+
+        LightSourceCall();
     }
 
     enum State
