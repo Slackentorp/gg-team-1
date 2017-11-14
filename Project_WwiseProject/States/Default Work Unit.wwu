@@ -3,14 +3,6 @@
 	<States>
 		<WorkUnit Name="Default Work Unit" ID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}" PersistMode="Standalone">
 			<ChildrenList>
-				<StateGroup Name="PUZZLE_STATE" ID="{EBDA41E7-6DE3-4DE1-8B47-2B571837A3EE}">
-					<ChildrenList>
-						<State Name="None" ID="{1F93A77B-D0A8-4CB6-B97E-172CBE5AAE73}"/>
-						<State Name="UNSOLVED" ID="{8F9A26C3-006D-4067-807D-406A1C72E3BD}"/>
-						<State Name="SOLVING" ID="{6DF62555-7141-4E73-8CDC-8EF09AF88DA3}"/>
-						<State Name="SOLVED" ID="{3FB38530-87CA-45FF-ADC0-13F7A8116496}"/>
-					</ChildrenList>
-				</StateGroup>
 				<StateGroup Name="BULB_STATE" ID="{9C8737DD-806D-41EC-9D12-71B067519582}">
 					<ChildrenList>
 						<State Name="None" ID="{4193E018-445E-4988-BEC2-A45A8B47222F}"/>
@@ -19,15 +11,6 @@
 						<State Name="BULB_4" ID="{C02F516B-8752-4BBA-9081-644399682C11}"/>
 						<State Name="BULB_3" ID="{3E2C3FAD-A4E3-4202-8D1B-CE759ECD1A6B}"/>
 						<State Name="BULB_5" ID="{352BA755-A272-483A-9363-C7D88533C0E7}"/>
-					</ChildrenList>
-				</StateGroup>
-				<StateGroup Name="ARRANGEMENT_STATE" ID="{8E9846E5-8158-4884-B2DF-F5F138E88DAC}">
-					<ChildrenList>
-						<State Name="None" ID="{FB5472DE-46E7-4EE3-9EE1-8982F831877F}"/>
-						<State Name="OBJECT_1" ID="{B61A3F5B-1A2E-408A-A610-2A4ECE056055}"/>
-						<State Name="OBJECT_2" ID="{AE06EC0D-5DCB-42A9-A83D-F7DACA1CABFC}"/>
-						<State Name="OBJECT_3" ID="{450E4443-22C2-418B-9702-281C92F56282}"/>
-						<State Name="OBJECT_4" ID="{4C213514-1E9E-4774-98EC-67CE9DC639A9}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="PICTUREPUZZLE_STATE" ID="{EB18BFB3-4E6A-4002-B0A0-5A273CF571BC}">
@@ -44,6 +27,52 @@
 						<State Name="None" ID="{4C80ABBC-03DC-4D19-8E13-A0C71C4C2C89}"/>
 						<State Name="INSIDE" ID="{93846049-8C3A-4A3D-A925-FAE4963F37E7}"/>
 						<State Name="OUTSIDE" ID="{5783DA04-EC82-49CF-ABAD-C60310ACDB63}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="MAP_STATE" ID="{D22B46D5-7259-4D52-A71A-957F793D3B04}">
+					<ChildrenList>
+						<State Name="None" ID="{5A181DF4-3020-4459-84E9-8E4B5A661292}"/>
+						<State Name="PIN_1" ID="{D56A7DEB-E7A2-446A-9D15-EDB989612089}"/>
+						<State Name="PIN_2" ID="{31DA64D0-F372-4CB9-BBC5-922D990708E1}"/>
+						<State Name="PIN_3" ID="{389D39F7-C6E1-47BC-A43B-C71C816BD526}"/>
+						<State Name="PIN_4" ID="{9CCC59B2-48E7-4341-97C1-8C154DF8BA0C}"/>
+						<State Name="PIN_5" ID="{8A35FA01-CE8D-4768-AC1F-0E6DE6D9A6DF}"/>
+						<State Name="PIN_6" ID="{4A1D792C-2E5F-4DD9-8532-55935E94E67A}"/>
+						<State Name="PIN_7" ID="{938AEB7F-185A-4EA5-A3B7-46D7757B3F6B}"/>
+						<State Name="PIN_8" ID="{8D3C477C-49A6-4A0F-A5EA-49B44AF8D3E0}"/>
+						<State Name="DONE" ID="{8C9198AF-4E2D-44CB-B9F0-8D1764E9FAD5}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="STAR_STATE" ID="{9A45743B-0CA6-4609-9B42-F543462BC205}">
+					<ChildrenList>
+						<State Name="None" ID="{BDF64999-4672-4DD5-88E0-35C390F51EBC}"/>
+						<State Name="STAR_1" ID="{AEA6EE86-67C7-4F22-AB5E-D170A9396E62}"/>
+						<State Name="STAR_2" ID="{CD752B20-F483-4C8F-8A53-059F75BA43EF}"/>
+						<State Name="STAR_3" ID="{CAC0AC9F-B1FD-472A-8219-2ED1D9FA8C25}"/>
+						<State Name="STAR_4" ID="{982BDA01-087B-44C0-865C-19BE13CC439D}"/>
+						<State Name="STAR_5" ID="{7ED9C124-C27F-41C6-BA85-8306EEC73122}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="MUSIC_STATE" ID="{114B4A0E-2938-4B04-97C8-10B1F1AAA73A}">
+					<ChildrenList>
+						<State Name="None" ID="{5D54B2EB-B513-4172-89F4-B6F866279BD5}"/>
+						<State Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}"/>
+						<State Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="ROOM" ID="{3CEC4412-1E33-4E4B-A9AD-2AE42D268D8D}">
+					<ChildrenList>
+						<State Name="None" ID="{FC741D1C-8E46-4B3B-AA07-A211CD8F60B8}"/>
+						<State Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
+						<State Name="HALLWAY" ID="{6BB75331-C2D5-4696-A368-81731DA3946E}"/>
+						<State Name="KITCHEN" ID="{58A3C77B-7624-424D-B2DF-8412BB792C58}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="LANGUAGE" ID="{B16A3252-0A40-48BB-BEE5-AEA47931CBDD}">
+					<ChildrenList>
+						<State Name="None" ID="{89181E78-4ACF-44B1-B40E-B656DCFB930A}"/>
+						<State Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
+						<State Name="ENGLISH" ID="{3A2BE52B-5BBF-405C-9CD2-175EDB012F37}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>
