@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Scripts.Managers;
 using Gamelogic.Extensions;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class GameControllerMain : Singleton<GameControllerMain>
     public Queue StoryQueue;
     public LocalizationManager localization;
     public LightController LightController;
+    public InputManager InputManager;
+    public InputHandlerSettings InputSettings;
 
     private GameState currentState;
 
@@ -27,6 +30,14 @@ public class GameControllerMain : Singleton<GameControllerMain>
         if (currentState != null)
         {
             currentState.Tick();
+        }
+    }
+
+    private void OnGUI()
+    {
+        if (currentState != null)
+        {
+            currentState.InternalOnGUI();
         }
     }
 

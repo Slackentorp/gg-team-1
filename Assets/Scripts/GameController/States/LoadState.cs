@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Managers;
 using UnityEngine;
 
 public class LoadState : GameState
@@ -12,7 +13,11 @@ public class LoadState : GameState
     {
         Debug.Log("Entered load state");
         gm.localization = new LocalizationManager();
-       // gm.LightController.LoadLights();
+        if (gm.LightController != null)
+        {
+            gm.LightController.LoadLights();
+        }
+        gm.InputManager = new InputManager(gm.InputSettings);
    //     gm.GameCamera.SetTarget(gm.Moth.transform.position);
         gm.SetState(new RunState(gm));
     }

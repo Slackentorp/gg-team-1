@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EasyButtons;
 using Gamelogic.Extensions;
 using UnityEngine;
 
@@ -27,6 +28,9 @@ public class CombinationPuzzleController : BasePuzzle
 
     [SerializeField, Tooltip("The distance picture frames should be raised when picked up")]
     private float raiseAmount = .15f;
+    [SerializeField, Tooltip("Particles or similar that can be used as feedforward for the correct placement. It should ideally be the same size as the picture frames.")]
+    private GameObject feedforwardPrefab;
+
     public float RaiseAmount { get { return raiseAmount; } }
 
     public Vector3 Bounds { get { return bounds; }}
@@ -42,9 +46,34 @@ public class CombinationPuzzleController : BasePuzzle
         }
     }
 
+    [Button]
+    private void GenerateFeedforward()
+    {
+        if (feedforwardPrefab != null)
+        {
+            foreach (var obj in GameObject.FindGameObjectsWithTag(
+                "PieceFeedforward"))
+            {
+                DestroyImmediate(obj);
+            }
+
+
+            foreach (var frame in pictureFrames)
+            {
+                Vector3 spawnPos = frame.correctPostion + frame.originPosition;
+                Quaternion spawnRot = Quaternion.Euler(frame.correctRotation) *
+                                      transform.rotation;
+                GameObject particle =
+                    Instantiate(feedforwardPrefab, spawnPos, spawnRot);
+                particle.name = frame.name + "_feedforward";
+            }
+        }
+    }
+
     void Start()
     {
         CheckForSolution(null);
+        
     }
 
     private void Update()
