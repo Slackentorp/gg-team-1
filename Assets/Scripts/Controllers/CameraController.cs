@@ -22,7 +22,11 @@ public class CameraController
 
 	public bool isDebug = true;
 	public static bool isMouseTouchingObject;
+	Vector3 heading;
+	Vector3 initialHeading;
+	Vector3 flattened;
 
+	Vector3 headingProjected, upProjected;
 
 	public Transform TargetPos
 	{
@@ -69,23 +73,15 @@ public class CameraController
 
 	public void Update()
 	{
-		CheckIfTargetPosIsNull();
-
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			storyCam = !storyCam;
 		}
 
-		/*if (storyCam)
-		{
-			//RotateCameraTowardsObject();
-		}*/
-		else
-		{
-			CameraRotation();
-		}
-
-		MoveTowardsTarget();
+		RotateAroundMoth();
+		transform.position = heading + targetPos.position;
+		transform.rotation = Quaternion.LookRotation(-heading.normalized);
+		targetPos.rotation = Quaternion.LookRotation(heading);
 	}
 
 	public void SetStoryCam(bool val)
@@ -105,6 +101,8 @@ public class CameraController
 		Vector3 reference = transform.rotation.eulerAngles;
 		reference.z = 0;
 		transform.rotation = Quaternion.Euler(reference);
+		heading = transform.position - targetPos.position;
+		initialHeading = transform.position - targetPos.position;
 	}
 
 
@@ -132,6 +130,7 @@ public class CameraController
 		{
 			return;
 		}
+		
 		// Horizontal rotation(Yaw)
 		Vector3 localUpAxis =
 			transform.InverseTransformDirection(Vector3.up);
@@ -165,7 +164,7 @@ public class CameraController
 		{
 			newAngleY =
 				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
-			newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
+			newAngleX += Input.GetAxis("Mouse Y") * cameraTurnSpeed;
 		}
 #endif
 		if (Input.touchCount > 0 && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
@@ -181,10 +180,52 @@ public class CameraController
 		{
 			return;
 		}
+		// Yaw
+		Vector3 localUpAxis =
+			transform.InverseTransformDirection(Vector3.up);
+		heading = Quaternion.AngleAxis(newAngleY, localUpAxis) * heading;
 
-		transform.RotateAround(targetPos.position, targetPos.transform.up, newAngleY);
-		//transform.RotateAround(targetPos.position, targetPos.right, newAngleX);
+		// Pitch
+		Quaternion q = Quaternion.AngleAxis(newAngleX, transform.right);
 
+
+		
+		Vector3 nextHeading = q * heading;
+		float a = Vector3.Angle(nextHeading, Vector3.up);
+		if (a >= 20 && a <= 160)
+		{
+			heading = nextHeading;
+		}
+
+		
+		
+	/*	Quaternion finalRot = Quaternion.FromToRotation(Vector3.up, q * heading);
+		Vector3 transformed = finalRot * Vector3.up;
+
+		headingProjected = Vector3.ProjectOnPlane(heading, targetPos.right);
+		upProjected = Vector3.ProjectOnPlane(Vector3.up, targetPos.right);*/
+	//	heading = q * heading;
+	/*	Debug.Log(Vector3.Angle(headingProjected, upProjected));
+
+		// Project the transformed vector onto the Right axis
+		flattened = transformed -
+							Vector3.Dot(transformed, Vector3.right) *
+							Vector3.right;
+		flattened = flattened.normalized;
+		float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
+
+		if (a < 1.5f)
+		{
+			//heading = q * heading;
+		}*/
+
+		//	transform.position = heading + targetPos.position;
+		//	transform.RotateAround(targetPos.position, Vector3.up, newAngleY);
+
+
+		//	transform.RotateAround(targetPos.position, Vector3.right, newAngleX);
+
+		//targetPos.forward = -transform.forward;
 		/*// Horizontal rotation(Yaw)
 		Vector3 localUpAxis =
 			transform.InverseTransformDirection(Vector3.up);
@@ -207,11 +248,6 @@ public class CameraController
 		{
 			transform.rotation *= q;
 		}*/
-
-	}
-
-	void DisplaceCameraFromMoth()
-	{
 
 	}
 
@@ -303,7 +339,7 @@ public class CameraController
 
 	private void MoveTowardsTarget()
 	{
-		transform.position = Vector3.Lerp(transform.position, TargetPos.position,
+		transform.position = Vector3.Lerp(transform.position, TargetPos.position * maxDistance,
 										  followSpeed * Time.deltaTime);
 	}
 
