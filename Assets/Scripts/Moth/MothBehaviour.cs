@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MothBehaviour : MonoBehaviour
+public class MothBehaviour
 {
     [SerializeField]
     private AnimationCurve lerpCurve;
     [SerializeField]
     private float timeScale = 1;
+
+	Transform transform;
+	Camera camera;
 
     public float MothSpeed { get; set; }
     
@@ -21,21 +24,34 @@ public class MothBehaviour : MonoBehaviour
         }
     }
 
-    public void SetMothPosition(Vector3 position)
+	public MothBehaviour(Transform transform, Camera camera, float speed)
+	{
+		this.transform = transform;
+		this.camera = camera; 
+		this.MothSpeed = speed; 
+	}
+
+
+	public void Update()
+	{
+		MothGoToPosition();
+	}
+
+	/*public void SetMothPosition(Vector3 position)
     {
         if (!inTransit)
         {
             inTransit = true;
-            IEnumerator lerp = SmoothLerpPosition(transform.gameObject, position);
-            StartCoroutine(lerp);
+            //IEnumerator lerp = SmoothLerpPosition(transform.gameObject, position);
+            //StartCoroutine(lerp);
         }
-    }
+    }*/
 
 
     IEnumerator SmoothLerpPosition(GameObject affect, Vector3 target)
     {
         Vector3 startPosition = affect.transform.position;
-        AkSoundEngine.PostEvent("MOTH_START_FLIGHT", gameObject);
+      // AkSoundEngine.PostEvent("MOTH_START_FLIGHT", gameObject);
         MothSpeed = 1f; 
 
         float time = 0;
@@ -48,8 +64,24 @@ public class MothBehaviour : MonoBehaviour
         }
 
         MothSpeed = 0f;
-        //GameController.Instance.GoToCameraTarget();
-        AkSoundEngine.PostEvent("MOTH_END_FLIGHT", gameObject);
+       // AkSoundEngine.PostEvent("MOTH_END_FLIGHT", gameObject);
         inTransit = false;
     }
+
+	private void MothGoToPosition()
+	{
+		MothSpeed = .4f;
+		if (Input.GetMouseButton(0))
+		{
+			Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit))
+			{
+				Vector3 mothToPoint = transform.position - hit.normal; 
+				Debug.DrawRay(transform.position, mothToPoint, Color.red);
+				Vector3.Lerp(transform.position, hit.normal, MothSpeed);
+				
+			}
+		}
+	}
 }
