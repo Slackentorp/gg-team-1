@@ -13,7 +13,7 @@ public class SwapCameraToolEvent : ScriptableWizard {
     private GameObject cameraMain;
     private GameObject cameraLevel;
 
-    [MenuItem("Tools/Inspection Camera")]
+    //[MenuItem("Tools/Inspection Camera")]
     static void SelectAllOfTagWizard()
     {
         ScriptableWizard.DisplayWizard<SwapCameraToolEvent>("InspectionCamera Tool", "Swap Cameras", "Return back");//first and second buttons
