@@ -12,11 +12,31 @@ public class LightMapSwitcher : MonoBehaviour
     private int roomID;
 
     [SerializeField]
-    public Texture2D[] lightMapID_1, lightMapID_2, lightMapID_3, lightMapID_4,
-        lightMapID_5, lightMapID_6, lightMapID_7, lightMapID_8;
+    public Texture2D[] lightMapRoom1ID_1, lightMapRoom1ID_2, lightMapRoom1ID_3, lightMap1ID_4,
+        lightMap1ID_5, lightMap1ID_6, lightMap1ID_7, lightMap1ID_8;
+
+    [SerializeField]
+    public Texture2D[] lightMapRoom2ID_1, lightMapRoom2ID_2, lightMapRoom2ID_3, lightMap2ID_4,
+        lightMap2ID_5, lightMap2ID_6, lightMap2ID_7, lightMap2ID_8;
+
+    [SerializeField]
+    public Texture2D[] lightMapRoom3ID_1, lightMapRoom3ID_2, lightMapRoom3ID_3, lightMap3ID_4,
+        lightMap3ID_5, lightMap3ID_6, lightMap3ID_7, lightMap3ID_8;
+
+    [SerializeField]
+    public Texture2D[] lightMapRoom4ID_1, lightMapRoom4ID_2, lightMapRoom4ID_3, lightMap4ID_4,
+        lightMap4ID_5, lightMap4ID_6, lightMap4ID_7, lightMap4ID_8;
+
+    [SerializeField]
+    public Texture2D[] lightMapRoom5ID_1, lightMapRoom5ID_2, lightMapRoom5ID_3, lightMap5ID_4,
+        lightMap5ID_5, lightMap5ID_6, lightMap5ID_7, lightMap5ID_8;
 
     private LightmapData[] lightMapData_1, lightMapData_2, lightMapData_3, lightMapData_4,
         lightMapData_5, lightMapData_6, lightMapData_7, lightMapData_8;
+
+
+    [SerializeField]
+    private int roomIndex = 5;
 
     private int tmpInt = 1;
 
@@ -68,7 +88,6 @@ public class LightMapSwitcher : MonoBehaviour
 
     private void Update()
     {
-       
         if (Input.GetKeyDown(KeyCode.F1))
         {
             LightMapSwitch();
@@ -94,53 +113,53 @@ public class LightMapSwitcher : MonoBehaviour
     [Button]
     private void LightMapAssigner()
     {
-        lightMapData_1 = new LightmapData[lightMapID_1.Length];
-        for (int i = 0; i < lightMapID_1.Length; i++)
+        lightMapData_1 = new LightmapData[lightMapRoom1ID_1.Length];
+        for (int i = 0; i < lightMapRoom1ID_1.Length; i++)
         {
             lightMapData_1[i] = new LightmapData();
-            lightMapData_1[i].lightmapColor = lightMapID_1[i];
+            lightMapData_1[i].lightmapColor = lightMapRoom1ID_1[i];
         }
-        lightMapData_2 = new LightmapData[lightMapID_2.Length];
-        for (int i = 0; i < lightMapID_1.Length; i++)
+        lightMapData_2 = new LightmapData[lightMapRoom1ID_2.Length];
+        for (int i = 0; i < lightMapRoom1ID_1.Length; i++)
         {
             lightMapData_2[i] = new LightmapData();
-            lightMapData_2[i].lightmapColor = lightMapID_2[i];
+            lightMapData_2[i].lightmapColor = lightMapRoom1ID_2[i];
         }
-        lightMapData_3 = new LightmapData[lightMapID_3.Length];
-        for (int i = 0; i < lightMapID_1.Length; i++)
+        lightMapData_3 = new LightmapData[lightMapRoom1ID_3.Length];
+        for (int i = 0; i < lightMapRoom1ID_1.Length; i++)
         {
             lightMapData_3[i] = new LightmapData();
-            lightMapData_3[i].lightmapColor = lightMapID_3[i];
+            lightMapData_3[i].lightmapColor = lightMapRoom1ID_3[i];
         }
-        lightMapData_4 = new LightmapData[lightMapID_4.Length];
-        for (int i = 0; i < lightMapID_1.Length; i++)
+        lightMapData_4 = new LightmapData[lightMap1ID_4.Length];
+        for (int i = 0; i < lightMapRoom1ID_1.Length; i++)
         {
             lightMapData_4[i] = new LightmapData();
-            lightMapData_4[i].lightmapColor = lightMapID_4[i];
+            lightMapData_4[i].lightmapColor = lightMap1ID_4[i];
         }
-        lightMapData_5 = new LightmapData[lightMapID_5.Length];
-        for (int i = 0; i < lightMapID_1.Length; i++)
+        lightMapData_5 = new LightmapData[lightMap1ID_5.Length];
+        for (int i = 0; i < lightMapRoom1ID_1.Length; i++)
         {
             lightMapData_5[i] = new LightmapData();
-            lightMapData_5[i].lightmapColor = lightMapID_5[i];
+            lightMapData_5[i].lightmapColor = lightMap1ID_5[i];
         }
-        lightMapData_6 = new LightmapData[lightMapID_6.Length];
-        for (int i = 0; i < lightMapID_1.Length; i++)
+        lightMapData_6 = new LightmapData[lightMap1ID_6.Length];
+        for (int i = 0; i < lightMapRoom1ID_1.Length; i++)
         {
             lightMapData_6[i] = new LightmapData();
-            lightMapData_6[i].lightmapColor = lightMapID_6[i];
+            lightMapData_6[i].lightmapColor = lightMap1ID_6[i];
         }
-        lightMapData_7 = new LightmapData[lightMapID_7.Length];
-        for (int i = 0; i < lightMapID_1.Length; i++)
+        lightMapData_7 = new LightmapData[lightMap1ID_7.Length];
+        for (int i = 0; i < lightMapRoom1ID_1.Length; i++)
         {
             lightMapData_7[i] = new LightmapData();
-            lightMapData_7[i].lightmapColor = lightMapID_7[i];
+            lightMapData_7[i].lightmapColor = lightMap1ID_7[i];
         }
-        lightMapData_8 = new LightmapData[lightMapID_8.Length];
-        for (int i = 0; i < lightMapID_1.Length; i++)
+        lightMapData_8 = new LightmapData[lightMap1ID_8.Length];
+        for (int i = 0; i < lightMapRoom1ID_1.Length; i++)
         {
             lightMapData_8[i] = new LightmapData();
-            lightMapData_8[i].lightmapColor = lightMapID_8[i];
+            lightMapData_8[i].lightmapColor = lightMap1ID_8[i];
         }
     }
 
