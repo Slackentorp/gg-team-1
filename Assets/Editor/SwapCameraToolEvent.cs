@@ -6,27 +6,53 @@ using UnityEditor;
 [ExecuteInEditMode]
 public class SwapCameraToolEvent : ScriptableWizard {
     private ArrayList sceneViews;
-    Quaternion qaty;
-    Vector3 vecy;
+    Quaternion cameraNewRotation;
+    Vector3 cameraNewPosition;
     GameObject gameObjecty;
-    [MenuItem("InspectionCamera Tool/Toly")]
+
+    private GameObject cameraMain;
+    private GameObject cameraLevel;
+
+    [MenuItem("Tools/Inspection Camera")]
     static void SelectAllOfTagWizard()
     {
         ScriptableWizard.DisplayWizard<SwapCameraToolEvent>("InspectionCamera Tool", "Swap Cameras", "Return back");//first and second buttons
     }
 
+    private void Start()
+    {
+        
+    }
+
+
     public void OnWizardCreate()
     {
-        qaty = Camera.main.transform.rotation;
-        vecy = Camera.main.transform.position;
+        cameraMain = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraLevel = GameObject.FindGameObjectWithTag("Level Camera");
+        //qaty = Camera.main.transform.rotation;
+        //vecy = Camera.main.transform.position;
+        //cameraNewRotation = cameraLevel.transform.rotation;
+        //cameraNewPosition = cameraLevel.transform.position;
+
+        cameraNewRotation = cameraMain.transform.rotation;
+        cameraNewPosition = cameraMain.transform.position;
+
+        Debug.Log("i am touched");
         GameObject newObject = new GameObject("CameraScriptHolder");
         newObject.AddComponent<InspectionCameraTool>();
     }
 
     public void OnWizardOtherButton()
     {
-        Camera.main.transform.rotation = qaty;
-        Camera.main.transform.position = vecy;
+        cameraMain = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraLevel = GameObject.FindGameObjectWithTag("Level Camera");
+        // Camera.main.transform.rotation = qaty;
+        // Camera.main.transform.position = vecy;
+        //cameraLevel.transform.rotation = cameraNewRotation;
+        //cameraLevel.transform.position = cameraNewPosition;
+
+        cameraMain.transform.rotation = cameraNewRotation;
+        cameraMain.transform.position = cameraNewPosition;
         gameObjecty = GameObject.Find("CameraScriptHolder");
         DestroyImmediate(gameObjecty);
 
