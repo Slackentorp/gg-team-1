@@ -17,18 +17,13 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     private bool isSwitchable = false;
 
     [SerializeField]
-    private GameObject[] getFragments;
-    [SerializeField]
     private Fragment[] fragments;
-    [SerializeField]
-    private GameObject getDoor;
 
     [SerializeField]
     private Material lampMaterialOn, lampMaterialOff;
     private ParticleSystem particleSystemLamp;
     private bool lampParticleStatus;
     private Renderer rend;
-    // private currentLightmap;
     private State currentLampState;
     [SerializeField]
     private bool[] localFragmentsState;
@@ -57,18 +52,6 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F4))
-        //{
-        //    LampOFF();
-        //}
-        //if (Input.GetKeyDown(KeyCode.F5))
-        //{
-        //    LampON();
-        //}
-        //if (Input.GetKeyDown(KeyCode.F6))
-        //{
-        //    LampFlickering();
-        //}
         FragmentChecker();
     }
 
@@ -76,9 +59,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     {
         for (int i = 0; i < localFragmentsState.Length; i++)
         {
-            //print("local: " + localFragmentsState.Length);
-            //print("frag: " + getFragments.Length);
-            localFragmentsState[i] = getFragments[i].GetComponent<Fragment>().HasPlayed;
+            localFragmentsState[i] = fragments[i].HasPlayed;
         }
 
         if (!localFragmentsState[0] && !localFragmentsState[1] && !localFragmentsState[2])
