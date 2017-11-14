@@ -197,58 +197,6 @@ public class CameraController
 			heading = nextHeading;
 		}
 
-		
-		
-	/*	Quaternion finalRot = Quaternion.FromToRotation(Vector3.up, q * heading);
-		Vector3 transformed = finalRot * Vector3.up;
-
-		headingProjected = Vector3.ProjectOnPlane(heading, targetPos.right);
-		upProjected = Vector3.ProjectOnPlane(Vector3.up, targetPos.right);*/
-	//	heading = q * heading;
-	/*	Debug.Log(Vector3.Angle(headingProjected, upProjected));
-
-		// Project the transformed vector onto the Right axis
-		flattened = transformed -
-							Vector3.Dot(transformed, Vector3.right) *
-							Vector3.right;
-		flattened = flattened.normalized;
-		float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
-
-		if (a < 1.5f)
-		{
-			//heading = q * heading;
-		}*/
-
-		//	transform.position = heading + targetPos.position;
-		//	transform.RotateAround(targetPos.position, Vector3.up, newAngleY);
-
-
-		//	transform.RotateAround(targetPos.position, Vector3.right, newAngleX);
-
-		//targetPos.forward = -transform.forward;
-		/*// Horizontal rotation(Yaw)
-		Vector3 localUpAxis =
-			transform.InverseTransformDirection(Vector3.up);
-		transform.rotation *=
-			Quaternion.AngleAxis(newAngleY, localUpAxis);
-
-		// Vertical rotation (Pitch)
-		Quaternion q = Quaternion.AngleAxis(newAngleX, Vector3.right);
-		Quaternion finalRot = transform.rotation * q;
-		Vector3 transformed = finalRot * Vector3.up;
-
-		// Project the transformed vector onto the Right axis
-		Vector3 flattened = transformed -
-							Vector3.Dot(transformed, Vector3.right) *
-							Vector3.right;
-		flattened = flattened.normalized;
-		float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
-
-		if (a < 1.5f)
-		{
-			transform.rotation *= q;
-		}*/
-
 	}
 
 	public void SetTarget(Vector3 newTarget)
