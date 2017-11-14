@@ -14,16 +14,16 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
     public bool FixedCamera { get { return fixedCamera; } }
     public Vector3 FixedCamPos { get { return fixedCamPos; } }
 
-    public void OnSwipe(Touch finger, TouchDirection direction)
+    public void OnSwipe(TouchDirection direction)
     {
     }
 
-    public void OnTap(Touch finger)
+    public void OnTap()
     {
         CallEvent();
     }
 
-    public void OnTouchDown(Touch finger, Vector3 worldPos)
+    public void OnTouchDown(Vector3 worldPos)
     {
     }
 
@@ -31,12 +31,12 @@ public class BasicBiteTrigger : MonoBehaviour, ITouchInput
     {
     }
 
-    public void OnToucHold(Touch finger, Vector3 worldPos)
+    public void OnToucHold(Vector3 worldPos)
     {
 
     }
 
-    public void OnTouchUp(Touch finger)
+    public void OnTouchUp()
     {
     }
 
