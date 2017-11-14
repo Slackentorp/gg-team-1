@@ -15,6 +15,8 @@ public class GameControllerMain : Singleton<GameControllerMain>
     public LocalizationManager localization;
     public LightController LightController;
     public InputManager InputManager;
+    [HideInInspector]
+    public Fragment NextFragment;
     public InputHandlerSettings InputSettings;
 
     private GameState currentState;
