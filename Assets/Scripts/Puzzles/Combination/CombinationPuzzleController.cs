@@ -18,7 +18,7 @@ public class CombinationPuzzleController : BasePuzzle
     private float mercyRotation;
 
     [SerializeField]
-    private string onCorrectWwiseEvent, onIncorrectWwiseEvent;
+    private string onCorrectWwiseEvent;
     [SerializeField, Range(0,1)]
     private float onCorrectBrightness = 1;
 
@@ -53,14 +53,17 @@ public class CombinationPuzzleController : BasePuzzle
         {
             return;
         }
-        int enabledFrames = pictureFrames.Count(o => o != null);
 
-        int correctFrames = pictureFrames.Length + 1 - enabledFrames;
-        AkSoundEngine.SetState("PICTUREPUZZLE_STATE", "PIECE_" + correctFrames);
+        CheckForSolution(null);
+        int enabledFrames = pictureFrames.Count(o => !o.isCorrect);
+
+        int correctFrames = pictureFrames.Length - enabledFrames;
+        //  AkSoundEngine.SetState("PICTUREPUZZLE_STATE", "PIECE_" + correctFrames);
 
         if (enabledFrames == 0)
         {
             print("Everything is correct");
+            CheckForSolution(null);
             OnSolved();
         }
     }
@@ -87,36 +90,32 @@ public class CombinationPuzzleController : BasePuzzle
                 (pictureFrame.correctPostion + pictureFrame.originPosition));
             float angleDifference =
                 Quaternion.Angle(pictureFrame.transform.rotation,
-                    Quaternion.Euler(pictureFrame.correctRotation));
+                    Quaternion.Euler(pictureFrame.correctRotation) * transform.rotation);
 
             if (distance <= mercySquaredDistance &&
                 angleDifference <= mercyRotation)
             {
 
-                if ( (sender == pictureFrame || sender == null) && !string.IsNullOrEmpty(onCorrectWwiseEvent))
+                if ( (sender == pictureFrame || sender == null) && !string.IsNullOrEmpty(onCorrectWwiseEvent) && !pictureFrame.isCorrect)
                 {
                     print("Setting correct");
                     AkSoundEngine.PostEvent(onCorrectWwiseEvent, pictureFrame.gameObject);
                     Renderer rend = pictureFrame.gameObject.GetComponent<Renderer>();
                     rend.material.color = rend.material.color.WithBrightness(onCorrectBrightness);
+                    pictureFrame.isCorrect = true;
                 }
 
                 pictureFrame.transform.position =
                     pictureFrame.correctPostion + pictureFrame.originPosition;
                 pictureFrame.transform.rotation =
-                    Quaternion.Euler(pictureFrame.correctRotation);
+                    Quaternion.Euler(pictureFrame.correctRotation) * transform.rotation;
                 if (Application.isPlaying)
                 {
-                    Destroy(pictureFrame);
+                    Destroy(pictureFrame.GetComponent<BoxCollider>());
+                  //  Destroy(pictureFrame);
                 }
 
             }
-        }
-
-        // Pictureframe hasn't been destroyed, so it must be wrong
-        if (sender != null)
-        {
-            AkSoundEngine.PostEvent(onIncorrectWwiseEvent, sender.gameObject);
         }
     }
 

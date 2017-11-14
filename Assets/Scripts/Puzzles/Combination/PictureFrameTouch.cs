@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Gamelogic.Extensions;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class PictureFrameTouch : MonoBehaviour, ITouchInput
 {
     [HideInInspector]
     public CombinationPuzzleController controller;
     [HideInInspector]
     public Vector3 originPosition;
+    [HideInInspector]
+    public bool isCorrect;
 
     public Vector3 correctPostion, correctRotation;
 
@@ -16,6 +20,10 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
     [SerializeField]
     private string pickupWwiseEvent, placeWwiseEvent;
+    [SerializeField]
+    private Material gizmoMaterial;
+
+    private Material internalGizmoMaterial;
 
     [SerializeField, Tooltip("Allowed directions to move")]
     private BasePuzzle.DirectionsStruct Directions;
@@ -23,13 +31,34 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     private Vector3 distanceWorldPos;
     private Renderer cachedRenderer;
     private MeshFilter cachedMeshFilter;
+    private float startY;
+
+#if UNITY_EDITOR
+    private void OnEnable() {
+        UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
+        UnityEditor.SceneView.onSceneGUIDelegate += OnSceneGUI;
+        internalGizmoMaterial = new Material(gizmoMaterial);
+    }
+
+    private void OnDisable() {
+        UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
+    }
+
+    private void OnSceneGUI(UnityEditor.SceneView sceneView) {
+
+        Draw(sceneView.camera);
+    }
+#endif
+
+
 
     private void Start()
     {
-   //     originPosition = transform.position;
+        startY = transform.position.y;
     }
 
-    private void OnDrawGizmos()
+
+    private void Draw(Camera cam)
     {
         if (cachedRenderer == null)
         {
@@ -43,13 +72,16 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         {
             originPosition = transform.position;
         }
-
+        if (gizmoMaterial == null)
+        {
+            return;
+        }
+        internalGizmoMaterial.SetPass(1);
         gizmoColor.a = Mathf.Clamp(gizmoColor.a, 0, .5f);
-        Gizmos.color = gizmoColor;
-        Matrix4x4 rotationMatrix = Matrix4x4.TRS(correctPostion + originPosition, Quaternion.Euler(correctRotation), transform.lossyScale);
-        Gizmos.matrix *= rotationMatrix;
+        internalGizmoMaterial.color = gizmoColor;
+        Matrix4x4 rotationMatrix = Matrix4x4.TRS(correctPostion + originPosition, Quaternion.Euler(correctRotation) * transform.parent.rotation, transform.lossyScale);
 
-        Gizmos.DrawMesh(cachedMeshFilter.sharedMesh);
+        Graphics.DrawMesh(cachedMeshFilter.sharedMesh, rotationMatrix, internalGizmoMaterial, gameObject.layer, null);
     }
 
     public void OnTap(Touch finger)
@@ -61,15 +93,17 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         if (controller != null)
         {
             controller.OnBeginSolving();
-            print("Bla");
         }
         distanceWorldPos = worldPos - transform.position;
+
+        
         PlayEvent(pickupWwiseEvent);
     }
 
     public void OnTouchUp(Touch finger)
     {
         PlayEvent(placeWwiseEvent);
+        AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
     public void OnToucHold(Touch finger, Vector3 worldPos)
@@ -98,6 +132,8 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     public void OnTouchExit()
     {
         PlayEvent(placeWwiseEvent);
+        transform.SetY(startY);
+        AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
     public void OnSwipe(Touch finger, TouchDirection direction)

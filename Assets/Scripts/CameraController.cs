@@ -57,7 +57,7 @@ public class CameraController : MonoBehaviour
         float dist = Vector3.Distance(transform.position, TargetPos.position);
         return dist > maxDistance;
     }
-
+    
     // Use this for initialization
     void Start()
     {

@@ -42,8 +42,16 @@
 							<Position X="1" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Bulb Puzzle" ID="{DBE00E5C-7B4F-4717-8619-579406185FA2}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="TESTMAPBUTTON" ID="{470764D5-ABA0-4A32-8980-20FB1D7F2F43}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
 							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PuzzleMusic" ID="{CCEF2A3F-617B-4414-B7DA-6DA0026AF119}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+							<Position X="3" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -81,9 +89,8 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="BULB_2" ID="{17D6D3AB-FD83-4B0B-824C-CCDEA53AD1C6}"/>
+						<CurrentStateRef Name="BULB_1" ID="{D928315A-AC32-404B-B2BB-5DE1A80E0C0E}"/>
 						<CurrentStateRef Name="None" ID="{5A181DF4-3020-4459-84E9-8E4B5A661292}"/>
-						<CurrentStateRef Name="SOLVED" ID="{3FB38530-87CA-45FF-ADC0-13F7A8116496}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
@@ -135,6 +142,66 @@
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="PIECE_4" ID="{4677F6B7-0588-40BB-AAB4-DCE2F0E8F6EC}"/>
 						<CurrentStateRef Name="INSIDE" ID="{93846049-8C3A-4A3D-A925-FAE4963F37E7}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Lamp" ID="{6046E165-AE80-4812-A9E1-FAF5E3841FEA}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="LAMP_FLICKERING" ID="{B44FFBAF-D359-459E-9E8E-A5ACE621A973}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Music" ID="{B8FBD82A-3406-4A57-95E3-7BAA3495DB0D}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="LAMP_ON" ID="{E4B50615-83C2-4236-B41E-F4806EF13E0C}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_POLAROID1" ID="{3DFB69FD-5340-40F8-8517-0D649FC1DEAA}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}"/>
+							<Value>44</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="STORYEVENT_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+							<Value>-48</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFX_VOLUME" ID="{DD2FA790-5B47-47E9-8B9A-7BF350D45065}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MUSIC_VOLUME" ID="{2516B5BA-68F0-4E04-9F17-B0414481BF14}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}"/>
+							<Value>4</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="OBJECT_SPEED" ID="{3152E94B-B9B8-4F41-A102-C62BE0E7E47F}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}"/>
+							<Value>0</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
+						<CurrentStateRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}"/>
+						<CurrentStateRef Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
