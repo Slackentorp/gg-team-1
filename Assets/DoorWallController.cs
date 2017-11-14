@@ -27,8 +27,8 @@ public class DoorWallController : MonoBehaviour
             getLamps[i] = roomLamps[i].GetComponent<LightSourceInput>().LampActivated;
         }
 
-        if ((getLamps[0] && getLamps[1]) &&
-            (getLamps[0] && getLamps[2]) &&
+        if ((getLamps[0] && getLamps[1]) ||
+            (getLamps[0] && getLamps[2]) ||
             (getLamps[1] && getLamps[2]))
         {
             doorParticleSystem = GetComponentsInChildren<ParticleSystem>()[0];
