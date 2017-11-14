@@ -18,6 +18,10 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
 
     [SerializeField]
     private GameObject[] getFragments;
+    [SerializeField]
+    private Fragment[] fragments;
+    [SerializeField]
+    private GameObject getDoor;
 
     [SerializeField]
     private Material lampMaterialOn, lampMaterialOff;
@@ -26,7 +30,8 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
     private Renderer rend;
     // private currentLightmap;
     private State currentLampState;
-    private bool[] localFragmentsState = new bool[3];
+    [SerializeField]
+    private bool[] localFragmentsState;
 
     private bool isActivated;
 
@@ -145,6 +150,7 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
                 rend.sharedMaterial = lampMaterialOn;
                 var em = particleSystemLamp.emission;
                 em.enabled = true;
+                isActivated = true;
             }
         }
     }
