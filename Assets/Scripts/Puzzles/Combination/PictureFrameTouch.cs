@@ -103,7 +103,11 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     public void OnTouchUp()
     {
         PlayEvent(placeWwiseEvent);
-        AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
+        if (controller != null)
+        {
+            controller.CheckForSolution(this);
+        }
+     //   AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
     public void OnToucHold(Vector3 worldPos)
@@ -119,13 +123,6 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         if (!Directions.Z) {
             newPosition.z = transform.position.z;
         }
-
-        
-
-        if (controller != null)
-        {
-            controller.CheckForSolution(this);
-        }
         transform.position = newPosition;
     }
 
@@ -133,6 +130,10 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     {
         PlayEvent(placeWwiseEvent);
         transform.SetY(startY);
+        if (controller != null)
+        {
+            controller.CheckForSolution(this);
+        }
         AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
