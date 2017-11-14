@@ -5,27 +5,10 @@ using UnityEngine;
 
 public class BootstrapEditor
 {
-    [MenuItem("Tools/Enable Bootstrap")]
-    private static void EnableBootstrap()
+    [MenuItem("Tools/Use Bootstraper", false, 0)]
+    private static void UseBootstrap()
     {
-        EditorPrefs.SetBool("BootstrapEnabled", true);
-    }
-
-    [MenuItem("Tools/Disable Bootstrap")]
-    private static void DisableBootstrap()
-    {
-        EditorPrefs.SetBool("BootstrapEnabled", false);
-    }
-
-    [MenuItem("Tools/Enable Bootstrap", true)]
-    private static bool ValidateDisabled()
-    {
-        return !EditorPrefs.GetBool("BootstrapEnabled");
-    }
-
-    [MenuItem("Tools/Disable Bootstrap", true)]
-    private static bool ValidateEnabled()
-    {
-        return EditorPrefs.GetBool("BootstrapEnabled");
+        Menu.SetChecked("Tools/Use Bootstraper", EditorPrefs.GetBool("BoostrapEnabled", true));
+        EditorPrefs.SetBool("BoostrapEnabled", !EditorPrefs.GetBool("BootstrapEnabled", true)); 
     }
 }

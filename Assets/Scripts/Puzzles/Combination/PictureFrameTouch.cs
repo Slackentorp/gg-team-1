@@ -37,7 +37,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     private void OnEnable() {
         UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
         UnityEditor.SceneView.onSceneGUIDelegate += OnSceneGUI;
-        internalGizmoMaterial = new Material(gizmoMaterial);
+        //internalGizmoMaterial = new Material(gizmoMaterial);
     }
 
     private void OnDisable() {
@@ -103,7 +103,11 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     public void OnTouchUp(Touch finger)
     {
         PlayEvent(placeWwiseEvent);
-        AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
+        if (controller != null)
+        {
+            controller.CheckForSolution(this);
+        }
+     //   AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
     public void OnToucHold(Touch finger, Vector3 worldPos)
@@ -119,13 +123,6 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         if (!Directions.Z) {
             newPosition.z = transform.position.z;
         }
-
-        
-
-        if (controller != null)
-        {
-            controller.CheckForSolution(this);
-        }
         transform.position = newPosition;
     }
 
@@ -133,6 +130,10 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     {
         PlayEvent(placeWwiseEvent);
         transform.SetY(startY);
+        if (controller != null)
+        {
+            controller.CheckForSolution(this);
+        }
         AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
