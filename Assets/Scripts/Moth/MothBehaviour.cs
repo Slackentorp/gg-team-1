@@ -1,87 +1,92 @@
-﻿using System.Collections;
+﻿using Gamelogic.Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MothBehaviour
 {
-    [SerializeField]
-    private AnimationCurve lerpCurve;
-    [SerializeField]
-    private float timeScale = 1;
+	[SerializeField]
+	private AnimationCurve lerpCurve;
+	[SerializeField]
+	private float timeScale = 1;
 
-	Transform transform;
+	GameObject moth;
 	Camera camera;
+	Vector3 hitPoint;
+	Vector3 mothToPoint;
+	Vector3 mothStartPos;
+	float time;
+	RaycastHit hit;
+	Vector3 hitDotPoint;
+	Vector3 hitDotNormal;
+	Ray ray;
 
-    public float MothSpeed { get; set; }
-    
-    private bool inTransit;
-
-    void OnValidate()
-    {
-        if (timeScale < 1)
-        {
-            timeScale = 1;
-        }
-    }
-
-	public MothBehaviour(Transform transform, Camera camera, float speed)
+	public float MothSpeed
 	{
-		this.transform = transform;
-		this.camera = camera; 
-		this.MothSpeed = speed; 
+		get; set;
+	}
+
+	private bool inTransit;
+	private bool lerpRunning = false;
+
+	void OnValidate()
+	{
+		if (timeScale < 1)
+		{
+			timeScale = 1;
+		}
+	}
+
+	public MothBehaviour(GameObject moth, Camera camera, float speed)
+	{
+		this.moth = moth;
+		this.camera = camera;
+		this.MothSpeed = speed;
 	}
 
 
 	public void Update()
 	{
+		Debug.DrawLine(hitPoint, hitPoint + hitDotPoint, Color.red);
+		Debug.DrawLine(hitPoint, hitPoint + hitDotNormal, Color.blue);
+
 		MothGoToPosition();
 	}
 
-	/*public void SetMothPosition(Vector3 position)
-    {
-        if (!inTransit)
-        {
-            inTransit = true;
-            //IEnumerator lerp = SmoothLerpPosition(transform.gameObject, position);
-            //StartCoroutine(lerp);
-        }
-    }*/
-
-
-    IEnumerator SmoothLerpPosition(GameObject affect, Vector3 target)
-    {
-        Vector3 startPosition = affect.transform.position;
-      // AkSoundEngine.PostEvent("MOTH_START_FLIGHT", gameObject);
-        MothSpeed = 1f; 
-
-        float time = 0;
-        while (time < lerpCurve.keys[lerpCurve.length - 1].time)
-        {
-            time += Time.deltaTime / timeScale;
-            affect.transform.position = Vector3.Lerp(startPosition, target,
-                lerpCurve.Evaluate(time));
-            yield return null;
-        }
-
-        MothSpeed = 0f;
-       // AkSoundEngine.PostEvent("MOTH_END_FLIGHT", gameObject);
-        inTransit = false;
-    }
-
-	private void MothGoToPosition()
+	void MothGoToPosition()
 	{
-		MothSpeed = .4f;
-		if (Input.GetMouseButton(0))
+		if (lerpRunning)
 		{
-			Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit))
-			{
-				Vector3 mothToPoint = transform.position - hit.normal; 
-				Debug.DrawRay(transform.position, mothToPoint, Color.red);
-				Vector3.Lerp(transform.position, hit.normal, MothSpeed);
-				
-			}
+			time += Time.deltaTime * MothSpeed;
+			moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, time);
+		}
+		if (moth.transform.position == hitPoint && lerpRunning == true)
+		{
+			AkSoundEngine.PostEvent("MOTH_END_FLIGHT", moth);
+			time = 0.0f;
+			lerpRunning = false;
+		}
+		if (Input.GetMouseButton(1))
+		{
+			MothSpeed = 0.3f;
+
+			mothStartPos = moth.transform.position;
+			PointfromRaycast();
+			time = 0.0f;
+		}
+	}
+
+	private void PointfromRaycast()
+	{
+		AkSoundEngine.PostEvent("MOTH_START_FLIGHT", moth);
+		ray = camera.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(ray, out hit))
+		{
+			hitPoint = hit.point + hit.normal * 0.2f;
+			hitDotPoint = hit.point;
+			hitDotNormal = hit.normal;
+
+			lerpRunning = true;
 		}
 	}
 }
