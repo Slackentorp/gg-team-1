@@ -137,12 +137,14 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
             }
             else if (currentLampState == State.LAMP_FLICKERING)
             {
+                AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
                 rend.sharedMaterial = lampMaterialOff;
                 var em = particleSystemLamp.emission;
                 em.enabled = false;
             }
             else if (currentLampState == State.LAMP_ON)
             {
+                AkSoundEngine.PostEvent("LAMP_ON", gameObject);
                 rend.sharedMaterial = lampMaterialOn;
                 var em = particleSystemLamp.emission;
                 em.enabled = true;
