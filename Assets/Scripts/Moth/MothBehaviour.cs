@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Gamelogic.Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,16 @@ public class MothBehaviour : MonoBehaviour
         }
     }
 
-    public void SetMothPosition(Vector3 position)
+	public void Update()
+	{
+		if (Input.GetKey(KeyCode.W))
+		{
+			transform.Translate(-Vector3.forward * .1f, Space.Self);
+			
+		}
+	}
+
+	public void SetMothPosition(Vector3 position)
     {
         if (!inTransit)
         {

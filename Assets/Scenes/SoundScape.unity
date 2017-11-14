@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 1952533621}
   - component: {fileID: 1952533622}
   - component: {fileID: 1952533624}
+  - component: {fileID: 1952533625}
   m_Layer: 0
   m_Name: Ambience
   m_TagString: Untagged
@@ -304,7 +305,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1952533620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.65, y: 0.95, z: -0.07}
+  m_LocalPosition: {x: -2.77, y: 1.5, z: -0.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -321,5 +322,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef8b6f873ac64c40a0b96cfb76bf401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChosenType: 1
+  ChosenType: 6
   WwiseEventID: LIVINGROOM_ENTER
+--- !u!114 &1952533625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1952533620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e711fa1d54fb6504f88cfb364a6db518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChosenType: 0
+  WwiseStateGroupID: 
+  WwiseStateID: 
