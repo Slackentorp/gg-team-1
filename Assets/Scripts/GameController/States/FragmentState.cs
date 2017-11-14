@@ -25,7 +25,7 @@ public class FragmentState : GameState
 
     private void EndOfFragmentCallback()
     {
-        Debug.Log("End of " +gm.NextFragment.name);
+        Debug.Log("End of " +gm.NextFragment.StoryFragment);
         gm.SetState(new RunState(gm));
     }
 

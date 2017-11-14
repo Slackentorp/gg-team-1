@@ -16,6 +16,7 @@ public abstract class GameState
     // Subclasses can implement the following
     public virtual void OnStateEnter() { }
     public virtual void OnStateExit() { }
+    public virtual void InternalOnGUI() { }
 
     protected GameState(GameControllerMain gm)
     {

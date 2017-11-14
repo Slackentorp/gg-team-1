@@ -35,14 +35,24 @@ public class GameControllerMain : Singleton<GameControllerMain>
         }
     }
 
+    private void OnGUI()
+    {
+        if (currentState != null)
+        {
+            currentState.InternalOnGUI();
+        }
+    }
+
     [ContextMenu("DAN")]
     void SetDanish() {
         localization.SetDanish();
+        AkSoundEngine.SetState("LANGUAGE", "DANISH");
     }
 
     [ContextMenu("ENG")]
     void SetEnglish() {
         localization.SetEnglish();
+        AkSoundEngine.SetState("LANGUAGE", "ENGLISH");
     }
 
     public void SetState(GameState state)
