@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CameraController
 {
-<<<<<<< HEAD:Assets/Scripts/CameraController.cs
 	[SerializeField, Tooltip("Sets the distance that the camera can move away from moth")]
 	float maxDistance = 2.0f;
 	[SerializeField, Tooltip("Decides the speed of which the camera follow the moth")]
@@ -14,10 +13,9 @@ public class CameraController
 	float cameraTurnSpeed = 1.0f;
 	[SerializeField]
 	private Transform targetPos;
-	//[SerializeField]
-	//private GameObject moth;
 	private Vector3 targetRot;
 	private Transform prevPos;
+	private Transform transform;
 
 	[SerializeField]
 	private bool storyCam = true;
@@ -58,7 +56,6 @@ public class CameraController
 		return dist > maxDistance;
 	}
 
-	// Use this for initialization
 	void Start()
 	{
 		if (TargetPos == null)
@@ -70,8 +67,7 @@ public class CameraController
 		}
 	}
 
-	// Update is called once per frame
-	void Update()
+	public void Update()
 	{
 		CheckIfTargetPosIsNull();
 
@@ -80,10 +76,10 @@ public class CameraController
 			storyCam = !storyCam;
 		}
 
-		if (storyCam)
+		/*if (storyCam)
 		{
-			RotateCameraTowardsObject();
-		}
+			//RotateCameraTowardsObject();
+		}*/
 		else
 		{
 			CameraRotation();
@@ -97,83 +93,24 @@ public class CameraController
 		storyCam = val;
 	}
 
+
+	public CameraController(Transform transform, float maxDistance, float followSpeed, float cameraTurnSpeed, Transform target)
+	{
+		this.transform = transform;
+		this.maxDistance = maxDistance;
+		this.followSpeed = followSpeed;
+		this.cameraTurnSpeed = cameraTurnSpeed;
+		this.targetPos = target;
+
+		Vector3 reference = transform.rotation.eulerAngles;
+		reference.z = 0;
+		transform.rotation = Quaternion.Euler(reference);
+	}
+
+
 	private void RotateCameraAroundSelf()
 	{
 		float newAngleY = 0, newAngleX = 0;
-=======
-    float maxDistance = 2.0f;
-    float followSpeed = 1.0f;
-    float cameraTurnSpeed = 1.0f;
-
-    private Transform targetPos;
-    private Vector3 targetRot;
-    private Transform prevPos;
-    private Transform transform;
-
-    /*[SerializeField]
-    private Transform menuPosition;*/
-
-    [SerializeField]
-    private bool storyCam = true;
-
-    public bool isDebug = true;
-    public static bool isMouseTouchingObject;
-
-
-    public CameraController(Transform transform, float maxDistance, float followSpeed, float cameraTurnSpeed, Transform target)
-    {
-        this.transform = transform;
-        this.maxDistance = maxDistance;
-        this.followSpeed = followSpeed;
-        this.cameraTurnSpeed = cameraTurnSpeed;
-        this.targetPos = target;
-
-        Vector3 reference = transform.rotation.eulerAngles;
-        reference.z = 0;
-        transform.rotation = Quaternion.Euler(reference);
-    }
-
-    public Transform TargetPos
-    {
-        get
-        {
-            return targetPos;
-        }
-        set
-        {
-            Transform tmp = targetPos;
-            targetPos = value;
-            prevPos = tmp;
-        }
-    }
-
-    public Vector3 TargetRot
-    {
-        get
-        {
-            return targetRot;
-        }
-        set
-        {
-            targetRot = value;
-        }
-    }
-
-    public void Update()
-    {
-        CameraRotation();
-        MoveTowardsTarget();
-    }
-
-    public void SetStoryCam(bool val)
-    {
-        storyCam = val;
-    }
-
-    private void RotateCameraAroundSelf()
-    {
-        float newAngleY = 0, newAngleX = 0;
->>>>>>> f7e2cf8a57246c8c510ba4a8aec2388c18e2d9e2:Assets/Scripts/Controllers/CameraController.cs
 #if UNITY_EDITOR
 		if (Input.GetMouseButton(0) && !InputManager.Instance.isTouchingObject && !isMouseTouchingObject)
 		{
@@ -245,7 +182,10 @@ public class CameraController
 			return;
 		}
 
-		// Horizontal rotation(Yaw)
+		transform.RotateAround(targetPos.position, targetPos.transform.up, newAngleY);
+		//transform.RotateAround(targetPos.position, targetPos.right, newAngleX);
+
+		/*// Horizontal rotation(Yaw)
 		Vector3 localUpAxis =
 			transform.InverseTransformDirection(Vector3.up);
 		transform.rotation *=
@@ -266,120 +206,117 @@ public class CameraController
 		if (a < 1.5f)
 		{
 			transform.rotation *= q;
-		}
+		}*/
 
 	}
 
 	void DisplaceCameraFromMoth()
 	{
-		
+
 	}
 
-    public void SetTarget(Vector3 newTarget)
-    {
-        TargetPos.position = newTarget; 
-    }
+	public void SetTarget(Vector3 newTarget)
+	{
+		TargetPos.position = newTarget;
+	}
 
 
-    public void SetStoryTarget(Transform target)
-    {
-        if (isDebug) return;
-        TargetPos = target;
-    }
+	public void SetStoryTarget(Transform target)
+	{
+		if (isDebug) return;
+		TargetPos = target;
+	}
 
-    public void SetStoryTarget(Vector3 target)
-    {
-        if (isDebug) return;
-        TargetPos.position = target;
-    }
+	public void SetStoryTarget(Vector3 target)
+	{
+		if (isDebug) return;
+		TargetPos.position = target;
+	}
 
-    public void SetStoryTarget(Vector3 target, Vector3 orientation)
-    {
-        if (isDebug) return;
-        TargetPos.position = target;
-        TargetRot = orientation;
-    }
+	public void SetStoryTarget(Vector3 target, Vector3 orientation)
+	{
+		if (isDebug) return;
+		TargetPos.position = target;
+		TargetRot = orientation;
+	}
 
-    public void SetStoryRotation(Vector3 dir)
-    {
-        TargetRot = dir;
-    }
+	public void SetStoryRotation(Vector3 dir)
+	{
+		TargetRot = dir;
+	}
 
-    public void ResetControls()
-    {
-        TargetPos = prevPos;
-        TargetRot = Vector3.zero;
-    }
+	public void ResetControls()
+	{
+		TargetPos = prevPos;
+		TargetRot = Vector3.zero;
+	}
 
-<<<<<<< HEAD:Assets/Scripts/CameraController.cs
-    private void MoveCameraToStoryBit()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider != null)
-                {
-                    TargetPos = hit.transform;
-                }
-            }
-        }
-    }
-    private void RotateCameraTowardsObject()
-    {
-        transform.forward = Vector3.Lerp(transform.forward, TargetPos.forward,
-                                  followSpeed * Time.deltaTime); 
+	/*private void MoveCameraToStoryBit()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			RaycastHit hit;
+			Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(ray, out hit))
+			{
+				if (hit.collider != null)
+				{
+					TargetPos = hit.transform;
+				}
+			}
+		}
+	}
+	private void RotateCameraTowardsObject()
+	{
+		transform.forward = Vector3.Lerp(transform.forward, TargetPos.forward,
+								  followSpeed * Time.deltaTime);
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            RaycastHit hit;
-            Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider != null)
-                {
-                    TargetRot = (hit.transform.position - transform.position).normalized;
-                }
-            }
-        }
-    }
+		if (Input.GetMouseButtonDown(1))
+		{
+			RaycastHit hit;
+			Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(ray, out hit))
+			{
+				if (hit.collider != null)
+				{
+					TargetRot = (hit.transform.position - transform.position).normalized;
+				}
+			}
+		}
+	}*/
 
-=======
->>>>>>> f7e2cf8a57246c8c510ba4a8aec2388c18e2d9e2:Assets/Scripts/Controllers/CameraController.cs
-    private void ReturnToPreStoryPoint()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            TargetPos = prevPos;
-        }
-    }
+	private void ReturnToPreStoryPoint()
+	{
+		if (Input.GetKey(KeyCode.Space))
+		{
+			TargetPos = prevPos;
+		}
+	}
 
-    private void CheckIfTargetPosIsNull()
-    {
-        if (targetPos == null)
-        {
-            return;
-        }
-    }
+	private void CheckIfTargetPosIsNull()
+	{
+		if (targetPos == null)
+		{
+			return;
+		}
+	}
 
-    private void MoveTowardsTarget()
-    {
-        transform.position = Vector3.Lerp(transform.position, TargetPos.position,
-                                          followSpeed * Time.deltaTime);
-    }
+	private void MoveTowardsTarget()
+	{
+		transform.position = Vector3.Lerp(transform.position, TargetPos.position,
+										  followSpeed * Time.deltaTime);
+	}
 
-    private void CameraRotation()
-    {
-        if (Mathf.Abs(TargetRot.magnitude) > 0.1f)
-        {
-            transform.forward = Vector3.Lerp(transform.forward, TargetRot,
-                                             cameraTurnSpeed * Time.deltaTime);
-        }
-        else
-        {
-            RotateCameraAroundSelf();
-        }
-    }
+	private void CameraRotation()
+	{
+		if (Mathf.Abs(TargetRot.magnitude) > 0.1f)
+		{
+			transform.forward = Vector3.Lerp(transform.forward, TargetRot,
+											 cameraTurnSpeed * Time.deltaTime);
+		}
+		else
+		{
+			RotateCameraAroundSelf();
+		}
+	}
 }
