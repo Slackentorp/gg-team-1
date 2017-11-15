@@ -159,10 +159,10 @@ public class CameraController
 			currentState = States.PuzzleMode;
 			GoToCameraPuzzlePos();
 		}
-		if (currentState == States.PuzzleMode &&/*input != press and hold*/)
+		/*if (currentState == States.PuzzleMode)
 		{
 			currentState = States.freeRoamMode;
-		}
+		}*/
 	}
 
 	void GoToCameraPuzzlePos()
