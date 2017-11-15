@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class TouchInput : MonoBehaviour, ITouchInput
 {
-    public void OnTap()
+    public void OnTap(Touch finger)
     {
         print("On tap");
     }
 
-    public void OnTouchDown(Vector3 worldPos)
+    public void OnTouchDown(Touch finger, Vector3 worldPos)
     {
   //      print("On touch down");
     }
 
-    public void OnTouchUp()
+    public void OnTouchUp(Touch finger)
     {
         print("On touch up");
     }
 
-    public void OnToucHold(Vector3 worldPos)
+    public void OnToucHold(Touch finger, Vector3 worldPos)
     {
    //     print("On touch hold");
     }
@@ -29,7 +29,7 @@ public class TouchInput : MonoBehaviour, ITouchInput
         print("On touch exit");
     }
 
-    public void OnSwipe(TouchDirection direction)
+    public void OnSwipe(Touch finger, TouchDirection direction)
     {
 
         print("Swiped: " + direction);

@@ -84,11 +84,11 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         Graphics.DrawMesh(cachedMeshFilter.sharedMesh, rotationMatrix, internalGizmoMaterial, gameObject.layer, null);
     }
 
-    public void OnTap()
+    public void OnTap(Touch finger)
     {
     }
 
-    public void OnTouchDown(Vector3 worldPos)
+    public void OnTouchDown(Touch finger, Vector3 worldPos)
     {
         if (controller != null)
         {
@@ -100,7 +100,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         PlayEvent(pickupWwiseEvent);
     }
 
-    public void OnTouchUp()
+    public void OnTouchUp(Touch finger)
     {
         PlayEvent(placeWwiseEvent);
         if (controller != null)
@@ -110,7 +110,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
      //   AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
-    public void OnToucHold(Vector3 worldPos)
+    public void OnToucHold(Touch finger, Vector3 worldPos)
     {
         Vector3 newPosition = worldPos - distanceWorldPos;
 
@@ -137,7 +137,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
-    public void OnSwipe(TouchDirection direction)
+    public void OnSwipe(Touch finger, TouchDirection direction)
     {
     }
 

@@ -5,22 +5,28 @@ using UnityEngine;
 
 public class RunState : GameState
 {
+	private MothBehaviour mothBehaviour; 
     private CameraController cameraController;
 
     public RunState(GameControllerMain gm) : base(gm)
     {
     }
 
+
     public override void OnStateEnter()
     {
         cameraController = new CameraController(gm.GameCamera.transform, 2,1,1, gm.Moth.transform);
+		mothBehaviour = new MothBehaviour(gm.Moth, Camera.main, .4f);
     }
 
     public override void Tick()
     {
         cameraController.Update();
-        InputEvent inputEvent = gm.InputManager.CheckInput();
-        if (inputEvent.GameObject != null)
+		mothBehaviour.Update();
+
+		//InputEvent inputEvent = gm.InputManager.CheckInput();
+		InputEvent inputEvent = new InputEvent();
+		if (inputEvent.GameObject != null)
         {
             ITouchInput itt = inputEvent.GameObject.GetComponent<ITouchInput>();
             if (itt != null)
@@ -50,6 +56,7 @@ public class RunState : GameState
         }
 
         // Should return what GameObject is being touched, and the type of touch
+
     }
 
     public override void InternalOnGUI()
