@@ -4,7 +4,7 @@ using Gamelogic.Extensions;
 using UnityEngine;
 
 #pragma warning disable 0414
-public class GameControllerMain : Singleton<GameControllerMain>
+public class GameController : Singleton<GameController>
 {
     [SerializeField, ReadOnly]
     private string currentStateLiteral;
