@@ -86,7 +86,7 @@ public class CombinationPuzzleController : BasePuzzle
         CheckForSolution(null);
         int enabledFrames = pictureFrames.Count(o => !o.isCorrect);
 
-        int correctFrames = pictureFrames.Length - enabledFrames;
+      //  int correctFrames = pictureFrames.Length - enabledFrames;
         //  AkSoundEngine.SetState("PICTUREPUZZLE_STATE", "PIECE_" + correctFrames);
 
         if (enabledFrames == 0)

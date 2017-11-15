@@ -10,6 +10,7 @@ public class LocalizationManager : EditorWindow
 	SerializedObject so;
 	private ReorderableList list;
 	Vector2 scrollPos;
+	
 
 	[MenuItem("Edit/Localization Settings")]
 	public static void ShowWindow()

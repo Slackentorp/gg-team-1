@@ -7,29 +7,28 @@ using UnityEngine;
 /// This is a temporary class which keeps track of the variables
 /// and state of the moth, regarding its sounds and sound events. 
 /// </summary>
-public class MothSounds : MonoBehaviour
+public class MothSounds
 {
     [SerializeField, Tooltip("The distance multiplier for the dubbler distance. ")]
     private float distMultiplier = 10f; 
     private Transform camTransform;
-    private MothBehaviour moth; 
+    private readonly MothBehaviour mothBehaviour;
+    private readonly Transform mothTransform;
 
-    // Use this for initialization
-    void Start()
+    public MothSounds(Transform cameraTransform, MothBehaviour mb, Transform mothTransform)
     {
-        //HACK: This is temporary. 
-        camTransform = GameObject.FindObjectOfType<Camera>().transform; 
-        moth = GetComponent<MothBehaviour>(); 
+        camTransform = cameraTransform;
+        mothBehaviour = mb;
+        this.mothTransform = mothTransform;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateMothSounds()
     {
         if (camTransform == null)
             camTransform = GameObject.FindObjectOfType<Camera>().transform;
 
-        AkSoundEngine.SetRTPCValue("MOTH_SPEED", moth.MothSpeed);
-        float dist2Cam = Vector3.Distance(this.transform.position, camTransform.position) * distMultiplier;
+        AkSoundEngine.SetRTPCValue("MOTH_SPEED", mothBehaviour.MothSpeed);
+        float dist2Cam = Vector3.Distance(mothTransform.position, camTransform.position) * distMultiplier;
         AkSoundEngine.SetRTPCValue("MOTH_DOPPLER",Mathf.Max(50 - dist2Cam, -50)); 
     }
 }

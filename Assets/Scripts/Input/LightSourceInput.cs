@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Touch input specifically for light sources
 /// </summary>
-public class LightSourceInput : MonoBehaviour, ITouchInput
+public class LightSourceInput : MonoBehaviour
 {
     [SerializeField]
     private Vector3 LandingPosition;
@@ -151,34 +151,6 @@ public class LightSourceInput : MonoBehaviour, ITouchInput
                 isActivated = true;
             }
         }
-    }
-
-    public void OnTap()
-    {
-        if (IsLit)
-        {
-            EventBus.Instance.SetMothPosition(transform.TransformPoint(LandingPosition));
-        }
-    }
-
-    public void OnTouchDown(Vector3 worldPos)
-    {
-    }
-
-    public void OnTouchUp()
-    {
-    }
-
-    public void OnToucHold(Vector3 worldPos)
-    {
-    }
-
-    public void OnTouchExit()
-    {
-    }
-
-    public void OnSwipe(TouchDirection direction)
-    {
     }
 
     private void OnDrawGizmos()
