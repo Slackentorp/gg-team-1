@@ -16,6 +16,18 @@ public class CameraController
 	private Vector3 targetRot;
 	private Transform prevPos;
 	private Transform transform;
+	private Vector3 puzzlePos;
+	private Vector3 cameraStartPos;
+	private bool solvingPuzzle = false, puzzleClick = false;
+	private float time;
+
+	enum States
+	{
+		freeRoamMode,
+		PuzzleMode,
+	}
+
+	States currentState;
 
 	[SerializeField]
 	private bool storyCam = true;
@@ -67,16 +79,13 @@ public class CameraController
 
 		if (isDebug)
 		{
-			SetStoryCam(false);
+			//SetStoryCam(false);
 		}
 	}
 
 	public void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			storyCam = !storyCam;
-		}
+		
 
 		RotateAroundMoth();
 		transform.position = heading + targetPos.position;
@@ -84,13 +93,9 @@ public class CameraController
 		targetPos.rotation = Quaternion.LookRotation(heading);
 	}
 
-	public void SetStoryCam(bool val)
-	{
-		storyCam = val;
-	}
 
-
-	public CameraController(Transform transform, float maxDistance, float followSpeed, float cameraTurnSpeed, Transform target)
+	public CameraController(Transform transform, float maxDistance, float followSpeed, 
+							float cameraTurnSpeed, Transform target)
 	{
 		this.transform = transform;
 		this.maxDistance = maxDistance;
@@ -105,6 +110,108 @@ public class CameraController
 		initialHeading = transform.position - targetPos.position;
 	}
 
+
+	void RotateAroundMoth()
+	{
+		float newAngleY = 0, newAngleX = 0;
+#if UNITY_EDITOR
+		if (Input.GetMouseButton(0) && !InputManager.isTouchingObject && !isMouseTouchingObject)
+		{
+			newAngleY =
+				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
+			newAngleX += Input.GetAxis("Mouse Y") * cameraTurnSpeed;
+		}
+#endif
+		if (Input.touchCount > 0 && !InputManager.isTouchingObject && !isMouseTouchingObject)
+		{
+			newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
+						10;
+			newAngleX = Input.touches[0].deltaPosition.y *
+						cameraTurnSpeed / 10;
+		}
+
+		if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
+			!(newAngleY < 0))
+		{
+			return;
+		}
+		// Yaw
+		Vector3 localUpAxis =
+			transform.InverseTransformDirection(Vector3.up);
+		heading = Quaternion.AngleAxis(newAngleY, localUpAxis) * heading;
+
+		// Pitch
+		Quaternion q = Quaternion.AngleAxis(newAngleX, transform.right);
+
+		Vector3 nextHeading = q * heading;
+		float a = Vector3.Angle(nextHeading, Vector3.up);
+		if (a >= 20 && a <= 160)
+		{
+			heading = nextHeading;
+		}
+	}
+
+	void CheckStateChange()
+	{
+		if (currentState == States.freeRoamMode && 
+			(puzzleClick == true || solvingPuzzle == true))
+		{
+			currentState = States.PuzzleMode;
+			GoToCameraPuzzlePos();
+		}
+		if (currentState == States.PuzzleMode &&/*input != press and hold*/)
+		{
+			currentState = States.freeRoamMode;
+		}
+	}
+
+	void GoToCameraPuzzlePos()
+	{
+		if (solvingPuzzle)
+		{
+			transform.position = Vector3.Lerp(cameraStartPos, puzzlePos, time);
+		}
+		if (solvingPuzzle == false)
+		{
+			cameraStartPos = transform.position;
+			time = 0.0f;
+			solvingPuzzle = true; 
+
+		}
+		
+	}
+
+	#region
+	/*
+	public void SetTarget(Vector3 newTarget)
+	{
+		TargetPos.position = newTarget;
+	}
+
+
+	public void ResetControls()
+	{
+		TargetPos = prevPos;
+		TargetRot = Vector3.zero;
+	}
+
+
+
+	private void CheckIfTargetPosIsNull()
+	{
+		if (targetPos == null)
+		{
+			return;
+		}
+	}
+
+	private void MoveTowardsTarget()
+	{
+		transform.position = Vector3.Lerp(transform.position, TargetPos.position * maxDistance,
+										  followSpeed * Time.deltaTime);
+	}
+
+	
 
 	private void RotateCameraAroundSelf()
 	{
@@ -156,86 +263,20 @@ public class CameraController
 
 	}
 
-	void RotateAroundMoth()
+	private void CameraRotation()
 	{
-		float newAngleY = 0, newAngleX = 0;
-#if UNITY_EDITOR
-		if (Input.GetMouseButton(0) && !InputManager.isTouchingObject && !isMouseTouchingObject)
+		if (Mathf.Abs(TargetRot.magnitude) > 0.1f)
 		{
-			newAngleY =
-				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
-			newAngleX += Input.GetAxis("Mouse Y") * cameraTurnSpeed;
+			transform.forward = Vector3.Lerp(transform.forward, TargetRot,
+											 cameraTurnSpeed * Time.deltaTime);
 		}
-#endif
-		if (Input.touchCount > 0 && !InputManager.isTouchingObject && !isMouseTouchingObject)
+		else
 		{
-			newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
-						10;
-			newAngleX = Input.touches[0].deltaPosition.y *
-						cameraTurnSpeed / 10;
+			RotateCameraAroundSelf();
 		}
-
-		if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
-			!(newAngleY < 0))
-		{
-			return;
-		}
-		// Yaw
-		Vector3 localUpAxis =
-			transform.InverseTransformDirection(Vector3.up);
-		heading = Quaternion.AngleAxis(newAngleY, localUpAxis) * heading;
-
-		// Pitch
-		Quaternion q = Quaternion.AngleAxis(newAngleX, transform.right);
-
-
-		
-		Vector3 nextHeading = q * heading;
-		float a = Vector3.Angle(nextHeading, Vector3.up);
-		if (a >= 20 && a <= 160)
-		{
-			heading = nextHeading;
-		}
-
 	}
 
-	public void SetTarget(Vector3 newTarget)
-	{
-		TargetPos.position = newTarget;
-	}
-
-
-	public void SetStoryTarget(Transform target)
-	{
-		if (isDebug) return;
-		TargetPos = target;
-	}
-
-	public void SetStoryTarget(Vector3 target)
-	{
-		if (isDebug) return;
-		TargetPos.position = target;
-	}
-
-	public void SetStoryTarget(Vector3 target, Vector3 orientation)
-	{
-		if (isDebug) return;
-		TargetPos.position = target;
-		TargetRot = orientation;
-	}
-
-	public void SetStoryRotation(Vector3 dir)
-	{
-		TargetRot = dir;
-	}
-
-	public void ResetControls()
-	{
-		TargetPos = prevPos;
-		TargetRot = Vector3.zero;
-	}
-
-	/*private void MoveCameraToStoryBit()
+	private void MoveCameraToStoryBit()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -267,7 +308,7 @@ public class CameraController
 				}
 			}
 		}
-	}*/
+	}
 
 	private void ReturnToPreStoryPoint()
 	{
@@ -277,30 +318,33 @@ public class CameraController
 		}
 	}
 
-	private void CheckIfTargetPosIsNull()
+	public void SetStoryTarget(Transform target)
 	{
-		if (targetPos == null)
-		{
-			return;
-		}
+		if (isDebug) return;
+		TargetPos = target;
 	}
 
-	private void MoveTowardsTarget()
+	/*public void SetStoryTarget(Vector3 target)
 	{
-		transform.position = Vector3.Lerp(transform.position, TargetPos.position * maxDistance,
-										  followSpeed * Time.deltaTime);
+		if (isDebug) return;
+		TargetPos.position = target;
 	}
 
-	private void CameraRotation()
+	public void SetStoryTarget(Vector3 target, Vector3 orientation)
 	{
-		if (Mathf.Abs(TargetRot.magnitude) > 0.1f)
-		{
-			transform.forward = Vector3.Lerp(transform.forward, TargetRot,
-											 cameraTurnSpeed * Time.deltaTime);
-		}
-		else
-		{
-			RotateCameraAroundSelf();
-		}
+		if (isDebug) return;
+		TargetPos.position = target;
+		TargetRot = orientation;
 	}
+
+	/*public void SetStoryRotation(Vector3 dir)
+	{
+		TargetRot = dir;
+	}
+
+	/*public void SetStoryCam(bool val)
+	{
+		storyCam = val;
+	}*/
+#endregion
 }

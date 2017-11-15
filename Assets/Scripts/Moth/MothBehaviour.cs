@@ -12,13 +12,11 @@ public class MothBehaviour
 
 	GameObject moth;
 	Camera camera;
-	Vector3 hitPoint;
-	Vector3 mothToPoint;
-	Vector3 mothStartPos;
+	Transform puzzleMothPos; 
+	Vector3 hitPoint, mothToPoint, mothStartPos, hitDotPoint, hitDotNormal;
 	float time;
 	RaycastHit hit;
-	Vector3 hitDotPoint;
-	Vector3 hitDotNormal;
+
 	Ray ray;
 
 	public float MothSpeed
@@ -47,9 +45,6 @@ public class MothBehaviour
 
 	public void Update()
 	{
-		Debug.DrawLine(hitPoint, hitPoint + hitDotPoint, Color.red);
-		Debug.DrawLine(hitPoint, hitPoint + hitDotNormal, Color.blue);
-
 		MothGoToPosition();
 	}
 
