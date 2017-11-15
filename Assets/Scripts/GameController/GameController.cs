@@ -44,13 +44,13 @@ public class GameController : Singleton<GameController>
     }
 
     [ContextMenu("DAN")]
-    void SetDanish() {
+    public void SetDanish() {
         localization.SetDanish();
         AkSoundEngine.SetState("LANGUAGE", "DANISH");
     }
 
     [ContextMenu("ENG")]
-    void SetEnglish() {
+    public void SetEnglish() {
         localization.SetEnglish();
         AkSoundEngine.SetState("LANGUAGE", "ENGLISH");
     }
