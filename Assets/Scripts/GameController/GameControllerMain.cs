@@ -15,6 +15,8 @@ public class GameControllerMain : Singleton<GameControllerMain>
     public LocalizationManager localization;
     public LightController LightController;
     public InputManager InputManager;
+    [HideInInspector]
+    public Fragment NextFragment;
     public InputHandlerSettings InputSettings;
 
     private GameState currentState;
@@ -44,11 +46,13 @@ public class GameControllerMain : Singleton<GameControllerMain>
     [ContextMenu("DAN")]
     void SetDanish() {
         localization.SetDanish();
+        AkSoundEngine.SetState("LANGUAGE", "DANISH");
     }
 
     [ContextMenu("ENG")]
     void SetEnglish() {
         localization.SetEnglish();
+        AkSoundEngine.SetState("LANGUAGE", "ENGLISH");
     }
 
     public void SetState(GameState state)

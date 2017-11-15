@@ -53,7 +53,7 @@ namespace Assets.Scripts.Managers
                 return CheckMouse();
             }
 #else
-        CheckTouch();
+        return CheckTouch();
 #endif
         }
 

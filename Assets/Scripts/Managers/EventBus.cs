@@ -67,7 +67,7 @@ public class EventBus : Singleton<EventBus>
         {
             foreach (var fragment in lst)
             {
-                fragment.Play();
+             //   fragment.Play();
             }
         }
     }
