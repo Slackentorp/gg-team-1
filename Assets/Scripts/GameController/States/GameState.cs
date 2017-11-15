@@ -8,7 +8,7 @@ using UnityEngine;
 public abstract class GameState
 {
 
-    protected GameControllerMain gm;
+    protected GameController gm;
 
     // Subclasses have to implement Tick
     public abstract void Tick();
@@ -18,7 +18,7 @@ public abstract class GameState
     public virtual void OnStateExit() { }
     public virtual void InternalOnGUI() { }
 
-    protected GameState(GameControllerMain gm)
+    protected GameState(GameController gm)
     {
         this.gm = gm;
     }
