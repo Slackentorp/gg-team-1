@@ -3900,7 +3900,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8a9b5fa7baa688d459e7d09c9e919f63, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 8a9b5fa7baa688d459e7d09c9e919f63, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9104,6 +9104,10 @@ MonoBehaviour:
   cameraPosition: {x: 0, y: 0, z: 0}
   IsLit: 1
   isSwitchable: 0
+  fragments: []
+  lampMaterialOn: {fileID: 0}
+  lampMaterialOff: {fileID: 0}
+  localFragmentsState: 
 --- !u!95 &1346339158
 Animator:
   serializedVersion: 3
@@ -10504,6 +10508,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1745860477}
   - {fileID: 1060472211}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -10647,6 +10652,49 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fb666a7970f55f4d9e542484f3571ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1745860476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1745860477}
+  - component: {fileID: 1745860478}
+  m_Layer: 0
+  m_Name: level_collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1745860477
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1745860476}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1695866663}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!64 &1745860478
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1745860476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: fb11ebb7f451d9c418df911bdaeceb98, type: 3}
 --- !u!1001 &1760082597
 Prefab:
   m_ObjectHideFlags: 0
@@ -11388,6 +11436,10 @@ MonoBehaviour:
   cameraPosition: {x: 0, y: 0, z: 0}
   IsLit: 1
   isSwitchable: 0
+  fragments: []
+  lampMaterialOn: {fileID: 0}
+  lampMaterialOff: {fileID: 0}
+  localFragmentsState: 
 --- !u!1 &1965130194
 GameObject:
   m_ObjectHideFlags: 0
