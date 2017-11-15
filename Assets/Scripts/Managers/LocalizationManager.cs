@@ -16,6 +16,7 @@ public class LocalizationManager
         LocalizationItem.Language setting =
             (LocalizationItem.Language) PlayerPrefs.GetInt("LANGUAGE");
         Debug.Log("Setting is: " +setting);
+        AkSoundEngine.SetState("LANGUAGE", setting.ToString());
         if (setting == LocalizationItem.Language.DANISH)
         {
             SetDanish();

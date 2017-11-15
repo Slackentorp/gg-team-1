@@ -37,7 +37,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     private void OnEnable() {
         UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
         UnityEditor.SceneView.onSceneGUIDelegate += OnSceneGUI;
-        internalGizmoMaterial = new Material(gizmoMaterial);
+        //internalGizmoMaterial = new Material(gizmoMaterial);
     }
 
     private void OnDisable() {
@@ -84,11 +84,11 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         Graphics.DrawMesh(cachedMeshFilter.sharedMesh, rotationMatrix, internalGizmoMaterial, gameObject.layer, null);
     }
 
-    public void OnTap(Touch finger)
+    public void OnTap()
     {
     }
 
-    public void OnTouchDown(Touch finger, Vector3 worldPos)
+    public void OnTouchDown(Vector3 worldPos)
     {
         if (controller != null)
         {
@@ -100,13 +100,17 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         PlayEvent(pickupWwiseEvent);
     }
 
-    public void OnTouchUp(Touch finger)
+    public void OnTouchUp()
     {
         PlayEvent(placeWwiseEvent);
-        AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
+        if (controller != null)
+        {
+            controller.CheckForSolution(this);
+        }
+     //   AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
-    public void OnToucHold(Touch finger, Vector3 worldPos)
+    public void OnToucHold(Vector3 worldPos)
     {
         Vector3 newPosition = worldPos - distanceWorldPos;
 
@@ -119,13 +123,6 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         if (!Directions.Z) {
             newPosition.z = transform.position.z;
         }
-
-        
-
-        if (controller != null)
-        {
-            controller.CheckForSolution(this);
-        }
         transform.position = newPosition;
     }
 
@@ -133,10 +130,14 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     {
         PlayEvent(placeWwiseEvent);
         transform.SetY(startY);
+        if (controller != null)
+        {
+            controller.CheckForSolution(this);
+        }
         AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
-    public void OnSwipe(Touch finger, TouchDirection direction)
+    public void OnSwipe(TouchDirection direction)
     {
     }
 

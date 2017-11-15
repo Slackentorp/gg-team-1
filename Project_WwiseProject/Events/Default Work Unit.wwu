@@ -147,6 +147,26 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
+										<Action Name="" ID="{9FFC0C2C-36F5-409D-98ED-3A7FC711F69E}" ShortID="458588645">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Noise sequence" ID="{2C466693-9997-4858-97F0-C2A817418EBB}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{472AD6DC-57C0-4388-A3B6-3C635BE58906}" ShortID="274262176">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Car Sequence" ID="{636082BF-65B6-4108-B920-4D271752AF9A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 									</ChildrenList>
 								</Event>
 							</ChildrenList>
@@ -160,6 +180,16 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Exploration Music" ID="{92C0621E-7466-4CFA-A5F8-CBD08BC38C2A}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{75FCFB0F-91CE-4998-A0FF-F77FD45A4B92}" ShortID="1055088">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PuzzleMusic" ID="{CCEF2A3F-617B-4414-B7DA-6DA0026AF119}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -277,20 +307,9 @@
 								</Event>
 								<Event Name="BULB_PLACED_RIGHT" ID="{31AEECE7-9DD0-43B1-AA49-D00DCAC184A6}">
 									<ChildrenList>
-										<Action Name="" ID="{2755E680-9EED-47AE-90DB-D6D836A63864}" ShortID="87957893">
-											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="1"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Screw In" ID="{369E6482-2AC7-418C-A407-6E38897659DF}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
 										<Action Name="" ID="{D5E534A1-83AD-43DD-B5BD-E055A51A087F}" ShortID="277923927">
 											<PropertyList>
 												<Property Name="ActionType" Type="int16" Value="1"/>
-												<Property Name="Delay" Type="Real64" Value="0.3"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
@@ -301,11 +320,20 @@
 										<Action Name="" ID="{5F61E890-73CE-401D-8456-73003B79CAF2}" ShortID="647724282">
 											<PropertyList>
 												<Property Name="ActionType" Type="int16" Value="1"/>
-												<Property Name="Delay" Type="Real64" Value="0.2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Turn on" ID="{8E256CAF-46EA-43F4-95E4-D2D71C8B9434}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{60A75BB5-9A81-4A29-A9D8-C248F5B42CCE}" ShortID="471633827">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AC power" ID="{53D831AB-EEBE-4B89-A5BA-6C61DA3AD139}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -393,26 +421,47 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Event Name="STORYBITE_TEST" ID="{ABD3B456-8DF5-4612-8147-3F6D06749713}">
+				<Event Name="FRAGMENT_TEST" ID="{ABD3B456-8DF5-4612-8147-3F6D06749713}">
 					<ChildrenList>
-						<Action Name="" ID="{99F7A127-6061-4C36-972B-B0EBE1983EBE}" ShortID="567964011">
+						<Action Name="" ID="{AC997C66-54A8-48ED-99B5-C0725EF25554}" ShortID="233850368">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="A photograph" ID="{4B8370FB-6CF9-4459-B512-965BD5BC48C0}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+									<ObjectRef Name="Move Paper" ID="{A6EBC3C1-6CA9-41AA-8148-E9BE96A2DE62}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
-						<Action Name="" ID="{A042217E-5A64-408E-9DBE-5BCE7567FACF}" ShortID="748325810">
+						<Action Name="" ID="{B8353A44-B96E-463A-BBBD-92FFB151D055}" ShortID="233026286">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="FadeTime" Type="Real64" Value="2"/>
+								<Property Name="ActionType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Exploration Music" ID="{92C0621E-7466-4CFA-A5F8-CBD08BC38C2A}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+									<ObjectRef Name="Pick Paper Up" ID="{CF3CB5DA-A79C-4138-BC09-B5F74B12453F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{7A4CD740-BF6E-488F-8099-9B9565A27BAB}" ShortID="223608624">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{9D58E803-EE34-455D-B4B3-3C48899D2B28}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="0.1"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -455,7 +504,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="StoryEvents" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -483,7 +532,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="StoryEvents" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -570,17 +619,1557 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Story Events" ID="{BE0E9764-C28E-49BC-8956-F5645C1CED9C}" ShortID="282217027">
+				<Folder Name="Fragments" ID="{BE0E9764-C28E-49BC-8956-F5645C1CED9C}" ShortID="282217027">
 					<ChildrenList>
-						<Event Name="Storyevent_1" ID="{3DFB69FD-5340-40F8-8517-0D649FC1DEAA}">
+						<Event Name="FRAGMENT_POLAROID1" ID="{3DFB69FD-5340-40F8-8517-0D649FC1DEAA}">
 							<ChildrenList>
-								<Action Name="" ID="{B8A29D5B-2E0E-4CB7-AA65-ABC40AD75B22}" ShortID="88874272">
+								<Action Name="" ID="{ACB911A7-173F-41CF-A450-CEF7EEADB2DD}" ShortID="464087674">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0EA8AC5B-FF3F-406C-9354-E01A853C2506}" ShortID="801706387">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Careless Painters_alpha" ID="{F63DF7DE-8654-4474-8232-FB6F3D91869B}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{06875B7F-1EFD-4B96-A8F3-8820131888EF}" ShortID="391096915">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{532D140E-9A3D-40BB-A543-F2A50E1DF4E6}" ShortID="483620885">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Polaroid 1" ID="{E2F9F861-DADB-4249-8F9C-DAD27A800A5E}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{01BAF308-63EE-4E54-9C33-B84DCFFC6719}" ShortID="787464056">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{2CBC971F-776E-4896-989D-B18ABFAFFCCC}" ShortID="186341998">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_POLAROID2" ID="{3E7A6FE7-A872-4BDE-920D-8D4AB16425F9}">
+							<ChildrenList>
+								<Action Name="" ID="{BB3CF253-9178-469D-AEB3-A6966E85762E}" ShortID="779160213">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{C165518F-F91D-4927-9057-928CC493070D}" ShortID="42754142">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E471573B-8DA2-476D-9015-14E50E77D633}" ShortID="645769713">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="11"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F0827B98-964D-4033-B7C8-19F999090453}" ShortID="739009444">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{EC3149D9-9455-4C9B-877A-317374B6A9B2}" ShortID="10963384">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F629D46B-D89D-4649-837B-0B8209F9E832}" ShortID="108259078">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Polaroid 2" ID="{4DF1F1AA-31F7-4A33-AE63-FC9F7280D57C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_TATTOO" ID="{F2167923-AA66-4428-A204-4F0F454DDAFD}">
+							<ChildrenList>
+								<Action Name="" ID="{12EBFEEF-566A-4AA7-A12F-FA1E50097B58}" ShortID="974272812">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{A0D14D93-BCF7-4BE1-8A33-D1DFD16CE009}" ShortID="221578593">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{9D2D578D-5FCE-47D5-AD4F-873AB9E31F97}" ShortID="241467056">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="24"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{18FD496C-4C10-4A6C-899B-685CBB039C56}" ShortID="347480797">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Susie's Tattoo" ID="{94AF7F8F-932C-4DAB-A82A-69112949885F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E3026A95-A676-4C65-9990-F1F81F9AE350}" ShortID="416556509">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7B6DEAD6-42EA-4F82-B13B-4E635B02A7EF}" ShortID="1051725938">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_POSTER" ID="{17CAD062-F2B7-4C75-8441-FC4F8BD6E5AF}">
+							<ChildrenList>
+								<Action Name="" ID="{57567498-DFAA-4CEC-B619-B46AC7FAA1BF}" ShortID="207443817">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{C4D23708-988C-47B4-A144-64718142D6AC}" ShortID="9022012">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{01966363-9EDF-4E19-AB65-D768B6DB2CA0}" ShortID="701116532">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="22"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{16D847D1-1FB2-4EF7-8935-3C58DD8F8A04}" ShortID="461532176">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ugly Poster" ID="{4A1363E2-680C-465A-90F9-071A5F22F7B4}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D1A843B1-8E16-4713-9ED4-2CA29AC6070C}" ShortID="152396093">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{9F6EC678-BDD7-41FC-A734-2A7B2A8D9305}" ShortID="158735513">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_SMOKING1" ID="{16B76AF3-562D-47B5-8360-9B6FE44405BB}">
+							<ChildrenList>
+								<Action Name="" ID="{8DCD6006-CD3C-4C0E-9B64-8DE4C0988F80}" ShortID="652953704">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{5A1D5EA6-F022-473C-BEE2-CE8712984E53}" ShortID="157989331">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{9D8B4F13-4291-4953-A009-0C9ABB2519D9}" ShortID="242139664">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="24"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{AA3D09FD-588D-4898-9C3C-89E8F90DDDE0}" ShortID="335073377">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Smoking_1" ID="{F7009645-AB40-432D-8530-70C153760494}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{37A6B83D-8739-4100-AD4C-A7A7D07034E9}" ShortID="612445239">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{ACFA7117-B46D-42F5-BCBD-BE19921224AB}" ShortID="294221366">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_MODELLING2" ID="{B91D0677-F3AF-428E-AA01-A493CA32189B}">
+							<ChildrenList>
+								<Action Name="" ID="{710DEC83-9296-42D2-BCE4-7E819464A675}" ShortID="563173979">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{034CD792-7BC5-48D0-943B-244C0A357D5A}" ShortID="94480128">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{181C5604-632C-418A-8537-1C1394FE2FE8}" ShortID="698906317">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="25"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D8713122-2A36-4CFF-8E8F-C2F38AA7DF7D}" ShortID="619941747">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Modeling 2" ID="{64769462-5CC8-47E6-AC76-874F78AE104F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{1059001C-FBD8-442C-98D9-89017CE2A28A}" ShortID="50381773">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7F5E38E3-A1F1-4CA6-9CE5-25FF8199587D}" ShortID="912713011">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_WORLDMAP1" ID="{8DE25AEB-B7B2-484E-9D88-042E391EEA99}">
+							<ChildrenList>
+								<Action Name="" ID="{FA8F30B8-93EF-4F97-B09B-E6AAA1446D7E}" ShortID="739456617">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F103ADF8-39D3-44CF-BB44-552E12A278F1}" ShortID="73819413">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{DA1F2A73-7BFC-48F5-A82F-B4785511D97B}" ShortID="287667307">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="27"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{EB59B819-0BC0-4628-8BF0-976CF9217C72}" ShortID="827510367">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="World Map 1" ID="{4200ADEC-EB77-4101-B62D-A94687ED65DF}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{38316947-DCCE-4FD2-911E-ABDC5935FF6C}" ShortID="176480027">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{15F7AD49-38A1-493C-B97B-AF38CE3750A5}" ShortID="3518364">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_PARENTS1" ID="{9CCFF272-77AE-4D04-A4A9-E26C198EE322}">
+							<ChildrenList>
+								<Action Name="" ID="{71B8E5AB-6F85-4316-98E7-D8940159642E}" ShortID="418512252">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{53B1B1C6-D6F3-4EFA-A9CD-9546B6550511}" ShortID="642179895">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D82A86EB-21F3-4E79-BC76-EAAD2646B6DB}" ShortID="600911857">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="30"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{86B70315-5A4E-4871-8E34-C6605FBA8D9D}" ShortID="566837031">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Meet the Parents 1" ID="{AAB670E1-29C4-4D78-9352-7D56D4FA8290}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{FD069DA6-C793-463E-9141-517A06AB8ECC}" ShortID="312711659">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{5AA50572-E738-43BE-A236-967B7E310FDA}" ShortID="423927719">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_NEWYEARS" ID="{005421FB-9909-40F9-A1B2-14E4587DF489}">
+							<ChildrenList>
+								<Action Name="" ID="{5ED6F59C-523B-4C82-A05C-BFE4EADB912E}" ShortID="424913686">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{CD879545-A1E9-4558-A44A-5B8365D6AF61}" ShortID="657506542">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{97690FFA-A5BA-4243-8C68-02BC9E3B686E}" ShortID="332054131">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="5"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{47370BCD-154A-42FF-8682-41E7E5BF1C67}" ShortID="218390836">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="New Year's" ID="{D2F85508-3BBC-465E-8836-567DFAA75653}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{5661C04C-E859-4078-BCD8-5A639D87E0A3}" ShortID="907745594">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{3BF01FBE-F480-4315-BA08-7EC83BF5E3F0}" ShortID="805109199">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_BIRTHDAY" ID="{E53DF958-F7BF-43F9-BC11-EF71E8CD306A}">
+							<ChildrenList>
+								<Action Name="" ID="{794C97A3-FC00-4491-BB1F-1C0068155FB7}" ShortID="627738209">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F4EBD51C-1F78-4EAE-9BF6-1B0E0739946B}" ShortID="143497696">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{2D393473-3979-4DAF-AF52-B6DC5E25CD9C}" ShortID="39732096">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="22"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{4EE29F0D-A9AD-4DE2-8668-10B787D785D4}" ShortID="672540996">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Birthday Moment" ID="{F446324A-7660-4950-8B1A-EBEF0C7D24A0}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{1FC25DD7-A814-4C7F-BF6D-AF5B192D70DF}" ShortID="298115155">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{976113C7-378C-42C0-8F09-6BE0BDE7DA50}" ShortID="783433066">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_CLOCK" ID="{C3EC89ED-5C28-49F2-8A98-22B997437474}">
+							<ChildrenList>
+								<Action Name="" ID="{EB3692DB-DE9D-4356-ADAB-36704CCCF0B5}" ShortID="617073920">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{4C201D67-C0EE-43E7-9373-F25F5846A83C}" ShortID="52281187">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0A3707AC-7B67-4E2F-B2EB-FA0CCC2ED90E}" ShortID="937226396">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="12"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{EDF9E14A-BAAA-4074-9310-35767BB49C5F}" ShortID="928763636">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Clock" ID="{D5431EE8-5E0F-4BC3-9898-1415CDA5D6C3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{1988B4CB-9A06-4557-9629-71A16B3EE572}" ShortID="26830766">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7E359FFC-73CF-4DAB-8885-542870604CD6}" ShortID="64190380">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_MODELLING1" ID="{DB3016E5-40DE-4343-9E76-1E44A6E3B257}">
+							<ChildrenList>
+								<Action Name="" ID="{4637FCA7-47EE-4BD9-8D5D-5FDD609A4666}" ShortID="899199811">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{5D53D8B0-6C69-4B7E-8290-AACD71DBEB8D}" ShortID="1017222467">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{9D2FD120-140E-40C7-AE0A-368C8F516324}" ShortID="679873943">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="11"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D449ABAA-AF0B-4DF6-91FE-1B001BB95BF3}" ShortID="836674910">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Modeling 1" ID="{9A196F7B-1C7E-44DC-8D09-814019BA5BBE}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F7D20DB8-A851-4F50-A6D6-76DBAC75E693}" ShortID="872677977">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{A60CBD07-2E72-461A-9D52-7982189DC35B}" ShortID="762644326">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_TV1" ID="{0BB3A6F0-75FE-4F7D-9CCE-22616D7D01FF}">
+							<ChildrenList>
+								<Action Name="" ID="{15EE23D0-CD90-43C8-950A-F245498302B1}" ShortID="426456364">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{960422B4-37A4-4A1C-B115-918E3E6DC375}" ShortID="314830044">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{70295B4A-A61F-47F3-B813-5F5A7281C836}" ShortID="27466755">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="30"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{9654FCA4-E98F-46F7-A5CF-8681AAEA3008}" ShortID="647533563">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="We need a tv 1" ID="{FEDB1809-465A-4B1F-BC1E-712ECA5ADE7F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7EC7BD4C-DA09-4811-A24F-00F4CE974BB6}" ShortID="659605131">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{9023ED8B-0E3C-4AD5-85EC-29D4BEE66132}" ShortID="804728932">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_COZYKITCHEN" ID="{3D4E4800-9669-49E1-9629-5803BE002E6E}">
+							<ChildrenList>
+								<Action Name="" ID="{D5F76E3F-C478-4557-A3D3-1724C7221483}" ShortID="654163108">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F73EF2A0-363E-4F5D-9B54-C137C775A54D}" ShortID="1055716660">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{EC868644-4CB2-4850-8472-51D724128778}" ShortID="334845907">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="19"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{080E122D-48B2-4727-BDF8-89C7C1DD9120}" ShortID="1032118227">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="At the table" ID="{C5A0F11F-59D0-4177-B44B-9A8EBA11362C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{3C44450C-C6B3-47DE-8331-3DE637269959}" ShortID="522623599">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{FF26C05D-2841-49B4-92E8-9A74E6CE5A43}" ShortID="714299834">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_TIRED" ID="{4F7B729B-EAF1-4315-B324-029CF1F6BF7D}">
+							<ChildrenList>
+								<Action Name="" ID="{9DD0D430-FD0B-4E3F-9161-B2218C042B19}" ShortID="589457837">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{380DEA3D-532A-498F-905D-9A3FA5EDCC0C}" ShortID="26447485">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{3D53CB98-6D6E-4691-92E0-333E0412EAA2}" ShortID="365199546">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="16"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8E0FEDB4-1C5C-4391-A547-0C5CBAEB9D94}" ShortID="292285433">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Tired" ID="{0AEE7E1C-F2C3-4BC3-9A3E-2D0499AB462F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{DF4189ED-E87C-47EA-B441-3C7D82985190}" ShortID="519507611">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{16DE48C2-8617-45AA-BD7D-46BF52477436}" ShortID="813988033">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_WEDNESDAYWINE" ID="{B5898CF0-4BE5-421A-9A32-4D8B257838BF}">
+							<ChildrenList>
+								<Action Name="" ID="{F4F1D9CF-E9C0-4364-90F3-11C1B4B47AB1}" ShortID="590033494">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{53AAB619-98F8-497C-B463-40F377DCF6D9}" ShortID="88278661">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{62D87EE9-47F9-4B1C-908D-3E37D7F02676}" ShortID="543467296">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="25"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{869EF21C-CC10-4408-84D7-99C8E36C306B}" ShortID="121801043">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Wine on a wednesday" ID="{AD056026-3B90-41DF-9F8A-F206F56BBB57}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7BF77A20-7F89-41E9-8D0D-471775E3CEBC}" ShortID="864005591">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{4D0E31B6-AA74-4D6A-BD2F-6550DEDA106C}" ShortID="868946297">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_ZODIAC" ID="{057C14A3-20E8-44A8-825B-024FAAC0C1FC}">
+							<ChildrenList>
+								<Action Name="" ID="{469A7018-8626-430D-BA80-36864FD7B42C}" ShortID="274418245">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0BE91038-9E6A-46BB-9DBF-F2222B0DC439}" ShortID="967633308">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{841DAE2C-4DD5-4696-8A6C-59469C979A04}" ShortID="557162358">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="22"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{EBA6AEB2-3D50-48E8-97F5-25BF0A9B995B}" ShortID="766340990">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Zodiac Sign" ID="{5EE4C338-78E6-4AF2-A95F-ACE0163C71E1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{51A10AB0-72A6-4D50-A211-37F8582A5B5D}" ShortID="435608325">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D617D01C-E739-4333-BD44-E48602E79698}" ShortID="892308539">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_SMOKING2" ID="{C87BC886-8624-4449-AFC8-D4CBF38725B3}">
+							<ChildrenList>
+								<Action Name="" ID="{9ED56B8E-93A3-49EE-AEC3-1EA6458E6484}" ShortID="107051097">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8680B915-0330-4CAD-847F-C2F7878690FB}" ShortID="73873115">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7488F486-5872-4331-8366-00AC2069423B}" ShortID="334677500">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="24"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E2F7373E-B29C-4088-A13B-1094347A4DFC}" ShortID="960679624">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Smoking 2" ID="{D064016E-2546-47BE-8380-3A53F019780F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{28A806B0-F4AA-4A4A-9F22-6E1A5FE7B9B1}" ShortID="220892876">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{85CE3383-B9D8-4AB6-9EEB-41167BBA8E64}" ShortID="925403798">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_TV2" ID="{171B61B0-D89D-43B3-9D85-08BCD11658CD}">
+							<ChildrenList>
+								<Action Name="" ID="{CF0FC7FB-304A-4B45-AC88-DC1CC329BB73}" ShortID="954744028">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{55F6423A-DA1A-4AEA-9F2B-351817660A07}" ShortID="587951902">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{23C55E41-FE33-425E-9A31-42C90BB63EBD}" ShortID="867678154">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="30"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{375011C8-3981-41AC-A989-DA113B967957}" ShortID="671242430">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="We need a tv 2" ID="{E03A4EDF-EC3A-4FC9-8FD8-B0EEA0B406B3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{CDD812CD-E059-4B86-82E2-516714DF6A24}" ShortID="111764849">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{70483EEE-34B5-4AE8-87B5-026B88127915}" ShortID="962804810">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_WORLDMAP2" ID="{34753A5A-7A2D-4C5E-8320-9D52CF944427}">
+							<ChildrenList>
+								<Action Name="" ID="{75A82FCD-861D-4FC6-B963-EF3372224E7B}" ShortID="217016431">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{A2D33F22-D79D-4CC8-8204-832A5FD9E699}" ShortID="473580451">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{B3C705F9-AB27-4569-A0B0-D678BEEB8A38}" ShortID="851120738">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="27"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{EBAB4FDD-4A3A-49F5-9032-FDDE296EBAEB}" ShortID="569802455">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="World Map 2" ID="{7480B5AD-6062-4EAB-98F3-306C8CCE027F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{2F0CF23F-BCCB-4779-BEA8-DC65B3A28FF0}" ShortID="221105553">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{44DD3EE1-B847-43E6-80B1-702E3D020E36}" ShortID="641713828">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FRAGMENT_PARENTS2" ID="{B9C12700-71CF-49A7-960E-CC7A49E1D293}">
+							<ChildrenList>
+								<Action Name="" ID="{045B82B0-F966-421B-A5F7-CA0DBC48216D}" ShortID="940553238">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{BA7BE3F3-2292-4C80-BBD4-98D9B4A47DEF}" ShortID="576671781">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{22A0A836-EF3E-4A6F-8D5D-378CC39F4841}" ShortID="48264889">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="30"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{3C93F478-8445-463D-9C93-5CB452EDF6CA}" ShortID="964719799">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Meet the Parents 2" ID="{B84C8B63-3E68-4267-8480-14C2E5FA4B49}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D6D068DF-99D6-436A-9040-BE6D191C77E8}" ShortID="514804554">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{86B66382-5A0D-415E-A13C-448803076B7D}" ShortID="557493307">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="10"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -588,66 +2177,105 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Story Bites" ID="{66843E3E-AE81-4618-9A2A-6CE8A36A3A17}" ShortID="885852091">
+				<Event Name="LAMP_FLICKERING" ID="{B44FFBAF-D359-459E-9E8E-A5ACE621A973}">
 					<ChildrenList>
-						<Event Name="Photograph_1" ID="{5752CFF9-4C1D-4607-A6AF-15A96AC4DDE5}">
-							<ChildrenList>
-								<Action Name="" ID="{A9A4AE00-3778-4298-808B-002F6B4C772B}" ShortID="289908015">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="A photograph_alpha" ID="{5B8A5CC9-743C-48C6-8B88-FA40BF33CCCC}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Television" ID="{BF7D4AE8-9791-4FE7-8DDF-85FB06BD8CBE}">
-							<ChildrenList>
-								<Action Name="" ID="{EF02E7F3-B611-4E92-AF4D-61F108049D1A}" ShortID="725322520">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="We needed a tv_alpha" ID="{67265EC7-BDC7-422C-AE24-CF6BB84D0348}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Lightbulb" ID="{64A4F61C-FE50-4A9E-8BE8-FAB09676AE52}">
-							<ChildrenList>
-								<Action Name="" ID="{0278E306-B8BB-42EC-8A00-3FB42E9CCC35}" ShortID="794455904">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Happy New Year_alpha" ID="{93E0DD08-1F33-4949-A95A-E0DCCD327458}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Map" ID="{CCE4E440-5388-4F88-BD7F-1CA21E273380}">
-							<ChildrenList>
-								<Action Name="" ID="{F31FF0B9-674A-4F90-A78A-3A249AE77055}" ShortID="133920881">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Map_alpha" ID="{9E707192-10A4-482C-BD65-380EA7763CE2}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
+						<Action Name="" ID="{F92D4DBA-AB38-4A5A-BA82-9B45BDFD0B3D}" ShortID="599154868">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="LAMP_FLICKER_LOOP" ID="{68F0861B-F5D7-450D-815F-8A669233B671}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{B963DCE5-0802-4F73-83D1-A3D0833EC02F}" ShortID="274586034">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Crackle" ID="{AD27127A-E10D-434E-8A5F-030E74D6677A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{55F3A9B7-DC5B-4D66-B118-5105DEB79FD6}" ShortID="98471610">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Shot_Laser_Very Light_PSEM_227" ID="{F49E87F5-3CCF-482E-B82B-44BDD15A5628}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{1E435866-9A5F-48B5-B1AA-4041E75B494B}" ShortID="14153643">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AC power" ID="{53D831AB-EEBE-4B89-A5BA-6C61DA3AD139}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{3B6A9F9A-4E5D-4BCF-83A9-C2C6BAF6E170}" ShortID="349914686">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Sword_Movements_PSEM_156" ID="{EB7B7A91-F7F2-4207-951D-3C7E1970A4C9}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{B5AC322F-3A8C-4784-BEBE-5AA6D74019C8}" ShortID="787190985">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
-				</Folder>
+				</Event>
+				<Event Name="LAMP_ON" ID="{E4B50615-83C2-4236-B41E-F4806EF13E0C}">
+					<ChildrenList>
+						<Action Name="" ID="{3E35C107-AC57-4586-9C8D-5F28E23480A5}" ShortID="904524513">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="LAMP_FLICKER_LOOP" ID="{68F0861B-F5D7-450D-815F-8A669233B671}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{58FEC7AB-5EF2-46CC-AAC0-D2C0C103D771}" ShortID="230641290">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Turn on" ID="{8E256CAF-46EA-43F4-95E4-D2D71C8B9434}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{96DDA698-2338-4CFB-B2D5-121870406227}" ShortID="419892842">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AC power" ID="{53D831AB-EEBE-4B89-A5BA-6C61DA3AD139}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

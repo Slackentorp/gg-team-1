@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExitState : GameState
 {
-    public ExitState(GameControllerMain gm) : base(gm)
+    public ExitState(GameController gm) : base(gm)
     {
     }
 
