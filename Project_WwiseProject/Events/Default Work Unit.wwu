@@ -171,30 +171,7 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
-						<Event Name="LIVINGROOM_ENTER" ID="{6B77436A-B36D-4107-A721-4BAF006199B3}">
-							<ChildrenList>
-								<Action Name="" ID="{2CB784F4-C46F-42C5-BDA5-B1E7248A9046}" ShortID="897490340">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Exploration Music" ID="{92C0621E-7466-4CFA-A5F8-CBD08BC38C2A}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{75FCFB0F-91CE-4998-A0FF-F77FD45A4B92}" ShortID="1055088">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="PuzzleMusic" ID="{CCEF2A3F-617B-4414-B7DA-6DA0026AF119}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
+						<Event Name="LIVINGROOM_ENTER" ID="{6B77436A-B36D-4107-A721-4BAF006199B3}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Puzzles" ID="{804443FD-D136-4407-A437-AE603B8EE6C5}" ShortID="671669688">
@@ -2271,6 +2248,20 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="AC power" ID="{53D831AB-EEBE-4B89-A5BA-6C61DA3AD139}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MUSIC_START" ID="{27907411-36F7-4B96-8FF8-AF1D7CA7C75B}">
+					<ChildrenList>
+						<Action Name="" ID="{2CB784F4-C46F-42C5-BDA5-B1E7248A9046}" ShortID="897490340">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Exploration Music" ID="{92C0621E-7466-4CFA-A5F8-CBD08BC38C2A}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
