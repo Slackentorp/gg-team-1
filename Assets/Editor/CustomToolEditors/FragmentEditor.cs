@@ -64,7 +64,6 @@ public class FragmentEditor : Editor
         if (EditorApplication.isPlaying && EditorApplication.isPlayingOrWillChangePlaymode && !didEnterPlayMode)
         {
             didEnterPlayMode = true; 
-            Debug.Log("Hello"); 
         }
         
     }
