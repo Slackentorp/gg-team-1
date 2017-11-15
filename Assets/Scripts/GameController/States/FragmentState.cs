@@ -7,7 +7,7 @@ public class FragmentState : GameState
     private Vector3 originPos;
     private Vector3 originForward;
 
-    public FragmentState(GameControllerMain gm) : base(gm)
+    public FragmentState(GameController gm) : base(gm)
     {
     }
 

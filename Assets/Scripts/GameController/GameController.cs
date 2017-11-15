@@ -4,7 +4,7 @@ using Gamelogic.Extensions;
 using UnityEngine;
 
 #pragma warning disable 0414
-public class GameControllerMain : Singleton<GameControllerMain>
+public class GameController : Singleton<GameController>
 {
     [SerializeField, ReadOnly]
     private string currentStateLiteral;
@@ -44,13 +44,13 @@ public class GameControllerMain : Singleton<GameControllerMain>
     }
 
     [ContextMenu("DAN")]
-    void SetDanish() {
+    public void SetDanish() {
         localization.SetDanish();
         AkSoundEngine.SetState("LANGUAGE", "DANISH");
     }
 
     [ContextMenu("ENG")]
-    void SetEnglish() {
+    public void SetEnglish() {
         localization.SetEnglish();
         AkSoundEngine.SetState("LANGUAGE", "ENGLISH");
     }

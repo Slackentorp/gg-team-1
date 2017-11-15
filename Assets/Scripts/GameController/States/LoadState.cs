@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LoadState : GameState
 {
-    public LoadState(GameControllerMain gm) : base(gm)
+    public LoadState(GameController gm) : base(gm)
     {
     }
 
