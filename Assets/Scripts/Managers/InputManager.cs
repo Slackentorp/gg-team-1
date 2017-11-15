@@ -82,7 +82,7 @@ namespace Assets.Scripts.Managers
                     ie.TouchPosition = hit.point;
                     ie.RaycastHit = hit;
 
-                    isTouchingObject = true;
+              //      isTouchingObject = true;
 
                     frameTouches[touchObject] = new TouchState(Time.time, t);
 
@@ -129,7 +129,7 @@ namespace Assets.Scripts.Managers
 
             // Check whether more objects were touched in the previous frame
             // indicating that a touch was canceled
-            foreach (var oldObject in previousFrameTouches)
+       /*     foreach (var oldObject in previousFrameTouches)
             {
                 TouchState ts;
                 if (!frameTouches.TryGetValue(oldObject.Key, out ts))
@@ -141,7 +141,7 @@ namespace Assets.Scripts.Managers
                     }
                 }
             }
-
+*/
             return ie;
         }
 
