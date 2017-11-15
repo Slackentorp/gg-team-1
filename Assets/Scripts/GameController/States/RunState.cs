@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class RunState : GameState
 {
+	private MothBehaviour mothBehaviour; 
     private CameraController cameraController;
 
     public RunState(GameControllerMain gm) : base(gm)
     {
     }
 
+
     public override void OnStateEnter()
     {
         cameraController = new CameraController(gm.GameCamera.transform, 2,1,1, gm.Moth.transform);
+		mothBehaviour = new MothBehaviour(gm.Moth, Camera.main, .4f);
     }
 
     IEnumerator InputCoroutine()
@@ -60,7 +63,9 @@ public class RunState : GameState
     {
         cameraController.Update();
         gm.StartCoroutine(InputCoroutine());
+        mothBehaviour.Update();
         // Should return what GameObject is being touched, and the type of touch
+
     }
 
     public override void InternalOnGUI()
