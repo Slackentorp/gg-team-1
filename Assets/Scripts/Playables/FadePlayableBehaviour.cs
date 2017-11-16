@@ -16,16 +16,25 @@ using UnityEngine.Playables;
 
 		public override void OnGraphStart (Playable playable)
 		{
+			if(canvasGroup == null){
+				return;
+			}
 			canvasGroup.alpha = 0;
 		}
 
 		public override void OnBehaviourPlay (Playable playable, FrameData info)
 		{
+			if(canvasGroup == null){
+				return;
+			}
 			canvasGroup.alpha = fadeType == FadeType.Fadeout ? 0 : 1;
 		}
 
 		public override void OnBehaviourPause (Playable playable, FrameData info)
 		{
+			if(canvasGroup == null){
+				return;
+			}
 			#if UNITY_EDITOR
 
 			var progressRate = playable.GetTime () / playable.GetDuration ();
@@ -42,6 +51,8 @@ using UnityEngine.Playables;
 		public override void PrepareFrame (Playable playable, FrameData info)
 		{
 			var progressRate = playable.GetTime () / playable.GetDuration ();
-			canvasGroup.alpha = fadeType == FadeType.Fadeout ? (float)progressRate : (float)(1 - progressRate);
+			if(canvasGroup != null){
+				canvasGroup.alpha = fadeType == FadeType.Fadeout ? (float)progressRate : (float)(1 - progressRate);
+			}
 		}
 	}
