@@ -195,9 +195,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 0.76470596, b: 0.46274513, a: 1}
-  m_Intensity: 1.4
-  m_Range: 4
+  m_Color: {r: 1, g: 0.8872907, b: 0.74264705, a: 1}
+  m_Intensity: 0.2
+  m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -237,6 +237,10 @@ MonoBehaviour:
   cameraPosition: {x: -0.23, y: 0.5, z: -0.44}
   IsLit: 1
   isSwitchable: 0
+  fragments: []
+  lampMaterialOn: {fileID: 0}
+  lampMaterialOff: {fileID: 0}
+  localFragmentsState: 
 --- !u!198 &198352562446326960
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -297,7 +301,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 501079004
+  randomSeed: -1099986216
   InitialModule:
     serializedVersion: 3
     enabled: 1

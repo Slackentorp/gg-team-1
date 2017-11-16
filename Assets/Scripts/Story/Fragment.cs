@@ -63,7 +63,7 @@ public class Fragment : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.DrawIcon(transform.position + camPosition, "CameraIcon.tif");
         Gizmos.DrawLine(transform.position + camPosition, transform.position + camOrientation);
