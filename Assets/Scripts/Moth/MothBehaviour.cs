@@ -48,6 +48,20 @@ public class MothBehaviour
 		MothGoToPosition();
 	}
 
+	public void SetMothPos(RaycastHit hit)
+	{
+		AkSoundEngine.PostEvent("MOTH_START_FLIGHT", moth);
+		MothSpeed = 0.3f;
+		mothStartPos = moth.transform.position;
+
+		hitPoint = hit.point + hit.normal * 0.2f;
+		hitDotPoint = hit.point;
+		hitDotNormal = hit.normal;
+		
+		lerpRunning = true;
+		time = 0.0f;
+	}
+
 	void MothGoToPosition()
 	{
 		if (lerpRunning)
@@ -61,14 +75,14 @@ public class MothBehaviour
 			time = 0.0f;
 			lerpRunning = false;
 		}
-		if (Input.GetMouseButton(1))
+	/*	if (Input.GetMouseButton(1))
 		{
 			MothSpeed = 0.3f;
 
 			mothStartPos = moth.transform.position;
 			PointfromRaycast();
 			time = 0.0f;
-		}
+		}*/
 	}
 
 	private void PointfromRaycast()

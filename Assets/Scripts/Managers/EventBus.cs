@@ -81,12 +81,4 @@ public class EventBus : Singleton<EventBus>
     {
     //    GameController.Instance.SetCameraTarget(position); 
     }
-
-    public void TriggerStoryBite(BasicBiteTrigger bite)
-    {
-        if (bite.FixedCamera)
-        {
-        //    GameObject.FindObjectOfType<CameraController>().SendMessage("SetStoryTarget", bite.FixedCamPos);
-        }
-    }
 }
