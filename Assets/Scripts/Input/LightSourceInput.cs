@@ -75,6 +75,11 @@ public class LightSourceInput : MonoBehaviour
             localFragmentsState[i] = fragments[i].HasPlayed;
         }
 
+        if(localFragmentsState.Length < 1)
+        {
+            return;
+        }
+
         if (!localFragmentsState[0] && !localFragmentsState[1] && !localFragmentsState[2])
         {
             LampOFF();

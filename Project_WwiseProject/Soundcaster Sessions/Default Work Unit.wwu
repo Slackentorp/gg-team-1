@@ -34,10 +34,6 @@
 				<SoundcasterSession Name="Puzzles" ID="{857C52F5-B477-4EE8-BC3F-B8634EFF9822}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="No light" ID="{310FE666-CE60-4DFE-A393-CD2EF7733819}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
-							<Position X="0" Y="1"/>
-						</Module>
-						<Module>
 							<ObjectRef Name="Map Puzzle" ID="{66634383-203D-4675-B409-ABCAB50EB0C8}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
 							<Position X="1" Y="1"/>
 						</Module>
@@ -60,7 +56,7 @@
 							<Value>44</Value>
 						</RTPCValue>
 						<RTPCValue>
-							<GameParameterRef Name="STORYEVENT_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+							<GameParameterRef Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
 							<Value>-48</Value>
 						</RTPCValue>
 						<RTPCValue>
@@ -111,7 +107,7 @@
 							<Value>44</Value>
 						</RTPCValue>
 						<RTPCValue>
-							<GameParameterRef Name="STORYEVENT_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+							<GameParameterRef Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
 							<Value>-48</Value>
 						</RTPCValue>
 						<RTPCValue>
@@ -174,7 +170,11 @@
 							<Value>44</Value>
 						</RTPCValue>
 						<RTPCValue>
-							<GameParameterRef Name="STORYEVENT_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+							<GameParameterRef Name="FLICKER_VOLUME" ID="{55301302-5A4B-43B0-AC6A-A9AD2368252D}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
 							<Value>-48</Value>
 						</RTPCValue>
 						<RTPCValue>
@@ -203,8 +203,9 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="ENGLISH" ID="{3A2BE52B-5BBF-405C-9CD2-175EDB012F37}"/>
-						<CurrentStateRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}"/>
+						<CurrentStateRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
+						<CurrentStateRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
+						<CurrentStateRef Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
 						<CurrentStateRef Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true"/>
