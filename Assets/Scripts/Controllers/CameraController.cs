@@ -25,6 +25,7 @@ public class CameraController
 	Vector3 heading;
 	Vector3 initialHeading;
 	Vector3 flattened;
+	private bool fragmentMode;
 
 	Vector3 headingProjected, upProjected;
 
@@ -78,10 +79,16 @@ public class CameraController
 			storyCam = !storyCam;
 		}
 
-		RotateAroundMoth();
-		transform.position = heading + targetPos.position;
-		transform.rotation = Quaternion.LookRotation(-heading.normalized);
-		targetPos.rotation = Quaternion.LookRotation(heading);
+		if(fragmentMode)
+		{
+			RotateCameraAroundSelf();
+		} else {
+			RotateAroundMoth();
+			transform.position = heading + targetPos.position;
+			transform.rotation = Quaternion.LookRotation(-heading.normalized);
+			targetPos.rotation = Quaternion.LookRotation(heading);
+		}
+		
 	}
 
 	public void SetStoryCam(bool val)
@@ -90,13 +97,14 @@ public class CameraController
 	}
 
 
-	public CameraController(Transform transform, float maxDistance, float followSpeed, float cameraTurnSpeed, Transform target)
+	public CameraController(Transform transform, float maxDistance, float followSpeed, float cameraTurnSpeed, Transform target, bool fragmentMode)
 	{
 		this.transform = transform;
 		this.maxDistance = maxDistance;
 		this.followSpeed = followSpeed;
 		this.cameraTurnSpeed = cameraTurnSpeed;
 		this.targetPos = target;
+		this.fragmentMode = fragmentMode;
 
 		Vector3 reference = transform.rotation.eulerAngles;
 		reference.z = 0;

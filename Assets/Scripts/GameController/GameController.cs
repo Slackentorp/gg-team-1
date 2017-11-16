@@ -18,6 +18,7 @@ public class GameController : Singleton<GameController>
     [HideInInspector]
     public Fragment NextFragment;
     public InputHandlerSettings InputSettings;
+    public AnimationCurve FragmentLerpCurve;
 
     private GameState currentState;
 
