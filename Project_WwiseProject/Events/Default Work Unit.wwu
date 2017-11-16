@@ -7,9 +7,32 @@
 					<ChildrenList>
 						<Event Name="MOTH_START_FLIGHT" ID="{42DDC5BA-946A-4A80-8D37-64684D345CA2}">
 							<ChildrenList>
+								<Action Name="" ID="{3D6ED336-13A5-48C4-B2B7-A529729C8275}" ShortID="330919714">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Flying" ID="{C7A38437-C86F-4A62-A9AA-7E396855109D}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{A9A1056E-2A0B-4566-A2D7-B95AD92367B0}" ShortID="31144793">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MOTH_FLY_LOUD" ID="{90173BB2-32C7-45F8-B403-8C88AA4FC722}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{FF5372AE-DD8B-437E-B8D9-04B21AD0F526}" ShortID="249918596">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -42,6 +65,7 @@
 								<Action Name="" ID="{4F6B6984-8619-429C-8C5F-3E1FFEDDF2E1}" ShortID="270863545">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -172,6 +196,20 @@
 							</ChildrenList>
 						</Folder>
 						<Event Name="LIVINGROOM_ENTER" ID="{6B77436A-B36D-4107-A721-4BAF006199B3}"/>
+						<Event Name="FRIDGE" ID="{60E3D70A-DF47-4C10-94C3-03BCEB25BA5E}">
+							<ChildrenList>
+								<Action Name="" ID="{56002BCC-7CC2-4E62-A327-235031D220BA}" ShortID="769957395">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Fridge" ID="{BE199E45-06B6-4452-B4F5-16D2FE7DC909}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Puzzles" ID="{804443FD-D136-4407-A437-AE603B8EE6C5}" ShortID="671669688">
@@ -809,7 +847,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="FRAGMENT_MODELLING2" ID="{B91D0677-F3AF-428E-AA01-A493CA32189B}">
+						<Event Name="FRAGMENT_MODELLING1" ID="{B91D0677-F3AF-428E-AA01-A493CA32189B}">
 							<ChildrenList>
 								<Action Name="" ID="{710DEC83-9296-42D2-BCE4-7E819464A675}" ShortID="563173979">
 									<PropertyList>
@@ -1253,7 +1291,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="FRAGMENT_MODELLING1" ID="{DB3016E5-40DE-4343-9E76-1E44A6E3B257}">
+						<Event Name="FRAGMENT_MODELLING2" ID="{DB3016E5-40DE-4343-9E76-1E44A6E3B257}">
 							<ChildrenList>
 								<Action Name="" ID="{4637FCA7-47EE-4BD9-8D5D-5FDD609A4666}" ShortID="899199811">
 									<PropertyList>
@@ -2112,13 +2150,13 @@
 				</Event>
 				<Event Name="MUSIC_START" ID="{27907411-36F7-4B96-8FF8-AF1D7CA7C75B}">
 					<ChildrenList>
-						<Action Name="" ID="{2CB784F4-C46F-42C5-BDA5-B1E7248A9046}" ShortID="897490340">
+						<Action Name="" ID="{A0B5A90F-19C4-4CF6-9785-50814BD23189}" ShortID="281213126">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Exploration Music" ID="{92C0621E-7466-4CFA-A5F8-CBD08BC38C2A}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+									<ObjectRef Name="Music" ID="{B8FBD82A-3406-4A57-95E3-7BAA3495DB0D}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -2133,6 +2171,17 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{EAAA1A89-692B-4EAF-A119-B6A99F67AF02}" ShortID="468788914">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+								<Property Name="Delay" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
