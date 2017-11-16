@@ -10,8 +10,10 @@ public class OverlayBlendEffectManager : MonoBehaviour
     public Shader curShader;
     public Texture2D blendTexture;
     public Texture2D perlinNoise;
+    public Texture2D perlinNoise2;
     public float blendOpacity = 1.0f;
     public float perlinOpacity = 1.0f;
+    public float fadeSpeed = 1.0f;
     private Material curMaterial;
 
     public float scratchesYSpeed = 10.0f;
@@ -54,8 +56,12 @@ public class OverlayBlendEffectManager : MonoBehaviour
         {
             material.SetTexture("_BlendTex", blendTexture);
             material.SetTexture("_perlinTex", perlinNoise);
+            material.SetTexture("_perlinTex2", perlinNoise2);
             material.SetFloat("_Opacity", blendOpacity);
             material.SetFloat("_perlinOpacity", perlinOpacity);
+            material.SetFloat("_RandomValue", randomValue);
+            //material.SetFloat("_FadeValue", fadeSpeed);
+            material.SetFloat("_FadeValue,", fadeSpeed);
 
             Graphics.Blit(sourceTexture, destTexture, material);
         }
@@ -68,6 +74,10 @@ public class OverlayBlendEffectManager : MonoBehaviour
         if (perlinNoise)
         {
             material.SetTexture("_perlinTex", perlinNoise);
+        }
+        if (perlinNoise2)
+        {
+            material.SetTexture("_perlinTex2", perlinNoise2);
         }
         else
         {
