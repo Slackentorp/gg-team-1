@@ -9,8 +9,6 @@ public class RunState : GameState
     private MothSounds mothSounds;
     private CameraController cameraController;
 
-    private IEnumerator Input;
-
     public RunState(GameController gm) : base(gm)
     {
     }
@@ -21,24 +19,30 @@ public class RunState : GameState
         cameraController = new CameraController(gm.GameCamera.transform, 2,1,1, gm.Moth.transform);
 		mothBehaviour = new MothBehaviour(gm.Moth, Camera.main, .4f);
         mothSounds = new MothSounds(gm.GameCamera.transform, mothBehaviour, gm.Moth.transform);
-
-        Input = InputCoroutine();
-        gm.StartCoroutine(Input);
     }
 
-    IEnumerator InputCoroutine()
+    void CheckInput()
     {
-        while (true)
-        {
             InputEvent inputEvent = gm.InputManager.CheckInput();
             if (inputEvent.GameObject != null) {
+                // Check if wall
+                if(inputEvent.GameObject.CompareTag("Wall") && inputEvent.InputType == InputType.TAP)
+                {
+                    Debug.Log("Ey I'm flying'ere");
+                    mothBehaviour.SetMothPos(inputEvent.RaycastHit);
+                    return;
+                }
+
                 // Check if fragment
                 Fragment fragment = inputEvent.GameObject.GetComponent<Fragment>();
-                if (fragment != null) {
+                if (fragment != null && inputEvent.InputType == InputType.TAP)
+                {
                     gm.NextFragment = fragment;
                     gm.SetState(new FragmentState(gm));
+                    return;
                 }
                 else {
+        //            InputManager.isTouchingObject = true;
                     ITouchInput itt = inputEvent.GameObject.GetComponent<ITouchInput>();
                     if (itt != null) {
                         switch (inputEvent.InputType) {
@@ -64,8 +68,6 @@ public class RunState : GameState
                     }
                 }
             }
-            yield return null;
-        }
     }
 
     public override void Tick()
@@ -73,11 +75,7 @@ public class RunState : GameState
         cameraController.Update();
         mothBehaviour.Update();
         mothSounds.UpdateMothSounds();
-    }
-
-    public override void OnStateExit()
-    {
-        gm.StopCoroutine(Input);
+        CheckInput();
     }
 
     public override void InternalOnGUI()
