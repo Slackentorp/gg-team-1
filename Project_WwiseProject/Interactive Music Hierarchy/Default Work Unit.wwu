@@ -2498,9 +2498,6 @@
 						<MusicSwitchContainer Name="Exploration Music" ID="{92C0621E-7466-4CFA-A5F8-CBD08BC38C2A}" ShortID="384541607">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-11</Value>
-									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{CC589CE3-D4F9-44B9-9559-F243CCF5C39C}" ShortID="412282764">
 											<ReferenceList>
@@ -2543,7 +2540,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicPlaylistContainer Name="Livingroom" ID="{3BAC89BF-7A20-425E-B2B5-50D95D290984}" ShortID="642320993">
+								<MusicPlaylistContainer Name="Hallways Piano" ID="{3BAC89BF-7A20-425E-B2B5-50D95D290984}" ShortID="642320993">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -2553,14 +2550,12 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicSegment Name="No light" ID="{310FE666-CE60-4DFE-A393-CD2EF7733819}" ShortID="123588937">
+										<MusicSegment Name="Hallways_PIANO_91bpm" ID="{D15B542B-E97A-418A-9671-3B2EB33AF289}" ShortID="321202310">
 											<PropertyList>
-												<Property Name="EndPosition" Type="Real64" Value="222181.836734694"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-2</Value>
-													</ValueList>
-												</Property>
+												<Property Name="EndPosition" Type="Real64" Value="176843.174603175"/>
+												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+												<Property Name="Tempo" Type="Real64" Value="91"/>
+												<Property Name="TimeSignatureUpper" Type="int16" Value="3"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -2571,20 +2566,37 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<MusicTrack Name="No light" ID="{6C614F78-DBF1-4509-A672-6F4B7151C177}" ShortID="856736544">
+												<MusicTrack Name="Hallways_PIANO_91bpm" ID="{105D994D-F818-4835-B4A6-27FDDF10FBC9}" ShortID="44804136">
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="No light" ID="{51999A18-88F8-45BF-94B0-6E3005872CFA}" ShortID="994601042">
+														<AudioFileSource Name="Hallways_PIANO_91bpm" ID="{7D917AC8-C1A8-4A67-95D1-198E847A64FA}" ShortID="327883160">
 															<Language>SFX</Language>
-															<AudioFile>No light.wav</AudioFile>
+															<AudioFile>Hallways_PIANO_91bpm.wav</AudioFile>
 														</AudioFileSource>
 													</ChildrenList>
+													<StateInfo>
+														<StateGroupList>
+															<StateGroupInfo>
+																<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+															</StateGroupInfo>
+														</StateGroupList>
+														<CustomStateList>
+															<CustomState>
+																<StateRef Name="LAMP_1" ID="{5CD9C236-0FC1-49C7-8F9E-196D0B304E8E}"/>
+																<State Name="Custom State" ID="{457E4728-60EF-4289-80B0-E92F7501E6C3}" ShortID="316349572">
+																	<PropertyList>
+																		<Property Name="Volume" Type="Real64" Value="-96"/>
+																	</PropertyList>
+																</State>
+															</CustomState>
+														</CustomStateList>
+													</StateInfo>
 													<TransitionList>
-														<MusicTransition Name="Root" ID="{2D74378E-2EDB-4D83-8898-619E9AB8FD75}">
+														<MusicTransition Name="Root" ID="{2854264E-E9D7-4E30-A3E7-3A84268D502F}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -2592,149 +2604,136 @@
 														</MusicTransition>
 													</TransitionList>
 													<SequenceList>
-														<MusicTrackSequence Name="" ID="{7FB46962-283A-4838-8988-86630ADCB6C6}">
+														<MusicTrackSequence Name="" ID="{2B09C1D3-8814-42BD-B682-419414893CF3}">
 															<ClipList>
-																<MusicClip Name="No light" ID="{396F5582-C76A-4BD5-BC03-2E6844737B37}">
+																<MusicClip Name="Hallways_PIANO_91bpm" ID="{AD1FD89A-E57D-4DFA-9209-916C35098DBB}">
 																	<PropertyList>
-																		<Property Name="BeginTrimOffset" Type="Real64" Value="2578.49190285112"/>
-																		<Property Name="EndTrimOffset" Type="Real64" Value="207383.321214806"/>
-																		<Property Name="FadeInDuration" Type="Real64" Value="1542.64507426966"/>
-																		<Property Name="FadeOutDuration" Type="Real64" Value="4113.72019805247"/>
-																		<Property Name="PlayAt" Type="Real64" Value="-2578.49190285112"/>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="176043.968253968"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																	</PropertyList>
-																	<AudioSourceRef Name="No light" ID="{51999A18-88F8-45BF-94B0-6E3005872CFA}"/>
-																	<PropertyCurveList>
-																		<PropertyCurve PropertyName="Highpass">
-																			<Curve Name="" ID="{8399B5C5-FC01-471C-AF4C-519915EF6F80}">
-																				<PropertyList>
-																					<Property Name="Flags" Type="int32" Value="1"/>
-																				</PropertyList>
-																				<PointList>
-																					<Point>
-																						<XPos>2.57849</XPos>
-																						<YPos>0</YPos>
-																						<Flags>5</Flags>
-																					</Point>
-																					<Point>
-																						<XPos>207.38332</XPos>
-																						<YPos>0</YPos>
-																						<Flags>37</Flags>
-																					</Point>
-																				</PointList>
-																			</Curve>
-																		</PropertyCurve>
-																		<PropertyCurve PropertyName="Lowpass">
-																			<Curve Name="" ID="{FE207DD5-DEB1-4457-8391-E33862BA69CD}">
-																				<PropertyList>
-																					<Property Name="Flags" Type="int32" Value="1"/>
-																				</PropertyList>
-																				<PointList>
-																					<Point>
-																						<XPos>2.57849</XPos>
-																						<YPos>0</YPos>
-																						<Flags>5</Flags>
-																					</Point>
-																					<Point>
-																						<XPos>207.38332</XPos>
-																						<YPos>0</YPos>
-																						<Flags>37</Flags>
-																					</Point>
-																				</PointList>
-																			</Curve>
-																		</PropertyCurve>
-																		<PropertyCurve PropertyName="Volume">
-																			<Curve Name="" ID="{A40CEB1A-CA8F-41AF-AA23-238E5CF1EB2A}">
-																				<PropertyList>
-																					<Property Name="Flags" Type="int32" Value="3"/>
-																				</PropertyList>
-																				<PointList>
-																					<Point>
-																						<XPos>2.57849</XPos>
-																						<YPos>0</YPos>
-																						<Flags>5</Flags>
-																					</Point>
-																					<Point>
-																						<XPos>207.38332</XPos>
-																						<YPos>0</YPos>
-																						<Flags>37</Flags>
-																					</Point>
-																				</PointList>
-																			</Curve>
-																		</PropertyCurve>
-																	</PropertyCurveList>
+																	<AudioSourceRef Name="Hallways_PIANO_91bpm" ID="{7D917AC8-C1A8-4A67-95D1-198E847A64FA}"/>
+																</MusicClip>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="Hallways_STRINGS_91bpm" ID="{57D2DD29-78B5-4011-96E5-7E3152BD9785}" ShortID="511090196">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Hallways_STRINGS_91bpm" ID="{E5ADA77B-8EB2-429F-A7CC-F54B257505F6}" ShortID="580998060">
+															<Language>SFX</Language>
+															<AudioFile>Hallways_STRINGS_91bpm.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<StateInfo>
+														<StateGroupList>
+															<StateGroupInfo>
+																<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+															</StateGroupInfo>
+														</StateGroupList>
+														<CustomStateList>
+															<CustomState>
+																<StateRef Name="LAMP_2" ID="{2746F27B-6336-4419-A1BD-B2181F93FCD3}"/>
+																<State Name="Custom State" ID="{9FE98E60-60F0-4057-B938-10B2B2ACA6F3}" ShortID="133631507">
+																	<PropertyList>
+																		<Property Name="Volume" Type="Real64" Value="-96"/>
+																	</PropertyList>
+																</State>
+															</CustomState>
+															<CustomState>
+																<StateRef Name="LAMP_1" ID="{5CD9C236-0FC1-49C7-8F9E-196D0B304E8E}"/>
+																<State Name="Custom State" ID="{69C0FD12-C906-4A5A-9A55-9EB1EBE2BA18}" ShortID="858452933">
+																	<PropertyList>
+																		<Property Name="Volume" Type="Real64" Value="-96"/>
+																	</PropertyList>
+																</State>
+															</CustomState>
+														</CustomStateList>
+													</StateInfo>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{22B06EE7-D57F-4FA2-A01A-7EDD3DEFEC31}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{A2F050B8-B7BF-4CC7-AA44-A29A678C30F8}">
+															<ClipList>
+																<MusicClip Name="Hallways_STRINGS_91bpm" ID="{E016AC2E-06D9-4925-BCD9-DE7C41E0C2CC}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="176043.968253968"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="Hallways_STRINGS_91bpm" ID="{E5ADA77B-8EB2-429F-A7CC-F54B257505F6}"/>
+																</MusicClip>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="Hallways_PAD_91bpm" ID="{2F4D4E3C-4C7C-4BB7-90F4-4DE339596BDC}" ShortID="625156348">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Hallways_PAD_91bpm" ID="{4ACA0736-93FA-4E07-B45F-27ACEAFEB21E}" ShortID="654449630">
+															<Language>SFX</Language>
+															<AudioFile>Hallways_PAD_91bpm.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<StateInfo>
+														<StateGroupList>
+															<StateGroupInfo>
+																<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+															</StateGroupInfo>
+														</StateGroupList>
+														<CustomStateList/>
+													</StateInfo>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{7AFDFA72-3ED0-4F03-95D0-DBD5F97FE375}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{D12A8C85-6256-4E20-A0DD-5628CC9D524F}">
+															<ClipList>
+																<MusicClip Name="Hallways_PAD_91bpm" ID="{EB50EDF2-B975-4FC3-8AA4-988D31F71221}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="176843.174603175"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="Hallways_PAD_91bpm" ID="{4ACA0736-93FA-4E07-B45F-27ACEAFEB21E}"/>
 																</MusicClip>
 															</ClipList>
 														</MusicTrackSequence>
 													</SequenceList>
 												</MusicTrack>
 											</ChildrenList>
-											<StateInfo>
-												<StateGroupList>
-													<StateGroupInfo>
-														<StateGroupRef Name="MAP_STATE" ID="{D22B46D5-7259-4D52-A71A-957F793D3B04}"/>
-													</StateGroupInfo>
-												</StateGroupList>
-												<CustomStateList>
-													<CustomState>
-														<StateRef Name="PIN_4" ID="{9CCC59B2-48E7-4341-97C1-8C154DF8BA0C}"/>
-														<State Name="Custom State" ID="{05D42E38-FE12-4B3C-8165-337AB22EDE5C}" ShortID="597084965">
-															<PropertyList>
-																<Property Name="Volume" Type="Real64" Value="-96"/>
-															</PropertyList>
-														</State>
-													</CustomState>
-													<CustomState>
-														<StateRef Name="PIN_5" ID="{8A35FA01-CE8D-4768-AC1F-0E6DE6D9A6DF}"/>
-														<State Name="Custom State" ID="{AFC4562F-3E60-4597-B00B-87D448A895F6}" ShortID="857104691">
-															<PropertyList>
-																<Property Name="Volume" Type="Real64" Value="-96"/>
-															</PropertyList>
-														</State>
-													</CustomState>
-													<CustomState>
-														<StateRef Name="PIN_3" ID="{389D39F7-C6E1-47BC-A43B-C71C816BD526}"/>
-														<State Name="Custom State" ID="{1B27497F-CD54-473B-840A-51225DFC7A80}" ShortID="278836201">
-															<PropertyList>
-																<Property Name="Volume" Type="Real64" Value="-96"/>
-															</PropertyList>
-														</State>
-													</CustomState>
-													<CustomState>
-														<StateRef Name="PIN_2" ID="{31DA64D0-F372-4CB9-BBC5-922D990708E1}"/>
-														<State Name="Custom State" ID="{FE537240-8BBA-4301-90BF-06300BEFE156}" ShortID="980505006">
-															<PropertyList>
-																<Property Name="Volume" Type="Real64" Value="-96"/>
-															</PropertyList>
-														</State>
-													</CustomState>
-													<CustomState>
-														<StateRef Name="PIN_6" ID="{4A1D792C-2E5F-4DD9-8532-55935E94E67A}"/>
-														<State Name="Custom State" ID="{12F6F302-9944-4EE7-B7CD-6A5CFD89D356}" ShortID="152123202">
-															<PropertyList>
-																<Property Name="Volume" Type="Real64" Value="-96"/>
-															</PropertyList>
-														</State>
-													</CustomState>
-													<CustomState>
-														<StateRef Name="PIN_7" ID="{938AEB7F-185A-4EA5-A3B7-46D7757B3F6B}"/>
-														<State Name="Custom State" ID="{0CFCBAE0-E65C-4A58-8DB3-5AE42D56966D}" ShortID="536129116">
-															<PropertyList>
-																<Property Name="Volume" Type="Real64" Value="-96"/>
-															</PropertyList>
-														</State>
-													</CustomState>
-												</CustomStateList>
-											</StateInfo>
 											<CueList>
-												<MusicCue Name="Entry Cue" ID="{E9BB7854-977E-4076-B70C-A284DF5301A9}">
-													<PropertyList>
-														<Property Name="TimeMs" Type="Real64" Value="2000"/>
-													</PropertyList>
-												</MusicCue>
-												<MusicCue Name="Exit Cue" ID="{1F749D58-F4A0-477D-BC64-77FDB088636B}">
+												<MusicCue Name="Entry Cue" ID="{E0DD1B58-8136-4C64-96FC-24E224F87732}"/>
+												<MusicCue Name="Exit Cue" ID="{603BCD14-49DA-49D7-83C7-A721F42FD4E0}">
 													<PropertyList>
 														<Property Name="CueType" Type="int16" Value="1"/>
-														<Property Name="TimeMs" Type="Real64" Value="197349.814439986"/>
+														<Property Name="TimeMs" Type="Real64" Value="156263.736263736"/>
 													</PropertyList>
 												</MusicCue>
 											</CueList>
@@ -2756,11 +2755,11 @@
 									<Playlist>
 										<MusicPlaylistItem Name="" ID="{FBAB4B1D-B92F-4A6E-8F96-630417CEDE0C}" ShortID="614620349">
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{F485BCC8-BBBD-440F-BDDB-4B34B49D4513}" ShortID="425102264">
+												<MusicPlaylistItem Name="" ID="{363C8CED-C7D3-40EC-B655-6B14291A74D6}" ShortID="64544921">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
-													<SegmentRef Name="No light" ID="{310FE666-CE60-4DFE-A393-CD2EF7733819}"/>
+													<SegmentRef Name="Hallways_PIANO_91bpm" ID="{D15B542B-E97A-418A-9671-3B2EB33AF289}"/>
 												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
@@ -2789,75 +2788,11 @@
 										<PathElementRef Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
 									</Path>
 									<AudioNodeInfo>
-										<AudioNodeRef Name="Livingroom" ID="{3BAC89BF-7A20-425E-B2B5-50D95D290984}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
+										<AudioNodeRef Name="Hallways Piano" ID="{3BAC89BF-7A20-425E-B2B5-50D95D290984}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
 									</AudioNodeInfo>
 								</Entry>
 							</EntryList>
 						</MusicSwitchContainer>
-						<MusicSegment Name="Testmusic" ID="{4CBBDDD2-D98C-44E0-A42D-CD44F7E3EC22}" ShortID="415769706">
-							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="54915.2607709751"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-13</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<MusicTrack Name="Testmusic" ID="{F82C8CC2-14C6-4290-95C2-88C8F7AC32D0}" ShortID="1034643143">
-									<ReferenceList>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Testmusic" ID="{CF44FCF3-42C1-4161-9A0A-66AF3B5FCEA8}" ShortID="564328269">
-											<Language>SFX</Language>
-											<AudioFile>Testmusic.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<TransitionList>
-										<MusicTransition Name="Root" ID="{3167A0FB-DD3F-4250-9FA0-F4F0BAA61192}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<SequenceList>
-										<MusicTrackSequence Name="" ID="{7509DF2F-8DF4-4FCE-B85E-34109748340B}">
-											<ClipList>
-												<MusicClip Name="Testmusic" ID="{5C65D5C2-E7CF-45B5-BE5C-9D1CAB61A39B}">
-													<PropertyList>
-														<Property Name="EndTrimOffset" Type="Real64" Value="54915.2607709751"/>
-														<Property Name="FadeInMode" Type="int16" Value="0"/>
-														<Property Name="FadeOutMode" Type="int16" Value="0"/>
-													</PropertyList>
-													<AudioSourceRef Name="Testmusic" ID="{CF44FCF3-42C1-4161-9A0A-66AF3B5FCEA8}"/>
-												</MusicClip>
-											</ClipList>
-										</MusicTrackSequence>
-									</SequenceList>
-								</MusicTrack>
-							</ChildrenList>
-							<CueList>
-								<MusicCue Name="Entry Cue" ID="{8CD9A05F-F692-4BDF-8B53-5F8BF941AE18}"/>
-								<MusicCue Name="Exit Cue" ID="{B1691CBF-10AD-4627-AF95-E2DC71B6D6D5}">
-									<PropertyList>
-										<Property Name="CueType" Type="int16" Value="1"/>
-										<Property Name="TimeMs" Type="Real64" Value="54915.2607709751"/>
-									</PropertyList>
-								</MusicCue>
-							</CueList>
-						</MusicSegment>
 					</ChildrenList>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{2CB3EA81-F1C9-4441-B489-C4BDB9A598DF}">
@@ -2903,7 +2838,7 @@
 								<PathElementRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="Testmusic" ID="{4CBBDDD2-D98C-44E0-A42D-CD44F7E3EC22}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
+								<NoObject Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 					</EntryList>
