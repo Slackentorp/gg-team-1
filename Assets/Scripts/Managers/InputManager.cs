@@ -80,8 +80,9 @@ namespace Assets.Scripts.Managers
                     GameObject touchObject = hit.transform.gameObject;
                     ie.GameObject = touchObject;
                     ie.TouchPosition = hit.point;
+                    ie.RaycastHit = hit;
 
-                    isTouchingObject = true;
+              //      isTouchingObject = true;
 
                     frameTouches[touchObject] = new TouchState(Time.time, t);
 
@@ -128,7 +129,7 @@ namespace Assets.Scripts.Managers
 
             // Check whether more objects were touched in the previous frame
             // indicating that a touch was canceled
-            foreach (var oldObject in previousFrameTouches)
+       /*     foreach (var oldObject in previousFrameTouches)
             {
                 TouchState ts;
                 if (!frameTouches.TryGetValue(oldObject.Key, out ts))
@@ -140,7 +141,7 @@ namespace Assets.Scripts.Managers
                     }
                 }
             }
-
+*/
             return ie;
         }
 
@@ -186,7 +187,8 @@ namespace Assets.Scripts.Managers
                     GameObject touchObject = hit.transform.gameObject;
                     ie.GameObject = touchObject;
                     ie.TouchPosition = hit.point;
-                    isTouchingObject = true;
+                    ie.RaycastHit = hit;
+                    
 
 
                     frameTouches.Add(touchObject, new TouchState(Time.time, t));
@@ -235,21 +237,6 @@ namespace Assets.Scripts.Managers
                                 ie.InputType = HandleOnTouchExit(touchObject, new TouchState(Time.time, t));
                                 break;
                         }
-                    }
-                }
-            }
-
-            // Check whether more objects were touched in the previous frame
-            // indicating that a touch was canceled
-            foreach (var oldObject in previousFrameTouches)
-            {
-                TouchState ts;
-                if (!frameTouches.TryGetValue(oldObject.Key, out ts))
-                {
-                    // On Touch up should always have been called at this point, but the object still lingers
-                    if (oldObject.Value.onTouchObject.phase != TouchPhase.Ended)
-                    {
-                        ie.InputType = HandleOnTouchExit(oldObject.Key, oldObject.Value);
                     }
                 }
             }
@@ -357,5 +344,6 @@ namespace Assets.Scripts.Managers
         public InputType InputType;
         public TouchDirection TouchDirection;
         public Vector3 TouchPosition;
+        public RaycastHit RaycastHit;
     }
 }
