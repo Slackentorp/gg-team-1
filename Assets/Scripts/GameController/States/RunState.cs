@@ -16,7 +16,7 @@ public class RunState : GameState
 
     public override void OnStateEnter()
     {
-        cameraController = new CameraController(gm.GameCamera.transform, 2,1,1, gm.Moth.transform);
+        cameraController = new CameraController(gm.GameCamera.transform, 2,1,1, gm.Moth.transform, false);
 		mothBehaviour = new MothBehaviour(gm.Moth, Camera.main, .4f);
         mothSounds = new MothSounds(gm.GameCamera.transform, mothBehaviour, gm.Moth.transform);
     }
