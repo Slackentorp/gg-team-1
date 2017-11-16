@@ -20,6 +20,7 @@ public class FragmentState : GameState
 
     public override void OnStateEnter()
     {
+        AkSoundEngine.PostEvent("CAMERA_MOVE", gm.GameCamera);
         gm.NextFragment.Play(EndOfFragmentCallback);
         cameraController = new CameraController(gm.GameCamera.transform, 2,1,1, gm.Moth.transform, true);
         originPos = gm.GameCamera.transform.position;
