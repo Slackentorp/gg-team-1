@@ -60,7 +60,8 @@ public class SubToolXML : Singleton<SubToolXML>
                 StartCoroutine(Wait(nextSubtitle));
 
                 subtitlesToShow.text = EnglishText[nextSubtitle];
-                switch(colors[nextSubtitle])
+
+                switch (colors[nextSubtitle])
                 {
                     case "D":
                         //we put this because otherwise it just reas the ID tag and doesnt go through there
@@ -88,6 +89,18 @@ public class SubToolXML : Singleton<SubToolXML>
         }
         else
         {
+
+            startingPoss.Clear();
+            EnglishText.Clear();
+            DanishText.Clear();
+            durations.Clear();
+
+            /*
+     startingPoss = new List<float>();
+     EnglishText = new List<string>();
+     DanishText = new List<string>();
+     durations = new List<float>();
+     */
             showSubs = false;
         }
     }
