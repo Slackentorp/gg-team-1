@@ -70,4 +70,12 @@ public class GameController : Singleton<GameController>
             currentState.OnStateEnter();
         }
     }
+
+    public void QuitFragment()
+    {
+        if(currentState is FragmentState)
+        {
+            SetState(new RunState(this));
+        }
+    }
 }
