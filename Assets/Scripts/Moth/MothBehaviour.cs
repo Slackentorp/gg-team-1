@@ -50,9 +50,6 @@ public class MothBehaviour
 
 	public void Update()
 	{
-		/*Debug.DrawLine(hitPoint, hitPoint + hitDotPoint, Color.red);
-		Debug.DrawLine(hitPoint, hitPoint + hitDotNormal, Color.blue);*/
-
 		MothGoToPosition();
 	}
 
@@ -63,8 +60,6 @@ public class MothBehaviour
 		mothStartPos = moth.transform.position;
 
 		hitPoint = hit.point + hit.normal * 0.2f;
-		/*hitDotPoint = hit.point;
-		hitDotNormal = hit.normal;*/
 
 		lerpRunning = true;
 		time = 0.0f;
@@ -77,13 +72,14 @@ public class MothBehaviour
 		{
 			//mothTurning = true;
 			turningTime += Time.deltaTime * (time * 2f);
-			//mothForwardRotation = moth.transform.forward;
-			//moth.transform.forward = Vector3.Lerp(moth.transform.forward, (moth.transform.position - hitPoint).normalized, time);
-			moth.transform.forward = moth.transform.position - hitPoint;
-
+			
+			Vector3 nextPos = moth.transform.position - hitPoint;
+			if(nextPos != Vector3.zero)
+			{
+				moth.transform.forward = nextPos;
+			}
 		}
-
-
+		
 		if (moth.transform.position == hitPoint && lerpRunning == true)
 		{
 			AkSoundEngine.PostEvent("MOTH_END_FLIGHT", moth);
