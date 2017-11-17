@@ -50,7 +50,7 @@ public class Fragment : MonoBehaviour
         FragmentCall();
         Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject, 
-                        (uint)AkCallbackType.AK_EnableGetSourcePlayPosition, EndOfEventCallback, Callback);
+                        (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, storyFragment);
     }
     
