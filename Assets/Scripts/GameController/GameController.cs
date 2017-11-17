@@ -15,10 +15,15 @@ public class GameController : Singleton<GameController>
     public LocalizationManager localization;
     public LightController LightController;
     public InputManager InputManager;
-    [HideInInspector]
-    public Fragment NextFragment;
+    public MothBehaviour mothBehaviour;
+    public MothSounds mothSounds;
     public InputHandlerSettings InputSettings;
     public AnimationCurve FragmentLerpCurve;
+    public float cameraDamping;
+    [HideInInspector]
+    public Vector3 cameraHeading;
+    [HideInInspector]
+    public Fragment NextFragment;
 
     private GameState currentState;
 

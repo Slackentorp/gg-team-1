@@ -197,8 +197,6 @@ namespace Assets.Scripts.Managers
                     objectOnTouchDownState.TryGetValue(touchObject,
                         out ts);
 
-                    
-
                     // Tap
                     if (t.phase == TouchPhase.Ended && ts.onTouchTime > 0 &&
                         Time.time - ts.onTouchTime <= tapTimeThreshold)
