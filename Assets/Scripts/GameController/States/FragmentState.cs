@@ -28,10 +28,6 @@ public class FragmentState : GameState
         originRotation = gm.GameCamera.transform.rotation;
 
         distanceToFragment = Vector3.SqrMagnitude(originPos - (gm.NextFragment.transform.position + gm.NextFragment.CamPosition));
-
-    /*    gm.GameCamera.transform.position = gm.NextFragment.transform.position + gm.NextFragment.CamPosition;
-        gm.GameCamera.transform.rotation = Quaternion.Euler(gm.NextFragment.CamOrientaion);
-        gm.GameCamera.transform.forward = gm.NextFragment.CamForward;*/
     }
 
     private void EndOfFragmentCallback()
