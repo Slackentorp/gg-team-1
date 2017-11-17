@@ -90,7 +90,7 @@ public class OverlayBlendEffectManager : MonoBehaviour
         blendOpacity = Mathf.Clamp(blendOpacity, 0.0f, 1.0f);
         perlinOpacity = Mathf.Clamp(perlinOpacity, 0.0f, 1.0f);
 
-        randomValue = Random.Range(-1f, 1f);
+        randomValue = Random.Range(-0.1f, 0.1f);
 
     }
 

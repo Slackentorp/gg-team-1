@@ -12,7 +12,7 @@
 			_ScratchesXSpeed ("Scratches X Speed", Float) = 10.0
 			_RandomValue ("Random Value", Float) = 1.0
 			_FadeValue ("Fade Value" , Float) = 1.0
-			_FadeSpeed ("Fade Speed", Float) = 1.0
+			_FadeSpeed ("Fade Speed", Float) = 1
 			//_Contrast ("Contrast", Float) = 3.0
 		}
 	SubShader 
@@ -57,7 +57,7 @@
 					half2 scratchesUV = half2(i.uv.x + (_RandomValue * _SinTime.z *
 					_ScratchesXSpeed), i.uv.y + (_Time.x * _ScratchesYSpeed));
 
-					float fadeBlend = 1;
+					float fadeBlend = float(_CosTime.z * _FadeSpeed);
 
 					//half2 dustUV = half2(i.uv.x + (_RandomValue * (_SinTime.z * 
 					//_ScratchesXSpeed)), i.uv.y + (_RandomValue * (_SinTime.z * _ScratchesYSpeed)));
@@ -67,18 +67,21 @@
 					fixed4 renderTex = tex2D(_MainTex, i.uv);
 					fixed4 blendTex = tex2D(_BlendTex, i.uv);
 					fixed4 perlinTex = tex2D(_perlinTex, scratchesUV);
-					fixed4 perlinTex2 = tex2D(_perlinTex2, scratchesUV);
+					fixed4 perlinTex2 = tex2D(_perlinTex2, i.uv);
 						
 					fixed4 blendedImage = renderTex;
 					fixed4 blendedImage2 = renderTex;
-					fixed4 fadeImage;
+					fixed4 fadeImage = renderTex;
 					//fixed4 blendedImage3 = renderTex;
 
-					fadeImage = lerp(perlinTex.a, perlinTex2.a, fadeBlend);
 
-					blendedImage.r = OverlayBlendMode(blendTex.r, perlinTex.r);
-					blendedImage.g = OverlayBlendMode(blendTex.g, perlinTex.g);
-					blendedImage.b = OverlayBlendMode(blendTex.b, perlinTex.b);
+					fadeImage.r = lerp(perlinTex.r, perlinTex2.r, fadeBlend);
+					fadeImage.g = lerp(perlinTex.g, perlinTex2.g, fadeBlend);
+					fadeImage.b = lerp(perlinTex.b, perlinTex2.b, fadeBlend);
+
+					blendedImage.r = OverlayBlendMode(blendTex.r, fadeImage.r);
+					blendedImage.g = OverlayBlendMode(blendTex.g, fadeImage.g);
+					blendedImage.b = OverlayBlendMode(blendTex.b, fadeImage.b);
 
 					blendedImage = lerp(renderTex, blendedImage, _perlinOpacity);
 
