@@ -74,14 +74,15 @@ public class CameraController
 
 	public void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+
+		if (true)
 		{
-			storyCam = !storyCam;
+
 		}
 
 		if(fragmentMode)
 		{
-			RotateCameraAroundSelf();
+			//RotateCameraAroundSelf();
 		} else {
 			RotateAroundMoth();
 			transform.position = heading + targetPos.position;
@@ -97,7 +98,8 @@ public class CameraController
 	}
 
 
-	public CameraController(Transform transform, float maxDistance, float followSpeed, float cameraTurnSpeed, Transform target, bool fragmentMode)
+	public CameraController(Transform transform, float maxDistance, float followSpeed, 
+							float cameraTurnSpeed, Transform target, bool fragmentMode)
 	{
 		this.transform = transform;
 		this.maxDistance = maxDistance;
@@ -113,69 +115,20 @@ public class CameraController
 		initialHeading = transform.position - targetPos.position;
 	}
 
-
-	private void RotateCameraAroundSelf()
-	{
-		float newAngleY = 0, newAngleX = 0;
-#if UNITY_EDITOR
-		if (Input.GetMouseButton(0) && !InputManager.isTouchingObject && !isMouseTouchingObject)
-		{
-			newAngleY =
-				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
-			newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
-		}
-#endif
-		if (Input.touchCount > 0 && !InputManager.isTouchingObject && !isMouseTouchingObject)
-		{
-			newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
-						10;
-			newAngleX = Input.touches[0].deltaPosition.y *
-						cameraTurnSpeed / 10;
-		}
-
-		if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
-			!(newAngleY < 0))
-		{
-			return;
-		}
-		
-		// Horizontal rotation(Yaw)
-		Vector3 localUpAxis =
-			transform.InverseTransformDirection(Vector3.up);
-		transform.rotation *=
-			Quaternion.AngleAxis(newAngleY, localUpAxis);
-
-		// Vertical rotation (Pitch)
-		Quaternion q = Quaternion.AngleAxis(newAngleX, Vector3.right);
-		Quaternion finalRot = transform.rotation * q;
-		Vector3 transformed = finalRot * Vector3.up;
-
-		// Project the transformed vector onto the Right axis
-		Vector3 flattened = transformed -
-							Vector3.Dot(transformed, Vector3.right) *
-							Vector3.right;
-		flattened = flattened.normalized;
-		float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
-
-		if (a < 1.5f)
-		{
-			transform.rotation *= q;
-		}
-
-	}
-
 	void RotateAroundMoth()
 	{
 		float newAngleY = 0, newAngleX = 0;
 #if UNITY_EDITOR
-		if (Input.GetMouseButton(0) && !InputManager.isTouchingObject && !isMouseTouchingObject)
+		if (Input.GetMouseButton(0) && !InputManager.isTouchingObject
+			&& !isMouseTouchingObject)
 		{
 			newAngleY =
 				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
 			newAngleX += Input.GetAxis("Mouse Y") * cameraTurnSpeed;
 		}
 #endif
-		if (Input.touchCount > 0 && !InputManager.isTouchingObject && !isMouseTouchingObject)
+		if (Input.touchCount > 0 && !InputManager.isTouchingObject
+			&& !isMouseTouchingObject)
 		{
 			newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
 						10;
@@ -197,7 +150,7 @@ public class CameraController
 		Quaternion q = Quaternion.AngleAxis(newAngleX, transform.right);
 
 
-		
+
 		Vector3 nextHeading = q * heading;
 		float a = Vector3.Angle(nextHeading, Vector3.up);
 		if (a >= 20 && a <= 160)
@@ -207,41 +160,97 @@ public class CameraController
 
 	}
 
-	public void SetTarget(Vector3 newTarget)
-	{
-		TargetPos.position = newTarget;
-	}
+	#region
+	//public void setTarget(Vector3 newtarget)
+	//{
+	//	targetPos.position = newtarget;
+	//}
 
 
-	public void SetStoryTarget(Transform target)
-	{
-		if (isDebug) return;
-		TargetPos = target;
-	}
+	//public void SetStoryTarget(Transform target)
+	//{
+	//	if (isDebug) return;
+	//	TargetPos = target;
+	//}
 
-	public void SetStoryTarget(Vector3 target)
-	{
-		if (isDebug) return;
-		TargetPos.position = target;
-	}
+	//public void SetStoryTarget(Vector3 target)
+	//{
+	//	if (isDebug) return;
+	//	TargetPos.position = target;
+	//}
 
-	public void SetStoryTarget(Vector3 target, Vector3 orientation)
-	{
-		if (isDebug) return;
-		TargetPos.position = target;
-		TargetRot = orientation;
-	}
+	//public void SetStoryTarget(Vector3 target, Vector3 orientation)
+	//{
+	//	if (isDebug) return;
+	//	TargetPos.position = target;
+	//	TargetRot = orientation;
+	//}
 
-	public void SetStoryRotation(Vector3 dir)
-	{
-		TargetRot = dir;
-	}
+	//public void SetStoryRotation(Vector3 dir)
+	//{
+	//	TargetRot = dir;
+	//}
 
-	public void ResetControls()
-	{
-		TargetPos = prevPos;
-		TargetRot = Vector3.zero;
-	}
+	//public void ResetControls()
+	//{
+	//	TargetPos = prevPos;
+	//	TargetRot = Vector3.zero;
+	//}
+
+
+
+	//	private void RotateCameraAroundSelf()
+	//	{
+	//		float newAngleY = 0, newAngleX = 0;
+	//#if UNITY_EDITOR
+	//		if (Input.GetMouseButton(0) && !InputManager.isTouchingObject
+	//			&& !isMouseTouchingObject)
+	//		{
+	//			newAngleY =
+	//				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
+	//			newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
+	//		}
+	//#endif
+	//		if (Input.touchCount > 0 && !InputManager.isTouchingObject
+	//			&& !isMouseTouchingObject)
+	//		{
+	//			newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
+	//						10;
+	//			newAngleX = Input.touches[0].deltaPosition.y *
+	//						cameraTurnSpeed / 10;
+	//		}
+
+	//		if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
+	//			!(newAngleY < 0))
+	//		{
+	//			return;
+	//		}
+
+	//		// Horizontal rotation(Yaw)
+	//		Vector3 localUpAxis =
+	//			transform.InverseTransformDirection(Vector3.up);
+	//		transform.rotation *=
+	//			Quaternion.AngleAxis(newAngleY, localUpAxis);
+
+	//		// Vertical rotation (Pitch)
+	//		Quaternion q = Quaternion.AngleAxis(newAngleX, Vector3.right);
+	//		Quaternion finalRot = transform.rotation * q;
+	//		Vector3 transformed = finalRot * Vector3.up;
+
+	//		// Project the transformed vector onto the Right axis
+	//		Vector3 flattened = transformed -
+	//							Vector3.Dot(transformed, Vector3.right) *
+	//							Vector3.right;
+	//		flattened = flattened.normalized;
+	//		float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
+
+	//		if (a < 1.5f)
+	//		{
+	//			transform.rotation *= q;
+	//		}
+
+	//	}
+
 
 	/*private void MoveCameraToStoryBit()
 	{
@@ -277,7 +286,7 @@ public class CameraController
 		}
 	}*/
 
-	private void ReturnToPreStoryPoint()
+	/*private void ReturnToPreStoryPoint()
 	{
 		if (Input.GetKey(KeyCode.Space))
 		{
@@ -310,5 +319,6 @@ public class CameraController
 		{
 			RotateCameraAroundSelf();
 		}
-	}
+	}*/
+#endregion
 }
