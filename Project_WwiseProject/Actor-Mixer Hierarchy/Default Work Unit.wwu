@@ -3858,6 +3858,9 @@
 								</Effect>
 							</Custom>
 						</Reference>
+						<Reference Name="Effect1" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Dialog_Leveler_Soft" ID="{9C1D0FCF-896E-4739-A8E8-B1E908F51CE6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 						</Reference>
@@ -4537,6 +4540,11 @@
 												<Value>-12</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4564,8 +4572,8 @@
 									<ChildrenList>
 										<AudioFileSource Name="BIRTHDAY_MOMENT" ID="{C4B51DFE-8E16-432E-A76C-E8BF0172AB19}" ShortID="81313739">
 											<PropertyList>
-												<Property Name="FadeOutDuration" Type="Real64" Value="6.70486524252998"/>
-												<Property Name="TrimEnd" Type="Real64" Value="14.8508689074646"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="7.49514041385312"/>
+												<Property Name="TrimEnd" Type="Real64" Value="18.1198807139092"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>BIRTHDAY_MOMENT.wav</AudioFile>
@@ -4612,10 +4620,18 @@
 									<ChildrenList>
 										<AudioFileSource Name="BIRTHDAY_MOMENT_da" ID="{804A2668-A585-494A-B61E-A0D3E7BAB915}" ShortID="697414599">
 											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0171991135482028"/>
 												<Property Name="FadeOutDuration" Type="Real64" Value="5.11023758482483"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>BIRTHDAY_MOMENT_da.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="BIRTHDAY_MOMENT" ID="{DB7966DC-79EA-4139-BD8B-BA868C7D0C2A}" ShortID="98549248">
+											<Language>SFX</Language>
+											<AudioFile>BIRTHDAY_MOMENT.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="405515837"/>
+											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
@@ -4716,7 +4732,7 @@
 									<ChildrenList>
 										<AudioFileSource Name="SMOKING_1_da" ID="{F88B497A-F0A2-4E9F-8541-6CA7A21C71F5}" ShortID="1027056534">
 											<PropertyList>
-												<Property Name="FadeOutDuration" Type="Real64" Value="0.715839044104726"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="1.60105781057811"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>SMOKING_1_da.wav</AudioFile>
@@ -4815,6 +4831,11 @@
 												<Value>-12</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4891,6 +4912,10 @@
 												<File ID="146808175"/>
 											</ConvertedFileIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="AT_THE_TABLE" ID="{A1E8C638-8D68-474F-942F-A9B8BCBBB39A}" ShortID="814063876">
+											<Language>SFX</Language>
+											<AudioFile>AT_THE_TABLE.wav</AudioFile>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="AT_THE_TABLE_da" ID="{E5F327F9-2818-4B83-BF72-3AF4CBD2D490}" Platform="Linked"/>
@@ -4963,6 +4988,11 @@
 												<Value>-12</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -5007,6 +5037,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5149,9 +5184,13 @@
 											<Language>SFX</Language>
 											<AudioFile>ZODIAC_SIGN_da.wav</AudioFile>
 										</AudioFileSource>
+										<AudioFileSource Name="ZODIAC_da" ID="{AC70EF2E-2550-49B6-8833-A627B353FF20}" ShortID="588071616">
+											<Language>SFX</Language>
+											<AudioFile>ZODIAC_da.wav</AudioFile>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="ZODIAC_SIGN_da" ID="{99089482-26D9-4A51-AEA1-2DE405173A4B}" Platform="Linked"/>
+										<ActiveSource Name="ZODIAC_da" ID="{AC70EF2E-2550-49B6-8833-A627B353FF20}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="ZODIAC_SIGN" ID="{7254669C-AE39-4534-86EA-A5CC7F304DF2}" ShortID="131422262">
@@ -5238,9 +5277,15 @@
 							<ChildrenList>
 								<Sound Name="WORLD_MAP_1" ID="{9BB862BC-6EE5-4877-8885-562C0C9D6A83}" ShortID="919405660">
 									<PropertyList>
+										<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+										<Property Name="UserAuxSendVolume0" Type="Real64">
+											<ValueList>
+												<Value>-20</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>9</Value>
+												<Value>4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5250,6 +5295,9 @@
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -5266,6 +5314,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="WORLD_MAP_1_da" ID="{9F7BDD00-3876-4D18-97DA-4C44A801239A}" ShortID="15159459">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -5348,6 +5403,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="MEET_THE_PARENTS_1" ID="{7ECEC6F0-4604-495B-90E8-97792F33CEAE}" ShortID="136495531">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -5389,9 +5451,13 @@
 												<File ID="82701772"/>
 											</ConvertedFileIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="PARENTS_1_da" ID="{8720FD91-B1C7-4181-A6F5-3642719F2726}" ShortID="288362935">
+											<Language>SFX</Language>
+											<AudioFile>PARENTS_1_da.wav</AudioFile>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="MEET_THE_PARENTS_1_da" ID="{7EB610C1-58BC-4C80-9931-DF686C192F7F}" Platform="Linked"/>
+										<ActiveSource Name="PARENTS_1_da" ID="{8720FD91-B1C7-4181-A6F5-3642719F2726}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -5459,6 +5525,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5534,6 +5605,17 @@
 											<Language>SFX</Language>
 											<AudioFile>STORYEVENT_1_da.wav</AudioFile>
 										</AudioFileSource>
+										<AudioFileSource Name="STORYEVENT_2_da" ID="{98E15FA2-E1A5-4069-9AF9-29F29D05E44E}" ShortID="976826227">
+											<Language>SFX</Language>
+											<AudioFile>STORYEVENT_2_da.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="STORYEVENT_3_da" ID="{AFD696B7-AF03-4936-9B47-BDCDAFBAD82D}" ShortID="994374891">
+											<Language>SFX</Language>
+											<AudioFile>STORYEVENT_3_da.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="836804791"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="STORYEVENT_1_da" ID="{C72A9BC4-9309-4B7C-87C5-F6AD503CE70B}" Platform="Linked"/>
@@ -5606,6 +5688,11 @@
 												<Value>-12</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -5639,16 +5726,23 @@
 											<Language>SFX</Language>
 											<AudioFile>MODELING_3.wav</AudioFile>
 										</AudioFileSource>
+										<AudioFileSource Name="MODELING_2" ID="{98D82FFF-40AC-4D3F-A278-46FA87B2AAC6}" ShortID="758674974">
+											<Language>SFX</Language>
+											<AudioFile>MODELING_2.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="100464970"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="MODELING_3" ID="{A04253E2-83B5-440F-AFE3-7D7587C89CBB}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="MODELING_2_da" ID="{5D37C456-5DD1-4A54-85E0-0FE018D95269}" ShortID="914379684">
+								<Sound Name="MODELING_1_da" ID="{57B43289-88EE-4C04-BD5A-7E4E74DF715C}" ShortID="538229932">
 									<PropertyList>
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
-												<Value>-12</Value>
+												<Value>-17</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5658,7 +5752,7 @@
 										</Reference>
 										<Reference Name="Effect0">
 											<Custom>
-												<Effect Name="Wwise Meter (Custom)" ID="{41C3A8F8-06D5-4A31-B70D-2F856CB637C4}" ShortID="841811135" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+												<Effect Name="Wwise Meter (Custom)" ID="{DBBAB49A-3882-4AF7-AEEF-BB0E349AEA41}" ShortID="988937636" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
 													<PropertyList>
 														<Property Name="MeterMode" Type="int32" Value="1"/>
 													</PropertyList>
@@ -5669,23 +5763,26 @@
 											</Custom>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+											<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 										</Reference>
 										<Reference Name="UserAuxSend0">
 											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="MODELING_2_da" ID="{ABAEFDAC-70BE-4C65-9238-718E624D92DF}" ShortID="400040827">
+										<AudioFileSource Name="MODELING_1_da" ID="{AB766D7C-AF2C-460F-828E-68C7309A0273}" ShortID="482455030">
 											<PropertyList>
-												<Property Name="TrimEnd" Type="Real64" Value="18.7754662248663"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="1.71588650417116"/>
 											</PropertyList>
 											<Language>SFX</Language>
-											<AudioFile>MODELING_2_da.wav</AudioFile>
+											<AudioFile>MODELING_1_da.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="778584774"/>
+											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="MODELING_2_da" ID="{ABAEFDAC-70BE-4C65-9238-718E624D92DF}" Platform="Linked"/>
+										<ActiveSource Name="MODELING_1_da" ID="{AB766D7C-AF2C-460F-828E-68C7309A0273}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -5697,7 +5794,7 @@
 										<ItemRef Name="MODELING_2" ID="{5C48E83C-6416-475B-8928-B389AB8D7DFD}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
-										<ItemRef Name="MODELING_2_da" ID="{5D37C456-5DD1-4A54-85E0-0FE018D95269}"/>
+										<ItemRef Name="MODELING_1_da" ID="{57B43289-88EE-4C04-BD5A-7E4E74DF715C}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
@@ -5710,7 +5807,7 @@
 									<Grouping>
 										<SwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
 										<ItemList>
-											<ItemRef Name="MODELING_2_da" ID="{5D37C456-5DD1-4A54-85E0-0FE018D95269}"/>
+											<ItemRef Name="MODELING_1_da" ID="{57B43289-88EE-4C04-BD5A-7E4E74DF715C}"/>
 										</ItemList>
 									</Grouping>
 								</GroupingList>
@@ -5753,6 +5850,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5800,6 +5902,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -6107,6 +6214,11 @@
 												<Value>-12</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -6140,6 +6252,28 @@
 											<AudioFile>NEW_YEARS_da.wav</AudioFile>
 											<ConvertedFileIDList>
 												<File ID="998870621"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="POLAROID_1_da" ID="{3487F338-39A4-40E8-A24C-08D3E6CBA6F5}" ShortID="796063724">
+											<Language>SFX</Language>
+											<AudioFile>POLAROID_1_da.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="POLAROID_2_da" ID="{0A174AAF-8726-4E1D-9B95-4A7EE7930C77}" ShortID="785791517">
+											<Language>SFX</Language>
+											<AudioFile>POLAROID_2_da.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="998771404"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="SMOKING_1_da" ID="{4EFBDC74-5C09-412D-AD17-71BC0D7B05AE}" ShortID="146965410">
+											<Language>SFX</Language>
+											<AudioFile>SMOKING_1_da.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="SMOKING_2_da" ID="{3C36D110-B267-4139-954A-E278E5ED89C3}" ShortID="434228649">
+											<Language>SFX</Language>
+											<AudioFile>SMOKING_2_da.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="101372784"/>
 											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
@@ -6214,6 +6348,11 @@
 												<Value>-12</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -6256,6 +6395,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -6359,6 +6503,11 @@
 							<ChildrenList>
 								<Sound Name="MODELING_1" ID="{5A8DB5F0-4C55-4821-9714-A12E61C952CA}" ShortID="399053197">
 									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>15</Value>
+											</ValueList>
+										</Property>
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
@@ -6393,7 +6542,7 @@
 											<PropertyList>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.878646986469866"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.439323493234932"/>
-												<Property Name="TrimEnd" Type="Real64" Value="16.3302818485328"/>
+												<Property Name="TrimEnd" Type="Real64" Value="16.0139799014317"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>MODELING_2.wav</AudioFile>
@@ -6406,11 +6555,16 @@
 										<ActiveSource Name="MODELING_2" ID="{4D862ABA-F1BF-44C2-92E9-A3396C8593B3}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="MODELING_1_da" ID="{57B43289-88EE-4C04-BD5A-7E4E74DF715C}" ShortID="538229932">
+								<Sound Name="MODELING_2_da" ID="{5D37C456-5DD1-4A54-85E0-0FE018D95269}" ShortID="914379684">
 									<PropertyList>
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
-												<Value>-12</Value>
+												<Value>-17</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -6420,7 +6574,7 @@
 										</Reference>
 										<Reference Name="Effect0">
 											<Custom>
-												<Effect Name="Wwise Meter (Custom)" ID="{F13066F5-4DDA-4431-BD19-56DE73CA0FD8}" ShortID="299256807" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+												<Effect Name="Wwise Meter (Custom)" ID="{3E81AF61-87E5-45B1-AC44-F308A582AE2E}" ShortID="10778517" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
 													<PropertyList>
 														<Property Name="MeterMode" Type="int32" Value="1"/>
 													</PropertyList>
@@ -6431,26 +6585,24 @@
 											</Custom>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+											<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 										</Reference>
 										<Reference Name="UserAuxSend0">
 											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="MODELING_1_da" ID="{AB766D7C-AF2C-460F-828E-68C7309A0273}" ShortID="482455030">
+										<AudioFileSource Name="MODELING_2_da" ID="{ABAEFDAC-70BE-4C65-9238-718E624D92DF}" ShortID="400040827">
 											<PropertyList>
-												<Property Name="FadeOutDuration" Type="Real64" Value="1.71588650417116"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.381589577528429"/>
+												<Property Name="TrimEnd" Type="Real64" Value="11.0660977483244"/>
 											</PropertyList>
 											<Language>SFX</Language>
-											<AudioFile>MODELING_1_da.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="778584774"/>
-											</ConvertedFileIDList>
+											<AudioFile>MODELING_2_da.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="MODELING_1_da" ID="{AB766D7C-AF2C-460F-828E-68C7309A0273}" Platform="Linked"/>
+										<ActiveSource Name="MODELING_2_da" ID="{ABAEFDAC-70BE-4C65-9238-718E624D92DF}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -6459,7 +6611,7 @@
 								<DefaultSwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
-										<ItemRef Name="MODELING_1_da" ID="{57B43289-88EE-4C04-BD5A-7E4E74DF715C}"/>
+										<ItemRef Name="MODELING_2_da" ID="{5D37C456-5DD1-4A54-85E0-0FE018D95269}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="MODELING_1" ID="{5A8DB5F0-4C55-4821-9714-A12E61C952CA}"/>
@@ -6475,7 +6627,7 @@
 									<Grouping>
 										<SwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
 										<ItemList>
-											<ItemRef Name="MODELING_1_da" ID="{57B43289-88EE-4C04-BD5A-7E4E74DF715C}"/>
+											<ItemRef Name="MODELING_2_da" ID="{5D37C456-5DD1-4A54-85E0-0FE018D95269}"/>
 										</ItemList>
 									</Grouping>
 								</GroupingList>
@@ -6513,52 +6665,16 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="STORYEVENT_3_3" ID="{355D3865-E9FA-4788-93BA-7C2FD4646220}" ShortID="841553031">
+								<Sound Name="STORYEVENT_3_da" ID="{710D4A5B-A356-4F1E-80BE-67B283241CDC}" ShortID="537115999">
 									<PropertyList>
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
 											</ValueList>
 										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-										</Reference>
-										<Reference Name="Effect0">
-											<Custom>
-												<Effect Name="Wwise Meter (Custom)" ID="{67CD63EA-AE8E-4E7A-9694-0F1808E1B57E}" ShortID="641462755" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-													<PropertyList>
-														<Property Name="MeterMode" Type="int32" Value="1"/>
-													</PropertyList>
-													<PluginData>
-	<GameParameter Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
-</PluginData>
-												</Effect>
-											</Custom>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-										<Reference Name="UserAuxSend0">
-											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="STORYEVENT_3_3" ID="{1E193823-CB7A-43D2-A15E-E9A8E20BCC06}" ShortID="46472637">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_3_3.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="STORYEVENT_3_3" ID="{1E193823-CB7A-43D2-A15E-E9A8E20BCC06}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="STORYEVENT_3_da" ID="{710D4A5B-A356-4F1E-80BE-67B283241CDC}" ShortID="537115999">
-									<PropertyList>
-										<Property Name="UserAuxSendVolume0" Type="Real64">
+										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-12</Value>
+												<Value>4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -6595,23 +6711,52 @@
 										<ActiveSource Name="STORYEVENT_3_da" ID="{AEFB9527-B86E-4292-8928-672D978FD840}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="STORYEVENT_3" ID="{91101101-5D78-49F7-974E-7DF700F37C8B}" ShortID="692316436">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="STORYEVENT_3" ID="{5573B223-AD1F-4BDA-BB32-5116785A8B67}" ShortID="231549871">
+											<Language>SFX</Language>
+											<AudioFile>STORYEVENT_3.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="723887160"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="STORYEVENT_3" ID="{5573B223-AD1F-4BDA-BB32-5116785A8B67}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupRef Name="LANGUAGE" ID="{B16A3252-0A40-48BB-BEE5-AEA47931CBDD}"/>
 								<DefaultSwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
-										<ItemRef Name="STORYEVENT_3_da" ID="{710D4A5B-A356-4F1E-80BE-67B283241CDC}"/>
+										<ItemRef Name="STORYEVENT_3" ID="{91101101-5D78-49F7-974E-7DF700F37C8B}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
-										<ItemRef Name="STORYEVENT_3_3" ID="{355D3865-E9FA-4788-93BA-7C2FD4646220}"/>
+										<ItemRef Name="STORYEVENT_3_da" ID="{710D4A5B-A356-4F1E-80BE-67B283241CDC}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
 									<Grouping>
 										<SwitchRef Name="ENGLISH" ID="{3A2BE52B-5BBF-405C-9CD2-175EDB012F37}"/>
 										<ItemList>
-											<ItemRef Name="STORYEVENT_3_3" ID="{355D3865-E9FA-4788-93BA-7C2FD4646220}"/>
+											<ItemRef Name="STORYEVENT_3" ID="{91101101-5D78-49F7-974E-7DF700F37C8B}"/>
 										</ItemList>
 									</Grouping>
 									<Grouping>
@@ -6660,6 +6805,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -6737,6 +6887,172 @@
 										<AudioFileSource Name="STORYEVENT_2_2_da" ID="{3369A22A-50DD-457A-82AF-412749DAE985}" ShortID="720733506">
 											<Language>SFX</Language>
 											<AudioFile>STORYEVENT_2_2_da.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="BIRTHDAY_MOMENT" ID="{3B280566-06B1-477D-8AF5-2A7E5248F4CF}" ShortID="8565314">
+											<Language>SFX</Language>
+											<AudioFile>BIRTHDAY_MOMENT.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="405515837"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="CLOCK" ID="{E3BA9A8A-040C-4791-BCDC-E6B7649F61E6}" ShortID="758044228">
+											<Language>SFX</Language>
+											<AudioFile>CLOCK.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="962665677"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="KITCHEN_TABLE" ID="{BC50985C-7E73-4066-B3DF-764449601588}" ShortID="243566020">
+											<Language>SFX</Language>
+											<AudioFile>KITCHEN_TABLE.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="580470410"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="MEET_THE_PARENTS_1" ID="{D8CF826F-9A49-4F0D-B41C-30FCF941F9D1}" ShortID="77270246">
+											<Language>SFX</Language>
+											<AudioFile>MEET_THE_PARENTS_1.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="1001581100"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="MEET_THE_PARENTS_2" ID="{67445B6D-9EBF-46E6-9E41-22D845E7C816}" ShortID="9422054">
+											<Language>SFX</Language>
+											<AudioFile>MEET_THE_PARENTS_2.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="127903023"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="MODELING_1" ID="{B3CB5AE6-7F4B-4D28-ABC7-C6D536A532EA}" ShortID="130421691">
+											<Language>SFX</Language>
+											<AudioFile>MODELING_1.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="MODELING_2" ID="{3CA67029-D8A1-4921-AA35-5E37B9CF751F}" ShortID="605285536">
+											<Language>SFX</Language>
+											<AudioFile>MODELING_2.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="100464970"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="NEW_YEARS" ID="{8F5CC31C-F155-4346-B0CA-BB525E714277}" ShortID="712901192">
+											<Language>SFX</Language>
+											<AudioFile>NEW_YEARS.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="667994024"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="POLAROID_1" ID="{07FD831C-B71F-4D28-A1B6-476C9A357E85}" ShortID="1007974191">
+											<Language>SFX</Language>
+											<AudioFile>POLAROID_1.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="341050719"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="POLOROID_2" ID="{C7804ACB-BD80-4A40-89AA-AAB378DBCC34}" ShortID="47546754">
+											<Language>SFX</Language>
+											<AudioFile>POLOROID_2.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="568910565"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="SMOKING_1" ID="{864A51D3-04D1-4FCB-99AF-5DF80CE6276D}" ShortID="350008736">
+											<Language>SFX</Language>
+											<AudioFile>SMOKING_1.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="1001796412"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="SMOKING_2" ID="{8B32C57A-D4CA-4DDB-9302-A3890DA7D7CD}" ShortID="416291976">
+											<Language>SFX</Language>
+											<AudioFile>SMOKING_2.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="657681073"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="STORYEVENT_1" ID="{CF17A50D-C26C-42AA-AE07-4EDD362C68F8}" ShortID="678189870">
+											<Language>SFX</Language>
+											<AudioFile>STORYEVENT_1.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="27429217"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="STORYEVENT_2_1" ID="{27F7A3DC-0B84-4115-9BE2-2A036C48D6DF}" ShortID="899821759">
+											<Language>SFX</Language>
+											<AudioFile>STORYEVENT_2.1.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="STORYEVENT_2" ID="{68333174-55D0-4ED7-A9FC-8A2D1AC07F04}" ShortID="771902225">
+											<Language>SFX</Language>
+											<AudioFile>STORYEVENT_2.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="382868015"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="STORYEVENT_3" ID="{960A867C-44E7-4B17-9D85-1C71404EB161}" ShortID="723887160">
+											<Language>SFX</Language>
+											<AudioFile>STORYEVENT_3.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="SUSIES_TATTOO" ID="{DE9E8F52-3D6A-4119-B728-FCFCD7B58207}" ShortID="801958440">
+											<Language>SFX</Language>
+											<AudioFile>SUSIES_TATTOO.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="517714946"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="TIRED" ID="{01587F5E-3703-4A27-BCC0-84445330268A}" ShortID="937326803">
+											<Language>SFX</Language>
+											<AudioFile>TIRED.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="851335671"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="UGLY_POSTER" ID="{578C3904-2172-4E76-9B59-E7B11C4228E8}" ShortID="673370734">
+											<Language>SFX</Language>
+											<AudioFile>UGLY_POSTER.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="933462240"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="WE_NEED_A_TV_1" ID="{D05D393F-106F-4679-8A3A-3D7C282DCE98}" ShortID="465089784">
+											<Language>SFX</Language>
+											<AudioFile>WE_NEED_A_TV_1.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="457644752"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="WE_NEED_A_TV_2" ID="{05C056D1-F962-4DC0-A84D-E2EFC2A2AD73}" ShortID="427637469">
+											<Language>SFX</Language>
+											<AudioFile>WE_NEED_A_TV_2.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="322530949"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="WINE_ON_A_WEDNESDAY" ID="{B495B83D-0D19-4174-AC59-9C179ACFAB02}" ShortID="152934920">
+											<Language>SFX</Language>
+											<AudioFile>WINE_ON_A_WEDNESDAY.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="950300631"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="WORLD_MAP_1" ID="{47DBFE8C-DF38-4265-9FB6-8E1BFA1F0DEF}" ShortID="963785530">
+											<Language>SFX</Language>
+											<AudioFile>WORLD_MAP_1.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="337351369"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="WORLD_MAP_2" ID="{CB17EF16-62E2-4E9D-9D64-25149FA9386E}" ShortID="1026389765">
+											<Language>SFX</Language>
+											<AudioFile>WORLD_MAP_2.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="226379606"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="ZODIAC_SIGN" ID="{3761E4AF-2943-4B09-BBA2-C0E489FB9A2F}" ShortID="747840146">
+											<Language>SFX</Language>
+											<AudioFile>ZODIAC_SIGN.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="965315212"/>
+											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
@@ -6911,6 +7227,11 @@
 												<Value>-12</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -7056,6 +7377,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="WE_NEED_A_TV_1" ID="{88055045-300D-438D-8885-271D09A0A676}" ShortID="747734443">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -7167,6 +7495,11 @@
 												<Value>-12</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -7214,6 +7547,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -7337,13 +7675,6 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="THE_TV_IS_GONE_2_da" ID="{D93D262A-F6BF-45AE-B44A-2BFB072837B9}" ShortID="758342750">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -7429,7 +7760,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>4</Value>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -7455,6 +7786,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="WORLD_MAP_2_da" ID="{2E415FE8-9080-47BA-909D-89FF7C97D2DD}" ShortID="527968332">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -7465,6 +7803,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="WORLD_MAP_2_da" ID="{B5C11C7E-0AC3-4DE0-9857-4FB3D4F118AA}" ShortID="239241968">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.10714822903331"/>
+												<Property Name="TrimEnd" Type="Real64" Value="18.0009024775962"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>WORLD_MAP_2_da.wav</AudioFile>
 										</AudioFileSource>
@@ -7534,6 +7876,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="MEET_THE_PARENTS_2" ID="{6747D16B-1C64-48F7-9DD0-38856D4CC18C}" ShortID="838250260">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -7545,7 +7894,7 @@
 									<ChildrenList>
 										<AudioFileSource Name="MEET_THE_PARENTS_2" ID="{75E29380-E734-4BA7-8B31-51E821C4F565}" ShortID="353157923">
 											<PropertyList>
-												<Property Name="TrimEnd" Type="Real64" Value="16.8641751805273"/>
+												<Property Name="TrimEnd" Type="Real64" Value="14.4387013412991"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>MEET_THE_PARENTS_2.wav</AudioFile>
@@ -7556,6 +7905,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="MEET_THE_PARENTS_2_da" ID="{D8E23A3B-9D0E-4CF8-BCA7-50BAB7EE46E8}" ShortID="844156072">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -7572,9 +7928,13 @@
 												<File ID="482251334"/>
 											</ConvertedFileIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="PARENTS_2_da" ID="{C9943F5D-0B33-436D-A3B4-132FE73DD311}" ShortID="5120516">
+											<Language>SFX</Language>
+											<AudioFile>PARENTS_2_da.wav</AudioFile>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="MEET_THE_PARENTS_2_da" ID="{442AA761-21AA-4B5B-B8EA-E5D73AD142AE}" Platform="Linked"/>
+										<ActiveSource Name="PARENTS_2_da" ID="{C9943F5D-0B33-436D-A3B4-132FE73DD311}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -7638,6 +7998,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="SMOKING_2" ID="{2FB8FB2A-7F6D-4D89-9EBE-8B9D812BEA09}" ShortID="451616734">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -8866,6 +9233,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Storyevent1_MUSIC" ID="{93D5D001-EB61-438C-A759-BD2238659C98}" ShortID="619551631">
+									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
