@@ -125,7 +125,7 @@ public class LightSourceInput : MonoBehaviour
         LAMP_ON
     };
 
-    public void LampOFF()
+    private void LampOFF()
     {
         currentLampState = State.LAMP_OFF;
         lampStateCheck = false;
@@ -137,7 +137,7 @@ public class LightSourceInput : MonoBehaviour
         currentLampState = State.LAMP_FLICKERING;
         LightSwitch(currentLampState);
     }
-    public void LampON()
+    private void LampON()
     {
         currentLampState = State.LAMP_ON;
         lampStateCheck = true;
