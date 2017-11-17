@@ -17,7 +17,7 @@ public class UISubStylizer : MonoBehaviour {
         float min = 0f;
         float max = 5f;
         float random = Random.Range(min, max);
-        Debug.Log(random);
+      
        
         if(firstTry == true)
         { 

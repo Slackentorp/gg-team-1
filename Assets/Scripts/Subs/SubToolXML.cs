@@ -42,16 +42,16 @@ public class SubToolXML : Singleton<SubToolXML>
     uint g_markersPlayingID = 1;
     bool showSubs = false;
     private LocalizationItem language;
+
     public delegate void OnShow();
     public static event OnShow OnShowSubs; 
+
     void ShowSubs()
     {
         //check for language above this on
             if (nextSubtitle < texts.Count)
             {
                 AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
-                float timeInMs = Time.deltaTime * 1000;
-                int realMs = (int)timeInMs;
                 uPosition = uPosition / 100;
             
                 if (startingPoss[nextSubtitle] < (uPosition + Time.deltaTime) &&
@@ -107,13 +107,11 @@ public class SubToolXML : Singleton<SubToolXML>
         if (language == LocalizationItem.Language.ENGLISH)
         {   XMLReader(eventName);
             g_markersPlayingID = markerId;
-            Debug.Log(eventName);
         }
         else { 
             g_markersPlayingID = markerId;
             string addDK = eventName;
             addDK = addDK + "DK";
-            Debug.Log(addDK);
             XMLReader(addDK);
         }
     }
@@ -162,39 +160,6 @@ public class SubToolXML : Singleton<SubToolXML>
                         break;
                     
                 }
-                /*switch (reader1.Name)
-                {
-                    case "startPos":
-                        reader1.Read();
-                        startingPos = reader1.ReadContentAsFloat();
-                        startingPoss.Add(startingPos);
-                        break;
-
-                    case "duration":
-                        reader1.Read();
-                        duration = reader1.ReadContentAsFloat();
-                        durations.Add(duration);
-                        break;
-
-                    case "dk":
-                        reader1.Read();//we put this because otherwise it just reas the ID tag and doesnt go through there
-                        dk = reader1.ReadContentAsString();
-                        DanishText.Add(dk);
-                        break;
-
-                    case "en":
-                        reader1.Read();//we put this because otherwise it just reas the ID tag and doesnt go through there
-                        en = reader1.ReadContentAsString();
-                        EnglishText.Add(en);
-                        break;
-
-                    case "color":
-                        reader1.Read();//we put this because otherwise it just reas the ID tag and doesnt go through there
-                        color = reader1.ReadContentAsString();
-                        colors.Add(color);
-                        break;
-                    
-                }*/
             }
 
         }
