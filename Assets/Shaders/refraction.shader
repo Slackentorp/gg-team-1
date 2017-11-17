@@ -1,7 +1,7 @@
 // Shader created with Shader Forge v1.38 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:3,bdst:7,dpts:2,wrdp:False,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:32719,y:32712,varname:node_2865,prsc:2|diff-6343-OUT,spec-358-OUT,gloss-1813-OUT,normal-9061-OUT,alpha-3996-OUT,refract-9116-OUT;n:type:ShaderForge.SFN_Multiply,id:6343,x:32150,y:32620,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31921,y:32805,ptovrint:False,ptlb:Maintex Color,ptin:_MaintexColor,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31921,y:32620,ptovrint:True,ptlb:Maintex,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:68286ae45b5b48346a3866888d8283c0,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:358,x:32250,y:32780,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32250,y:32882,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.1,max:1;n:type:ShaderForge.SFN_Tex2d,id:6260,x:31791,y:33170,ptovrint:False,ptlb:Normal,ptin:_Normal,varname:node_6260,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:2c9b9025148ebf543aac67ee0b571e94,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:784,x:31816,y:33003,ptovrint:False,ptlb:Normal Intensity,ptin:_NormalIntensity,varname:node_784,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.2,max:10;n:type:ShaderForge.SFN_Vector1,id:9280,x:32262,y:33238,varname:node_9280,prsc:2,v1:1;n:type:ShaderForge.SFN_Append,id:9061,x:32453,y:33003,varname:node_9061,prsc:2|A-4518-OUT,B-9280-OUT;n:type:ShaderForge.SFN_ComponentMask,id:7591,x:32068,y:33150,varname:node_7591,prsc:2,cc1:0,cc2:1,cc3:-1,cc4:-1|IN-6260-RGB;n:type:ShaderForge.SFN_Multiply,id:4518,x:32262,y:33105,varname:node_4518,prsc:2|A-784-OUT,B-7591-OUT;n:type:ShaderForge.SFN_Slider,id:3996,x:32142,y:32967,ptovrint:False,ptlb:Opacity,ptin:_Opacity,varname:node_3996,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.2,max:1;n:type:ShaderForge.SFN_Multiply,id:9116,x:32262,y:33330,varname:node_9116,prsc:2|A-7591-OUT,B-983-OUT;n:type:ShaderForge.SFN_Slider,id:3607,x:31686,y:33396,ptovrint:False,ptlb:Refraction Intensity,ptin:_RefractionIntensity,varname:node_3607,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_RemapRange,id:983,x:32037,y:33394,varname:node_983,prsc:2,frmn:0,frmx:1,tomn:0,tomx:0.02|IN-3607-OUT;proporder:6665-7736-358-1813-6260-784-3996-3607;pass:END;sub:END;*/
+/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:3,bdst:7,dpts:2,wrdp:False,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:True,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:32719,y:32712,varname:node_2865,prsc:2|diff-6343-OUT,spec-358-OUT,gloss-1813-OUT,normal-9061-OUT,alpha-3996-OUT,refract-9116-OUT;n:type:ShaderForge.SFN_Multiply,id:6343,x:32150,y:32620,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31921,y:32805,ptovrint:False,ptlb:Maintex Color,ptin:_MaintexColor,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31921,y:32620,ptovrint:True,ptlb:Maintex,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:68286ae45b5b48346a3866888d8283c0,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:358,x:32250,y:32780,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32250,y:32882,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.1,max:1;n:type:ShaderForge.SFN_Tex2d,id:6260,x:31791,y:33170,ptovrint:False,ptlb:Normal,ptin:_Normal,varname:node_6260,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:2c9b9025148ebf543aac67ee0b571e94,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:784,x:31816,y:33003,ptovrint:False,ptlb:Normal Intensity,ptin:_NormalIntensity,varname:node_784,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.2,max:10;n:type:ShaderForge.SFN_Vector1,id:9280,x:32262,y:33238,varname:node_9280,prsc:2,v1:1;n:type:ShaderForge.SFN_Append,id:9061,x:32453,y:33003,varname:node_9061,prsc:2|A-4518-OUT,B-9280-OUT;n:type:ShaderForge.SFN_ComponentMask,id:7591,x:32068,y:33150,varname:node_7591,prsc:2,cc1:0,cc2:1,cc3:-1,cc4:-1|IN-6260-RGB;n:type:ShaderForge.SFN_Multiply,id:4518,x:32262,y:33105,varname:node_4518,prsc:2|A-784-OUT,B-7591-OUT;n:type:ShaderForge.SFN_Slider,id:3996,x:32142,y:32967,ptovrint:False,ptlb:Opacity,ptin:_Opacity,varname:node_3996,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.2,max:1;n:type:ShaderForge.SFN_Multiply,id:9116,x:32262,y:33330,varname:node_9116,prsc:2|A-7591-OUT,B-983-OUT;n:type:ShaderForge.SFN_Slider,id:3607,x:31686,y:33396,ptovrint:False,ptlb:Refraction Intensity,ptin:_RefractionIntensity,varname:node_3607,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_RemapRange,id:983,x:32037,y:33394,varname:node_983,prsc:2,frmn:0,frmx:1,tomn:0,tomx:0.02|IN-3607-OUT;proporder:6665-7736-358-1813-6260-784-3996-3607;pass:END;sub:END;*/
 
 Shader "DCC/refraction" {
     Properties {
@@ -45,8 +45,8 @@ Shader "DCC/refraction" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma only_renderers d3d9 d3d11 glcore gles 
-            #pragma target 3.0
+            #pragma only_renderers d3d9 d3d11 glcore gles metal 
+            #pragma target 2.0
             uniform sampler2D _GrabTexture;
             uniform float4 _MaintexColor;
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
@@ -173,8 +173,7 @@ Shader "DCC/refraction" {
                 float3 specularColor = _Metallic;
                 float specularMonochrome;
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 node_6343 = (_MainTex_var.rgb*_MaintexColor.rgb);
-                float3 diffuseColor = node_6343; // Need this for specular when using metallic
+                float3 diffuseColor = (_MainTex_var.rgb*_MaintexColor.rgb); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -244,8 +243,8 @@ Shader "DCC/refraction" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma only_renderers d3d9 d3d11 glcore gles 
-            #pragma target 3.0
+            #pragma only_renderers d3d9 d3d11 glcore gles metal 
+            #pragma target 2.0
             uniform sampler2D _GrabTexture;
             uniform float4 _MaintexColor;
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
@@ -322,8 +321,7 @@ Shader "DCC/refraction" {
                 float3 specularColor = _Metallic;
                 float specularMonochrome;
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 node_6343 = (_MainTex_var.rgb*_MaintexColor.rgb);
-                float3 diffuseColor = node_6343; // Need this for specular when using metallic
+                float3 diffuseColor = (_MainTex_var.rgb*_MaintexColor.rgb); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -381,8 +379,8 @@ Shader "DCC/refraction" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma only_renderers d3d9 d3d11 glcore gles 
-            #pragma target 3.0
+            #pragma only_renderers d3d9 d3d11 glcore gles metal 
+            #pragma target 2.0
             uniform float4 _MaintexColor;
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
             uniform float _Metallic;
@@ -417,8 +415,7 @@ Shader "DCC/refraction" {
                 o.Emission = 0;
                 
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 node_6343 = (_MainTex_var.rgb*_MaintexColor.rgb);
-                float3 diffColor = node_6343;
+                float3 diffColor = (_MainTex_var.rgb*_MaintexColor.rgb);
                 float specularMonochrome;
                 float3 specColor;
                 diffColor = DiffuseAndSpecularFromMetallic( diffColor, _Metallic, specColor, specularMonochrome );
