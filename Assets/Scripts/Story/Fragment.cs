@@ -49,9 +49,11 @@ public class Fragment : MonoBehaviour
         HasPlayed = true;
         FragmentCall();
         Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
-        AkSoundEngine.PostEvent(storyFragment, gameObject, (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+        uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject, 
+                        (uint)AkCallbackType.AK_EnableGetSourcePlayPosition, EndOfEventCallback, Callback);
+        SubToolXML.Instance.InitSubs(markerId, storyFragment);
     }
-
+    
     void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
     {
         var t = sender as EasyWwiseCallback;
