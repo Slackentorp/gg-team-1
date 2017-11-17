@@ -83,8 +83,8 @@ public class FragmentState : GameState
             Vector3 nextPos = Vector3.SmoothDamp(gm.GameCamera.transform.position, gm.cameraHeading + gm.Moth.transform.position, ref currentVelocity, 1);
             
             gm.GameCamera.transform.position = nextPos;
-            gm.GameCamera.transform.rotation = Quaternion.RotateTowards(gm.GameCamera.transform.rotation, Quaternion.LookRotation(-gm.cameraHeading.normalized), .3f);
-
+            gm.GameCamera.transform.rotation = Quaternion.RotateTowards(gm.GameCamera.transform.rotation, Quaternion.LookRotation(-gm.cameraHeading.normalized), .2f);
+            
             if (gm.GameCamera.transform.position == gm.cameraHeading + gm.Moth.transform.position &&
             gm.GameCamera.transform.rotation == Quaternion.LookRotation(-gm.cameraHeading.normalized))
             {

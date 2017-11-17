@@ -17,10 +17,11 @@ public class MothBehaviour
 	Vector3 mothStartPos;
 	float time;
 	float turningTime;
+	float turningSpeed;
 	RaycastHit hit;
 	Vector3 hitDotPoint;
 	Vector3 hitDotNormal;
-	Vector3 mothForwardRotation;
+	Vector3 mothRotation;
 	Ray ray;
 
 	public float MothSpeed
@@ -28,9 +29,8 @@ public class MothBehaviour
 		get; set;
 	}
 
-	private bool inTransit;
 	private bool lerpRunning = false;
-	//private bool mothTurning = true;
+	private bool mothTurning = true;
 
 	void OnValidate()
 	{
@@ -58,7 +58,7 @@ public class MothBehaviour
 		AkSoundEngine.PostEvent("MOTH_START_FLIGHT", moth);
 		MothSpeed = 0.3f;
 		mothStartPos = moth.transform.position;
-
+		mothRotation = moth.transform.forward;
 		hitPoint = hit.point + hit.normal * 0.2f;
 
 		lerpRunning = true;
@@ -68,40 +68,29 @@ public class MothBehaviour
 
 	void MothGoToPosition()
 	{
-		if (moth.transform.forward != hitPoint)
+		turningSpeed = 1.7f;
+		if (Vector3.Angle(moth.transform.forward, moth.transform.position - hitPoint) != 0)
 		{
 			//mothTurning = true;
 			turningTime += Time.deltaTime * (time * 2f);
 			
-			Vector3 nextPos = moth.transform.position - hitPoint;
-			if(nextPos != Vector3.zero)
+			MothTargetRotate();
+		}
+		if (Vector3.Angle(moth.transform.forward, moth.transform.position - hitPoint) == 0 || lerpRunning == true)
+		{
+			if (moth.transform.position == hitPoint && lerpRunning == true)
 			{
-				moth.transform.forward = nextPos;
+				AkSoundEngine.PostEvent("MOTH_END_FLIGHT", moth);
+				time = 0.0f;
+				lerpRunning = false;
+			}
+			if (lerpRunning)
+			{
+				time += Time.deltaTime * MothSpeed;
+				moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, time);
 			}
 		}
-		
-		if (moth.transform.position == hitPoint && lerpRunning == true)
-		{
-			AkSoundEngine.PostEvent("MOTH_END_FLIGHT", moth);
-			time = 0.0f;
-			lerpRunning = false;
-		}
-		if (lerpRunning)
-		{
-			time += Time.deltaTime * MothSpeed;
-			moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, time);
-		}
 
-
-
-		/*if (Input.GetMouseButton(1))
-			{
-				MothSpeed = 0.3f;
-
-				mothStartPos = moth.transform.position;
-				PointfromRaycast();
-				time = 0.0f;
-			}*/
 	}
 
 	private void PointfromRaycast()
@@ -115,6 +104,15 @@ public class MothBehaviour
 			hitDotNormal = hit.normal;
 
 			lerpRunning = true;
+		}
+	}
+
+	void MothTargetRotate()
+	{
+		turningTime += Time.deltaTime * turningSpeed;
+		Vector3 nextPos = Vector3.Lerp(mothRotation, (moth.transform.position - hitPoint).normalized, turningTime);
+		if(nextPos != Vector3.zero){
+			moth.transform.forward = nextPos;
 		}
 	}
 }
