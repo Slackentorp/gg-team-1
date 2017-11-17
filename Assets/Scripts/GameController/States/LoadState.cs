@@ -17,7 +17,7 @@ public class LoadState : GameState
         {
             gm.LightController.LoadLights();
         }
-        gm.InputManager = new InputManager(gm.InputSettings);
+        gm.InputManager = new InputManager(gm.InputSettings, gm.GameCamera.GetComponent<Camera>());
    //     gm.GameCamera.SetTarget(gm.Moth.transform.position);
         gm.SetState(new RunState(gm));
     }

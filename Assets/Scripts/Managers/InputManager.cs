@@ -29,9 +29,9 @@ namespace Assets.Scripts.Managers
 
         // Use this for initialization
 
-        public InputManager(InputHandlerSettings settings)
+        public InputManager(InputHandlerSettings settings, Camera camera)
         {
-            mainCamera = Camera.main;
+            mainCamera = camera;
             touchInputMask = settings._TouchInputMask;
             tapTimeThreshold = settings._TapTimeThreshold;
             swipeSquaredDistanceThreshold =
