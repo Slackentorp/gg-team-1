@@ -26,6 +26,25 @@
 										</Reference>
 									</ReferenceList>
 								</AuxBus>
+								<Bus Name="AMBIENCE" ID="{AB8C6716-D53F-49C3-8F20-39F1A3932735}">
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="MUSIC_STATE" ID="{114B4A0E-2938-4B04-97C8-10B1F1AAA73A}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
+												<State Name="Custom State" ID="{53EEF631-E808-4B7A-B95F-1CEFF9CEEE41}" ShortID="409414692">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-10"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+								</Bus>
 							</ChildrenList>
 						</Bus>
 						<Bus Name="MUSIC" ID="{D394A765-B185-4D32-97A6-9746AD373EF0}"/>

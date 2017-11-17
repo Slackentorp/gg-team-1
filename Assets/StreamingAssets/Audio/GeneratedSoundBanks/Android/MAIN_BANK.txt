@@ -3,16 +3,17 @@ Event	ID	Name			Wwise Object Path	Notes
 	410314580	MOTH_END_FLIGHT			\Default Work Unit\Moth\MOTH_END_FLIGHT	
 	541555517	MOTH_START_FLIGHT			\Default Work Unit\Moth\MOTH_START_FLIGHT	
 	589325167	FRAGMENT_COZYKITCHEN			\Default Work Unit\Fragments\FRAGMENT_COZYKITCHEN	
-	590963579	CAR_PASS			\Default Work Unit\Ambience\Cars\CAR_PASS	
 	708113490	FRAGMENT_CLOCK			\Default Work Unit\Fragments\FRAGMENT_CLOCK	
 	722690792	FRAGMENT_SMOKING2			\Default Work Unit\Fragments\FRAGMENT_SMOKING2	
 	722690795	FRAGMENT_SMOKING1			\Default Work Unit\Fragments\FRAGMENT_SMOKING1	
+	746056516	CAMERA_MOVE			\Default Work Unit\CAMERA_MOVE	
 	1107599359	PUZZLE_SOLVED			\Default Work Unit\Puzzles\PUZZLE_SOLVED	
 	1204468941	FRAGMENT_POLAROID1			\Default Work Unit\Fragments\FRAGMENT_POLAROID1	
 	1275729080	LIVINGROOM_ENTER			\Default Work Unit\Ambience\LIVINGROOM_ENTER	
 	1286978176	FRAGMENT_NEWYEARS			\Default Work Unit\Fragments\FRAGMENT_NEWYEARS	
 	1305045635	SFX_UNMUTE			\Default Work Unit\Menu\SFX_UNMUTE	
 	1387648821	LAMP_ON			\Default Work Unit\LAMP_ON	
+	1451837118	NEIGHBOUR			\Default Work Unit\NEIGHBOUR	
 	1512987680	MENUBUTTON_PRESS			\Default Work Unit\Menu\MENUBUTTON_PRESS	
 	1520330871	FRAGMENT_TATTOO			\Default Work Unit\Fragments\FRAGMENT_TATTOO	
 	1571339874	INGAMEMENU_CLOSE			\Default Work Unit\Menu\INGAMEMENU_CLOSE	
@@ -30,9 +31,12 @@ Event	ID	Name			Wwise Object Path	Notes
 	1995931407	FRAGMENT_TV1			\Default Work Unit\Fragments\FRAGMENT_TV1	
 	2002587924	FRAGMENT_MODELLING1			\Default Work Unit\Fragments\FRAGMENT_MODELLING1	
 	2002587927	FRAGMENT_MODELLING2			\Default Work Unit\Fragments\FRAGMENT_MODELLING2	
+	2092442601	FRIDGE_VISIBLE			\Default Work Unit\Ambience\FRIDGE_VISIBLE	
+	2128490106	FRIDGE_INVISIBLE			\Default Work Unit\Ambience\FRIDGE_INVISIBLE	
 	2132259803	MUSIC_UNMUTE			\Default Work Unit\Menu\MUSIC_UNMUTE	
 	2161294919	FRAGMENT_END			\Default Work Unit\FRAGMENT_END	
 	2177473561	PIECE_PLACED_WRONG			\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_WRONG	
+	2337612214	FRIDGE			\Default Work Unit\FRIDGE	
 	2361534988	FRAGMENT_TEST			\Default Work Unit\FRAGMENT_TEST	
 	2720771844	PIECE_PLACED_RIGHT			\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_RIGHT	
 	2817540555	FRAGMENT_BIRTHDAY			\Default Work Unit\Fragments\FRAGMENT_BIRTHDAY	
@@ -45,16 +49,24 @@ Event	ID	Name			Wwise Object Path	Notes
 	3725903807	MUSIC_START			\Default Work Unit\MUSIC_START	
 	3797182232	FRAGMENT_PARENTS1			\Default Work Unit\Fragments\FRAGMENT_PARENTS1	
 	3797182235	FRAGMENT_PARENTS2			\Default Work Unit\Fragments\FRAGMENT_PARENTS2	
-	3831078465	AMBIENCE_CITY			\Default Work Unit\Ambience\City\AMBIENCE_CITY	
 	3998036439	FRAGMENT_WEDNESDAYWINE			\Default Work Unit\Fragments\FRAGMENT_WEDNESDAYWINE	
 	4090956524	FRAGMENT_ZODIAC			\Default Work Unit\Fragments\FRAGMENT_ZODIAC	
+	4142189312	STREET			\Default Work Unit\Ambience\City\STREET	
 	4165127606	INGAMEMENU_OPEN			\Default Work Unit\Menu\INGAMEMENU_OPEN	
+	4189504244	CARS			\Default Work Unit\Ambience\Cars\CARS	
 
 State Group	ID	Name			Wwise Object Path	Notes
+	2077253480	ROOM			\Default Work Unit\ROOM	
 	2441027675	LANGUAGE			\Default Work Unit\LANGUAGE	
 	3863998494	LAMPS_ON			\Default Work Unit\LAMPS_ON	
 
 State	ID	Name	State Group			Notes
+	28587383	LIVINGROOM	ROOM			
+	748895195	None	ROOM			
+	1586158131	KITCHEN	ROOM			
+	1917388856	STUDY	ROOM			
+	2198133169	HALLWAY	ROOM			
+	3788924735	BEDROOM	ROOM			
 	748895195	None	LANGUAGE			
 	3383237639	ENGLISH	LANGUAGE			
 	4072223638	DANISH	LANGUAGE			
@@ -66,13 +78,15 @@ State	ID	Name	State Group			Notes
 Custom State	ID	Name	State Group	Owner		Notes
 	133631507	LAMP_2	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_STRINGS_91bpm		
 	316349572	LAMP_1	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_PIANO_91bpm		
+	758777467	HALLWAY	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street		
+	855464711	LIVINGROOM	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street		
 	858452933	LAMP_1	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_STRINGS_91bpm		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	725232568	DIALOGUE_VOLUME			\Default Work Unit\DIALOGUE_VOLUME	
 	1571361561	TENSION			\Default Work Unit\TENSION	
 	3334266196	MOTH_DOPPLER			\Default Work Unit\MOTH_DOPPLER	
 	4010911193	MOTH_SPEED			\Default Work Unit\MOTH_SPEED	
+	4251783213	OBSTRUCTION			\Default Work Unit\OBSTRUCTION	
 
 Modulator LFO	ID	Name			Wwise Object Path	Notes
 	1001405383	Modulator LFO (Custom)				
@@ -89,16 +103,19 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	41802519	Paper Handling and Turning Sequence_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Paper Handling and Turning Sequence_07A450BE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Interaction\Paper\Pick Paper Up\Paper Handling and Turning Sequence_01		6397
 	50499365	WORLD_MAP_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\WORLD_MAP_1_21D18D0A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\World Map 1\WORLD_MAP_1		221989
 	52370042	FRAGMENT_END	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_END_FE3D899D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\End\FRAGMENT_END		119821
-	62958245	City_Quiet	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic_ADCC74B9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Base\City_Quiet		763721
+	55177308	CAMERA_MOVE_04	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\CAMERA_MOVE_04_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camera\Move\CAMERA_MOVE_04		76470
+	55609851	CAMERA_MOVE_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\CAMERA_MOVE_01_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camera\Move\CAMERA_MOVE_01		76213
+	62958245	City_Quiet	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic_ADCC74B9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\City_Quiet		763721
 	64340832	NEIGHBOUR_NOISE_07	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE_07_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_07		18014
 	89270064	cadillac_1960_30mph_driveby_LtoR_001	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\cadillac_1960_30mph_driveby_LtoR_001_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\cadillac_1960_30mph_driveby_LtoR_001		38832
 	97043590	BULB_AC_NOISE	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\BULB_AC_NOISE_7BA06DA1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lamp\Bulb\AC power\BULB_AC_NOISE		14523
 	101372784	SMOKING_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\SMOKING_2_da_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Smoking 2\SMOKING_2_da		320039
 	104430729	NEIGHBOUR_NOISE_06	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE_06_0C88E15F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_06		10897
-	106102015	Police_Siren_PSEM_198	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Police_Siren_PSEM.198_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Base\Random Siren Pass\Police_Siren_PSEM_198		90408
-	109303465	City_Loud	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\SW010_New_York_City_Room_Tone_Lower_Eastside_Window_4BB51C1C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Base\City_Loud		1715436
+	106102015	Police_Siren_PSEM_198	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Police_Siren_PSEM.198_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\Random Siren Pass\Police_Siren_PSEM_198		90408
+	109303465	City_Loud	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\SW010_New_York_City_Room_Tone_Lower_Eastside_Window_4BB51C1C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\City_Loud		1715436
 	116736613	MODELING_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\MODELING_3_2D4FE39D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 2\MODELING_2		377475
 	118409208	NEIGHBOUR_NOISE_09	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE_09_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_09		28681
+	119947923	No light	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\No light_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\No light\No light		2023864
 	122170802	Laser_Sword_Movements_PSEM_156	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Laser_Sword_Movements_PSEM.156_03AB699E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lamp\Bulb\Laser_Sword_Movements_PSEM_156		12627
 	135164530	CLOCK_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\CLOCK_da_673B84E5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Clock\CLOCK_da		186828
 	138948462	Crumbling Printer Paper 9_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Crumbling Printer Paper 9_E39F0762.wem		\Actor-Mixer Hierarchy\Default Work Unit\Interaction\Paper\Move Paper\Crumbling Printer Paper 9_01		5998
@@ -107,7 +124,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	146808175	AT_THE_TABLE_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\AT_THE_TABLE_da_9FB26A2D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\At the table\AT_THE_TABLE_da		349044
 	156411334	NEIGHBOUR_NOISE_08	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE_08_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_08		23323
 	172808139	Reward_04	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Reward_04_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Reward\Reward_04		70336
-	174683352	RATH - Rain Hard Loop 08	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\RATH - Rain Hard Loop 08_7DDF4AFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Base\RATH - Rain Hard Loop 08		93844
+	174683352	RATH - Rain Hard Loop 08	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\RATH - Rain Hard Loop 08_7DDF4AFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\RATH - Rain Hard Loop 08		93844
+	177010536	CAMERA_MOVE_05	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\CAMERA_MOVE_05_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camera\Move\CAMERA_MOVE_05		76105
 	191639381	HIT_WINDOW_SOFT_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\HIT_WINDOW_SOFT_1_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Hit window\HIT_WINDOW_SOFT_1		3619
 	208200834	Rattle_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Rattle_1_B52A7F01.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_1		6300
 	208842304	HIT_WINDOW_SOFT	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\HIT_WINDOW_SOFT_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Hit window\HIT_WINDOW_SOFT		3849
@@ -150,6 +168,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	504967435	Grabbing Paper 03	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Grabbing Paper 03_0E5D0B6A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Interaction\Paper\Move Paper\Grabbing Paper 03		5624
 	510315872	BIRTHDAY_MOMENT	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\BIRTHDAY_MOMENT_5A1A8D9E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Birthday Moment\BIRTHDAY_MOMENT		295327
 	519353667	NEIGHBOUR_NOISE_	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE__6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_		16496
+	520742939	CAMERA_MOVE_03	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\CAMERA_MOVE_03_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camera\Move\CAMERA_MOVE_03		77068
 	541851934	Flying	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Flying_D58FAF87.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Flying		355015
 	550718053	NEIGHBOUR_NOISE_03	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE_03_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_03		15812
 	557998825	Reward_02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Reward_02_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Reward\Reward_02		68537
@@ -158,14 +177,16 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	580998060	Hallways_STRINGS_91bpm	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Hallways_STRINGS_91bpm_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_STRINGS_91bpm		2339154
 	588071616	ZODIAC_SIGN_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\ZODIAC_da_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Zodiac Sign\ZODIAC_SIGN_da		490092
 	596382529	BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_FAR	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_FAR_B52A7F01.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Button\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_FAR		4791
-	601362214	RATH - Rain, Distant Thunder and Bird Loop	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\RATH - Rain, Distant Thunder and Bird Loop_7DDF4AFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Base\RATH - Rain, Distant Thunder and Bird Loop		286419
+	601362214	RATH - Rain, Distant Thunder and Bird Loop	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\RATH - Rain, Distant Thunder and Bird Loop_7DDF4AFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\RATH - Rain, Distant Thunder and Bird Loop		286419
 	606185163	Rattle	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Rattle_B52A7F01.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle		6908
 	613866147	WE_NEED_A_TV_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\WE_NEED_A_TV_1_E673A714.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\We need a tv 1\WE_NEED_A_TV_1		246721
 	622479333	BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE_B52A7F01.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Button\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE		3471
+	636909708	CAMERA_MOVE_06	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\CAMERA_MOVE_06_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camera\Move\CAMERA_MOVE_06		76445
 	649696666	BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE_B52A7F01.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Button\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE		4590
 	654449630	Hallways_PAD_91bpm	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Hallways_PAD_91bpm_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_PAD_91bpm		2013322
 	657681073	SMOKING_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\SMOKING_2_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Smoking 2\SMOKING_2		270538
 	686259063	Crumbling Printer Paper 9	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Crumbling Printer Paper 9_D6E7B33B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Interaction\Paper\Move Paper\Crumbling Printer Paper 9		6675
+	687402096	Light_Hum_Street_Lamp_Lonely_PSEM_160	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Light_Hum_Street_Lamp_Lonely_PSEM.160_F4A04393.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Fridge\Light_Hum_Street_Lamp_Lonely_PSEM_160		171855
 	693349639	POLAROID_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\POLAROID_1_A14B8D25.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Polaroid 1\POLAROID_1		152386
 	697414599	BIRTHDAY_MOMENT_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\BIRTHDAY_MOMENT_da_384B8F69.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Birthday Moment\BIRTHDAY_MOMENT_da		317340
 	706919211	POLAROID_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\POLAROID_1_da_0AD982CD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Polaroid 1\POLAROID_1_da		131027
@@ -173,6 +194,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	720733506	STORYEVENT_2_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\STORYEVENT_2_2_da_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Storyevent 2\STORYEVENT_2_2_da		1042818
 	723887160	STORYEVENT_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\STORYEVENT_3_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Storyevent 3\STORYEVENT_3		624507
 	736791367	STORYEVENT_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\STORYEVENT_1_da_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Storyevent 1\STORYEVENT_1_da		487838
+	737787349	Testmusic	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Testmusic_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\Testmusic\Testmusic		596313
 	742990135	MOTH_LANDING	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\MOTH_LANDING_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Moth landing\MOTH_LANDING		9356
 	746538295	179354__lolamadeus__pint-glass-hits-2_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\179354__lolamadeus__pint-glass-hits-2_2D73DC1B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Glass ring\179354__lolamadeus__pint-glass-hits-2_01		4384
 	754530548	WINE_ON_A_WEDNESDAY	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\WINE_ON_A_WEDNESDAY_34718CB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Wine on a wednesday\WINE_ON_A_WEDNESDAY		359673
@@ -181,15 +203,16 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	778584774	MODELING_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\MODELING_1_da_DD30021C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 2\MODELING_1_da		329694
 	791677628	Rattle_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Rattle_2_B52A7F01.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_2		6251
 	808012157	Reward_05	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Reward_05_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Reward\Reward_05		70365
+	808932615	CAMERA_MOVE_02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\CAMERA_MOVE_02_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camera\Move\CAMERA_MOVE_02		76233
 	815467655	235540__simosco__lamp-click-on-off_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\235540__simosco__lamp-click-on-off_8AC02CFF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lamp\Bulb\Turn on\235540__simosco__lamp-click-on-off_01		3805
 	836804791	STORYEVENT_3_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\STORYEVENT_3_da_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Storyevent 3\STORYEVENT_3_da		737243
-	863795838	Protests_Our_Streets_01_Downtown	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Protests_Our_Streets_01_Downtown_92F48299.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Base\Protests_Our_Streets_01_Downtown		253655
-	864872431	Train	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\CNT01_EXTRA_TRAIN PASS BY_Arrival and departure_L train_50B09E4B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Base\Train		199642
+	863795838	Protests_Our_Streets_01_Downtown	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Protests_Our_Streets_01_Downtown_92F48299.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\Protests_Our_Streets_01_Downtown		253655
+	864872431	Train	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\CNT01_EXTRA_TRAIN PASS BY_Arrival and departure_L train_50B09E4B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\Train		199642
 	873861823	Rajdoot,motorcycle,approach,by,away,fast,rattle 02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Rajdoot,motorcycle,approach,by,away,fast,rattle 02_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\Rajdoot,motorcycle,approach,by,away,fast,rattle 02		60830
 	916308489	NEIGHBOUR_NOISE_02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE_02_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_02		15698
 	933462240	UGLY_POSTER	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\UGLY_POSTER_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Ugly Poster\UGLY_POSTER		286283
-	946869893	Detunized_Urban-Crows_12c	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Detunized_Urban-Crows_12c_9DC972BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Base\Detunized_Urban-Crows_12c		700296
-	951030059	birds_outside_002_wide	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\birds_outside_002_wide_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Base\birds_outside_002_wide		232332
+	946869893	Detunized_Urban-Crows_12c	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Detunized_Urban-Crows_12c_9DC972BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\Detunized_Urban-Crows_12c		700296
+	951030059	birds_outside_002_wide	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\birds_outside_002_wide_7DDF4AFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\birds_outside_002_wide		232332
 	961599924	BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR_B52A7F01.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Button\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR		3533
 	973032455	Grabbing Paper 03_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Grabbing Paper 03_98283D77.wem		\Actor-Mixer Hierarchy\Default Work Unit\Interaction\Paper\Move Paper\Grabbing Paper 03_01		3746
 	975274929	SUSIES_TATTOO	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\SUSIES_TATTOO_51639521.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Susie's Tattoo\SUSIES_TATTOO		285723

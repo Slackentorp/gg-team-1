@@ -66,6 +66,8 @@
 						<State Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
 						<State Name="HALLWAY" ID="{6BB75331-C2D5-4696-A368-81731DA3946E}"/>
 						<State Name="KITCHEN" ID="{58A3C77B-7624-424D-B2DF-8412BB792C58}"/>
+						<State Name="STUDY" ID="{4A00DAAB-2C75-4DD4-B4D0-B48E5CC11E44}"/>
+						<State Name="BEDROOM" ID="{80345D10-291B-42E3-9119-E2F3CACABB96}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="LANGUAGE" ID="{B16A3252-0A40-48BB-BEE5-AEA47931CBDD}">
@@ -90,6 +92,14 @@
 							<IsShared>false</IsShared>
 						</Transition>
 					</TransitionList>
+				</StateGroup>
+				<StateGroup Name="FRAGMENT_MUSIC" ID="{460F695D-3063-492A-A28C-DF130DBF0D55}">
+					<ChildrenList>
+						<State Name="None" ID="{64D2328C-8534-45BB-8ABB-2C1C17B966BB}"/>
+						<State Name="Memory" ID="{4DCC222D-7DEE-47B0-855D-80F8DC3ED5E5}"/>
+						<State Name="Happy" ID="{461CFEF7-31A9-4AF4-9160-A4D4981E8916}"/>
+						<State Name="Awful" ID="{BA2C0735-297D-4382-8231-376EAA78DFE9}"/>
+					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
