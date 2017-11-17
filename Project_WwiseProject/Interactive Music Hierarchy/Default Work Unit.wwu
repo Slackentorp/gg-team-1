@@ -257,6 +257,31 @@
 									</Playlist>
 								</MusicPlaylistContainer>
 							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="LAMP_2" ID="{2746F27B-6336-4419-A1BD-B2181F93FCD3}"/>
+										<State Name="Custom State" ID="{635B266D-1B44-43FC-89DF-913C638EED04}" ShortID="443036490">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="6"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
+										<State Name="Custom State" ID="{C7411F57-3809-45BC-9EA7-28AA34728E4E}" ShortID="889532776">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="6"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
 							<TransitionList>
 								<MusicTransition Name="Root" ID="{CEC6359D-8E14-4BFB-8963-D41FEAA89F60}">
 									<PropertyList>
@@ -304,7 +329,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-13</Value>
+										<Value>-15</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
