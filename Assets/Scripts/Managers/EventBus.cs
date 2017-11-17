@@ -12,6 +12,8 @@ public class EventBus : Singleton<EventBus>
         new Dictionary<string, List<LightSourceInput>>();
     private Dictionary<string, List<Fragment>> fragmentDictionary =
         new Dictionary<string, List<Fragment>>();
+	private Dictionary<string, List<Puzzle>> puzzleDictionary =
+		new Dictionary<string, List<Puzzle>>();
 
 
 
@@ -72,7 +74,36 @@ public class EventBus : Singleton<EventBus>
         }
     }
 
-    public void SetMothPosition(Vector3 position)
+	public void AddPuzzleListerer(string eventName,
+	   Puzzle component)
+	{
+		List<Puzzle> lst;
+		if (!puzzleDictionary.TryGetValue(eventName, out lst))
+		{
+			lst = new List<Puzzle>();
+			lst.Add(component);
+			puzzleDictionary.Add(eventName, lst);
+		}
+		else
+		{
+			lst.Add(component);
+			puzzleDictionary[eventName] = lst;
+		}
+	}
+
+	public void TriggerPuzzles(string eventName)
+	{
+		List<Puzzle> lst;
+		if (!puzzleDictionary.TryGetValue(eventName, out lst))
+		{
+			foreach (var puzzle in lst)
+			{
+				//   fragment.Play();
+			}
+		}
+	}
+
+	public void SetMothPosition(Vector3 position)
     {
         moth.SendMessage("SetMothPosition", position);
     }

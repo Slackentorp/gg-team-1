@@ -17,8 +17,11 @@ public class GameController : Singleton<GameController>
     public InputManager InputManager;
     [HideInInspector]
     public Fragment NextFragment;
-    public InputHandlerSettings InputSettings;
+	[HideInInspector]
+	public Puzzle NextPuzzle;
+	public InputHandlerSettings InputSettings;
     public AnimationCurve FragmentLerpCurve;
+	public AnimationCurve PuzzleLerpCurve;
 
     private GameState currentState;
 
@@ -78,4 +81,12 @@ public class GameController : Singleton<GameController>
             SetState(new RunState(this));
         }
     }
+
+	public void QuitPuzzle()
+	{
+		if (currentState is PuzzleState)
+		{
+			SetState(new RunState(this));
+		}
+	}
 }

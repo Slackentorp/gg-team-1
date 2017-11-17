@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleModeBase : MonoBehaviour
+public class Puzzle: MonoBehaviour
 {
 	[SerializeField, Tooltip("The name of the puzzle.")]
-	private string puzzleName;
+	private string puzzleId;
 
 	[SerializeField, Tooltip("Defines the position of the puzzle camera positon.")]
 	private Vector3 camPosition;
@@ -13,18 +13,18 @@ public class PuzzleModeBase : MonoBehaviour
 	[SerializeField, Tooltip("Defines the position the puzzle camera should look.")]
 	private Vector3 camOrientation;
 
-	[SerializeField, Tooltip("Defines the collider that the puzzle is being solved on")]
+	/*[SerializeField, Tooltip("Defines the collider that the puzzle is being solved on")]
 	private Collider puzzleCollider;
 
 	[SerializeField, Tooltip("Defines the collider that the puzzle is being solved on")]
-	private Vector3 sizeOfCollider;
+	private Vector3 sizeOfCollider;*/
 
 	public delegate void EasyWwiseCallback();
-	public string PuzzleID
+	public string PuzzleId
 	{
 		get
 		{
-			return PuzzleID;
+			return PuzzleId;
 		}
 	}
 	public Vector3 CamPosition
@@ -94,10 +94,10 @@ public class PuzzleModeBase : MonoBehaviour
 	{
 		IsSolved = true;
 		PuzzleCall();
-		Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
-		uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject,
+		Debug.Log("Story fragment - " + PuzzleId + " - ACTIVATE!");
+		uint markerId = AkSoundEngine.PostEvent(PuzzleId, gameObject,
 						(uint)AkCallbackType.AK_EnableGetSourcePlayPosition, EndOfEventCallback, Callback);
-		SubToolXML.Instance.InitSubs(markerId, storyFragment);
+		SubToolXML.Instance.InitSubs(markerId, PuzzleId);
 	}*/
 
 	void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
@@ -113,6 +113,6 @@ public class PuzzleModeBase : MonoBehaviour
 	{
 		Gizmos.DrawIcon(transform.position + camPosition, "CameraIcon.tif");
 		Gizmos.DrawLine(transform.position + camPosition, transform.position + camOrientation);
-		Gizmos.DrawWireCube(puzzleCollider.transform.position, sizeOfCollider);
+		//Gizmos.DrawWireCube(puzzleCollider.transform.position, sizeOfCollider);
 	}
 }
