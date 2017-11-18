@@ -2,6 +2,7 @@
 using Assets.Scripts.Managers;
 using Gamelogic.Extensions;
 using UnityEngine;
+using UnityEngine.UI;
 
 #pragma warning disable 0414
 public class GameController : Singleton<GameController>
@@ -15,6 +16,7 @@ public class GameController : Singleton<GameController>
     public LocalizationManager localization;
     public LightController LightController;
     public InputManager InputManager;
+    public Text HeadsetStateUIText;
     public MothBehaviour mothBehaviour;
     public MothSounds mothSounds;
     public InputHandlerSettings InputSettings;

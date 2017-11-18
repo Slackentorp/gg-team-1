@@ -325,6 +325,25 @@ namespace Assets.Scripts.Managers
             }
             return input.deltaPosition * dt;
         }
+
+        public bool GetHeadsetState()
+        {
+            #if UNITY_EDITOR
+                return false;
+            #endif
+            #if UNITY_ANDROID
+            using (var unityPlayerClass = new AndroidJavaClass ("com.unity3d.player.UnityPlayer"))
+            using (var context = unityPlayerClass.GetStatic<AndroidJavaObject> ("currentActivity"))
+            using (var AudioManager = context.Call<AndroidJavaObject> ("getSystemService", "audio")) {
+
+                if (AudioManager != null)
+                {
+                    return AudioManager.Call<bool> ("isWiredHeadsetOn");
+                }
+            }
+            #endif
+            return false;
+        }
     }
 
     public enum InputType
