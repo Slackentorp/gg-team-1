@@ -110,16 +110,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1218086663684066}
-  m_LocalRotation: {x: -0, y: -0.9387171, z: -0, w: 0.34468862}
-  m_LocalPosition: {x: -5.715, y: 0.717, z: 2.804}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.8845475, z: -0, w: -0.46645027}
+  m_LocalPosition: {x: -5.716, y: 0.713, z: 2.823}
+  m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Children:
   - {fileID: 4046572064104954}
   - {fileID: 4803571381504852}
   - {fileID: 4221318777830522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -139.67401, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -235.608, z: 0}
 --- !u!4 &4803571381504852
 Transform:
   m_ObjectHideFlags: 1
@@ -147,7 +147,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ce44078a2baa9b84b8169fec3d9b344a, type: 2}
+  - {fileID: 2100000, guid: 1c5393844242d14488ff008d8e6f03c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -237,10 +237,13 @@ MonoBehaviour:
   cameraPosition: {x: -0.23, y: 0.5, z: -0.44}
   IsLit: 1
   isSwitchable: 0
-  fragments: []
-  lampMaterialOn: {fileID: 0}
-  lampMaterialOff: {fileID: 0}
+  fragments:
+  - {fileID: 0}
+  lampMaterialOn: {fileID: 2100000, guid: ce44078a2baa9b84b8169fec3d9b344a, type: 2}
+  lampMaterialOff: {fileID: 2100000, guid: 258126a6efdef884ab793048ecfaa9bb, type: 2}
   localFragmentsState: 
+  lampStateCheck: 0
+  lightMapIndex: 0
 --- !u!198 &198352562446326960
 ParticleSystem:
   m_ObjectHideFlags: 1
