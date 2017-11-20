@@ -28,7 +28,8 @@ public class InteractableEditor : Editor
 
     private void OnDisable()
     {
-        ResetCamera();
+        if (!Application.isPlaying)
+            ResetCamera();
     }
 
     public override void OnInspectorGUI()

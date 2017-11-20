@@ -20,7 +20,7 @@ public class CombinationPuzzleController : BasePuzzle
 
     [SerializeField]
     private string onCorrectWwiseEvent;
-    [SerializeField, Range(0,1)]
+    [SerializeField, Range(0, 1)]
     private float onCorrectBrightness = 1;
 
     [SerializeField, Tooltip("Specify the bounds of the puzzle. This is the area the pieces can be dragged within")]
@@ -33,7 +33,7 @@ public class CombinationPuzzleController : BasePuzzle
 
     public float RaiseAmount { get { return raiseAmount; } }
 
-    public Vector3 Bounds { get { return bounds; }}
+    public Vector3 Bounds { get { return bounds; } }
 
     private PictureFrameTouch[] pictureFrames;
 
@@ -60,7 +60,7 @@ public class CombinationPuzzleController : BasePuzzle
 
             foreach (var frame in pictureFrames)
             {
-                Vector3 spawnPos = frame.correctPostion + frame.originPosition;
+                Vector3 spawnPos = transform.TransformPoint(frame.correctPostion);
                 Quaternion spawnRot = Quaternion.Euler(frame.correctRotation) *
                                       transform.rotation;
                 GameObject particle =
@@ -73,7 +73,7 @@ public class CombinationPuzzleController : BasePuzzle
     void Start()
     {
         CheckForSolution(null);
-        
+
     }
 
     private void Update()
@@ -86,7 +86,7 @@ public class CombinationPuzzleController : BasePuzzle
         CheckForSolution(null);
         int enabledFrames = pictureFrames.Count(o => !o.isCorrect);
 
-      //  int correctFrames = pictureFrames.Length - enabledFrames;
+        //  int correctFrames = pictureFrames.Length - enabledFrames;
         //  AkSoundEngine.SetState("PICTUREPUZZLE_STATE", "PIECE_" + correctFrames);
 
         if (enabledFrames == 0)
@@ -116,7 +116,7 @@ public class CombinationPuzzleController : BasePuzzle
             }
 
             float distance = Vector3.SqrMagnitude(pictureFrame.transform.position -
-                (pictureFrame.correctPostion + pictureFrame.originPosition));
+                transform.TransformPoint(pictureFrame.correctPostion));
             float angleDifference =
                 Quaternion.Angle(pictureFrame.transform.rotation,
                     Quaternion.Euler(pictureFrame.correctRotation) * transform.rotation);
@@ -125,7 +125,7 @@ public class CombinationPuzzleController : BasePuzzle
                 angleDifference <= mercyRotation)
             {
 
-                if ( (sender == pictureFrame || sender == null) && !string.IsNullOrEmpty(onCorrectWwiseEvent) && !pictureFrame.isCorrect)
+                if ((sender == pictureFrame || sender == null) && !string.IsNullOrEmpty(onCorrectWwiseEvent) && !pictureFrame.isCorrect)
                 {
                     print("Setting correct");
                     AkSoundEngine.PostEvent(onCorrectWwiseEvent, pictureFrame.gameObject);
@@ -135,13 +135,13 @@ public class CombinationPuzzleController : BasePuzzle
                 }
 
                 pictureFrame.transform.position =
-                    pictureFrame.correctPostion + pictureFrame.originPosition;
+                   transform.TransformPoint(pictureFrame.correctPostion);
                 pictureFrame.transform.rotation =
                     Quaternion.Euler(pictureFrame.correctRotation) * transform.rotation;
                 if (Application.isPlaying)
                 {
                     Destroy(pictureFrame.GetComponent<BoxCollider>());
-                  //  Destroy(pictureFrame);
+                    //  Destroy(pictureFrame);
                 }
 
             }
@@ -153,7 +153,7 @@ public class CombinationPuzzleController : BasePuzzle
         Gizmos.color = Color.green;
         Matrix4x4 rotationMatrix = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
         Gizmos.matrix *= rotationMatrix;
-        Gizmos.DrawWireCube(transform.position, bounds);    
+        Gizmos.DrawWireCube(transform.position, bounds);
     }
-    
+
 }

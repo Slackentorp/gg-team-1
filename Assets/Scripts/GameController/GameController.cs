@@ -11,7 +11,7 @@ public class GameController : Singleton<GameController>
     private string currentStateLiteral;
     public Text stateText;
     public GameObject Moth;
-    private MothBehaviour mothBehaviour; 
+    private MothBehaviour mothBehaviour;
     public GameObject GameCamera;
     public Queue StoryQueue;
     public LocalizationManager localization;
@@ -36,9 +36,9 @@ public class GameController : Singleton<GameController>
 
     private void Update()
     {
-        CheckInput(); 
         if (currentState != null)
         {
+            CheckInput();
             currentState.Tick();
         }
     }

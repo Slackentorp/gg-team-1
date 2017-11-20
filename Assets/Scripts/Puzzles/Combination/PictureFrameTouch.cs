@@ -37,7 +37,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
     private void OnEnable() {
         UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
         UnityEditor.SceneView.onSceneGUIDelegate += OnSceneGUI;
-        //internalGizmoMaterial = new Material(gizmoMaterial);
+        internalGizmoMaterial = new Material(gizmoMaterial);
     }
 
     private void OnDisable() {
