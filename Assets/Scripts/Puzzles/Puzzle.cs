@@ -2,117 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Puzzle: MonoBehaviour
+[RequireComponent(typeof(CombinationPuzzleController))]
+public class Puzzle : Interactable
 {
-	[SerializeField, Tooltip("The name of the puzzle.")]
-	private string puzzleId;
+    public delegate void EasyWwiseCallback();
+    public delegate void PuzzleAction();
+    public static event PuzzleAction PuzzleCall;
 
-	[SerializeField, Tooltip("Defines the position of the puzzle camera positon.")]
-	private Vector3 camPosition;
+    [SerializeField, Tooltip("The name of the puzzle.")]
+    private string puzzleId;
 
-	[SerializeField, Tooltip("Defines the position the puzzle camera should look.")]
-	private Vector3 camOrientation;
-
-	/*[SerializeField, Tooltip("Defines the collider that the puzzle is being solved on")]
-	private Collider puzzleCollider;
-
-	[SerializeField, Tooltip("Defines the collider that the puzzle is being solved on")]
-	private Vector3 sizeOfCollider;*/
-
-	public delegate void EasyWwiseCallback();
-	public string PuzzleId
-	{
-		get
-		{
-			return PuzzleId;
-		}
-	}
-	public Vector3 CamPosition
-	{
-		get
-		{
-			return camPosition;
-		}
-		set
-		{
-			camPosition = value;
-		}
-	}
-	public Vector3 CamOrientaion
-	{
-		get
-		{
-			return camOrientation;
-		}
-		set
-		{
-			camOrientation = value;
-		}
-	}
-	public Vector3 CamForward
-	{
-		get
-		{
-			return
-				(transform.position + camOrientation) -
-				(transform.position + camPosition);
-		}
-	}
-	void Start()
-	{
-		//puzzleCollider = GetComponent<Collider>();
-	}
-
-	void Update()
-	{
+    private CombinationPuzzleController puzzleController;
+    private bool isSolved;
 
 
-	}
+    public bool IsSolved { get { return isSolved; } private set { isSolved = value; } }
+    public string PuzzleId { get { return PuzzleId; } }
 
-	public delegate void PuzzleAction();
-	public static event PuzzleAction PuzzleCall;
 
-	private void Awake()
-	{
-		gameObject.layer = LayerMask.NameToLayer("Touch Object");
-	}
+    public override void Awake()
+    {
+        base.Awake();
+        puzzleController = GetComponent<CombinationPuzzleController>();
+    }
 
-	private bool isSolved;
-	public bool IsSolved
-	{
-		get
-		{
-			return isSolved;
-		}
-		private set
-		{
-			isSolved = value;
-		}
-	}
+    void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
+    {
+        var t = sender as EasyWwiseCallback;
+        if (t != null)
+        {
+            t.Invoke();
+        }
+    }
 
-	/*public void Play(EasyWwiseCallback Callback)
-	{
-		IsSolved = true;
-		PuzzleCall();
-		Debug.Log("Story fragment - " + PuzzleId + " - ACTIVATE!");
-		uint markerId = AkSoundEngine.PostEvent(PuzzleId, gameObject,
-						(uint)AkCallbackType.AK_EnableGetSourcePlayPosition, EndOfEventCallback, Callback);
-		SubToolXML.Instance.InitSubs(markerId, PuzzleId);
-	}*/
+    public void TurnOffCollider()
+    {
+        GetComponent<BoxCollider>().enabled = false;
+    }
 
-	void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
-	{
-		var t = sender as EasyWwiseCallback;
-		if (t != null)
-		{
-			t.Invoke();
-		}
-	}
-
-	private void OnDrawGizmos()
-	{
-		Gizmos.DrawIcon(transform.position + camPosition, "CameraIcon.tif");
-		Gizmos.DrawLine(transform.position + camPosition, transform.position + camOrientation);
-		//Gizmos.DrawWireCube(puzzleCollider.transform.position, sizeOfCollider);
-	}
+    public override void Play(Interactable.EasyWwiseCallback Callback)
+    {
+        Debug.Log("No Play function in Puzzles");
+    }
 }

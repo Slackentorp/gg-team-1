@@ -36,16 +36,15 @@ public class RunState : GameState
 
 			// Check if fragment
 			Fragment fragment = inputEvent.GameObject.GetComponent<Fragment>();
+			Puzzle puzzle = inputEvent.GameObject.GetComponent<Puzzle>();
 			if (fragment != null && inputEvent.InputType == InputType.TAP)
 			{
 				gm.NextFragment = fragment;
 				gm.SetState(new FragmentState(gm));
 				return;
 			}
-
 			//Check if Puzzle 
-			Puzzle puzzle = inputEvent.GameObject.GetComponent<Puzzle>();
-			if (puzzle != null && inputEvent.InputType == InputType.TAP)
+			else if (puzzle != null && inputEvent.InputType == InputType.TAP)
 			{
 				gm.NextPuzzle = puzzle;
 				gm.SetState(new PuzzleState(gm));
@@ -88,7 +87,7 @@ public class RunState : GameState
 		cameraController.Update();
 		mothBehaviour.Update();
 		mothSounds.UpdateMothSounds();
-		CheckInput();
+		//CheckInput();
 	}
 
 	public override void InternalOnGUI()
