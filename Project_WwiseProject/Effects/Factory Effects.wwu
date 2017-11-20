@@ -7,7 +7,34 @@
 					<ChildrenList>
 						<Effect Name="Gentle_Program_Compressor_Minus_20dB_RMS" ID="{D3F1F88E-4123-4C05-946B-1B036BAC2DFD}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
 							<PropertyList>
-								<Property Name="Ratio" Type="Real32" Value="3"/>
+								<Property Name="Ratio" Type="Real32" Value="3">
+									<RTPCList>
+										<RTPC Name="" ID="{757282A9-1A3D-49AE-B323-41E7B271FEA0}" ShortID="913261096">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="HEADPHONE_IN" ID="{6771C04E-E0CE-451C-9979-69D566EF2973}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{A2FFFB87-CB60-4350-B522-F66454E01E28}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="1"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>4</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>1.5</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
 								<Property Name="Threshold" Type="Real32" Value="-20"/>
 							</PropertyList>
 						</Effect>
@@ -25,8 +52,8 @@
 						</Effect>
 						<Effect Name="Dialog_Leveler_Soft" ID="{9C1D0FCF-896E-4739-A8E8-B1E908F51CE6}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
 							<PropertyList>
-								<Property Name="Ratio" Type="Real32" Value="3"/>
-								<Property Name="Threshold" Type="Real32" Value="-20"/>
+								<Property Name="Ratio" Type="Real32" Value="2.8"/>
+								<Property Name="Threshold" Type="Real32" Value="-14.2"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Dialog_Leveler_Hard" ID="{865FB36F-8717-4D30-AD05-14E56375CD40}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
@@ -478,6 +505,7 @@
 										</Effect>
 										<Effect Name="Boost_3dB_100Hz" ID="{3EA7C9BD-6F9A-4000-A227-F86B5B4328EE}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 											<PropertyList>
+												<Property Name="FrequencyBand1" Type="Real32" Value="577"/>
 												<Property Name="GainBand1" Type="Real32" Value="3"/>
 												<Property Name="OnOffBand2" Type="bool" Value="False"/>
 												<Property Name="OnOffBand3" Type="bool" Value="False"/>

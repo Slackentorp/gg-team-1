@@ -253,7 +253,12 @@
 															<PropertyList>
 																<Property Name="Lowpass" Type="int16">
 																	<ValueList>
-																		<Value>27</Value>
+																		<Value>52</Value>
+																	</ValueList>
+																</Property>
+																<Property Name="Pitch" Type="int32">
+																	<ValueList>
+																		<Value>-430</Value>
 																	</ValueList>
 																</Property>
 															</PropertyList>
@@ -2232,7 +2237,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="SW007_Circuits_009_Electric_Hum_Buzz_Noisy" ID="{0264CD1F-D0D9-4A7F-BF90-B60978B5F585}" ShortID="950152680">
+								<Sound Name="Electric HUM" ID="{0264CD1F-D0D9-4A7F-BF90-B60978B5F585}" ShortID="950152680">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -2242,16 +2247,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="SW007_Circuits_009_Electric_Hum_Buzz_Noisy" ID="{91F35DA4-5538-4B17-BE2A-E665E13DC8E4}" ShortID="647019771">
+										<AudioFileSource Name="Electric Hum" ID="{91F35DA4-5538-4B17-BE2A-E665E13DC8E4}" ShortID="647019771">
 											<Language>SFX</Language>
 											<AudioFile>SW007_Circuits_009_Electric_Hum_Buzz_Noisy.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="SW007_Circuits_009_Electric_Hum_Buzz_Noisy" ID="{91F35DA4-5538-4B17-BE2A-E665E13DC8E4}" Platform="Linked"/>
+										<ActiveSource Name="Electric Hum" ID="{91F35DA4-5538-4B17-BE2A-E665E13DC8E4}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="VaeyanIII,massager,osscilations,switch,hispeed,mechanical,electrical,50Hz,hum,vibration,loopable" ID="{3361E9E9-BCDD-41DF-8C4A-957BE9C89CA4}" ShortID="596905789">
+								<Sound Name="Electric Noise" ID="{3361E9E9-BCDD-41DF-8C4A-957BE9C89CA4}" ShortID="596905789">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -2261,13 +2266,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="VaeyanIII,massager,osscilations,switch,hispeed,mechanical,electrical,50Hz,hum,vibration,loopable" ID="{C7544A48-E880-4F13-BB23-DDA031A22E5A}" ShortID="713230699">
+										<AudioFileSource Name="Electric Noise" ID="{C7544A48-E880-4F13-BB23-DDA031A22E5A}" ShortID="713230699">
 											<Language>SFX</Language>
 											<AudioFile>VaeyanIII,massager,osscilations,switch,hispeed,mechanical,electrical,50Hz,hum,vibration,loopable.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="VaeyanIII,massager,osscilations,switch,hispeed,mechanical,electrical,50Hz,hum,vibration,loopable" ID="{C7544A48-E880-4F13-BB23-DDA031A22E5A}" Platform="Linked"/>
+										<ActiveSource Name="Electric Noise" ID="{C7544A48-E880-4F13-BB23-DDA031A22E5A}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<BlendContainer Name="Fridge" ID="{A77E104E-0D05-4813-ADE6-7091152007DE}" ShortID="448703503">
@@ -2301,7 +2306,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Light_Hum_Street_Lamp_Lonely_PSEM_160" ID="{EF810569-4D7B-4CDB-8656-F2386D070E3D}" ShortID="738814159">
+										<Sound Name="Lonely Hum" ID="{EF810569-4D7B-4CDB-8656-F2386D070E3D}" ShortID="738814159">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
@@ -2418,7 +2423,7 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Light_Hum_Street_Lamp_Lonely_PSEM_160" ID="{2DC0D0A0-F0DA-486B-A1C7-ECB8FCA57445}" ShortID="687402096">
+												<AudioFileSource Name="Lonely Hum" ID="{2DC0D0A0-F0DA-486B-A1C7-ECB8FCA57445}" ShortID="687402096">
 													<PropertyList>
 														<Property Name="CrossfadeDuration" Type="Real64" Value="222"/>
 														<Property Name="LoopBegin" Type="Real64" Value="6.74319114391144"/>
@@ -2437,7 +2442,7 @@
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Light_Hum_Street_Lamp_Lonely_PSEM_160" ID="{2DC0D0A0-F0DA-486B-A1C7-ECB8FCA57445}" Platform="Linked"/>
+												<ActiveSource Name="Lonely Hum" ID="{2DC0D0A0-F0DA-486B-A1C7-ECB8FCA57445}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -2445,7 +2450,7 @@
 										<BlendTrack Name="New Blend Track" ID="{02323941-2FB6-486D-A2C1-77F30BC6AC6D}" ShortID="986055437">
 											<BlendTrackAssocList>
 												<BlendTrackAssoc>
-													<ItemRef Name="Light_Hum_Street_Lamp_Lonely_PSEM_160" ID="{EF810569-4D7B-4CDB-8656-F2386D070E3D}"/>
+													<ItemRef Name="Lonely Hum" ID="{EF810569-4D7B-4CDB-8656-F2386D070E3D}"/>
 												</BlendTrackAssoc>
 											</BlendTrackAssocList>
 										</BlendTrack>
@@ -4405,12 +4410,12 @@
 					<PropertyList>
 						<Property Name="UserAuxSendVolume0" Type="Real64">
 							<ValueList>
-								<Value>-17</Value>
+								<Value>-19</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>6</Value>
+								<Value>-1</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -9662,9 +9667,6 @@
 						<RandomSequenceContainer Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" ShortID="447906857">
 							<PropertyList>
 								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>31</Value>
-									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{3587231B-19AF-413E-AD3D-488E0EA737A2}">
@@ -9678,7 +9680,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-14</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -9724,6 +9726,44 @@
 										<ActiveSource Name="FRAGMENT_START" ID="{D83A7BDB-F4C8-41F3-842C-747DA4BCE0C1}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="FRAGMENT_START_1" ID="{2D7EDEB7-1278-48AB-8262-FF6856145DE2}" ShortID="754001040">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FRAGMENT_START_1" ID="{EE850E60-9531-49AA-A79F-DF3A2EF89E28}" ShortID="914615725">
+											<Language>SFX</Language>
+											<AudioFile>FRAGMENT_START_1.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FRAGMENT_START_1" ID="{EE850E60-9531-49AA-A79F-DF3A2EF89E28}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="FRAGMENT_START_2" ID="{FE0A2228-4EA0-4E3F-A00A-94AC3465B0BC}" ShortID="554549512">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FRAGMENT_START_2" ID="{732FA82F-67C5-46A2-840C-5F99185AF258}" ShortID="1010715437">
+											<Language>SFX</Language>
+											<AudioFile>FRAGMENT_START_2.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FRAGMENT_START_2" ID="{732FA82F-67C5-46A2-840C-5F99185AF258}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="End" ID="{07948E0D-F5D3-4CFB-9088-83C9CF12AE2A}" ShortID="869861778">
@@ -9758,6 +9798,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="FRAGMENT_END" ID="{E737DA83-E604-4180-BDE9-33DE8A4621F9}" ShortID="468520413">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -9769,7 +9816,9 @@
 									<ChildrenList>
 										<AudioFileSource Name="FRAGMENT_END" ID="{BFCFEA6A-638D-490C-A108-9419DB3065BC}" ShortID="52370042">
 											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="1.09783260118315"/>
 												<Property Name="FadeOutDuration" Type="Real64" Value="2.78680583377262"/>
+												<Property Name="TrimBegin" Type="Real64" Value="1.41149905866406"/>
 												<Property Name="TrimEnd" Type="Real64" Value="8.11913561094795"/>
 											</PropertyList>
 											<Language>SFX</Language>
