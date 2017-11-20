@@ -76,6 +76,7 @@ public class RunState : GameState
         gm.mothBehaviour.Update();
         gm.mothSounds.UpdateMothSounds();
         CheckInput();
+        gm.HeadsetStateUIText.text = gm.InputManager.GetHeadsetState() ? "Headset plugged in" : "Headset not plugged in";
     }
 
     public override void InternalOnGUI()
