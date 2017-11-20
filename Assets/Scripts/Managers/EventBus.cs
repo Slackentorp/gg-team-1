@@ -76,7 +76,7 @@ public class EventBus : Singleton<EventBus>
 		}
 	}
 
-	public void AddPuzzleListerer(string eventName,
+	public void AddPuzzleListener(string eventName,
 	   Puzzle component)
 	{
 		List<Puzzle> lst;

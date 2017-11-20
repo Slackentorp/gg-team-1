@@ -20,7 +20,7 @@ public class PuzzleState : GameState {
 
 	public override void OnStateEnter()
 	{
-		AkSoundEngine.PostEvent("CAMERA_MOVE", gm.GameCamera);
+		//AkSoundEngine.PostEvent("CAMERA_MOVE", gm.GameCamera);
 		//gm.NextPuzzle.Play(EndOfPuzzleCallback);
 		cameraController = new CameraController(gm.GameCamera.transform, 2, 1, 1, gm.Moth.transform, false, true);
 		originPos = gm.GameCamera.transform.position;
@@ -54,7 +54,8 @@ public class PuzzleState : GameState {
 		float t = gm.PuzzleLerpCurve.Evaluate(time * speed); 
 
 		Vector3 position;
-		position = Vector3.Lerp(originPos, gm.NextPuzzle.transform.position + gm.NextPuzzle.CamPosition, t);
+		//position = Vector3.Lerp(originPos, gm.NextPuzzle.transform.position + gm.NextPuzzle.CamPosition, t);
+		position = Vector3.Lerp(originPos, Vector3.zero, t);
 
 		Vector3 forward;
 		forward = Vector3.Lerp(originForward, gm.NextPuzzle.CamForward, t); 
