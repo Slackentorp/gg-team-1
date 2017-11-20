@@ -22,7 +22,7 @@ public class FragmentState : GameState
 	{
 		AkSoundEngine.PostEvent("CAMERA_MOVE", gm.GameCamera);
 		gm.NextFragment.Play(EndOfFragmentCallback);
-		cameraController = new CameraController(gm.GameCamera.transform, 2, 1, 1, gm.Moth.transform, true);
+		cameraController = new CameraController(gm.GameCamera.transform, 2, 1, 1, gm.Moth.transform, true, false);
 		originPos = gm.GameCamera.transform.position;
 		originForward = gm.GameCamera.transform.forward;
 		originRotation = gm.GameCamera.transform.rotation;

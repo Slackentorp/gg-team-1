@@ -22,7 +22,7 @@ public class PuzzleState : GameState {
 	{
 		AkSoundEngine.PostEvent("CAMERA_MOVE", gm.GameCamera);
 		//gm.NextPuzzle.Play(EndOfPuzzleCallback);
-		cameraController = new CameraController(gm.GameCamera.transform, 2, 1, 1, gm.Moth.transform, true);
+		cameraController = new CameraController(gm.GameCamera.transform, 2, 1, 1, gm.Moth.transform, false, true);
 		originPos = gm.GameCamera.transform.position;
 		originForward = gm.GameCamera.transform.forward;
 		originRotation = gm.GameCamera.transform.rotation;

@@ -26,6 +26,7 @@ public class CameraController
 	Vector3 initialHeading;
 	Vector3 flattened;
 	private bool fragmentMode;
+	private bool puzzleMode;
 
 	Vector3 headingProjected, upProjected;
 
@@ -75,14 +76,13 @@ public class CameraController
 	public void Update()
 	{
 
-		if (true)
+		if (puzzleMode)
 		{
-
+			RotateCameraAroundSelf();
 		}
-
 		if(fragmentMode)
 		{
-			//RotateCameraAroundSelf();
+			RotateCameraAroundSelf();
 		} else {
 			RotateAroundMoth();
 			transform.position = heading + targetPos.position;
@@ -99,7 +99,8 @@ public class CameraController
 
 
 	public CameraController(Transform transform, float maxDistance, float followSpeed, 
-							float cameraTurnSpeed, Transform target, bool fragmentMode)
+							float cameraTurnSpeed, Transform target, bool fragmentMode, 
+							bool puzzleMode)
 	{
 		this.transform = transform;
 		this.maxDistance = maxDistance;
@@ -107,12 +108,64 @@ public class CameraController
 		this.cameraTurnSpeed = cameraTurnSpeed;
 		this.targetPos = target;
 		this.fragmentMode = fragmentMode;
+		this.puzzleMode = puzzleMode;
 
 		Vector3 reference = transform.rotation.eulerAngles;
 		reference.z = 0;
 		transform.rotation = Quaternion.Euler(reference);
 		heading = transform.position - targetPos.position;
 		initialHeading = transform.position - targetPos.position;
+	}
+	private void RotateCameraAroundSelf()
+	{
+		float newAngleY = 0, newAngleX = 0;
+#if UNITY_EDITOR
+		if (Input.GetMouseButton(0) && !InputManager.isTouchingObject
+			&& !isMouseTouchingObject)
+		{
+			newAngleY =
+				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
+			newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
+		}
+#endif
+		if (Input.touchCount > 0 && !InputManager.isTouchingObject
+			&& !isMouseTouchingObject)
+		{
+			newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
+						10;
+			newAngleX = Input.touches[0].deltaPosition.y *
+						cameraTurnSpeed / 10;
+		}
+
+		if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
+			!(newAngleY < 0))
+		{
+			return;
+		}
+
+		// Horizontal rotation(Yaw)
+		Vector3 localUpAxis =
+			transform.InverseTransformDirection(Vector3.up);
+		transform.rotation *=
+			Quaternion.AngleAxis(newAngleY, localUpAxis);
+
+		// Vertical rotation (Pitch)
+		Quaternion q = Quaternion.AngleAxis(newAngleX, Vector3.right);
+		Quaternion finalRot = transform.rotation * q;
+		Vector3 transformed = finalRot * Vector3.up;
+
+		// Project the transformed vector onto the Right axis
+		Vector3 flattened = transformed -
+							Vector3.Dot(transformed, Vector3.right) *
+							Vector3.right;
+		flattened = flattened.normalized;
+		float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
+
+		if (a < 1.5f)
+		{
+			transform.rotation *= q;
+		}
+
 	}
 
 	void RotateAroundMoth()
@@ -199,58 +252,7 @@ public class CameraController
 
 
 
-	//	private void RotateCameraAroundSelf()
-	//	{
-	//		float newAngleY = 0, newAngleX = 0;
-	//#if UNITY_EDITOR
-	//		if (Input.GetMouseButton(0) && !InputManager.isTouchingObject
-	//			&& !isMouseTouchingObject)
-	//		{
-	//			newAngleY =
-	//				-Input.GetAxis("Mouse X") * cameraTurnSpeed;
-	//			newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
-	//		}
-	//#endif
-	//		if (Input.touchCount > 0 && !InputManager.isTouchingObject
-	//			&& !isMouseTouchingObject)
-	//		{
-	//			newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
-	//						10;
-	//			newAngleX = Input.touches[0].deltaPosition.y *
-	//						cameraTurnSpeed / 10;
-	//		}
-
-	//		if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
-	//			!(newAngleY < 0))
-	//		{
-	//			return;
-	//		}
-
-	//		// Horizontal rotation(Yaw)
-	//		Vector3 localUpAxis =
-	//			transform.InverseTransformDirection(Vector3.up);
-	//		transform.rotation *=
-	//			Quaternion.AngleAxis(newAngleY, localUpAxis);
-
-	//		// Vertical rotation (Pitch)
-	//		Quaternion q = Quaternion.AngleAxis(newAngleX, Vector3.right);
-	//		Quaternion finalRot = transform.rotation * q;
-	//		Vector3 transformed = finalRot * Vector3.up;
-
-	//		// Project the transformed vector onto the Right axis
-	//		Vector3 flattened = transformed -
-	//							Vector3.Dot(transformed, Vector3.right) *
-	//							Vector3.right;
-	//		flattened = flattened.normalized;
-	//		float a = Mathf.Acos(Vector3.Dot(Vector3.up, flattened));
-
-	//		if (a < 1.5f)
-	//		{
-	//			transform.rotation *= q;
-	//		}
-
-	//	}
-
+	//	
 
 	/*private void MoveCameraToStoryBit()
 	{
