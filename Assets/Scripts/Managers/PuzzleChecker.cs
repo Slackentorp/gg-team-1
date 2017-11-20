@@ -36,7 +36,7 @@ public class PuzzleChecker : MonoBehaviour
     {
         //if (Input.GetKeyDown(KeyCode.F1))
         //{
-            UpdatePuzzels();
+      //      UpdatePuzzels();
         //}
         if (Input.GetKeyDown(KeyCode.F2))
         {
