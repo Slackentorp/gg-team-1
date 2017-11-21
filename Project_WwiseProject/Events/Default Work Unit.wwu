@@ -1072,7 +1072,8 @@
 								<Action Name="" ID="{47370BCD-154A-42FF-8682-41E7E5BF1C67}" ShortID="218390836">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
-										<Property Name="Delay" Type="Real64" Value="1.5"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+										<Property Name="FadeTime" Type="Real64" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2020,13 +2021,13 @@
 						</Event>
 						<Event Name="STORYEVENT_2" ID="{6778A77D-1D6E-4EEE-8625-C844B0CA74E6}">
 							<ChildrenList>
-								<Action Name="" ID="{308EFD0F-55AB-4AA3-9DC5-7E0544BAF7DB}" ShortID="573450892">
+								<Action Name="" ID="{8C67F1F1-CAB6-4D1D-82E1-C98505ABC647}" ShortID="238655563">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Storyevent 2" ID="{0351D80D-43D7-4FDD-87B8-728F4A7F403D}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+											<ObjectRef Name="Storyevent 2" ID="{E0D36794-6A2F-44D3-B29E-252F071BC410}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -2308,6 +2309,54 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Noise sequence" ID="{2C466693-9997-4858-97F0-C2A817418EBB}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ANSWERING_TRIGGER" ID="{6C22D995-312B-4427-AE35-FBBEA51AB7D6}">
+					<ChildrenList>
+						<Action Name="" ID="{2B787352-3ADA-4602-8F35-467229AB9744}" ShortID="190506044">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Phone Ringing" ID="{1FEC86DB-6649-4ABE-BFFE-D9781A181307}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{0A56A461-A1AA-4660-AAA1-984188871976}" ShortID="468446801">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Answering" ID="{854AB27B-83C6-4AAC-8845-F12201DFC5EA}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{BA4BA5BB-8466-4640-9893-C216A0180CA9}" ShortID="5662547">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Beep" ID="{F82682C9-42FB-4996-9A75-038E9F0F7AFA}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="TRIGGEREDSOUND_ANSWERING" ID="{7863DC47-3622-4919-AED8-D64684CF3AF4}">
+					<ChildrenList>
+						<Action Name="" ID="{9C135F0A-D4A3-4A1C-9F72-D46675938C05}" ShortID="325793937">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Phone Ringing" ID="{1FEC86DB-6649-4ABE-BFFE-D9781A181307}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
