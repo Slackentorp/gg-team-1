@@ -21,7 +21,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1101 &1101095727656950888
+--- !u!1101 &1101268097735289160
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -29,7 +29,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102790464929247276}
+  m_DstState: {fileID: 1102338470189547144}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -42,13 +42,13 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &1102790464929247276
+--- !u!1102 &1102338470189547144
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Language fadeout
+  m_Name: LanguageSelect Fadeout
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -61,7 +61,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e1af38cc850a2814686391264f4a94dd, type: 2}
+  m_Motion: {fileID: 7400000, guid: e358e64be85d3824d9274b8606eef112, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -102,13 +102,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102837613313873276}
-    m_Position: {x: 324, y: 84, z: 0}
+    m_Position: {x: 336, y: 192, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102790464929247276}
-    m_Position: {x: 276, y: 24, z: 0}
+    m_State: {fileID: 1102338470189547144}
+    m_Position: {x: 311, y: 89, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
-  - {fileID: 1101095727656950888}
+  - {fileID: 1101268097735289160}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []

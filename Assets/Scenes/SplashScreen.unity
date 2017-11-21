@@ -528,8 +528,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 493183645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 560.3318, y: 239.03687, z: -26.51423}
-  m_LocalScale: {x: 2.56, y: 2.56, z: 2.56}
+  m_LocalPosition: {x: -254.66817, y: -267.46313, z: -26.51423}
+  m_LocalScale: {x: 0.87166667, y: 0.87166667, z: 0.87166667}
   m_Children:
   - {fileID: 1696905162}
   - {fileID: 1612906282}
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Splash: {fileID: 11400000, guid: 7cf9ef900efb78b4e917203261c14aa5, type: 2}
   timeToPauseStart: 27.416
-  timeToPauseLanguage: 11.283
+  timeToPauseLanguage: 11.3
   timeToLoadLevel: 36.25
   timeSkipToMenu: 17.583
 --- !u!4 &730991618
@@ -1142,7 +1142,7 @@ PlayableDirector:
     value: {fileID: 493183651}
   - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 114992118119903064, guid: 7cf9ef900efb78b4e917203261c14aa5, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: 114880258645355812, guid: 5668d0f37cc091d49a3294dff1c2f1d4, type: 2}
     value: {fileID: 1585906027}
@@ -1168,9 +1168,9 @@ PlayableDirector:
     value: {fileID: 1585906026}
   - key: {fileID: 114889088361704408, guid: 5668d0f37cc091d49a3294dff1c2f1d4, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 114681785177058890, guid: 7cf9ef900efb78b4e917203261c14aa5, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 114940284824696296, guid: 7cf9ef900efb78b4e917203261c14aa5, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: 114998290317879840, guid: 7cf9ef900efb78b4e917203261c14aa5, type: 2}
     value: {fileID: 1585906027}
@@ -1196,6 +1196,14 @@ PlayableDirector:
     value: {fileID: 607201923}
   - key: {fileID: 114309582800416270, guid: 7cf9ef900efb78b4e917203261c14aa5, type: 2}
     value: {fileID: 607201916}
+  - key: {fileID: 0}
+    value: {fileID: 938751083}
+  - key: {fileID: 114209760164705744, guid: 7cf9ef900efb78b4e917203261c14aa5, type: 2}
+    value: {fileID: 938751081}
+  - key: {fileID: 114523593021271042, guid: 7cf9ef900efb78b4e917203261c14aa5, type: 2}
+    value: {fileID: 1571208697}
+  - key: {fileID: 114195395369066628, guid: 7cf9ef900efb78b4e917203261c14aa5, type: 2}
+    value: {fileID: 938751081}
   m_ExposedReferences:
     m_References:
     - dc2947cc954f01d42988533611cee736: {fileID: 0}
@@ -1423,8 +1431,9 @@ GameObject:
   - component: {fileID: 938751082}
   - component: {fileID: 938751085}
   - component: {fileID: 938751084}
-  - component: {fileID: 938751083}
   - component: {fileID: 938751086}
+  - component: {fileID: 938751083}
+  - component: {fileID: 938751087}
   m_Layer: 5
   m_Name: Best Experience
   m_TagString: Untagged
@@ -1460,7 +1469,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &938751084
 MonoBehaviour:
@@ -1547,6 +1556,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!95 &938751087
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938751081}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4da83be2bc5927048834a93d2d5d23e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &946170338
 GameObject:
   m_ObjectHideFlags: 0
