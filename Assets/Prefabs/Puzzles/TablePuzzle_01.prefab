@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114616303324344634}
   m_Layer: 8
   m_Name: Piece 5
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114394915768640386}
   m_Layer: 8
   m_Name: Piece 4
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 114009260699267592}
   m_Layer: 8
   m_Name: Piece 2
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 114653164197857854}
   m_Layer: 8
   m_Name: Piece 3
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 114144386346221470}
   m_Layer: 8
   m_Name: Piece 1
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4291849463799704}
-  - component: {fileID: 114606154662044080}
+  - component: {fileID: 65182293210676774}
+  - component: {fileID: 114178781446067740}
   m_Layer: 0
   m_Name: TablePuzzle_01
   m_TagString: Untagged
@@ -441,6 +442,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1047497149752236}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65182293210676774
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966400161502800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65211072183622928
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -512,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
+  controller: {fileID: 0}
   originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: 0.015, y: 0.046, z: 0.06}
@@ -536,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
+  controller: {fileID: 0}
   originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: -0.11, y: 0.048, z: -0.03}
@@ -549,6 +562,26 @@ MonoBehaviour:
     X: 1
     Y: 0
     Z: 1
+--- !u!114 &114178781446067740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966400161502800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd4e3332699715479d69a54addeff02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPosition: {x: 0, y: 0, z: 0}
+  cameraOrientation: {x: 0, y: 0, z: 0}
+  mercyDistance: 0
+  boundingBoxSize: {x: 1, y: 1, z: 1}
+  boundingBoxOffset: {x: 0, y: 0, z: 0}
+  puzzleId: 
+  x: 0
+  y: 0
+  z: 0
 --- !u!114 &114394915768640386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -560,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
+  controller: {fileID: 0}
   originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: 0, y: 0.042, z: -0.06}
@@ -573,31 +606,6 @@ MonoBehaviour:
     X: 1
     Y: 0
     Z: 1
---- !u!114 &114606154662044080
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1966400161502800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cb131e87bff2df46b0c517e6eaa5025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onSolvedWwiseEvent: Photograph_1
-  onSolvedStorybitName: STORYBITE_COMBINATIONS
-  onIncorrectPlacementWwiseEvent: 
-  onPickupWwiseEvent: 
-  particles: {fileID: 1918610274402170}
-  isSolved: 0
-  mercySquaredDistance: 0.0013
-  mercyRotation: 0
-  onCorrectWwiseEvent: 
-  onCorrectBrightness: 1
-  bounds: {x: 0, y: 0, z: 0}
-  raiseAmount: 0.15
-  feedforwardPrefab: {fileID: 1353859259595656, guid: a09623a1974b06b4dba0d7af362240e1,
-    type: 2}
 --- !u!114 &114616303324344634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -609,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
+  controller: {fileID: 0}
   originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: -0.07, y: 0.04, z: 0.04}
@@ -633,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
+  controller: {fileID: 0}
   originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: 0.08, y: 0.044, z: -0.01}
