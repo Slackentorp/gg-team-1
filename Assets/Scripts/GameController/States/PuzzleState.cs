@@ -79,7 +79,6 @@ public class PuzzleState : GameState {
         if (currentPuzzle != null)
         {
             currentPuzzle.UpdatePuzzle();
-            Debug.Log("HEY"); 
         }
 
         if (currentPuzzle.IsSolved)
