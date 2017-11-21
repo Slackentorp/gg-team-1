@@ -2,7 +2,6 @@
 using Gamelogic.Extensions;
 using UnityEngine;
 
-/// maybe this works - Jon
 /// <summary>
 /// Touch input specifically for light sources
 /// </summary>
