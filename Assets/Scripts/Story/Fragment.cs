@@ -47,11 +47,19 @@ public class Fragment : MonoBehaviour
     public void Play(EasyWwiseCallback Callback)
     {
         HasPlayed = true;
-        FragmentCall();
+        OnFragmentCall();
         Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject, 
                         (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, storyFragment);
+    }
+
+    private void OnFragmentCall()
+    {
+        if (FragmentCall != null)
+        {
+            FragmentCall(); 
+        }
     }
     
     void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)

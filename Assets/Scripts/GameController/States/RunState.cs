@@ -24,7 +24,7 @@ public class RunState : GameState
             // Check if wall
             if (inputEvent.GameObject.CompareTag("Wall") && inputEvent.InputType == InputType.TAP)
             {
-                Debug.Log("Ey I'm flying'ere");
+               // Debug.Log("Ey I'm flying'ere");
                 gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit);
                 return;
             }
@@ -36,6 +36,7 @@ public class RunState : GameState
                 gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit);
                 gm.NextFragment = fragment;
                 gm.SetState(new FragmentState(gm));
+               // Debug.Log("Pffth");
                 return;
             }
             else
