@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114616303324344634}
   m_Layer: 8
   m_Name: Piece 5
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114394915768640386}
   m_Layer: 8
   m_Name: Piece 4
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 114009260699267592}
   m_Layer: 8
   m_Name: Piece 2
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 114653164197857854}
   m_Layer: 8
   m_Name: Piece 3
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 114144386346221470}
   m_Layer: 8
   m_Name: Piece 1
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4291849463799704}
-  - component: {fileID: 114606154662044080}
+  - component: {fileID: 65761593778439788}
+  - component: {fileID: 114923465121084934}
   m_Layer: 0
   m_Name: TablePuzzle_01
   m_TagString: Untagged
@@ -146,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1450326893204286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2577, y: 0.0049, z: 0.2162}
+  m_LocalPosition: {x: 0.018, y: 0.0049, z: 0.032}
   m_LocalScale: {x: 0.14, y: 0.0009999999, z: 0.19}
   m_Children: []
   m_Father: {fileID: 4291849463799704}
@@ -159,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966400161502800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.938051, y: 9.038, z: 12.591}
+  m_LocalPosition: {x: -2.939, y: 0.441, z: 2.075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4411563000696014}
@@ -191,7 +192,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1725103748533716}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07969999, y: 0.0038, z: 0.09969999}
+  m_LocalPosition: {x: 0.08, y: 0.0038, z: -0.036}
   m_LocalScale: {x: 0.14, y: 0.0009999999, z: 0.19}
   m_Children: []
   m_Father: {fileID: 4291849463799704}
@@ -204,7 +205,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803167733557224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.154, y: 0.0058, z: -0.126}
+  m_LocalPosition: {x: -0.1, y: 0.0058, z: -0.063}
   m_LocalScale: {x: 0.14, y: 0.0009999999, z: 0.19}
   m_Children: []
   m_Father: {fileID: 4291849463799704}
@@ -217,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1047497149752236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.424, y: 0.0028, z: 0.153}
+  m_LocalPosition: {x: -0.0639, y: 0.0028, z: 0.0206}
   m_LocalScale: {x: 0.14, y: 0.0009999999, z: 0.19}
   m_Children: []
   m_Father: {fileID: 4291849463799704}
@@ -230,7 +231,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124200097727114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.268, y: 0.0033, z: -0.128}
+  m_LocalPosition: {x: -0.001, y: 0.0033, z: -0.082}
   m_LocalScale: {x: 0.14, y: 0.001, z: 0.19}
   m_Children: []
   m_Father: {fileID: 4291849463799704}
@@ -501,6 +502,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65761593778439788
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966400161502800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114009260699267592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -512,15 +525,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
-  originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: 0.015, y: 0.046, z: 0.06}
   correctRotation: {x: 0, y: 0, z: 0}
-  gizmoColor: {r: 1, g: 0, b: 0.84827566, a: 0.5}
   pickupWwiseEvent: 
   placeWwiseEvent: 
-  gizmoMaterial: {fileID: 0}
   Directions:
     X: 1
     Y: 0
@@ -536,15 +545,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
-  originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: -0.11, y: 0.048, z: -0.03}
   correctRotation: {x: 0, y: 0, z: 0}
-  gizmoColor: {r: 1, g: 0, b: 0, a: 0.5}
   pickupWwiseEvent: 
   placeWwiseEvent: 
-  gizmoMaterial: {fileID: 0}
   Directions:
     X: 1
     Y: 0
@@ -560,44 +565,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
-  originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: 0, y: 0.042, z: -0.06}
   correctRotation: {x: 0, y: 0, z: 0}
-  gizmoColor: {r: 0, g: 0.7931032, b: 1, a: 0.5}
   pickupWwiseEvent: 
   placeWwiseEvent: 
-  gizmoMaterial: {fileID: 0}
   Directions:
     X: 1
     Y: 0
     Z: 1
---- !u!114 &114606154662044080
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1966400161502800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cb131e87bff2df46b0c517e6eaa5025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onSolvedWwiseEvent: Photograph_1
-  onSolvedStorybitName: STORYBITE_COMBINATIONS
-  onIncorrectPlacementWwiseEvent: 
-  onPickupWwiseEvent: 
-  particles: {fileID: 1918610274402170}
-  isSolved: 0
-  mercySquaredDistance: 0.0013
-  mercyRotation: 0
-  onCorrectWwiseEvent: 
-  onCorrectBrightness: 1
-  bounds: {x: 0, y: 0, z: 0}
-  raiseAmount: 0.15
-  feedforwardPrefab: {fileID: 1353859259595656, guid: a09623a1974b06b4dba0d7af362240e1,
-    type: 2}
 --- !u!114 &114616303324344634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -609,15 +585,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
-  originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: -0.07, y: 0.04, z: 0.04}
   correctRotation: {x: 0, y: 0, z: 0}
-  gizmoColor: {r: 0, g: 1, b: 0.2551725, a: 0.5}
   pickupWwiseEvent: 
   placeWwiseEvent: 
-  gizmoMaterial: {fileID: 0}
   Directions:
     X: 1
     Y: 0
@@ -633,19 +605,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2f5764ca16eae48a2eb1dc9706b29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114606154662044080}
-  originPosition: {x: -1.206, y: 0.3445, z: 0.527}
   isCorrect: 0
   correctPostion: {x: 0.08, y: 0.044, z: -0.01}
   correctRotation: {x: 0, y: 0, z: 0}
-  gizmoColor: {r: 0.07586192, g: 0, b: 1, a: 0.5}
   pickupWwiseEvent: 
   placeWwiseEvent: 
-  gizmoMaterial: {fileID: 0}
   Directions:
     X: 1
     Y: 0
     Z: 1
+--- !u!114 &114923465121084934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966400161502800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd4e3332699715479d69a54addeff02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPosition: {x: 0, y: 0.63, z: 0.67}
+  cameraOrientation: {x: 0, y: 0, z: 0}
+  mercyDistance: 0.13
+  boundingBoxSize: {x: 1, y: 0.07, z: 0.66}
+  boundingBoxOffset: {x: 0, y: 0, z: 0}
+  puzzleId: 
+  x: 1
+  y: 0
+  z: 1
 --- !u!198 &198953062714034716
 ParticleSystem:
   m_ObjectHideFlags: 1
