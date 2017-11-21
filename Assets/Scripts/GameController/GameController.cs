@@ -101,7 +101,7 @@ public class GameController : Singleton<GameController>
     private void CheckInput()
     {
         InputEvent inputEvent = InputManager.CheckInput();
-
+        
         if (inputEvent.GameObject != null)
         {
             // Check if wall
@@ -126,6 +126,8 @@ public class GameController : Singleton<GameController>
             {
                 NextPuzzle = puzzle;
                 SetState(new PuzzleState(this));
+                PuzzleState newState = (PuzzleState)currentState;
+                newState.currentPuzzle = puzzle; 
                 return;
             }
             else

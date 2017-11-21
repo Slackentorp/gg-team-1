@@ -42,7 +42,7 @@ public class CombinationPuzzleController : BasePuzzle
         pictureFrames = GetComponentsInChildren<PictureFrameTouch>();
         foreach (var frame in pictureFrames)
         {
-            frame.controller = this;
+            //frame.controller = this;
         }
     }
 
@@ -66,6 +66,7 @@ public class CombinationPuzzleController : BasePuzzle
                 GameObject particle =
                     Instantiate(feedforwardPrefab, spawnPos, spawnRot);
                 particle.name = frame.name + "_feedforward";
+                particle.transform.SetParent(transform); 
             }
         }
     }
