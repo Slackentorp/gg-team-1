@@ -33,6 +33,7 @@ public class Fragment : MonoBehaviour
         }
     }
 
+    
     public delegate void FragmentAction();
     public static event FragmentAction FragmentCall;
 
@@ -47,19 +48,54 @@ public class Fragment : MonoBehaviour
     public void Play(EasyWwiseCallback Callback)
     {
         HasPlayed = true;
-        FragmentCall();
+        //   FragmentCall(); // THIS NEEDS TO BE NOT COMMENTED IN THE REAL VERSION!!!!
         Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
-        uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject, 
-                        (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+        //uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject,  (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_EndOfEvent | (uint)AkCallbackType.AK_Duration, EndOfEventCallback , Callback);
+        uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject,
+                        (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_Duration
+                      | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, storyFragment);
+        EndFragment.Instance.EndFragments(markerId, storyFragment);
     }
-    
-    void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
+    public int counter = 0;
+    private float[] fragmentDurations = new float[2];
+    public bool fragmentIsOn = false;
+    [SerializeField]
+     void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
     {
         var t = sender as EasyWwiseCallback;
-        if (t != null)
+        //  AkDurationCallbackInfo durationInfo = callbackType;
+
+        if (callbackType == AkCallbackType.AK_Duration)
         {
-            t.Invoke();
+            var i = info as AkDurationCallbackInfo;
+           // Debug.Log("That's the real duration:" + i.fEstimatedDuration);
+            //Debug.Log("Duration brah: " + i.fDuration +" Playing ID: " + i.playingID + " Media ID: " +i.mediaID);
+            
+            fragmentDurations[counter] = i.fDuration;
+             Debug.Log(fragmentDurations[counter]);
+
+            if (counter == 1)
+            {
+
+                fragmentIsOn = true;
+                EndFragment.Instance.Durations(fragmentDurations[1], fragmentIsOn);
+                
+            }
+
+            counter++;
+            if(counter==2)
+            {
+                counter = 0;
+            }//LOGICAL PROBLEMS HERE maybe
+        }
+        else if (callbackType == AkCallbackType.AK_EndOfEvent)
+        {
+           // Debug.Log("End of event: " + callbackType);
+            if (t != null)
+            {
+                t.Invoke();
+            }
         }
     }
 
