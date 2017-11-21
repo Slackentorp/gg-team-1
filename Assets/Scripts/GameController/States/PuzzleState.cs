@@ -95,6 +95,8 @@ public class PuzzleState : GameState
         }
         else
         {
+            gm.tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>();
+            gm.NextPuzzle = gm.tutorialPuzzle;
             currentPuzzle = gm.NextPuzzle; 
         }
         //else
