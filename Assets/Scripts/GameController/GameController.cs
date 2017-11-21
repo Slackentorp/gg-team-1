@@ -31,12 +31,17 @@ public class GameController : Singleton<GameController>
 
     public AnimationCurve PuzzleLerpCurve;
 
+    [SerializeField]
+    private Puzzle tutorialPuzzle; 
+
 
     private GameState currentState;
 
     // Use this for initialization
     void Start()
     {
+        tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
+        NextPuzzle = tutorialPuzzle;
         SetState(new LoadState(this));
     }
 

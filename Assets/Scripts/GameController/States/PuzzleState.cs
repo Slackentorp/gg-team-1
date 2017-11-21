@@ -18,8 +18,11 @@ public class PuzzleState : GameState
 
     public Puzzle currentPuzzle = null;
 
+    
+
     public PuzzleState(GameController gm) : base(gm)
     {
+        Puzzle.PuzzleCall += CallFragment;
     }
 
     public override void OnStateEnter()
@@ -49,6 +52,7 @@ public class PuzzleState : GameState
         gm.NextPuzzle = null;
         gm.GameCamera.transform.position = originPos;
         gm.GameCamera.transform.forward = originForward;
+        Puzzle.PuzzleCall -= CallFragment;
     }
 
     public override void Tick()
@@ -82,18 +86,28 @@ public class PuzzleState : GameState
         if (currentPuzzle != null)
         {
             currentPuzzle.UpdatePuzzle();
-        }
 
-        if (currentPuzzle.IsSolved)
+            if (currentPuzzle.IsSolved)
+            {
+                gm.SetState(new RunState(gm));
+                //Debug.Log("I'm solved"); 
+            }
+        }
+        else
         {
-            gm.SetState(new RunState(gm));
-            //Debug.Log("I'm solved"); 
+            currentPuzzle = gm.NextPuzzle; 
         }
         //else
         //{
         //	cameraController.Update();
         //}
 
+    }
+
+    private void CallFragment(GameObject puzzleObj)
+    {
+        gm.NextFragment = puzzleObj.GetComponent<Fragment>();
+        gm.SetState(new FragmentState(gm)); 
     }
 
     void CheckInput()
