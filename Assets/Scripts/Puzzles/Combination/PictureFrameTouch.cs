@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Gamelogic.Extensions;
 using UnityEngine;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class PictureFrameTouch : MonoBehaviour, ITouchInput
 {
     //[HideInInspector]
@@ -27,28 +27,28 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
     [SerializeField, Tooltip("Allowed directions to move")]
     private BasePuzzle.DirectionsStruct Directions;
-    
+
     private Vector3 distanceWorldPos;
     //private Renderer cachedRenderer;
     //private MeshFilter cachedMeshFilter;
     private float startY;
 
-//#if UNITY_EDITOR
-//    private void OnEnable() {
-//        UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
-//        UnityEditor.SceneView.onSceneGUIDelegate += OnSceneGUI;
-//        internalGizmoMaterial = new Material(gizmoMaterial);
-//    }
+    //#if UNITY_EDITOR
+    //    private void OnEnable() {
+    //        UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
+    //        UnityEditor.SceneView.onSceneGUIDelegate += OnSceneGUI;
+    //        internalGizmoMaterial = new Material(gizmoMaterial);
+    //    }
 
-//    private void OnDisable() {
-//        UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
-//    }
+    //    private void OnDisable() {
+    //        UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
+    //    }
 
-//    private void OnSceneGUI(UnityEditor.SceneView sceneView) {
+    //    private void OnSceneGUI(UnityEditor.SceneView sceneView) {
 
-//       // Draw(sceneView.camera);
-//    }
-//#endif
+    //       // Draw(sceneView.camera);
+    //    }
+    //#endif
 
 
 
@@ -99,7 +99,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         //}
         distanceWorldPos = worldPos - transform.position;
 
-        
+
         PlayEvent(pickupWwiseEvent);
     }
 
@@ -113,23 +113,26 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         //{
         //    controller.CheckForSolution(this);
         //}
-     //   AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
+        //   AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
     public void OnToucHold(Vector3 worldPos)
     {
         if (isCorrect)
-            return; 
+            return;
 
         Vector3 newPosition = worldPos - distanceWorldPos;
 
-        if (!Directions.X) {
+        if (!Directions.X)
+        {
             newPosition.x = transform.position.x;
         }
-        if (!Directions.Y) {
+        if (!Directions.Y)
+        {
             newPosition.y = transform.position.y;
         }
-        if (!Directions.Z) {
+        if (!Directions.Z)
+        {
             newPosition.z = transform.position.z;
         }
         transform.position = newPosition;
