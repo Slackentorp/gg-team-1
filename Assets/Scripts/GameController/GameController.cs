@@ -31,8 +31,8 @@ public class GameController : Singleton<GameController>
 
     public AnimationCurve PuzzleLerpCurve;
 
-    [SerializeField]
-    private Puzzle tutorialPuzzle; 
+    [HideInInspector]
+    public Puzzle tutorialPuzzle; 
 
 
     private GameState currentState;
@@ -40,8 +40,8 @@ public class GameController : Singleton<GameController>
     // Use this for initialization
     void Start()
     {
-        tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
-        NextPuzzle = tutorialPuzzle;
+        //tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
+        //NextPuzzle = tutorialPuzzle;
         SetState(new LoadState(this));
     }
 
