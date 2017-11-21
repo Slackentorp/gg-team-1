@@ -18,8 +18,8 @@ namespace Team1.UI
 
         private void LoadSceneButton(string sceneName, bool additive = false)
         {
-            SceneManager.LoadScene(sceneName, additive ? LoadSceneMode.Additive : LoadSceneMode.Single);
-            BootstrapManager.Instance.ChangeLevelScene(sceneName);
+     //       SceneManager.LoadScene(sceneName, additive ? LoadSceneMode.Additive : LoadSceneMode.Single);
+//            BootstrapManager.Instance.ChangeLevelScene(sceneName);
         }
 
         void Start()

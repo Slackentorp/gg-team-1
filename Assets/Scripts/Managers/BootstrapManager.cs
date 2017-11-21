@@ -15,7 +15,7 @@ public class BootstrapManager : Singleton<BootstrapManager>
     [SerializeField]
     private Scene levelScene;
 
-    // Use this for initialization
+ /*   // Use this for initialization
     void Start()
     {
         print("Start");
@@ -57,7 +57,7 @@ public class BootstrapManager : Singleton<BootstrapManager>
     IEnumerator DelayReload()
     {
 
-    /*    AsyncOperation soundScapeLoad =
+        AsyncOperation soundScapeLoad =
             SceneManager.LoadSceneAsync("SoundScape", LoadSceneMode.Additive);
         AsyncOperation apartmentLoad =
             SceneManager.LoadSceneAsync("Apartment", LoadSceneMode.Additive);
@@ -66,8 +66,7 @@ public class BootstrapManager : Singleton<BootstrapManager>
         {
             yield return null;
         }
-        Start();*/
-        yield return null;
+        Start();
     }
 
     public void ChangeLevelScene(string level)
@@ -83,6 +82,6 @@ public class BootstrapManager : Singleton<BootstrapManager>
         }
    //     Start();
     }
-
+*/
 
 }
