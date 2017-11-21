@@ -10,22 +10,39 @@ public class MothBehaviour
 	[SerializeField]
 	private float timeScale = 1;
 
+	[SerializeField, Range(0, 1), Tooltip("Adjusts the allowed distance between moth and anchor point")]
+	float allowedDistance = 0.2f;
+
+	[SerializeField]
+	private AnimationCurve mothChildCurve;
+
+	[SerializeField]
+	int noiseReducer = 16;
+
+	[SerializeField]
+	float mothSpeedModifier = 1.0f;
+
 	GameObject moth;
 	Camera camera;
 	Vector3 hitPoint;
 	Vector3 mothToPoint;
 	Vector3 mothStartPos;
 	float time;
+	float timePerlin;
 	float turningTime;
 	float turningSpeed;
 	RaycastHit hit;
 	Vector3 hitDotPoint;
 	Vector3 hitDotNormal;
 	Vector3 mothRotation;
+	Vector3 dampVelocity, mothOriginPos, parentPos; 
 	Ray ray;
-	float perlinNoiseX, perlinNoiseY, mothXAxisScale = 0.7f, mothYAxisScale = 0.7f;
+	float perlinNoiseX, perlinNoiseY, perlinNoiseZ, mothXAxisScale = 0.7f, mothYAxisScale = 0.7f;
 	float levelOfNoise = 0.5f;
-	float mothXOriginPos, mothYOriginPos;
+	float mothYOriginPos, distanceToMothChild;
+	Vector3 pos, currentPos, AnchorPointPlusPos;
+	Transform mothChild;
+
 
 	public float MothSpeed
 	{
@@ -34,6 +51,7 @@ public class MothBehaviour
 
 	private bool lerpRunning = false;
 	private bool mothTurning = true;
+	private bool mothDampProcedural = false;
 
 	void OnValidate()
 	{
@@ -43,18 +61,31 @@ public class MothBehaviour
 		}
 	}
 
-	public MothBehaviour(GameObject moth, Camera camera, float speed)
+	public MothBehaviour(GameObject moth, Camera camera, float speed, AnimationCurve curve, 
+						int noiseReducer, float speedModifier)
 	{
 		this.moth = moth;
 		this.camera = camera;
 		this.MothSpeed = speed;
+		this.mothChildCurve = curve;
+		this.noiseReducer = noiseReducer;
+		this.mothSpeedModifier = speedModifier;
 	}
 
 
 	public void Update()
 	{
-		
-		MothGoToPosition();
+		if (mothChild == null)
+		{
+			mothChild = moth.transform.GetChild(0);
+		}
+		if (mothChild != null)
+		{
+			ProceduralMovement();
+			MothGoToPosition();
+			Debug.DrawRay(Vector3.zero, Vector3.up * 4, Color.green);
+			Debug.DrawRay(Vector3.zero, Vector3.right * 4, Color.red);
+		}
 	}
 
 	public void SetMothPos(RaycastHit hit)
@@ -93,11 +124,9 @@ public class MothBehaviour
 			{
 				time += Time.deltaTime * MothSpeed;
 				moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, time);
-				ProceduralMovement();
 
 			}
 		}
-
 	}
 
 	private void PointfromRaycast()
@@ -126,23 +155,65 @@ public class MothBehaviour
 
 	void ProceduralMovement()
 	{
-		perlinNoiseX = Mathf.PerlinNoise(1.0f * Time.deltaTime, 0.0f);
-		//perlinNoiseY = mothYAxisScale * Mathf.PerlinNoise(0.0f, mothYOriginPos * Time.time);
+		parentPos = moth.transform.position;
+		timePerlin += Time.deltaTime;
+		Debug.Log(mothDampProcedural);
+		if (mothDampProcedural == false)
+		{
+			mothOriginPos = mothChild.transform.localPosition;
+			perlinNoiseX = Mathf.PerlinNoise(1.0f * Time.time, 0.0f);
+			if (perlinNoiseX < 0.51f)
+			{
+				perlinNoiseX = -perlinNoiseX;
+			}
+			perlinNoiseY = Mathf.PerlinNoise(0.0f, 1.0f * Time.time);
+			if (perlinNoiseY < 0.51f)
+			{
+				perlinNoiseY = -perlinNoiseY;
+			}
+			perlinNoiseZ = Mathf.PerlinNoise(Time.time, 1.0f * Time.time);
+			if (perlinNoiseZ < 0.51f)
+			{
+				perlinNoiseZ = -perlinNoiseZ;
+			}
+			pos.x = perlinNoiseX / noiseReducer;
+			pos.y = perlinNoiseY / noiseReducer;
+			pos.z = perlinNoiseZ / (noiseReducer * 1.5f);
 
-		
-		Vector3 pos = moth.transform.position;
-		pos.x = perlinNoiseX;
-		//pos.y = perlinNoiseY;
-		
-		if (perlinNoiseX > 0.5)
-		{
-			moth.transform.position = Vector3.SmoothDamp(mothXOriginPos,moth.transform.position + pos, ref Vector3  0.3f);
+
+			mothDampProcedural = true;
+			timePerlin = 0;
+			AnchorPointPlusPos = parentPos + pos;
+
 		}
-		if (perlinNoiseX < 0.5)
+		if (mothDampProcedural == true && timePerlin * 2 < 1)
 		{
-			moth.transform.position = moth.transform.position - pos;
+			mothChild.transform.localPosition = Vector3.Lerp(mothOriginPos,
+										  AnchorPointPlusPos, mothChildCurve.Evaluate(timePerlin * mothSpeedModifier));
+			//currentPos = mothChild.transform.localPosition;
 		}
-		
-		
+		/*if (DistanceToParent() == false)
+		{
+			//orignalPos = mothChild.transform.localPosition;
+
+		}*/
+		else if (mothDampProcedural == true)
+		{
+			mothDampProcedural = false;
+		}
+		Debug.Log(mothDampProcedural);
+	}
+
+	bool DistanceToParent()
+	{
+		distanceToMothChild = Vector3.Distance(moth.transform.position, mothChild.transform.position);
+		if (distanceToMothChild <= allowedDistance)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
