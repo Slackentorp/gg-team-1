@@ -32,11 +32,21 @@ public class RunState : GameState
 
             // Check if fragment
             Fragment fragment = inputEvent.GameObject.GetComponent<Fragment>();
+            Puzzle puzzle = inputEvent.GameObject.GetComponent<Puzzle>();
+
             if (fragment != null && inputEvent.InputType == InputType.TAP)
             {
-                gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit);
                 gm.NextFragment = fragment;
                 gm.SetState(new FragmentState(gm));
+                return;
+            }
+            //Check if Puzzle 
+            else if (puzzle != null && inputEvent.InputType == InputType.TAP)
+            {
+                gm.NextPuzzle = puzzle;
+                PuzzleState newState = new PuzzleState(gm);
+                gm.SetState(newState);
+                newState.currentPuzzle = puzzle;
                 return;
             }
             else
@@ -81,13 +91,6 @@ public class RunState : GameState
         bool headphoneState = gm.InputManager.GetHeadsetState();
         AkSoundEngine.SetRTPCValue("HEADPHONE_IN", headphoneState ? 0 : 1);
         gm.HeadsetStateUIText.text = headphoneState ? "Headset plugged in" : "Headset not plugged in";
-
-        Debug.Log("Scene count: " +SceneManager.sceneCount);
-        for(int i = 0; i < SceneManager.sceneCount; i++){
-            Debug.Log(SceneManager.GetSceneAt(i).name);
-        }
-        Debug.Log("Active Scene: " + SceneManager.GetActiveScene().name);
-        Debug.Log("");
     }
 
     public override void InternalOnGUI()

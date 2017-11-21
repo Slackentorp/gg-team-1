@@ -29,7 +29,16 @@ public class BootstrapManager : Singleton<BootstrapManager>
     // Use this for initialization
     void Start()
     {
-        print("Start");
+        for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string sceneName = SceneManager.GetSceneByBuildIndex(i).name;
+            Debug.Log("SceneName: " +sceneName);
+            if(!string.IsNullOrEmpty(sceneName) && sceneName.Equals("SplashScreen"))
+            {
+                return;
+            }
+        }
+        print("Bootstrap Start");
         levelScene = new Scene();
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {

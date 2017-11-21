@@ -29,6 +29,7 @@ public class LightMapController : MonoBehaviour
     //// Use this for initialization
     void Start()
     {
+        LampsStates = new bool[lightMapTexturesOFF.Length];
         LightMapAssigner();
     }
 
@@ -54,7 +55,7 @@ public class LightMapController : MonoBehaviour
             LightMapSetOFF[i].lightmapColor = lightMapTexturesOFF[i];
         }
     }
-
+    [Button]
     public void CustomSetManager()
     {
         customLightMapSet = new LightmapData[lightMapTexturesON.Length];

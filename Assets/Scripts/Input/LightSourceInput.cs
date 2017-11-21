@@ -31,8 +31,12 @@ public class LightSourceInput : MonoBehaviour
     private bool lampStateCheck = false;
     [SerializeField]
     private int lightMapIndex;
+    private int getNrOfFragments = 0;
 
+    [SerializeField]
     private bool isActivated;
+
+    public bool ACTIVATE;
 
     public Vector3 CameraPosition { get { return transform.TransformPoint(cameraPosition); } }
 
@@ -70,51 +74,49 @@ public class LightSourceInput : MonoBehaviour
         Fragment.FragmentCall -= FragmentChecker;
     }
 
-    //private void Update()
-    //{
-    //    FragmentChecker();
-    //}
+    private void Start()
+    {
+        //isActivated = true;
+        //ACTIVATE = true; 
+    }
 
     public void FragmentChecker()
     {
-        for (int i = 0; i < localFragmentsState.Length; i++)
+        localFragmentsState = new bool[fragments.Length];
+        for (int i = 0; i < fragments.Length; i++)
         {
             localFragmentsState[i] = fragments[i].HasPlayed;
         }
 
-        if(localFragmentsState.Length < 1)
+        getNrOfFragments = CountArray(localFragmentsState, true);
+
+        if (localFragmentsState.Length < 1)
         {
             return;
         }
 
-        if (!localFragmentsState[0] && !localFragmentsState[1] && !localFragmentsState[2])
+        if (fragments.Length == 3)
         {
-            LampOFF();
+            if (getNrOfFragments == fragments.Length
+               || getNrOfFragments == fragments.Length - 1)
+            {
+                LampON();
+            }
         }
-        else if (localFragmentsState[0] || localFragmentsState[1] || localFragmentsState[2])
+        else if (getNrOfFragments == fragments.Length)
         {
-            if(localFragmentsState[0] && localFragmentsState[1])
-            {
-                LampON();
-            }
-            else if(localFragmentsState[1] && localFragmentsState[2])
-            {
-                LampON();
-            }
-            else
-            {
-                LampFlickering();
-            }
+            LampON();
         }
 
         LightSourceCallz();
+
     }
 
     public void LightSourceCallz()
     {
         if (LightSourceCall != null)
         {
-            LightSourceCall(); 
+            LightSourceCall();
         }
     }
 
@@ -141,7 +143,11 @@ public class LightSourceInput : MonoBehaviour
     {
         currentLampState = State.LAMP_ON;
         lampStateCheck = true;
+        isActivated = true;
+
         LightSwitch(currentLampState);
+        LightMapSwitchCall(lampStateCheck, lightMapIndex);
+
     }
 
     private void LightSwitch(State currentLampState)
@@ -158,7 +164,7 @@ public class LightSourceInput : MonoBehaviour
                 var em = particleSystemLamp.emission;
                 em.enabled = false;
 
-                LightMapSwitchCall(lampStateCheck, lightMapIndex);
+                //LightMapSwitchCall(lampStateCheck, lightMapIndex);
             }
             else if (currentLampState == State.LAMP_FLICKERING)
             {
@@ -167,7 +173,7 @@ public class LightSourceInput : MonoBehaviour
                 var em = particleSystemLamp.emission;
                 em.enabled = false;
 
-                LightMapSwitchCall(lampStateCheck, lightMapIndex);
+                //LightMapSwitchCall(lampStateCheck, lightMapIndex);
             }
             else if (currentLampState == State.LAMP_ON)
             {
@@ -175,11 +181,21 @@ public class LightSourceInput : MonoBehaviour
                 rend.sharedMaterial = lampMaterialOn;
                 var em = particleSystemLamp.emission;
                 em.enabled = true;
-                isActivated = true;
 
-                LightMapSwitchCall(lampStateCheck, lightMapIndex);
             }
         }
+    }
+
+    private int CountArray(bool[] array, bool flag)
+    {
+        int value = 0;
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == flag) value++;
+        }
+
+        return value;
     }
 
     private void OnDrawGizmos()

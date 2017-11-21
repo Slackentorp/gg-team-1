@@ -38,14 +38,14 @@ public class SplashscreenController : MonoBehaviour {
     private void Start () {
         bootstrapLoad =
             SceneManager.LoadSceneAsync ("Bootstrap", LoadSceneMode.Single);
-       /* soundScapeLoad =
+        soundScapeLoad =
             SceneManager.LoadSceneAsync ("SoundScape", LoadSceneMode.Additive);
         apartmentLoad =
-            SceneManager.LoadSceneAsync ("Apartment", LoadSceneMode.Additive);*/
+            SceneManager.LoadSceneAsync ("Apartment", LoadSceneMode.Additive);
 
         bootstrapLoad.allowSceneActivation = false;
-    //    soundScapeLoad.allowSceneActivation = false;
-    //    apartmentLoad.allowSceneActivation = false;
+        soundScapeLoad.allowSceneActivation = false;
+        apartmentLoad.allowSceneActivation = false;
     }
 
     public void TapToStart () {
@@ -83,10 +83,10 @@ public class SplashscreenController : MonoBehaviour {
     }
 
     IEnumerator LoadScenes () {
-   //     SceneManager.sceneLoaded += ApartmentLoaded;
+        SceneManager.sceneLoaded += ApartmentLoaded;
         bootstrapLoad.allowSceneActivation = true;
-      //  soundScapeLoad.allowSceneActivation = true;
-      //  apartmentLoad.allowSceneActivation = true;
+        soundScapeLoad.allowSceneActivation = true;
+        apartmentLoad.allowSceneActivation = true;
         print("Triggered load scenes");
         yield return null;
     }
@@ -98,6 +98,6 @@ public class SplashscreenController : MonoBehaviour {
         }
 
         SceneManager.SetActiveScene (appartment);
-        SceneManager.UnloadSceneAsync ("SplashScreen");
+    //    SceneManager.UnloadSceneAsync ("SplashScreen");
     }
 }
