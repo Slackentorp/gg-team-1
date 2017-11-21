@@ -56,7 +56,8 @@ public class BootstrapManager : Singleton<BootstrapManager>
 
     IEnumerator DelayReload()
     {
-        AsyncOperation soundScapeLoad =
+
+    /*    AsyncOperation soundScapeLoad =
             SceneManager.LoadSceneAsync("SoundScape", LoadSceneMode.Additive);
         AsyncOperation apartmentLoad =
             SceneManager.LoadSceneAsync("Apartment", LoadSceneMode.Additive);
@@ -65,7 +66,8 @@ public class BootstrapManager : Singleton<BootstrapManager>
         {
             yield return null;
         }
-        Start();
+        Start();*/
+        yield return null;
     }
 
     public void ChangeLevelScene(string level)
