@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4858779919100986}
   - component: {fileID: 20292521309587950}
   - component: {fileID: 124444569734148900}
-  - component: {fileID: 114458170173174352}
-  - component: {fileID: 114130424570629246}
-  - component: {fileID: 114121207888874110}
+  - component: {fileID: 114673982074896844}
+  - component: {fileID: 114453545097419574}
+  - component: {fileID: 114884562271958764}
+  - component: {fileID: 114930851561199250}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -37,13 +38,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1039801403661518}
-  m_LocalRotation: {x: 0.6012504, y: 0, z: 0, w: 0.7990607}
-  m_LocalPosition: {x: -7.35, y: 6.3, z: -8.69}
+  m_LocalRotation: {x: -0.028581014, y: 0.6923111, z: -0.02924082, w: -0.72043985}
+  m_LocalPosition: {x: -1.02, y: 1.83, z: 1.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 73.91901, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.6850004, y: 272.287, z: 0.147}
 --- !u!20 &20292521309587950
 Camera:
   m_ObjectHideFlags: 1
@@ -79,7 +80,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &114121207888874110
+--- !u!114 &114453545097419574
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -87,35 +88,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1039801403661518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a3de5e52846674286d5d6f1f10080a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 0.65
-  followSpeed: 1
-  cameraTurnSpeed: 1
-  targetPos: {fileID: 0}
---- !u!114 &114130424570629246
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1039801403661518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0522ca55c9ca14594806886ce702deca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
---- !u!114 &114458170173174352
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1039801403661518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7d62e092f5104d75a703e2433f91192, type: 3}
+  m_Script: {fileID: 11500000, guid: cdfdf89e949b95f4599feb8d31c7efbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_positionOffsetData:
@@ -127,6 +100,54 @@ MonoBehaviour:
     initialListenerList: []
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &114673982074896844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039801403661518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3498117cbb52fcf4c87d06dafe7f4434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &114884562271958764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039801403661518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1a92d89ca207b42802ddb2f2f84cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiatedObject: {fileID: 0}
+  instantiatedCounter: 0
+  minFps: 30
+  fps: 0
+--- !u!114 &114930851561199250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039801403661518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f976a93ca9d08547a0f9338ed5c003a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curShader: {fileID: 4800000, guid: c140351b936452f4fb84d0c5655be4c5, type: 3}
+  blendTexture: {fileID: 2800000, guid: 624f737b9a5f31f4caed92a8d442edba, type: 3}
+  perlinNoise: {fileID: 2800000, guid: 79f684f5d04ea1f4a8afdf1cc6d38bb5, type: 3}
+  perlinNoise2: {fileID: 2800000, guid: 20d11b69dbfbccf48b0116fdae8670cb, type: 3}
+  blendOpacity: 0.2
+  perlinOpacity: 0.8
+  fadeSpeed: 1
+  scratchesYSpeed: 0.03
+  scratchesXSpeed: 0.01
 --- !u!124 &124444569734148900
 Behaviour:
   m_ObjectHideFlags: 1

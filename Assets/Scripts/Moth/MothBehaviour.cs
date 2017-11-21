@@ -71,6 +71,9 @@ public class MothBehaviour
 		turningSpeed = 1.7f;
 		if (Vector3.Angle(moth.transform.forward, moth.transform.position - hitPoint) != 0)
 		{
+			//mothTurning = true;
+			turningTime += Time.deltaTime * (time * 2f);
+			
 			MothTargetRotate();
 		}
 		if (Vector3.Angle(moth.transform.forward, moth.transform.position - hitPoint) == 0 || lerpRunning == true)
@@ -107,7 +110,9 @@ public class MothBehaviour
 	void MothTargetRotate()
 	{
 		turningTime += Time.deltaTime * turningSpeed;
-
-		moth.transform.forward = Vector3.Lerp(mothRotation, (moth.transform.position - hitPoint).normalized, turningTime);
+		Vector3 nextPos = Vector3.Lerp(mothRotation, (moth.transform.position - hitPoint).normalized, turningTime);
+		if(nextPos != Vector3.zero){
+			moth.transform.forward = nextPos;
+		}
 	}
 }

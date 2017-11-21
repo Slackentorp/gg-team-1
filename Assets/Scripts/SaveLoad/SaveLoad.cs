@@ -44,7 +44,11 @@ public class SaveLoad : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream stream = new FileStream(Application.persistentDataPath + "/gameSave.sav", FileMode.Open);
 
+
             PlayerData data = bf.Deserialize(stream) as PlayerData;
+
+            //PlayerData data = bf.Deserialize(stream);
+
             stream.Close();
             
             

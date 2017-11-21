@@ -2,6 +2,7 @@
 using Gamelogic.Extensions;
 using UnityEngine;
 
+/// maybe this works - Jon
 /// <summary>
 /// Touch input specifically for light sources
 /// </summary>
@@ -27,6 +28,10 @@ public class LightSourceInput : MonoBehaviour
     private State currentLampState;
     [SerializeField]
     private bool[] localFragmentsState;
+    [SerializeField]
+    private bool lampStateCheck = false;
+    [SerializeField]
+    private int lightMapIndex;
 
     private bool isActivated;
 
@@ -52,6 +57,9 @@ public class LightSourceInput : MonoBehaviour
 
     public delegate void LightSourceAction();
     public static event LightSourceAction LightSourceCall;
+
+    public delegate void LightMapSwitchAction(bool StateCheck, int indexNr);
+    public static event LightMapSwitchAction LightMapSwitchCall;
 
     void OnEnable()
     {
@@ -100,7 +108,15 @@ public class LightSourceInput : MonoBehaviour
             }
         }
 
-        LightSourceCall();
+        LightSourceCallz();
+    }
+
+    public void LightSourceCallz()
+    {
+        if (LightSourceCall != null)
+        {
+            LightSourceCall(); 
+        }
     }
 
     enum State
@@ -113,16 +129,19 @@ public class LightSourceInput : MonoBehaviour
     private void LampOFF()
     {
         currentLampState = State.LAMP_OFF;
+        lampStateCheck = false;
         LightSwitch(currentLampState);
     }
     private void LampFlickering()
     {
+        lampStateCheck = false;
         currentLampState = State.LAMP_FLICKERING;
         LightSwitch(currentLampState);
     }
     private void LampON()
     {
         currentLampState = State.LAMP_ON;
+        lampStateCheck = true;
         LightSwitch(currentLampState);
     }
 
@@ -131,7 +150,7 @@ public class LightSourceInput : MonoBehaviour
         if (GetComponentInChildren<Renderer>() != null &&
            GetComponentInChildren<ParticleSystem>() != null)
         {
-            rend = GetComponentsInChildren<Renderer>()[0];
+            rend = GetComponentsInChildren<Renderer>()[1];
             particleSystemLamp = GetComponentsInChildren<ParticleSystem>()[0];
 
             if (currentLampState == State.LAMP_OFF)
@@ -139,6 +158,8 @@ public class LightSourceInput : MonoBehaviour
                 rend.sharedMaterial = lampMaterialOff;
                 var em = particleSystemLamp.emission;
                 em.enabled = false;
+
+                LightMapSwitchCall(lampStateCheck, lightMapIndex);
             }
             else if (currentLampState == State.LAMP_FLICKERING)
             {
@@ -146,6 +167,8 @@ public class LightSourceInput : MonoBehaviour
                 rend.sharedMaterial = lampMaterialOff;
                 var em = particleSystemLamp.emission;
                 em.enabled = false;
+
+                LightMapSwitchCall(lampStateCheck, lightMapIndex);
             }
             else if (currentLampState == State.LAMP_ON)
             {
@@ -154,6 +177,8 @@ public class LightSourceInput : MonoBehaviour
                 var em = particleSystemLamp.emission;
                 em.enabled = true;
                 isActivated = true;
+
+                LightMapSwitchCall(lampStateCheck, lightMapIndex);
             }
         }
     }
