@@ -15,7 +15,18 @@ public class BootstrapManager : Singleton<BootstrapManager>
     [SerializeField]
     private Scene levelScene;
 
- /*   // Use this for initialization
+/*
+for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+    {
+        string sceneName = SceneManager.GetSceneByBuildIndex(i).name;
+        if(sceneName.Equals("SplashScreen"))
+        {
+            return;
+        }
+    }
+*/
+
+    // Use this for initialization
     void Start()
     {
         print("Start");
@@ -82,6 +93,6 @@ public class BootstrapManager : Singleton<BootstrapManager>
         }
    //     Start();
     }
-*/
+
 
 }
