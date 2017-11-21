@@ -42,32 +42,32 @@ public class CombinationPuzzleController : BasePuzzle
         pictureFrames = GetComponentsInChildren<PictureFrameTouch>();
         foreach (var frame in pictureFrames)
         {
-            frame.controller = this;
+            //frame.controller = this;
         }
     }
 
-    [Button]
+    //[Button]
     private void GenerateFeedforward()
     {
-        if (feedforwardPrefab != null)
-        {
-            foreach (var obj in GameObject.FindGameObjectsWithTag(
-                "PieceFeedforward"))
-            {
-                DestroyImmediate(obj);
-            }
+        //if (feedforwardPrefab != null)
+        //{
+        //    foreach (var obj in GameObject.FindGameObjectsWithTag(
+        //        "PieceFeedforward"))
+        //    {
+        //        DestroyImmediate(obj);
+        //    }
 
 
-            foreach (var frame in pictureFrames)
-            {
-                Vector3 spawnPos = frame.correctPostion + frame.originPosition;
-                Quaternion spawnRot = Quaternion.Euler(frame.correctRotation) *
-                                      transform.rotation;
-                GameObject particle =
-                    Instantiate(feedforwardPrefab, spawnPos, spawnRot);
-                particle.name = frame.name + "_feedforward";
-            }
-        }
+        //    foreach (var frame in pictureFrames)
+        //    {
+        //        Vector3 spawnPos = frame.correctPostion + frame.originPosition;
+        //        Quaternion spawnRot = Quaternion.Euler(frame.correctRotation) *
+        //                              transform.rotation;
+        //        GameObject particle =
+        //            Instantiate(feedforwardPrefab, spawnPos, spawnRot);
+        //        particle.name = frame.name + "_feedforward";
+        //    }
+        //}
     }
 
     void Start()
@@ -103,49 +103,49 @@ public class CombinationPuzzleController : BasePuzzle
     /// <param name="sender"></param>
     public override void CheckForSolution(Component sender)
     {
-        //Safeguard because the script is in edit mode
-        if (!Application.isPlaying)
-        {
-            return;
-        }
-        foreach (PictureFrameTouch pictureFrame in pictureFrames)
-        {
-            if (pictureFrame == null || !pictureFrame.enabled)
-            {
-                continue;
-            }
+        ////Safeguard because the script is in edit mode
+        //if (!Application.isPlaying)
+        //{
+        //    return;
+        //}
+        //foreach (PictureFrameTouch pictureFrame in pictureFrames)
+        //{
+        //    if (pictureFrame == null || !pictureFrame.enabled)
+        //    {
+        //        continue;
+        //    }
 
-            float distance = Vector3.SqrMagnitude(pictureFrame.transform.position -
-                (pictureFrame.correctPostion + pictureFrame.originPosition));
-            float angleDifference =
-                Quaternion.Angle(pictureFrame.transform.rotation,
-                    Quaternion.Euler(pictureFrame.correctRotation) * transform.rotation);
+        //    float distance = Vector3.SqrMagnitude(pictureFrame.transform.position -
+        //        (pictureFrame.correctPostion + pictureFrame.originPosition));
+        //    float angleDifference =
+        //        Quaternion.Angle(pictureFrame.transform.rotation,
+        //            Quaternion.Euler(pictureFrame.correctRotation) * transform.rotation);
 
-            if (distance <= mercySquaredDistance &&
-                angleDifference <= mercyRotation)
-            {
+        //    if (distance <= mercySquaredDistance &&
+        //        angleDifference <= mercyRotation)
+        //    {
 
-                if ( (sender == pictureFrame || sender == null) && !string.IsNullOrEmpty(onCorrectWwiseEvent) && !pictureFrame.isCorrect)
-                {
-                    print("Setting correct");
-                    AkSoundEngine.PostEvent(onCorrectWwiseEvent, pictureFrame.gameObject);
-                    Renderer rend = pictureFrame.gameObject.GetComponent<Renderer>();
-                    rend.material.color = rend.material.color.WithBrightness(onCorrectBrightness);
-                    pictureFrame.isCorrect = true;
-                }
+        //        if ( (sender == pictureFrame || sender == null) && !string.IsNullOrEmpty(onCorrectWwiseEvent) && !pictureFrame.isCorrect)
+        //        {
+        //            print("Setting correct");
+        //            AkSoundEngine.PostEvent(onCorrectWwiseEvent, pictureFrame.gameObject);
+        //            Renderer rend = pictureFrame.gameObject.GetComponent<Renderer>();
+        //            rend.material.color = rend.material.color.WithBrightness(onCorrectBrightness);
+        //            pictureFrame.isCorrect = true;
+        //        }
 
-                pictureFrame.transform.position =
-                    pictureFrame.correctPostion + pictureFrame.originPosition;
-                pictureFrame.transform.rotation =
-                    Quaternion.Euler(pictureFrame.correctRotation) * transform.rotation;
-                if (Application.isPlaying)
-                {
-                    Destroy(pictureFrame.GetComponent<BoxCollider>());
-                  //  Destroy(pictureFrame);
-                }
+        //        pictureFrame.transform.position =
+        //            pictureFrame.correctPostion + pictureFrame.originPosition;
+        //        pictureFrame.transform.rotation =
+        //            Quaternion.Euler(pictureFrame.correctRotation) * transform.rotation;
+        //        if (Application.isPlaying)
+        //        {
+        //            Destroy(pictureFrame.GetComponent<BoxCollider>());
+        //          //  Destroy(pictureFrame);
+        //        }
 
-            }
-        }
+        //    }
+        //}
     }
 
     private void OnDrawGizmos()
