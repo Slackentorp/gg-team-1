@@ -43,8 +43,6 @@ public class FragmentState : GameState
         exiting = true;
     }
 
-
-
     public override void OnStateExit()
     {
         gm.NextFragment = null;

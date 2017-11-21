@@ -34,7 +34,7 @@ public class RunState : GameState
             Fragment fragment = inputEvent.GameObject.GetComponent<Fragment>();
             Puzzle puzzle = inputEvent.GameObject.GetComponent<Puzzle>();
 
-            if (fragment != null && inputEvent.InputType == InputType.TAP)
+            if (fragment != null && gm.NextFragment == null && inputEvent.InputType == InputType.TAP)
             {
                 gm.NextFragment = fragment;
                 gm.SetState(new FragmentState(gm));
