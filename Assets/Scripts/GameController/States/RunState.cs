@@ -31,11 +31,21 @@ public class RunState : GameState
 
             // Check if fragment
             Fragment fragment = inputEvent.GameObject.GetComponent<Fragment>();
+            Puzzle puzzle = inputEvent.GameObject.GetComponent<Puzzle>();
+
             if (fragment != null && inputEvent.InputType == InputType.TAP)
             {
-                gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit);
                 gm.NextFragment = fragment;
                 gm.SetState(new FragmentState(gm));
+                return;
+            }
+            //Check if Puzzle 
+            else if (puzzle != null && inputEvent.InputType == InputType.TAP)
+            {
+                gm.NextPuzzle = puzzle;
+                PuzzleState newState = new PuzzleState(gm);
+                gm.SetState(newState);
+                newState.currentPuzzle = puzzle;
                 return;
             }
             else
