@@ -9,9 +9,9 @@ using System;
 
 public class SaveLoad : MonoBehaviour
 {
-   public struct PlayerData
+   
+    public class PlayerData
     {
-        public int door;
         public float positionOfCamera;
         public float cx, cy, cz;
         public float positionOfMoth;
@@ -23,16 +23,16 @@ public class SaveLoad : MonoBehaviour
         public float[] positionsOfCamera;
         public float[] positionsOfMoth;
         public string[] fragments;
-
     }
 
+    public int fs = 2;
     public static void SaveGame()
     {//in the brackets put the palce where to save from
         BinaryFormatter bf = new BinaryFormatter();
         FileStream stream = new FileStream(Application.persistentDataPath + "/gameSave.sav", FileMode.Create);
 
         PlayerData data = new PlayerData();//here is the relevant information
-        data.cx = 2f;        
+        data.positionOfCamera = 2;
         bf.Serialize(stream, data);
         stream.Close();
     }
@@ -44,8 +44,9 @@ public class SaveLoad : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream stream = new FileStream(Application.persistentDataPath + "/gameSave.sav", FileMode.Open);
 
-            PlayerData data = bf.Deserialize(stream);
+            PlayerData data = bf.Deserialize(stream) as PlayerData;
             stream.Close();
+            
             
         }
         else
@@ -53,8 +54,20 @@ public class SaveLoad : MonoBehaviour
             Debug.Log("Save file does not exist");
         }
     }
-}
 
+    public void Load()
+    {
+        
+
+    }
+
+}
+/*
+public void Save()
+{
+    SaveLoad.SaveGame(this);//if its in the class we want it to be,
+}
+*/
 //just an example
 [Serializable]
     public class PlayerData2
@@ -85,3 +98,4 @@ public class SaveLoad : MonoBehaviour
 
    }
    */
+   
