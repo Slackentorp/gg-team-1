@@ -8,57 +8,44 @@ using System.Xml.Linq;
 using Gamelogic;
 using Gamelogic.Extensions;
 
-    public class EndFragment : Singleton<EndFragment>
-    {
+public class EndFragment : Singleton<EndFragment>
+{
     public int uPosition = 0;
     public uint markerr;
     public string storyFragmentt;
 
-        public void EndFragments(uint marker, string storyFragment)
+    public void EndFragments(uint marker, string storyFragment)
     {
         markerr = marker;
         storyFragmentt = storyFragment;
-        
+
     }
     public void TwoSecondsBeforeEnd()
     {
         AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
         uPosition = uPosition / 10;
-       
+
         LocalizationItem.Language language =
            (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
 
         Debug.Log(uPosition);
-        
-        if (language == LocalizationItem.Language.ENGLISH)
+
+
+        if (uPosition > realDuration)
         {
 
-                Debug.Log(realDuration);
-                if (realDuration < (uPosition + Time.deltaTime) &&
-                realDuration > (uPosition - Time.deltaTime))
-            {
-                    
-                    Debug.Log("we are almost at the end");
-            }
+            AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
         }
-        else if(language == LocalizationItem.Language.DANISH)
-        {
-            if (realDuration < (uPosition + Time.deltaTime) &&
-               realDuration > (uPosition - Time.deltaTime))
-            {
-                Debug.Log("we are almost at the end");
-            }
-        }
-            //fragmentIsOnn = false;
+        //fragmentIsOnn = false;
         
-
     }
     public int realDuration;
     public float durationn;
     public bool fragmentIsOnn = false;
-
-        public void Durations(float duration, bool fragmentIsOn)
+    public GameObject thePlayedFragment;
+    public void Durations(float duration, bool fragmentIsOn, GameObject playedFragment)
     {
+        thePlayedFragment = playedFragment;
         fragmentIsOnn = fragmentIsOn;
         durationn = duration / 10;
         realDuration = (int)durationn;
@@ -68,8 +55,8 @@ using Gamelogic.Extensions;
     }
     private void Update()
     {
-        if(fragmentIsOnn == true)
-        { 
+        if (fragmentIsOnn == true)
+        {
             TwoSecondsBeforeEnd();
         }
     }

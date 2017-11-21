@@ -50,7 +50,6 @@ public class Fragment : MonoBehaviour
         HasPlayed = true;
         //   FragmentCall(); // THIS NEEDS TO BE NOT COMMENTED IN THE REAL VERSION!!!!
         Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
-        //uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject,  (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_EndOfEvent | (uint)AkCallbackType.AK_Duration, EndOfEventCallback , Callback);
         uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject,
                         (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_Duration
                       | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
@@ -79,7 +78,7 @@ public class Fragment : MonoBehaviour
             {
 
                 fragmentIsOn = true;
-                EndFragment.Instance.Durations(fragmentDurations[1], fragmentIsOn);
+                EndFragment.Instance.Durations(fragmentDurations[1], fragmentIsOn, gameObject);
                 
             }
 
