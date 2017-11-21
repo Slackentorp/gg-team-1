@@ -12,19 +12,22 @@ public class BootstrapManager : Singleton<BootstrapManager>
 
     public GameObject mothObject; 
 
+    [SerializeField]
     private Scene levelScene;
 
     // Use this for initialization
     void Start()
     {
+        print("Start");
         levelScene = new Scene();
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
-            if (!SceneManager.GetSceneAt(i).name.Equals("Bootstrap") &&
-                !SceneManager.GetSceneAt(i).name.Equals("SoundScape"))
+            if (!SceneManager.GetSceneAt(i).name.ToUpper().Equals("BOOTSTRAP") &&
+                !SceneManager.GetSceneAt(i).name.ToUpper().Equals("SOUNDSCAPE"))
             {
                 levelScene = SceneManager.GetSceneAt(i);
                 SceneManager.SetActiveScene(levelScene);
+                print("Level scene is: " +levelScene.name);
                 break;
             }
         }
@@ -44,8 +47,6 @@ public class BootstrapManager : Singleton<BootstrapManager>
                 Debug.LogWarning( "No camera with tag 'Level Camera' " +
                                 "was found in level. Using default settings.");
             }
-        //    GameController.Instance.SetupScene(gameCamera);
-         //   GameController.Instance.SetMothObject(mothObject);
         }
         else
         {
@@ -56,9 +57,9 @@ public class BootstrapManager : Singleton<BootstrapManager>
     IEnumerator DelayReload()
     {
         AsyncOperation soundScapeLoad =
-            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("SoundScape", LoadSceneMode.Additive);
         AsyncOperation apartmentLoad =
-            SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("Apartment", LoadSceneMode.Additive);
 
         while (!soundScapeLoad.isDone || !apartmentLoad.isDone)
         {
@@ -78,7 +79,7 @@ public class BootstrapManager : Singleton<BootstrapManager>
         while (!unload.isDone) {
             yield return null;
         }
-        Start();
+   //     Start();
     }
 
 

@@ -18,6 +18,8 @@ public class SplashscreenController : MonoBehaviour {
     private double timeToPauseLanguage = 1200;
     [SerializeField]
     private double timeToLoadLevel = 1200;
+    [SerializeField]
+    private double timeSkipToMenu = 0;
 
     private bool isPaused;
     private IEnumerator LoadLevelsCoroutine;
@@ -35,11 +37,11 @@ public class SplashscreenController : MonoBehaviour {
 
     private void Start () {
         bootstrapLoad =
-            SceneManager.LoadSceneAsync (1, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync ("Bootstrap", LoadSceneMode.Additive);
         soundScapeLoad =
-            SceneManager.LoadSceneAsync (2, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync ("SoundScape", LoadSceneMode.Additive);
         apartmentLoad =
-            SceneManager.LoadSceneAsync (3, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync ("Apartment", LoadSceneMode.Additive);
 
         bootstrapLoad.allowSceneActivation = false;
         soundScapeLoad.allowSceneActivation = false;
@@ -49,6 +51,11 @@ public class SplashscreenController : MonoBehaviour {
     public void TapToStart () {
         Director.time = timeToPauseStart + .2;
         Director.Resume ();
+    }
+
+    public void SkipToMenu()
+    {
+        Director.time = timeSkipToMenu + .1;
     }
 
     public void ChooseLanguage (int lang) {
@@ -85,12 +92,12 @@ public class SplashscreenController : MonoBehaviour {
     }
 
     private void ApartmentLoaded (Scene scene, LoadSceneMode mode) {
-        Scene appartment = SceneManager.GetSceneByBuildIndex (3);
+        Scene appartment = SceneManager.GetSceneByName ("Apartment");
         if(scene != appartment){
             return;
         }
 
         SceneManager.SetActiveScene (appartment);
-        SceneManager.UnloadSceneAsync (0);
+        SceneManager.UnloadSceneAsync ("SplashScreen");
     }
 }

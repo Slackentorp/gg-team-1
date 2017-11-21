@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.Managers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RunState : GameState
 {
@@ -76,7 +77,17 @@ public class RunState : GameState
         gm.mothBehaviour.Update();
         gm.mothSounds.UpdateMothSounds();
         CheckInput();
-        gm.HeadsetStateUIText.text = gm.InputManager.GetHeadsetState() ? "Headset plugged in" : "Headset not plugged in";
+        
+        bool headphoneState = gm.InputManager.GetHeadsetState();
+        AkSoundEngine.SetRTPCValue("HEADPHONE_IN", headphoneState ? 0 : 1);
+        gm.HeadsetStateUIText.text = headphoneState ? "Headset plugged in" : "Headset not plugged in";
+
+        Debug.Log("Scene count: " +SceneManager.sceneCount);
+        for(int i = 0; i < SceneManager.sceneCount; i++){
+            Debug.Log(SceneManager.GetSceneAt(i).name);
+        }
+        Debug.Log("Active Scene: " + SceneManager.GetActiveScene().name);
+        Debug.Log("");
     }
 
     public override void InternalOnGUI()

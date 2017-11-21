@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using EasyButtons;
 
 namespace Team1.UI
 {
@@ -14,7 +15,6 @@ namespace Team1.UI
         private bool additively; 
 
         private Button button;
-
 
         private void LoadSceneButton(string sceneName, bool additive = false)
         {
