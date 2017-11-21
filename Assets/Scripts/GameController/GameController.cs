@@ -88,6 +88,7 @@ public class GameController : Singleton<GameController>
     {
         if(currentState is FragmentState)
         {
+            AkSoundEngine.StopAll(NextFragment.gameObject);
             SetState(new RunState(this));
         }
     }
