@@ -10,21 +10,21 @@ public class BootstrapManager : Singleton<BootstrapManager>
     [SerializeField]
     private Camera gameCamera;
 
-    public GameObject mothObject; 
+    public GameObject mothObject;
 
     [SerializeField]
     private Scene levelScene;
 
-/*
-for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
-    {
-        string sceneName = SceneManager.GetSceneByBuildIndex(i).name;
-        if(sceneName.Equals("SplashScreen"))
+    /*
+    for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
-            return;
+            string sceneName = SceneManager.GetSceneByBuildIndex(i).name;
+            if(sceneName.Equals("SplashScreen"))
+            {
+                return;
+            }
         }
-    }
-*/
+    */
 
     // Use this for initialization
     void Start()
@@ -38,7 +38,7 @@ for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
             {
                 levelScene = SceneManager.GetSceneAt(i);
                 SceneManager.SetActiveScene(levelScene);
-                print("Level scene is: " +levelScene.name);
+                print("Level scene is: " + levelScene.name);
                 break;
             }
         }
@@ -55,8 +55,8 @@ for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
             }
             else
             {
-                Debug.LogWarning( "No camera with tag 'Level Camera' " +
-                                "was found in level. Using default settings.");
+                Debug.LogWarning("No camera with tag 'Level Camera' " +
+                    "was found in level. Using default settings.");
             }
         }
         else
@@ -88,11 +88,11 @@ for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
     private IEnumerator AsyncChangeLevelScene(string level)
     {
         AsyncOperation unload = SceneManager.UnloadSceneAsync(levelScene);
-        while (!unload.isDone) {
+        while (!unload.isDone)
+        {
             yield return null;
         }
-   //     Start();
+        //     Start();
     }
-
 
 }
