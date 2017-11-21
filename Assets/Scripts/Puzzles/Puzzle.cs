@@ -6,7 +6,7 @@ using UnityEngine;
 public class Puzzle : Interactable
 {
     //public delegate void EasyWwiseCallback();
-    public delegate void PuzzleAction();
+    public delegate void PuzzleAction(GameObject puzzle);
     public static event PuzzleAction PuzzleCall;
 
     [SerializeField, Tooltip("The mercy distance")]
@@ -21,14 +21,14 @@ public class Puzzle : Interactable
 
     private List<GameObject> puzzlePieces;
     private List<Vector3> correctPositions;
-    private bool[] piecePlaced; 
+    private bool[] piecePlaced;
 
-    private Dictionary<GameObject, Vector3> correctPuzzle; 
+    private Dictionary<GameObject, Vector3> correctPuzzle;
 
     private bool isSolved;
 
     [SerializeField, Tooltip("Dimensions which the puzzle should work in")]
-    private bool x, y, z; 
+    private bool x, y, z;
 
     public bool IsSolved { get { return isSolved; } private set { isSolved = value; } }
     public string PuzzleId { get { return PuzzleId; } }
@@ -44,7 +44,7 @@ public class Puzzle : Interactable
 
         for (int i = 0; i < transform.childCount; i++)
         {
-            Transform child = transform.GetChild(i); 
+            Transform child = transform.GetChild(i);
             if (transform.GetChild(i).CompareTag("PuzzlePiece"))
             {
                 puzzlePieces.Add(child.gameObject);
@@ -57,15 +57,15 @@ public class Puzzle : Interactable
                     transform.localPosition.z + (boundingBoxSize.z + boundingBoxOffset.z) / 2f)
                     );
                 puzzlePieces[i].transform.position = newRandomPos;
-                correctPuzzle.Add(puzzlePieces[i], correctPositions[i]); 
+                correctPuzzle.Add(puzzlePieces[i], correctPositions[i]);
             }
         }
 
         GetComponent<BoxCollider>().size = boundingBoxSize;
         GetComponent<BoxCollider>().center = boundingBoxOffset;
 
-        piecePlaced = new bool[puzzlePieces.Count]; 
-        PositionPieceCorrectly(0); 
+        piecePlaced = new bool[puzzlePieces.Count];
+        PositionPieceCorrectly(0);
 
         //PuzzleChecker();
     }
@@ -76,7 +76,7 @@ public class Puzzle : Interactable
         {
             for (int i = 0; i < puzzlePieces.Count; i++)
             {
-                PositionPieceCorrectly(i); 
+                PositionPieceCorrectly(i);
             }
         }
     }
@@ -84,13 +84,16 @@ public class Puzzle : Interactable
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireCube(transform.position + boundingBoxOffset, boundingBoxSize);
-        Gizmos.color = Color.red; 
-        Gizmos.DrawWireSphere(transform.position, mercyDistance); 
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, mercyDistance);
     }
 
-    private void OnSolved()
+    private void OnSolved(GameObject puzzleObj)
     {
-
+        if (PuzzleCall != null)
+        {
+            PuzzleCall(puzzleObj); 
+        }
     }
 
     public void UpdatePuzzle()
@@ -99,10 +102,10 @@ public class Puzzle : Interactable
 
         for (int i = 0; i < puzzlePieces.Count; i++)
         {
-            distance = Vector3.Distance(puzzlePieces[i].transform.position, correctPositions[i]); 
+            distance = Vector3.Distance(puzzlePieces[i].transform.position, correctPositions[i]);
             if (Mathf.Abs(distance) < mercyDistance)
             {
-                PositionPieceCorrectly(i); 
+                PositionPieceCorrectly(i);
             }
         }
     }
@@ -131,10 +134,11 @@ public class Puzzle : Interactable
 
     private void PositionPieceCorrectly(int piece)
     {
-        piecePlaced[piece] = true; 
+        piecePlaced[piece] = true;
         puzzlePieces[piece].transform.position = correctPuzzle[puzzlePieces[piece]];
-        puzzlePieces[piece].GetComponent<PictureFrameTouch>().isCorrect = true; 
-        isSolved = CheckAllCorrect(); 
+        puzzlePieces[piece].GetComponent<PictureFrameTouch>().isCorrect = true;
+        puzzlePieces[piece].GetComponent<PictureFrameTouch>().enabled = false; 
+        isSolved = CheckAllCorrect();
     }
 
     private bool CheckAllCorrect()
@@ -142,9 +146,10 @@ public class Puzzle : Interactable
         for (int i = 0; i < piecePlaced.Length; i++)
         {
             if (!piecePlaced[i])
-                return false; 
+                return false;
         }
 
+        OnSolved(gameObject);
         return true;
     }
 
