@@ -10,20 +10,29 @@ public class MothBehaviour
 	[SerializeField]
 	private float timeScale = 1;
 
-	GameObject moth;
-	Camera camera;
-	Vector3 hitPoint;
-	Vector3 mothToPoint;
-	Vector3 mothStartPos;
-	float time;
-	float turningTime;
-	float turningSpeed;
-	RaycastHit hit;
-	Vector3 hitDotPoint;
-	Vector3 hitDotNormal;
-	Vector3 mothRotation;
-	Ray ray;
+	[SerializeField, Range(0, 1), Tooltip("Adjusts the allowed distance between moth and anchor point")]
+	float allowedDistance = 0.2f;
 
+	[SerializeField]
+	private AnimationCurve mothChildCurve;
+
+	[SerializeField]
+	int noiseReducer = 16;
+
+	[SerializeField]
+	float mothSpeedModifier = 1.0f;
+
+	GameObject moth;
+	Transform mothChild;
+	Camera camera;
+	Vector3 hitPoint, mothStartPos;
+	RaycastHit hit;
+	Vector3 hitDotPoint, hitDotNormal, mothRotation, dampVelocity, mothOriginPos, parentPos;
+	Vector3 pos, anchorPointPlusPos;
+	Ray ray;
+	float turningTime, turningSpeed, proceduralLerpTime, time;
+	float perlinNoiseX, perlinNoiseY, perlinNoiseZ, levelOfNoise = 0.5f;
+	
 	public float MothSpeed
 	{
 		get; set;
@@ -31,6 +40,7 @@ public class MothBehaviour
 
 	private bool lerpRunning = false;
 	private bool mothTurning = true;
+	private bool mothDampProcedural = false;
 
 	void OnValidate()
 	{
@@ -40,17 +50,29 @@ public class MothBehaviour
 		}
 	}
 
-	public MothBehaviour(GameObject moth, Camera camera, float speed)
+	public MothBehaviour(GameObject moth, Camera camera, float speed, AnimationCurve curve,
+						int noiseReducer, float speedModifier)
 	{
 		this.moth = moth;
 		this.camera = camera;
 		this.MothSpeed = speed;
+		this.mothChildCurve = curve;
+		this.noiseReducer = noiseReducer;
+		this.mothSpeedModifier = speedModifier;
 	}
 
 
 	public void Update()
 	{
-		MothGoToPosition();
+		if (mothChild == null)
+		{
+			mothChild = moth.transform.GetChild(0);
+		}
+		if (mothChild != null)
+		{
+			ProceduralMovement();
+			MothGoToPosition();
+		}
 	}
 
 	public void SetMothPos(RaycastHit hit)
@@ -71,9 +93,8 @@ public class MothBehaviour
 		turningSpeed = 1.7f;
 		if (Vector3.Angle(moth.transform.forward, moth.transform.position - hitPoint) != 0)
 		{
-			//mothTurning = true;
 			turningTime += Time.deltaTime * (time * 2f);
-			
+
 			MothTargetRotate();
 		}
 		if (Vector3.Angle(moth.transform.forward, moth.transform.position - hitPoint) == 0 || lerpRunning == true)
@@ -90,7 +111,6 @@ public class MothBehaviour
 				moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, time);
 			}
 		}
-
 	}
 
 	private void PointfromRaycast()
@@ -111,8 +131,58 @@ public class MothBehaviour
 	{
 		turningTime += Time.deltaTime * turningSpeed;
 		Vector3 nextPos = Vector3.Lerp(mothRotation, (moth.transform.position - hitPoint).normalized, turningTime);
-		if(nextPos != Vector3.zero){
+		if (nextPos != Vector3.zero)
+		{
 			moth.transform.forward = nextPos;
 		}
+	}
+
+	void ProceduralMovement()
+	{
+		parentPos = Vector3.zero;
+		proceduralLerpTime += Time.deltaTime;
+
+		if (mothDampProcedural == false)
+		{
+			mothOriginPos = mothChild.transform.localPosition;
+
+			CalculatePerlinNoise();
+
+			proceduralLerpTime = 0;
+			anchorPointPlusPos = parentPos + pos;
+			mothDampProcedural = true;
+		}
+		if (mothDampProcedural == true && proceduralLerpTime * 0.7 < 1)
+		{
+			mothChild.transform.localPosition = Vector3.Lerp(mothOriginPos,
+			anchorPointPlusPos, mothChildCurve.Evaluate(proceduralLerpTime * mothSpeedModifier));
+		}
+		else if (mothDampProcedural == true)
+		{
+			mothDampProcedural = false;
+		}
+	}
+
+	Vector3 CalculatePerlinNoise()
+	{
+		perlinNoiseX = Mathf.PerlinNoise(1.0f * Time.time, 0.0f);
+		if (perlinNoiseX < 0.51f)
+		{
+			perlinNoiseX = -perlinNoiseX;
+		}
+		perlinNoiseY = Mathf.PerlinNoise(0.0f, 1.0f * Time.time);
+		if (perlinNoiseY < 0.51f)
+		{
+			perlinNoiseY = -perlinNoiseY;
+		}
+		perlinNoiseZ = Mathf.PerlinNoise(Time.time * 1.0f, 1.0f * Time.time);
+		if (perlinNoiseZ < 0.51f)
+		{
+			perlinNoiseZ = -perlinNoiseZ;
+		}
+		pos.x = perlinNoiseX / noiseReducer;
+		pos.y = perlinNoiseY / noiseReducer;
+		pos.z = perlinNoiseZ / (noiseReducer * 1.5f);
+		return pos;
 	}
 }
