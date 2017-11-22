@@ -51,9 +51,9 @@ public class StoryEventController : Singleton<StoryEventController>
 			director.playableAsset = se.TimelinePlayableAsset;
 			director.time = 0;
 			director.initialTime = 0;
-			se.StoryEventGroup.SetActive(true);
 			AkSoundEngine.PostEvent(se.FragmentWwiseEvent, gameObject);
 			director.Play();
+			se.StoryEventGroup.SetActive(true);
 			isPosting = true;
 		}
 	}

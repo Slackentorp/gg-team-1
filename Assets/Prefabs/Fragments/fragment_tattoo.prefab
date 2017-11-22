@@ -133,9 +133,10 @@ GameObject:
   - component: {fileID: 4012662159745468}
   - component: {fileID: 65792982749670786}
   - component: {fileID: 114717772410236898}
+  - component: {fileID: 114158047031268690}
   m_Layer: 0
   m_Name: fragment_tattoo
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967293
@@ -146,8 +147,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961992769242328}
-  m_LocalRotation: {x: -0, y: -0.27606347, z: -0, w: -0.96113944}
-  m_LocalPosition: {x: -5.554, y: 0.7279999, z: 3.064}
+  m_LocalRotation: {x: -0, y: 0.4083047, z: -0, w: -0.91284573}
+  m_LocalPosition: {x: -5.514, y: 0.7279999, z: 3.105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4846525261015926}
@@ -158,7 +159,7 @@ Transform:
   - {fileID: 4444488173748440}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 392.051, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 311.803, z: 0}
 --- !u!4 &4172391937429136
 Transform:
   m_ObjectHideFlags: 1
@@ -534,6 +535,20 @@ MonoBehaviour:
     X: 1
     Y: 0
     Z: 1
+--- !u!114 &114158047031268690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961992769242328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPosition: {x: 0.36, y: 0.86, z: -0.53}
+  cameraOrientation: {x: -0.04, y: 0.38, z: -0.64}
+  storyFragment: FRAGMENT_POLAROID1PlaceHolder
 --- !u!114 &114303075158600874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,8 +620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd4e3332699715479d69a54addeff02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPosition: {x: 0.33, y: 0.25, z: 0.42}
-  cameraOrientation: {x: -0.06, y: 0, z: 0}
+  cameraPosition: {x: -0.35, y: 0.25, z: 0.3}
+  cameraOrientation: {x: -0.03, y: -0.03, z: 0}
   mercyDistance: 0.07
   boundingBoxSize: {x: 0.5, y: 0.3, z: 0.5}
   boundingBoxOffset: {x: 0, y: 0, z: 0}

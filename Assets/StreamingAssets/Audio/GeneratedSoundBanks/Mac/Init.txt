@@ -4,6 +4,7 @@ State Group	ID	Name			Wwise Object Path	Notes
 	2077253480	ROOM			\Default Work Unit\ROOM	
 	2441027675	LANGUAGE			\Default Work Unit\LANGUAGE	
 	2599116615	INSIDE_STATE			\Default Work Unit\INSIDE_STATE	
+	3559727537	FRAGMENT_MUSIC			\Default Work Unit\FRAGMENT_MUSIC	
 	3617270566	BULB_STATE			\Default Work Unit\BULB_STATE	
 	3826569560	MUSIC_STATE			\Default Work Unit\MUSIC_STATE	
 	3863998494	LAMPS_ON			\Default Work Unit\LAMPS_ON	
@@ -24,13 +25,19 @@ State	ID	Name	State Group			Notes
 	28587383	LIVINGROOM	ROOM			
 	748895195	None	ROOM			
 	1586158131	KITCHEN	ROOM			
+	1917388856	STUDY	ROOM			
 	2198133169	HALLWAY	ROOM			
+	3788924735	BEDROOM	ROOM			
 	748895195	None	LANGUAGE			
 	3383237639	ENGLISH	LANGUAGE			
 	4072223638	DANISH	LANGUAGE			
 	438105790	OUTSIDE	INSIDE_STATE			
 	748895195	None	INSIDE_STATE			
 	3553349781	INSIDE	INSIDE_STATE			
+	748895195	None	FRAGMENT_MUSIC			
+	1385224078	Awful	FRAGMENT_MUSIC			
+	1427264549	Happy	FRAGMENT_MUSIC			
+	3509424520	Memory	FRAGMENT_MUSIC			
 	748895195	None	BULB_STATE			
 	2164182160	BULB_1	BULB_STATE			
 	2164182162	BULB_3	BULB_STATE			
@@ -43,6 +50,7 @@ State	ID	Name	State Group			Notes
 	748895195	None	LAMPS_ON			
 	1942065220	LAMP_2	LAMPS_ON			
 	1942065221	LAMP_3	LAMPS_ON			
+	1942065222	LAMP_0	LAMPS_ON			
 	1942065223	LAMP_1	LAMPS_ON			
 	748895195	None	MAP_STATE			
 	1037399635	PIN_8	MAP_STATE			
@@ -55,7 +63,14 @@ State	ID	Name	State Group			Notes
 	1037399647	PIN_4	MAP_STATE			
 	1861070025	DONE	MAP_STATE			
 
+Custom State	ID	Name	State Group	Owner		Notes
+	409414692	FRAGMENT	MUSIC_STATE	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\AMBIENCE		
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2768438037	HEADPHONE_IN			\Default Work Unit\HEADPHONE_IN	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	85412153	AMBIENCE			\Default Work Unit\Master Audio Bus\SFX\AMBIENCE	
 	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
 	805203703	Master Secondary Bus			\Default Work Unit\Master Secondary Bus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
@@ -67,6 +82,8 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	1990128658	Room_Medium	Wwise RoomVerb			
+	2080872166	Brick_Wall_Minus_6dB_Peak_Fast_Release	Wwise Peak Limiter			
+	2547645744	Boost_3dB_100Hz	Wwise Parametric EQ			
 	3164629247	Holy	Wwise RoomVerb			
 	4286906788	Gentle_Program_Compressor_Minus_20dB_RMS	Wwise Compressor			
 
