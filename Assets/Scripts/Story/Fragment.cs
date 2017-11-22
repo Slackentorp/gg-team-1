@@ -48,7 +48,7 @@ public class Fragment : MonoBehaviour
     public void Play(EasyWwiseCallback Callback)
     {
         HasPlayed = true;
-        //   FragmentCall(); // THIS NEEDS TO BE NOT COMMENTED IN THE REAL VERSION!!!!
+        //  FragmentCall(); // THIS NEEDS TO BE NOT COMMENTED IN THE REAL VERSION!!!!
         Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject,
                         (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_Duration
@@ -85,6 +85,8 @@ public class Fragment : MonoBehaviour
             counter++;
             if(counter==2)
             {
+
+                fragmentIsOn = false;
                 counter = 0;
             }//LOGICAL PROBLEMS HERE maybe
         }

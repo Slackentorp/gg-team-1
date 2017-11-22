@@ -30,14 +30,19 @@ public class EndFragment : Singleton<EndFragment>
 
         Debug.Log(uPosition);
 
-
+        if(fragmentIsOnn)
+        { 
         if (uPosition > realDuration)
         {
 
             AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
+            fragmentIsOnn = false;
+            return;
         }
+        }
+
         //fragmentIsOnn = false;
-        
+
     }
     public int realDuration;
     public float durationn;
