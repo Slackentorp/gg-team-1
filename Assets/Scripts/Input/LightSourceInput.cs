@@ -36,8 +36,6 @@ public class LightSourceInput : MonoBehaviour
     [SerializeField]
     private bool isActivated;
 
-    public bool ACTIVATE;
-
     public Vector3 CameraPosition { get { return transform.TransformPoint(cameraPosition); } }
 
     public bool Lit

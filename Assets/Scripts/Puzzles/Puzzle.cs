@@ -92,7 +92,7 @@ public class Puzzle : Interactable
     {
         if (PuzzleCall != null)
         {
-            PuzzleCall(puzzleObj); 
+            PuzzleCall(puzzleObj);
         }
     }
 
@@ -137,7 +137,7 @@ public class Puzzle : Interactable
         piecePlaced[piece] = true;
         puzzlePieces[piece].transform.position = correctPuzzle[puzzlePieces[piece]];
         puzzlePieces[piece].GetComponent<PictureFrameTouch>().isCorrect = true;
-        puzzlePieces[piece].GetComponent<PictureFrameTouch>().enabled = false; 
+        puzzlePieces[piece].GetComponent<PictureFrameTouch>().enabled = false;
         isSolved = CheckAllCorrect();
     }
 

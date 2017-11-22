@@ -39,6 +39,7 @@ public class DoorWallController : MonoBehaviour
         }
 
         getNrOfLamps = CountArray(getLamps, true);
+       // print("")
         lampsForWise = "LAMP_" + getNrOfLamps.ToString();
         AkSoundEngine.SetState("LAMPS_ON", lampsForWise);
         if (getLamps.Length == 3)

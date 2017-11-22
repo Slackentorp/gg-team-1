@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Assets.Scripts.Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class RunState : GameState
 {
@@ -34,7 +33,7 @@ public class RunState : GameState
             Fragment fragment = inputEvent.GameObject.GetComponent<Fragment>();
             Puzzle puzzle = inputEvent.GameObject.GetComponent<Puzzle>();
 
-            if (fragment != null && gm.NextFragment == null && inputEvent.InputType == InputType.TAP)
+            if (fragment != null && inputEvent.InputType == InputType.TAP)
             {
                 gm.NextFragment = fragment;
                 gm.SetState(new FragmentState(gm));
@@ -87,10 +86,7 @@ public class RunState : GameState
         gm.mothBehaviour.Update();
         gm.mothSounds.UpdateMothSounds();
         CheckInput();
-        
-        bool headphoneState = gm.InputManager.GetHeadsetState();
-        AkSoundEngine.SetRTPCValue("HEADPHONE_IN", headphoneState ? 0 : 1);
-        gm.HeadsetStateUIText.text = headphoneState ? "Headset plugged in" : "Headset not plugged in";
+        gm.HeadsetStateUIText.text = gm.InputManager.GetHeadsetState() ? "Headset plugged in" : "Headset not plugged in";
     }
 
     public override void InternalOnGUI()
