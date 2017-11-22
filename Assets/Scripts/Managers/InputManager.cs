@@ -29,9 +29,9 @@ namespace Assets.Scripts.Managers
 
         // Use this for initialization
 
-        public InputManager(InputHandlerSettings settings)
+        public InputManager(InputHandlerSettings settings, Camera camera)
         {
-            mainCamera = Camera.main;
+            mainCamera = camera;
             touchInputMask = settings._TouchInputMask;
             tapTimeThreshold = settings._TapTimeThreshold;
             swipeSquaredDistanceThreshold =
@@ -197,8 +197,6 @@ namespace Assets.Scripts.Managers
                     objectOnTouchDownState.TryGetValue(touchObject,
                         out ts);
 
-                    
-
                     // Tap
                     if (t.phase == TouchPhase.Ended && ts.onTouchTime > 0 &&
                         Time.time - ts.onTouchTime <= tapTimeThreshold)
@@ -326,6 +324,25 @@ namespace Assets.Scripts.Managers
                 dt = 1.0f;
             }
             return input.deltaPosition * dt;
+        }
+
+        public bool GetHeadsetState()
+        {
+            #if UNITY_EDITOR
+                return false;
+            #endif
+            #if UNITY_ANDROID
+            using (var unityPlayerClass = new AndroidJavaClass ("com.unity3d.player.UnityPlayer"))
+            using (var context = unityPlayerClass.GetStatic<AndroidJavaObject> ("currentActivity"))
+            using (var AudioManager = context.Call<AndroidJavaObject> ("getSystemService", "audio")) {
+
+                if (AudioManager != null)
+                {
+                    return AudioManager.Call<bool> ("isWiredHeadsetOn");
+                }
+            }
+            #endif
+            return false;
         }
     }
 

@@ -8,8 +8,8 @@ public class DoorWallController : MonoBehaviour
     [SerializeField]
     private LightSourceInput[] roomLamps;
     private ParticleSystem doorParticleSystem;
-    private bool[] getLamps = new bool[3];
-    private bool[] checkOnes = new bool[3];
+    [SerializeField]
+    private bool[] getLamps;
     private int getNrOfLamps = 0;
     private int LampsON = 0;
     private string lampsForWise;
@@ -24,25 +24,39 @@ public class DoorWallController : MonoBehaviour
         LightSourceInput.LightSourceCall -= LampChecker;
     }
 
+    private void Start()
+    {
+        getLamps = new bool[roomLamps.Length];
+    }
+
     void LampChecker()
     {
-        for (int i = 0; i < getLamps.Length; i++)
+
+        getLamps = new bool[roomLamps.Length];
+        for (int i = 0; i < roomLamps.Length; i++)
         {
             getLamps[i] = roomLamps[i].LampActivated;
         }
 
         getNrOfLamps = CountArray(getLamps, true);
+       // print("")
         lampsForWise = "LAMP_" + getNrOfLamps.ToString();
         AkSoundEngine.SetState("LAMPS_ON", lampsForWise);
-
-        if ((getLamps[0] && getLamps[1]) ||
-            (getLamps[0] && getLamps[2]) ||
-            (getLamps[1] && getLamps[2]))
+        if (getLamps.Length == 3)
         {
-            doorParticleSystem = GetComponentsInChildren<ParticleSystem>()[0];
-            GetComponent<Collider>().enabled = false;
-            var em = doorParticleSystem.emission;
-            em.enabled = false;
+            if (getNrOfLamps == getLamps.Length ||
+                getNrOfLamps == getLamps.Length - 1)
+            {
+                gameObject.SetActive(false);
+                //doorParticleSystem = GetComponentsInChildren<ParticleSystem>()[0];
+                //GetComponent<Collider>().enabled = false;
+            }
+        }
+        else if (getNrOfLamps == getLamps.Length)
+        {
+            gameObject.SetActive(false);
+            //doorParticleSystem = GetComponentsInChildren<ParticleSystem>()[0];
+            //GetComponent<Collider>().enabled = false;
         }
     }
 
