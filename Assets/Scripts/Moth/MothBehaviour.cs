@@ -23,27 +23,16 @@ public class MothBehaviour
 	float mothSpeedModifier = 1.0f;
 
 	GameObject moth;
-	Camera camera;
-	Vector3 hitPoint;
-	Vector3 mothToPoint;
-	Vector3 mothStartPos;
-	float time;
-	float timePerlin;
-	float turningTime;
-	float turningSpeed;
-	RaycastHit hit;
-	Vector3 hitDotPoint;
-	Vector3 hitDotNormal;
-	Vector3 mothRotation;
-	Vector3 dampVelocity, mothOriginPos, parentPos; 
-	Ray ray;
-	float perlinNoiseX, perlinNoiseY, perlinNoiseZ, mothXAxisScale = 0.7f, mothYAxisScale = 0.7f;
-	float levelOfNoise = 0.5f;
-	float mothYOriginPos, distanceToMothChild;
-	Vector3 pos, currentPos, AnchorPointPlusPos;
 	Transform mothChild;
-
-
+	Camera camera;
+	Vector3 hitPoint, mothStartPos;
+	RaycastHit hit;
+	Vector3 hitDotPoint, hitDotNormal, mothRotation, dampVelocity, mothOriginPos, parentPos;
+	Vector3 pos, anchorPointPlusPos;
+	Ray ray;
+	float turningTime, turningSpeed, proceduralLerpTime, time;
+	float perlinNoiseX, perlinNoiseY, perlinNoiseZ, levelOfNoise = 0.5f;
+	
 	public float MothSpeed
 	{
 		get; set;
@@ -61,7 +50,7 @@ public class MothBehaviour
 		}
 	}
 
-	public MothBehaviour(GameObject moth, Camera camera, float speed, AnimationCurve curve, 
+	public MothBehaviour(GameObject moth, Camera camera, float speed, AnimationCurve curve,
 						int noiseReducer, float speedModifier)
 	{
 		this.moth = moth;
@@ -83,8 +72,6 @@ public class MothBehaviour
 		{
 			ProceduralMovement();
 			MothGoToPosition();
-			Debug.DrawRay(Vector3.zero, Vector3.up * 4, Color.green);
-			Debug.DrawRay(Vector3.zero, Vector3.right * 4, Color.red);
 		}
 	}
 
@@ -95,8 +82,6 @@ public class MothBehaviour
 		mothStartPos = moth.transform.position;
 		mothRotation = moth.transform.forward;
 		hitPoint = hit.point + hit.normal * 0.2f;
-		//mothXOriginPos = moth.transform.localPosition.x;
-		//mothYOriginPos = moth.transform.localPosition.y;
 
 		lerpRunning = true;
 		time = 0.0f;
@@ -124,7 +109,6 @@ public class MothBehaviour
 			{
 				time += Time.deltaTime * MothSpeed;
 				moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, time);
-
 			}
 		}
 	}
@@ -155,65 +139,51 @@ public class MothBehaviour
 
 	void ProceduralMovement()
 	{
-		parentPos = moth.transform.position;
-		timePerlin += Time.deltaTime;
-		Debug.Log(mothDampProcedural);
+		parentPos = Vector3.zero;
+		proceduralLerpTime += Time.deltaTime;
+
 		if (mothDampProcedural == false)
 		{
 			mothOriginPos = mothChild.transform.localPosition;
-			perlinNoiseX = Mathf.PerlinNoise(1.0f * Time.time, 0.0f);
-			if (perlinNoiseX < 0.51f)
-			{
-				perlinNoiseX = -perlinNoiseX;
-			}
-			perlinNoiseY = Mathf.PerlinNoise(0.0f, 1.0f * Time.time);
-			if (perlinNoiseY < 0.51f)
-			{
-				perlinNoiseY = -perlinNoiseY;
-			}
-			perlinNoiseZ = Mathf.PerlinNoise(Time.time, 1.0f * Time.time);
-			if (perlinNoiseZ < 0.51f)
-			{
-				perlinNoiseZ = -perlinNoiseZ;
-			}
-			pos.x = perlinNoiseX / noiseReducer;
-			pos.y = perlinNoiseY / noiseReducer;
-			pos.z = perlinNoiseZ / (noiseReducer * 1.5f);
 
+			CalculatePerlinNoise();
 
+			proceduralLerpTime = 0;
+			anchorPointPlusPos = parentPos + pos;
 			mothDampProcedural = true;
-			timePerlin = 0;
-			AnchorPointPlusPos = parentPos + pos;
-
+			Debug.Log(pos);
 		}
-		if (mothDampProcedural == true && timePerlin * 2 < 1)
+		if (mothDampProcedural == true && proceduralLerpTime * 0.7 < 1)
 		{
 			mothChild.transform.localPosition = Vector3.Lerp(mothOriginPos,
-										  AnchorPointPlusPos, mothChildCurve.Evaluate(timePerlin * mothSpeedModifier));
-			//currentPos = mothChild.transform.localPosition;
+			anchorPointPlusPos, mothChildCurve.Evaluate(proceduralLerpTime * mothSpeedModifier));
 		}
-		/*if (DistanceToParent() == false)
-		{
-			//orignalPos = mothChild.transform.localPosition;
-
-		}*/
 		else if (mothDampProcedural == true)
 		{
 			mothDampProcedural = false;
 		}
-		Debug.Log(mothDampProcedural);
 	}
 
-	bool DistanceToParent()
+	Vector3 CalculatePerlinNoise()
 	{
-		distanceToMothChild = Vector3.Distance(moth.transform.position, mothChild.transform.position);
-		if (distanceToMothChild <= allowedDistance)
+		perlinNoiseX = Mathf.PerlinNoise(1.0f * Time.time, 0.0f);
+		if (perlinNoiseX < 0.51f)
 		{
-			return true;
+			perlinNoiseX = -perlinNoiseX;
 		}
-		else
+		perlinNoiseY = Mathf.PerlinNoise(0.0f, 1.0f * Time.time);
+		if (perlinNoiseY < 0.51f)
 		{
-			return false;
+			perlinNoiseY = -perlinNoiseY;
 		}
+		perlinNoiseZ = Mathf.PerlinNoise(Time.time * 1.0f, 1.0f * Time.time);
+		if (perlinNoiseZ < 0.51f)
+		{
+			perlinNoiseZ = -perlinNoiseZ;
+		}
+		pos.x = perlinNoiseX / noiseReducer;
+		pos.y = perlinNoiseY / noiseReducer;
+		pos.z = perlinNoiseZ / (noiseReducer * 1.5f);
+		return pos;
 	}
 }
