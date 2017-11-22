@@ -66,12 +66,12 @@ public class LightSourceInput : MonoBehaviour
 
     void OnEnable()
     {
-        Fragment.FragmentCall += FragmentChecker;
+   //     Fragment.FragmentCall += FragmentChecker;
     }
 
     void OnDisable()
     {
-        Fragment.FragmentCall -= FragmentChecker;
+    //    Fragment.FragmentCall -= FragmentChecker;
     }
 
     private void Start()

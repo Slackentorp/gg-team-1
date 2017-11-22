@@ -151,7 +151,6 @@ public class MothBehaviour
 			proceduralLerpTime = 0;
 			anchorPointPlusPos = parentPos + pos;
 			mothDampProcedural = true;
-			Debug.Log(pos);
 		}
 		if (mothDampProcedural == true && proceduralLerpTime * 0.7 < 1)
 		{

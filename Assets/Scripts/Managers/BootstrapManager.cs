@@ -35,7 +35,7 @@ public class BootstrapManager : Singleton<BootstrapManager>
             Debug.Log("SceneName: " +sceneName);
             if(!string.IsNullOrEmpty(sceneName) && sceneName.Equals("SplashScreen"))
             {
-                return;
+             //   return;
             }
         }
         print("Bootstrap Start");
@@ -43,7 +43,8 @@ public class BootstrapManager : Singleton<BootstrapManager>
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             if (!SceneManager.GetSceneAt(i).name.ToUpper().Equals("BOOTSTRAP") &&
-                !SceneManager.GetSceneAt(i).name.ToUpper().Equals("SOUNDSCAPE"))
+                !SceneManager.GetSceneAt(i).name.ToUpper().Equals("SOUNDSCAPE") &&
+                !SceneManager.GetSceneAt(i).name.ToUpper().Equals("STORYEVENTS"))
             {
                 levelScene = SceneManager.GetSceneAt(i);
                 SceneManager.SetActiveScene(levelScene);
