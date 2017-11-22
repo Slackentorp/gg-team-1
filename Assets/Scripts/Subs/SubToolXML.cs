@@ -173,7 +173,7 @@ public class SubToolXML : Singleton<SubToolXML>
             return;
         }
 
-        ShowSubs();
+      //  ShowSubs();
     }
     IEnumerator Wait(int a)
     {

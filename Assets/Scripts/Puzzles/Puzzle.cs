@@ -138,6 +138,7 @@ public class Puzzle : Interactable
         puzzlePieces[piece].transform.position = correctPuzzle[puzzlePieces[piece]];
         puzzlePieces[piece].GetComponent<PictureFrameTouch>().isCorrect = true;
         puzzlePieces[piece].GetComponent<PictureFrameTouch>().enabled = false;
+        puzzlePieces[piece].GetComponent<BoxCollider>().enabled = false;
         isSolved = CheckAllCorrect();
     }
 

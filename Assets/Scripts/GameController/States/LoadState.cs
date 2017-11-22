@@ -24,7 +24,7 @@ public class LoadState : GameState
         gm.mothSounds = new MothSounds(gm.GameCamera.transform, gm.mothBehaviour, gm.Moth.transform);
         gm.cameraHeading = gm.GameCamera.transform.position - gm.Moth.transform.position;
 		//     gm.GameCamera.SetTarget(gm.Moth.transform.position);
-		gm.SetState(new RunState(gm));
+	//	gm.SetState(new RunState(gm));
 
     }
 
