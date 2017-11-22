@@ -21,7 +21,10 @@ public class GameController : Singleton<GameController>
     public MothSounds mothSounds;
     public InputHandlerSettings InputSettings;
     public AnimationCurve FragmentLerpCurve;
-    public float cameraDamping;
+	public AnimationCurve MothChildCurve;
+	public float mothSpeedModifier;
+	public float cameraDamping;
+	public int noiseReducer;
     [HideInInspector]
     public Vector3 cameraHeading;
     [HideInInspector]

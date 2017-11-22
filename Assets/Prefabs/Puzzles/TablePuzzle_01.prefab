@@ -133,10 +133,9 @@ GameObject:
   - component: {fileID: 4291849463799704}
   - component: {fileID: 65182293210676774}
   - component: {fileID: 114178781446067740}
-  - component: {fileID: 114598514773477100}
   m_Layer: 0
   m_Name: TablePuzzle_01
-  m_TagString: Respawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,8 +159,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966400161502800}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -5.561, y: 0.745, z: 2.987}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.331, y: 0, z: 2.371}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4411563000696014}
@@ -172,7 +171,7 @@ Transform:
   - {fileID: 4317329186690674}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4317329186690674
 Transform:
   m_ObjectHideFlags: 1
@@ -566,11 +565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd4e3332699715479d69a54addeff02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPosition: {x: 0.38, y: 0.31, z: 0.08}
-  cameraOrientation: {x: 0.12, y: 0, z: 0}
+  cameraPosition: {x: 0, y: 0.87, z: 0.61}
+  cameraOrientation: {x: 0, y: 0, z: 0}
   mercyDistance: 0.07
-  boundingBoxSize: {x: 0.4, y: 0.16, z: 0.51}
-  boundingBoxOffset: {x: 0.09, y: 0, z: 0}
+  boundingBoxSize: {x: 1, y: 1, z: 0.53}
+  boundingBoxOffset: {x: 0, y: 0, z: 0}
   puzzleId: 
   x: 0
   y: 0
@@ -595,20 +594,6 @@ MonoBehaviour:
     X: 1
     Y: 0
     Z: 1
---- !u!114 &114598514773477100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1966400161502800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraPosition: {x: 0.38, y: 0.31, z: 0.08}
-  cameraOrientation: {x: 0.12, y: 0, z: 0}
-  storyFragment: FRAGMENT_POLAROID1PlaceHolder
 --- !u!114 &114616303324344634
 MonoBehaviour:
   m_ObjectHideFlags: 1
