@@ -21,7 +21,10 @@ public class GameController : Singleton<GameController>
     public MothSounds mothSounds;
     public InputHandlerSettings InputSettings;
     public AnimationCurve FragmentLerpCurve;
-    public float cameraDamping;
+	public AnimationCurve MothChildCurve;
+	public float mothSpeedModifier;
+	public float cameraDamping;
+	public int noiseReducer;
     [HideInInspector]
     public Vector3 cameraHeading;
     [HideInInspector]
@@ -31,12 +34,17 @@ public class GameController : Singleton<GameController>
 
     public AnimationCurve PuzzleLerpCurve;
 
+    [HideInInspector]
+    public Puzzle tutorialPuzzle; 
+
 
     private GameState currentState;
 
     // Use this for initialization
     void Start()
     {
+        //tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
+        //NextPuzzle = tutorialPuzzle;
         SetState(new LoadState(this));
     }
 

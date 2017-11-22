@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using EasyButtons;
+using UnityEngine.SceneManagement; 
 
 namespace Team1.UI
 {
@@ -16,10 +15,11 @@ namespace Team1.UI
 
         private Button button;
 
+
         private void LoadSceneButton(string sceneName, bool additive = false)
         {
-     //       SceneManager.LoadScene(sceneName, additive ? LoadSceneMode.Additive : LoadSceneMode.Single);
-//            BootstrapManager.Instance.ChangeLevelScene(sceneName);
+            SceneManager.LoadScene(sceneName, additive ? LoadSceneMode.Additive : LoadSceneMode.Single);
+            BootstrapManager.Instance.ChangeLevelScene(sceneName);
         }
 
         void Start()

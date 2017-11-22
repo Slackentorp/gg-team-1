@@ -25,22 +25,19 @@ public class UIAudioSettings : MonoBehaviour
         muteButton = GetComponentInChildren<Button>();
         levelSlider = GetComponentInChildren<Slider>(); 
 
-        muteButton.onClick.AddListener(() => Mute(false)); 
+        muteButton.onClick.AddListener(() => Mute()); 
         levelSlider.onValueChanged.AddListener(delegate { SliderChange();  });
-        Mute(true); 
+        Mute(); 
     }
 
     public void SliderChange()
     {
-        AkSoundEngine.SetRTPCValue(audioType + "_VOLUME", levelSlider.value);
+        AkSoundEngine.SetRTPCValue(audioType + "_VOLUME", levelSlider.value); 
     }
 
-    public void Mute(bool setup)
+    public void Mute()
     {
-        if(!setup)
-        {
-            isMuted = !isMuted; 
-        }
+        isMuted = !isMuted; 
 
         if (isMuted)
         {
