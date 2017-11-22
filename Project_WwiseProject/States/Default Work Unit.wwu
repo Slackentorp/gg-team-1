@@ -61,11 +61,16 @@
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="ROOM" ID="{3CEC4412-1E33-4E4B-A9AD-2AE42D268D8D}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0.5"/>
+					</PropertyList>
 					<ChildrenList>
 						<State Name="None" ID="{FC741D1C-8E46-4B3B-AA07-A211CD8F60B8}"/>
 						<State Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
 						<State Name="HALLWAY" ID="{6BB75331-C2D5-4696-A368-81731DA3946E}"/>
 						<State Name="KITCHEN" ID="{58A3C77B-7624-424D-B2DF-8412BB792C58}"/>
+						<State Name="STUDY" ID="{4A00DAAB-2C75-4DD4-B4D0-B48E5CC11E44}"/>
+						<State Name="BEDROOM" ID="{80345D10-291B-42E3-9119-E2F3CACABB96}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="LANGUAGE" ID="{B16A3252-0A40-48BB-BEE5-AEA47931CBDD}">
@@ -81,15 +86,24 @@
 						<State Name="LAMP_1" ID="{5CD9C236-0FC1-49C7-8F9E-196D0B304E8E}"/>
 						<State Name="LAMP_2" ID="{2746F27B-6336-4419-A1BD-B2181F93FCD3}"/>
 						<State Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
+						<State Name="LAMP_0" ID="{D215C82D-B5A0-4238-BC70-EDE9F6F52976}"/>
 					</ChildrenList>
 					<TransitionList>
 						<Transition>
 							<StartState Name="None" ID="{6F7C0FE0-DAC1-41A3-B35F-49AF0D4F78C3}"/>
-							<EndState Name="LAMP_1" ID="{5CD9C236-0FC1-49C7-8F9E-196D0B304E8E}"/>
+							<EndState Name="LAMP_0" ID="{D215C82D-B5A0-4238-BC70-EDE9F6F52976}"/>
 							<Time>0</Time>
 							<IsShared>false</IsShared>
 						</Transition>
 					</TransitionList>
+				</StateGroup>
+				<StateGroup Name="FRAGMENT_MUSIC" ID="{460F695D-3063-492A-A28C-DF130DBF0D55}">
+					<ChildrenList>
+						<State Name="None" ID="{64D2328C-8534-45BB-8ABB-2C1C17B966BB}"/>
+						<State Name="Memory" ID="{4DCC222D-7DEE-47B0-855D-80F8DC3ED5E5}"/>
+						<State Name="Happy" ID="{461CFEF7-31A9-4AF4-9160-A4D4981E8916}"/>
+						<State Name="Awful" ID="{BA2C0735-297D-4382-8231-376EAA78DFE9}"/>
+					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
