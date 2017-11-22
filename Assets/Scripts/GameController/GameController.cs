@@ -34,12 +34,17 @@ public class GameController : Singleton<GameController>
 
     public AnimationCurve PuzzleLerpCurve;
 
+    [HideInInspector]
+    public Puzzle tutorialPuzzle; 
+
 
     private GameState currentState;
 
     // Use this for initialization
     void Start()
     {
+        //tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
+        //NextPuzzle = tutorialPuzzle;
         SetState(new LoadState(this));
     }
 
@@ -91,6 +96,7 @@ public class GameController : Singleton<GameController>
     {
         if(currentState is FragmentState)
         {
+            AkSoundEngine.StopAll(NextFragment.gameObject);
             SetState(new RunState(this));
         }
     }
