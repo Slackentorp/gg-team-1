@@ -2325,47 +2325,6 @@
 													<ValueList>
 														<Value>4</Value>
 													</ValueList>
-													<RTPCList>
-														<RTPC Name="" ID="{144D98E2-6431-4816-A6B1-9A69E64DAC8D}" ShortID="252878084">
-															<ReferenceList>
-																<Reference Name="ControlInput">
-																	<ObjectRef Name="OBSTRUCTION" ID="{577380DD-F031-46A4-A0C8-13B541222663}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
-																</Reference>
-															</ReferenceList>
-															<Curve Name="" ID="{C33BE26D-3103-4FBF-9498-705A671930C7}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="3"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>-0.11764</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>17.23725</XPos>
-																		<YPos>-4.95869</YPos>
-																		<Flags>0</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>47.25111</XPos>
-																		<YPos>-9.17064</YPos>
-																		<Flags>0</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>99.999</XPos>
-																		<YPos>-200</YPos>
-																		<Flags>0</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>100</XPos>
-																		<YPos>-200</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</RTPC>
-													</RTPCList>
 												</Property>
 											</PropertyList>
 											<ReferenceList>
@@ -2554,13 +2513,13 @@
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
-										<Value>12</Value>
+										<Value>18</Value>
 									</ValueList>
 								</Property>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-530</Value>
+										<Value>-860</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{45750F76-DED9-4426-97AD-899AEFA4BF38}" ShortID="105030597">
@@ -2652,7 +2611,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-23</Value>
+										<Value>-26</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{93B9D20E-03E9-4F79-BE77-4584D3BC1F3A}" ShortID="546935811">
@@ -2721,6 +2680,12 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+									<ObjectRef Name="Extreme_Limiting_1" ID="{8F08A8A7-3313-4E5D-9EBD-2B1B564DE411}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="Born_In_1950" ID="{3B3A31C2-C9A6-430E-A3CF-62963E332052}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -9775,62 +9740,6 @@
 									<ValueList>
 										<Value>-3</Value>
 									</ValueList>
-									<RTPCList>
-										<RTPC Name="" ID="{12B4ED75-3536-4E83-B1A9-A1C30B348F23}" ShortID="483853555">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="ANGLE_TO_CAMERA" ID="{26A87AFA-BF72-4E83-B008-8B95D56ACB87}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{36467ED3-9B8A-4C13-9268-39FB62316775}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="3"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>-180</XPos>
-														<YPos>-200</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>-179.999</XPos>
-														<YPos>-200</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>-100.8321</XPos>
-														<YPos>-200</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>-81.57504</XPos>
-														<YPos>-9.24119</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>-0.26746</XPos>
-														<YPos>0.0519</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>84.24963</XPos>
-														<YPos>-8.73147</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>100.8321</XPos>
-														<YPos>-200</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>180</XPos>
-														<YPos>-200</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -9987,77 +9896,6 @@
 											<ValueList>
 												<Value>5</Value>
 											</ValueList>
-											<RTPCList>
-												<RTPC Name="" ID="{B45AD36A-76D0-4561-AA4D-4B07B07E445E}" ShortID="848315374">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="ANGLE_TO_CAMERA" ID="{26A87AFA-BF72-4E83-B008-8B95D56ACB87}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{D584DE58-DB74-416D-9514-4A1EFF4FA281}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>-180</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>-179.999</XPos>
-																<YPos>-200</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>-179.998</XPos>
-																<YPos>-200</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>-70</XPos>
-																<YPos>-1.64875</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>-50.01486</XPos>
-																<YPos>-2.81065</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>-0.26746</XPos>
-																<YPos>-0.03904</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>49.47994</XPos>
-																<YPos>-2.5265</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>70</XPos>
-																<YPos>-1.6949</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>179.998</XPos>
-																<YPos>-200</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>179.999</XPos>
-																<YPos>-200</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>180</XPos>
-																<YPos>-200</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -10558,7 +10396,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+							<ObjectRef Name="Triggered Sounds" ID="{DC631A1D-0A02-43B8-926A-AF3CC38BBBF7}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -10716,6 +10554,9 @@
 										<AudioFileSource Name="TRIGGEREDSOUND_ANSWERING_da" ID="{75F4A46A-F343-484E-BA0C-6A099F3C955C}" ShortID="526040754">
 											<Language>SFX</Language>
 											<AudioFile>TRIGGEREDSOUND_ANSWERING_da.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="269082610"/>
+											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
@@ -10796,6 +10637,91 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Beep" ID="{85AA9044-1259-48E8-B099-782C82A5BE5F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="My Loss, My Moth_v1_clean" ID="{A78D2756-6834-4C40-809C-FF7F26D25BA3}" ShortID="61084573">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>75</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>19</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{FC6B1709-22B4-497C-8A47-6892594B3BDF}" ShortID="532670945">
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{441B1B6B-F66C-45C9-B23A-2513F02837C1}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>100</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="My Loss, My Moth_v1_clean" ID="{EC02F2A9-451C-450A-825C-FDE63FBA019E}" ShortID="797310725">
+									<Language>SFX</Language>
+									<AudioFile>My Loss, My Moth_v1_clean.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="My Loss, My Moth_v1_clean" ID="{EC02F2A9-451C-450A-825C-FDE63FBA019E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
