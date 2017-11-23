@@ -15,20 +15,19 @@ public class SubToolXML : Singleton<SubToolXML>
     [XmlArray("subsLine")]
     [XmlArrayItem("subsId")]
     List<string> subsToLoad2 = new List<string>();
-    [XmlAttribute("color")]
-    public string color;
+    [XmlAttribute("speaker")]
+    public string speaker;
     [XmlAttribute("text")]
     public string text;
     [XmlAttribute("startPos")]
     public float startingPos;
     [XmlAttribute("duration")]
     public float duration;
-
     [XmlAttribute("dk")]
     public string dk;
     [XmlAttribute("en")]
     public string en;
-    public List<string> colors = new List<string>();
+    public List<string> speakers = new List<string>();
     public List<float> startingPoss = new List<float>();
     public List<string> EnglishText = new List<string>();
     public List<string> DanishText = new List<string>();
@@ -65,30 +64,55 @@ public class SubToolXML : Singleton<SubToolXML>
                     {
                         OnShowSubs();
                     }
+
+                switch (speakers[nextSubtitle])
+                {
+                    case "M":
+                        //we put this because otherwise it just reas the ID tag and doesnt go through there
+                        subtitlesToShow.font = Resources.Load<Font>("/Fonts/Hashtag");
+                        break;
+
+                    case "S":
+                        //we put this because otherwise it just reas the ID tag and doesnt go through there
+                        subtitlesToShow.font = Resources.Load<Font>("/Fonts/Journey");
+
+                        break;
+                        /*case "E":
+                            //we put this because otherwise it just reas the ID tag and doesnt go through there
+                            subtitlesToShow.font = Resources.Load<Font>("/Fonts/Courier New, regular");
+
+                            break;
+
+                        case "D":
+                            //we put this because otherwise it just reas the ID tag and doesnt go through there
+                            subtitlesToShow.font = Resources.Load<Font>("/Fonts/Courier New, regular");
+                            break;*/
+                    }
+                    /*
                     switch (colors[nextSubtitle])
                     {
                         case "D":
                             //we put this because otherwise it just reas the ID tag and doesnt go through there
                             subtitlesToShow.color = Color.green;
-                        
+
                             break;
                         case "S":
                             //we put this because otherwise it just reas the ID tag and doesnt go through there
                             subtitlesToShow.color = Color.green;
-                        
+
                             break;
                         case "E":
                             //we put this because otherwise it just reas the ID tag and doesnt go through there
                             subtitlesToShow.color = Color.green;
-                        
+
                             break;
                         case "M":
                             //we put this because otherwise it just reas the ID tag and doesnt go through there
                             subtitlesToShow.color = Color.green;
-                       
+
                             break;
-                    }
-                    nextSubtitle++;
+                    }*/
+                        nextSubtitle++;
                 }
             }
             else
@@ -153,15 +177,14 @@ public class SubToolXML : Singleton<SubToolXML>
                         texts.Add(text);
                         break;
 
-                    case "color":
+                    case "speaker":
                         reader1.Read();//we put this because otherwise it just reas the ID tag and doesnt go through there
-                        color = reader1.ReadContentAsString();
-                        colors.Add(color);
+                        speaker = reader1.ReadContentAsString();
+                        speakers.Add(speaker);
                         break;
                     
                 }
             }
-
         }
         showSubs = true;
     }
@@ -173,7 +196,7 @@ public class SubToolXML : Singleton<SubToolXML>
             return;
         }
 
-      //  ShowSubs();
+        ShowSubs();
     }
     IEnumerator Wait(int a)
     {
