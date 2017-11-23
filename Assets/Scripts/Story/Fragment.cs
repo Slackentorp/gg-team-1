@@ -32,8 +32,12 @@ public class Fragment : MonoBehaviour
                 (transform.position + camPosition);
         }
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawIcon(transform.position + camPosition, "CameraIcon.tif");
+        Gizmos.DrawLine(transform.position + camPosition, transform.position + camOrientation);
+    }
 
-    
     public delegate void FragmentAction();
     public static event FragmentAction FragmentCall;
 
@@ -48,14 +52,17 @@ public class Fragment : MonoBehaviour
     public void Play(EasyWwiseCallback Callback)
     {
         HasPlayed = true;
-        //  FragmentCall(); // THIS NEEDS TO BE NOT COMMENTED IN THE REAL VERSION!!!!
+        FragmentCall(); // THIS NEEDS TO BE NOT COMMENTED IN THE REAL VERSION!!!!
         Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject,
                         (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_Duration
                       | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, storyFragment);
-        EndFragment.Instance.EndFragments(markerId, storyFragment);
+        // EndFragment.Instance.EndFragments(markerId, storyFragment);
+        EndFragments(markerId, storyFragment);
     }
+
+
     public int counter = 0;
     private float[] fragmentDurations = new float[2];
     public bool fragmentIsOn = false;
@@ -78,7 +85,7 @@ public class Fragment : MonoBehaviour
             {
 
                 fragmentIsOn = true;
-                EndFragment.Instance.Durations(fragmentDurations[1], fragmentIsOn, gameObject);
+                Durations(fragmentDurations[1], fragmentIsOn, gameObject);
                 
             }
 
@@ -100,9 +107,67 @@ public class Fragment : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+
+    public int uPosition = 0;
+    public uint markerr;
+    public string storyFragmentt;
+    public int realDuration;
+    public float durationn;
+    public bool fragmentIsOnn = false;
+    public GameObject thePlayedFragment;
+
+    public void EndFragments(uint marker, string storyFragment)
     {
-        Gizmos.DrawIcon(transform.position + camPosition, "CameraIcon.tif");
-        Gizmos.DrawLine(transform.position + camPosition, transform.position + camOrientation);
+        markerr = marker;
+        storyFragmentt = storyFragment;
+
     }
+    public void TwoSecondsBeforeEnd()
+    {
+        AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
+        uPosition = uPosition / 10;
+
+        LocalizationItem.Language language =
+           (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
+
+        Debug.Log(uPosition);
+
+        if (fragmentIsOnn)
+        {
+            if (uPosition > realDuration)
+            {
+
+                AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
+                fragmentIsOnn = false;
+                return;
+            }
+        }
+
+        //fragmentIsOnn = false;
+
+    }
+
+   
+    public void Durations(float duration, bool fragmentIsOn, GameObject playedFragment)
+    {
+        thePlayedFragment = playedFragment;
+        fragmentIsOnn = fragmentIsOn;
+        durationn = duration / 10;
+        realDuration = (int)durationn;
+        realDuration = realDuration - 20;
+
+        Debug.Log(realDuration);
+    }
+
+     void Update()
+    {
+        if (fragmentIsOnn == true)
+        {
+            TwoSecondsBeforeEnd();
+        }
+    }
+
+
+
+
 }
