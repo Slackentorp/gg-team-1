@@ -7,6 +7,7 @@ public class MothBehaviour
 {
 	[SerializeField]
 	private AnimationCurve lerpCurve;
+
 	[SerializeField]
 	private float timeScale = 1;
 
@@ -21,6 +22,9 @@ public class MothBehaviour
 
 	[SerializeField]
 	float mothSpeedModifier = 1.0f;
+
+	[SerializeField]
+	float mothDistanceToObject = 0.2f;
 
 	GameObject moth;
 	Transform mothChild;
@@ -50,11 +54,12 @@ public class MothBehaviour
 		}
 	}
 
-	public MothBehaviour(GameObject moth, Camera camera, float speed, AnimationCurve curve,
+	public MothBehaviour(GameObject moth, Camera camera, float mothDistanceToObject, float speed, AnimationCurve curve,
 						int noiseReducer, float speedModifier)
 	{
 		this.moth = moth;
 		this.camera = camera;
+		this.mothDistanceToObject = mothDistanceToObject;
 		this.MothSpeed = speed;
 		this.mothChildCurve = curve;
 		this.noiseReducer = noiseReducer;
@@ -78,7 +83,6 @@ public class MothBehaviour
 	public void SetMothPos(RaycastHit hit)
 	{
 		AkSoundEngine.PostEvent("MOTH_START_FLIGHT", moth);
-		MothSpeed = 0.3f;
 		mothStartPos = moth.transform.position;
 		mothRotation = moth.transform.forward;
 		hitPoint = hit.point + hit.normal * 0.2f;
@@ -119,7 +123,7 @@ public class MothBehaviour
 		ray = camera.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit))
 		{
-			hitPoint = hit.point + hit.normal * 0.2f;
+			hitPoint = hit.point + hit.normal * mothDistanceToObject;
 			hitDotPoint = hit.point;
 			hitDotNormal = hit.normal;
 

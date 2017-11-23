@@ -78,16 +78,7 @@ public class LightSourceInput : MonoBehaviour
 
     private void Start()
     {
-        //isActivated = true;
-        //ACTIVATE = true; 
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown("up"))
-        {
-            LampFlickering();
-        }
+        FragmentChecker();
     }
 
     public void FragmentChecker()
@@ -220,7 +211,6 @@ public class LightSourceInput : MonoBehaviour
     {
         for (int j = 0; j < LongOnSequenceOutOF; j++)
         {
-            print("LONG");
             rend.sharedMaterial = lampMaterialOff;
             lampStateCheck = false;
             LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
@@ -232,7 +222,6 @@ public class LightSourceInput : MonoBehaviour
             {
                 for (int k = 0; k < longONFrequency; k++)
                 {
-                    print("SHORT");
                     AkSoundEngine.PostEvent("LAMP_FLICKER_ON", gameObject);
                     rend.sharedMaterial = lampMaterialOn;
                     lampStateCheck = true;
@@ -258,7 +247,6 @@ public class LightSourceInput : MonoBehaviour
             int randomflickerCount = Random.Range(nrOfFlicksMin, nrOfFlicksMax);
             for (int k = 0; k < randomflickerCount; k++)
             {
-                print("SHORT");
                 AkSoundEngine.PostEvent("LAMP_FLICKER_ON", gameObject);
                 rend.sharedMaterial = lampMaterialOn;
                 lampStateCheck = true;

@@ -6,11 +6,17 @@ using UnityEngine;
 public class CameraController
 {
     [SerializeField, Tooltip("Sets the distance that the camera can move away from moth")]
-    float maxDistance = 2.0f;
+	private float maxDistance = 2.0f;
     [SerializeField, Tooltip("Decides the speed of which the camera follow the moth")]
-    float followSpeed = 1.0f;
-    [SerializeField, Tooltip("Determines the turn speed of the camera")]
-    float cameraTurnSpeed = 1.0f;
+	private float followSpeed = 1.0f;
+    [SerializeField, Tooltip("Determines the turn speed of the camera's Y-axis")]
+	private float cameraTurnSpeedY = 1.0f;
+	[SerializeField, Tooltip("Determines the turn speed of the camera's X-axis")]
+	private float cameraTurnSpeedX = 1.0f;
+    [SerializeField]
+	float minimumVerticalAngle = 20.0f;
+	[SerializeField]
+	float maximumVerticalAngle = 160.0f; 
     [SerializeField]
     private Transform targetPos;
     private Vector3 targetRot;
@@ -68,17 +74,22 @@ public class CameraController
     }
 
     public CameraController(Transform transform, float maxDistance, Vector3 heading, float followSpeed,
-                            float cameraTurnSpeed, Transform target, bool fragmentMode, float damping)
+                            Transform target, bool fragmentMode, float damping, float cameraTurnSpeedY, 
+							float cameraTurnSpeedX, float minimumVerticalAngle, float maximumVerticalAngle)
     {
         this.transform = transform;
         this.maxDistance = maxDistance;
         this.followSpeed = followSpeed;
-        this.cameraTurnSpeed = cameraTurnSpeed;
-        this.targetPos = target;
+		this.targetPos = target;
         this.fragmentMode = fragmentMode;
         this.damping = damping;
+		this.cameraTurnSpeedY = cameraTurnSpeedY;
+		this.cameraTurnSpeedX = cameraTurnSpeedX;
+		this.minimumVerticalAngle = minimumVerticalAngle;
+		this.maximumVerticalAngle = maximumVerticalAngle; 
 
-        Vector3 reference = transform.rotation.eulerAngles;
+
+		Vector3 reference = transform.rotation.eulerAngles;
         reference.z = 0;
         transform.rotation = Quaternion.Euler(reference);
         this.heading = heading;
@@ -121,16 +132,16 @@ public class CameraController
         if (Input.GetMouseButton(0) && !InputManager.isTouchingObject && !isMouseTouchingObject)
         {
             newAngleY =
-                -Input.GetAxis("Mouse X") * cameraTurnSpeed;
-            newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeed;
+                -Input.GetAxis("Mouse X") * cameraTurnSpeedY;
+            newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeedX;
         }
 #endif
         if (Input.touchCount > 0 && !InputManager.isTouchingObject && !isMouseTouchingObject)
         {
-            newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
+            newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeedY /
                         10;
             newAngleX = Input.touches[0].deltaPosition.y *
-                        cameraTurnSpeed / 10;
+                        cameraTurnSpeedX / 10;
         }
 
         if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
@@ -176,16 +187,16 @@ public class CameraController
         if (Input.GetMouseButton(0) && !InputManager.isTouchingObject && !isMouseTouchingObject)
         {
             newAngleY =
-                -Input.GetAxis("Mouse X") * cameraTurnSpeed;
-            newAngleX += Input.GetAxis("Mouse Y") * cameraTurnSpeed;
+                -Input.GetAxis("Mouse X") * cameraTurnSpeedY;
+            newAngleX += Input.GetAxis("Mouse Y") * cameraTurnSpeedX;
         }
 #endif
         if (Input.touchCount > 0 && !InputManager.isTouchingObject && !isMouseTouchingObject)
         {
-            newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeed /
+            newAngleY = -Input.touches[0].deltaPosition.x * cameraTurnSpeedY /
                         10;
             newAngleX = Input.touches[0].deltaPosition.y *
-                        cameraTurnSpeed / 10;
+                        cameraTurnSpeedX / 10;
         }
 
         if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
@@ -237,25 +248,6 @@ public class CameraController
         if (targetPos == null)
         {
             return;
-        }
-    }
-
-    private void MoveTowardsTarget()
-    {
-        transform.position = Vector3.Lerp(transform.position, TargetPos.position * maxDistance,
-                                          followSpeed * Time.deltaTime);
-    }
-
-    private void CameraRotation()
-    {
-        if (Mathf.Abs(TargetRot.magnitude) > 0.1f)
-        {
-            transform.forward = Vector3.Lerp(transform.forward, TargetRot,
-                                             cameraTurnSpeed * Time.deltaTime);
-        }
-        else
-        {
-            RotateCameraAroundSelf();
         }
     }
 }
