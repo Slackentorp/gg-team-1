@@ -21,10 +21,10 @@ public class GameController : Singleton<GameController>
     public MothSounds mothSounds;
     public InputHandlerSettings InputSettings;
     public AnimationCurve FragmentLerpCurve;
-	public AnimationCurve MothChildCurve;
-	public float mothSpeedModifier;
-	public float cameraDamping;
-	public int noiseReducer;
+    public AnimationCurve MothChildCurve;
+    public float mothSpeedModifier;
+    public float cameraDamping;
+    public int noiseReducer;
     [HideInInspector]
     public Vector3 cameraHeading;
     [HideInInspector]
@@ -32,10 +32,15 @@ public class GameController : Singleton<GameController>
     [HideInInspector]
     public Puzzle NextPuzzle;
 
+    public CameraController cameraController; 
+
+    private Interactable nextInteractable;
+    public Interactable NextInteractable { get { return nextInteractable; } set { nextInteractable = value; } }
+
     public AnimationCurve PuzzleLerpCurve;
 
     [HideInInspector]
-    public Puzzle tutorialPuzzle; 
+    public Puzzle tutorialPuzzle;
 
 
     private GameState currentState;
@@ -43,6 +48,7 @@ public class GameController : Singleton<GameController>
     // Use this for initialization
     void Start()
     {
+        cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, 1, Moth.transform, true, cameraDamping);
         //tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
         //NextPuzzle = tutorialPuzzle;
         SetState(new LoadState(this));
@@ -52,7 +58,7 @@ public class GameController : Singleton<GameController>
     {
         if (currentState != null)
         {
-           // CheckInput(); 
+            // CheckInput(); 
             currentState.Tick();
         }
     }
@@ -66,13 +72,15 @@ public class GameController : Singleton<GameController>
     }
 
     [ContextMenu("DAN")]
-    public void SetDanish() {
+    public void SetDanish()
+    {
         localization.SetDanish();
         AkSoundEngine.SetState("LANGUAGE", "DANISH");
     }
 
     [ContextMenu("ENG")]
-    public void SetEnglish() {
+    public void SetEnglish()
+    {
         localization.SetEnglish();
         AkSoundEngine.SetState("LANGUAGE", "ENGLISH");
     }
@@ -94,7 +102,7 @@ public class GameController : Singleton<GameController>
 
     public void QuitFragment()
     {
-        if(currentState is FragmentState)
+        if (currentState is FragmentState)
         {
             AkSoundEngine.StopAll(NextFragment.gameObject);
             SetState(new RunState(this));

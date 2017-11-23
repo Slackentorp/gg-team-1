@@ -29,25 +29,37 @@ public class RunState : GameState
                 return;
             }
 
+            Interactable interactable = inputEvent.GameObject.GetComponent<Interactable>();
             // Check if fragment
             Fragment fragment = inputEvent.GameObject.GetComponent<Fragment>();
             Puzzle puzzle = inputEvent.GameObject.GetComponent<Puzzle>();
 
-            if (fragment != null && inputEvent.InputType == InputType.TAP)
+            if (interactable != null && inputEvent.InputType == InputType.TAP)
             {
-                gm.NextFragment = fragment;
-                gm.SetState(new FragmentState(gm));
-                return;
+                float dist = Vector3.Distance(gm.Moth.transform.position, interactable.transform.position);
+                if (Mathf.Abs(dist) < interactable.InteractionDistance)
+                {
+                    Debug.Log("Interactable " + interactable.InteractionDistance + " moth " + dist);
+                    gm.NextInteractable = interactable;
+                    gm.SetState(new InteractableState(gm)); 
+                }
             }
-            //Check if Puzzle 
-            else if (puzzle != null && inputEvent.InputType == InputType.TAP)
-            {
-                gm.NextPuzzle = puzzle;
-                PuzzleState newState = new PuzzleState(gm);
-                gm.SetState(newState);
-                newState.currentPuzzle = puzzle;
-                return;
-            }
+
+            //if (fragment != null && inputEvent.InputType == InputType.TAP)
+            //{
+            //    gm.NextFragment = fragment;
+            //    gm.SetState(new FragmentState(gm));
+            //    return;
+            //}
+            ////Check if Puzzle 
+            //else if (puzzle != null && inputEvent.InputType == InputType.TAP)
+            //{
+            //    gm.NextPuzzle = puzzle;
+            //    PuzzleState newState = new PuzzleState(gm);
+            //    gm.SetState(newState);
+            //    newState.currentPuzzle = puzzle;
+            //    return;
+            //}
             else
             {
                 //            InputManager.isTouchingObject = true;

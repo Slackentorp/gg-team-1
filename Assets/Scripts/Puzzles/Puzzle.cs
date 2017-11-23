@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //[RequireComponent(typeof(CombinationPuzzleController))]
-public class Puzzle : Interactable
+public class Puzzle : Fragment
 {
     //public delegate void EasyWwiseCallback();
     public delegate void PuzzleAction(GameObject puzzle);
@@ -33,6 +33,11 @@ public class Puzzle : Interactable
     public bool IsSolved { get { return isSolved; } private set { isSolved = value; } }
     public string PuzzleId { get { return PuzzleId; } }
 
+
+    //public override void Play(EasyWwiseCallback Callback)
+    //{
+
+    //}
 
     public override void Awake()
     {
@@ -110,27 +115,6 @@ public class Puzzle : Interactable
         }
     }
 
-    private void PuzzleChecker()
-    {
-        //float distanceToPosition;
-
-        //foreach (var piece in puzzlePieces)
-        //{
-        //    if (piece == null)
-        //    {
-        //        continue;
-        //    }
-
-        //    distanceToPosition = Vector3.Distance(piece.transform.position, piece.transform.position + new Vector3(0f, 0f, 1f));
-        //    distanceToPosition = Mathf.Abs(distanceToPosition); 
-
-        //    if (distanceToPosition <= mercyDistance)
-        //    {
-        //        Debug.Log("Here I am..."); 
-        //    }
-        //}
-    }
-
 
     private void PositionPieceCorrectly(int piece)
     {
@@ -170,5 +154,7 @@ public class Puzzle : Interactable
     public override void Play(Interactable.EasyWwiseCallback Callback)
     {
         Debug.Log("No Play function in Puzzles");
+        Debug.Log("I got played");
+        base.Play(Callback);
     }
 }

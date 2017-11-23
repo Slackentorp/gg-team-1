@@ -6,7 +6,10 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour
 {
     public delegate void InteractableAction();
-    public static event InteractableAction InteractableCall; 
+    public static event InteractableAction InteractableCall;
+
+    [SerializeField, Tooltip("The maximum distance of interaction")]
+    private float interactionDistance = 2f;
 
     [SerializeField, Tooltip("Defines the fixed position for the camera.")]
     private Vector3 cameraPosition;
@@ -15,14 +18,15 @@ public abstract class Interactable : MonoBehaviour
 
     public delegate void EasyWwiseCallback();
 
-    public abstract void Play(EasyWwiseCallback Callback); 
+    public abstract void Play(EasyWwiseCallback Callback);
 
     public virtual void Awake()
     {
-        gameObject.layer = LayerMask.NameToLayer("Touch Object"); 
+        gameObject.layer = LayerMask.NameToLayer("Touch Object");
     }
 
 
+    public float InteractionDistance { get { return interactionDistance; } }
     public Vector3 CamPosition { get { return cameraPosition; } set { cameraPosition = value; } }
     public Vector3 CamOrientaion { get { return cameraOrientation; } set { cameraOrientation = value; } }
     public Vector3 CamForward
@@ -39,7 +43,7 @@ public abstract class Interactable : MonoBehaviour
     {
         if (InteractableCall != null)
         {
-            InteractableCall(); 
+            InteractableCall();
         }
     }
 
