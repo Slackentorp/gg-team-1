@@ -44,7 +44,7 @@ public class Fragment : Interactable
         }
         else if (t != null)
         {
-            t.Invoke();
+            base.EndOfEventCallback(sender, callbackType, info);
         }
     }
 

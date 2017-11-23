@@ -1631,7 +1631,20 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 01a8b6c9e27cb66488b83f454a1aacd5, type: 3}
   - {fileID: 2800000, guid: 30577cfb220d2fb4a9085a0b7c90e97c, type: 3}
   - {fileID: 2800000, guid: 3d2772ef23db09b4baaf379ae0f80091, type: 3}
+  lightMapTexturesFlickering:
+  - {fileID: 2800000, guid: 315e2a4e8d4f3d04b9154ab311a894ca, type: 3}
+  - {fileID: 2800000, guid: 0f58f8100bebc714295c32af5c5ae028, type: 3}
+  - {fileID: 2800000, guid: 1e22908b238d7504aaa83988c516df2f, type: 3}
+  - {fileID: 2800000, guid: a5da050e4533cee4ca0d4e87e490683b, type: 3}
+  - {fileID: 2800000, guid: 6a1224d484659184eb4ee1182ecbc3dd, type: 3}
+  - {fileID: 2800000, guid: 2ce85551360d5d4419817be0210dd114, type: 3}
+  - {fileID: 2800000, guid: 932f2453353aab84796fedbc8af130d1, type: 3}
+  - {fileID: 2800000, guid: dc0dd31628b71934b8a21a84d6e2b12d, type: 3}
+  - {fileID: 2800000, guid: 01a8b6c9e27cb66488b83f454a1aacd5, type: 3}
+  - {fileID: 2800000, guid: 30577cfb220d2fb4a9085a0b7c90e97c, type: 3}
+  - {fileID: 2800000, guid: 3d2772ef23db09b4baaf379ae0f80091, type: 3}
   LampsStates: 
+  flickStates: 
 --- !u!4 &337550279
 Transform:
   m_ObjectHideFlags: 0
@@ -4161,6 +4174,11 @@ Prefab:
       propertyPath: fragments.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114385064142279960, guid: 4c307a4506bab7b4da052b0472a9697d,
+        type: 2}
+      propertyPath: interactables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4778897214159452, guid: 4c307a4506bab7b4da052b0472a9697d, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.716
@@ -4243,6 +4261,11 @@ Prefab:
       propertyPath: m_Color.r
       value: 0.9705882
       objectReference: {fileID: 0}
+    - target: {fileID: 114385064142279960, guid: 4c307a4506bab7b4da052b0472a9697d,
+        type: 2}
+      propertyPath: interactables.Array.data[0]
+      value: 
+      objectReference: {fileID: 1878775041}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c307a4506bab7b4da052b0472a9697d, type: 2}
   m_IsPrefabParent: 0
@@ -6986,6 +7009,11 @@ Prefab:
       propertyPath: fragments.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114483953239308670, guid: d4e5175565b43494b8df850f98ec0ef5,
+        type: 2}
+      propertyPath: interactables.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4134539638462544, guid: d4e5175565b43494b8df850f98ec0ef5, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.393
@@ -7078,6 +7106,31 @@ Prefab:
       propertyPath: m_Color.r
       value: 0.9705882
       objectReference: {fileID: 0}
+    - target: {fileID: 114483953239308670, guid: d4e5175565b43494b8df850f98ec0ef5,
+        type: 2}
+      propertyPath: interactables.Array.data[3]
+      value: 
+      objectReference: {fileID: 2089886817}
+    - target: {fileID: 114483953239308670, guid: d4e5175565b43494b8df850f98ec0ef5,
+        type: 2}
+      propertyPath: interactables.Array.data[4]
+      value: 
+      objectReference: {fileID: 250599216}
+    - target: {fileID: 114483953239308670, guid: d4e5175565b43494b8df850f98ec0ef5,
+        type: 2}
+      propertyPath: interactables.Array.data[0]
+      value: 
+      objectReference: {fileID: 2089886817}
+    - target: {fileID: 114483953239308670, guid: d4e5175565b43494b8df850f98ec0ef5,
+        type: 2}
+      propertyPath: interactables.Array.data[1]
+      value: 
+      objectReference: {fileID: 250599216}
+    - target: {fileID: 114483953239308670, guid: d4e5175565b43494b8df850f98ec0ef5,
+        type: 2}
+      propertyPath: interactables.Array.data[2]
+      value: 
+      objectReference: {fileID: 1621052690}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4e5175565b43494b8df850f98ec0ef5, type: 2}
   m_IsPrefabParent: 0
@@ -7274,14 +7327,22 @@ MonoBehaviour:
   cameraPosition: {x: 0, y: 0, z: 0}
   IsLit: 1
   isSwitchable: 0
-  fragments: []
+  interactables: []
   lampMaterialOn: {fileID: 0}
   lampMaterialOff: {fileID: 0}
   localFragmentsState: 
   lampStateCheck: 0
   lightMapIndex: 0
   isActivated: 0
-  ACTIVATE: 0
+  flickTimeLongMin: 0.5
+  flickTimeLongMax: 3
+  flickTimeShortMin: 0.05
+  flickTimeShortMax: 0.1
+  nrOfFlicksMin: 2
+  nrOfFlicksMax: 3
+  LongONSequenceMin: 1
+  LongOnSequenceMax: 4
+  LongOnSequenceOutOF: 6
 --- !u!95 &1346339158
 Animator:
   serializedVersion: 3
@@ -10609,14 +10670,22 @@ MonoBehaviour:
   cameraPosition: {x: 0, y: 0, z: 0}
   IsLit: 1
   isSwitchable: 0
-  fragments: []
+  interactables: []
   lampMaterialOn: {fileID: 0}
   lampMaterialOff: {fileID: 0}
   localFragmentsState: 
   lampStateCheck: 0
   lightMapIndex: 0
   isActivated: 0
-  ACTIVATE: 0
+  flickTimeLongMin: 0.5
+  flickTimeLongMax: 3
+  flickTimeShortMin: 0.05
+  flickTimeShortMax: 0.1
+  nrOfFlicksMin: 2
+  nrOfFlicksMax: 3
+  LongONSequenceMin: 1
+  LongOnSequenceMax: 4
+  LongOnSequenceOutOF: 6
 --- !u!1 &1950417061
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ public class InteractableState : GameState
     private Vector3 originPos, originForward;
     private Quaternion originRotation;
     private float time;
-    private float speed = 0.35f;
 
     bool lerpOut;
 
@@ -22,7 +21,7 @@ public class InteractableState : GameState
     public override void Tick()
     {
         if (lerpOut) return;
-        float t = gm.FragmentLerpCurve.Evaluate(time * speed);
+        float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
 
         Vector3 position;
         position = Vector3.Lerp(originPos, currentInteractable.transform.position + currentInteractable.CamPosition, t);
@@ -68,6 +67,10 @@ public class InteractableState : GameState
         {
             currentInteractable.GetComponent<BoxCollider>().enabled = false;
         }
+        else
+        {
+            currentInteractable.Play(EndOfFragmentCallback);
+        }
     }
 
     private void EndOfFragmentCallback()
@@ -85,9 +88,9 @@ public class InteractableState : GameState
     private IEnumerator Leaving()
     {
         time = 0;
-        while (time * speed < 1)
+        while (time * gm.cameraToFragmentSpeed < 1)
         {
-            float t = gm.FragmentLerpCurve.Evaluate(time * speed);
+            float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
             Vector3 position;
             position = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.CamPosition, originPos, t);
 

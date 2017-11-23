@@ -31,10 +31,6 @@ public class RunState : GameState
             }
 
             Interactable interactable = inputEvent.GameObject.GetComponent<Interactable>();
-            // Check if fragment
-            Fragment fragment = inputEvent.GameObject.GetComponent<Fragment>();
-            Puzzle puzzle = inputEvent.GameObject.GetComponent<Puzzle>();
-
             if (interactable != null && inputEvent.InputType == InputType.TAP)
             {
                 float dist = Vector3.SqrMagnitude(gm.Moth.transform.position - interactable.transform.position);

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Gamelogic.Extensions;
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
 /// Touch input specifically for light sources
@@ -17,7 +18,7 @@ public class LightSourceInput : MonoBehaviour
     private bool isSwitchable = false;
 
     [SerializeField]
-    private Fragment[] fragments;
+    private Interactable[] interactables;
 
     [SerializeField]
     private Material lampMaterialOn, lampMaterialOff;
@@ -29,14 +30,15 @@ public class LightSourceInput : MonoBehaviour
     private bool[] localFragmentsState;
     [SerializeField]
     private bool lampStateCheck = false;
+    private bool lampFlickerCheck = false;
     [SerializeField]
     private int lightMapIndex;
     private int getNrOfFragments = 0;
 
+    private float flickerRangeLong, flickerRangeShort;
+
     [SerializeField]
     private bool isActivated;
-
-    public bool ACTIVATE;
 
     public Vector3 CameraPosition { get { return transform.TransformPoint(cameraPosition); } }
 
@@ -61,17 +63,17 @@ public class LightSourceInput : MonoBehaviour
     public delegate void LightSourceAction();
     public static event LightSourceAction LightSourceCall;
 
-    public delegate void LightMapSwitchAction(bool StateCheck, int indexNr);
+    public delegate void LightMapSwitchAction(bool StateCheck, bool flickCheck, int indexNr);
     public static event LightMapSwitchAction LightMapSwitchCall;
 
     void OnEnable()
     {
-   //     Fragment.FragmentCall += FragmentChecker;
+        Interactable.InteractableCall += FragmentChecker;
     }
 
     void OnDisable()
     {
-    //    Fragment.FragmentCall -= FragmentChecker;
+        Interactable.InteractableCall -= FragmentChecker;
     }
 
     private void Start()
@@ -80,12 +82,20 @@ public class LightSourceInput : MonoBehaviour
         //ACTIVATE = true; 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("up"))
+        {
+            LampFlickering();
+        }
+    }
+
     public void FragmentChecker()
     {
-        localFragmentsState = new bool[fragments.Length];
-        for (int i = 0; i < fragments.Length; i++)
+        localFragmentsState = new bool[interactables.Length];
+        for (int i = 0; i < interactables.Length; i++)
         {
-            localFragmentsState[i] = fragments[i].HasPlayed;
+            localFragmentsState[i] = interactables[i].HasPlayed;
         }
 
         getNrOfFragments = CountArray(localFragmentsState, true);
@@ -95,17 +105,27 @@ public class LightSourceInput : MonoBehaviour
             return;
         }
 
-        if (fragments.Length == 3)
+        if (interactables.Length == 3)
         {
-            if (getNrOfFragments == fragments.Length
-               || getNrOfFragments == fragments.Length - 1)
+            if (getNrOfFragments == interactables.Length)
             {
                 LampON();
             }
+            else if (getNrOfFragments == interactables.Length - 2)
+            {
+                LampFlickering();
+            }
         }
-        else if (getNrOfFragments == fragments.Length)
+        else if (interactables.Length == 1)
         {
-            LampON();
+            if (getNrOfFragments == interactables.Length)
+            {
+                LampON();
+            }
+            else if (getNrOfFragments == 0)
+            {
+                LampFlickering();
+            }
         }
 
         LightSourceCallz();
@@ -146,7 +166,7 @@ public class LightSourceInput : MonoBehaviour
         isActivated = true;
 
         LightSwitch(currentLampState);
-        LightMapSwitchCall(lampStateCheck, lightMapIndex);
+        LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
 
     }
 
@@ -169,20 +189,98 @@ public class LightSourceInput : MonoBehaviour
             else if (currentLampState == State.LAMP_FLICKERING)
             {
                 AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
-                rend.sharedMaterial = lampMaterialOff;
+                lampFlickerCheck = true;
+                StartCoroutine(FlickeringSequence());
                 var em = particleSystemLamp.emission;
-                em.enabled = false;
+                em.enabled = true;
 
                 //LightMapSwitchCall(lampStateCheck, lightMapIndex);
             }
             else if (currentLampState == State.LAMP_ON)
             {
                 AkSoundEngine.PostEvent("LAMP_ON", gameObject);
+                lampFlickerCheck = false;
                 rend.sharedMaterial = lampMaterialOn;
                 var em = particleSystemLamp.emission;
                 em.enabled = true;
 
             }
+        }
+    }
+
+    [SerializeField]
+    float flickTimeLongMin = 0.5f, flickTimeLongMax = 3f,
+        flickTimeShortMin = 0.05f, flickTimeShortMax = 0.1f;
+    [SerializeField]
+    int nrOfFlicksMin = 2, nrOfFlicksMax = 3;
+    [SerializeField]
+    int LongONSequenceMin = 1, LongOnSequenceMax = 4, LongOnSequenceOutOF = 6;
+
+    IEnumerator FlickeringSequence()
+    {
+        for (int j = 0; j < LongOnSequenceOutOF; j++)
+        {
+            print("LONG");
+            rend.sharedMaterial = lampMaterialOff;
+            lampStateCheck = false;
+            LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
+            flickerRangeLong = Random.Range(flickTimeLongMin, flickTimeLongMax);
+            yield return new WaitForSeconds(flickerRangeLong);
+
+            int longONFrequency = Random.Range(LongONSequenceMin, LongOnSequenceMax);
+            if (j == longONFrequency)
+            {
+                for (int k = 0; k < longONFrequency; k++)
+                {
+                    print("SHORT");
+                    AkSoundEngine.PostEvent("LAMP_FLICKER_ON", gameObject);
+                    rend.sharedMaterial = lampMaterialOn;
+                    lampStateCheck = true;
+                    LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
+                    flickerRangeShort = Random.Range(flickTimeShortMin, flickTimeShortMax);
+                    yield return new WaitForSeconds(flickerRangeShort);
+
+                    rend.sharedMaterial = lampMaterialOff;
+                    AkSoundEngine.PostEvent("LAMP_FLICKER_OFF", gameObject);
+                    lampStateCheck = false;
+                    LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
+                    flickerRangeShort = Random.Range(flickTimeShortMin, flickTimeShortMax);
+                    yield return new WaitForSeconds(flickerRangeShort);
+                }
+
+                AkSoundEngine.PostEvent("LAMP_FLICKER_ON", gameObject);
+                rend.sharedMaterial = lampMaterialOn;
+                lampStateCheck = true;
+                LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
+                float randomflickerCount2 = Random.Range(1f, 4f);
+                yield return new WaitForSeconds(randomflickerCount2);
+            }
+            int randomflickerCount = Random.Range(nrOfFlicksMin, nrOfFlicksMax);
+            for (int k = 0; k < randomflickerCount; k++)
+            {
+                print("SHORT");
+                AkSoundEngine.PostEvent("LAMP_FLICKER_ON", gameObject);
+                rend.sharedMaterial = lampMaterialOn;
+                lampStateCheck = true;
+                LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
+                flickerRangeShort = Random.Range(flickTimeShortMin, flickTimeShortMax);
+                yield return new WaitForSeconds(flickerRangeShort);
+
+                rend.sharedMaterial = lampMaterialOff;
+                AkSoundEngine.PostEvent("LAMP_FLICKER_OFF", gameObject);
+                lampStateCheck = false;
+                LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
+                flickerRangeShort = Random.Range(flickTimeShortMin, flickTimeShortMax);
+                yield return new WaitForSeconds(flickerRangeShort);
+            }
+        }
+        if(currentLampState != State.LAMP_FLICKERING)
+        {
+            yield return null;
+        }
+        else
+        {
+            StartCoroutine(FlickeringSequence());
         }
     }
 

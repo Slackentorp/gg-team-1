@@ -34,6 +34,7 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField, Tooltip("The name of the story fragment")]
     private string storyFragment;
 
+    [SerializeField]
     private bool hasPlayed;
 
     public virtual void Play(Interactable.EasyWwiseCallback Callback)
@@ -59,6 +60,7 @@ public abstract class Interactable : MonoBehaviour
         if (t != null)
         {
             t.Invoke();
+            InvokeInteractableCall();
         }
     }
 

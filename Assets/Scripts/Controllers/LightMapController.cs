@@ -5,13 +5,16 @@ using EasyButtons;
 
 public class LightMapController : MonoBehaviour
 {
-    private LightmapData[] LightMapSetON, LightMapSetOFF, customLightMapSet;
+    private LightmapData[] LightMapSetON, LightMapSetOFF, LightMapSetFlickering, customLightMapSet;
     [SerializeField]
     private Texture2D[] lightMapTexturesOFF;
     [SerializeField]
     private Texture2D[] lightMapTexturesON;
     [SerializeField]
-    private bool[] LampsStates;
+    private Texture2D[] lightMapTexturesFlickering;
+    [SerializeField]
+    private bool[] LampsStates, flickStates;
+    private bool flickerCheckPass;
     //[SerializeField]
     //private int nrOfLamps;
     //private LightSourceInput[] lamps;
@@ -26,16 +29,19 @@ public class LightMapController : MonoBehaviour
         LightSourceInput.LightMapSwitchCall -= LampAssigner;
     }
 
-    //// Use this for initialization
+    // Use this for initialization
     void Start()
     {
         LampsStates = new bool[lightMapTexturesOFF.Length];
+        flickStates = new bool[lightMapTexturesOFF.Length];
         LightMapAssigner();
     }
 
-    void LampAssigner(bool stateCheck, int indexNr)
+    void LampAssigner(bool stateCheck, bool flickerCheck, int indexNr)
     {
         LampsStates[indexNr] = stateCheck;
+        flickStates[indexNr] = flickerCheck;
+
         CustomSetManager();
     }
 
@@ -54,20 +60,34 @@ public class LightMapController : MonoBehaviour
             LightMapSetOFF[i] = new LightmapData();
             LightMapSetOFF[i].lightmapColor = lightMapTexturesOFF[i];
         }
+
+        LightMapSetFlickering = new LightmapData[lightMapTexturesFlickering.Length];
+        for (int i = 0; i < lightMapTexturesFlickering.Length; i++)
+        {
+            LightMapSetFlickering[i] = new LightmapData();
+            LightMapSetFlickering[i].lightmapColor = lightMapTexturesFlickering[i];
+        }
     }
+
     [Button]
     public void CustomSetManager()
     {
         customLightMapSet = new LightmapData[lightMapTexturesON.Length];
         for (int i = 0; i < lightMapTexturesON.Length; i++)
         {
-            if (LampsStates[i])
+            //Debug.Log("flickState" + flickStates.Length + "=" + flickStates[i]);
+
+            if (LampsStates[i] && !flickStates[i])
             {
                 customLightMapSet[i] = LightMapSetON[i];
             }
             else if (!LampsStates[i])
             {
                 customLightMapSet[i] = LightMapSetOFF[i];
+            }
+            else if (flickStates[i])
+            {
+                customLightMapSet[i] = LightMapSetFlickering[i];
             }
         }
         LightmapSettings.lightmaps = customLightMapSet;
