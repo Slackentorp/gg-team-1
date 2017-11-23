@@ -27,15 +27,11 @@ public class GameController : Singleton<GameController>
     public int noiseReducer;
     [HideInInspector]
     public Vector3 cameraHeading;
-    [HideInInspector]
-    public Fragment NextFragment;
-    [HideInInspector]
-    public Puzzle NextPuzzle;
 
     public CameraController cameraController; 
 
-    private Interactable nextInteractable;
-    public Interactable NextInteractable { get { return nextInteractable; } set { nextInteractable = value; } }
+    //private Interactable nextInteractable;
+    //public Interactable NextInteractable { get { return nextInteractable; } set { nextInteractable = value; } }
 
     public AnimationCurve PuzzleLerpCurve;
 
@@ -48,7 +44,8 @@ public class GameController : Singleton<GameController>
     // Use this for initialization
     void Start()
     {
-        cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, 1, Moth.transform, true, cameraDamping);
+        cameraHeading = GameCamera.transform.position - Moth.transform.position;
+        cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, 1, Moth.transform, false, cameraDamping);
         //tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
         //NextPuzzle = tutorialPuzzle;
         SetState(new LoadState(this));
@@ -102,76 +99,11 @@ public class GameController : Singleton<GameController>
 
     public void QuitFragment()
     {
-        if (currentState is FragmentState)
+        if (currentState is InteractableState)
         {
-            AkSoundEngine.StopAll(NextFragment.gameObject);
             SetState(new RunState(this));
         }
     }
 
-    private void CheckInput()
-    {
-        InputEvent inputEvent = InputManager.CheckInput();
-
-        if (inputEvent.GameObject != null)
-        {
-            // Check if wall
-            if (inputEvent.GameObject.CompareTag("Wall") && inputEvent.InputType == InputType.TAP)
-            {
-                mothBehaviour.SetMothPos(inputEvent.RaycastHit);
-                return;
-            }
-
-            // Check if interactable object
-            Fragment fragment = inputEvent.GameObject.GetComponent<Fragment>();
-            Puzzle puzzle = inputEvent.GameObject.GetComponent<Puzzle>();
-
-            if (fragment != null && inputEvent.InputType == InputType.TAP)
-            {
-                NextFragment = fragment;
-                SetState(new FragmentState(this));
-                return;
-            }
-            //Check if Puzzle 
-            else if (puzzle != null && inputEvent.InputType == InputType.TAP)
-            {
-                NextPuzzle = puzzle;
-                SetState(new PuzzleState(this));
-                PuzzleState newState = (PuzzleState)currentState;
-                newState.currentPuzzle = puzzle;
-                return;
-            }
-            else
-            {
-                //            InputManager.isTouchingObject = true;
-                ITouchInput itt = inputEvent.GameObject.GetComponent<ITouchInput>();
-                if (itt != null)
-                {
-                    switch (inputEvent.InputType)
-                    {
-                        case InputType.TOUCH_DOWN:
-                            itt.OnTouchDown(inputEvent.TouchPosition);
-                            break;
-                        case InputType.TOUCH_HOLD:
-                            itt.OnToucHold(inputEvent.TouchPosition);
-                            break;
-                        case InputType.TOUCH_UP:
-                            itt.OnTouchUp();
-                            break;
-                        case InputType.TOUCH_EXIT:
-                            itt.OnTouchExit();
-                            break;
-                        case InputType.SWIPE:
-                            itt.OnSwipe(TouchDirection.Down);
-                            break;
-                        case InputType.TAP:
-                            itt.OnTap();
-                            break;
-                    }
-                }
-            }
-
-
-        }
-    }
+    
 }

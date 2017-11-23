@@ -41,9 +41,9 @@ public class LoadState : GameState
             if (GameObject.FindWithTag("Respawn") != null)
             {
                 gm.tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>();
-                gm.NextPuzzle = gm.tutorialPuzzle;
+                gm.SetState(new InteractableState(gm, gm.tutorialPuzzle));
             }
-            gm.SetState(new PuzzleState(gm));
+           
         }
     }
 

@@ -164,6 +164,11 @@ public class CameraController
 
     }
 
+    public void SetFragmentMode(bool state)
+    {
+        fragmentMode = state;
+    }
+
     void RotateAroundMoth()
     {
         float newAngleY = 0, newAngleX = 0;

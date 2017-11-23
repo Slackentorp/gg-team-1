@@ -32,10 +32,9 @@ public class BootstrapManager : Singleton<BootstrapManager>
         for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             string sceneName = SceneManager.GetSceneByBuildIndex(i).name;
-            Debug.Log("SceneName: " +sceneName);
             if(!string.IsNullOrEmpty(sceneName) && sceneName.Equals("SplashScreen"))
             {
-             //   return;
+                return;
             }
         }
         print("Bootstrap Start");

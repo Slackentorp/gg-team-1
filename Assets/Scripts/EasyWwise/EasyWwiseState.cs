@@ -21,7 +21,6 @@ public class EasyWwiseState : MonoBehaviour
     {
         if (ChosenType == EasyWWiseEventType.Start)
         {
-            print("Start: " + WwiseStateID);
             AkSoundEngine.SetState(WwiseStateGroupID, WwiseStateID);
         }
     }

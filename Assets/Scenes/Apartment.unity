@@ -1246,12 +1246,6 @@ Transform:
   m_Father: {fileID: 1950417062}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &259494155 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114158047031268690, guid: c2a149c219a450743ba2b085a1a47b2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 556306794}
-  m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
 --- !u!1 &269046123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,6 +2646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDistance: 2
   cameraPosition: {x: 0.38, y: 0.31, z: 0.08}
   cameraOrientation: {x: 0.12, y: 0, z: 0}
   storyFragment: FRAGMENT_PARENTS1
@@ -3030,7 +3025,18 @@ Prefab:
       propertyPath: cameraOrientation.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114717772410236898, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: puzzleId
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114717772410236898, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: storyFragment
+      value: FRAGMENT_TATTOO
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114158047031268690, guid: c2a149c219a450743ba2b085a1a47b2d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c2a149c219a450743ba2b085a1a47b2d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &558525240
@@ -4140,7 +4146,7 @@ Prefab:
         type: 2}
       propertyPath: fragments.Array.data[0]
       value: 
-      objectReference: {fileID: 259494155}
+      objectReference: {fileID: 0}
     - target: {fileID: 108550630015939448, guid: 4c307a4506bab7b4da052b0472a9697d,
         type: 2}
       propertyPath: m_Range
@@ -7147,6 +7153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDistance: 2
   cameraPosition: {x: 0.28, y: 0.22, z: 0.22}
   cameraOrientation: {x: 0, y: -0.07, z: 0}
   storyFragment: FRAGMENT_TIRED
@@ -7223,6 +7230,7 @@ MonoBehaviour:
   lampStateCheck: 0
   lightMapIndex: 0
   isActivated: 0
+  ACTIVATE: 0
 --- !u!95 &1346339158
 Animator:
   serializedVersion: 3
@@ -9556,6 +9564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDistance: 2
   cameraPosition: {x: 0.38, y: 0.31, z: 0.08}
   cameraOrientation: {x: 0.12, y: 0, z: 0}
   storyFragment: FRAGMENT_POLAROID1
@@ -10529,6 +10538,7 @@ MonoBehaviour:
   lampStateCheck: 0
   lightMapIndex: 0
   isActivated: 0
+  ACTIVATE: 0
 --- !u!1 &1950417061
 GameObject:
   m_ObjectHideFlags: 0

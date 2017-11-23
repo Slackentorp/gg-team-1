@@ -13,7 +13,8 @@ public class RunState : GameState
 
     public override void OnStateEnter()
     {
-        cameraController = new CameraController(gm.GameCamera.transform, 2, gm.cameraHeading, 1, 1, gm.Moth.transform, false, gm.cameraDamping);
+        cameraController = gm.cameraController;
+        cameraController.SetFragmentMode(false);
     }
 
     void CheckInput()
@@ -36,33 +37,15 @@ public class RunState : GameState
 
             if (interactable != null && inputEvent.InputType == InputType.TAP)
             {
-                float dist = Vector3.Distance(gm.Moth.transform.position, interactable.transform.position);
-                if (Mathf.Abs(dist) < interactable.InteractionDistance)
+                float dist = Vector3.SqrMagnitude(gm.Moth.transform.position - interactable.transform.position);
+                if (Mathf.Abs(dist) < interactable.InternalInteractionDistion)
                 {
-                    Debug.Log("Interactable " + interactable.InteractionDistance + " moth " + dist);
-                    gm.NextInteractable = interactable;
-                    gm.SetState(new InteractableState(gm)); 
+                    Debug.Log("Interactable " + interactable.InternalInteractionDistion + " moth " + dist);
+                    gm.SetState(new InteractableState(gm, interactable)); 
                 }
             }
-
-            //if (fragment != null && inputEvent.InputType == InputType.TAP)
-            //{
-            //    gm.NextFragment = fragment;
-            //    gm.SetState(new FragmentState(gm));
-            //    return;
-            //}
-            ////Check if Puzzle 
-            //else if (puzzle != null && inputEvent.InputType == InputType.TAP)
-            //{
-            //    gm.NextPuzzle = puzzle;
-            //    PuzzleState newState = new PuzzleState(gm);
-            //    gm.SetState(newState);
-            //    newState.currentPuzzle = puzzle;
-            //    return;
-            //}
             else
             {
-                //            InputManager.isTouchingObject = true;
                 ITouchInput itt = inputEvent.GameObject.GetComponent<ITouchInput>();
                 if (itt != null)
                 {

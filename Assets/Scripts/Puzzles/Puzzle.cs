@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //[RequireComponent(typeof(CombinationPuzzleController))]
-public class Puzzle : Fragment
+public class Puzzle : Interactable
 {
     //public delegate void EasyWwiseCallback();
     public delegate void PuzzleAction(GameObject puzzle);
@@ -137,14 +137,7 @@ public class Puzzle : Fragment
         return true;
     }
 
-    void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
-    {
-        var t = sender as EasyWwiseCallback;
-        if (t != null)
-        {
-            t.Invoke();
-        }
-    }
+    
 
     public void TurnOffCollider()
     {
@@ -155,6 +148,7 @@ public class Puzzle : Fragment
     {
         Debug.Log("No Play function in Puzzles");
         Debug.Log("I got played");
+
         base.Play(Callback);
     }
 }

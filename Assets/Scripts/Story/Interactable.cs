@@ -7,6 +7,21 @@ public abstract class Interactable : MonoBehaviour
 {
     public delegate void InteractableAction();
     public static event InteractableAction InteractableCall;
+    public delegate void EasyWwiseCallback();
+    public float InteractionDistance { get { return interactionDistance; } }
+    public Vector3 CamPosition { get { return cameraPosition; } set { cameraPosition = value; } }
+    public Vector3 CamOrientaion { get { return cameraOrientation; } set { cameraOrientation = value; } }
+    public Vector3 CamForward
+    {
+        get
+        {
+            return (transform.position + cameraOrientation) -
+                (transform.position + cameraPosition);
+        }
+    }
+    public float InternalInteractionDistion { get { return Mathf.Sqrt(interactionDistance); } }
+    public bool HasPlayed { get { return hasPlayed; } set { hasPlayed = value; } }
+    public string StoryFragment { get { return storyFragment; } }
 
     [SerializeField, Tooltip("The maximum distance of interaction")]
     private float interactionDistance = 2f;
@@ -16,27 +31,40 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField, Tooltip("Defines the fixed orientation for the camera.")]
     private Vector3 cameraOrientation;
 
-    public delegate void EasyWwiseCallback();
+    [SerializeField, Tooltip("The name of the story fragment")]
+    private string storyFragment;
 
-    public abstract void Play(EasyWwiseCallback Callback);
+    private bool hasPlayed;
+
+    public virtual void Play(Interactable.EasyWwiseCallback Callback)
+    {
+        if (string.IsNullOrEmpty(StoryFragment))
+        {
+            Debug.LogWarning("StoryFragment: \"" + StoryFragment + "\" does not exist");
+            Callback();
+            return;
+        }
+
+        HasPlayed = true;
+        Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
+        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
+            (uint) AkCallbackType.AK_EnableGetSourcePlayPosition |
+            (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+        SubToolXML.Instance.InitSubs(markerId, StoryFragment);
+    }
+
+    public virtual void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
+    {
+        var t = sender as EasyWwiseCallback;
+        if (t != null)
+        {
+            t.Invoke();
+        }
+    }
 
     public virtual void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Touch Object");
-    }
-
-
-    public float InteractionDistance { get { return interactionDistance; } }
-    public Vector3 CamPosition { get { return cameraPosition; } set { cameraPosition = value; } }
-    public Vector3 CamOrientaion { get { return cameraOrientation; } set { cameraOrientation = value; } }
-    public Vector3 CamForward
-    {
-        get
-        {
-            return
-                (transform.position + cameraOrientation) -
-                (transform.position + cameraPosition);
-        }
     }
 
     private void InvokeInteractableCall()

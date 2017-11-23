@@ -11,28 +11,19 @@ public class Fragment : Interactable
     public delegate void FragmentAction();
     public static event FragmentAction FragmentCall;
 
-    [SerializeField, Tooltip("The name of the story fragment.")]
-    private string storyFragment;
-
-    private bool hasPlayed;
     private int callBackCounter = 0;
     private bool firstEventFrame = false;
 
-    public string StoryFragment { get { return storyFragment; } }
-    public bool HasPlayed { get { return hasPlayed; } private set { hasPlayed = value; } }
+    uint marker;
+    int clipLength;
+    int uPosition;
 
     public override void Awake()
     {
         base.Awake();
     }
 
-
-
-    uint marker;
-    int clipLength;
-
-    //private float 
-    void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
+    public override void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
     {
         var t = sender as EasyWwiseCallback;
 
@@ -74,18 +65,24 @@ public class Fragment : Interactable
         firstEventFrame = false;
         AkSoundEngine.PostEvent("FRAGMENT_END", gameObject);
     }
-    int uPosition;
+   
     public override void Play(Interactable.EasyWwiseCallback Callback)
     {
+        if(string.IsNullOrEmpty(StoryFragment))
+        {
+            Debug.LogWarning("StoryFragment: \"" +StoryFragment +"\" does not exist");
+            Callback();
+            return;
+        }
+
         HasPlayed = true;
-        Debug.Log("Story fragment - " + storyFragment + " - ACTIVATE!");
-        uint markerId = AkSoundEngine.PostEvent(storyFragment, gameObject,
+        Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
+        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
                         (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_Duration
                       | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         marker = markerId;
-        SubToolXML.Instance.InitSubs(markerId, storyFragment);
+        SubToolXML.Instance.InitSubs(markerId, StoryFragment);
         OnFragmentCall();
-
     }
 
     private void OnFragmentCall()
@@ -123,5 +120,9 @@ public class Fragment : Interactable
         return (int)(time) - 20;
     }
 
+    private bool WwiseEventDoesntExist(string eventName)
+    {
+        return AkSoundEngine.PrepareEvent(PreparationType.Preparation_Load, new string[]{eventName}, 1) == AKRESULT.AK_IDNotFound;
 
+    }
 }
