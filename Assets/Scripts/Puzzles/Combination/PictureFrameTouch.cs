@@ -6,83 +6,26 @@ using UnityEngine;
 //[ExecuteInEditMode]
 public class PictureFrameTouch : MonoBehaviour, ITouchInput
 {
-    //[HideInInspector]
-    //public CombinationPuzzleController controller;
-    //[HideInInspector]
-    //public Vector3 originPosition;
     [HideInInspector]
     public bool isCorrect;
 
     public Vector3 correctPostion, correctRotation;
 
-    //[SerializeField]
-    //private Color gizmoColor = Color.black;
-
     [SerializeField]
     private string pickupWwiseEvent, placeWwiseEvent;
-    //[SerializeField]
-    //private Material gizmoMaterial;
-
-    //private Material internalGizmoMaterial;
+    [SerializeField]
+    private Puzzle parentPuzzle;
 
     [SerializeField, Tooltip("Allowed directions to move")]
     private BasePuzzle.DirectionsStruct Directions;
 
     private Vector3 distanceWorldPos;
-    //private Renderer cachedRenderer;
-    //private MeshFilter cachedMeshFilter;
     private float startY;
-
-    //#if UNITY_EDITOR
-    //    private void OnEnable() {
-    //        UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
-    //        UnityEditor.SceneView.onSceneGUIDelegate += OnSceneGUI;
-    //        internalGizmoMaterial = new Material(gizmoMaterial);
-    //    }
-
-    //    private void OnDisable() {
-    //        UnityEditor.SceneView.onSceneGUIDelegate -= OnSceneGUI;
-    //    }
-
-    //    private void OnSceneGUI(UnityEditor.SceneView sceneView) {
-
-    //       // Draw(sceneView.camera);
-    //    }
-    //#endif
-
-
 
     private void Start()
     {
         startY = transform.position.y;
     }
-
-
-    //private void Draw(Camera cam)
-    //{
-    //    if (cachedRenderer == null)
-    //    {
-    //        cachedRenderer = transform.GetComponent<Renderer>();
-    //    }
-    //    if (cachedMeshFilter == null)
-    //    {
-    //        cachedMeshFilter = transform.GetComponent<MeshFilter>();
-    //    }
-    //    if (originPosition == Vector3.zero)
-    //    {
-    //        originPosition = transform.parent.position;
-    //    }
-    //    if (gizmoMaterial == null)
-    //    {
-    //        return;
-    //    }
-    //    internalGizmoMaterial.SetPass(1);
-    //    gizmoColor.a = Mathf.Clamp(gizmoColor.a, 0, .5f);
-    //    internalGizmoMaterial.color = gizmoColor;
-    //    Matrix4x4 rotationMatrix = Matrix4x4.TRS(correctPostion + originPosition, Quaternion.Euler(correctRotation) * transform.parent.rotation, transform.lossyScale);
-
-    //    Graphics.DrawMesh(cachedMeshFilter.sharedMesh, rotationMatrix, internalGizmoMaterial, gameObject.layer, null);
-    //}
 
     public void OnTap()
     {
@@ -109,11 +52,6 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
             return;
 
         PlayEvent(placeWwiseEvent);
-        //if (controller != null)
-        //{
-        //    controller.CheckForSolution(this);
-        //}
-        //   AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
     public void OnToucHold(Vector3 worldPos)
@@ -135,7 +73,17 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         {
             newPosition.z = transform.position.z;
         }
-        transform.position = newPosition;
+
+        Vector3 boundingCenter = parentPuzzle.transform.position + parentPuzzle.BoundingBoxOffset();
+        Vector3 boundingSize = parentPuzzle.BoundingBoxSize();
+        
+        if(newPosition.x >= boundingCenter.x - boundingSize.x/2 &&
+           newPosition.x <= boundingCenter.x + boundingSize.x/2 &&
+           newPosition.y >= boundingCenter.y - boundingSize.y/2 &&
+           newPosition.y <= boundingCenter.y + boundingSize.y/2)
+        {
+            transform.position = newPosition;
+        }
     }
 
     public void OnTouchExit()
@@ -145,11 +93,6 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
         PlayEvent(placeWwiseEvent);
         transform.SetY(startY);
-        //if (controller != null)
-        //{
-        //    controller.CheckForSolution(this);
-        //}
-        //AkSoundEngine.PostEvent(controller.onIncorrectPlacementWwiseEvent, gameObject);
     }
 
     public void OnSwipe(TouchDirection direction)

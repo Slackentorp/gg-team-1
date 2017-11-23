@@ -30,9 +30,6 @@ public class GameController : Singleton<GameController>
 
     public CameraController cameraController; 
 
-    //private Interactable nextInteractable;
-    //public Interactable NextInteractable { get { return nextInteractable; } set { nextInteractable = value; } }
-
     public AnimationCurve PuzzleLerpCurve;
 
     [HideInInspector]

@@ -3035,8 +3035,59 @@ Prefab:
       propertyPath: storyFragment
       value: FRAGMENT_TATTOO
       objectReference: {fileID: 0}
+    - target: {fileID: 65328611661988120, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65301512590925316, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65319170826438570, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65250767068535442, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65197432192996044, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114678310116689728, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: parentPuzzle
+      value: 
+      objectReference: {fileID: 1878775041}
+    - target: {fileID: 114791869225643436, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: parentPuzzle
+      value: 
+      objectReference: {fileID: 1878775041}
+    - target: {fileID: 114155407691875060, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: parentPuzzle
+      value: 
+      objectReference: {fileID: 1878775041}
+    - target: {fileID: 114303075158600874, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: parentPuzzle
+      value: 
+      objectReference: {fileID: 1878775041}
+    - target: {fileID: 114630373605649726, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: parentPuzzle
+      value: 
+      objectReference: {fileID: 1878775041}
     m_RemovedComponents:
     - {fileID: 114158047031268690, guid: c2a149c219a450743ba2b085a1a47b2d, type: 2}
+    - {fileID: 114717772410236898, guid: c2a149c219a450743ba2b085a1a47b2d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c2a149c219a450743ba2b085a1a47b2d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &558525240
@@ -10244,6 +10295,33 @@ Transform:
   m_PrefabParentObject: {fileID: 4012662159745468, guid: b3be9b4c5ba06c64ab324c7de403ae80,
     type: 2}
   m_PrefabInternal: {fileID: 1865030008}
+--- !u!1 &1878775040 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1961992769242328, guid: c2a149c219a450743ba2b085a1a47b2d,
+    type: 2}
+  m_PrefabInternal: {fileID: 556306794}
+--- !u!114 &1878775041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1878775040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26707468efb69e54699b38c6f8b47db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 2
+  cameraPosition: {x: -0.35, y: 0.25, z: 0.3}
+  cameraOrientation: {x: -0.03, y: -0.03, z: 0}
+  storyFragment: FRAGMENT_TATTOO
+  mercyDistance: 0.07
+  boundingBoxSize: {x: 0.5, y: 0.3, z: 0.5}
+  boundingBoxOffset: {x: -0.05, y: 0, z: 0.08}
+  puzzleId: 
+  x: 0
+  y: 0
+  z: 0
 --- !u!1001 &1895439439
 Prefab:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class Puzzle : Interactable
     private Vector3 boundingBoxSize = Vector3.one;
     [SerializeField]
     private Vector3 boundingBoxOffset;
-
+    
     [SerializeField, Tooltip("The name of the puzzle.")]
     private string puzzleId;
 
@@ -32,12 +32,14 @@ public class Puzzle : Interactable
 
     public bool IsSolved { get { return isSolved; } private set { isSolved = value; } }
     public string PuzzleId { get { return PuzzleId; } }
-
-
-    //public override void Play(EasyWwiseCallback Callback)
-    //{
-
-    //}
+    public Vector3 BoundingBoxSize()
+    {
+        return boundingBoxSize;
+    }
+    public Vector3 BoundingBoxOffset()
+    {
+        return boundingBoxOffset;
+    }
 
     public override void Awake()
     {
@@ -121,7 +123,8 @@ public class Puzzle : Interactable
         piecePlaced[piece] = true;
         puzzlePieces[piece].transform.position = correctPuzzle[puzzlePieces[piece]];
         puzzlePieces[piece].GetComponent<PictureFrameTouch>().isCorrect = true;
-        puzzlePieces[piece].GetComponent<PictureFrameTouch>().enabled = false; 
+        puzzlePieces[piece].GetComponent<PictureFrameTouch>().enabled = false;
+        puzzlePieces[piece].GetComponent<BoxCollider>().enabled = false;
         isSolved = CheckAllCorrect();
     }
 

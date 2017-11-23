@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Managers;
 using UnityEngine;
 
 public class InteractableState : GameState
@@ -12,25 +13,25 @@ public class InteractableState : GameState
     bool lerpOut;
 
     private CameraController cameraController;
-    private Interactable nextInteractable;
+    private Interactable currentInteractable;
     public InteractableState(GameController gm, Interactable interactable) : base(gm)
     {
-        nextInteractable = interactable;
+        currentInteractable = interactable;
     }
 
     public override void Tick()
     {
-        if(lerpOut) return;
+        if (lerpOut) return;
         float t = gm.FragmentLerpCurve.Evaluate(time * speed);
 
         Vector3 position;
-        position = Vector3.Lerp(originPos, nextInteractable.transform.position + nextInteractable.CamPosition, t);
+        position = Vector3.Lerp(originPos, currentInteractable.transform.position + currentInteractable.CamPosition, t);
 
         Vector3 forward;
-        forward = Vector3.Lerp(originForward, nextInteractable.CamForward, t);
+        forward = Vector3.Lerp(originForward, currentInteractable.CamForward, t);
 
         Quaternion rotation;
-        rotation = Quaternion.Lerp(originRotation, Quaternion.Euler(nextInteractable.CamOrientaion), t);
+        rotation = Quaternion.Lerp(originRotation, Quaternion.Euler(currentInteractable.CamOrientaion), t);
 
         if (t < 1)
         {
@@ -40,32 +41,45 @@ public class InteractableState : GameState
             time += Time.deltaTime;
         }
         else
-        {
-            cameraController.Update();
+        {    
+            if (currentInteractable is Puzzle)
+            {
+                CheckInput();
+                ((Puzzle)currentInteractable).UpdatePuzzle();
+                if(((Puzzle)currentInteractable).IsSolved)
+                {
+                    lerpOut = true;
+                    currentInteractable.Play(EndOfFragmentCallback);
+                }
+            }
         }
+
     }
 
     public override void OnStateEnter()
     {
-        nextInteractable.Play(EndOfFragmentCallback);
         cameraController = gm.cameraController;
 
         originPos = gm.GameCamera.transform.position;
         originForward = gm.GameCamera.transform.forward;
         originRotation = gm.GameCamera.transform.rotation;
         cameraController.SetFragmentMode(true);
+        if (currentInteractable is Puzzle)
+        {
+            currentInteractable.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
     private void EndOfFragmentCallback()
     {
-        Debug.Log("End of interactable: " + nextInteractable.gameObject.name);
+        Debug.Log("End of interactable: " + currentInteractable.gameObject.name);
         gm.StartCoroutine(Leaving());
         lerpOut = true;
     }
 
     public override void OnStateExit()
     {
-        AkSoundEngine.StopAll(nextInteractable.gameObject);
+        AkSoundEngine.StopAll(currentInteractable.gameObject);
     }
 
     private IEnumerator Leaving()
@@ -75,13 +89,13 @@ public class InteractableState : GameState
         {
             float t = gm.FragmentLerpCurve.Evaluate(time * speed);
             Vector3 position;
-            position = Vector3.Lerp(nextInteractable.transform.position + nextInteractable.CamPosition, originPos, t);
+            position = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.CamPosition, originPos, t);
 
             Vector3 forward;
-            forward = Vector3.Lerp(nextInteractable.CamForward, originForward, t);
+            forward = Vector3.Lerp(currentInteractable.CamForward, originForward, t);
 
             Quaternion rotation;
-            rotation = Quaternion.Lerp(Quaternion.Euler(nextInteractable.CamOrientaion), originRotation, t);
+            rotation = Quaternion.Lerp(Quaternion.Euler(currentInteractable.CamOrientaion), originRotation, t);
 
             gm.GameCamera.transform.position = position;
             gm.GameCamera.transform.rotation = rotation;
@@ -91,5 +105,42 @@ public class InteractableState : GameState
         }
 
         gm.SetState(new RunState(gm));
+    }
+
+    void CheckInput()
+    {
+        InputEvent inputEvent = gm.InputManager.CheckInput();
+        if (inputEvent.GameObject != null)
+        {
+            ITouchInput itt = inputEvent.GameObject.GetComponent<ITouchInput>();
+            if (itt != null)
+            {
+                switch (inputEvent.InputType)
+                {
+                    case InputType.TOUCH_DOWN:
+                        itt.OnTouchDown(inputEvent.TouchPosition);
+                        break;
+                    case InputType.TOUCH_HOLD:
+                        itt.OnToucHold(inputEvent.TouchPosition);
+                        break;
+                    case InputType.TOUCH_UP:
+                        itt.OnTouchUp();
+                        break;
+                    case InputType.TOUCH_EXIT:
+                        itt.OnTouchExit();
+                        break;
+                    case InputType.SWIPE:
+                        itt.OnSwipe(TouchDirection.Down);
+                        break;
+                    case InputType.TAP:
+                        itt.OnTap();
+                        break;
+                }
+            } 
+            else
+            {
+                cameraController.Update();
+            }
+        }
     }
 }
