@@ -18,7 +18,7 @@
 									<ObjectRef Name="Really compressed mono" ID="{67179E8B-05DB-4110-A418-07CD164CC880}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="AMBIENCE" ID="{AB8C6716-D53F-49C3-8F20-39F1A3932735}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1547,7 +1547,7 @@
 									<ObjectRef Name="Really compressed mono" ID="{67179E8B-05DB-4110-A418-07CD164CC880}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="AMBIENCE" ID="{AB8C6716-D53F-49C3-8F20-39F1A3932735}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 								</Reference>
 								<Reference Name="UserAuxSend0">
 									<ObjectRef Name="Reverb_livingroom" ID="{15279453-A672-4F5D-8661-BDBC44113891}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -2244,7 +2244,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="AMBIENCE" ID="{AB8C6716-D53F-49C3-8F20-39F1A3932735}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -5688,9 +5688,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="AT_THE_TABLE_da" ID="{E5F327F9-2818-4B83-BF72-3AF4CBD2D490}" ShortID="56888025">
-											<PropertyList>
-												<Property Name="TrimBegin" Type="Real64" Value="0.303263398348269"/>
-											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>AT_THE_TABLE_da.wav</AudioFile>
 											<ConvertedFileIDList>
@@ -5811,7 +5808,6 @@
 										<AudioFileSource Name="CLOCK_da" ID="{86322D94-4982-4FB8-9673-6F48CC5A0B5A}" ShortID="135164530">
 											<PropertyList>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.658362627707911"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.28900382391579"/>
 												<Property Name="TrimEnd" Type="Real64" Value="11.9473453322288"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -5862,7 +5858,6 @@
 										<AudioFileSource Name="CLOCK" ID="{1BA1BC0C-DA05-4CC8-9CF4-FFCDE6EC4537}" ShortID="495826903">
 											<PropertyList>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.14635881215955"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.418168034741572"/>
 												<Property Name="TrimEnd" Type="Real64" Value="8.25184921890035"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -6092,11 +6087,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="WORLD_MAP_1" ID="{88FEB03A-73F1-496C-8423-5D7A17EC3475}" ShortID="50499365">
-											<PropertyList>
-												<Property Name="TrimBegin" Type="Real64" Value="0.261231351089021"/>
-											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>WORLD_MAP_1.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="337351369"/>
+											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
@@ -6213,8 +6208,6 @@
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.643272334764164"/>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.336255993172177"/>
-												<Property Name="TrimBegin" Type="Real64" Value="1.71051961744107"/>
-												<Property Name="TrimEnd" Type="Real64" Value="19.151971785024"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>MEET_THE_PARENTS_1.wav</AudioFile>
@@ -6247,7 +6240,7 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="PARENTS_1_da" ID="{8720FD91-B1C7-4181-A6F5-3642719F2726}" Platform="Linked"/>
+										<ActiveSource Name="MEET_THE_PARENTS_1_da" ID="{7EB610C1-58BC-4C80-9931-DF686C192F7F}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -6362,9 +6355,16 @@
 												<File ID="100464970"/>
 											</ConvertedFileIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="MODELING_1" ID="{1D60CA4F-6269-494D-A977-32D863773E67}" ShortID="192985585">
+											<Language>SFX</Language>
+											<AudioFile>MODELING_1.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="130421691"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="MODELING_3" ID="{A04253E2-83B5-440F-AFE3-7D7587C89CBB}" Platform="Linked"/>
+										<ActiveSource Name="MODELING_1" ID="{1D60CA4F-6269-494D-A977-32D863773E67}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="MODELING_1_da" ID="{57B43289-88EE-4C04-BD5A-7E4E74DF715C}" ShortID="538229932">
@@ -6566,7 +6566,6 @@
 										<AudioFileSource Name="SUSIES_TATTOO_da" ID="{5B342C85-1A42-4632-9DBA-E0655BE7B9D7}" ShortID="331745340">
 											<PropertyList>
 												<Property Name="FadeOutDuration" Type="Real64" Value="1.11144845244371"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.348689710570575"/>
 												<Property Name="TrimEnd" Type="Real64" Value="25.4325557647413"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -6672,7 +6671,6 @@
 										<AudioFileSource Name="TIRED" ID="{8BC550BC-817E-489C-AF94-D840E3985404}" ShortID="173259841">
 											<PropertyList>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.632940365322019"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.278189321485052"/>
 												<Property Name="TrimEnd" Type="Real64" Value="15.8793568123436"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -6721,7 +6719,6 @@
 										<AudioFileSource Name="TIRED_da" ID="{63AD7C5D-43E7-412E-9373-13C101D24355}" ShortID="1025473660">
 											<PropertyList>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.809486256495216"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.224857293470894"/>
 												<Property Name="TrimEnd" Type="Real64" Value="18.5956981700429"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -6830,11 +6827,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="NEW_YEARS" ID="{02DEF0B5-F8C1-4CC3-A50A-9DFDD1DED88C}" ShortID="1065015558">
-											<PropertyList>
-												<Property Name="TrimBegin" Type="Real64" Value="0.322427224272243"/>
-											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>NEW_YEARS.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="667994024"/>
+											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
@@ -6879,9 +6876,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="NEW_YEARS_da" ID="{C55EF07B-C01A-498D-8481-745533DC9064}" ShortID="238822473">
-											<PropertyList>
-												<Property Name="TrimBegin" Type="Real64" Value="0.247129452519015"/>
-											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>NEW_YEARS_da.wav</AudioFile>
 											<ConvertedFileIDList>
@@ -7065,7 +7059,6 @@
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.248231543539925"/>
 												<Property Name="FadeOutDuration" Type="Real64" Value="1.63416644492975"/>
-												<Property Name="TrimBegin" Type="Real64" Value="4.13719239233209"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>UGLY_POSTER_da.wav</AudioFile>
@@ -7175,8 +7168,6 @@
 										<AudioFileSource Name="MODELING_2" ID="{4D862ABA-F1BF-44C2-92E9-A3396C8593B3}" ShortID="479286104">
 											<PropertyList>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.878646986469866"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.439323493234932"/>
-												<Property Name="TrimEnd" Type="Real64" Value="16.0139799014317"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>MODELING_2.wav</AudioFile>
@@ -7230,6 +7221,11 @@
 											<PropertyList>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.381589577528429"/>
 												<Property Name="TrimEnd" Type="Real64" Value="11.0660977483244"/>
+												<Property Name="VolumeOffset" Type="Real64">
+													<ValueList>
+														<Value>5.9</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>MODELING_2_da.wav</AudioFile>
@@ -7455,7 +7451,6 @@
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.0800138229953728"/>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.182888738275137"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.20574983055953"/>
 												<Property Name="TrimEnd" Type="Real64" Value="9.01523292416598"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -7594,7 +7589,6 @@
 									<ChildrenList>
 										<AudioFileSource Name="WE_NEED_A_TV_1" ID="{4FA27543-EA4C-4AA8-92C0-FFC65FDD2509}" ShortID="613866147">
 											<PropertyList>
-												<Property Name="TrimBegin" Type="Real64" Value="0.310892537088636"/>
 												<Property Name="TrimEnd" Type="Real64" Value="14.1974258603811"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -7780,8 +7774,8 @@
 									<ChildrenList>
 										<AudioFileSource Name="WINE_ON_A_WEDNESDAY_da" ID="{F2E4D8DA-A0AC-4B03-92C5-1883B199A46C}" ShortID="991473664">
 											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.232767527675277"/>
 												<Property Name="FadeOutDuration" Type="Real64" Value="1.4573991682774"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.335690036900369"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>WINE_ON_A_WEDNESDAY_da.wav</AudioFile>
@@ -8121,11 +8115,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="MEET_THE_PARENTS_2_da" ID="{442AA761-21AA-4B5B-B8EA-E5D73AD142AE}" ShortID="447932395">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.148210156387278"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>MEET_THE_PARENTS_2_da.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="482251334"/>
-											</ConvertedFileIDList>
 										</AudioFileSource>
 										<AudioFileSource Name="PARENTS_2_da" ID="{C9943F5D-0B33-436D-A3B4-132FE73DD311}" ShortID="5120516">
 											<Language>SFX</Language>
@@ -8133,7 +8127,7 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="PARENTS_2_da" ID="{C9943F5D-0B33-436D-A3B4-132FE73DD311}" Platform="Linked"/>
+										<ActiveSource Name="MEET_THE_PARENTS_2_da" ID="{442AA761-21AA-4B5B-B8EA-E5D73AD142AE}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -9863,7 +9857,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="AMBIENCE" ID="{AB8C6716-D53F-49C3-8F20-39F1A3932735}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -10396,7 +10390,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Triggered Sounds" ID="{DC631A1D-0A02-43B8-926A-AF3CC38BBBF7}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>

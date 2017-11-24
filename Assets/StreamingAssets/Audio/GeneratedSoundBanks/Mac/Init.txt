@@ -4,7 +4,6 @@ State Group	ID	Name			Wwise Object Path	Notes
 	2077253480	ROOM			\Default Work Unit\ROOM	
 	2441027675	LANGUAGE			\Default Work Unit\LANGUAGE	
 	2599116615	INSIDE_STATE			\Default Work Unit\INSIDE_STATE	
-	2768438037	HEADPHONE_IN			\Default Work Unit\HEADPHONE_IN	
 	3559727537	FRAGMENT_MUSIC			\Default Work Unit\FRAGMENT_MUSIC	
 	3617270566	BULB_STATE			\Default Work Unit\BULB_STATE	
 	3826569560	MUSIC_STATE			\Default Work Unit\MUSIC_STATE	
@@ -35,15 +34,10 @@ State	ID	Name	State Group			Notes
 	438105790	OUTSIDE	INSIDE_STATE			
 	748895195	None	INSIDE_STATE			
 	3553349781	INSIDE	INSIDE_STATE			
-	748895195	None	HEADPHONE_IN			
-	2452206122	FALSE	HEADPHONE_IN			
-	3053630529	TRUE	HEADPHONE_IN			
 	748895195	None	FRAGMENT_MUSIC			
 	1385224078	Awful	FRAGMENT_MUSIC			
 	1427264549	Happy	FRAGMENT_MUSIC			
-	2237492935	Sweet	FRAGMENT_MUSIC			
 	3509424520	Memory	FRAGMENT_MUSIC			
-	4248742144	Nothing	FRAGMENT_MUSIC			
 	748895195	None	BULB_STATE			
 	2164182160	BULB_1	BULB_STATE			
 	2164182162	BULB_3	BULB_STATE			
@@ -69,20 +63,9 @@ State	ID	Name	State Group			Notes
 	1037399647	PIN_4	MAP_STATE			
 	1861070025	DONE	MAP_STATE			
 
-Custom State	ID	Name	State Group	Owner		Notes
-	409414692	FRAGMENT	MUSIC_STATE	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\AMBIENCE		
-	877228337	FALSE	HEADPHONE_IN	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\MUSIC		
-	945256600	FALSE	HEADPHONE_IN	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\AMBIENCE		
-
-Game Parameter	ID	Name			Wwise Object Path	Notes
-	1006694123	MUSIC_VOLUME			\Default Work Unit\MUSIC_VOLUME	
-	1564184899	SFX_VOLUME			\Default Work Unit\SFX_VOLUME	
-
 Audio Bus	ID	Name			Wwise Object Path	Notes
-	85412153	AMBIENCE			\Default Work Unit\Master Audio Bus\SFX\AMBIENCE	
 	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
 	805203703	Master Secondary Bus			\Default Work Unit\Master Secondary Bus	
-	1024852500	Triggered Sounds			\Default Work Unit\Master Audio Bus\SFX\Triggered Sounds	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	3991942870	MUSIC			\Default Work Unit\Master Audio Bus\MUSIC	
 
@@ -92,7 +75,6 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	1990128658	Room_Medium	Wwise RoomVerb			
-	2080872166	Brick_Wall_Minus_6dB_Peak_Fast_Release	Wwise Peak Limiter			
 	3164629247	Holy	Wwise RoomVerb			
 	4286906788	Gentle_Program_Compressor_Minus_20dB_RMS	Wwise Compressor			
 
