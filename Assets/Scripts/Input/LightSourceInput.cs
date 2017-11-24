@@ -91,7 +91,6 @@ public class LightSourceInput : MonoBehaviour
 
     public void FragmentChecker()
     {
-        print("GO CHECK");
         localFragmentsState = new bool[interactables.Length];
         for (int i = 0; i < interactables.Length; i++)
         {
@@ -113,7 +112,6 @@ public class LightSourceInput : MonoBehaviour
             }
             else if (getNrOfFragments == interactables.Length - 1)
             {
-                print("IMHERE NOW");
                 LampFlickering();
             }
         }
@@ -273,7 +271,6 @@ public class LightSourceInput : MonoBehaviour
         }
         if(currentLampState != State.LAMP_FLICKERING)
         {
-            Debug.Log("Quit Flickering Coroutine");
             yield return null;
         }
         else
