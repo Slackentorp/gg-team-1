@@ -15,20 +15,19 @@ public class SubToolXML : Singleton<SubToolXML>
     [XmlArray("subsLine")]
     [XmlArrayItem("subsId")]
     List<string> subsToLoad2 = new List<string>();
-    [XmlAttribute("color")]
-    public string color;
+    [XmlAttribute("speaker")]
+    public string speaker;
     [XmlAttribute("text")]
     public string text;
     [XmlAttribute("startPos")]
     public float startingPos;
     [XmlAttribute("duration")]
     public float duration;
-
     [XmlAttribute("dk")]
     public string dk;
     [XmlAttribute("en")]
     public string en;
-    public List<string> colors = new List<string>();
+    public List<string> speakers = new List<string>();
     public List<float> startingPoss = new List<float>();
     public List<string> EnglishText = new List<string>();
     public List<string> DanishText = new List<string>();
@@ -44,74 +43,103 @@ public class SubToolXML : Singleton<SubToolXML>
     private LocalizationItem language;
 
     public delegate void OnShow();
-    public static event OnShow OnShowSubs; 
+    public static event OnShow OnShowSubs;
 
     void ShowSubs()
     {
         //check for language above this on
-            if (nextSubtitle < texts.Count)
-            {
-                AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
-                uPosition = uPosition / 100;
-            
-                if (startingPoss[nextSubtitle] < (uPosition + Time.deltaTime) &&
-                    startingPoss[nextSubtitle] > (uPosition - Time.deltaTime))
-                {
-                    texty.SetActive(true);
-                    StartCoroutine(Wait(nextSubtitle));
+        if (nextSubtitle < texts.Count)
+        {
+            AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
+            uPosition = uPosition / 100;
 
-                    subtitlesToShow.text = texts[nextSubtitle];
-                    if(OnShowSubs != null)
-                    {
-                        OnShowSubs();
-                    }
-                    switch (colors[nextSubtitle])
-                    {
+            if (startingPoss[nextSubtitle] < (uPosition + Time.deltaTime) &&
+                startingPoss[nextSubtitle] > (uPosition - Time.deltaTime))
+            {
+                texty.SetActive(true);
+                StartCoroutine(Wait(nextSubtitle));
+
+                subtitlesToShow.text = texts[nextSubtitle];
+                if (OnShowSubs != null)
+                {
+                    OnShowSubs();
+                }
+                /*
+                switch (speakers[nextSubtitle])
+                {
+                    case "M":
+                        //we put this because otherwise it just reas the ID tag and doesnt go through there
+                        subtitlesToShow.font = Resources.Load<Font>("/Fonts/Hashtag");
+                        break;
+
+                    case "S":
+                        //we put this because otherwise it just reas the ID tag and doesnt go through there
+                        subtitlesToShow.font = Resources.Load<Font>("/Fonts/JOURNAL");
+
+                        break;
+                        /*case "E":
+                            //we put this because otherwise it just reas the ID tag and doesnt go through there
+                            subtitlesToShow.font = Resources.Load<Font>("/Fonts/Courier New, regular");
+
+                            break;
+
                         case "D":
                             //we put this because otherwise it just reas the ID tag and doesnt go through there
-                            subtitlesToShow.color = Color.green;
-                        
-                            break;
-                        case "S":
-                            //we put this because otherwise it just reas the ID tag and doesnt go through there
-                            subtitlesToShow.color = Color.green;
-                        
-                            break;
-                        case "E":
-                            //we put this because otherwise it just reas the ID tag and doesnt go through there
-                            subtitlesToShow.color = Color.green;
-                        
-                            break;
-                        case "M":
-                            //we put this because otherwise it just reas the ID tag and doesnt go through there
-                            subtitlesToShow.color = Color.green;
-                       
-                            break;
-                    }
-                    nextSubtitle++;
+                            subtitlesToShow.font = Resources.Load<Font>("/Fonts/Courier New, regular");
+                            break;*/
                 }
+                /*
+                switch (colors[nextSubtitle])
+                {
+                    case "D":
+                        //we put this because otherwise it just reas the ID tag and doesnt go through there
+                        subtitlesToShow.color = Color.green;
+
+                        break;
+                    case "S":
+                        //we put this because otherwise it just reas the ID tag and doesnt go through there
+                        subtitlesToShow.color = Color.green;
+
+                        break;
+                    case "E":
+                        //we put this because otherwise it just reas the ID tag and doesnt go through there
+                        subtitlesToShow.color = Color.green;
+
+                        break;
+                    case "M":
+                        //we put this because otherwise it just reas the ID tag and doesnt go through there
+                        subtitlesToShow.color = Color.green;
+
+                        break;
+                }*/
+                nextSubtitle++;
             }
-            else
-            {
-                startingPoss.Clear();
-                texts.Clear();
-                durations.Clear();
-                showSubs = false;
+        }
+        else
+        {
+            startingPoss.Clear();
+            texts.Clear();
+            durations.Clear();
+            speakers.Clear();
+            showSubs = false;
         }
     }
-   
+
     public void InitSubs(uint markerId, string eventName)
     {
         LocalizationItem.Language language =
            (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
         if (language == LocalizationItem.Language.ENGLISH)
-        {   XMLReader(eventName);
+        {
+            XMLReader(eventName);
             g_markersPlayingID = markerId;
         }
-        else { 
+        else
+        {
             g_markersPlayingID = markerId;
             string addDK = eventName;
-            addDK = addDK + "DK";
+            //addDK = addDK + "DK";
+            addDK = addDK + "_da";
             XMLReader(addDK);
         }
     }
@@ -146,22 +174,21 @@ public class SubToolXML : Singleton<SubToolXML>
                         duration = reader1.ReadContentAsFloat();
                         durations.Add(duration);
                         break;
-                        
+
                     case "text":
                         reader1.Read();//we put this because otherwise it just reas the ID tag and doesnt go through there
                         text = reader1.ReadContentAsString();
                         texts.Add(text);
                         break;
 
-                    case "color":
+                    case "speaker":
                         reader1.Read();//we put this because otherwise it just reas the ID tag and doesnt go through there
-                        color = reader1.ReadContentAsString();
-                        colors.Add(color);
+                        speaker = reader1.ReadContentAsString();
+                        speakers.Add(speaker);
                         break;
-                    
+
                 }
             }
-
         }
         showSubs = true;
     }
@@ -177,7 +204,7 @@ public class SubToolXML : Singleton<SubToolXML>
     }
     IEnumerator Wait(int a)
     {
-        
+
         yield return new WaitForSeconds(durations[a]);
         texty.SetActive(false);
     }
