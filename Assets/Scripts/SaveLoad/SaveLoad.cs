@@ -17,35 +17,46 @@ public class SaveLoad : Singleton<SaveLoad>
         public float cx, cy, cz;
         public float positionOfMoth;
         public float mx, my, mz;
+        
 
-        public string fragment;
-        public bool fragmentPlaye;
-
-
+        public string[] fragmentNames;
         public bool[] fragmentPlayed;
-        public int[] doors;
-        public float[] positionsOfCamera;
-        public float[] positionsOfMoth;
-        public string[] fragments;
     }
+    public int ii = 0;
+    Fragment fragy;
 
-    public int fs = 2;
-    public static void SaveGame()
-    {//in the brackets put the palce where to save from
+    public void SaveGame()
+    {
         GameObject mainCamera = GameObject.FindWithTag("MainCamera");
         GameObject moth = GameObject.FindWithTag("Moth");
+
         BinaryFormatter bf = new BinaryFormatter();
         FileStream stream = new FileStream(Application.persistentDataPath + "/gameSave.sav", FileMode.Create);
+        PlayerData data = new PlayerData();//here is the relevant information
 
         LightMapController[] lights = FindObjectsOfType(typeof(LightMapController)) as LightMapController[];
+        GameObject[] lights2 = FindObjectsOfType(typeof(LightMapController)) as GameObject[];
+        LightMapController lightControllery;
 
-        foreach (LightMapController lightnings in lights)
+        foreach (GameObject lightnings in lights2)
         {
+            lightControllery = lightnings.GetComponent<LightMapController>();
+            lightControllery.
            //take the ID and the Bool or something like that
         }
+        
 
+        GameObject[] kringe = FindObjectsOfType(typeof(Fragment)) as GameObject[];
+        //Fragment[] storyBits = FindObjectsOfType(typeof(Fragment)) as Fragment[];
 
-        PlayerData data = new PlayerData();//here is the relevant information
+        foreach (GameObject storyFragments in kringe)
+        {
+
+            fragy = storyFragments.GetComponent<Fragment>();
+            data.fragmentNames[ii] = fragy.StoryFragment;
+            ii++;
+        }
+        
 
         data.cx = mainCamera.transform.position.x;
         data.cy = mainCamera.transform.position.y;
@@ -59,7 +70,7 @@ public class SaveLoad : Singleton<SaveLoad>
         stream.Close();
     }
     
-    public static void LoadPlayer()
+    public void LoadPlayer()
     {
         GameObject mainCamera = GameObject.FindWithTag("MainCamera");
         GameObject moth = GameObject.FindWithTag("Moth");
