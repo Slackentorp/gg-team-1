@@ -2269,6 +2269,11 @@
 								<Action Name="" ID="{F92D4DBA-AB38-4A5A-BA82-9B45BDFD0B3D}" ShortID="599154868">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2319,6 +2324,11 @@
 								<Action Name="" ID="{B5AC322F-3A8C-4784-BEBE-5AA6D74019C8}" ShortID="787190985">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2354,6 +2364,11 @@
 								<Action Name="" ID="{96DDA698-2338-4CFB-B2D5-121870406227}" ShortID="419892842">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2361,10 +2376,60 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{8BE49370-B767-4581-BF32-83018E54DDD1}" ShortID="592735821">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="LAMP_FLICKER_ON" ID="{BD5EF07A-FFCB-4904-891B-12F736FF1844}"/>
-						<Event Name="LAMP_FLICKER_OFF" ID="{6906027B-7A97-467E-B2A4-D22336A8579B}"/>
+						<Event Name="LAMP_FLICKER_ON" ID="{BD5EF07A-FFCB-4904-891B-12F736FF1844}">
+							<ChildrenList>
+								<Action Name="" ID="{899266E0-E175-4A65-84B5-3261CFFB6256}" ShortID="1011655384">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="LAMP_FLICKER_OFF" ID="{6906027B-7A97-467E-B2A4-D22336A8579B}">
+							<ChildrenList>
+								<Action Name="" ID="{C02B1F58-A1D5-4644-A51A-579E968EF8C5}" ShortID="92459509">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="7"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="LAMP_PARTICLE" ID="{B21337E7-555D-4BDD-B3E2-4CD1A9E70095}">
+							<ChildrenList>
+								<Action Name="" ID="{2EA60AE0-24B7-4CE6-AC2C-BE633B60F2DF}" ShortID="821524764">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Energy" ID="{24FEBDB9-1990-4CD8-9056-8764DC32B67C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
