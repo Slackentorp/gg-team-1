@@ -21,7 +21,6 @@
 			<ShortName>MAIN_BANK</ShortName>
 			<Path>MAIN_BANK.bnk</Path>
 			<IncludedEvents>
-				<Event Id="746056516" Name="CAMERA_MOVE" ObjectPath="\Events\Default Work Unit\CAMERA_MOVE" DurationType="OneShot" DurationMin="11.918916" DurationMax="12.230641"/>
 				<Event Id="4189504244" Name="CARS" ObjectPath="\Events\Default Work Unit\Ambience\Cars\CARS" DurationType="Infinite"/>
 				<Event Id="2817540555" Name="FRAGMENT_BIRTHDAY" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_BIRTHDAY" DurationType="OneShot" DurationMin="19.619881" DurationMax="21.163424"/>
 				<Event Id="708113490" Name="FRAGMENT_CLOCK" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_CLOCK" DurationType="OneShot" DurationMin="9.333681" DurationMax="13.158341"/>
@@ -46,7 +45,6 @@
 				<Event Id="1683668987" Name="FRAGMENT_WORLDMAP1" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_WORLDMAP1" DurationType="OneShot" DurationMin="13.736773" DurationMax="14.016349"/>
 				<Event Id="1683668984" Name="FRAGMENT_WORLDMAP2" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_WORLDMAP2" DurationType="OneShot" DurationMin="16.191223" DurationMax="19.500902"/>
 				<Event Id="4090956524" Name="FRAGMENT_ZODIAC" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_ZODIAC" DurationType="OneShot" DurationMin="12.903748" DurationMax="30.934376"/>
-				<Event Id="2337612214" Name="FRIDGE" ObjectPath="\Events\Default Work Unit\FRIDGE" DurationType="Infinite"/>
 				<Event Id="2128490106" Name="FRIDGE_INVISIBLE" ObjectPath="\Events\Default Work Unit\Ambience\FRIDGE_INVISIBLE" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2092442601" Name="FRIDGE_VISIBLE" ObjectPath="\Events\Default Work Unit\Ambience\FRIDGE_VISIBLE" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1571339874" Name="INGAMEMENU_CLOSE" ObjectPath="\Events\Default Work Unit\Menu\INGAMEMENU_CLOSE" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -63,7 +61,6 @@
 				<Event Id="1696404602" Name="MUSIC_MUTE" ObjectPath="\Events\Default Work Unit\Menu\MUSIC_MUTE" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3725903807" Name="MUSIC_START" ObjectPath="\Events\Default Work Unit\MUSIC_START" DurationType="Infinite"/>
 				<Event Id="2132259803" Name="MUSIC_UNMUTE" ObjectPath="\Events\Default Work Unit\Menu\MUSIC_UNMUTE" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1451837118" Name="NEIGHBOUR" ObjectPath="\Events\Default Work Unit\NEIGHBOUR" DurationType="Infinite"/>
 				<Event Id="394109931" Name="PIECE_PICK" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PICK" DurationType="OneShot" DurationMin="0.437532" DurationMax="0.444589"/>
 				<Event Id="2720771844" Name="PIECE_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_RIGHT" DurationType="OneShot" DurationMin="0.218346" DurationMax="0.473847"/>
 				<Event Id="2177473561" Name="PIECE_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_WRONG" DurationType="OneShot" DurationMin="0.218346" DurationMax="0.473847"/>
@@ -71,7 +68,7 @@
 				<Event Id="3258781332" Name="PUZZLE_SOLVING" ObjectPath="\Events\Default Work Unit\Puzzles\PUZZLE_SOLVING" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2835551186" Name="SFX_MUTE" ObjectPath="\Events\Default Work Unit\Menu\SFX_MUTE" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1305045635" Name="SFX_UNMUTE" ObjectPath="\Events\Default Work Unit\Menu\SFX_UNMUTE" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1922983904" Name="STORYEVENT_1" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_1" DurationType="OneShot" DurationMin="31.024786" DurationMax="31.500000"/>
+				<Event Id="1922983904" Name="STORYEVENT_1" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_1" DurationType="OneShot" DurationMin="31.500000" DurationMax="31.500000"/>
 				<Event Id="1922983907" Name="STORYEVENT_2" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_2" DurationType="OneShot" DurationMin="38.000000" DurationMax="38.000000"/>
 				<Event Id="1922983906" Name="STORYEVENT_3" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_3" DurationType="OneShot" DurationMin="38.000000" DurationMax="38.000000"/>
 				<Event Id="1922983909" Name="STORYEVENT_4" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_4" DurationType="OneShot" DurationMin="17.758118" DurationMax="18.740362"/>
@@ -82,6 +79,10 @@
 				<File Id="5120516" Language="SFX">
 					<ShortName>PARENTS_2_da.wav</ShortName>
 					<Path>SFX/PARENTS_2_da_FF424C0E.wem</Path>
+				</File>
+				<File Id="27429217" Language="SFX">
+					<ShortName>STORYEVENT_1.wav</ShortName>
+					<Path>SFX/STORYEVENT_1_FF424C0E.wem</Path>
 				</File>
 				<File Id="28899600" Language="SFX">
 					<ShortName>Reward_03.wav</ShortName>
@@ -99,21 +100,9 @@
 					<ShortName>FRAGMENT_END.wav</ShortName>
 					<Path>SFX/FRAGMENT_END_4B27904C.wem</Path>
 				</File>
-				<File Id="55177308" Language="SFX">
-					<ShortName>CAMERA_MOVE_04.wav</ShortName>
-					<Path>SFX/CAMERA_MOVE_04_567A160B.wem</Path>
-				</File>
-				<File Id="55609851" Language="SFX">
-					<ShortName>CAMERA_MOVE_01.wav</ShortName>
-					<Path>SFX/CAMERA_MOVE_01_A74232E0.wem</Path>
-				</File>
 				<File Id="62958245" Language="SFX">
 					<ShortName>ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic.wav</ShortName>
 					<Path>SFX/ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic_ADCC74B9.wem</Path>
-				</File>
-				<File Id="64340832" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_07.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_07_6DB458CF.wem</Path>
 				</File>
 				<File Id="89270064" Language="SFX">
 					<ShortName>cadillac_1960_30mph_driveby_LtoR_001.wav</ShortName>
@@ -127,10 +116,6 @@
 					<ShortName>SMOKING_2_da.wav</ShortName>
 					<Path>SFX/SMOKING_2_da_FF424C0E.wem</Path>
 				</File>
-				<File Id="104430729" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_06.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_06_0C88E15F.wem</Path>
-				</File>
 				<File Id="106102015" Language="SFX">
 					<ShortName>Police_Siren_PSEM.198.wav</ShortName>
 					<Path>SFX/Police_Siren_PSEM.198_6DB458CF.wem</Path>
@@ -142,10 +127,6 @@
 				<File Id="116736613" Language="SFX">
 					<ShortName>MODELING_3.wav</ShortName>
 					<Path>SFX/MODELING_3_2D4FE39D.wem</Path>
-				</File>
-				<File Id="118409208" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_09.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_09_6DB458CF.wem</Path>
 				</File>
 				<File Id="119947923" Language="SFX">
 					<ShortName>No light.wav</ShortName>
@@ -175,10 +156,6 @@
 					<ShortName>AT_THE_TABLE_da.wav</ShortName>
 					<Path>SFX/AT_THE_TABLE_da_9FB26A2D.wem</Path>
 				</File>
-				<File Id="156411334" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_08.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_08_6DB458CF.wem</Path>
-				</File>
 				<File Id="172808139" Language="SFX">
 					<ShortName>Reward_04.wav</ShortName>
 					<Path>SFX/Reward_04_FF424C0E.wem</Path>
@@ -186,10 +163,6 @@
 				<File Id="174683352" Language="SFX">
 					<ShortName>RATH - Rain Hard Loop 08.wav</ShortName>
 					<Path>SFX/RATH - Rain Hard Loop 08_7DDF4AFD.wem</Path>
-				</File>
-				<File Id="177010536" Language="SFX">
-					<ShortName>CAMERA_MOVE_05.wav</ShortName>
-					<Path>SFX/CAMERA_MOVE_05_8159B20D.wem</Path>
 				</File>
 				<File Id="191639381" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_1.wav</ShortName>
@@ -219,10 +192,6 @@
 					<ShortName>WORLD_MAP_2_da.wav</ShortName>
 					<Path>SFX/WORLD_MAP_2_da_CA79165A.wem</Path>
 				</File>
-				<File Id="240862891" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_10.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_10_6DB458CF.wem</Path>
-				</File>
 				<File Id="251152880" Language="SFX">
 					<ShortName>Shot_Laser_Very Light_PSEM.227.wav</ShortName>
 					<Path>SFX/Shot_Laser_Very Light_PSEM.227_FF424C0E.wem</Path>
@@ -234,10 +203,6 @@
 				<File Id="252022359" Language="SFX">
 					<ShortName>LAMP_FLICKER_LOOP.wav</ShortName>
 					<Path>SFX/LAMP_FLICKER_LOOP_8653EF13.wem</Path>
-				</File>
-				<File Id="252175184" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_13.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_13_6DB458CF.wem</Path>
 				</File>
 				<File Id="276167098" Language="SFX">
 					<ShortName>Rattle_6.wav</ShortName>
@@ -303,25 +268,17 @@
 					<ShortName>ZODIAC_SIGN.wav</ShortName>
 					<Path>SFX/ZODIAC_SIGN_7580C566.wem</Path>
 				</File>
-				<File Id="411352755" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_04.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_04_6DB458CF.wem</Path>
+				<File Id="410525646" Language="SFX">
+					<ShortName>Something Sweet.wav</ShortName>
+					<Path>SFX/Something Sweet_722ECDC8.wem</Path>
 				</File>
 				<File Id="412104274" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_3.wav</ShortName>
 					<Path>SFX/HIT_WINDOW_SOFT_3_FF424C0E.wem</Path>
 				</File>
-				<File Id="412123357" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_11.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_11_6DB458CF.wem</Path>
-				</File>
-				<File Id="458506893" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE__2.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE__2_6DB458CF.wem</Path>
-				</File>
 				<File Id="480296371" Language="SFX">
 					<ShortName>FRAGMENT_START.wav</ShortName>
-					<Path>SFX/FRAGMENT_START_5967CF73.wem</Path>
+					<Path>SFX/FRAGMENT_START_C532D9BA.wem</Path>
 				</File>
 				<File Id="484877283" Language="SFX">
 					<ShortName>MOTH_LANDING_1.wav</ShortName>
@@ -343,10 +300,6 @@
 					<ShortName>CLOCK.wav</ShortName>
 					<Path>SFX/CLOCK_4F4D8C00.wem</Path>
 				</File>
-				<File Id="497534885" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_12.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_12_6DB458CF.wem</Path>
-				</File>
 				<File Id="498877039" Language="SFX">
 					<ShortName>MODELING_2.wav</ShortName>
 					<Path>SFX/MODELING_2_2FEB243C.wem</Path>
@@ -359,21 +312,9 @@
 					<ShortName>BIRTHDAY_MOMENT.wav</ShortName>
 					<Path>SFX/BIRTHDAY_MOMENT_C2FFD530.wem</Path>
 				</File>
-				<File Id="519353667" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE__6DB458CF.wem</Path>
-				</File>
-				<File Id="520742939" Language="SFX">
-					<ShortName>CAMERA_MOVE_03.wav</ShortName>
-					<Path>SFX/CAMERA_MOVE_03_DA04A783.wem</Path>
-				</File>
 				<File Id="541851934" Language="SFX">
 					<ShortName>Flying.wav</ShortName>
 					<Path>SFX/Flying_D58FAF87.wem</Path>
-				</File>
-				<File Id="550718053" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_03.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_03_6DB458CF.wem</Path>
 				</File>
 				<File Id="557998825" Language="SFX">
 					<ShortName>Reward_02.wav</ShortName>
@@ -415,10 +356,6 @@
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE.wav</ShortName>
 					<Path>SFX/BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE_B52A7F01.wem</Path>
 				</File>
-				<File Id="636909708" Language="SFX">
-					<ShortName>CAMERA_MOVE_06.wav</ShortName>
-					<Path>SFX/CAMERA_MOVE_06_3588E66F.wem</Path>
-				</File>
 				<File Id="649696666" Language="SFX">
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE.wav</ShortName>
 					<Path>SFX/BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE_B52A7F01.wem</Path>
@@ -434,10 +371,6 @@
 				<File Id="686259063" Language="SFX">
 					<ShortName>Crumbling Printer Paper 9.wav</ShortName>
 					<Path>SFX/Crumbling Printer Paper 9_D6E7B33B.wem</Path>
-				</File>
-				<File Id="687402096" Language="SFX">
-					<ShortName>Light_Hum_Street_Lamp_Lonely_PSEM.160.wav</ShortName>
-					<Path>SFX/Light_Hum_Street_Lamp_Lonely_PSEM.160_14445690.wem</Path>
 				</File>
 				<File Id="693349639" Language="SFX">
 					<ShortName>POLAROID_1.wav</ShortName>
@@ -483,10 +416,6 @@
 					<ShortName>FRAGMENT_WHISPER.wav</ShortName>
 					<Path>SFX/FRAGMENT_WHISPER_15CB3B41.wem</Path>
 				</File>
-				<File Id="776353407" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_05.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_05_6DB458CF.wem</Path>
-				</File>
 				<File Id="777357154" Language="SFX">
 					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
 					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_1EFC7B47.wem</Path>
@@ -502,10 +431,6 @@
 				<File Id="808012157" Language="SFX">
 					<ShortName>Reward_05.wav</ShortName>
 					<Path>SFX/Reward_05_FF424C0E.wem</Path>
-				</File>
-				<File Id="808932615" Language="SFX">
-					<ShortName>CAMERA_MOVE_02.wav</ShortName>
-					<Path>SFX/CAMERA_MOVE_02_44C6CF63.wem</Path>
 				</File>
 				<File Id="815467655" Language="SFX">
 					<ShortName>235540__simosco__lamp-click-on-off.wav</ShortName>
@@ -529,11 +454,7 @@
 				</File>
 				<File Id="914615725" Language="SFX">
 					<ShortName>FRAGMENT_START_1.wav</ShortName>
-					<Path>SFX/FRAGMENT_START_1_278384D8.wem</Path>
-				</File>
-				<File Id="916308489" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_02.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_02_6DB458CF.wem</Path>
+					<Path>SFX/FRAGMENT_START_1_BFD16A99.wem</Path>
 				</File>
 				<File Id="933462240" Language="SFX">
 					<ShortName>UGLY_POSTER.wav</ShortName>
@@ -613,7 +534,7 @@
 				</File>
 				<File Id="1010715437" Language="SFX">
 					<ShortName>FRAGMENT_START_2.wav</ShortName>
-					<Path>SFX/FRAGMENT_START_2_1EC94098.wem</Path>
+					<Path>SFX/FRAGMENT_START_2_A737231F.wem</Path>
 				</File>
 				<File Id="1025473660" Language="SFX">
 					<ShortName>TIRED_da.wav</ShortName>
@@ -623,17 +544,9 @@
 					<ShortName>SMOKING_1_da.wav</ShortName>
 					<Path>SFX/SMOKING_1_da_455EC4CA.wem</Path>
 				</File>
-				<File Id="1029777502" Language="SFX">
-					<ShortName>NEIGHBOUR_NOISE_01.wav</ShortName>
-					<Path>SFX/NEIGHBOUR_NOISE_01_EB248AAF.wem</Path>
-				</File>
 				<File Id="1044749691" Language="SFX">
 					<ShortName>Rattle_5.wav</ShortName>
 					<Path>SFX/Rattle_5_B52A7F01.wem</Path>
-				</File>
-				<File Id="1049353643" Language="SFX">
-					<ShortName>STORYEVENT_1.wav</ShortName>
-					<Path>SFX/STORYEVENT_1_5F3D0560.wem</Path>
 				</File>
 				<File Id="1062689332" Language="SFX">
 					<ShortName>Bug_Zapper_PSEM.043.wav</ShortName>

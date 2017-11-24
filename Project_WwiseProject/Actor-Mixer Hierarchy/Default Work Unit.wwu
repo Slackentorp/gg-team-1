@@ -2325,47 +2325,6 @@
 													<ValueList>
 														<Value>4</Value>
 													</ValueList>
-													<RTPCList>
-														<RTPC Name="" ID="{144D98E2-6431-4816-A6B1-9A69E64DAC8D}" ShortID="252878084">
-															<ReferenceList>
-																<Reference Name="ControlInput">
-																	<ObjectRef Name="OBSTRUCTION" ID="{577380DD-F031-46A4-A0C8-13B541222663}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
-																</Reference>
-															</ReferenceList>
-															<Curve Name="" ID="{C33BE26D-3103-4FBF-9498-705A671930C7}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="3"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>-0.11764</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>17.23725</XPos>
-																		<YPos>-4.95869</YPos>
-																		<Flags>0</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>47.25111</XPos>
-																		<YPos>-9.17064</YPos>
-																		<Flags>0</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>99.999</XPos>
-																		<YPos>-200</YPos>
-																		<Flags>0</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>100</XPos>
-																		<YPos>-200</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</RTPC>
-													</RTPCList>
 												</Property>
 											</PropertyList>
 											<ReferenceList>
@@ -2554,13 +2513,13 @@
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
-										<Value>12</Value>
+										<Value>18</Value>
 									</ValueList>
 								</Property>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-530</Value>
+										<Value>-860</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{45750F76-DED9-4426-97AD-899AEFA4BF38}" ShortID="105030597">
@@ -2652,7 +2611,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-23</Value>
+										<Value>-26</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{93B9D20E-03E9-4F79-BE77-4584D3BC1F3A}" ShortID="546935811">
@@ -2721,6 +2680,12 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+									<ObjectRef Name="Extreme_Limiting_1" ID="{8F08A8A7-3313-4E5D-9EBD-2B1B564DE411}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="Born_In_1950" ID="{3B3A31C2-C9A6-430E-A3CF-62963E332052}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -6313,167 +6278,6 @@
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
-						<SwitchContainer Name="Storyevent 1" ID="{6E5D7BB2-299C-4DC6-AF9D-C8C336593A42}" ShortID="539088552">
-							<PropertyList>
-								<Property Name="UserAuxSendVolume0" Type="Real64">
-									<ValueList>
-										<Value>-12</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-								</Reference>
-								<Reference Name="Effect0">
-									<Custom>
-										<Effect Name="Wwise Meter (Custom)" ID="{DEB6BD79-D9D5-46A9-835B-22F37D67B9C9}" ShortID="522681972" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-											<PropertyList>
-												<Property Name="MeterMode" Type="int32" Value="1"/>
-											</PropertyList>
-											<PluginData>
-	<GameParameter Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
-</PluginData>
-										</Effect>
-									</Custom>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-								<Reference Name="UserAuxSend0">
-									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="STORYEVENT_1" ID="{0EBF3AE1-0729-4F3E-9931-4899C1C80D5E}" ShortID="22691587">
-									<PropertyList>
-										<Property Name="UserAuxSendVolume0" Type="Real64">
-											<ValueList>
-												<Value>-12</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>3</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-										</Reference>
-										<Reference Name="Effect0">
-											<Custom>
-												<Effect Name="Wwise Meter (Custom)" ID="{6C1BD93B-635C-414F-87D1-063DEBEA65D8}" ShortID="761879769" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-													<PropertyList>
-														<Property Name="MeterMode" Type="int32" Value="1"/>
-													</PropertyList>
-													<PluginData>
-	<GameParameter Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
-</PluginData>
-												</Effect>
-											</Custom>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-										<Reference Name="UserAuxSend0">
-											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="STORYEVENT_1" ID="{CD3D7C8B-94C5-448F-8FFF-6AD3B242C577}" ShortID="1049353643">
-											<PropertyList>
-												<Property Name="TrimBegin" Type="Real64" Value="0.475214566023211"/>
-											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_1.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="STORYEVENT_1" ID="{CD3D7C8B-94C5-448F-8FFF-6AD3B242C577}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="STORYEVENT_1_da" ID="{2E16C28A-72D5-4ACA-BB6C-DC40B350A4BA}" ShortID="352057357">
-									<PropertyList>
-										<Property Name="UserAuxSendVolume0" Type="Real64">
-											<ValueList>
-												<Value>-12</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-										</Reference>
-										<Reference Name="Effect0">
-											<Custom>
-												<Effect Name="Wwise Meter (Custom)" ID="{8F8B760D-AF9A-4929-AA16-C435C24F3D9C}" ShortID="94979988" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-													<PropertyList>
-														<Property Name="MeterMode" Type="int32" Value="1"/>
-													</PropertyList>
-													<PluginData>
-	<GameParameter Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
-</PluginData>
-												</Effect>
-											</Custom>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-										<Reference Name="UserAuxSend0">
-											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="STORYEVENT_1_da" ID="{C72A9BC4-9309-4B7C-87C5-F6AD503CE70B}" ShortID="736791367">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_1_da.wav</AudioFile>
-										</AudioFileSource>
-										<AudioFileSource Name="STORYEVENT_2_da" ID="{98E15FA2-E1A5-4069-9AF9-29F29D05E44E}" ShortID="976826227">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_2_da.wav</AudioFile>
-										</AudioFileSource>
-										<AudioFileSource Name="STORYEVENT_3_da" ID="{AFD696B7-AF03-4936-9B47-BDCDAFBAD82D}" ShortID="994374891">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_3_da.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="836804791"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="STORYEVENT_1_da" ID="{C72A9BC4-9309-4B7C-87C5-F6AD503CE70B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-							<GroupingInfo>
-								<GroupRef Name="LANGUAGE" ID="{B16A3252-0A40-48BB-BEE5-AEA47931CBDD}"/>
-								<DefaultSwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
-								<GroupingBehaviorList>
-									<GroupingBehavior>
-										<ItemRef Name="STORYEVENT_1_da" ID="{2E16C28A-72D5-4ACA-BB6C-DC40B350A4BA}"/>
-									</GroupingBehavior>
-									<GroupingBehavior>
-										<ItemRef Name="STORYEVENT_1" ID="{0EBF3AE1-0729-4F3E-9931-4899C1C80D5E}"/>
-									</GroupingBehavior>
-								</GroupingBehaviorList>
-								<GroupingList>
-									<Grouping>
-										<SwitchRef Name="ENGLISH" ID="{3A2BE52B-5BBF-405C-9CD2-175EDB012F37}"/>
-										<ItemList>
-											<ItemRef Name="STORYEVENT_1" ID="{0EBF3AE1-0729-4F3E-9931-4899C1C80D5E}"/>
-										</ItemList>
-									</Grouping>
-									<Grouping>
-										<SwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
-										<ItemList>
-											<ItemRef Name="STORYEVENT_1_da" ID="{2E16C28A-72D5-4ACA-BB6C-DC40B350A4BA}"/>
-										</ItemList>
-									</Grouping>
-								</GroupingList>
-							</GroupingInfo>
-						</SwitchContainer>
 						<SwitchContainer Name="Modeling 2" ID="{64769462-5CC8-47E6-AC76-874F78AE104F}" ShortID="341626530">
 							<PropertyList>
 								<Property Name="UserAuxSendVolume0" Type="Real64">
@@ -7463,460 +7267,6 @@
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
-						<SwitchContainer Name="Storyevent 3" ID="{A063A0E3-1235-4F8B-B259-E370AE62D0CC}" ShortID="717050051">
-							<PropertyList>
-								<Property Name="UserAuxSendVolume0" Type="Real64">
-									<ValueList>
-										<Value>-12</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-								</Reference>
-								<Reference Name="Effect0">
-									<Custom>
-										<Effect Name="Wwise Meter (Custom)" ID="{A66A23EF-8CBB-4A29-A624-119013877FA0}" ShortID="71455154" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-											<PropertyList>
-												<Property Name="MeterMode" Type="int32" Value="1"/>
-											</PropertyList>
-											<PluginData>
-	<GameParameter Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
-</PluginData>
-										</Effect>
-									</Custom>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-								<Reference Name="UserAuxSend0">
-									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="STORYEVENT_3_da" ID="{710D4A5B-A356-4F1E-80BE-67B283241CDC}" ShortID="537115999">
-									<PropertyList>
-										<Property Name="UserAuxSendVolume0" Type="Real64">
-											<ValueList>
-												<Value>-12</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>4</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-										</Reference>
-										<Reference Name="Effect0">
-											<Custom>
-												<Effect Name="Wwise Meter (Custom)" ID="{76597784-09C3-48D7-A010-171BFC57F2A7}" ShortID="304505271" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-													<PropertyList>
-														<Property Name="MeterMode" Type="int32" Value="1"/>
-													</PropertyList>
-													<PluginData>
-	<GameParameter Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
-</PluginData>
-												</Effect>
-											</Custom>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-										<Reference Name="UserAuxSend0">
-											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="STORYEVENT_3_da" ID="{AEFB9527-B86E-4292-8928-672D978FD840}" ShortID="836804791">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_3_da.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="STORYEVENT_3_da" ID="{AEFB9527-B86E-4292-8928-672D978FD840}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="STORYEVENT_3" ID="{91101101-5D78-49F7-974E-7DF700F37C8B}" ShortID="692316436">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="STORYEVENT_3" ID="{5573B223-AD1F-4BDA-BB32-5116785A8B67}" ShortID="231549871">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_3.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="723887160"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="STORYEVENT_3" ID="{5573B223-AD1F-4BDA-BB32-5116785A8B67}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-							<GroupingInfo>
-								<GroupRef Name="LANGUAGE" ID="{B16A3252-0A40-48BB-BEE5-AEA47931CBDD}"/>
-								<DefaultSwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
-								<GroupingBehaviorList>
-									<GroupingBehavior>
-										<ItemRef Name="STORYEVENT_3" ID="{91101101-5D78-49F7-974E-7DF700F37C8B}"/>
-									</GroupingBehavior>
-									<GroupingBehavior>
-										<ItemRef Name="STORYEVENT_3_da" ID="{710D4A5B-A356-4F1E-80BE-67B283241CDC}"/>
-									</GroupingBehavior>
-								</GroupingBehaviorList>
-								<GroupingList>
-									<Grouping>
-										<SwitchRef Name="ENGLISH" ID="{3A2BE52B-5BBF-405C-9CD2-175EDB012F37}"/>
-										<ItemList>
-											<ItemRef Name="STORYEVENT_3" ID="{91101101-5D78-49F7-974E-7DF700F37C8B}"/>
-										</ItemList>
-									</Grouping>
-									<Grouping>
-										<SwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
-										<ItemList>
-											<ItemRef Name="STORYEVENT_3_da" ID="{710D4A5B-A356-4F1E-80BE-67B283241CDC}"/>
-										</ItemList>
-									</Grouping>
-								</GroupingList>
-							</GroupingInfo>
-						</SwitchContainer>
-						<SwitchContainer Name="Storyevent 2" ID="{0351D80D-43D7-4FDD-87B8-728F4A7F403D}" ShortID="851759822">
-							<PropertyList>
-								<Property Name="UserAuxSendVolume0" Type="Real64">
-									<ValueList>
-										<Value>-12</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-								</Reference>
-								<Reference Name="Effect0">
-									<Custom>
-										<Effect Name="Wwise Meter (Custom)" ID="{BD9AAF70-500B-45C6-8412-63B924167F57}" ShortID="1064464271" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-											<PropertyList>
-												<Property Name="MeterMode" Type="int32" Value="1"/>
-											</PropertyList>
-											<PluginData>
-	<GameParameter Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
-</PluginData>
-										</Effect>
-									</Custom>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-								<Reference Name="UserAuxSend0">
-									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="STORYEVENT_2" ID="{B226C763-3DCE-4E09-BB3F-D0D5FAB17501}" ShortID="281768453">
-									<PropertyList>
-										<Property Name="UserAuxSendVolume0" Type="Real64">
-											<ValueList>
-												<Value>-12</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>5</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-										</Reference>
-										<Reference Name="Effect0">
-											<Custom>
-												<Effect Name="Wwise Meter (Custom)" ID="{18A12E8C-3423-4179-A53E-CC5C53ACC460}" ShortID="52253907" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-													<PropertyList>
-														<Property Name="MeterMode" Type="int32" Value="1"/>
-													</PropertyList>
-													<PluginData>
-	<GameParameter Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
-</PluginData>
-												</Effect>
-											</Custom>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-										<Reference Name="UserAuxSend0">
-											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="STORYEVENT_2" ID="{47B7F2C1-68B2-4FAC-9961-53D236881852}" ShortID="382868015">
-											<PropertyList>
-												<Property Name="TrimEnd" Type="Real64" Value="44.4241806026224"/>
-											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_2.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="991977514"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="STORYEVENT_2" ID="{47B7F2C1-68B2-4FAC-9961-53D236881852}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="STORYEVENT_2_2_da" ID="{4E5CD238-087D-470D-8CBD-D0360B72E912}" ShortID="658540483">
-									<PropertyList>
-										<Property Name="UserAuxSendVolume0" Type="Real64">
-											<ValueList>
-												<Value>-12</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-										</Reference>
-										<Reference Name="Effect0">
-											<Custom>
-												<Effect Name="Wwise Meter (Custom)" ID="{FC41B712-A499-44DD-BABF-B1D4DA82DCE7}" ShortID="1033187460" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-													<PropertyList>
-														<Property Name="MeterMode" Type="int32" Value="1"/>
-													</PropertyList>
-													<PluginData>
-	<GameParameter Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
-</PluginData>
-												</Effect>
-											</Custom>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-										<Reference Name="UserAuxSend0">
-											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="STORYEVENT_2_2_da" ID="{3369A22A-50DD-457A-82AF-412749DAE985}" ShortID="720733506">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_2_2_da.wav</AudioFile>
-										</AudioFileSource>
-										<AudioFileSource Name="BIRTHDAY_MOMENT" ID="{3B280566-06B1-477D-8AF5-2A7E5248F4CF}" ShortID="8565314">
-											<Language>SFX</Language>
-											<AudioFile>BIRTHDAY_MOMENT.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="405515837"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="CLOCK" ID="{E3BA9A8A-040C-4791-BCDC-E6B7649F61E6}" ShortID="758044228">
-											<Language>SFX</Language>
-											<AudioFile>CLOCK.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="962665677"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="KITCHEN_TABLE" ID="{BC50985C-7E73-4066-B3DF-764449601588}" ShortID="243566020">
-											<Language>SFX</Language>
-											<AudioFile>KITCHEN_TABLE.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="580470410"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="MEET_THE_PARENTS_1" ID="{D8CF826F-9A49-4F0D-B41C-30FCF941F9D1}" ShortID="77270246">
-											<Language>SFX</Language>
-											<AudioFile>MEET_THE_PARENTS_1.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="1001581100"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="MEET_THE_PARENTS_2" ID="{67445B6D-9EBF-46E6-9E41-22D845E7C816}" ShortID="9422054">
-											<Language>SFX</Language>
-											<AudioFile>MEET_THE_PARENTS_2.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="127903023"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="MODELING_1" ID="{B3CB5AE6-7F4B-4D28-ABC7-C6D536A532EA}" ShortID="130421691">
-											<Language>SFX</Language>
-											<AudioFile>MODELING_1.wav</AudioFile>
-										</AudioFileSource>
-										<AudioFileSource Name="MODELING_2" ID="{3CA67029-D8A1-4921-AA35-5E37B9CF751F}" ShortID="605285536">
-											<Language>SFX</Language>
-											<AudioFile>MODELING_2.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="100464970"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="NEW_YEARS" ID="{8F5CC31C-F155-4346-B0CA-BB525E714277}" ShortID="712901192">
-											<Language>SFX</Language>
-											<AudioFile>NEW_YEARS.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="667994024"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="POLAROID_1" ID="{07FD831C-B71F-4D28-A1B6-476C9A357E85}" ShortID="1007974191">
-											<Language>SFX</Language>
-											<AudioFile>POLAROID_1.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="341050719"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="POLOROID_2" ID="{C7804ACB-BD80-4A40-89AA-AAB378DBCC34}" ShortID="47546754">
-											<Language>SFX</Language>
-											<AudioFile>POLOROID_2.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="568910565"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="SMOKING_1" ID="{864A51D3-04D1-4FCB-99AF-5DF80CE6276D}" ShortID="350008736">
-											<Language>SFX</Language>
-											<AudioFile>SMOKING_1.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="1001796412"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="SMOKING_2" ID="{8B32C57A-D4CA-4DDB-9302-A3890DA7D7CD}" ShortID="416291976">
-											<Language>SFX</Language>
-											<AudioFile>SMOKING_2.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="657681073"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="STORYEVENT_1" ID="{CF17A50D-C26C-42AA-AE07-4EDD362C68F8}" ShortID="678189870">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_1.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="27429217"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="STORYEVENT_2_1" ID="{27F7A3DC-0B84-4115-9BE2-2A036C48D6DF}" ShortID="899821759">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_2.1.wav</AudioFile>
-										</AudioFileSource>
-										<AudioFileSource Name="STORYEVENT_2" ID="{68333174-55D0-4ED7-A9FC-8A2D1AC07F04}" ShortID="771902225">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_2.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="382868015"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="STORYEVENT_3" ID="{960A867C-44E7-4B17-9D85-1C71404EB161}" ShortID="723887160">
-											<Language>SFX</Language>
-											<AudioFile>STORYEVENT_3.wav</AudioFile>
-										</AudioFileSource>
-										<AudioFileSource Name="SUSIES_TATTOO" ID="{DE9E8F52-3D6A-4119-B728-FCFCD7B58207}" ShortID="801958440">
-											<Language>SFX</Language>
-											<AudioFile>SUSIES_TATTOO.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="517714946"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="TIRED" ID="{01587F5E-3703-4A27-BCC0-84445330268A}" ShortID="937326803">
-											<Language>SFX</Language>
-											<AudioFile>TIRED.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="851335671"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="UGLY_POSTER" ID="{578C3904-2172-4E76-9B59-E7B11C4228E8}" ShortID="673370734">
-											<Language>SFX</Language>
-											<AudioFile>UGLY_POSTER.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="933462240"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="WE_NEED_A_TV_1" ID="{D05D393F-106F-4679-8A3A-3D7C282DCE98}" ShortID="465089784">
-											<Language>SFX</Language>
-											<AudioFile>WE_NEED_A_TV_1.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="457644752"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="WE_NEED_A_TV_2" ID="{05C056D1-F962-4DC0-A84D-E2EFC2A2AD73}" ShortID="427637469">
-											<Language>SFX</Language>
-											<AudioFile>WE_NEED_A_TV_2.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="322530949"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="WINE_ON_A_WEDNESDAY" ID="{B495B83D-0D19-4174-AC59-9C179ACFAB02}" ShortID="152934920">
-											<Language>SFX</Language>
-											<AudioFile>WINE_ON_A_WEDNESDAY.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="950300631"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="WORLD_MAP_1" ID="{47DBFE8C-DF38-4265-9FB6-8E1BFA1F0DEF}" ShortID="963785530">
-											<Language>SFX</Language>
-											<AudioFile>WORLD_MAP_1.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="337351369"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="WORLD_MAP_2" ID="{CB17EF16-62E2-4E9D-9D64-25149FA9386E}" ShortID="1026389765">
-											<Language>SFX</Language>
-											<AudioFile>WORLD_MAP_2.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="226379606"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="ZODIAC_SIGN" ID="{3761E4AF-2943-4B09-BBA2-C0E489FB9A2F}" ShortID="747840146">
-											<Language>SFX</Language>
-											<AudioFile>ZODIAC_SIGN.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="965315212"/>
-											</ConvertedFileIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="STORYEVENT_2_2_da" ID="{3369A22A-50DD-457A-82AF-412749DAE985}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-							<GroupingInfo>
-								<GroupRef Name="LANGUAGE" ID="{B16A3252-0A40-48BB-BEE5-AEA47931CBDD}"/>
-								<DefaultSwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
-								<GroupingBehaviorList>
-									<GroupingBehavior>
-										<ItemRef Name="STORYEVENT_2_2_da" ID="{4E5CD238-087D-470D-8CBD-D0360B72E912}"/>
-									</GroupingBehavior>
-									<GroupingBehavior>
-										<ItemRef Name="STORYEVENT_2" ID="{B226C763-3DCE-4E09-BB3F-D0D5FAB17501}"/>
-									</GroupingBehavior>
-								</GroupingBehaviorList>
-								<GroupingList>
-									<Grouping>
-										<SwitchRef Name="ENGLISH" ID="{3A2BE52B-5BBF-405C-9CD2-175EDB012F37}"/>
-										<ItemList>
-											<ItemRef Name="STORYEVENT_2" ID="{B226C763-3DCE-4E09-BB3F-D0D5FAB17501}"/>
-										</ItemList>
-									</Grouping>
-									<Grouping>
-										<SwitchRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
-										<ItemList>
-											<ItemRef Name="STORYEVENT_2_2_da" ID="{4E5CD238-087D-470D-8CBD-D0360B72E912}"/>
-										</ItemList>
-									</Grouping>
-								</GroupingList>
-							</GroupingInfo>
-						</SwitchContainer>
 						<SwitchContainer Name="Polaroid 2" ID="{4DF1F1AA-31F7-4A33-AE63-FC9F7280D57C}" ShortID="536831063">
 							<PropertyList>
 								<Property Name="UserAuxSendVolume0" Type="Real64">
@@ -7989,6 +7339,10 @@
 											<ConvertedFileIDList>
 												<File ID="568910565"/>
 											</ConvertedFileIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="POLAROID_2" ID="{AC21B139-97D0-40AC-A7B9-58A456589E0F}" ShortID="112413551">
+											<Language>SFX</Language>
+											<AudioFile>POLAROID_2.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
@@ -8117,6 +7471,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -10381,62 +9740,6 @@
 									<ValueList>
 										<Value>-3</Value>
 									</ValueList>
-									<RTPCList>
-										<RTPC Name="" ID="{12B4ED75-3536-4E83-B1A9-A1C30B348F23}" ShortID="483853555">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="ANGLE_TO_CAMERA" ID="{26A87AFA-BF72-4E83-B008-8B95D56ACB87}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{36467ED3-9B8A-4C13-9268-39FB62316775}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="3"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>-180</XPos>
-														<YPos>-200</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>-179.999</XPos>
-														<YPos>-200</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>-100.8321</XPos>
-														<YPos>-200</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>-81.57504</XPos>
-														<YPos>-9.24119</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>-0.26746</XPos>
-														<YPos>0.0519</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>84.24963</XPos>
-														<YPos>-8.73147</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>100.8321</XPos>
-														<YPos>-200</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>180</XPos>
-														<YPos>-200</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -10593,77 +9896,6 @@
 											<ValueList>
 												<Value>5</Value>
 											</ValueList>
-											<RTPCList>
-												<RTPC Name="" ID="{B45AD36A-76D0-4561-AA4D-4B07B07E445E}" ShortID="848315374">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="ANGLE_TO_CAMERA" ID="{26A87AFA-BF72-4E83-B008-8B95D56ACB87}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{D584DE58-DB74-416D-9514-4A1EFF4FA281}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>-180</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>-179.999</XPos>
-																<YPos>-200</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>-179.998</XPos>
-																<YPos>-200</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>-70</XPos>
-																<YPos>-1.64875</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>-50.01486</XPos>
-																<YPos>-2.81065</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>-0.26746</XPos>
-																<YPos>-0.03904</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>49.47994</XPos>
-																<YPos>-2.5265</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>70</XPos>
-																<YPos>-1.6949</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>179.998</XPos>
-																<YPos>-200</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>179.999</XPos>
-																<YPos>-200</YPos>
-																<Flags>0</Flags>
-															</Point>
-															<Point>
-																<XPos>180</XPos>
-																<YPos>-200</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -10699,13 +9931,6 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Storyevents" ID="{D9C40D0D-4F26-4091-9B0A-995E82186E84}" ShortID="743416718">
-					<PropertyList>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-9</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -10716,6 +9941,13 @@
 					</ReferenceList>
 					<ChildrenList>
 						<SwitchContainer Name="Storyevent 1" ID="{71B30BF9-2326-427E-A1FB-53A5F4EFA854}" ShortID="923285334">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -10798,6 +10030,13 @@
 							</GroupingInfo>
 						</SwitchContainer>
 						<SwitchContainer Name="Storyevent 2" ID="{E0D36794-6A2F-44D3-B29E-252F071BC410}" ShortID="1047120598">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -10887,6 +10126,13 @@
 							</GroupingInfo>
 						</SwitchContainer>
 						<SwitchContainer Name="Storyevent 3" ID="{B81C3592-20D1-4838-8DA0-37EBA7F97F5C}" ShortID="667140574">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -11150,7 +10396,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+							<ObjectRef Name="Triggered Sounds" ID="{DC631A1D-0A02-43B8-926A-AF3CC38BBBF7}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -11308,6 +10554,9 @@
 										<AudioFileSource Name="TRIGGEREDSOUND_ANSWERING_da" ID="{75F4A46A-F343-484E-BA0C-6A099F3C955C}" ShortID="526040754">
 											<Language>SFX</Language>
 											<AudioFile>TRIGGEREDSOUND_ANSWERING_da.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="269082610"/>
+											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
@@ -11388,6 +10637,91 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Beep" ID="{85AA9044-1259-48E8-B099-782C82A5BE5F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="My Loss, My Moth_v1_clean" ID="{A78D2756-6834-4C40-809C-FF7F26D25BA3}" ShortID="61084573">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>75</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>19</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{FC6B1709-22B4-497C-8A47-6892594B3BDF}" ShortID="532670945">
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{441B1B6B-F66C-45C9-B23A-2513F02837C1}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>100</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="My Loss, My Moth_v1_clean" ID="{EC02F2A9-451C-450A-825C-FDE63FBA019E}" ShortID="797310725">
+									<Language>SFX</Language>
+									<AudioFile>My Loss, My Moth_v1_clean.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="My Loss, My Moth_v1_clean" ID="{EC02F2A9-451C-450A-825C-FDE63FBA019E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
