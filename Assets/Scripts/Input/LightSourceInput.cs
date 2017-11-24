@@ -81,6 +81,14 @@ public class LightSourceInput : MonoBehaviour
         FragmentChecker();
     }
 
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown("up"))
+    //    {
+    //        LampFlickering();
+    //    }
+    //}
+
     public void FragmentChecker()
     {
         localFragmentsState = new bool[interactables.Length];
@@ -102,7 +110,7 @@ public class LightSourceInput : MonoBehaviour
             {
                 LampON();
             }
-            else if (getNrOfFragments == interactables.Length - 2)
+            else if (getNrOfFragments == interactables.Length - 1)
             {
                 LampFlickering();
             }
@@ -158,7 +166,6 @@ public class LightSourceInput : MonoBehaviour
 
         LightSwitch(currentLampState);
         LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
-
     }
 
     private void LightSwitch(State currentLampState)
@@ -171,6 +178,7 @@ public class LightSourceInput : MonoBehaviour
 
             if (currentLampState == State.LAMP_OFF)
             {
+                StopAllCoroutines();
                 rend.sharedMaterial = lampMaterialOff;
                 var em = particleSystemLamp.emission;
                 em.enabled = false;
@@ -184,11 +192,10 @@ public class LightSourceInput : MonoBehaviour
                 StartCoroutine(FlickeringSequence());
                 var em = particleSystemLamp.emission;
                 em.enabled = true;
-
-                //LightMapSwitchCall(lampStateCheck, lightMapIndex);
             }
             else if (currentLampState == State.LAMP_ON)
             {
+                StopAllCoroutines();
                 AkSoundEngine.PostEvent("LAMP_ON", gameObject);
                 lampFlickerCheck = false;
                 rend.sharedMaterial = lampMaterialOn;
@@ -229,8 +236,8 @@ public class LightSourceInput : MonoBehaviour
                     flickerRangeShort = Random.Range(flickTimeShortMin, flickTimeShortMax);
                     yield return new WaitForSeconds(flickerRangeShort);
 
-                    rend.sharedMaterial = lampMaterialOff;
                     AkSoundEngine.PostEvent("LAMP_FLICKER_OFF", gameObject);
+                    rend.sharedMaterial = lampMaterialOff;
                     lampStateCheck = false;
                     LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
                     flickerRangeShort = Random.Range(flickTimeShortMin, flickTimeShortMax);
