@@ -2364,11 +2364,6 @@
 								<Action Name="" ID="{96DDA698-2338-4CFB-B2D5-121870406227}" ShortID="419892842">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
-										<Property Name="Inclusion" Type="bool">
-											<ValueList>
-												<Value>False</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2383,6 +2378,21 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{C8495CE7-1F32-43A4-ACBF-0D492580617F}" ShortID="256036119">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Lightswitch" ID="{C874BE78-7BE0-4DEE-9FBC-CE98F2E7C517}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -2406,7 +2416,7 @@
 							<ChildrenList>
 								<Action Name="" ID="{C02B1F58-A1D5-4644-A51A-579E968EF8C5}" ShortID="92459509">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="7"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
