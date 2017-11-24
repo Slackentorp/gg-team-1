@@ -28,10 +28,10 @@ public class GameController : Singleton<GameController>
 	[Tooltip("Determines the camera's turn speed on it's x-axis")]
 	public float cameraTurnSpeedX;
 	[Tooltip("Controls the angle that the Camera maximum can move to underneath the Moth, " +
-			"0 being directly below"), Range(0,90)]
+			"0 being directly below"), Range(0.0f,90.0f)]
 	public float minimumVerticalAngle = 20;
 	[Tooltip("Controls the angle that the Camera maximum can move to above the Moth, " +
-			"180 being directly above"), Range(90, 180)]
+			"180 being directly above"), Range(90.0f, 180.0f)]
 	public float maximumVerticalAngle = 160;
 	[Tooltip("Adjusts the smoothness of the Moth displacement based on the Camera movement.")]
 	public float cameraDamping;
@@ -42,15 +42,18 @@ public class GameController : Singleton<GameController>
 	public float mothFlightSpeed;
 	[Tooltip("The speed up and slow down curve of the Moth's flight speed")]
 	public AnimationCurve mothFlightSpeedCurve;
-	[Tooltip("How close the Moth should be closed to the clicked destination")]
+	[Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f,1.0f)]
 	public float mothDistanceToObject;
 	[Tooltip("The speed up and slow down curve of the Moth's fidgiting speed")]
 	public AnimationCurve MothFidgitingCurve;
 	[Tooltip("Controls the speed of the Moth's movement while fidgiting")]
 	public float mothSpeedModifier;
-	[Tooltip("The amount of distance the between each fidgit point. " +
-			"The higher it is the shorter the distance")]
-	public int FidgetingDistanceReducer;
+	[Tooltip("The max distance of the randomized value between each fidgit point. " +
+			"The higher it is the shorter the distance"), Range(1, 50)]
+	public int FidgetingDistanceReducerMax;
+	[Tooltip("The minimum distance of the randomized value between each fidgit point. " +
+			"The higher it is the shorter the distance"), Range(0, 49)]
+	public int FidgetingDistanceReducerMin;
 	[Space(15)]
 
 	[Header("Fragment Attributes")]
