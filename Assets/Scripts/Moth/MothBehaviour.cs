@@ -6,7 +6,7 @@ using UnityEngine;
 public class MothBehaviour
 {
 	[SerializeField]
-	private AnimationCurve lerpCurve;
+	private AnimationCurve MothFlightLerpCurve;
 
 	[SerializeField]
 	private float timeScale = 1;
@@ -36,7 +36,9 @@ public class MothBehaviour
 	Ray ray;
 	float turningTime, turningSpeed, proceduralLerpTime, time;
 	float perlinNoiseX, perlinNoiseY, perlinNoiseZ, levelOfNoise = 0.5f;
-	
+	float distance;
+	float velocity;
+
 	public float MothSpeed
 	{
 		get; set;
@@ -54,16 +56,17 @@ public class MothBehaviour
 		}
 	}
 
-	public MothBehaviour(GameObject moth, Camera camera, float mothDistanceToObject, float speed, AnimationCurve curve,
-						int noiseReducer, float speedModifier)
+	public MothBehaviour(GameObject moth, Camera camera, float mothDistanceToObject, float MothSpeed, AnimationCurve curve,
+						int noiseReducer, float speedModifier, AnimationCurve MothFlightLerpCurve)
 	{
 		this.moth = moth;
 		this.camera = camera;
 		this.mothDistanceToObject = mothDistanceToObject;
-		this.MothSpeed = speed;
+		this.MothSpeed = MothSpeed;
 		this.mothChildCurve = curve;
 		this.noiseReducer = noiseReducer;
 		this.mothSpeedModifier = speedModifier;
+		this.MothFlightLerpCurve = MothFlightLerpCurve;
 	}
 
 
@@ -85,8 +88,9 @@ public class MothBehaviour
 		AkSoundEngine.PostEvent("MOTH_START_FLIGHT", moth);
 		mothStartPos = moth.transform.position;
 		mothRotation = moth.transform.forward;
-		hitPoint = hit.point + hit.normal * 0.2f;
+		hitPoint = hit.point + hit.normal * mothDistanceToObject;
 
+		DistancefromMothToHitpoint();
 		lerpRunning = true;
 		time = 0.0f;
 		turningTime = 0.0f;
@@ -97,7 +101,7 @@ public class MothBehaviour
 		turningSpeed = 1.7f;
 		if (Vector3.Angle(moth.transform.forward, moth.transform.position - hitPoint) != 0)
 		{
-			turningTime += Time.deltaTime * (time * 2f);
+			turningTime += Time.deltaTime * (time * 2.0f);
 
 			MothTargetRotate();
 		}
@@ -111,10 +115,17 @@ public class MothBehaviour
 			}
 			if (lerpRunning)
 			{
-				time += Time.deltaTime * MothSpeed;
-				moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, time);
+				time += Time.deltaTime;
+				moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, MothFlightLerpCurve.Evaluate(time/distance * MothSpeed));
 			}
 		}
+	}
+
+	void DistancefromMothToHitpoint()
+	{
+		distance = Vector3.Distance(mothStartPos, hitPoint);
+		//velocity = distance / MothSpeed;
+		
 	}
 
 	private void PointfromRaycast()

@@ -39,10 +39,12 @@ public class GameController : Singleton<GameController>
 
 	[Header("Moth Attributes")]
 	[Tooltip("Determines the speed of the moths flight to/from points")]
-	public float mothFlightSpeed; 
+	public float mothFlightSpeed;
+	[Tooltip("The speed up and slow down curve of the Moth's flight speed")]
+	public AnimationCurve mothFlightSpeedCurve;
 	[Tooltip("How close the Moth should be closed to the clicked destination")]
 	public float mothDistanceToObject;
-	[Tooltip("Determines the Moth's movement when figiditing")]
+	[Tooltip("The speed up and slow down curve of the Moth's fidgiting speed")]
 	public AnimationCurve MothFidgitingCurve;
 	[Tooltip("Controls the speed of the Moth's movement while fidgiting")]
 	public float mothSpeedModifier;
