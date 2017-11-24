@@ -149,9 +149,6 @@ public class Puzzle : Interactable
 
     public override void Play(Interactable.EasyWwiseCallback Callback)
     {
-        Debug.Log("No Play function in Puzzles");
-        Debug.Log("I got played");
-
         base.Play(Callback);
     }
 }
