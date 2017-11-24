@@ -164,9 +164,8 @@
 							<PropertyList>
 								<Property Name="LookAhead" Type="Real32" Value="0.001"/>
 								<Property Name="OutputGain" Type="Real32" Value="6"/>
-								<Property Name="Ratio" Type="Real32" Value="50"/>
 								<Property Name="ReleaseTime" Type="Real32" Value="0.02"/>
-								<Property Name="Threshold" Type="Real32" Value="-40"/>
+								<Property Name="Threshold" Type="Real32" Value="-9.1"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Extreme_Limiting_2" ID="{D53DEA92-7F8A-4332-AC66-892C4DF69455}" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
@@ -497,10 +496,14 @@
 										<Effect Name="Born_In_1950" ID="{3B3A31C2-C9A6-430E-A3CF-62963E332052}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 											<PropertyList>
 												<Property Name="FrequencyBand1" Type="Real32" Value="150"/>
+												<Property Name="FrequencyBand2" Type="Real32" Value="2794"/>
 												<Property Name="FrequencyBand3" Type="Real32" Value="9500"/>
 												<Property Name="GainBand1" Type="Real32" Value="6"/>
+												<Property Name="GainBand2" Type="Real32" Value="-5.5"/>
 												<Property Name="GainBand3" Type="Real32" Value="12"/>
-												<Property Name="OnOffBand2" Type="bool" Value="False"/>
+												<Property Name="OnOffBand1" Type="bool" Value="False"/>
+												<Property Name="OnOffBand3" Type="bool" Value="False"/>
+												<Property Name="QFactorBand2" Type="Real32" Value="3.6"/>
 											</PropertyList>
 										</Effect>
 										<Effect Name="Club_Music_Distant_01" ID="{972799F5-C6E5-4E4F-83E3-95AA307CDFD1}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
