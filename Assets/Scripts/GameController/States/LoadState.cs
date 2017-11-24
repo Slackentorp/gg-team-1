@@ -22,7 +22,7 @@ public class LoadState : GameState
         gm.InputManager = new InputManager(gm.InputSettings, gm.GameCamera.GetComponent<Camera>());
 	//	gm.mothBehaviour = new MothBehaviour(gm.Moth, gm.GameCamera.GetComponent<Camera>(), .4f, gm.MothChildCurve, gm.noiseReducer, gm.mothSpeedModifier);
         
-        gm.mothBehaviour = new MothBehaviour(gm.Moth, gm.GameCamera.GetComponent<Camera>(), gm.mothDistanceToObject, gm.mothFlightSpeed, gm.MothFidgitingCurve, gm.FidgetingDistanceReducer, gm.mothSpeedModifier);
+        gm.mothBehaviour = new MothBehaviour(gm.Moth, gm.GameCamera.GetComponent<Camera>(), gm.mothDistanceToObject, gm.mothFlightSpeed, gm.MothFidgitingCurve, gm.FidgetingDistanceReducerMax, gm.FidgetingDistanceReducerMin, gm.mothSpeedModifier, gm.mothFlightSpeedCurve);
         gm.mothSounds = new MothSounds(gm.GameCamera.transform, gm.mothBehaviour, gm.Moth.transform);
         gm.cameraHeading = gm.GameCamera.transform.position - gm.Moth.transform.position;
 		//     gm.GameCamera.SetTarget(gm.Moth.transform.position);
