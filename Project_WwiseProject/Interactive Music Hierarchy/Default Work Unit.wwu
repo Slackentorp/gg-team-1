@@ -558,6 +558,65 @@
 										</MusicCue>
 									</CueList>
 								</MusicSegment>
+								<MusicSegment Name="MUSIC_SUSIES_TATTOO_da" ID="{69EE3EE9-824E-4A5F-BA13-611926642E8C}" ShortID="559606242">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="42897.4829931973"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="MUSIC_SUSIES_TATTOO_da" ID="{B994F073-B8B0-468B-A58E-96C41C167DF4}" ShortID="374028728">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="MUSIC_SUSIES_TATTOO_da" ID="{A7EEB0A5-A851-4386-8357-DCB758287DFE}" ShortID="70723791">
+													<Language>SFX</Language>
+													<AudioFile>MUSIC_SUSIES_TATTOO_da.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{D12CFD1B-E06A-48D4-A032-4926C81EE50B}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{FCDECC7D-8A09-4C51-9F5C-1C506F5B66F9}">
+													<ClipList>
+														<MusicClip Name="MUSIC_SUSIES_TATTOO_da" ID="{58A7D51D-D5B0-4FC6-8CD6-2FBA498086FB}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42897.4829931973"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="MUSIC_SUSIES_TATTOO_da" ID="{A7EEB0A5-A851-4386-8357-DCB758287DFE}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{A406A060-7662-4021-A1CA-BC8F076315AE}"/>
+										<MusicCue Name="Exit Cue" ID="{ED2C0F79-F4C2-4C18-8DD9-EBB5BB445A11}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="42897.4829931973"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
 							</ChildrenList>
 							<TransitionList>
 								<MusicTransition Name="Root" ID="{84EC9BAD-7422-4BAF-8A9A-3F999294A8C9}">
@@ -589,7 +648,7 @@
 										<PathElementRef Name="Happy" ID="{461CFEF7-31A9-4AF4-9160-A4D4981E8916}"/>
 									</Path>
 									<AudioNodeInfo>
-										<AudioNodeRef Name="No light" ID="{ACE9E9AD-F8DF-4E63-8B9D-EF1FE06B6595}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
+										<AudioNodeRef Name="MUSIC_SUSIES_TATTOO_da" ID="{69EE3EE9-824E-4A5F-BA13-611926642E8C}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
 									</AudioNodeInfo>
 								</Entry>
 								<Entry>

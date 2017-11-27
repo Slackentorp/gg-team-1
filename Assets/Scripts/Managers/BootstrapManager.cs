@@ -29,14 +29,9 @@ public class BootstrapManager : Singleton<BootstrapManager>
     // Use this for initialization
     void Start()
     {
-        for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
-        {
-            string sceneName = SceneManager.GetSceneByBuildIndex(i).name;
-            if(!string.IsNullOrEmpty(sceneName) && sceneName.Equals("SplashScreen"))
-            {
-                return;
-            }
-        }
+#if UNITY_ANDROID
+        return;
+#endif
         print("Bootstrap Start");
         levelScene = new Scene();
         for (int i = 0; i < SceneManager.sceneCount; i++)

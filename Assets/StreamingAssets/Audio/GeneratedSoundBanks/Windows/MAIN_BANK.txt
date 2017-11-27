@@ -12,7 +12,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1275729080	LIVINGROOM_ENTER			\Default Work Unit\Ambience\LIVINGROOM_ENTER	
 	1286978176	FRAGMENT_NEWYEARS			\Default Work Unit\Fragments\FRAGMENT_NEWYEARS	
 	1305045635	SFX_UNMUTE			\Default Work Unit\Menu\SFX_UNMUTE	
-	1387648821	LAMP_ON			\Default Work Unit\LAMP_ON	
+	1387648821	LAMP_ON			\Default Work Unit\Lamp\LAMP_ON	
 	1512987680	MENUBUTTON_PRESS			\Default Work Unit\Menu\MENUBUTTON_PRESS	
 	1520330871	FRAGMENT_TATTOO			\Default Work Unit\Fragments\FRAGMENT_TATTOO	
 	1571339874	INGAMEMENU_CLOSE			\Default Work Unit\Menu\INGAMEMENU_CLOSE	
@@ -39,7 +39,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2720771844	PIECE_PLACED_RIGHT			\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_RIGHT	
 	2817540555	FRAGMENT_BIRTHDAY			\Default Work Unit\Fragments\FRAGMENT_BIRTHDAY	
 	2835551186	SFX_MUTE			\Default Work Unit\Menu\SFX_MUTE	
-	3143729630	LAMP_FLICKERING			\Default Work Unit\LAMP_FLICKERING	
+	3143729630	LAMP_FLICKERING			\Default Work Unit\Lamp\LAMP_FLICKERING	
 	3258781332	PUZZLE_SOLVING			\Default Work Unit\Puzzles\PUZZLE_SOLVING	
 	3307976374	MAINMENU_OPEN			\Default Work Unit\Menu\MAINMENU_OPEN	
 	3443637649	TESTMAPBUTTON			\Default Work Unit\TESTMAPBUTTON	
@@ -102,7 +102,6 @@ Modulator LFO	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	278927619	Wwise Meter (Custom)	Wwise Meter			
-	414640797	Wwise Meter (Custom)	Wwise Meter			
 	776837744	Born_In_1950	Wwise Parametric EQ			
 	1675424737	Extreme_Limiting_1	Wwise Peak Limiter			
 	2652646462	Dialog_Leveler_Soft	Wwise Compressor			
@@ -113,6 +112,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	41802519	Paper Handling and Turning Sequence_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\Paper Handling and Turning Sequence_EA50B16F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Interaction\Paper\Pick Paper Up\Paper Handling and Turning Sequence_01		6397
 	52370042	FRAGMENT_END	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\FRAGMENT_END_71D60D79.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\End\FRAGMENT_END		94442
 	62958245	City_Quiet	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic_57592AE5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\City_Quiet		1183848
+	70723791	MUSIC_SUSIES_TATTOO_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\MUSIC_SUSIES_TATTOO_da_005E2381.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\MUSIC_SUSIES_TATTOO_da\MUSIC_SUSIES_TATTOO_da		494383
 	82701772	MEET_THE_PARENTS_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\MEET_THE_PARENTS_1_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 1\MEET_THE_PARENTS_1_da		352165
 	89270064	cadillac_1960_30mph_driveby_LtoR_001	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\cadillac_1960_30mph_driveby_LtoR_001_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\cadillac_1960_30mph_driveby_LtoR_001		64649
 	97043590	BULB_AC_NOISE	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\BULB_AC_NOISE_E85C34A0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lamp\Bulb\AC power\BULB_AC_NOISE		14523
@@ -134,11 +134,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	208842304	HIT_WINDOW_SOFT	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\HIT_WINDOW_SOFT_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Hit window\HIT_WINDOW_SOFT		3849
 	224276298	THE_TV_IS_GONE_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\THE_TV_IS_GONE.1_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\We need a tv 1\THE_TV_IS_GONE_1_da		233936
 	226379606	WORLD_MAP_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\WORLD_MAP_2_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\World Map 2\WORLD_MAP_2		268970
-	229842446	201788__st303__room-with-buzz-incandescent-light-bulb	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\201788__st303__room-with-buzz-incandescent-light-bulb_7D4F9767.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lamp\Bulb\Buzz\201788__st303__room-with-buzz-incandescent-light-bulb		194962
 	239241968	WORLD_MAP_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\WORLD_MAP_2_da_22D5B6D7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\World Map 2\WORLD_MAP_2_da		335445
 	251152880	Shot_Laser_Very Light_PSEM_227	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\Shot_Laser_Very Light_PSEM.227_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lamp\Bulb\Shot_Laser_Very Light_PSEM_227		5646
 	251313862	HIT_WINDOW_SOFT_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\HIT_WINDOW_SOFT_2_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Hit window\HIT_WINDOW_SOFT_2		3225
-	252022359	LAMP_FLICKER_LOOP	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\LAMP_FLICKER_LOOP_E7C600CA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lamp\Bulb\LAMP_FLICKER_LOOP		502794
 	276167098	Rattle_6	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\Rattle_6_E8E612C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_6		2890
 	296498789	UGLY_POSTER_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\UGLY_POSTER_da_6152F39A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Ugly Poster\UGLY_POSTER_da		284945
 	321766520	HIT_WINDOW_SOFT_6	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\HIT_WINDOW_SOFT_6_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Hit window\HIT_WINDOW_SOFT_6		3697
@@ -156,7 +154,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	400040827	MODELING_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\MODELING_2_da_68498918.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 1\MODELING_2_da		186930
 	405674400	ZODIAC_SIGN	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\ZODIAC_SIGN_E2211953.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Zodiac Sign\ZODIAC_SIGN		204009
 	412104274	HIT_WINDOW_SOFT_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\HIT_WINDOW_SOFT_3_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Hit window\HIT_WINDOW_SOFT_3		3270
-	447932395	MEET_THE_PARENTS_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\MEET_THE_PARENTS_2_da_C7ADE66B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 2\MEET_THE_PARENTS_2_da		248910
+	447932395	MEET_THE_PARENTS_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\MEET_THE_PARENTS_2_da_BF933908.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 2\MEET_THE_PARENTS_2_da		248910
 	480296371	FRAGMENT_START	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\FRAGMENT_START_AA4A68F7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Start\FRAGMENT_START		105395
 	484877283	MOTH_LANDING_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\MOTH_LANDING_1_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Moth landing\MOTH_LANDING_1		11759
 	486017468	corvette arrive	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\corvette arrive_AB036473.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\corvette arrive		96625
@@ -213,7 +211,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	977938458	BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_CLOSE	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_CLOSE_E8E612C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Button\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_1_CLOSE		3159
 	980128403	235540__simosco__lamp-click-on-off	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\235540__simosco__lamp-click-on-off_23A04418.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lamp\Bulb\Turn on\235540__simosco__lamp-click-on-off		3640
 	989804104	Rajdoot,motorcycle,kick,start,rev,away,slow	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\Rajdoot,motorcycle,kick,start,rev,away,slow_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\Rajdoot,motorcycle,kick,start,rev,away,slow		130737
-	991473664	WINE_ON_A_WEDNESDAY_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\WINE_ON_A_WEDNESDAY_da_BC14223F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Wine on a wednesday\WINE_ON_A_WEDNESDAY_da		254899
+	991473664	WINE_ON_A_WEDNESDAY_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\WINE_ON_A_WEDNESDAY_da_4114F474.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Wine on a wednesday\WINE_ON_A_WEDNESDAY_da		254899
 	991979302	HIT_WINDOW_SOFT_7	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\HIT_WINDOW_SOFT_7_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Hit window\HIT_WINDOW_SOFT_7		3515
 	992088354	MOTH_FLY_LOUD	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\MOTH_FLY_LOUD_86134CF9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\MOTH_FLY_LOUD		218209
 	992203550	Paper Handling and Turning Sequence	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Windows\SFX\Paper Handling and Turning Sequence_C3353445.wem		\Actor-Mixer Hierarchy\Default Work Unit\Interaction\Paper\Pick Paper Up\Paper Handling and Turning Sequence		6937

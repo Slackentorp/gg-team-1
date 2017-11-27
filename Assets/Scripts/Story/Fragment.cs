@@ -23,49 +23,17 @@ public class Fragment : Interactable
         base.Awake();
     }
 
-    public override void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
+    private int ClipDuration(int time)
     {
-        var t = sender as EasyWwiseCallback;
-
-        if (callbackType == AkCallbackType.AK_Duration)
-        {
-            var i = info as AkDurationCallbackInfo;
-            //Debug.Log("Hello " + marker);
-
-            if (!firstEventFrame)
-            {
-                firstEventFrame = true;
-            }
-            else
-            {
-                clipLength = (int)(i.fDuration / 10) - 20;
-                StartCoroutine(DurationCallBack(marker));
-            }
-        }
-        else if (t != null)
-        {
-            base.EndOfEventCallback(sender, callbackType, info);
-        }
+        return (int)(time) - 20;
     }
 
-    IEnumerator DurationCallBack(uint type)
+    private bool WwiseEventDoesntExist(string eventName)
     {
-        bool playing = true;
-        while (playing)
-        {
-            //Debug.Log("HEJSA " + type);
-            if (TwoSecondsBeforeEnd(type) || type == 0)
-            {
-                playing = true;
-                //AkSoundEngine.PostEvent("FRAGMENT_END", gameObject);
-            }
-            yield return null;
-        }
+        return AkSoundEngine.PrepareEvent(PreparationType.Preparation_Load, new string[] { eventName }, 1) == AKRESULT.AK_IDNotFound;
 
-        firstEventFrame = false;
-        AkSoundEngine.PostEvent("FRAGMENT_END", gameObject);
     }
-   
+
     public override void Play(Interactable.EasyWwiseCallback Callback)
     {
         if(string.IsNullOrEmpty(StoryFragment))
@@ -82,7 +50,85 @@ public class Fragment : Interactable
                       | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         marker = markerId;
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
+        EndFragments(markerId, StoryFragment);
         OnFragmentCall();
+    }
+    public int counter = 0;
+    private float[] fragmentDurations = new float[2];
+    public bool fragmentIsOn = false;
+    
+    public override void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
+    {
+        if (callbackType == AkCallbackType.AK_Duration)
+        {
+            var i = info as AkDurationCallbackInfo;
+            fragmentDurations[counter] = i.fDuration;
+
+            if (counter == 1)
+            {
+                fragmentIsOn = true;
+                Durations(fragmentDurations[1], fragmentIsOn, gameObject);
+            }
+
+            counter++;
+            if (counter == 2)
+            {
+                fragmentIsOn = false;
+                counter = 0;
+            }
+        }
+        base.EndOfEventCallback(sender, callbackType, info);
+    }
+
+    public uint markerr;
+    public string storyFragmentt;
+    public int realDuration;
+    public float durationn;
+    public bool fragmentIsOnn = false;
+    public GameObject thePlayedFragment;
+
+    public void EndFragments(uint marker, string storyFragment)
+    {
+        markerr = marker;
+        storyFragmentt = storyFragment;
+
+    }
+    public void TwoSecondsBeforeEnd()
+    {
+        AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
+        uPosition = uPosition / 10;
+        LocalizationItem.Language language =
+           (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
+
+        if (fragmentIsOnn)
+        {
+            if (uPosition > realDuration)
+            {
+
+                AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
+                fragmentIsOnn = false;
+                return;
+            }
+        }
+    }
+
+    public void Durations(float duration, bool fragmentIsOn, GameObject playedFragment)
+    {
+        thePlayedFragment = playedFragment;
+        fragmentIsOnn = fragmentIsOn;
+        durationn = duration / 10;
+        realDuration = (int)durationn;
+        realDuration = realDuration - 20;
+
+        Debug.Log(realDuration);
+    }
+
+    void Update()
+    {
+        if (fragmentIsOnn == true)
+        {
+            TwoSecondsBeforeEnd();
+        }
     }
 
     private void OnFragmentCall()
@@ -91,38 +137,5 @@ public class Fragment : Interactable
         {
             FragmentCall();
         }
-    }
-
-    private void EndFragment(uint marker, string storyFragment)
-    {
-        if (TwoSecondsBeforeEnd(marker))
-        {
-            AkSoundEngine.PostEvent("FRAGMENT_END", gameObject);
-        }
-    }
-
-    private bool TwoSecondsBeforeEnd(uint marker)
-    {
-        AkSoundEngine.GetSourcePlayPosition(marker, out uPosition);
-        uPosition = uPosition / 10;
-
-        //Debug.Log("Time " + uPosition);
-        if (uPosition > clipLength)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private int ClipDuration(int time)
-    {
-        return (int)(time) - 20;
-    }
-
-    private bool WwiseEventDoesntExist(string eventName)
-    {
-        return AkSoundEngine.PrepareEvent(PreparationType.Preparation_Load, new string[]{eventName}, 1) == AKRESULT.AK_IDNotFound;
-
     }
 }
