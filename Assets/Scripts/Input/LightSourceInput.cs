@@ -34,6 +34,7 @@ public class LightSourceInput : MonoBehaviour
     [SerializeField]
     private int lightMapIndex;
     private int getNrOfFragments = 0;
+    private bool firstTimeFlickerCheck;
 
     private float flickerRangeLong, flickerRangeShort;
 
@@ -79,6 +80,7 @@ public class LightSourceInput : MonoBehaviour
     private void Start()
     {
         FragmentChecker();
+        firstTimeFlickerCheck = true;
     }
 
     //private void Update()
@@ -187,7 +189,10 @@ public class LightSourceInput : MonoBehaviour
             }
             else if (currentLampState == State.LAMP_FLICKERING)
             {
-                AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
+                if (firstTimeFlickerCheck)
+                {
+                    AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
+                }
                 lampFlickerCheck = true;
                 StartCoroutine(FlickeringSequence());
                 var em = particleSystemLamp.emission;
