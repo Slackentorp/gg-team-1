@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1044202808551916}
+  m_IsPrefabParent: 1
+--- !u!1 &1044202808551916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4991723713037630}
+  - component: {fileID: 114455985029975442}
+  m_Layer: 0
+  m_Name: GameController 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4991723713037630
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044202808551916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.100758, y: 0.82558024, z: 4.2879944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114455985029975442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044202808551916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62788bfba51576c4abe1c003fdb637d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  __messageText: 
+  currentStateLiteral: 
+  Moth: {fileID: 0}
+  GameCamera: {fileID: 0}
+  LightController: {fileID: 0}
+  HeadsetStateUIText: {fileID: 0}
+  InputSettings: {fileID: 11400000, guid: e18b67782cd8cfe469dc6b5dad4db415, type: 2}
+  cameraTurnSpeedY: 1.4
+  cameraTurnSpeedX: 1.4
+  minimumVerticalAngle: 80
+  maximumVerticalAngle: 100
+  cameraDamping: 0.2
+  mothFlightSpeed: 0.5
+  mothFlightSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.6388754
+      value: 0.85902137
+      inSlope: 1.3205409
+      outSlope: 1.3205409
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  mothDistanceToObject: 0.588
+  MothFidgitingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0.37419486
+      outSlope: 0.37419486
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.25
+      value: 0.95
+      inSlope: 1.0000169
+      outSlope: 1.0000169
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.5
+      value: 0.65
+      inSlope: 0.29712915
+      outSlope: 0.29712915
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.65
+      value: 1
+      inSlope: 0.96172094
+      outSlope: 0.96172094
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.8432988
+      value: 0.6753612
+      inSlope: -0.44703484
+      outSlope: -0.44703484
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  mothSpeedModifier: 0.5
+  FidgetingDistanceReducerMax: 39
+  FidgetingDistanceReducerMin: 34
+  FragmentLerpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  cameraToFragmentSpeed: 0.3
+  PuzzleLerpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  cameraToPuzzleSpeed: 0.3
+  cameraHeading: {x: 0, y: 0, z: 0}
+  tutorialPuzzle: {fileID: 0}
+  loadingPanel: {fileID: 0}
