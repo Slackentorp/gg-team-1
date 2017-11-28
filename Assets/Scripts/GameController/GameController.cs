@@ -87,14 +87,11 @@ public class GameController : Singleton<GameController>
     void Start()
     {
         cameraHeading = GameCamera.transform.position - Moth.transform.position;
-        //    cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, 1, Moth.transform, false, cameraDamping);
-
         cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, Moth.transform, false,
                                                 cameraDamping, cameraTurnSpeedY, cameraTurnSpeedX, minimumVerticalAngle,
                                                 maximumVerticalAngle);
 
-        //tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
-        //NextPuzzle = tutorialPuzzle;
+
         SetState(new LoadState(this));
     }
 
