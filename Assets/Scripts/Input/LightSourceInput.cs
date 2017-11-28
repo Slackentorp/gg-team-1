@@ -40,6 +40,7 @@ public class LightSourceInput : MonoBehaviour
 
     [SerializeField]
     private bool isActivated;
+    private bool lampFullOn;
 
     public Vector3 CameraPosition { get { return transform.TransformPoint(cameraPosition); } }
 
@@ -60,6 +61,12 @@ public class LightSourceInput : MonoBehaviour
         get { return isActivated; }
         set { isActivated = value; }
     }
+    public bool LampFullOn
+    {
+        get { return lampFullOn; }
+        set { lampFullOn = value; }
+    }
+
 
     public delegate void LightSourceAction();
     public static event LightSourceAction LightSourceCall;
@@ -159,13 +166,15 @@ public class LightSourceInput : MonoBehaviour
         lampStateCheck = false;
         currentLampState = State.LAMP_FLICKERING;
         LightSwitch(currentLampState);
-        //isActivated = true;
+        isActivated = true;
+        lampFullOn = false;
     }
     private void LampON()
     {
         currentLampState = State.LAMP_ON;
         lampStateCheck = true;
         isActivated = true;
+        lampFullOn = true;
 
         LightSwitch(currentLampState);
         LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
