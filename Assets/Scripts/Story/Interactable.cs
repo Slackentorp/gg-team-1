@@ -49,19 +49,21 @@ public abstract class Interactable : MonoBehaviour
         HasPlayed = true;
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
-            (uint) AkCallbackType.AK_EnableGetSourcePlayPosition |
-            (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+            (uint)AkCallbackType.AK_EnableGetSourcePlayPosition |
+            (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
     }
 
     public virtual void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
     {
         var t = sender as EasyWwiseCallback;
-        if (t != null)
+        
+        if (t != null && callbackType == AkCallbackType.AK_EndOfEvent)
         {
             t.Invoke();
-            InvokeInteractableCall();
         }
+
+        InvokeInteractableCall();
     }
 
     public virtual void Awake()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Gamelogic.Extensions;
@@ -42,19 +43,27 @@ public class StoryEventController : Singleton<StoryEventController>
 		{
 			return;
 		}
-		StoryEvent se = StoryEvents.First(o => o.StoryEventID == StoryEvent);
 
-		if (se.StoryEventID.Equals(StoryEvent))
+		try{
+			StoryEvent se = StoryEvents.First(o => o.StoryEventID == StoryEvent);
+
+			if (se.StoryEventID.Equals(StoryEvent))
+			{
+				currentStoryEvent = se;
+				director.Stop();
+				director.playableAsset = se.TimelinePlayableAsset;
+				director.time = 0;
+				director.initialTime = 0;
+				AkSoundEngine.PostEvent(se.FragmentWwiseEvent, gameObject);
+				director.Play();
+				se.StoryEventGroup.SetActive(true);
+				isPosting = true;
+			}
+		} catch (InvalidOperationException){ }
+
+		if(!isPosting)
 		{
-			currentStoryEvent = se;
-			director.Stop();
-			director.playableAsset = se.TimelinePlayableAsset;
-			director.time = 0;
-			director.initialTime = 0;
-			AkSoundEngine.PostEvent(se.FragmentWwiseEvent, gameObject);
-			director.Play();
-			se.StoryEventGroup.SetActive(true);
-			isPosting = true;
+			Debug.LogWarning("Story event did not start. Are you using the correct StoryEvent name?");
 		}
 	}
 
