@@ -7,12 +7,14 @@ using Gamelogic.Extensions;
 public class InteractableState : GameState
 {
     private Vector3 originPos, originForward;
-    private Quaternion originRotation;
+    private Quaternion originRotation, originMothRotation;
     private float time;
     private bool lerpOut;
 
     private CameraController cameraController;
     private Interactable currentInteractable;
+    private Renderer currentInteractableRenderer;
+
     public InteractableState(GameController gm, Interactable interactable) : base(gm)
     {
         currentInteractable = interactable;
@@ -22,7 +24,7 @@ public class InteractableState : GameState
     {
         if (lerpOut) return;
         gm.mothBehaviour.Update();
-        gm.Moth.transform.SetRotationX(0);
+     //   gm.Moth.transform.SetRotationX(0);
         float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
 
         Vector3 position;
@@ -34,11 +36,27 @@ public class InteractableState : GameState
         Quaternion rotation;
         rotation = Quaternion.Lerp(originRotation, Quaternion.Euler(currentInteractable.CamOrientaion), t);
 
+        Quaternion mothRotation = Quaternion.identity;
+        if(currentInteractableRenderer != null)
+        {
+            if(currentInteractableRenderer.bounds.extents.z > currentInteractableRenderer.bounds.extents.x + .1f)
+            {
+                // Land vertically
+                Debug.Log("Lands vertically");
+                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,90), t);
+            } else {
+                // Land horizontally
+                Debug.Log("Lands horizontally");
+                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,0), t);
+            }
+        }
+
         if (t < 1)
         {
             gm.GameCamera.transform.position = position;
             gm.GameCamera.transform.rotation = rotation;
             gm.GameCamera.transform.forward = forward;
+            gm.Moth.transform.rotation = mothRotation;
             time += Time.deltaTime;
         }
         else
@@ -64,11 +82,15 @@ public class InteractableState : GameState
         originPos = gm.GameCamera.transform.position;
         originForward = gm.GameCamera.transform.forward;
         originRotation = gm.GameCamera.transform.rotation;
+        originMothRotation = gm.Moth.transform.rotation;
 
         gm.mothBehaviour.OnReachedPosition += OnMothLands;
+        gm.mothBehaviour.SetFragmentMode(true);
 
         Vector3 newMothPos = currentInteractable.transform.position + currentInteractable.LandingPosition;
         gm.mothBehaviour.SetMothPos(newMothPos);
+
+        currentInteractableRenderer = currentInteractable.GetComponentInChildren<Renderer>();
 
         cameraController.SetFragmentMode(true);
         if (currentInteractable is Puzzle)
@@ -100,6 +122,7 @@ public class InteractableState : GameState
     {
         AkSoundEngine.StopAll(currentInteractable.gameObject);
         gm.mothBehaviour.OnReachedPosition -= OnMothLands;
+        gm.mothBehaviour.SetFragmentMode(false);
         gm.mothBehaviour.SetMothAnimationState("Flying");
     }
 
@@ -123,6 +146,7 @@ public class InteractableState : GameState
 
             gm.GameCamera.transform.rotation = Quaternion.LookRotation(-heading.normalized);
             gm.Moth.transform.rotation = Quaternion.LookRotation(-heading.normalized);
+
 
             time += Time.deltaTime;
             yield return null;
