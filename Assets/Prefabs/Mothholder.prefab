@@ -484,6 +484,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4230176644433182}
+  - component: {fileID: 54236484364449624}
+  - component: {fileID: 65416314477817038}
   m_Layer: 0
   m_Name: Mothholder
   m_TagString: Untagged
@@ -530,12 +532,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4297270122582194}
   - component: {fileID: 137213283302806498}
+  - component: {fileID: 114902369015818078}
   m_Layer: 0
   m_Name: moth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1547724450526310
 GameObject:
@@ -891,9 +894,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4530276630196790}
   - component: {fileID: 95818789797593194}
-  - component: {fileID: 114488181631805974}
-  - component: {fileID: 114065908273081076}
-  - component: {fileID: 65244925626332726}
   m_Layer: 8
   m_Name: Moth
   m_TagString: Untagged
@@ -1265,14 +1265,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496884838388096}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.761, y: 0.757, z: 4.701}
+  m_LocalRotation: {x: -0.054950528, y: -0.50983715, z: -0.03265655, w: 0.8578928}
+  m_LocalPosition: {x: -5.7699895, y: 0.84499997, z: 3.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4530276630196790}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 12.55, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -390.507, z: 0}
 --- !u!4 &4237037152076788
 Transform:
   m_ObjectHideFlags: 1
@@ -1594,7 +1594,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931850780506170}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0020785641, y: -0.08021075, z: 0.0007825656}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4297270122582194}
@@ -2045,18 +2045,33 @@ Transform:
   m_Father: {fileID: 4835040954237348}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65244925626332726
+--- !u!54 &54236484364449624
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496884838388096}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65416314477817038
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931850780506170}
+  m_GameObject: {fileID: 1496884838388096}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.2}
-  m_Center: {x: 0, y: 0.18, z: 0}
+  m_Size: {x: 0.049725056, y: 0.059365332, z: 0.059887886}
+  m_Center: {x: 0.0039937496, y: 0.056090027, z: 0.008038521}
 --- !u!95 &95818789797593194
 Animator:
   serializedVersion: 3
@@ -2074,54 +2089,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114065908273081076
+--- !u!114 &114902369015818078
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931850780506170}
+  m_GameObject: {fileID: 1538112142333186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9713966fbfc481049a9c5373bb4592ca, type: 3}
+  m_Script: {fileID: 11500000, guid: e92e66b8dfc5c9449b604fdd3a527175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distMultiplier: 10
---- !u!114 &114488181631805974
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931850780506170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0761c8f0413627341b8b99bfa1f4458f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lerpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.46967903
-      value: 0.91359013
-      inSlope: 0.64261556
-      outSlope: 0.64261556
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  timeScale: 1
+  mothStartEmission: 10
+  mothRangeEmission: 7
+  mothShader: {fileID: 4800000, guid: b91c581967974014bbf3f510e6a8db67, type: 3}
 --- !u!137 &137213283302806498
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

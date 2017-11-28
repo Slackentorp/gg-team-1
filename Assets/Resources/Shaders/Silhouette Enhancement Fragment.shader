@@ -214,7 +214,8 @@ Shader "DCC/Silhouette Enhancement Fragment" {
                 float4 _EmissionNoise_var = tex2D(_EmissionNoise,TRANSFORM_TEX(node_9343, _EmissionNoise));
                 float4 _DissolveNoise_var = tex2D(_DissolveNoise,TRANSFORM_TEX(i.uv0, _DissolveNoise));
                 float node_9773 = 0.0;
-                float2 node_568 = float2(saturate((_DissolveMin + ( ((((1.0 - _DissolveAmount)*1.2+-0.6)+_DissolveNoise_var.r) - node_9773) * (_DissolveMax - _DissolveMin) ) / (1.0 - node_9773))),0.0);
+                float node_4070 = saturate((_DissolveMin + ( ((((1.0 - _DissolveAmount)*1.2+-0.6)+_DissolveNoise_var.r) - node_9773) * (_DissolveMax - _DissolveMin) ) / (1.0 - node_9773)));
+                float2 node_568 = float2(node_4070,0.0);
                 float4 node_1196 = tex2D(_DissolveRamp,TRANSFORM_TEX(node_568, _DissolveRamp));
                 float3 emissive = lerp(node_2305,lerp(node_2305,lerp((_MaintexEmissionMap_var.rgb*_maintexEmissionColor.rgb),float3(node_536,node_536,node_536),(_EmissionNoise_var.rgb*_EmissionNoiseIntensity)),node_1196.rgb),_MaintexEmissionIntensity);
 /// Final Color:
@@ -450,7 +451,8 @@ Shader "DCC/Silhouette Enhancement Fragment" {
                 float4 _EmissionNoise_var = tex2D(_EmissionNoise,TRANSFORM_TEX(node_9343, _EmissionNoise));
                 float4 _DissolveNoise_var = tex2D(_DissolveNoise,TRANSFORM_TEX(i.uv0, _DissolveNoise));
                 float node_9773 = 0.0;
-                float2 node_568 = float2(saturate((_DissolveMin + ( ((((1.0 - _DissolveAmount)*1.2+-0.6)+_DissolveNoise_var.r) - node_9773) * (_DissolveMax - _DissolveMin) ) / (1.0 - node_9773))),0.0);
+                float node_4070 = saturate((_DissolveMin + ( ((((1.0 - _DissolveAmount)*1.2+-0.6)+_DissolveNoise_var.r) - node_9773) * (_DissolveMax - _DissolveMin) ) / (1.0 - node_9773)));
+                float2 node_568 = float2(node_4070,0.0);
                 float4 node_1196 = tex2D(_DissolveRamp,TRANSFORM_TEX(node_568, _DissolveRamp));
                 o.Emission = lerp(node_2305,lerp(node_2305,lerp((_MaintexEmissionMap_var.rgb*_maintexEmissionColor.rgb),float3(node_536,node_536,node_536),(_EmissionNoise_var.rgb*_EmissionNoiseIntensity)),node_1196.rgb),_MaintexEmissionIntensity);
                 
