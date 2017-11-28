@@ -11,22 +11,56 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1961992769242328}
   m_IsPrefabParent: 1
---- !u!1 &1866618866361290
+--- !u!1 &1315198142281772
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4369377070740786}
-  - component: {fileID: 33562390850235284}
-  - component: {fileID: 23096362218465982}
+  - component: {fileID: 4105085294115316}
+  - component: {fileID: 33626760862579838}
+  - component: {fileID: 23373626289577358}
   m_Layer: 0
-  m_Name: polaroid_01
+  m_Name: Wineglass (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967293
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1435938592384476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4197027199600454}
+  - component: {fileID: 33258159465810112}
+  - component: {fileID: 23062546853714676}
+  m_Layer: 0
+  m_Name: Wineglass (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1489216380198442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4358927959404066}
+  - component: {fileID: 33302976587733200}
+  - component: {fileID: 23254328672041196}
+  m_Layer: 0
+  m_Name: Wineglass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1961992769242328
 GameObject:
@@ -52,32 +86,60 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961992769242328}
   m_LocalRotation: {x: -0, y: 0.5712439, z: -0, w: 0.8207804}
-  m_LocalPosition: {x: -3.146, y: 0.553, z: 4.327}
+  m_LocalPosition: {x: -3.179, y: 0.552, z: 4.343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4369377070740786}
+  - {fileID: 4358927959404066}
+  - {fileID: 4105085294115316}
+  - {fileID: 4197027199600454}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 69.674, z: 0}
---- !u!4 &4369377070740786
+--- !u!4 &4105085294115316
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1866618866361290}
+  m_GameObject: {fileID: 1315198142281772}
+  m_LocalRotation: {x: -0.04911238, y: 0.7053992, z: 0.70539916, w: 0.049112618}
+  m_LocalPosition: {x: 0.027, y: 0.000000059604645, z: 0.021}
+  m_LocalScale: {x: 1.0000004, y: 1.0000007, z: 1.0000008}
+  m_Children: []
+  m_Father: {fileID: 4012662159745468}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 172.035}
+--- !u!4 &4197027199600454
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1435938592384476}
+  m_LocalRotation: {x: -0.10735431, y: -0.69891, z: -0.6989099, w: 0.107354015}
+  m_LocalPosition: {x: -0.007, y: 0.000000059604645, z: 0.098}
+  m_LocalScale: {x: 1.0000004, y: 1.0000007, z: 1.0000008}
+  m_Children: []
+  m_Father: {fileID: 4012662159745468}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -162.535}
+--- !u!4 &4358927959404066
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489216380198442}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.041, y: 0, z: -0.066}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4012662159745468}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23096362218465982
+--- !u!23 &23062546853714676
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1866618866361290}
+  m_GameObject: {fileID: 1435938592384476}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,7 +148,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a190ed4d4968c3044a5186b6968e1832, type: 2}
+  - {fileID: 2100000, guid: 7a55d61fa574f4742817eb5f7174aa1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,18 +164,99 @@ MeshRenderer:
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 111300000, guid: 2098153cc94af304fb3fe36a6637dbb0,
-    type: 2}
+  m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33562390850235284
+--- !u!23 &23254328672041196
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489216380198442}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 7a55d61fa574f4742817eb5f7174aa1f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!23 &23373626289577358
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315198142281772}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 7a55d61fa574f4742817eb5f7174aa1f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33258159465810112
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1866618866361290}
-  m_Mesh: {fileID: 4300000, guid: e40938f1c7da69a4e829c0486399976d, type: 3}
+  m_GameObject: {fileID: 1435938592384476}
+  m_Mesh: {fileID: 4300000, guid: 6a3cc47bddcdb814d9d39c73932aecb9, type: 3}
+--- !u!33 &33302976587733200
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489216380198442}
+  m_Mesh: {fileID: 4300000, guid: 6a3cc47bddcdb814d9d39c73932aecb9, type: 3}
+--- !u!33 &33626760862579838
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315198142281772}
+  m_Mesh: {fileID: 4300000, guid: 6a3cc47bddcdb814d9d39c73932aecb9, type: 3}
 --- !u!65 &65792982749670786
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -137,6 +280,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDistance: 2
   cameraPosition: {x: -0.07, y: 0.22, z: -0.24}
   cameraOrientation: {x: 0, y: 0, z: 0}
   storyFragment: FRAGMENT_SMOKING1
+  hasPlayed: 0
+  counter: 0
+  fragmentIsOn: 0
+  markerr: 0
+  storyFragmentt: 
+  realDuration: 0
+  durationn: 0
+  fragmentIsOnn: 0
+  thePlayedFragment: {fileID: 0}
