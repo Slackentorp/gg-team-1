@@ -101,11 +101,12 @@ public class LightSourceInput : MonoBehaviour
 
         if (interactables.Length == 3)
         {
-            if (getNrOfFragments == interactables.Length)
+            if (getNrOfFragments == interactables.Length ||
+                getNrOfFragments == interactables.Length - 1)
             {
                 LampON();
             }
-            else if (getNrOfFragments == interactables.Length - 1)
+            else if (getNrOfFragments == interactables.Length - 2)
             {
                 LampFlickering();
             }
