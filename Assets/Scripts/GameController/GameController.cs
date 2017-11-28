@@ -49,10 +49,10 @@ public class GameController : Singleton<GameController>
     [Tooltip("Controls the speed of the Moth's movement while fidgiting")]
     public float mothSpeedModifier;
     [Tooltip("The max distance of the randomized value between each fidgit point. " +
-            "The higher it is the shorter the distance"), Range(1, 50)]
+            "The higher it is the shorter the distance"), Range(1, 100)]
     public int FidgetingDistanceReducerMax;
     [Tooltip("The minimum distance of the randomized value between each fidgit point. " +
-            "The higher it is the shorter the distance"), Range(0, 49)]
+            "The higher it is the shorter the distance"), Range(0, 99)]
     public int FidgetingDistanceReducerMin;
     [Space(15)]
 
@@ -87,14 +87,11 @@ public class GameController : Singleton<GameController>
     void Start()
     {
         cameraHeading = GameCamera.transform.position - Moth.transform.position;
-        //    cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, 1, Moth.transform, false, cameraDamping);
-
         cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, Moth.transform, false,
                                                 cameraDamping, cameraTurnSpeedY, cameraTurnSpeedX, minimumVerticalAngle,
                                                 maximumVerticalAngle);
 
-        //tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
-        //NextPuzzle = tutorialPuzzle;
+
         SetState(new LoadState(this));
     }
 
