@@ -119,7 +119,7 @@ public class MothBehaviour
 			if (lerpRunning)
 			{
 				time += Time.deltaTime;
-				moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, MothFlightLerpCurve.Evaluate(time/distance * MothSpeed));
+				moth.transform.position = Vector3.Lerp(mothStartPos, hitPoint, MothFlightLerpCurve.Evaluate((time/distance) * MothSpeed));
 			}
 		}
 	}
@@ -170,7 +170,7 @@ public class MothBehaviour
 			anchorPointPlusPos = parentPos + pos;
 			mothDampProcedural = true;
 		}
-		if (mothDampProcedural == true && proceduralLerpTime * 0.7 < 1)
+		if (mothDampProcedural == true && proceduralLerpTime * 2 < 1)
 		{
 			mothChild.transform.localPosition = Vector3.Lerp(mothOriginPos,
 			anchorPointPlusPos, mothChildCurve.Evaluate(proceduralLerpTime * mothSpeedModifier));
@@ -199,7 +199,7 @@ public class MothBehaviour
 			perlinNoiseZ = -perlinNoiseZ;
 		}
 		pos.x = perlinNoiseX / (Random.Range(noiseReducerMin, noiseReducerMax + 1));
-		pos.y = perlinNoiseY / (Random.Range(noiseReducerMin, noiseReducerMax + 1));
+		pos.y = perlinNoiseY / (Random.Range(noiseReducerMin, noiseReducerMax + 1)) -0.08f;
 		pos.z = perlinNoiseZ / ((Random.Range(noiseReducerMin, noiseReducerMax + 1)* 1.5f));
 		return pos;
 	}

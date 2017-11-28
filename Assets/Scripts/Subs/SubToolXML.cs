@@ -48,7 +48,7 @@ public class SubToolXML : Singleton<SubToolXML>
         {
             AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
             uPosition = uPosition / 100;
-            Debug.Log(uPosition);
+            //Debug.Log(uPosition);
             if (startingPoss[nextSubtitle] < (uPosition + Time.deltaTime) &&
                 startingPoss[nextSubtitle] > (uPosition - Time.deltaTime))
             {

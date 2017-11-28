@@ -484,8 +484,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4230176644433182}
-  - component: {fileID: 54905723840958982}
-  - component: {fileID: 65331116746012544}
+  - component: {fileID: 54236484364449624}
+  - component: {fileID: 65416314477817038}
   m_Layer: 0
   m_Name: Mothholder
   m_TagString: Untagged
@@ -532,7 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4297270122582194}
   - component: {fileID: 137213283302806498}
-  - component: {fileID: 114465845805722136}
+  - component: {fileID: 114902369015818078}
   m_Layer: 0
   m_Name: moth
   m_TagString: Untagged
@@ -1265,7 +1265,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496884838388096}
-  m_LocalRotation: {x: -0, y: 0.2630875, z: -0, w: -0.964772}
+  m_LocalRotation: {x: -0.054950528, y: -0.50983715, z: -0.03265655, w: 0.8578928}
   m_LocalPosition: {x: -5.7699895, y: 0.84499997, z: 3.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1594,7 +1594,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931850780506170}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0020785641, y: -0.08021075, z: 0.0007825656}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4297270122582194}
@@ -2045,7 +2045,7 @@ Transform:
   m_Father: {fileID: 4835040954237348}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54905723840958982
+--- !u!54 &54236484364449624
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2060,7 +2060,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65331116746012544
+--- !u!65 &65416314477817038
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2068,7 +2068,7 @@ BoxCollider:
   m_GameObject: {fileID: 1496884838388096}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.049725056, y: 0.059365332, z: 0.059887886}
   m_Center: {x: 0.0039937496, y: 0.056090027, z: 0.008038521}
@@ -2089,7 +2089,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114465845805722136
+--- !u!114 &114902369015818078
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2101,7 +2101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mothStartEmission: 10
-  mothRangeEmission: 5
+  mothRangeEmission: 7
   mothShader: {fileID: 4800000, guid: b91c581967974014bbf3f510e6a8db67, type: 3}
 --- !u!137 &137213283302806498
 SkinnedMeshRenderer:

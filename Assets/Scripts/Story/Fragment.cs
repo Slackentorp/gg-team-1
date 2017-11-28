@@ -120,7 +120,7 @@ public class Fragment : Interactable
         realDuration = (int)durationn;
         realDuration = realDuration - 20;
 
-        Debug.Log(realDuration);
+        //Debug.Log(realDuration);
     }
 
     void Update()
