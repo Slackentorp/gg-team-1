@@ -2136,6 +2136,9 @@
 									<StateGroupInfo>
 										<StateGroupRef Name="ROOM" ID="{3CEC4412-1E33-4E4B-A9AD-2AE42D268D8D}"/>
 									</StateGroupInfo>
+									<StateGroupInfo>
+										<StateGroupRef Name="MUSIC_STATE" ID="{114B4A0E-2938-4B04-97C8-10B1F1AAA73A}"/>
+									</StateGroupInfo>
 								</StateGroupList>
 								<CustomStateList>
 									<CustomState>
@@ -2163,10 +2166,10 @@
 										</State>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="HALLWAY" ID="{6BB75331-C2D5-4696-A368-81731DA3946E}"/>
-										<State Name="Custom State" ID="{10C37E5C-E63A-4C84-B87B-C63651290941}" ShortID="160010862">
+										<StateRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
+										<State Name="Custom State" ID="{FBCF1C5B-D735-40E5-9F12-31AF94C70B85}" ShortID="762107889">
 											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="3"/>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
 											</PropertyList>
 										</State>
 									</CustomState>
@@ -2208,6 +2211,11 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>2.5</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>0</Flags>
 																</Point>
 																<Point>
 																	<XPos>5</XPos>
@@ -3419,20 +3427,25 @@
 										</Sound>
 										<RandomSequenceContainer Name="Flicker" ID="{D28A57BA-A320-45E2-8531-70EB9B00A0BB}" ShortID="956637076">
 											<PropertyList>
+												<Property Name="Lowpass" Type="int16">
+													<ValueList>
+														<Value>39</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
-														<Value>910</Value>
+														<Value>1690</Value>
 													</ValueList>
 												</Property>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="UserAuxSendVolume0" Type="Real64">
 													<ValueList>
-														<Value>-5</Value>
+														<Value>-6</Value>
 													</ValueList>
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-1</Value>
+														<Value>-9</Value>
 													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
@@ -3914,6 +3927,11 @@
 								<Value>-9</Value>
 							</ValueList>
 						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-2</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
@@ -3936,7 +3954,12 @@
 															<Flags>5</Flags>
 														</Point>
 														<Point>
-															<XPos>1.99373</XPos>
+															<XPos>3.998</XPos>
+															<YPos>-200</YPos>
+															<Flags>0</Flags>
+														</Point>
+														<Point>
+															<XPos>3.999</XPos>
 															<YPos>-200</YPos>
 															<Flags>0</Flags>
 														</Point>
@@ -3956,10 +3979,51 @@
 											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
 										</VolumeWetUserUsage>
 										<LowPassFilterUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+												<Curve Name="LowPassFilter" ID="{A952C166-64BD-47A8-84EF-4A424E9C3387}">
+													<PropertyList>
+														<Property Name="Flags" Type="int32" Value="65537"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>0</XPos>
+															<YPos>0</YPos>
+															<Flags>5</Flags>
+														</Point>
+														<Point>
+															<XPos>3.999</XPos>
+															<YPos>100</YPos>
+															<Flags>0</Flags>
+														</Point>
+														<Point>
+															<XPos>4</XPos>
+															<YPos>98</YPos>
+															<Flags>37</Flags>
+														</Point>
+													</PointList>
+												</Curve>
+											</CurveUsageInfo>
 										</LowPassFilterUsage>
 										<HighPassFilterUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None">
+												<Curve Name="HighPassFilter" ID="{7438E935-15F9-44B6-8F3F-F54169717903}">
+													<PropertyList>
+														<Property Name="Flags" Type="int32" Value="65537"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>0</XPos>
+															<YPos>0</YPos>
+															<Flags>5</Flags>
+														</Point>
+														<Point>
+															<XPos>4</XPos>
+															<YPos>100</YPos>
+															<Flags>37</Flags>
+														</Point>
+													</PointList>
+												</Curve>
+											</CurveUsageInfo>
 										</HighPassFilterUsage>
 										<SpreadUsage>
 											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
@@ -3998,7 +4062,7 @@
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-580</Value>
+										<Value>-1620</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{45750F76-DED9-4426-97AD-899AEFA4BF38}" ShortID="105030597">
@@ -4090,7 +4154,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-2</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{93B9D20E-03E9-4F79-BE77-4584D3BC1F3A}" ShortID="546935811">
@@ -4106,7 +4170,7 @@
 												<PointList>
 													<Point>
 														<XPos>0</XPos>
-														<YPos>0.24129</YPos>
+														<YPos>-200</YPos>
 														<Flags>5</Flags>
 													</Point>
 													<Point>
@@ -4118,6 +4182,38 @@
 														<XPos>10</XPos>
 														<YPos>0</YPos>
 														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+										<RTPC Name="" ID="{FDCC6BA3-34F3-4916-8BFC-BA75C8886BB8}" ShortID="840326039">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<Custom>
+														<ModulatorEnvelope Name="Modulator Envelope (Custom)" ID="{4CA9DEB3-6AC2-4B81-88F9-C67785AC4D3A}" ShortID="447759798">
+															<PropertyList>
+																<Property Name="EnvelopeAttackTime" Type="Real64" Value="0"/>
+																<Property Name="EnvelopeDecayTime" Type="Real64" Value="2"/>
+																<Property Name="EnvelopeSustainLevel" Type="Real64" Value="30"/>
+															</PropertyList>
+														</ModulatorEnvelope>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{9B88E898-BBF7-4E8A-8C90-A72D30075ABE}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
 													</Point>
 												</PointList>
 											</Curve>
@@ -4334,34 +4430,89 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<Sound Name="Flying_01" ID="{E73B885E-1A31-418C-A949-2A05F5C0C34B}" ShortID="523124234">
+						<Sound Name="MOTH_FLY_LOUD" ID="{90173BB2-32C7-45F8-B403-8C88AA4FC722}" ShortID="949462492">
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>44</Value>
+										<Value>47</Value>
 									</ValueList>
 								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>680</Value>
+										<Value>860</Value>
 									</ValueList>
 									<RTPCList>
-										<RTPC Name="" ID="{901C2448-A03E-442B-9493-75B753C49343}" ShortID="59914126">
+										<RTPC Name="" ID="{A7264A44-FDD7-4237-A36F-F75DAC296CF1}" ShortID="427971158">
 											<ReferenceList>
 												<Reference Name="ControlInput">
-													<ObjectRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+													<ObjectRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
 												</Reference>
 											</ReferenceList>
-											<Curve Name="" ID="{843B444B-801F-48B5-B2DD-D3541A5C1419}">
+											<Curve Name="" ID="{B9501156-8110-4B66-926C-65766255EBCF}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>-50</XPos>
+														<YPos>-943</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>50</XPos>
+														<YPos>943</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+										<RTPC Name="" ID="{C914E075-9F00-4E20-94CD-81A462058824}" ShortID="248572144">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<Custom>
+														<ModulatorLfo Name="Modulator LFO (Custom)" ID="{6E8C904B-4E8A-4D62-8C95-0EC01879BBB8}" ShortID="201656016">
+															<PropertyList>
+																<Property Name="LfoFrequency" Type="Real64" Value="6.76"/>
+																<Property Name="LfoSmoothing" Type="Real64" Value="2"/>
+																<Property Name="LfoWaveform" Type="int32" Value="5"/>
+															</PropertyList>
+														</ModulatorLfo>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{F70EF443-5CC1-409C-ABC8-AB39CC9BFA85}">
 												<PropertyList>
 													<Property Name="Flags" Type="int32" Value="65537"/>
 												</PropertyList>
 												<PointList>
 													<Point>
 														<XPos>0</XPos>
-														<YPos>-660</YPos>
+														<YPos>-270</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>1388</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+										<RTPC Name="" ID="{A8554A89-226E-40A6-B28C-2F3206564097}" ShortID="942925322">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{1B4E336D-318C-40E4-94E1-262EA34D6693}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-895</YPos>
 														<Flags>5</Flags>
 													</Point>
 													<Point>
@@ -4377,64 +4528,95 @@
 												</PointList>
 											</Curve>
 										</RTPC>
-										<RTPC Name="" ID="{6BD2C88F-0780-4A48-A889-BE54C8A18205}" ShortID="333264802">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<Custom>
-														<ModulatorLfo Name="Modulator LFO (Custom)" ID="{20BD76F7-5F6C-4E4C-860F-595CC7CE6F1D}" ShortID="852702438">
-															<PropertyList>
-																<Property Name="LfoFrequency" Type="Real64" Value="6.76"/>
-																<Property Name="LfoSmoothing" Type="Real64" Value="2"/>
-																<Property Name="LfoWaveform" Type="int32" Value="5"/>
-															</PropertyList>
-														</ModulatorLfo>
-													</Custom>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{80D1CA82-CC1F-4486-A872-BD71F523F9BD}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="65537"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>438</YPos>
-														<Flags>21</Flags>
-													</Point>
-													<Point>
-														<XPos>1</XPos>
-														<YPos>1388</YPos>
-														<Flags>53</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
 									</RTPCList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-28</Value>
+										<Value>-24</Value>
 									</ValueList>
 									<RTPCList>
-										<RTPC Name="" ID="{054AE35B-692C-4E4A-AC9A-DFD713F5557A}" ShortID="225177031">
+										<RTPC Name="" ID="{C12EFD54-228D-4F97-8A82-D3635ABD4116}" ShortID="938072440">
 											<ReferenceList>
 												<Reference Name="ControlInput">
-													<ObjectRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+													<Custom>
+														<ModulatorEnvelope Name="Modulator Envelope (Custom)" ID="{7897DB46-1BC9-412A-B09D-1495B3137B38}" ShortID="101501867">
+															<PropertyList>
+																<Property Name="EnvelopeAttackTime" Type="Real64" Value="0"/>
+																<Property Name="EnvelopeDecayTime" Type="Real64" Value="2"/>
+																<Property Name="EnvelopeSustainLevel" Type="Real64" Value="29.5"/>
+															</PropertyList>
+														</ModulatorEnvelope>
+													</Custom>
 												</Reference>
 											</ReferenceList>
-											<Curve Name="" ID="{2E10E484-0058-4BA6-8AAB-9A4BEA410BAA}">
+											<Curve Name="" ID="{A514538A-4E70-4E75-8A70-9BEC5EDF0C3E}">
 												<PropertyList>
 													<Property Name="Flags" Type="int32" Value="3"/>
 												</PropertyList>
 												<PointList>
 													<Point>
 														<XPos>0</XPos>
-														<YPos>0.24129</YPos>
+														<YPos>-200</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+										<RTPC Name="" ID="{43AF3686-95B0-4475-AA01-506B3C77C873}" ShortID="961770467">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<Custom>
+														<ModulatorLfo Name="Modulator LFO (Custom)" ID="{7060F7FB-C196-42D2-8A97-0268CF99017F}" ShortID="529229676">
+															<PropertyList>
+																<Property Name="LfoSmoothing" Type="Real64" Value="1"/>
+																<Property Name="LfoWaveform" Type="int32" Value="5"/>
+															</PropertyList>
+														</ModulatorLfo>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{6C548056-F2B1-4441-8AA3-904780CB5104}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-4.18664999999999</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+										<RTPC Name="" ID="{DE8408F0-24B8-4434-AC7F-4AB565B39204}" ShortID="216175744">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{66FE607A-8B9E-4AEE-9669-F09FDFB1A8DC}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
 														<Flags>5</Flags>
 													</Point>
 													<Point>
 														<XPos>1.57895</XPos>
-														<YPos>-0.14809</YPos>
+														<YPos>-0.148089999999996</YPos>
 														<Flags>0</Flags>
 													</Point>
 													<Point>
@@ -4445,88 +4627,7 @@
 												</PointList>
 											</Curve>
 										</RTPC>
-										<RTPC Name="" ID="{8F346B71-FC50-4F57-9D98-0DEB83C0ED5B}" ShortID="512390981">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<Custom>
-														<ModulatorLfo Name="Modulator LFO (Custom)" ID="{87D00A83-89F1-40F2-A918-9951483C2F82}" ShortID="693377774">
-															<PropertyList>
-																<Property Name="LfoSmoothing" Type="Real64" Value="1"/>
-																<Property Name="LfoWaveform" Type="int32" Value="5"/>
-															</PropertyList>
-														</ModulatorLfo>
-													</Custom>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{EF219C25-7ECA-4694-A1BD-5590F98309FC}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="3"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>-4.18665</YPos>
-														<Flags>21</Flags>
-													</Point>
-													<Point>
-														<XPos>1</XPos>
-														<YPos>0</YPos>
-														<Flags>53</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
 									</RTPCList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Flying" ID="{F6E5E385-3A5B-4D4A-A041-E0716967D27A}" ShortID="891783685">
-									<PropertyList>
-										<Property Name="LoopBegin" Type="Real64" Value="0.855491329479769"/>
-										<Property Name="LoopEnd" Type="Real64" Value="22.8901734104046"/>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="VolumeOffset" Type="Real64">
-											<ValueList>
-												<Value>2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<Language>SFX</Language>
-									<AudioFile>Flying.wav</AudioFile>
-									<ConvertedFileIDList>
-										<File ID="541851934"/>
-									</ConvertedFileIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Flying" ID="{F6E5E385-3A5B-4D4A-A041-E0716967D27A}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="MOTH_FLY_LOUD" ID="{90173BB2-32C7-45F8-B403-8C88AA4FC722}" ShortID="949462492">
-							<PropertyList>
-								<Property Name="Highpass" Type="int16">
-									<ValueList>
-										<Value>47</Value>
-									</ValueList>
-								</Property>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="Pitch" Type="int32">
-									<ValueList>
-										<Value>80</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-28</Value>
-									</ValueList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -4593,10 +4694,34 @@
 						</Sound>
 						<RandomSequenceContainer Name="Moth landing" ID="{1580B7FB-B12F-491D-9A87-C89FEBB6F215}" ShortID="974409948">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{690C2BFD-AD84-4988-BF02-E47C3CA7F069}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="328"/>
+													<Property Name="Min" Type="Real64" Value="-354"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-17</Value>
+										<Value>-19</Value>
 									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{EE7B3B1D-018C-4078-80C9-43A77B071056}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="4"/>
+													<Property Name="Min" Type="Real64" Value="-2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -5576,7 +5701,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-3</Value>
+								<Value>-8</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -9501,11 +9626,6 @@
 										<Value>53</Value>
 									</ValueList>
 								</Property>
-								<Property Name="InitialDelay" Type="Real64">
-									<ValueList>
-										<Value>1.5</Value>
-									</ValueList>
-								</Property>
 								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
@@ -9550,9 +9670,9 @@
 										<AudioFileSource Name="FRAGMENT_END" ID="{BFCFEA6A-638D-490C-A108-9419DB3065BC}" ShortID="52370042">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="1.09783260118315"/>
-												<Property Name="FadeOutDuration" Type="Real64" Value="2.78680583377262"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="1.07370441214616"/>
 												<Property Name="TrimBegin" Type="Real64" Value="1.41149905866406"/>
-												<Property Name="TrimEnd" Type="Real64" Value="8.11913561094795"/>
+												<Property Name="TrimEnd" Type="Real64" Value="3.8243179623633"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FRAGMENT_END.wav</AudioFile>

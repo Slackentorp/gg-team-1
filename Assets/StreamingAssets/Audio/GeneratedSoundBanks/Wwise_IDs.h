@@ -72,6 +72,7 @@ namespace AK
         static const AkUniqueID STORYEVENT_2 = 1922983907U;
         static const AkUniqueID STORYEVENT_3 = 1922983906U;
         static const AkUniqueID STORYEVENT_4 = 1922983909U;
+        static const AkUniqueID STORYEVENT_END = 3721137874U;
         static const AkUniqueID STREET = 4142189312U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
         static const AkUniqueID TRIGGEREDSOUND_ANSWERING = 3021174106U;
@@ -172,6 +173,21 @@ namespace AK
                 static const AkUniqueID FRAGMENT = 2651529573U;
             } // namespace STATE
         } // namespace MUSIC_STATE
+
+        namespace NEXT_STORYEVENT
+        {
+            static const AkUniqueID GROUP = 1809766800U;
+
+            namespace STATE
+            {
+                static const AkUniqueID FINALE = 2540243936U;
+                static const AkUniqueID STORYEVENT_1 = 1922983904U;
+                static const AkUniqueID STORYEVENT_2 = 1922983907U;
+                static const AkUniqueID STORYEVENT_3 = 1922983906U;
+                static const AkUniqueID STORYEVENT_4 = 1922983909U;
+                static const AkUniqueID TUTORIAL = 3762955427U;
+            } // namespace STATE
+        } // namespace NEXT_STORYEVENT
 
         namespace PICTUREPUZZLE_STATE
         {

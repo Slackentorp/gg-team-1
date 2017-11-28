@@ -81,6 +81,11 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
 										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -91,6 +96,11 @@
 								<Action Name="" ID="{F1CA4737-0BB4-48DE-A7E0-5DD7863DA684}" ShortID="726283029">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -102,6 +112,11 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
 										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -468,7 +483,6 @@
 								<Action Name="" ID="{01BAF308-63EE-4E54-9C33-B84DCFFC6719}" ShortID="787464056">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -533,6 +547,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{C5E3D335-AD0C-428B-8C53-DE94CA969EE7}" ShortID="592981853">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FINALE" ID="{5C5D6D0F-506B-4766-A9ED-5D198D6FB590}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="FRAGMENT_TATTOO" ID="{F2167923-AA66-4428-A204-4F0F454DDAFD}">
@@ -573,7 +597,6 @@
 								<Action Name="" ID="{E3026A95-A676-4C65-9990-F1F81F9AE350}" ShortID="416556509">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -588,6 +611,27 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Happy" ID="{461CFEF7-31A9-4AF4-9160-A4D4981E8916}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0F46E468-A070-4D4C-86F8-30B71C771217}" ShortID="875597476">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+										<Property Name="Delay" Type="Real64" Value="20"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FRAGMENT_END" ID="{DA185ABF-394C-4E37-87D9-B6179BD28503}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{565BB3DB-E55D-4601-88B4-D6FFC5E1D3A4}" ShortID="694944445">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="STORYEVENT_1" ID="{BEDD3699-1B03-4E8E-9B3E-80091FD0F93A}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -631,7 +675,6 @@
 								<Action Name="" ID="{D1A843B1-8E16-4713-9ED4-2CA29AC6070C}" ShortID="152396093">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -689,7 +732,6 @@
 								<Action Name="" ID="{37A6B83D-8739-4100-AD4C-A7A7D07034E9}" ShortID="612445239">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -747,7 +789,6 @@
 								<Action Name="" ID="{1059001C-FBD8-442C-98D9-89017CE2A28A}" ShortID="50381773">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -805,7 +846,6 @@
 								<Action Name="" ID="{38316947-DCCE-4FD2-911E-ABDC5935FF6C}" ShortID="176480027">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -863,7 +903,6 @@
 								<Action Name="" ID="{FD069DA6-C793-463E-9141-517A06AB8ECC}" ShortID="312711659">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -922,7 +961,6 @@
 								<Action Name="" ID="{5661C04C-E859-4078-BCD8-5A639D87E0A3}" ShortID="907745594">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -980,7 +1018,6 @@
 								<Action Name="" ID="{1FC25DD7-A814-4C7F-BF6D-AF5B192D70DF}" ShortID="298115155">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1038,7 +1075,6 @@
 								<Action Name="" ID="{1988B4CB-9A06-4557-9629-71A16B3EE572}" ShortID="26830766">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1096,7 +1132,6 @@
 								<Action Name="" ID="{F7D20DB8-A851-4F50-A6D6-76DBAC75E693}" ShortID="872677977">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1144,7 +1179,6 @@
 								<Action Name="" ID="{7EC7BD4C-DA09-4811-A24F-00F4CE974BB6}" ShortID="659605131">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1202,7 +1236,6 @@
 								<Action Name="" ID="{3C44450C-C6B3-47DE-8331-3DE637269959}" ShortID="522623599">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1271,7 +1304,6 @@
 								<Action Name="" ID="{DF4189ED-E87C-47EA-B441-3C7D82985190}" ShortID="519507611">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1329,7 +1361,6 @@
 								<Action Name="" ID="{7BF77A20-7F89-41E9-8D0D-471775E3CEBC}" ShortID="864005591">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1387,7 +1418,6 @@
 								<Action Name="" ID="{51A10AB0-72A6-4D50-A211-37F8582A5B5D}" ShortID="435608325">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1435,7 +1465,6 @@
 								<Action Name="" ID="{28A806B0-F4AA-4A4A-9F22-6E1A5FE7B9B1}" ShortID="220892876">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1493,7 +1522,6 @@
 								<Action Name="" ID="{CDD812CD-E059-4B86-82E2-516714DF6A24}" ShortID="111764849">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1551,7 +1579,6 @@
 								<Action Name="" ID="{2F0CF23F-BCCB-4779-BEA8-DC65B3A28FF0}" ShortID="221105553">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1609,7 +1636,6 @@
 								<Action Name="" ID="{D6D068DF-99D6-436A-9040-BE6D191C77E8}" ShortID="514804554">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1652,6 +1678,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{19BBA706-2DA3-43B6-B72A-0F2201DEB510}" ShortID="175384345">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="STORYEVENT_2" ID="{68AEB1EC-3BF0-40DF-990E-883F0E5166E4}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="STORYEVENT_2" ID="{6778A77D-1D6E-4EEE-8625-C844B0CA74E6}">
@@ -1677,6 +1713,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{938931E5-9154-40F8-9EB9-1252FBD9C2C3}" ShortID="941078146">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="STORYEVENT_3" ID="{CFCB357C-9133-457F-933F-C4DA3476D0FB}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="STORYEVENT_3" ID="{44882B9E-FD17-44CE-8780-5C35A953B1C3}">
@@ -1699,6 +1745,16 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="STORYEVENT_END" ID="{CCA9CBD5-1262-4FFC-BCA8-091C5C67D28C}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{448A0B6C-D650-4270-964A-FB2A434D934B}" ShortID="388779368">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="STORYEVENT_4" ID="{850C466F-1FC2-421A-AD3A-F382A7F1EE5A}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1871,6 +1927,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Music" ID="{B8FBD82A-3406-4A57-95E3-7BAA3495DB0D}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{512A2CA8-3F1E-441A-8EEF-81EC6A84F425}" ShortID="959825296">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TUTORIAL" ID="{E90A3B69-8C93-45CC-BA20-2556DBB4252C}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -2144,6 +2210,39 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Energy" ID="{24FEBDB9-1990-4CD8-9056-8764DC32B67C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Fog wall" ID="{A73A587C-83D8-43BD-B7F8-285C12F59B6E}" ShortID="611669304">
+					<ChildrenList>
+						<Event Name="FOGWALL_ENABLE" ID="{22B2722C-2536-4953-9EF7-DF44651CD742}">
+							<ChildrenList>
+								<Action Name="" ID="{D08D9DE9-7452-47F8-AA9A-6A89A06A2F3C}" ShortID="335411428">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FOGWALL_IDLE" ID="{2F96ADB8-41E6-48A2-834A-FDD8E5FF86AB}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FOGWALL_DISABLE" ID="{F3E7032E-345C-410F-8006-9C4B767D5988}">
+							<ChildrenList>
+								<Action Name="" ID="{E305405F-48D0-4DC8-8977-B5B0A773F986}" ShortID="324806918">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FOGWALL_IDLE" ID="{2F96ADB8-41E6-48A2-834A-FDD8E5FF86AB}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
