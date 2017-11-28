@@ -13,29 +13,54 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID AMBIENCE_CITY = 3831078465U;
-        static const AkUniqueID BULB_PICK_UP = 3545095724U;
-        static const AkUniqueID BULB_PLACED_RIGHT = 4019917531U;
-        static const AkUniqueID BULB_PLACED_WRONG = 2218639190U;
-        static const AkUniqueID CAR_PASS = 590963579U;
+        static const AkUniqueID ANSWERING_TRIGGER = 944261500U;
+        static const AkUniqueID CAMERA_MOVE = 746056516U;
+        static const AkUniqueID CARS = 4189504244U;
+        static const AkUniqueID FRAGMENT_BIRTHDAY = 2817540555U;
+        static const AkUniqueID FRAGMENT_CLOCK = 708113490U;
+        static const AkUniqueID FRAGMENT_COZYKITCHEN = 589325167U;
+        static const AkUniqueID FRAGMENT_DISCOVER = 3960073237U;
+        static const AkUniqueID FRAGMENT_END = 2161294919U;
+        static const AkUniqueID FRAGMENT_MODELLING1 = 2002587924U;
+        static const AkUniqueID FRAGMENT_MODELLING2 = 2002587927U;
+        static const AkUniqueID FRAGMENT_NEWYEARS = 1286978176U;
+        static const AkUniqueID FRAGMENT_PARENTS1 = 3797182232U;
+        static const AkUniqueID FRAGMENT_PARENTS2 = 3797182235U;
+        static const AkUniqueID FRAGMENT_POLAROID1 = 1204468941U;
+        static const AkUniqueID FRAGMENT_POSTER = 1875687151U;
+        static const AkUniqueID FRAGMENT_SMOKING1 = 722690795U;
+        static const AkUniqueID FRAGMENT_SMOKING2 = 722690792U;
+        static const AkUniqueID FRAGMENT_TATTOO = 1520330871U;
+        static const AkUniqueID FRAGMENT_TEST = 2361534988U;
+        static const AkUniqueID FRAGMENT_TIRED = 3567046626U;
+        static const AkUniqueID FRAGMENT_TV1 = 1995931407U;
+        static const AkUniqueID FRAGMENT_TV2 = 1995931404U;
+        static const AkUniqueID FRAGMENT_WEDNESDAYWINE = 3998036439U;
+        static const AkUniqueID FRAGMENT_WHISPER = 731569454U;
+        static const AkUniqueID FRAGMENT_WORLDMAP1 = 1683668987U;
+        static const AkUniqueID FRAGMENT_WORLDMAP2 = 1683668984U;
+        static const AkUniqueID FRAGMENT_ZODIAC = 4090956524U;
+        static const AkUniqueID FRIDGE = 2337612214U;
+        static const AkUniqueID FRIDGE_INVISIBLE = 2128490106U;
+        static const AkUniqueID FRIDGE_VISIBLE = 2092442601U;
         static const AkUniqueID INGAMEMENU_CLOSE = 1571339874U;
         static const AkUniqueID INGAMEMENU_OPEN = 4165127606U;
-        static const AkUniqueID LIGHTBULB = 2031596562U;
+        static const AkUniqueID LAMP_FLICKER_OFF = 3202129528U;
+        static const AkUniqueID LAMP_FLICKER_ON = 3118183458U;
+        static const AkUniqueID LAMP_FLICKERING = 3143729630U;
+        static const AkUniqueID LAMP_ON = 1387648821U;
+        static const AkUniqueID LAMP_PARTICLE = 4005406552U;
         static const AkUniqueID LIVINGROOM_ENTER = 1275729080U;
         static const AkUniqueID MAINMENU_OPEN = 3307976374U;
-        static const AkUniqueID MAP = 1048449605U;
-        static const AkUniqueID MAP_FAILED = 1594770167U;
-        static const AkUniqueID MAPBUTTON_PRESS = 3111840605U;
         static const AkUniqueID MENU_START_GAME = 1931074718U;
         static const AkUniqueID MENUBUTTON_PRESS = 1512987680U;
         static const AkUniqueID MOTH_END_FLIGHT = 410314580U;
         static const AkUniqueID MOTH_HIT_WINDOW = 1669806022U;
         static const AkUniqueID MOTH_START_FLIGHT = 541555517U;
-        static const AkUniqueID MUG_PLACED_RIGHT = 2200206093U;
-        static const AkUniqueID MUG_PLACED_WRONG = 3572297172U;
         static const AkUniqueID MUSIC_MUTE = 1696404602U;
+        static const AkUniqueID MUSIC_START = 3725903807U;
         static const AkUniqueID MUSIC_UNMUTE = 2132259803U;
-        static const AkUniqueID PHOTOGRAPH_1 = 1726470029U;
+        static const AkUniqueID NEIGHBOUR = 1451837118U;
         static const AkUniqueID PIECE_PICK = 394109931U;
         static const AkUniqueID PIECE_PLACED_RIGHT = 2720771844U;
         static const AkUniqueID PIECE_PLACED_WRONG = 2177473561U;
@@ -43,30 +68,17 @@ namespace AK
         static const AkUniqueID PUZZLE_SOLVING = 3258781332U;
         static const AkUniqueID SFX_MUTE = 2835551186U;
         static const AkUniqueID SFX_UNMUTE = 1305045635U;
-        static const AkUniqueID STAR_FAILED = 3041425555U;
-        static const AkUniqueID STARBUTTON_PRESS = 3543172817U;
-        static const AkUniqueID STARBUTTON_PRESS_NOMUSIC = 2345344986U;
-        static const AkUniqueID STORYBITE_TEST = 2130706069U;
         static const AkUniqueID STORYEVENT_1 = 1922983904U;
-        static const AkUniqueID TELEVISION = 3098926425U;
+        static const AkUniqueID STORYEVENT_2 = 1922983907U;
+        static const AkUniqueID STORYEVENT_3 = 1922983906U;
+        static const AkUniqueID STORYEVENT_4 = 1922983909U;
+        static const AkUniqueID STREET = 4142189312U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
+        static const AkUniqueID TRIGGEREDSOUND_ANSWERING = 3021174106U;
     } // namespace EVENTS
 
     namespace STATES
     {
-        namespace ARRANGEMENT_STATE
-        {
-            static const AkUniqueID GROUP = 1618511057U;
-
-            namespace STATE
-            {
-                static const AkUniqueID OBJECT_1 = 513596296U;
-                static const AkUniqueID OBJECT_2 = 513596299U;
-                static const AkUniqueID OBJECT_3 = 513596298U;
-                static const AkUniqueID OBJECT_4 = 513596301U;
-            } // namespace STATE
-        } // namespace ARRANGEMENT_STATE
-
         namespace BULB_STATE
         {
             static const AkUniqueID GROUP = 3617270566U;
@@ -81,6 +93,22 @@ namespace AK
             } // namespace STATE
         } // namespace BULB_STATE
 
+        namespace FRAGMENT_MUSIC
+        {
+            static const AkUniqueID GROUP = 3559727537U;
+
+            namespace STATE
+            {
+                static const AkUniqueID AWFUL = 1385224078U;
+                static const AkUniqueID BITTERSWEET = 1318948109U;
+                static const AkUniqueID HAPPY = 1427264549U;
+                static const AkUniqueID HAPPY_2 = 3890764050U;
+                static const AkUniqueID MEMORY = 3509424520U;
+                static const AkUniqueID PLAYFUL = 1971384320U;
+                static const AkUniqueID SILENT = 3160623154U;
+            } // namespace STATE
+        } // namespace FRAGMENT_MUSIC
+
         namespace INSIDE_STATE
         {
             static const AkUniqueID GROUP = 2599116615U;
@@ -91,6 +119,59 @@ namespace AK
                 static const AkUniqueID OUTSIDE = 438105790U;
             } // namespace STATE
         } // namespace INSIDE_STATE
+
+        namespace LAMPS_ON
+        {
+            static const AkUniqueID GROUP = 3863998494U;
+
+            namespace STATE
+            {
+                static const AkUniqueID LAMP_0 = 1942065222U;
+                static const AkUniqueID LAMP_1 = 1942065223U;
+                static const AkUniqueID LAMP_2 = 1942065220U;
+                static const AkUniqueID LAMP_3 = 1942065221U;
+            } // namespace STATE
+        } // namespace LAMPS_ON
+
+        namespace LANGUAGE
+        {
+            static const AkUniqueID GROUP = 2441027675U;
+
+            namespace STATE
+            {
+                static const AkUniqueID DANISH = 4072223638U;
+                static const AkUniqueID ENGLISH = 3383237639U;
+            } // namespace STATE
+        } // namespace LANGUAGE
+
+        namespace MAP_STATE
+        {
+            static const AkUniqueID GROUP = 4002803319U;
+
+            namespace STATE
+            {
+                static const AkUniqueID DONE = 1861070025U;
+                static const AkUniqueID PIN_1 = 1037399642U;
+                static const AkUniqueID PIN_2 = 1037399641U;
+                static const AkUniqueID PIN_3 = 1037399640U;
+                static const AkUniqueID PIN_4 = 1037399647U;
+                static const AkUniqueID PIN_5 = 1037399646U;
+                static const AkUniqueID PIN_6 = 1037399645U;
+                static const AkUniqueID PIN_7 = 1037399644U;
+                static const AkUniqueID PIN_8 = 1037399635U;
+            } // namespace STATE
+        } // namespace MAP_STATE
+
+        namespace MUSIC_STATE
+        {
+            static const AkUniqueID GROUP = 3826569560U;
+
+            namespace STATE
+            {
+                static const AkUniqueID EXPLORATION = 2582085496U;
+                static const AkUniqueID FRAGMENT = 2651529573U;
+            } // namespace STATE
+        } // namespace MUSIC_STATE
 
         namespace PICTUREPUZZLE_STATE
         {
@@ -105,66 +186,46 @@ namespace AK
             } // namespace STATE
         } // namespace PICTUREPUZZLE_STATE
 
-        namespace PUZZLE_STATE
+        namespace ROOM
         {
-            static const AkUniqueID GROUP = 4261475855U;
+            static const AkUniqueID GROUP = 2077253480U;
 
             namespace STATE
             {
-                static const AkUniqueID SOLVED = 4249573878U;
-                static const AkUniqueID SOLVING = 3114771063U;
-                static const AkUniqueID UNSOLVED = 1584405063U;
+                static const AkUniqueID BEDROOM = 3788924735U;
+                static const AkUniqueID HALLWAY = 2198133169U;
+                static const AkUniqueID KITCHEN = 1586158131U;
+                static const AkUniqueID LIVINGROOM = 28587383U;
+                static const AkUniqueID STUDY = 1917388856U;
             } // namespace STATE
-        } // namespace PUZZLE_STATE
+        } // namespace ROOM
 
-    } // namespace STATES
-
-    namespace SWITCHES
-    {
-        namespace MAP_SWITCH
+        namespace STAR_STATE
         {
-            static const AkUniqueID GROUP = 471394244U;
+            static const AkUniqueID GROUP = 62588435U;
 
-            namespace SWITCH
-            {
-                static const AkUniqueID PIN_1 = 1037399642U;
-                static const AkUniqueID PIN_2 = 1037399641U;
-                static const AkUniqueID PIN_3 = 1037399640U;
-                static const AkUniqueID PIN_4 = 1037399647U;
-                static const AkUniqueID PIN_5 = 1037399646U;
-                static const AkUniqueID PIN_6 = 1037399645U;
-                static const AkUniqueID PIN_7 = 1037399644U;
-                static const AkUniqueID PIN_8 = 1037399635U;
-            } // namespace SWITCH
-        } // namespace MAP_SWITCH
-
-        namespace STAR_SWITCH
-        {
-            static const AkUniqueID GROUP = 4143735680U;
-
-            namespace SWITCH
+            namespace STATE
             {
                 static const AkUniqueID STAR_1 = 569740645U;
                 static const AkUniqueID STAR_2 = 569740646U;
                 static const AkUniqueID STAR_3 = 569740647U;
                 static const AkUniqueID STAR_4 = 569740640U;
                 static const AkUniqueID STAR_5 = 569740641U;
-                static const AkUniqueID STAR_6 = 569740642U;
-                static const AkUniqueID STAR_7 = 569740643U;
-            } // namespace SWITCH
-        } // namespace STAR_SWITCH
+            } // namespace STATE
+        } // namespace STAR_STATE
 
-    } // namespace SWITCHES
+    } // namespace STATES
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID DIALOGUE_VOLUME = 725232568U;
+        static const AkUniqueID FLICKER_VOLUME = 2867585400U;
         static const AkUniqueID MAP_BUTTON_NUMBER = 3594118836U;
         static const AkUniqueID MOTH_DOPPLER = 3334266196U;
         static const AkUniqueID MOTH_SPEED = 4010911193U;
         static const AkUniqueID MUSIC_VOLUME = 1006694123U;
         static const AkUniqueID OBJECT_SPEED = 507859948U;
         static const AkUniqueID SFX_VOLUME = 1564184899U;
-        static const AkUniqueID STORYEVENT_VOLUME = 962818873U;
         static const AkUniqueID TENSION = 1571361561U;
     } // namespace GAME_PARAMETERS
 
@@ -184,6 +245,7 @@ namespace AK
 
     namespace AUX_BUSSES
     {
+        static const AkUniqueID MEMORY_VERB = 141137888U;
         static const AkUniqueID REVERB_LIVINGROOM = 400405326U;
     } // namespace AUX_BUSSES
 
