@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class MothBehaviour
 {
+	public delegate void ReachedPosition();
+	public event ReachedPosition OnReachedPosition;
+
 	[SerializeField]
 	private AnimationCurve MothFlightLerpCurve;
 
@@ -49,6 +52,8 @@ public class MothBehaviour
 	private bool lerpRunning = false;
 	private bool mothTurning = true;
 	private bool mothDampProcedural = false;
+	public bool fragmentMode { get; private set; }
+	
 
 	void OnValidate()
 	{
@@ -72,6 +77,11 @@ public class MothBehaviour
 		this.MothFlightLerpCurve = MothFlightLerpCurve;
 	}
 
+	public void SetFragmentMode(bool b)
+	{
+		fragmentMode = b;
+	}
+
 
 	public void Update()
 	{
@@ -81,7 +91,10 @@ public class MothBehaviour
 		}
 		if (mothChild != null)
 		{
-			ProceduralMovement();
+			if(!fragmentMode)
+			{
+				ProceduralMovement();
+			}
 			MothGoToPosition();
 		}
 	}
@@ -92,6 +105,19 @@ public class MothBehaviour
 		mothStartPos = moth.transform.position;
 		mothRotation = moth.transform.forward;
 		hitPoint = hit.point + hit.normal * mothDistanceToObject;
+
+		DistancefromMothToHitpoint();
+		lerpRunning = true;
+		time = 0.0f;
+		turningTime = 0.0f;
+	}
+
+	public void SetMothPos(Vector3 position)
+	{
+		AkSoundEngine.PostEvent("MOTH_START_FLIGHT", moth);
+		mothStartPos = moth.transform.position;
+		mothRotation = moth.transform.forward;
+		hitPoint = position;
 
 		DistancefromMothToHitpoint();
 		lerpRunning = true;
@@ -115,6 +141,10 @@ public class MothBehaviour
 				AkSoundEngine.PostEvent("MOTH_END_FLIGHT", moth);
 				time = 0.0f;
 				lerpRunning = false;
+				if(OnReachedPosition != null)
+				{
+					OnReachedPosition();
+				}
 			}
 			if (lerpRunning)
 			{
@@ -126,9 +156,7 @@ public class MothBehaviour
 
 	void DistancefromMothToHitpoint()
 	{
-		distance = Vector3.Distance(mothStartPos, hitPoint);
-		//velocity = distance / MothSpeed;
-		
+		distance = Vector3.Distance(mothStartPos, hitPoint);		
 	}
 
 	private void PointfromRaycast()
@@ -202,5 +230,10 @@ public class MothBehaviour
 		pos.y = perlinNoiseY / (Random.Range(noiseReducerMin, noiseReducerMax + 1)) -0.08f;
 		pos.z = perlinNoiseZ / ((Random.Range(noiseReducerMin, noiseReducerMax + 1)* 1.5f));
 		return pos;
+	}
+
+	public void SetMothAnimationState(string triggerName)
+	{
+		mothChild.gameObject.GetComponent<Animator>().SetTrigger(triggerName);
 	}
 }

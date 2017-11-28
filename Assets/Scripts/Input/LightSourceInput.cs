@@ -9,10 +9,6 @@ using System.Collections;
 public class LightSourceInput : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 LandingPosition;
-    [SerializeField]
-    private Vector3 cameraPosition;
-    [SerializeField]
     private bool IsLit = false;
     [SerializeField]
     private bool isSwitchable = false;
@@ -40,8 +36,7 @@ public class LightSourceInput : MonoBehaviour
 
     [SerializeField]
     private bool isActivated;
-
-    public Vector3 CameraPosition { get { return transform.TransformPoint(cameraPosition); } }
+    private bool lampFullOn;
 
     public bool Lit
     {
@@ -60,6 +55,12 @@ public class LightSourceInput : MonoBehaviour
         get { return isActivated; }
         set { isActivated = value; }
     }
+    public bool LampFullOn
+    {
+        get { return lampFullOn; }
+        set { lampFullOn = value; }
+    }
+
 
     public delegate void LightSourceAction();
     public static event LightSourceAction LightSourceCall;
@@ -83,14 +84,6 @@ public class LightSourceInput : MonoBehaviour
         firstTimeFlickerCheck = true;
     }
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown("up"))
-    //    {
-    //        LampFlickering();
-    //    }
-    //}
-
     public void FragmentChecker()
     {
         localFragmentsState = new bool[interactables.Length];
@@ -108,11 +101,12 @@ public class LightSourceInput : MonoBehaviour
 
         if (interactables.Length == 3)
         {
-            if (getNrOfFragments == interactables.Length)
+            if (getNrOfFragments == interactables.Length ||
+                getNrOfFragments == interactables.Length - 1)
             {
                 LampON();
             }
-            else if (getNrOfFragments == interactables.Length - 1)
+            else if (getNrOfFragments == interactables.Length - 2)
             {
                 LampFlickering();
             }
@@ -159,12 +153,15 @@ public class LightSourceInput : MonoBehaviour
         lampStateCheck = false;
         currentLampState = State.LAMP_FLICKERING;
         LightSwitch(currentLampState);
+        isActivated = true;
+        lampFullOn = false;
     }
     private void LampON()
     {
         currentLampState = State.LAMP_ON;
         lampStateCheck = true;
         isActivated = true;
+        lampFullOn = true;
 
         LightSwitch(currentLampState);
         LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);
@@ -295,17 +292,4 @@ public class LightSourceInput : MonoBehaviour
 
         return value;
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawIcon(transform.TransformPoint(LandingPosition), "MothIcon.tif", true);
-        Gizmos.DrawIcon(transform.TransformPoint(cameraPosition), "CameraIcon.tif", true);
-    }
-
-    public Vector3 GetLandingPos()
-    {
-        return LandingPosition;
-    }
-
-
 }

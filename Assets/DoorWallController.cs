@@ -25,21 +25,16 @@ public class DoorWallController : MonoBehaviour
     void LampChecker()
     {
         int numActiveLamps = roomLamps.Count(l => l.LampActivated);
+        int numFullOnLamps = roomLamps.Count(l => l.LampFullOn);
 
         AkSoundEngine.SetState("LAMPS_ON", "LAMP_" + numActiveLamps);
-
-        // If 3 or 2 lamps are activated - call the story event
-        if (roomLamps.Length == 3)
+        if(roomLamps.Length == 1 && numFullOnLamps == 1)
         {
-            if (numActiveLamps == roomLamps.Length ||
-                numActiveLamps == roomLamps.Length - 1)
-            {
-                gameObject.SetActive(false);
-                CallStoryEvent();
-            }
+            gameObject.SetActive(false);
+            CallStoryEvent();
         }
-        // If all lamps are activated - call the story event 
-        else if (numActiveLamps == roomLamps.Length)
+
+        else if (numFullOnLamps >= 1 && numActiveLamps == roomLamps.Length)
         {
             gameObject.SetActive(false);
             CallStoryEvent();
