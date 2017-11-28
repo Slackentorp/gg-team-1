@@ -22,6 +22,7 @@ public abstract class Interactable : MonoBehaviour
     public float InternalInteractionDistion { get { return Mathf.Sqrt(interactionDistance); } }
     public bool HasPlayed { get { return hasPlayed; } set { hasPlayed = value; } }
     public string StoryFragment { get { return storyFragment; } }
+    public Vector3 LandingPosition { get { return landingPosition; } }
 
     [SerializeField, Tooltip("The maximum distance of interaction")]
     private float interactionDistance = 2f;
@@ -30,6 +31,8 @@ public abstract class Interactable : MonoBehaviour
     private Vector3 cameraPosition;
     [SerializeField, Tooltip("Defines the fixed orientation for the camera.")]
     private Vector3 cameraOrientation;
+    [SerializeField, Tooltip("Where the moth should land")]
+    private Vector3 landingPosition;
 
     [SerializeField, Tooltip("The name of the story fragment")]
     private string storyFragment;
@@ -49,15 +52,15 @@ public abstract class Interactable : MonoBehaviour
         HasPlayed = true;
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
-            (uint)AkCallbackType.AK_EnableGetSourcePlayPosition |
-            (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+            (uint) AkCallbackType.AK_EnableGetSourcePlayPosition |
+            (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
     }
 
     public virtual void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
     {
         var t = sender as EasyWwiseCallback;
-        
+
         if (t != null && callbackType == AkCallbackType.AK_EndOfEvent)
         {
             t.Invoke();
@@ -83,5 +86,6 @@ public abstract class Interactable : MonoBehaviour
     {
         Gizmos.DrawIcon(transform.position + cameraPosition, "CameraIcon.tif");
         Gizmos.DrawLine(transform.position + cameraPosition, transform.position + cameraOrientation);
+        Gizmos.DrawIcon(transform.TransformPoint(landingPosition), "MothIcon.tif", true);
     }
 }
