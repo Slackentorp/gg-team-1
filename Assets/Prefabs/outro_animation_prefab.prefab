@@ -312,23 +312,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1143014875923588
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4682711287603502}
-  - component: {fileID: 20582563875482344}
-  - component: {fileID: 95140879891366902}
-  m_Layer: 0
-  m_Name: outro_camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1144716826876834
 GameObject:
   m_ObjectHideFlags: 1
@@ -1447,6 +1430,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1596570390127570
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4191724190323398}
+  - component: {fileID: 20427269155861752}
+  - component: {fileID: 95536809373234540}
+  m_Layer: 0
+  m_Name: outro_camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1603742769227280
 GameObject:
   m_ObjectHideFlags: 1
@@ -2799,6 +2799,19 @@ Transform:
   m_Father: {fileID: 4309488129796344}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4191724190323398
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596570390127570}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4595532825754478}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4198106704438152
 Transform:
   m_ObjectHideFlags: 1
@@ -3659,6 +3672,7 @@ Transform:
   - {fileID: 4511158967616798}
   - {fileID: 4325518722694330}
   - {fileID: 4041875717732636}
+  - {fileID: 4191724190323398}
   m_Father: {fileID: 4989803652951116}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3772,19 +3786,6 @@ Transform:
   m_Father: {fileID: 4976855953246454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4682711287603502
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1143014875923588}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4989803652951116}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4692629269489378
 Transform:
   m_ObjectHideFlags: 1
@@ -4401,16 +4402,15 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4595532825754478}
-  - {fileID: 4682711287603502}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
---- !u!20 &20582563875482344
+--- !u!20 &20427269155861752
 Camera:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1143014875923588}
+  m_GameObject: {fileID: 1596570390127570}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -4663,13 +4663,13 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95140879891366902
+--- !u!95 &95536809373234540
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1143014875923588}
+  m_GameObject: {fileID: 1596570390127570}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a516f3c7a4a3cd041be111be38a6c916, type: 3}
   m_Controller: {fileID: 0}
@@ -4816,7 +4816,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 396ee4cd86cb4824c8ce0f8c4a21a5d7, type: 2}
+  - {fileID: 2100000, guid: 468d4cb8b6e3efe40b280e18ac1d8414, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4929,6 +4929,6 @@ PlayableDirector:
   - key: {fileID: 114489647580842670, guid: 478d13758500a4e4c8dd33fc954d9485, type: 2}
     value: {fileID: 1471110100406362}
   - key: {fileID: 114801260553613354, guid: 478d13758500a4e4c8dd33fc954d9485, type: 2}
-    value: {fileID: 1143014875923588}
+    value: {fileID: 1596570390127570}
   m_ExposedReferences:
     m_References: []
