@@ -170,7 +170,7 @@ public class MothBehaviour
 			anchorPointPlusPos = parentPos + pos;
 			mothDampProcedural = true;
 		}
-		if (mothDampProcedural == true && proceduralLerpTime * 0.7 < 1)
+		if (mothDampProcedural == true && proceduralLerpTime * 2 < 1)
 		{
 			mothChild.transform.localPosition = Vector3.Lerp(mothOriginPos,
 			anchorPointPlusPos, mothChildCurve.Evaluate(proceduralLerpTime * mothSpeedModifier));
