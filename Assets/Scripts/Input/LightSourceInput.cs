@@ -9,10 +9,6 @@ using System.Collections;
 public class LightSourceInput : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 LandingPosition;
-    [SerializeField]
-    private Vector3 cameraPosition;
-    [SerializeField]
     private bool IsLit = false;
     [SerializeField]
     private bool isSwitchable = false;
@@ -40,8 +36,6 @@ public class LightSourceInput : MonoBehaviour
 
     [SerializeField]
     private bool isActivated;
-
-    public Vector3 CameraPosition { get { return transform.TransformPoint(cameraPosition); } }
 
     public bool Lit
     {
@@ -82,14 +76,6 @@ public class LightSourceInput : MonoBehaviour
         FragmentChecker();
         firstTimeFlickerCheck = true;
     }
-
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown("up"))
-    //    {
-    //        LampFlickering();
-    //    }
-    //}
 
     public void FragmentChecker()
     {
@@ -296,17 +282,4 @@ public class LightSourceInput : MonoBehaviour
 
         return value;
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawIcon(transform.TransformPoint(LandingPosition), "MothIcon.tif", true);
-        Gizmos.DrawIcon(transform.TransformPoint(cameraPosition), "CameraIcon.tif", true);
-    }
-
-    public Vector3 GetLandingPos()
-    {
-        return LandingPosition;
-    }
-
-
 }
