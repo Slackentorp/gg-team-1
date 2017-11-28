@@ -34,11 +34,13 @@ public class MothBehaviour
 	Vector3 hitPoint, mothStartPos;
 	RaycastHit hit;
 	Vector3 hitDotPoint, hitDotNormal, mothRotation, dampVelocity, mothOriginPos, parentPos;
-	Vector3 pos, anchorPointPlusPos;
+	Vector3 pos, anchorPointPlusPos, currentVelocity;
 	Ray ray;
+	float veticalMothScreenPlacement, limitMothForwardFidgit;
 	float turningTime, turningSpeed, proceduralLerpTime, time;
 	float perlinNoiseX, perlinNoiseY, perlinNoiseZ, levelOfNoise = 0.5f;
-	float distance;
+	float distance, timeToTarget = 1.0f, timeSpentInDamp = 1.5f;
+	float fidgitInFlightReducer = 0;
 	float velocity;
 
 	public float MothSpeed
@@ -59,7 +61,9 @@ public class MothBehaviour
 	}
 
 	public MothBehaviour(GameObject moth, Camera camera, float mothDistanceToObject, float MothSpeed, AnimationCurve curve,
-						int noiseReducerMax, int noiseReducerMin, float speedModifier, AnimationCurve MothFlightLerpCurve)
+						int noiseReducerMax, int noiseReducerMin, float speedModifier, AnimationCurve MothFlightLerpCurve,
+						float verticalMothScreenPlacement, float limitMothForwardFidgit, float fidgitInFlightReducer, 
+						float timeSpentInDamp)
 	{
 		this.moth = moth;
 		this.camera = camera;
@@ -70,6 +74,10 @@ public class MothBehaviour
 		this.noiseReducerMin = noiseReducerMin;
 		this.mothSpeedModifier = speedModifier;
 		this.MothFlightLerpCurve = MothFlightLerpCurve;
+		this.veticalMothScreenPlacement = verticalMothScreenPlacement;
+		this.limitMothForwardFidgit = limitMothForwardFidgit;
+		this.fidgitInFlightReducer = fidgitInFlightReducer;
+		this.timeSpentInDamp = timeSpentInDamp;
 	}
 
 
@@ -164,16 +172,20 @@ public class MothBehaviour
 		{
 			mothOriginPos = mothChild.transform.localPosition;
 
-			CalculatePerlinNoise();
+			if (lerpRunning == true)
+			{
+				CalculatePerlinNoise(fidgitInFlightReducer, fidgitInFlightReducer);
+			}
+			
+			CalculatePerlinNoise(noiseReducerMin, noiseReducerMax);
 
 			proceduralLerpTime = 0;
 			anchorPointPlusPos = parentPos + pos;
 			mothDampProcedural = true;
 		}
-		if (mothDampProcedural == true && proceduralLerpTime * 2 < 1)
+		if (mothDampProcedural == true && proceduralLerpTime * timeSpentInDamp < 1)
 		{
-			mothChild.transform.localPosition = Vector3.Lerp(mothOriginPos,
-			anchorPointPlusPos, mothChildCurve.Evaluate(proceduralLerpTime * mothSpeedModifier));
+			mothChild.transform.localPosition = Vector3.SmoothDamp(mothChild.transform.localPosition, anchorPointPlusPos, ref currentVelocity, timeToTarget);
 		}
 		else if (mothDampProcedural == true)
 		{
@@ -181,8 +193,23 @@ public class MothBehaviour
 		}
 	}
 
-	Vector3 CalculatePerlinNoise()
+	Vector3 CalculatePerlinNoise(float minNoiseReduce, float maxNoiseReduce)
 	{
+		//perlinNoiseX = Mathf.PerlinNoise(1.0f * Time.time, 0.0f);
+		//if (perlinNoiseX % 0.02f == 0)
+		//{
+		//	perlinNoiseX = -perlinNoiseX;
+		//}
+		//perlinNoiseY = Mathf.PerlinNoise(0.0f, 1.0f * Time.time);
+		//if (perlinNoiseY % 0.02f == 0)
+		//{
+		//	perlinNoiseY = -perlinNoiseY;
+		//}
+		//perlinNoiseZ = Mathf.PerlinNoise(Time.time * 1.0f, 1.0f * Time.time);
+		//if (perlinNoiseZ % 0.02f == 0)
+		//{
+		//	perlinNoiseZ = -perlinNoiseZ;
+		//}
 		perlinNoiseX = Mathf.PerlinNoise(1.0f * Time.time, 0.0f);
 		if (perlinNoiseX < 0.51f)
 		{
@@ -198,9 +225,10 @@ public class MothBehaviour
 		{
 			perlinNoiseZ = -perlinNoiseZ;
 		}
-		pos.x = perlinNoiseX / (Random.Range(noiseReducerMin, noiseReducerMax + 1));
-		pos.y = perlinNoiseY / (Random.Range(noiseReducerMin, noiseReducerMax + 1)) -0.08f;
-		pos.z = perlinNoiseZ / ((Random.Range(noiseReducerMin, noiseReducerMax + 1)* 1.5f));
+
+		pos.x = perlinNoiseX / (Random.Range(minNoiseReduce, maxNoiseReduce + 1));
+		pos.y = perlinNoiseY / (Random.Range(minNoiseReduce, maxNoiseReduce + 1)) - veticalMothScreenPlacement;
+		pos.z = perlinNoiseZ / ((Random.Range(minNoiseReduce, maxNoiseReduce + 1)* limitMothForwardFidgit));
 		return pos;
 	}
 }
