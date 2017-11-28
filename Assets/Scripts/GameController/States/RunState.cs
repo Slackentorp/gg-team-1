@@ -36,7 +36,6 @@ public class RunState : GameState
                 float dist = Vector3.SqrMagnitude(gm.Moth.transform.position - interactable.transform.position);
                 if (Mathf.Abs(dist) < interactable.InternalInteractionDistion)
                 {
-                    Debug.Log("Interactable " + interactable.InternalInteractionDistion + " moth " + dist);
                     gm.SetState(new InteractableState(gm, interactable)); 
                 }
             }

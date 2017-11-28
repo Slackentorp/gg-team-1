@@ -20,11 +20,14 @@ public class MothPulse : MonoBehaviour
     private void GetMaterial()
     {
         rend = GetComponent<Renderer>();
-        rend.material.shader = mothShader;
+        if(rend != null){
+            rend.material.shader = mothShader;
+        }
     }
 
     private void PulseEffect()
     {
+        if(rend == null) return;
         int rtpcType = (int)RTPCValue_type.RTPCValue_Global;
         float volume;
 

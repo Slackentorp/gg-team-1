@@ -29,11 +29,10 @@ public class CameraController
     public bool isDebug = true;
     public static bool isMouseTouchingObject;
     public Vector3 heading { get; private set; }
+    public Vector3 InitialHeading { get {return initialHeading;} }
     Vector3 initialHeading;
     Vector3 flattened;
     private bool fragmentMode;
-
-    Vector3 headingProjected, upProjected;
 
     public Transform TargetPos
     {
@@ -105,6 +104,7 @@ public class CameraController
         {
             RotateAroundMoth();
             
+            // Camera collision
             RaycastHit hit;
             if(Physics.Raycast(targetPos.position, heading.normalized, out hit, initialHeading.magnitude))
             {
@@ -239,5 +239,10 @@ public class CameraController
         {
             return;
         }
+    }
+
+    public void SetHeading(Vector3 h)
+    {
+        heading = h;
     }
 }
