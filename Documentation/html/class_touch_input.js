@@ -1,9 +1,9 @@
 var class_touch_input =
 [
-    [ "OnSwipe", "class_touch_input.html#a8a4cc0973a0a93601ad58e7dffda69a3", null ],
-    [ "OnTap", "class_touch_input.html#aab66020315bc2b5a08d096108bd35777", null ],
-    [ "OnTouchDown", "class_touch_input.html#a8e88dcdb70e38b3275a4f5156d96027d", null ],
+    [ "OnSwipe", "class_touch_input.html#ac06b4a57db9eedbaa9581758027baa77", null ],
+    [ "OnTap", "class_touch_input.html#a73e6e9e39e436dcbb5a21dcca0f48e61", null ],
+    [ "OnTouchDown", "class_touch_input.html#a72d96d7e5702c030a6d7b25cf6ba8a0c", null ],
     [ "OnTouchExit", "class_touch_input.html#aff43a0a8a2ff86c2d96a63baf4baf7cd", null ],
-    [ "OnToucHold", "class_touch_input.html#a0188948cd6b3b560e99e1e8a059fcab5", null ],
-    [ "OnTouchUp", "class_touch_input.html#a63116b920bd7d5f49350e28312d13bc7", null ]
+    [ "OnToucHold", "class_touch_input.html#afdbb9695ad8024a0d7065ddddd872c3e", null ],
+    [ "OnTouchUp", "class_touch_input.html#a28974de576bef75e775197083533599c", null ]
 ];

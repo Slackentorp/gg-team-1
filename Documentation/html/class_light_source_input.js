@@ -1,9 +1,10 @@
 var class_light_source_input =
 [
-    [ "OnSwipe", "class_light_source_input.html#aaaed4cbe0ce0cb181bf997b3fe48b7d6", null ],
-    [ "OnTap", "class_light_source_input.html#aae5eb40499438b11ad034b8fcda8d3b8", null ],
-    [ "OnTouchDown", "class_light_source_input.html#afad06743366fc681f177944d87ba698f", null ],
-    [ "OnTouchExit", "class_light_source_input.html#aa3028777458beb10954faa02f5a977b2", null ],
-    [ "OnToucHold", "class_light_source_input.html#a680032a6c3189442f4168c3011e50562", null ],
-    [ "OnTouchUp", "class_light_source_input.html#aba0cd66b3426136984fe6f3739ecd340", null ]
+    [ "FragmentChecker", "class_light_source_input.html#a8fd8604d5117c09775d3a444c6899eb4", null ],
+    [ "LightMapSwitchAction", "class_light_source_input.html#a5d5ad5fb4cd52dbd2655afc1520dd676", null ],
+    [ "LightSourceAction", "class_light_source_input.html#a51e104571ccbe9f7959e55cef21fdbd1", null ],
+    [ "LightSourceCallz", "class_light_source_input.html#acd138eec00d1ccd2faf9917a2f45637b", null ],
+    [ "ISSwitchable", "class_light_source_input.html#ad92a0ad8aa9ef93c76846bdeacedb52b", null ],
+    [ "LampActivated", "class_light_source_input.html#a4b72887761a64b25eb671b37ffd79ace", null ],
+    [ "Lit", "class_light_source_input.html#adb1e69838fd754f34c3db30bf266f770", null ]
 ];

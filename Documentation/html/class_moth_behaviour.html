@@ -81,38 +81,275 @@ $(document).ready(function(){initNavTree('class_moth_behaviour.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#properties">Properties</a> &#124;
+<a href="#events">Events</a> &#124;
 <a href="class_moth_behaviour-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MothBehaviour Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for MothBehaviour:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_moth_behaviour.png" usemap="#MothBehaviour_map" alt=""/>
-  <map id="MothBehaviour_map" name="MothBehaviour_map">
-</map>
- </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7509f664f28f504c504d5ab1d1da7d9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#a7509f664f28f504c504d5ab1d1da7d9b">SetMothPosition</a> (Vector3 position)</td></tr>
-<tr class="separator:a7509f664f28f504c504d5ab1d1da7d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa659b416020d6ca84e376fafaa40b11"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#aaa659b416020d6ca84e376fafaa40b11">ReachedPosition</a> ()</td></tr>
+<tr class="separator:aaa659b416020d6ca84e376fafaa40b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1efd5ab99c2014a09bec047b085ede"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#aac1efd5ab99c2014a09bec047b085ede">MothBehaviour</a> (GameObject moth, Camera camera, float mothDistanceToObject, float <a class="el" href="class_moth_behaviour.html#a48235fa37840835a4c9ba9a8814dba6c">MothSpeed</a>, AnimationCurve curve, int noiseReducerMax, int noiseReducerMin, float speedModifier, AnimationCurve MothFlightLerpCurve)</td></tr>
+<tr class="separator:aac1efd5ab99c2014a09bec047b085ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06404e2cc76173e0fdd8e93f3c118da5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#a06404e2cc76173e0fdd8e93f3c118da5">SetFragmentMode</a> (bool b)</td></tr>
+<tr class="separator:a06404e2cc76173e0fdd8e93f3c118da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bea7542484e3dfeb620650aa779c259"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#a3bea7542484e3dfeb620650aa779c259">Update</a> ()</td></tr>
+<tr class="separator:a3bea7542484e3dfeb620650aa779c259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abda97a23bbf6104f12f6faad7b1ff8c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#abda97a23bbf6104f12f6faad7b1ff8c6">SetMothPos</a> (RaycastHit hit)</td></tr>
+<tr class="separator:abda97a23bbf6104f12f6faad7b1ff8c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf7c74b669a7fc7c864d97686c6b43a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#adaf7c74b669a7fc7c864d97686c6b43a">SetMothPos</a> (Vector3 position)</td></tr>
+<tr class="separator:adaf7c74b669a7fc7c864d97686c6b43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a275e4b4aefceba92e66afeb1a6f44729"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#a275e4b4aefceba92e66afeb1a6f44729">SetMothAnimationState</a> (string triggerName)</td></tr>
+<tr class="separator:a275e4b4aefceba92e66afeb1a6f44729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a48235fa37840835a4c9ba9a8814dba6c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#a48235fa37840835a4c9ba9a8814dba6c">MothSpeed</a><code> [get, set]</code></td></tr>
+<tr class="separator:a48235fa37840835a4c9ba9a8814dba6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7353fa2488f7dfc505bd28149e4c5ce9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#a7353fa2488f7dfc505bd28149e4c5ce9">fragmentMode</a><code> [get]</code></td></tr>
+<tr class="separator:a7353fa2488f7dfc505bd28149e4c5ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
+Events</h2></td></tr>
+<tr class="memitem:a29a7cfbe6639868b165f979b2b83d871"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_moth_behaviour.html#aaa659b416020d6ca84e376fafaa40b11">ReachedPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moth_behaviour.html#a29a7cfbe6639868b165f979b2b83d871">OnReachedPosition</a></td></tr>
+<tr class="separator:a29a7cfbe6639868b165f979b2b83d871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7509f664f28f504c504d5ab1d1da7d9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7509f664f28f504c504d5ab1d1da7d9b">&#9670;&nbsp;</a></span>SetMothPosition()</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aac1efd5ab99c2014a09bec047b085ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1efd5ab99c2014a09bec047b085ede">&#9670;&nbsp;</a></span>MothBehaviour()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MothBehaviour.SetMothPosition </td>
+          <td class="memname">MothBehaviour.MothBehaviour </td>
+          <td>(</td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>moth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Camera&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>mothDistanceToObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>MothSpeed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AnimationCurve&#160;</td>
+          <td class="paramname"><em>curve</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>noiseReducerMax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>noiseReducerMin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speedModifier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AnimationCurve&#160;</td>
+          <td class="paramname"><em>MothFlightLerpCurve</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaa659b416020d6ca84e376fafaa40b11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa659b416020d6ca84e376fafaa40b11">&#9670;&nbsp;</a></span>ReachedPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void MothBehaviour.ReachedPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06404e2cc76173e0fdd8e93f3c118da5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06404e2cc76173e0fdd8e93f3c118da5">&#9670;&nbsp;</a></span>SetFragmentMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MothBehaviour.SetFragmentMode </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a275e4b4aefceba92e66afeb1a6f44729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a275e4b4aefceba92e66afeb1a6f44729">&#9670;&nbsp;</a></span>SetMothAnimationState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MothBehaviour.SetMothAnimationState </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>triggerName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abda97a23bbf6104f12f6faad7b1ff8c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda97a23bbf6104f12f6faad7b1ff8c6">&#9670;&nbsp;</a></span>SetMothPos() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MothBehaviour.SetMothPos </td>
+          <td>(</td>
+          <td class="paramtype">RaycastHit&#160;</td>
+          <td class="paramname"><em>hit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adaf7c74b669a7fc7c864d97686c6b43a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf7c74b669a7fc7c864d97686c6b43a">&#9670;&nbsp;</a></span>SetMothPos() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MothBehaviour.SetMothPos </td>
           <td>(</td>
           <td class="paramtype">Vector3&#160;</td>
           <td class="paramname"><em>position</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3bea7542484e3dfeb620650aa779c259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bea7542484e3dfeb620650aa779c259">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MothBehaviour.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a7353fa2488f7dfc505bd28149e4c5ce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7353fa2488f7dfc505bd28149e4c5ce9">&#9670;&nbsp;</a></span>fragmentMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MothBehaviour.fragmentMode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48235fa37840835a4c9ba9a8814dba6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48235fa37840835a4c9ba9a8814dba6c">&#9670;&nbsp;</a></span>MothSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MothBehaviour.MothSpeed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Event Documentation</h2>
+<a id="a29a7cfbe6639868b165f979b2b83d871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a7cfbe6639868b165f979b2b83d871">&#9670;&nbsp;</a></span>OnReachedPosition</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_moth_behaviour.html#aaa659b416020d6ca84e376fafaa40b11">ReachedPosition</a> MothBehaviour.OnReachedPosition</td>
         </tr>
       </table>
 </div><div class="memdoc">

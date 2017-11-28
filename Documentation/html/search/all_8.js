@@ -1,13 +1,24 @@
 var searchData=
 [
   ['handleevent',['HandleEvent',['../class_ak_ambient.html#a5a6e56a7164a2318717f8794711b6bf6',1,'AkAmbient.HandleEvent()'],['../class_ak_bank.html#a4ab40da246ae6d5c11dd9fb00029b98d',1,'AkBank.HandleEvent()'],['../class_ak_event.html#a42889c9af8488f292c6b5d206e7b1b66',1,'AkEvent.HandleEvent()'],['../class_ak_state.html#a884da690311b23f501590effd8ab9831',1,'AkState.HandleEvent()'],['../class_ak_switch.html#a2c3c6fd95826533304b2e24df8b60cf3',1,'AkSwitch.HandleEvent()'],['../class_ak_unity_event_handler.html#ad7ff45d6d684c2df92ce31bf4cc24690',1,'AkUnityEventHandler.HandleEvent()']]],
+  ['hardguiderect',['HardGuideRect',['../class_cinemachine_1_1_cinemachine_composer.html#a1acab1d77ffe5f9a93cf2b4969e6dc29',1,'Cinemachine.CinemachineComposer.HardGuideRect()'],['../class_cinemachine_1_1_cinemachine_framing_transposer.html#ab96dbef114717eb94dbb3562c8e06d9d',1,'Cinemachine.CinemachineFramingTransposer.HardGuideRect()']]],
+  ['hardin',['HardIn',['../struct_cinemachine_1_1_cinemachine_blend_definition.html#a3846d2996b61f3d97ef229ec888e5bbcabdf4064a6e4b059511bf2b0fdcf4454b',1,'Cinemachine::CinemachineBlendDefinition']]],
+  ['hardout',['HardOut',['../struct_cinemachine_1_1_cinemachine_blend_definition.html#a3846d2996b61f3d97ef229ec888e5bbca5bd17ad279a5c94f5a0f6d96f3bd72e8',1,'Cinemachine::CinemachineBlendDefinition']]],
   ['haschilditems',['HasChildItems',['../class_a_k_1_1_wwise_1_1_tree_view_1_1_tree_view_item.html#ad52f27629c98f77913a681ae078c6331',1,'AK::Wwise::TreeView::TreeViewItem']]],
   ['hasfocus',['HasFocus',['../class_a_k_1_1_wwise_1_1_tree_view_1_1_tree_view_control.html#a78ec9cea2ead1aa75fc355cf180e99d4',1,'AK::Wwise::TreeView::TreeViewControl']]],
   ['hashsize',['HashSize',['../class_ak_utilities_1_1_short_i_d_generator.html#a5d97aeb05666d616388c46e117dfec6c',1,'AkUtilities::ShortIDGenerator']]],
+  ['haslookat',['HasLookAt',['../struct_cinemachine_1_1_camera_state.html#a7fdab39fc138e9e30c6b3740f511fec5',1,'Cinemachine::CameraState']]],
+  ['hasplayed',['HasPlayed',['../class_interactable.html#a2e6e19656d6feb6d581776e5a9fae28a',1,'Interactable']]],
   ['header',['Header',['../class_a_k_1_1_wwise_1_1_tree_view_1_1_tree_view_control.html#a01510e4e36891f00570020612b549fc2',1,'AK.Wwise.TreeView.TreeViewControl.Header()'],['../class_a_k_1_1_wwise_1_1_tree_view_1_1_tree_view_item.html#a73cc85607c0535a2b9d8e15b087a5c51',1,'AK.Wwise.TreeView.TreeViewItem.Header()']]],
+  ['heading',['Heading',['../struct_cinemachine_1_1_cinemachine_orbital_transposer_1_1_heading.html',1,'Cinemachine.CinemachineOrbitalTransposer.Heading'],['../class_camera_controller.html#a30f6ce6201262bf3f6261a51045f86d4',1,'CameraController.heading()'],['../struct_cinemachine_1_1_cinemachine_orbital_transposer_1_1_heading.html#af8f3fb74da18b7b1fe2f560b8b93d459',1,'Cinemachine.CinemachineOrbitalTransposer.Heading.Heading()']]],
+  ['headingdefinition',['HeadingDefinition',['../struct_cinemachine_1_1_cinemachine_orbital_transposer_1_1_heading.html#acce591417e13af3755e231e508cb6fe1',1,'Cinemachine::CinemachineOrbitalTransposer::Heading']]],
+  ['headsetstateuitext',['HeadsetStateUIText',['../class_game_controller.html#a102865ddfb2b1067ed08e16dccbc8dcb',1,'GameController']]],
   ['height',['Height',['../class_a_k_1_1_wwise_1_1_tree_view_1_1_tree_view_control.html#a33d0e27e697833cd257a3510efb69575',1,'AK::Wwise::TreeView::TreeViewControl']]],
   ['help',['help',['../namespace_wwise_i_d_converter.html#a48f1c128085b01a844eb475aae0f202b',1,'WwiseIDConverter']]],
+  ['horizontal',['Horizontal',['../class_cinemachine_1_1_cinemachine_framing_transposer.html#a007c922753973f4b7f5ddb4687673032ac1b5fa03ecdb95d4a45dd1c40b02527f',1,'Cinemachine.CinemachineFramingTransposer.Horizontal()'],['../class_cinemachine_1_1_cinemachine_group_composer.html#a4034aad90abb8378a14caf983a7c3545ac1b5fa03ecdb95d4a45dd1c40b02527f',1,'Cinemachine.CinemachineGroupComposer.Horizontal()']]],
+  ['horizontalandvertical',['HorizontalAndVertical',['../class_cinemachine_1_1_cinemachine_framing_transposer.html#a007c922753973f4b7f5ddb4687673032a8a4ec9cfaa0a4f67a270b8741f45184b',1,'Cinemachine.CinemachineFramingTransposer.HorizontalAndVertical()'],['../class_cinemachine_1_1_cinemachine_group_composer.html#a4034aad90abb8378a14caf983a7c3545a8a4ec9cfaa0a4f67a270b8741f45184b',1,'Cinemachine.CinemachineGroupComposer.HorizontalAndVertical()']]],
   ['hoveritem',['HoverItem',['../class_a_k_1_1_wwise_1_1_tree_view_1_1_tree_view_control.html#a08652e581581c9f469e3894b5f548eb6',1,'AK::Wwise::TreeView::TreeViewControl']]],
   ['hpfcone',['HPFCone',['../class_ak_positioning_info.html#a23ddcb73fa5497f589684fae31c645c3',1,'AkPositioningInfo']]],
-  ['hpfvalueatmaxdist',['HPFValueAtMaxDist',['../class_ak_positioning_info.html#ac3f1b5d66224634e6982fbc83a23d1fd',1,'AkPositioningInfo']]]
+  ['hpfvalueatmaxdist',['HPFValueAtMaxDist',['../class_ak_positioning_info.html#ac3f1b5d66224634e6982fbc83a23d1fd',1,'AkPositioningInfo']]],
+  ['hui',['hui',['../class_sub_tool.html#ad79d7a0ce03387d587e4c75efbadb0b2',1,'SubTool']]]
 ];

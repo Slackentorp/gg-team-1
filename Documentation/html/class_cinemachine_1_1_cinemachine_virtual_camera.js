@@ -1,0 +1,25 @@
+var class_cinemachine_1_1_cinemachine_virtual_camera =
+[
+    [ "AddCinemachineComponent< T >", "class_cinemachine_1_1_cinemachine_virtual_camera.html#ac379d5ceb89f46575e0183ae7d3c3cf7", null ],
+    [ "CreatePipelineDelegate", "class_cinemachine_1_1_cinemachine_virtual_camera.html#aaefa90dd9990e94cda73ad1c2dabda2c", null ],
+    [ "DestroyCinemachineComponent< T >", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a95bef0e63c4b2d877401d576586ca000", null ],
+    [ "DestroyPipelineDelegate", "class_cinemachine_1_1_cinemachine_virtual_camera.html#ad9b03c45cd2a908eda37c584a9ad5a97", null ],
+    [ "GetCinemachineComponent", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a191a0a5351d1e1cae892cf5b60acf21b", null ],
+    [ "GetCinemachineComponent< T >", "class_cinemachine_1_1_cinemachine_virtual_camera.html#ab118629fbf494505b7ba5a20ed030068", null ],
+    [ "GetComponentOwner", "class_cinemachine_1_1_cinemachine_virtual_camera.html#aa83321b28c2dd6d798e22f6310b581bf", null ],
+    [ "GetComponentPipeline", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a32911924e7cc573b7810d9939b72e5f7", null ],
+    [ "InvalidateComponentPipeline", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a9f78195b6e14f2f95898d4757da1ebeb", null ],
+    [ "OnDestroy", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a15b8bde674a6119792eca51fb4aa46b1", null ],
+    [ "OnEnable", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a911a7bf27d7776632736d34ab00d6c66", null ],
+    [ "OnPositionDragged", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a48eee8bdada2639081738e1c58248661", null ],
+    [ "OnValidate", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a1e8b471dbd14495f57d339c00e4bed44", null ],
+    [ "UpdateCameraState", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a524fe6ef45472ae7ab506d6cf9612be0", null ],
+    [ "m_Follow", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a1c3a526bd6f8121bb2e9f82ecd5a7467", null ],
+    [ "m_Lens", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a7fea28105f459d372dd22311d88ff3a1", null ],
+    [ "m_LookAt", "class_cinemachine_1_1_cinemachine_virtual_camera.html#ab29563c042c8842c7251937b12ccb9ee", null ],
+    [ "PipelineName", "class_cinemachine_1_1_cinemachine_virtual_camera.html#acba8e983f898db12a84553fc6bf5fc95", null ],
+    [ "Follow", "class_cinemachine_1_1_cinemachine_virtual_camera.html#affcbe1fbf86ec3b008845b5578ffba5f", null ],
+    [ "LookAt", "class_cinemachine_1_1_cinemachine_virtual_camera.html#abfa430ca456443288db6df3595234609", null ],
+    [ "State", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a5d135dd47a32204464bae7672cbe7ae4", null ],
+    [ "UserIsDragging", "class_cinemachine_1_1_cinemachine_virtual_camera.html#a6251ba426c8e5f1a6eeb2db1abb58f33", null ]
+];

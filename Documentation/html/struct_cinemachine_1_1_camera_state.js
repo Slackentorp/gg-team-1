@@ -1,0 +1,28 @@
+var struct_cinemachine_1_1_camera_state =
+[
+    [ "CustomBlendable", "struct_cinemachine_1_1_camera_state_1_1_custom_blendable.html", "struct_cinemachine_1_1_camera_state_1_1_custom_blendable" ],
+    [ "AddCustomBlendable", "struct_cinemachine_1_1_camera_state.html#a6ae8505931e075be72ad0aa3494c8314", null ],
+    [ "FindCustomBlendable", "struct_cinemachine_1_1_camera_state.html#a68effee4169c28b6cc4bf787555fd947", null ],
+    [ "GetCustomBlendable", "struct_cinemachine_1_1_camera_state.html#a0cdf7c90dbecec6fae6b87ad01e5d487", null ],
+    [ "InterpolateFOV", "struct_cinemachine_1_1_camera_state.html#ae8bc1aa2ec9172829b06d2979bcc4d55", null ],
+    [ "m_CustomOverflow", "struct_cinemachine_1_1_camera_state.html#ab9b58d14d8b993c2a8dba223f496696a", null ],
+    [ "mCustom0", "struct_cinemachine_1_1_camera_state.html#a7a60a25cd70446f5ff56aed6ae9b8b55", null ],
+    [ "mCustom1", "struct_cinemachine_1_1_camera_state.html#ae11f6bc67b3310a9237c4508c2b4d7ff", null ],
+    [ "mCustom2", "struct_cinemachine_1_1_camera_state.html#a76004df845f3e7cf0fe0e030b3218256", null ],
+    [ "mCustom3", "struct_cinemachine_1_1_camera_state.html#a905eadd2cf157706686e7f9b6339de01", null ],
+    [ "CorrectedOrientation", "struct_cinemachine_1_1_camera_state.html#a3532740c170446f26d6679a36d2e1a4b", null ],
+    [ "CorrectedPosition", "struct_cinemachine_1_1_camera_state.html#ab5696c22356da307082190f4d3feb1ea", null ],
+    [ "FinalOrientation", "struct_cinemachine_1_1_camera_state.html#a8f4c172c9e046939b2cdcc8f424156d6", null ],
+    [ "FinalPosition", "struct_cinemachine_1_1_camera_state.html#adfd8629deb6e95cee0387011d68d4a56", null ],
+    [ "HasLookAt", "struct_cinemachine_1_1_camera_state.html#a7fdab39fc138e9e30c6b3740f511fec5", null ],
+    [ "Lens", "struct_cinemachine_1_1_camera_state.html#a19bfb4000486c38788fb3d826b4fb7db", null ],
+    [ "NumCustomBlendables", "struct_cinemachine_1_1_camera_state.html#ab3148e1dd1d0525457cf8fd4898246e9", null ],
+    [ "OrientationCorrection", "struct_cinemachine_1_1_camera_state.html#a0a810bad31d647e4349a5cd4309ca4d9", null ],
+    [ "PositionCorrection", "struct_cinemachine_1_1_camera_state.html#a9ac37b645760e733f4c2c69d16aea8fb", null ],
+    [ "PositionDampingBypass", "struct_cinemachine_1_1_camera_state.html#ae4f7353e9ff8c9617f67cbcabd4893e4", null ],
+    [ "RawOrientation", "struct_cinemachine_1_1_camera_state.html#a468b74d33fbf45b61cc2551d765eb6da", null ],
+    [ "RawPosition", "struct_cinemachine_1_1_camera_state.html#a72a15bb38ca45b9d1d6b17c80a11cc0d", null ],
+    [ "ReferenceLookAt", "struct_cinemachine_1_1_camera_state.html#aabf797acf880592150c84e756b092e02", null ],
+    [ "ReferenceUp", "struct_cinemachine_1_1_camera_state.html#a01cd67eb564056eea23ecd75f934fbcf", null ],
+    [ "ShotQuality", "struct_cinemachine_1_1_camera_state.html#a6ca0f4c0b7e80840c941c134a980cbf8", null ]
+];

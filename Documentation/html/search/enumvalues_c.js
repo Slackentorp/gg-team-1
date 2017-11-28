@@ -1,12 +1,19 @@
 var searchData=
 [
-  ['simple_5fmode',['Simple_Mode',['../_ak_ambient_8cs.html#ad20429814e41c8fb87a77f72c2d45a16aad85b5cf29afbc17f47083f60e5849a6',1,'AkAmbient.cs']]],
-  ['soundbank',['SOUNDBANK',['../class_ak_wwise_project_data.html#a501a1e5fe9bdcf58c8864631eb35880da0afba2c051825794fb88ee8842b51ad9',1,'AkWwiseProjectData']]],
-  ['sourcechannelordering_5ffilm',['SourceChannelOrdering_Film',['../_ak_source_channel_ordering_8cs.html#acc88765441193f3a4bfb8ac6d6bf1828a764f70f8f80fa0972a16fd5c264a57b4',1,'AkSourceChannelOrdering.cs']]],
-  ['sourcechannelordering_5ffuma',['SourceChannelOrdering_FuMa',['../_ak_source_channel_ordering_8cs.html#acc88765441193f3a4bfb8ac6d6bf1828a09ccf71b5f5f60c78adc55e2ea0c067a',1,'AkSourceChannelOrdering.cs']]],
-  ['sourcechannelordering_5fstandard',['SourceChannelOrdering_Standard',['../_ak_source_channel_ordering_8cs.html#acc88765441193f3a4bfb8ac6d6bf1828adcb7479aa94f94e8b845d16d17ab6224',1,'AkSourceChannelOrdering.cs']]],
-  ['state',['STATE',['../class_ak_wwise_project_data.html#a501a1e5fe9bdcf58c8864631eb35880da2b848a8cc886d253d21a77c43cd50aae',1,'AkWwiseProjectData']]],
-  ['stategroup',['STATEGROUP',['../class_ak_wwise_project_data.html#a501a1e5fe9bdcf58c8864631eb35880da6007969926c27f89585bcea08a183a46',1,'AkWwiseProjectData']]],
-  ['switch',['SWITCH',['../class_ak_wwise_project_data.html#a501a1e5fe9bdcf58c8864631eb35880da4239f063a3d4fb9d38a0182be6e39e76',1,'AkWwiseProjectData']]],
-  ['switchgroup',['SWITCHGROUP',['../class_ak_wwise_project_data.html#a501a1e5fe9bdcf58c8864631eb35880da85c35eb7d4a3735178b67f5f4308c255',1,'AkWwiseProjectData']]]
+  ['path',['Path',['../class_cinemachine_1_1_cinemachine_tracked_dolly.html#a5314aa15b42b2053c324061aeb2f368baac70412e939d72a9234cdebb1af5867b',1,'Cinemachine::CinemachineTrackedDolly']]],
+  ['pathnoroll',['PathNoRoll',['../class_cinemachine_1_1_cinemachine_tracked_dolly.html#a5314aa15b42b2053c324061aeb2f368ba9b46806748810ea10219eb49d8d3e7c6',1,'Cinemachine::CinemachineTrackedDolly']]],
+  ['pathunits',['PathUnits',['../class_cinemachine_1_1_cinemachine_path_base.html#ad3c407adc1855df3b0d912d61b69c69ea57b6e5dee6587ea54ef9ccc4050fee97',1,'Cinemachine::CinemachinePathBase']]],
+  ['physicalfolder',['PHYSICALFOLDER',['../class_ak_wwise_project_data.html#a501a1e5fe9bdcf58c8864631eb35880da9f2b2b216808b05b489e74d463e59cfc',1,'AkWwiseProjectData']]],
+  ['playableassetalreadyexists',['PlayableAssetAlreadyExists',['../class_timeline_playable_wizard.html#a35ca79dd279d635a3cec2225936965aaa76c93c23d73acc24d71fb36c297b008b',1,'TimelinePlayableWizard']]],
+  ['playablebehaviouralreadyexists',['PlayableBehaviourAlreadyExists',['../class_timeline_playable_wizard.html#a35ca79dd279d635a3cec2225936965aaa6fe9e38849fbf7866e62f58992e401f2',1,'TimelinePlayableWizard']]],
+  ['playablebehaviourmixeralreadyexists',['PlayableBehaviourMixerAlreadyExists',['../class_timeline_playable_wizard.html#a35ca79dd279d635a3cec2225936965aaa41b3b3fd7a1b4c615a82721ca30ff556',1,'TimelinePlayableWizard']]],
+  ['playabledraweralreadyexists',['PlayableDrawerAlreadyExists',['../class_timeline_playable_wizard.html#a35ca79dd279d635a3cec2225936965aaa625a2bc5ec8b0f072c505cacd622e8f6',1,'TimelinePlayableWizard']]],
+  ['positiondelta',['PositionDelta',['../struct_cinemachine_1_1_cinemachine_orbital_transposer_1_1_heading.html#acce591417e13af3755e231e508cb6fe1a1f16890c399a43dc5a8698392676be21',1,'Cinemachine::CinemachineOrbitalTransposer::Heading']]],
+  ['preparation_5fload',['Preparation_Load',['../_preparation_type_8cs.html#af95d7efc40b814cda88cfdfb9fd4e25fa7076755b8a425dd11e0bc84c96ef3a6a',1,'PreparationType.cs']]],
+  ['preparation_5floadanddecode',['Preparation_LoadAndDecode',['../_preparation_type_8cs.html#af95d7efc40b814cda88cfdfb9fd4e25fa3def2ef040de86cfe47a19334d194afa',1,'PreparationType.cs']]],
+  ['preparation_5funload',['Preparation_Unload',['../_preparation_type_8cs.html#af95d7efc40b814cda88cfdfb9fd4e25fac0aa63e3467b9e81acdbc5b6d259d0ad',1,'PreparationType.cs']]],
+  ['preservecameradistance',['PreserveCameraDistance',['../class_cinemachine_1_1_cinemachine_collider.html#a78d26832f600bda07e02dabbddec0f60a2b0cdfc5e056466608a9a9cbef3c700e',1,'Cinemachine::CinemachineCollider']]],
+  ['preservecameraheight',['PreserveCameraHeight',['../class_cinemachine_1_1_cinemachine_collider.html#a78d26832f600bda07e02dabbddec0f60a03f5f452ebe44be076680de06dbf0403',1,'Cinemachine::CinemachineCollider']]],
+  ['project',['PROJECT',['../class_ak_wwise_project_data.html#a501a1e5fe9bdcf58c8864631eb35880da1781f676dedf5767f3243db0a9738b35',1,'AkWwiseProjectData']]],
+  ['pullcameraforward',['PullCameraForward',['../class_cinemachine_1_1_cinemachine_collider.html#a78d26832f600bda07e02dabbddec0f60a6aaf8ec885b37e23891d7730eb2668a4',1,'Cinemachine::CinemachineCollider']]]
 ];

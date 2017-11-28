@@ -81,6 +81,8 @@ $(document).ready(function(){initNavTree('class_light_source_input.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#properties">Properties</a> &#124;
+<a href="#events">Events</a> &#124;
 <a href="class_light_source_input-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">LightSourceInput Class Reference</div>  </div>
@@ -95,45 +97,79 @@ Inheritance diagram for LightSourceInput:</div>
  <div class="center">
   <img src="class_light_source_input.png" usemap="#LightSourceInput_map" alt=""/>
   <map id="LightSourceInput_map" name="LightSourceInput_map">
-<area href="interface_i_touch_input.html" alt="ITouchInput" shape="rect" coords="117,0,224,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aae5eb40499438b11ad034b8fcda8d3b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#aae5eb40499438b11ad034b8fcda8d3b8">OnTap</a> (Touch finger)</td></tr>
-<tr class="separator:aae5eb40499438b11ad034b8fcda8d3b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afad06743366fc681f177944d87ba698f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#afad06743366fc681f177944d87ba698f">OnTouchDown</a> (Touch finger)</td></tr>
-<tr class="separator:afad06743366fc681f177944d87ba698f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba0cd66b3426136984fe6f3739ecd340"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#aba0cd66b3426136984fe6f3739ecd340">OnTouchUp</a> (Touch finger)</td></tr>
-<tr class="separator:aba0cd66b3426136984fe6f3739ecd340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a680032a6c3189442f4168c3011e50562"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#a680032a6c3189442f4168c3011e50562">OnToucHold</a> (Touch finger)</td></tr>
-<tr class="separator:a680032a6c3189442f4168c3011e50562"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3028777458beb10954faa02f5a977b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#aa3028777458beb10954faa02f5a977b2">OnTouchExit</a> ()</td></tr>
-<tr class="separator:aa3028777458beb10954faa02f5a977b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaed4cbe0ce0cb181bf997b3fe48b7d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#aaaed4cbe0ce0cb181bf997b3fe48b7d6">OnSwipe</a> (Touch finger, <a class="el" href="_i_touch_input_8cs.html#a1a5557a21a8dc66512a97dfe18d340fa">TouchDirection</a> direction)</td></tr>
-<tr class="separator:aaaed4cbe0ce0cb181bf997b3fe48b7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51e104571ccbe9f7959e55cef21fdbd1"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#a51e104571ccbe9f7959e55cef21fdbd1">LightSourceAction</a> ()</td></tr>
+<tr class="separator:a51e104571ccbe9f7959e55cef21fdbd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d5ad5fb4cd52dbd2655afc1520dd676"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#a5d5ad5fb4cd52dbd2655afc1520dd676">LightMapSwitchAction</a> (bool StateCheck, bool flickCheck, int indexNr)</td></tr>
+<tr class="separator:a5d5ad5fb4cd52dbd2655afc1520dd676"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fd8604d5117c09775d3a444c6899eb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#a8fd8604d5117c09775d3a444c6899eb4">FragmentChecker</a> ()</td></tr>
+<tr class="separator:a8fd8604d5117c09775d3a444c6899eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd138eec00d1ccd2faf9917a2f45637b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#acd138eec00d1ccd2faf9917a2f45637b">LightSourceCallz</a> ()</td></tr>
+<tr class="separator:acd138eec00d1ccd2faf9917a2f45637b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:adb1e69838fd754f34c3db30bf266f770"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#adb1e69838fd754f34c3db30bf266f770">Lit</a><code> [get, set]</code></td></tr>
+<tr class="separator:adb1e69838fd754f34c3db30bf266f770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92a0ad8aa9ef93c76846bdeacedb52b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#ad92a0ad8aa9ef93c76846bdeacedb52b">ISSwitchable</a><code> [get, set]</code></td></tr>
+<tr class="separator:ad92a0ad8aa9ef93c76846bdeacedb52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b72887761a64b25eb671b37ffd79ace"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#a4b72887761a64b25eb671b37ffd79ace">LampActivated</a><code> [get, set]</code></td></tr>
+<tr class="separator:a4b72887761a64b25eb671b37ffd79ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
+Events</h2></td></tr>
+<tr class="memitem:ae682d1a7f7483b0c619e135895d91768"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_light_source_input.html#a51e104571ccbe9f7959e55cef21fdbd1">LightSourceAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#ae682d1a7f7483b0c619e135895d91768">LightSourceCall</a></td></tr>
+<tr class="separator:ae682d1a7f7483b0c619e135895d91768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4adbf750828724aa7babf9b6db73463a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_light_source_input.html#a5d5ad5fb4cd52dbd2655afc1520dd676">LightMapSwitchAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light_source_input.html#a4adbf750828724aa7babf9b6db73463a">LightMapSwitchCall</a></td></tr>
+<tr class="separator:a4adbf750828724aa7babf9b6db73463a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Touch input specifically for light sources </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aaaed4cbe0ce0cb181bf997b3fe48b7d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaaed4cbe0ce0cb181bf997b3fe48b7d6">&#9670;&nbsp;</a></span>OnSwipe()</h2>
+<a id="a8fd8604d5117c09775d3a444c6899eb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fd8604d5117c09775d3a444c6899eb4">&#9670;&nbsp;</a></span>FragmentChecker()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void LightSourceInput.OnSwipe </td>
+          <td class="memname">void LightSourceInput.FragmentChecker </td>
           <td>(</td>
-          <td class="paramtype">Touch&#160;</td>
-          <td class="paramname"><em>finger</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d5ad5fb4cd52dbd2655afc1520dd676"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d5ad5fb4cd52dbd2655afc1520dd676">&#9670;&nbsp;</a></span>LightMapSwitchAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void LightSourceInput.LightMapSwitchAction </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>StateCheck</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_i_touch_input_8cs.html#a1a5557a21a8dc66512a97dfe18d340fa">TouchDirection</a>&#160;</td>
-          <td class="paramname"><em>direction</em>&#160;</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>flickCheck</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indexNr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -143,58 +179,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_touch_input.html#a75f44031be3cf272128817e638042b84">ITouchInput</a>.</p>
-
 </div>
 </div>
-<a id="aae5eb40499438b11ad034b8fcda8d3b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae5eb40499438b11ad034b8fcda8d3b8">&#9670;&nbsp;</a></span>OnTap()</h2>
+<a id="a51e104571ccbe9f7959e55cef21fdbd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51e104571ccbe9f7959e55cef21fdbd1">&#9670;&nbsp;</a></span>LightSourceAction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void LightSourceInput.OnTap </td>
-          <td>(</td>
-          <td class="paramtype">Touch&#160;</td>
-          <td class="paramname"><em>finger</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="interface_i_touch_input.html#a0b67ddc6ccca1e8dd6051229abd5225b">ITouchInput</a>.</p>
-
-</div>
-</div>
-<a id="afad06743366fc681f177944d87ba698f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afad06743366fc681f177944d87ba698f">&#9670;&nbsp;</a></span>OnTouchDown()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void LightSourceInput.OnTouchDown </td>
-          <td>(</td>
-          <td class="paramtype">Touch&#160;</td>
-          <td class="paramname"><em>finger</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="interface_i_touch_input.html#a804d1ffa2865b29b0df703f1de0da006">ITouchInput</a>.</p>
-
-</div>
-</div>
-<a id="aa3028777458beb10954faa02f5a977b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3028777458beb10954faa02f5a977b2">&#9670;&nbsp;</a></span>OnTouchExit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void LightSourceInput.OnTouchExit </td>
+          <td class="memname">delegate void LightSourceInput.LightSourceAction </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -202,47 +196,134 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_touch_input.html#a18d79bf2ffc6ff253826216a242b0d86">ITouchInput</a>.</p>
-
 </div>
 </div>
-<a id="a680032a6c3189442f4168c3011e50562"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a680032a6c3189442f4168c3011e50562">&#9670;&nbsp;</a></span>OnToucHold()</h2>
+<a id="acd138eec00d1ccd2faf9917a2f45637b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd138eec00d1ccd2faf9917a2f45637b">&#9670;&nbsp;</a></span>LightSourceCallz()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void LightSourceInput.OnToucHold </td>
+          <td class="memname">void LightSourceInput.LightSourceCallz </td>
           <td>(</td>
-          <td class="paramtype">Touch&#160;</td>
-          <td class="paramname"><em>finger</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_touch_input.html#a24c0697c60d781714351234bed5e2a2b">ITouchInput</a>.</p>
-
 </div>
 </div>
-<a id="aba0cd66b3426136984fe6f3739ecd340"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba0cd66b3426136984fe6f3739ecd340">&#9670;&nbsp;</a></span>OnTouchUp()</h2>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="ad92a0ad8aa9ef93c76846bdeacedb52b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad92a0ad8aa9ef93c76846bdeacedb52b">&#9670;&nbsp;</a></span>ISSwitchable</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void LightSourceInput.OnTouchUp </td>
-          <td>(</td>
-          <td class="paramtype">Touch&#160;</td>
-          <td class="paramname"><em>finger</em></td><td>)</td>
-          <td></td>
+          <td class="memname">bool LightSourceInput.ISSwitchable</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_touch_input.html#ae8639b598c34c2b388bc01139b71d739">ITouchInput</a>.</p>
+</div>
+</div>
+<a id="a4b72887761a64b25eb671b37ffd79ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b72887761a64b25eb671b37ffd79ace">&#9670;&nbsp;</a></span>LampActivated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LightSourceInput.LampActivated</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb1e69838fd754f34c3db30bf266f770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb1e69838fd754f34c3db30bf266f770">&#9670;&nbsp;</a></span>Lit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LightSourceInput.Lit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Event Documentation</h2>
+<a id="a4adbf750828724aa7babf9b6db73463a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4adbf750828724aa7babf9b6db73463a">&#9670;&nbsp;</a></span>LightMapSwitchCall</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_light_source_input.html#a5d5ad5fb4cd52dbd2655afc1520dd676">LightMapSwitchAction</a> LightSourceInput.LightMapSwitchCall</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae682d1a7f7483b0c619e135895d91768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae682d1a7f7483b0c619e135895d91768">&#9670;&nbsp;</a></span>LightSourceCall</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_light_source_input.html#a51e104571ccbe9f7959e55cef21fdbd1">LightSourceAction</a> LightSourceInput.LightSourceCall</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

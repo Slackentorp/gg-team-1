@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['adjustmentmode',['AdjustmentMode',['../class_cinemachine_1_1_cinemachine_framing_transposer.html#a3e2262bf8a8b3224b4c6c129da221d5f',1,'Cinemachine.CinemachineFramingTransposer.AdjustmentMode()'],['../class_cinemachine_1_1_cinemachine_group_composer.html#a8568c2b4b862a1e9e7f22f4f58b28c20',1,'Cinemachine.CinemachineGroupComposer.AdjustmentMode()']]],
   ['akactiononeventtype',['AkActionOnEventType',['../_ak_action_on_event_type_8cs.html#a536475347778ba280b5fa1a605390989',1,'AkActionOnEventType.cs']]],
   ['akaudiodevicestate',['AkAudioDeviceState',['../_ak_audio_device_state_8cs.html#a3095a5c69f4c12a6362aaa77cd1ac476',1,'AkAudioDeviceState.cs']]],
   ['akbankcontent',['AkBankContent',['../_ak_bank_content_8cs.html#a0b3687075d222fbf9faed48d9ea51f45',1,'AkBankContent.cs']]],

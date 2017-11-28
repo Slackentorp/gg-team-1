@@ -1,12 +1,24 @@
 var searchData=
 [
+  ['parenthash',['ParentHash',['../struct_cinemachine_1_1_cinemachine_state_driven_camera_1_1_parent_hash.html#a947f38a4a256a9217631ee1f9555589f',1,'Cinemachine::CinemachineStateDrivenCamera::ParentHash']]],
   ['pathelement',['PathElement',['../class_ak_wwise_project_data_1_1_path_element.html#a613e0931a43565fddf7d5dc0462b403c',1,'AkWwiseProjectData::PathElement']]],
+  ['pausegamestate',['PauseGameState',['../class_pause_game_state.html#a928eac0878cb874736b61df0fe296641',1,'PauseGameState']]],
   ['performandroidbuild',['PerformAndroidBuild',['../class_builder.html#a22473701663b8f297b1fd316b3e7f080',1,'Builder']]],
   ['performstandalonewindowsbuild',['PerformStandaloneWindowsBuild',['../class_builder.html#a3b14390b03c07658fffad6fcc55e2227',1,'Builder']]],
+  ['play',['Play',['../class_fragment.html#ab31cc7d2d28720c5707ec1d913b5f1de',1,'Fragment.Play()'],['../class_interactable.html#a373ccdbe7edf55da99e28cb67d999346',1,'Interactable.Play()'],['../class_puzzle.html#a49c5eb6b217928d5b707b3a423e00af2',1,'Puzzle.Play()']]],
+  ['playerdata2',['PlayerData2',['../class_player_data2.html#ae1ed94afb99ed1bad01f0b7419ada7a3',1,'PlayerData2']]],
   ['playlist',['Playlist',['../class_playlist.html#a44bef520f2480ee64d1d17b269e6c635',1,'Playlist']]],
   ['playlistitem',['PlaylistItem',['../class_playlist_item.html#a352ff6680da4371b46ce95e5f6638d2f',1,'PlaylistItem.PlaylistItem()'],['../class_playlist_item.html#a399b42cce827088a5afeb034583f44da',1,'PlaylistItem.PlaylistItem(PlaylistItem in_rCopy)']]],
   ['position',['Position',['../class_ak_transform.html#a145fd0ec0f3ab73819b50f3b92436e4c',1,'AkTransform']]],
   ['post',['Post',['../class_a_k_1_1_wwise_1_1_event.html#a2a1164caf371ec108dd1a56211fb4774',1,'AK.Wwise.Event.Post(GameObject gameObject)'],['../class_a_k_1_1_wwise_1_1_event.html#aea249ca87348404923e6c132a0f3b448',1,'AK.Wwise.Event.Post(GameObject gameObject, CallbackFlags flags, AkCallbackManager.EventCallback callback, object cookie=null)'],['../class_a_k_1_1_wwise_1_1_event.html#a411e290679bcd69eb8761cb773cffb42',1,'AK.Wwise.Event.Post(GameObject gameObject, uint flags, AkCallbackManager.EventCallback callback, object cookie=null)'],['../class_a_k_1_1_wwise_1_1_trigger.html#a125d5111b4d16ac30cc9862feb0938d7',1,'AK.Wwise.Trigger.Post()']]],
+  ['postpipelinestagecallback',['PostPipelineStageCallback',['../class_cinemachine_1_1_cinemachine_collider.html#a99511e7dac987c22319e0781eaff968c',1,'Cinemachine.CinemachineCollider.PostPipelineStageCallback()'],['../class_cinemachine_1_1_cinemachine_confiner.html#ad2373a23f9677db8052f165988c3305a',1,'Cinemachine.CinemachineConfiner.PostPipelineStageCallback()'],['../class_cinemachine_1_1_cinemachine_follow_zoom.html#a8205a7dd2c4bf4d3f148f78383bbcd32',1,'Cinemachine.CinemachineFollowZoom.PostPipelineStageCallback()'],['../class_cinemachine_1_1_cinemachine_extension.html#aec1360a648d0cf34acddf0863aa30e75',1,'Cinemachine.CinemachineExtension.PostPipelineStageCallback()']]],
+  ['poststoryevent',['PostStoryEvent',['../class_story_event_controller.html#a8633946c581a8f6f8c981aaa96960321',1,'StoryEventController']]],
   ['pregameobjectapicall',['PreGameObjectAPICall',['../class_ak_sound_engine.html#a29a3a037b50f52b7ab41504cc3132fec',1,'AkSoundEngine']]],
-  ['previter',['PrevIter',['../class_iterator.html#ae1d105897d48d772706bc47e2fcdc265',1,'Iterator']]]
+  ['prepareframe',['PrepareFrame',['../class_cinemachine_1_1_timeline_1_1_cinemachine_mixer.html#a6782bddcf38b09be3a520d86e2c23de5',1,'Cinemachine.Timeline.CinemachineMixer.PrepareFrame()'],['../class_fade_playable_behaviour.html#a33eeadb5e69ee89812161ed5db16caa2',1,'FadePlayableBehaviour.PrepareFrame()']]],
+  ['prepipelinemutatecamerastate',['PrePipelineMutateCameraState',['../class_cinemachine_1_1_cinemachine_composer.html#aceb35ff642a3bc3ff23a924d11f1e3e4',1,'Cinemachine.CinemachineComposer.PrePipelineMutateCameraState()'],['../class_cinemachine_1_1_cinemachine_component_base.html#a2abef3cce63ce180a7753a490b851085',1,'Cinemachine.CinemachineComponentBase.PrePipelineMutateCameraState()']]],
+  ['preupdatechildcameras',['PreUpdateChildCameras',['../class_cinemachine_1_1_cinemachine_free_look.html#afe7aafefd582f96cb16d68d664d267f0',1,'Cinemachine.CinemachineFreeLook.PreUpdateChildCameras()'],['../class_cinemachine_1_1_cinemachine_virtual_camera_base.html#a7d00a7131f4c7c7ed63f13c8618b3c2f',1,'Cinemachine.CinemachineVirtualCameraBase.PreUpdateChildCameras()'],['../interface_cinemachine_1_1_i_cinemachine_camera.html#a46dcbdefbd472b66a3988416fa64e203',1,'Cinemachine.ICinemachineCamera.PreUpdateChildCameras()']]],
+  ['previter',['PrevIter',['../class_iterator.html#ae1d105897d48d772706bc47e2fcdc265',1,'Iterator']]],
+  ['processframe',['ProcessFrame',['../class_cinemachine_1_1_timeline_1_1_cinemachine_mixer.html#ac16f4e84723c74c2ad006a829fb91952',1,'Cinemachine::Timeline::CinemachineMixer']]],
+  ['putfieldvalues',['PutFieldValues',['../class_save_during_play_1_1_object_state_saver.html#a441104e125fb0c7ceb8b317aa5b55019',1,'SaveDuringPlay::ObjectStateSaver']]],
+  ['puzzleaction',['PuzzleAction',['../class_puzzle.html#a1387e8d5fd500ef242b2909ab9d56baf',1,'Puzzle']]]
 ];

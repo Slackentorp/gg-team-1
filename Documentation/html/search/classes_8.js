@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lightsourceinput',['LightSourceInput',['../class_light_source_input.html',1,'']]]
+  ['heading',['Heading',['../struct_cinemachine_1_1_cinemachine_orbital_transposer_1_1_heading.html',1,'Cinemachine::CinemachineOrbitalTransposer']]]
 ];

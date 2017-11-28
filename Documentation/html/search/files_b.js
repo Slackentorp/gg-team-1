@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['statedrawer_2ecs',['StateDrawer.cs',['../_state_drawer_8cs.html',1,'']]],
-  ['switchdrawer_2ecs',['SwitchDrawer.cs',['../_switch_drawer_8cs.html',1,'']]]
+  ['noisesettings_2ecs',['NoiseSettings.cs',['../_noise_settings_8cs.html',1,'']]]
 ];

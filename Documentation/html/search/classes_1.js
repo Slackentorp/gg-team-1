@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['aboutwindow',['AboutWindow',['../class_cinemachine_1_1_editor_1_1_about_window.html',1,'Cinemachine::Editor']]],
   ['akambient',['AkAmbient',['../class_ak_ambient.html',1,'']]],
   ['akaudioformat',['AkAudioFormat',['../class_ak_audio_format.html',1,'']]],
   ['akaudiointerruptioncallbackinfo',['AkAudioInterruptionCallbackInfo',['../class_ak_audio_interruption_callback_info.html',1,'']]],
@@ -83,6 +84,10 @@ var searchData=
   ['akvector',['AkVector',['../class_ak_vector.html',1,'']]],
   ['akwwiseprojectdata',['AkWwiseProjectData',['../class_ak_wwise_project_data.html',1,'']]],
   ['akxboxoneutils',['AkXboxOneUtils',['../class_ak_xbox_one_utils.html',1,'']]],
+  ['appearance',['Appearance',['../class_cinemachine_1_1_cinemachine_path_base_1_1_appearance.html',1,'Cinemachine::CinemachinePathBase']]],
+  ['assetimporter',['AssetImporter',['../class_asset_importer.html',1,'']]],
+  ['autodolly',['AutoDolly',['../struct_cinemachine_1_1_cinemachine_tracked_dolly_1_1_auto_dolly.html',1,'Cinemachine::CinemachineTrackedDolly']]],
   ['auxbus',['AuxBus',['../class_a_k_1_1_wwise_1_1_aux_bus.html',1,'AK::Wwise']]],
-  ['auxbusdrawer',['AuxBusDrawer',['../class_a_k_1_1_wwise_1_1_editor_1_1_aux_bus_drawer.html',1,'AK::Wwise::Editor']]]
+  ['auxbusdrawer',['AuxBusDrawer',['../class_a_k_1_1_wwise_1_1_editor_1_1_aux_bus_drawer.html',1,'AK::Wwise::Editor']]],
+  ['axisstate',['AxisState',['../struct_cinemachine_1_1_axis_state.html',1,'Cinemachine']]]
 ];
