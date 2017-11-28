@@ -159,6 +159,7 @@ public class LightSourceInput : MonoBehaviour
         lampStateCheck = false;
         currentLampState = State.LAMP_FLICKERING;
         LightSwitch(currentLampState);
+        //isActivated = true;
     }
     private void LampON()
     {
