@@ -19,12 +19,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4826555366847222}
+  - component: {fileID: 65443570576643070}
   m_Layer: 0
   m_Name: moving_box_06_prefab
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967293
   m_IsActive: 1
 --- !u!1 &1944117823991534
 GameObject:
@@ -41,7 +42,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967293
   m_IsActive: 1
 --- !u!4 &4713845354960892
 Transform:
@@ -62,14 +63,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196460404856876}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.6694523, y: 0, z: 3.3777514}
+  m_LocalRotation: {x: -0.50708437, y: -0.4928139, z: -0.49281377, w: 0.5070843}
+  m_LocalPosition: {x: -5.615, y: 0, z: 0.103000045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4713845354960892}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -88.365005}
 --- !u!23 &23026973619888652
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -111,3 +112,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1944117823991534}
   m_Mesh: {fileID: 4300000, guid: 9983a11afe5699148b47b3e110912367, type: 3}
+--- !u!65 &65443570576643070
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1196460404856876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79, y: 0.46, z: 1.15}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -59,7 +59,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967292
   m_IsActive: 1
 --- !u!1 &1495423317295088
 GameObject:
@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 4335062602298278}
   - component: {fileID: 65555799479728626}
   - component: {fileID: 114875269597717348}
+  - component: {fileID: 65440352825805432}
   m_Layer: 8
   m_Name: light_ceiling_02_prefab
   m_TagString: Untagged
@@ -204,6 +205,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1275596383555600}
   m_Mesh: {fileID: 4300000, guid: f0ba7c0753e4e704a8b11a12e68c7252, type: 3}
+--- !u!65 &65440352825805432
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1495423317295088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 1.6, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65555799479728626
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -214,8 +227,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0, y: 0.2, z: 0}
-  m_Center: {x: 0, y: -1, z: 0}
+  m_Size: {x: 0.38, y: 0.15, z: 0.38}
+  m_Center: {x: 0, y: -0.84, z: 0}
 --- !u!108 &108408011274519582
 Light:
   m_ObjectHideFlags: 1
@@ -299,8 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc1a45fd9a6cef45a7909ab1bf3a3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LandingPosition: {x: 0, y: -1.2, z: 0}
-  cameraPosition: {x: 0, y: 0, z: 0}
   IsLit: 0
   isSwitchable: 0
   interactables:

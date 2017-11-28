@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967293
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1961992769242328
 GameObject:
   m_ObjectHideFlags: 0
@@ -51,14 +51,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961992769242328}
-  m_LocalRotation: {x: -0.17058538, y: 0.29901966, z: -0.46523082, w: 0.8155049}
-  m_LocalPosition: {x: -2.351, y: 0.4841077, z: 1.36}
+  m_LocalRotation: {x: -0.21665289, y: 0.37977162, z: -0.4456465, w: 0.78117496}
+  m_LocalPosition: {x: -2.345, y: 0.502, z: 1.399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4369377070740786}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 40.273003, z: -59.408}
+  m_LocalEulerAnglesHint: {x: 0, y: 51.854004, z: -59.408}
 --- !u!4 &4369377070740786
 Transform:
   m_ObjectHideFlags: 1
@@ -102,8 +102,7 @@ MeshRenderer:
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 111300000, guid: 2098153cc94af304fb3fe36a6637dbb0,
-    type: 2}
+  m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -124,8 +123,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Size: {x: 0.29, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!114 &114378851380670858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +136,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDistance: 2
   cameraPosition: {x: 0.22, y: 0.18, z: -0.15}
   cameraOrientation: {x: 0, y: 0, z: 0}
+  landingPosition: {x: 0, y: 0, z: 0}
   storyFragment: FRAGMENT_TIRED
+  hasPlayed: 0
+  counter: 0
+  fragmentIsOn: 0
+  markerr: 0
+  storyFragmentt: 
+  realDuration: 0
+  durationn: 0
+  fragmentIsOnn: 0
+  thePlayedFragment: {fileID: 0}
