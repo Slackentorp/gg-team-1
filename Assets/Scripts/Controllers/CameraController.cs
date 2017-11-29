@@ -113,7 +113,10 @@ public class CameraController
             if(Physics.Raycast(targetPos.position, heading.normalized, out hit, initialMagnitude, collisionLayermask))
             {
                 heading = hit.point - targetPos.position;
-                heading = heading.ResizeMagnitude(heading.magnitude - 0.2f);
+                float magn = heading.magnitude;
+                if(magn - 0.2f > 0.2f){
+                    heading = heading.ResizeMagnitude(magn - 0.2f);
+                }
                 heading = Vector3.ClampMagnitude(heading, initialMagnitude);
             } else {
                 heading = heading.ResizeMagnitude(initialMagnitude);
