@@ -2139,6 +2139,9 @@
 									<StateGroupInfo>
 										<StateGroupRef Name="MUSIC_STATE" ID="{114B4A0E-2938-4B04-97C8-10B1F1AAA73A}"/>
 									</StateGroupInfo>
+									<StateGroupInfo>
+										<StateGroupRef Name="NEXT_STORYEVENT" ID="{08D52ED3-8654-46E5-A9F6-F867EAB652D1}"/>
+									</StateGroupInfo>
 								</StateGroupList>
 								<CustomStateList>
 									<CustomState>
@@ -2146,6 +2149,14 @@
 										<State Name="Custom State" ID="{F6B75CD9-BBB7-4DBE-B44E-B5BAB9F25B88}" ShortID="708355971">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64" Value="-10"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="STORYEVENT_4" ID="{850C466F-1FC2-421A-AD3A-F382A7F1EE5A}"/>
+										<State Name="Custom State" ID="{2A6B182F-F103-4E8E-99F6-45B88E0767FE}" ShortID="163998571">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
 											</PropertyList>
 										</State>
 									</CustomState>
@@ -9705,7 +9716,7 @@
 								<Property Name="PriorityDistanceFactor" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-10</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -9939,9 +9950,22 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Discover" ID="{FE44850A-9AC3-41B4-8272-9734623A7CB0}" ShortID="666371939">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{B9660A97-D3F7-44E9-AA85-CBD14470C529}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="76"/>
+													<Property Name="Min" Type="Real64" Value="-25"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-1</Value>
+										<Value>-7</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -9984,9 +10008,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="FRAGMENT_DISCOVER_2" ID="{0D7847AB-A184-4209-9583-FAA27E530E15}" ShortID="75012734">
-											<PropertyList>
-												<Property Name="TrimBegin" Type="Real64" Value="0.194141777744308"/>
-											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FRAGMENT_DISCOVER_2.wav</AudioFile>
 										</AudioFileSource>
@@ -10008,7 +10029,6 @@
 										<AudioFileSource Name="FRAGMENT_DISCOVER_3" ID="{66DA555B-764E-4314-94E0-F7B6694F67A2}" ShortID="454696326">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.0154058789567488"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.164329375538653"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FRAGMENT_DISCOVER_3.wav</AudioFile>
@@ -10029,9 +10049,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="FRAGMENT_DISCOVER_4" ID="{66040518-9651-4F5F-97B8-D063888E9FE3}" ShortID="743699595">
-											<PropertyList>
-												<Property Name="TrimBegin" Type="Real64" Value="0.400492004920049"/>
-											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FRAGMENT_DISCOVER_4.wav</AudioFile>
 										</AudioFileSource>
@@ -10053,7 +10070,6 @@
 										<AudioFileSource Name="FRAGMENT_DISCOVER_5" ID="{7FE513DA-99F4-4AB1-86AB-2F2799BEA105}" ShortID="447411529">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.109840098400984"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.448031980319803"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FRAGMENT_DISCOVER_5.wav</AudioFile>
@@ -10076,7 +10092,6 @@
 										<AudioFileSource Name="FRAGMENT_DISCOVER_6" ID="{BD9928E9-FD7B-4362-9BE2-0860DC5F73F9}" ShortID="352703553">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.307196023796973"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.204797349197982"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FRAGMENT_DISCOVER_6.wav</AudioFile>

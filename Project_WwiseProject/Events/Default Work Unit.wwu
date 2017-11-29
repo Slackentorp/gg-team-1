@@ -1879,7 +1879,20 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="FRAGMENT_DISCOVER" ID="{404EA7B2-0120-4C90-A5AE-E4A98FA5D757}"/>
+								<Event Name="FRAGMENT_DISCOVER" ID="{404EA7B2-0120-4C90-A5AE-E4A98FA5D757}">
+									<ChildrenList>
+										<Action Name="" ID="{8FB791B0-B29F-442E-9A78-B37D9CB891DF}" ShortID="30970893">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Discover" ID="{FE44850A-9AC3-41B4-8272-9734623A7CB0}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 								<Event Name="STORYEVENT_END" ID="{CCA9CBD5-1262-4FFC-BCA8-091C5C67D28C}">
 									<ChildrenList>
 										<Action Name="" ID="{AF0766B9-D4FF-4F94-8010-84FE8B6ED02E}" ShortID="508669246">
@@ -1909,6 +1922,21 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Silent" ID="{84B7082D-A327-4B85-8344-6103AF1519E9}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="FRAGMENT_LEAVE" ID="{CBF9DD37-2C4D-4476-8198-9179722ABF25}">
+									<ChildrenList>
+										<Action Name="" ID="{01383E9B-1E67-444A-B9E0-ADC7E6AF425D}" ShortID="612239654">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Whisper" ID="{C2BB8BDD-F78F-4DCD-A962-AC6F6ACBB111}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -2248,6 +2276,14 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Particle" ID="{E89BFFF5-8EB0-40BA-9900-B09F4B32D781}" ShortID="1062222110">
+					<ChildrenList>
+						<Event Name="PARTICLE_APPEAR_FRAGMENT" ID="{B28D9386-FB5A-4351-8FFA-4DF78B6991AC}"/>
+						<Event Name="PARTICLE_ENTER_LAMP" ID="{A1C91C38-B395-4867-B46A-3685C93BD0E8}"/>
+						<Event Name="PARTICLE_ENTER_FOGWALL" ID="{415C8E1D-D422-4249-BC82-D0E243FF547F}"/>
+						<Event Name="PARTICLE_APPEAR_LAMP" ID="{EBD4BEE7-EC68-4836-8268-DE85780BF9B1}"/>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
