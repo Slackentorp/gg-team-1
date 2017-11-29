@@ -56,7 +56,7 @@ public class InteractableState : GameState
             gm.GameCamera.transform.position = position;
             gm.GameCamera.transform.rotation = rotation;
             gm.GameCamera.transform.forward = forward;
-            gm.Moth.transform.rotation = mothRotation;
+         //   gm.Moth.transform.rotation = mothRotation;
             time += Time.deltaTime;
         }
         else
@@ -85,7 +85,7 @@ public class InteractableState : GameState
         originMothRotation = gm.Moth.transform.rotation;
 
         gm.mothBehaviour.OnReachedPosition += OnMothLands;
-        gm.mothBehaviour.SetFragmentMode(true);
+   //     gm.mothBehaviour.SetFragmentMode(true);
 
         Vector3 newMothPos = currentInteractable.transform.position + currentInteractable.LandingPosition;
         gm.mothBehaviour.SetMothPos(newMothPos);
@@ -122,7 +122,7 @@ public class InteractableState : GameState
     {
         AkSoundEngine.StopAll(currentInteractable.gameObject);
         gm.mothBehaviour.OnReachedPosition -= OnMothLands;
-        gm.mothBehaviour.SetFragmentMode(false);
+      //  gm.mothBehaviour.SetFragmentMode(false);
         gm.mothBehaviour.SetMothAnimationState("Flying");
     }
 
@@ -145,7 +145,7 @@ public class InteractableState : GameState
             gm.GameCamera.transform.position = position;
 
             gm.GameCamera.transform.rotation = Quaternion.LookRotation(-heading.normalized);
-            gm.Moth.transform.rotation = Quaternion.LookRotation(-heading.normalized);
+        //    gm.Moth.transform.rotation = Quaternion.LookRotation(-heading.normalized);
 
 
             time += Time.deltaTime;
