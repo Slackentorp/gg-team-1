@@ -213,13 +213,6 @@ public class CameraController
             newAngleX = Input.touches[0].deltaPosition.y *
                 cameraTurnSpeedX / 10;
         }
-/* 
-        if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
-            !(newAngleY < 0))
-        {
-            return;
-        }
-        */
 
         // Yaw
         heading = Quaternion.AngleAxis(newAngleY, transform.up) * heading;
@@ -227,38 +220,13 @@ public class CameraController
         // Pitch
         Vector3 nextHeading = Quaternion.AngleAxis(newAngleX, transform.right) * heading;
 
-
         float a = Vector3.Angle(nextHeading, Vector3.up);
         if(a > 10 && a < 170)
         {
             heading = nextHeading;
         }
 
-
-
-      //  Quaternion rotation = Quaternion.Euler(currentY, currentX, 0); camTransform.position = lookAt.position + rotation * new;
-
-     //   GnewAngleX = Mathf.Clamp(GnewAngleX, -89, 89);
-    //    Vector3 v = new Vector3(GnewAngleX, GnewAngleY, 0);
-  
-    //    heading = Quaternion.Euler(v) * new Vector3(0,0,1).ResizeMagnitude(initialHeading.magnitude);
-
-    //    targetPos.rotation = Quaternion.LookRotation(heading);
-
-        // Camera rotation
-        
-       // transform.rotation = Quaternion.LookRotation(-heading.normalized);
-
-       /* Vector3 nextHeading = q * heading;
-        float a = Vector3.Angle(nextHeading, Vector3.up);
-        if (a >= 20 && a <= 160)
-        {
-            heading = nextHeading;
-        }*/
-
-      //  transform.rotation = Quaternion.LookRotation(-heading.normalized);
-
-      /* THIS WORKS
+      /* THIS WORKS - but uses euler
       
         GnewAngleX = Mathf.Clamp(GnewAngleX, -89, 89);
         Vector3 v = new Vector3(GnewAngleX, GnewAngleY, 0);
