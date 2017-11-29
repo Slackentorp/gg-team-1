@@ -83,6 +83,8 @@ public class InteractableState : GameState
         gm.mothBehaviour.OnReachedPosition += OnMothLands;
         gm.mothBehaviour.SetFragmentMode(true);
 
+        gm.CinemaBars.gameObject.SetActive(true);
+
         Vector3 newMothPos = currentInteractable.transform.TransformPoint(currentInteractable.LandingPosition);
         gm.mothBehaviour.SetMothPos(newMothPos);
 
@@ -152,6 +154,7 @@ public class InteractableState : GameState
         }
 
         gm.cameraController.SetHeading(heading);
+        gm.CinemaBars.SetTrigger("Up");
 
         gm.SetState(new RunState(gm));
     }
