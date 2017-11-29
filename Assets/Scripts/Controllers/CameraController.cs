@@ -31,6 +31,7 @@ public class CameraController
     public Vector3 heading { get; private set; }
     public Vector3 InitialHeading { get {return initialHeading;} }
     Vector3 initialHeading;
+    private float initialMagnitude;
     Vector3 flattened;
     private bool fragmentMode;
     private int collisionLayermask;
@@ -88,6 +89,7 @@ public class CameraController
         this.heading = heading;
 
         initialHeading = heading;
+        initialMagnitude = initialHeading.magnitude;
 
         int touchObjectLayer = LayerMask.NameToLayer("Touch Object");
         collisionLayermask = (1 << touchObjectLayer);
@@ -108,12 +110,13 @@ public class CameraController
             
             // Camera collision
             RaycastHit hit;
-            if(Physics.Raycast(targetPos.position, heading.normalized, out hit, initialHeading.magnitude, collisionLayermask))
+            if(Physics.Raycast(targetPos.position, heading.normalized, out hit, initialMagnitude, collisionLayermask))
             {
                 heading = hit.point - targetPos.position;
-                heading = Vector3.ClampMagnitude(heading, initialHeading.magnitude);
+                heading = heading.ResizeMagnitude(heading.magnitude - 0.2f);
+                heading = Vector3.ClampMagnitude(heading, initialMagnitude);
             } else {
-                heading = heading.ResizeMagnitude(initialHeading.magnitude);
+                heading = heading.ResizeMagnitude(initialMagnitude);
             }
 
             Vector3 nextPos = Vector3.SmoothDamp(transform.position, heading + targetPos.position, ref currentVelocity, damping);
