@@ -42,11 +42,9 @@ public class InteractableState : GameState
             if(currentInteractableRenderer.bounds.extents.z > currentInteractableRenderer.bounds.extents.x + .1f)
             {
                 // Land vertically
-                Debug.Log("Lands vertically");
                 mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,90), t);
             } else {
                 // Land horizontally
-                Debug.Log("Lands horizontally");
                 mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,0), t);
             }
         }

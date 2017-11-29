@@ -33,6 +33,7 @@ public class CameraController
     Vector3 initialHeading;
     Vector3 flattened;
     private bool fragmentMode;
+    private int collisionLayermask;
 
     public Transform TargetPos
     {
@@ -86,15 +87,16 @@ public class CameraController
         transform.rotation = Quaternion.Euler(reference);
         this.heading = heading;
 
-        if(initialHeading == Vector3.zero)
-        {
-            initialHeading = heading;
-        }
+        initialHeading = heading;
+
+        int touchObjectLayer = LayerMask.NameToLayer("Touch Object");
+        collisionLayermask = (1 << touchObjectLayer);
+        collisionLayermask = ~collisionLayermask;
     }
 
     public void Update()
     {
-        Debug.DrawRay(targetPos.position, heading.normalized, Color.blue);
+        Debug.DrawLine(targetPos.position, targetPos.position + heading, Color.blue);
 
         if (fragmentMode)
         {
@@ -106,16 +108,22 @@ public class CameraController
             
             // Camera collision
             RaycastHit hit;
-            if(Physics.Raycast(targetPos.position, heading.normalized, out hit, initialHeading.magnitude))
+            if(Physics.Raycast(targetPos.position, heading.normalized, out hit, initialHeading.magnitude, collisionLayermask))
             {
                 heading = hit.point - targetPos.position;
-                heading = Vector3.ClampMagnitude(heading, initialHeading.magnitude - 0.2f);
+                heading = Vector3.ClampMagnitude(heading, initialHeading.magnitude);
+            } else {
+                heading = heading.ResizeMagnitude(initialHeading.magnitude);
             }
+
             Vector3 nextPos = Vector3.SmoothDamp(transform.position, heading + targetPos.position, ref currentVelocity, damping);
 
             transform.position = nextPos;
-            transform.rotation = Quaternion.LookRotation(-heading.normalized);
-            targetPos.rotation = Quaternion.LookRotation(heading);
+            if(heading.normalized != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(-heading.normalized);
+                targetPos.rotation = Quaternion.LookRotation(heading);
+            }
         }
 
     }
@@ -240,9 +248,18 @@ public class CameraController
             return;
         }
     }
+    
 
     public void SetHeading(Vector3 h)
     {
         heading = h;
+    }
+}
+
+public static class Vector3Extensions
+{
+    public static Vector3 ResizeMagnitude(this Vector3 vector, float magnitude)
+    {
+        return vector.normalized * magnitude;
     }
 }

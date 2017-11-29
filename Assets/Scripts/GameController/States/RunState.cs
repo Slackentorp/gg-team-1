@@ -72,10 +72,10 @@ public class RunState : GameState
 
     public override void Tick()
     {
+        CheckInput();
         cameraController.Update();
         gm.mothBehaviour.Update();
         gm.mothSounds.UpdateMothSounds();
-        CheckInput();
         gm.HeadsetStateUIText.text = gm.InputManager.GetHeadsetState() ? "Headset plugged in" : "Headset not plugged in";
     }
 
