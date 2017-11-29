@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class MenuPuzzle : MonoBehaviour
 {
+    public delegate void PuzzleSolved();
+    public static event PuzzleSolved OnFinished; 
+
+    // Setup Variables
     [SerializeField]
     private float distance;
-
     [SerializeField]
     private Transform[] startPositions;
     private Vector3[] scrambledPosition;
-
     private Transform[] correctPosition;
-
     private List<Vector3> startPos;
-
     private Vector3 centerPosition;
+
+
+    // Puzzle Variables
+    [SerializeField]
+    private float mercyDistance; 
 
 
     private float globalWaitSeconds = 2f;
@@ -36,6 +41,12 @@ public class MenuPuzzle : MonoBehaviour
 
 
         StartCoroutine(OpeningSequence());
+    }
+
+    public bool CorrectPosition(Vector3 piece, Vector3 correctPos)
+    {
+        float distance = Vector3.Distance(piece, correctPos); 
+        return distance < mercyDistance; 
     }
 
     void Update()
@@ -77,6 +88,14 @@ public class MenuPuzzle : MonoBehaviour
         }
     }
 
+    private void OnPuzzleSolved()
+    {
+        if (OnFinished != null)
+        {
+            OnFinished(); 
+        }
+    }
+
     IEnumerator OpeningSequence()
     {
         yield return new WaitForSeconds(globalWaitSeconds);
@@ -94,7 +113,7 @@ public class MenuPuzzle : MonoBehaviour
     {
         float t = 0;
         Vector3 rot = Vector3.zero;
-        Vector3 startSize = piece.transform.localScale; 
+        Vector3 startSize = piece.transform.localScale;
 
         while (t < 1f)
         {
@@ -106,7 +125,7 @@ public class MenuPuzzle : MonoBehaviour
         }
 
         //piece.transform.localScale = startSize;
-        piece.transform.rotation = Quaternion.Euler(Vector3.zero); 
+        piece.transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 
 
