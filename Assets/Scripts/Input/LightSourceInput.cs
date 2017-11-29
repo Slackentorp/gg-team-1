@@ -36,6 +36,7 @@ public class LightSourceInput : MonoBehaviour
 
     [SerializeField]
     private bool isActivated;
+    private bool lampFullOn;
 
     public bool Lit
     {
@@ -54,6 +55,12 @@ public class LightSourceInput : MonoBehaviour
         get { return isActivated; }
         set { isActivated = value; }
     }
+    public bool LampFullOn
+    {
+        get { return lampFullOn; }
+        set { lampFullOn = value; }
+    }
+
 
     public delegate void LightSourceAction();
     public static event LightSourceAction LightSourceCall;
@@ -94,11 +101,12 @@ public class LightSourceInput : MonoBehaviour
 
         if (interactables.Length == 3)
         {
-            if (getNrOfFragments == interactables.Length)
+            if (getNrOfFragments == interactables.Length ||
+                getNrOfFragments == interactables.Length - 1)
             {
                 LampON();
             }
-            else if (getNrOfFragments == interactables.Length - 1)
+            else if (getNrOfFragments == interactables.Length - 2)
             {
                 LampFlickering();
             }
@@ -145,13 +153,15 @@ public class LightSourceInput : MonoBehaviour
         lampStateCheck = false;
         currentLampState = State.LAMP_FLICKERING;
         LightSwitch(currentLampState);
-        //isActivated = true;
+        isActivated = true;
+        lampFullOn = false;
     }
     private void LampON()
     {
         currentLampState = State.LAMP_ON;
         lampStateCheck = true;
         isActivated = true;
+        lampFullOn = true;
 
         LightSwitch(currentLampState);
         LightMapSwitchCall(lampStateCheck, lampFlickerCheck, lightMapIndex);

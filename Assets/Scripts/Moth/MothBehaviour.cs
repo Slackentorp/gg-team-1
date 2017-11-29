@@ -52,6 +52,8 @@ public class MothBehaviour
 	private bool lerpRunning = false;
 	private bool mothTurning = true;
 	private bool mothDampProcedural = false;
+	public bool fragmentMode { get; private set; }
+	
 
 	void OnValidate()
 	{
@@ -75,6 +77,11 @@ public class MothBehaviour
 		this.MothFlightLerpCurve = MothFlightLerpCurve;
 	}
 
+	public void SetFragmentMode(bool b)
+	{
+		fragmentMode = b;
+	}
+
 
 	public void Update()
 	{
@@ -84,7 +91,10 @@ public class MothBehaviour
 		}
 		if (mothChild != null)
 		{
-			ProceduralMovement();
+			if(!fragmentMode)
+			{
+				ProceduralMovement();
+			}
 			MothGoToPosition();
 		}
 	}
