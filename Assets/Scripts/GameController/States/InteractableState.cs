@@ -24,7 +24,6 @@ public class InteractableState : GameState
     {
         if (lerpOut) return;
         gm.mothBehaviour.Update();
-     //   gm.Moth.transform.SetRotationX(0);
         float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
 
         Vector3 position;
@@ -39,13 +38,13 @@ public class InteractableState : GameState
         Quaternion mothRotation = Quaternion.identity;
         if(currentInteractableRenderer != null)
         {
-            if(currentInteractableRenderer.bounds.extents.z > currentInteractableRenderer.bounds.extents.x + .1f)
+            if(currentInteractable.LandingRotation == Interactable.LandRotation.VERTICAL)
             {
                 // Land vertically
-                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,90), t);
+                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,90), t + .1f);
             } else {
                 // Land horizontally
-                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,0), t);
+                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,0), t + .1f);
             }
         }
 
@@ -70,7 +69,6 @@ public class InteractableState : GameState
                 }
             }
         }
-
     }
 
     public override void OnStateEnter()
@@ -85,7 +83,7 @@ public class InteractableState : GameState
         gm.mothBehaviour.OnReachedPosition += OnMothLands;
         gm.mothBehaviour.SetFragmentMode(true);
 
-        Vector3 newMothPos = currentInteractable.transform.position + currentInteractable.LandingPosition;
+        Vector3 newMothPos = currentInteractable.transform.TransformPoint(currentInteractable.LandingPosition);
         gm.mothBehaviour.SetMothPos(newMothPos);
 
         currentInteractableRenderer = currentInteractable.GetComponentInChildren<Renderer>();
@@ -121,30 +119,33 @@ public class InteractableState : GameState
         AkSoundEngine.StopAll(currentInteractable.gameObject);
         gm.mothBehaviour.OnReachedPosition -= OnMothLands;
         gm.mothBehaviour.SetFragmentMode(false);
-        gm.mothBehaviour.SetMothAnimationState("Flying");
     }
 
     private IEnumerator Leaving()
     {
         time = 0;
+        gm.mothBehaviour.SetMothAnimationState("Flying");
         
-        Vector3 heading = (currentInteractable.transform.position + currentInteractable.CamPosition) - gm.Moth.transform.position;
-        heading = Vector3.ClampMagnitude(heading, gm.cameraController.InitialHeading.magnitude);
-        heading = gm.Moth.transform.rotation * heading;
+        Vector3 heading = gm.GameCamera.transform.position - gm.Moth.transform.position;
+        heading = heading.ResizeMagnitude(gm.cameraController.InitialHeading.magnitude);
 
         Vector3 desiredPosition = heading + gm.Moth.transform.position;
+        Quaternion desiredRotation = Quaternion.LookRotation(-heading.normalized);
+
+        Quaternion cameraStartRotation = gm.GameCamera.transform.rotation;
+        Quaternion mothStartRotation = gm.Moth.transform.rotation;
 
         while (time * gm.cameraToFragmentSpeed < 1)
         {
             float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
-            Vector3 position;
-            position = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.CamPosition, desiredPosition, t);
-            
+
+            Vector3 position = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.CamPosition, desiredPosition, t);
+            Quaternion camQ = Quaternion.Lerp(cameraStartRotation, desiredRotation, t);
+            Quaternion mothQ = Quaternion.Lerp(mothStartRotation, desiredRotation, t);
+
             gm.GameCamera.transform.position = position;
-
-            gm.GameCamera.transform.rotation = Quaternion.LookRotation(-heading.normalized);
-            gm.Moth.transform.rotation = Quaternion.LookRotation(-heading.normalized);
-
+            gm.GameCamera.transform.rotation  = camQ;
+            gm.Moth.transform.rotation = mothQ;
 
             time += Time.deltaTime;
             yield return null;
