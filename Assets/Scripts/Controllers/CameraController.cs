@@ -31,8 +31,10 @@ public class CameraController
     public Vector3 heading { get; private set; }
     public Vector3 InitialHeading { get {return initialHeading;} }
     Vector3 initialHeading;
+    private float initialMagnitude;
     Vector3 flattened;
     private bool fragmentMode;
+    private int collisionLayermask;
 
     public Transform TargetPos
     {
@@ -86,15 +88,17 @@ public class CameraController
         transform.rotation = Quaternion.Euler(reference);
         this.heading = heading;
 
-        if(initialHeading == Vector3.zero)
-        {
-            initialHeading = heading;
-        }
+        initialHeading = heading;
+        initialMagnitude = initialHeading.magnitude;
+
+        int touchObjectLayer = LayerMask.NameToLayer("Touch Object");
+        collisionLayermask = (1 << touchObjectLayer);
+        collisionLayermask = ~collisionLayermask;
     }
 
     public void Update()
     {
-        Debug.DrawRay(targetPos.position, heading.normalized, Color.blue);
+        Debug.DrawLine(targetPos.position, targetPos.position + heading, Color.blue);
 
         if (fragmentMode)
         {
@@ -106,16 +110,26 @@ public class CameraController
             
             // Camera collision
             RaycastHit hit;
-            if(Physics.Raycast(targetPos.position, heading.normalized, out hit, initialHeading.magnitude))
+            if(Physics.Raycast(targetPos.position, heading.normalized, out hit, initialMagnitude, collisionLayermask))
             {
                 heading = hit.point - targetPos.position;
-                heading = Vector3.ClampMagnitude(heading, initialHeading.magnitude - 0.2f);
+                float magn = heading.magnitude;
+                if(magn - 0.2f > 0.2f){
+                    heading = heading.ResizeMagnitude(magn - 0.2f);
+                }
+                heading = Vector3.ClampMagnitude(heading, initialMagnitude);
+            } else {
+                heading = heading.ResizeMagnitude(initialMagnitude);
             }
+
             Vector3 nextPos = Vector3.SmoothDamp(transform.position, heading + targetPos.position, ref currentVelocity, damping);
 
             transform.position = nextPos;
-            transform.rotation = Quaternion.LookRotation(-heading.normalized);
-            targetPos.rotation = Quaternion.LookRotation(heading);
+            if(heading.normalized != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(-heading.normalized);
+                targetPos.rotation = Quaternion.LookRotation(heading);
+            }
         }
 
     }
@@ -240,9 +254,18 @@ public class CameraController
             return;
         }
     }
+    
 
     public void SetHeading(Vector3 h)
     {
         heading = h;
+    }
+}
+
+public static class Vector3Extensions
+{
+    public static Vector3 ResizeMagnitude(this Vector3 vector, float magnitude)
+    {
+        return vector.normalized * magnitude;
     }
 }
