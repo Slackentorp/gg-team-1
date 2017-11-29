@@ -48,16 +48,17 @@ public class SubToolXML : Singleton<SubToolXML>
         {
             AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
             uPosition = uPosition / 100;
-            Debug.Log(uPosition);
+           // Debug.Log(uPosition+15);
             if (startingPoss[nextSubtitle] < (uPosition + Time.deltaTime) &&
                 startingPoss[nextSubtitle] > (uPosition - Time.deltaTime))
             {
                 StartCoroutine(DisplaySubs(texts[nextSubtitle], durations[nextSubtitle], speakers[nextSubtitle]));
+
                 foreach (var item in activeSubs)
                 {
                     subtitlesToShow.text += item;
                 }
-
+                    
                 //subtitlesToShow.text = texts[nextSubtitle];
                 //StartCoroutine(Wait(nextSubtitle));
 
@@ -65,32 +66,9 @@ public class SubToolXML : Singleton<SubToolXML>
                 {
                     OnShowSubs();
                 }
-                /*
-                switch (speakers[nextSubtitle])
-                {
-                    case "D":
-                        //we put this because otherwise it just reas the ID tag and doesnt go through there
-                        subtitlesToShow.color = Color.green;
-
-                        break;
-                    case "S":
-                        //we put this because otherwise it just reas the ID tag and doesnt go through there
-                        subtitlesToShow.color = Color.green;
-
-                        break;
-                    case "E":
-                        //we put this because otherwise it just reas the ID tag and doesnt go through there
-                        subtitlesToShow.color = Color.blue;
-
-                        break;
-                    case "M":
-                        //we put this because otherwise it just reas the ID tag and doesnt go through there
-                        subtitlesToShow.color = Color.red;
-
-                        break;
-                }*/
                 nextSubtitle++;
-            }
+
+            }   
         }
         else
         {
@@ -187,8 +165,8 @@ public class SubToolXML : Singleton<SubToolXML>
     }
 
 
-    [SerializeField]
-    List<string> activeSubs = new List<string>();
+   [SerializeField]
+   List<string> activeSubs = new List<string>();
    IEnumerator DisplaySubs(string text, float duration, string speaker)
     {
         texty.SetActive(true);
@@ -199,7 +177,7 @@ public class SubToolXML : Singleton<SubToolXML>
                 subtitlesToShow.text = "";
                 yield return new WaitForSeconds(duration);
                 activeSubs.Remove("<color=#FF0000>" + text + "</color>");
-                subtitlesToShow.text = null;
+                //subtitlesToShow.text = null;
                 break;
 
             case "S":
@@ -209,7 +187,7 @@ public class SubToolXML : Singleton<SubToolXML>
                 subtitlesToShow.text = "";
                 yield return new WaitForSeconds(duration);
                 activeSubs.Remove("<color=#00FF00>" + text + "</color>");
-                subtitlesToShow.text = null;
+                //subtitlesToShow.text = null;
                 break;
 
             case "E":
@@ -217,7 +195,7 @@ public class SubToolXML : Singleton<SubToolXML>
                 subtitlesToShow.text = "";
                 yield return new WaitForSeconds(duration);
                 activeSubs.Remove("<color=#00FFFF>" + text + "</color>");
-                subtitlesToShow.text = null;
+              //  subtitlesToShow.text = null;
                 break;
 
             case "M":
@@ -225,11 +203,132 @@ public class SubToolXML : Singleton<SubToolXML>
                 subtitlesToShow.text = "";
                 yield return new WaitForSeconds(duration);
                 activeSubs.Remove("<color=#FF0000>" + text + "</color>");
-                subtitlesToShow.text = null;
+                //subtitlesToShow.text = null;
                 break;
-        }
+        } 
         //activeSubs.Add(text);
        
-        
+        //gets hidden way too fast than showing the last one.
     }
 }
+
+/*
+               switch (speakers[nextSubtitle])
+               {
+                   case "D":
+                       //we put this because otherwise it just reas the ID tag and doesnt go through there
+                       subtitlesToShow.color = Color.green;
+
+                       break;
+                   case "S":
+                       //we put this because otherwise it just reas the ID tag and doesnt go through there
+                       subtitlesToShow.color = Color.green;
+
+                       break;
+                   case "E":
+                       //we put this because otherwise it just reas the ID tag and doesnt go through there
+                       subtitlesToShow.color = Color.blue;
+
+                       break;
+                   case "M":
+                       //we put this because otherwise it just reas the ID tag and doesnt go through there
+                       subtitlesToShow.color = Color.red;
+
+                       break;
+               }*/
+
+
+/*<subsCollection>
+  <subLine>
+    <startPos>5</startPos>
+    <duration>2</duration>
+    <text>Jeg tror gerne jeg vil have en tatovering.</text>
+    <speaker>S</speaker>
+  </subLine>
+
+  <subLine>
+    <startPos>27</startPos>
+    <duration>1</duration>
+    <text>Seriøst?</text>
+    <speaker>M</speaker>
+  </subLine>
+
+  <subLine>
+    <startPos>40</startPos>
+    <duration>3</duration>
+    <text>Ja, ja seriøst. En natsværmer, sådan... Her. </text>
+    <speaker>S</speaker>
+  </subLine>
+
+  <subLine>
+    <startPos>77</startPos>
+    <duration>5</duration>
+    <text> En natsværmer?</text>
+    <speaker>M</speaker>
+  </subLine>
+
+  <subLine>
+    <startPos>90</startPos>
+    <duration>3</duration>
+    <text> Synes du hellere det skal være en sommerfugl?</text>
+    <speaker>S</speaker>
+  </subLine>
+
+  <subLine> 
+    <startPos>124</startPos>
+    <duration>3</duration>
+    <text>Nej! Nej jeg kan godt lide natsværmeren.</text>
+    <speaker>M</speaker>
+  </subLine>
+
+  <subLine>
+    <startPos>160</startPos>
+    <duration>5</duration>
+    <text>Du kan kun lide det jeg siger du kan lide.</text>
+    <speaker>S</speaker>
+  </subLine>
+
+  <subLine>
+    <startPos>178</startPos>
+    <duration>2</duration>
+    <text> Nå virkelig? Kom her!</text>
+    <speaker>M</speaker>
+  </subLine>
+
+  <subLine>
+    <startPos>215</startPos>
+    <duration>5</duration>
+    <text>(Begge griner)</text>
+    <speaker>E</speaker>
+  </subLine>
+  
+  <subLine>
+    <startPos>265</startPos>
+    <duration>6</duration>
+    <text>(Begge griner)</text>
+    <speaker>E</speaker>
+  </subLine>
+
+
+
+    <subLine>
+      <startPos>56</startPos>
+      <duration>5</duration>
+      <text>Veto.</text>
+      <speaker>M</speaker>
+    </subLine>
+    
+    <subLine>
+      <startPos>66</startPos>
+      <duration>1</duration>
+      <text> Hvad? Ej overvej lige hvor stort det er, du vetoer halvdelen af verden.</text>
+      <speaker>S</speaker>
+    </subLine>
+    
+    <subLine>
+      <startPos>120</startPos>
+      <duration>2.9</duration>
+      <text>Så længe du ikke vetoer den anden halvdel, så klarer vi den jo nok.</text>
+      <speaker>M</speaker>
+    </subLine>
+</subsCollection>*/
