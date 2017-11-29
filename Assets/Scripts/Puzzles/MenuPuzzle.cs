@@ -94,17 +94,18 @@ public class MenuPuzzle : MonoBehaviour
     {
         float t = 0;
         Vector3 rot = Vector3.zero;
+        Vector3 startSize = piece.transform.localScale; 
 
         while (t < 1f)
         {
-            piece.transform.localScale = Vector3.one + new Vector3(0.1f, 0.1f, 0.1f) * t;
-            rot.z = Random.Range(-1f, 1f) * 5f * (t / 2);
+            //piece.transform.localScale = startSize + new Vector3(0.1f, 0.1f, 0.1f) * t;
+            rot.z = Random.Range(-1f, 1f) * 2f * (t / 2);
             piece.transform.rotation = Quaternion.Euler(rot);
             t += Time.deltaTime;
             yield return null;
         }
 
-        piece.transform.localScale = Vector3.one;
+        //piece.transform.localScale = startSize;
         piece.transform.rotation = Quaternion.Euler(Vector3.zero); 
     }
 
