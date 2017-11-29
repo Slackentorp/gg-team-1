@@ -7,6 +7,13 @@ public class RunState : GameState
 {
     private CameraController cameraController;
 
+    public delegate void ParticleTapCall(Vector3 position);
+    public static event ParticleTapCall particleTapCall;
+
+    private ParticleSystem tapParticle;
+    private string particlePath;
+    private Vector3 particlePos;
+
     public RunState(GameController gm) : base(gm)
     {
     }
@@ -22,22 +29,27 @@ public class RunState : GameState
         InputEvent inputEvent = gm.InputManager.CheckInput();
         if (inputEvent.GameObject != null)
         {
-            // Check if wall
             if (inputEvent.GameObject.CompareTag("Wall") && inputEvent.InputType == InputType.TAP)
             {
-                Debug.Log("Ey I'm flying'ere");
+                particlePos = inputEvent.RaycastHit.point + inputEvent.RaycastHit.normal * 0.07f;
+                particleTapCall(particlePos);
+
                 gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit);
+
+                //Debug.Log("Ey I'm flying'ere");
                 return;
             }
 
             Interactable interactable = inputEvent.GameObject.GetComponent<Interactable>();
             if (interactable != null && inputEvent.InputType == InputType.TAP)
             {
+                particlePos = inputEvent.RaycastHit.point + inputEvent.RaycastHit.normal * 0.07f;
+                particleTapCall(particlePos);
+
                 float dist = Vector3.SqrMagnitude(gm.Moth.transform.position - interactable.transform.position);
                 if (Mathf.Abs(dist) < interactable.InternalInteractionDistion)
                 {
-                    Debug.Log("Interactable " + interactable.InternalInteractionDistion + " moth " + dist);
-                    gm.SetState(new InteractableState(gm, interactable)); 
+                    gm.SetState(new InteractableState(gm, interactable));
                 }
             }
             else

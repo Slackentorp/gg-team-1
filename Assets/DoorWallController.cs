@@ -1,18 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DoorWallController : MonoBehaviour
 {
-
     [SerializeField]
     private LightSourceInput[] roomLamps;
+    [SerializeField, Tooltip("The name of the StoryEvent to call once all \"Room Lamps\" for this door is lit")]
+    private string StoryEventName;
+
     private ParticleSystem doorParticleSystem;
-    [SerializeField]
-    private bool[] getLamps;
-    private int getNrOfLamps = 0;
     private int LampsON = 0;
-    private string lampsForWise;
 
     void OnEnable()
     {
@@ -23,52 +22,31 @@ public class DoorWallController : MonoBehaviour
     {
         LightSourceInput.LightSourceCall -= LampChecker;
     }
-
-    private void Start()
-    {
-        getLamps = new bool[roomLamps.Length];
-    }
-
     void LampChecker()
     {
+        int numActiveLamps = roomLamps.Count(l => l.LampActivated);
+        int numFullOnLamps = roomLamps.Count(l => l.LampFullOn);
 
-        getLamps = new bool[roomLamps.Length];
-        for (int i = 0; i < roomLamps.Length; i++)
-        {
-            getLamps[i] = roomLamps[i].LampActivated;
-        }
-
-        getNrOfLamps = CountArray(getLamps, true);
-        lampsForWise = "LAMP_" + getNrOfLamps.ToString();
-        AkSoundEngine.SetState("LAMPS_ON", lampsForWise);
-        if (getLamps.Length == 3)
-        {
-            if (getNrOfLamps == getLamps.Length ||
-                getNrOfLamps == getLamps.Length - 1)
-            {
-                gameObject.SetActive(false);
-                //doorParticleSystem = GetComponentsInChildren<ParticleSystem>()[0];
-                //GetComponent<Collider>().enabled = false;
-            }
-        }
-        else if (getNrOfLamps == getLamps.Length)
+        AkSoundEngine.SetState("LAMPS_ON", "LAMP_" + numActiveLamps);
+        if(roomLamps.Length == 1 && numFullOnLamps == 1)
         {
             gameObject.SetActive(false);
-            //doorParticleSystem = GetComponentsInChildren<ParticleSystem>()[0];
-            //GetComponent<Collider>().enabled = false;
+            CallStoryEvent();
+        }
+
+        else if (numFullOnLamps >= 1 && numActiveLamps == roomLamps.Length)
+        {
+            gameObject.SetActive(false);
+            CallStoryEvent();
         }
     }
 
-    private int CountArray(bool[] array, bool flag)
+    private void CallStoryEvent()
     {
-        int value = 0;
-
-        for (int i = 0; i < array.Length; i++)
+        if(StoryEventName != null && StoryEventController.Instance != null)
         {
-            if (array[i] == flag) value++;
+            StoryEventController.Instance.PostStoryEvent(StoryEventName);
         }
-
-        return value;
     }
 }
 

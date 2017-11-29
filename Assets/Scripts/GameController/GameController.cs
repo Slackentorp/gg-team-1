@@ -44,17 +44,29 @@ public class GameController : Singleton<GameController>
     public AnimationCurve mothFlightSpeedCurve;
     [Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
     public float mothDistanceToObject;
+	[Space(7)]
     [Tooltip("The speed up and slow down curve of the Moth's fidgiting speed")]
     public AnimationCurve MothFidgitingCurve;
     [Tooltip("Controls the speed of the Moth's movement while fidgiting")]
     public float mothSpeedModifier;
     [Tooltip("The max distance of the randomized value between each fidgit point. " +
-            "The higher it is the shorter the distance"), Range(1, 50)]
+            "The higher it is the shorter the distance"), Range(1, 100)]
     public int FidgetingDistanceReducerMax;
     [Tooltip("The minimum distance of the randomized value between each fidgit point. " +
-            "The higher it is the shorter the distance"), Range(0, 49)]
+            "The higher it is the shorter the distance"), Range(0, 99)]
     public int FidgetingDistanceReducerMin;
-    [Space(15)]
+	[Tooltip("Limits the forward/backwards figiding of the Moth. " +
+			"The larger the more the movement is limited")]
+	public float LimitMothForwardFidgit = 1.5f;
+	[Tooltip("Determines the placement of the moth vertically, " +
+			"in relation to the middle of the screen. The higher the value is" +
+			"the lower it is placed in the screen")]
+	public float VerticalMothScreenPosition = 0.08f;
+	[Tooltip("Controls the amount of fidgit the moth should have in flight between points.")]
+	public float FidgitInFlightReducer = 2;
+	[Tooltip("The scalar that controls how quickly the moth should switch between fidgit points")]
+	public float fidgitTimeScalar = 1.5f;
+	[Space(15)]
 
     [Header("Fragment Attributes")]
     [Tooltip("Determines the speed ups, and slow downs when dollying to/from the fragments")]
@@ -87,14 +99,11 @@ public class GameController : Singleton<GameController>
     void Start()
     {
         cameraHeading = GameCamera.transform.position - Moth.transform.position;
-        //    cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, 1, Moth.transform, false, cameraDamping);
-
         cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, Moth.transform, false,
                                                 cameraDamping, cameraTurnSpeedY, cameraTurnSpeedX, minimumVerticalAngle,
                                                 maximumVerticalAngle);
 
-        //tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>(); 
-        //NextPuzzle = tutorialPuzzle;
+
         SetState(new LoadState(this));
     }
 
