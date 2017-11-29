@@ -28,6 +28,8 @@ public class ParticleTapController : MonoBehaviour
         particlePos = partPos;
         particlePath = "ResourcesPrefabs/Glow";
         tapParticle = (ParticleSystem)Resources.Load(particlePath, typeof(ParticleSystem));
+        AkSoundEngine.PostEvent("TAP_PARTICLE", gameObject);
+
         StopAllCoroutines();
 
         instantiatedParticle = ParticleSystem.Instantiate(tapParticle, particlePos, Quaternion.identity);
@@ -40,8 +42,9 @@ public class ParticleTapController : MonoBehaviour
 
     IEnumerator ParticleTapEffect()
     {
-        yield return new WaitForSeconds(particleLiveTime);
         var em = instantiatedParticle.emission;
+        em.enabled = true;
+        yield return new WaitForSeconds(particleLiveTime);
         em.enabled = false;
 
         yield return new WaitForSeconds(particleLiveTime);
