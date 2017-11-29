@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4991723713037630}
   - component: {fileID: 114455985029975442}
+  - component: {fileID: 114197584297138040}
   m_Layer: 0
   m_Name: GameController 1
   m_TagString: Untagged
@@ -40,6 +41,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114197584297138040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044202808551916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c279eeb01e738941976b0811ec8f86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleLiveTime: 2
 --- !u!114 &114455985029975442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,8 +133,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   mothSpeedModifier: 1
-  FidgetingDistanceReducerMax: 97
-  FidgetingDistanceReducerMin: 94
+  FidgetingDistanceReducerMax: 85
+  FidgetingDistanceReducerMin: 75
+  LimitMothForwardFidgit: 1.5
+  VerticalMothScreenPosition: 0.08
+  FidgitInFlightReducer: 2
+  fidgitTimeScalar: 2
   FragmentLerpCurve:
     serializedVersion: 2
     m_Curve:

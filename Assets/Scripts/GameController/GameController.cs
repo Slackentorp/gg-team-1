@@ -45,6 +45,7 @@ public class GameController : Singleton<GameController>
     public AnimationCurve mothFlightSpeedCurve;
     [Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
     public float mothDistanceToObject;
+	[Space(7)]
     [Tooltip("The speed up and slow down curve of the Moth's fidgiting speed")]
     public AnimationCurve MothFidgitingCurve;
     [Tooltip("Controls the speed of the Moth's movement while fidgiting")]
@@ -55,7 +56,18 @@ public class GameController : Singleton<GameController>
     [Tooltip("The minimum distance of the randomized value between each fidgit point. " +
             "The higher it is the shorter the distance"), Range(0, 99)]
     public int FidgetingDistanceReducerMin;
-    [Space(15)]
+	[Tooltip("Limits the forward/backwards figiding of the Moth. " +
+			"The larger the more the movement is limited")]
+	public float LimitMothForwardFidgit = 1.5f;
+	[Tooltip("Determines the placement of the moth vertically, " +
+			"in relation to the middle of the screen. The higher the value is" +
+			"the lower it is placed in the screen")]
+	public float VerticalMothScreenPosition = 0.08f;
+	[Tooltip("Controls the amount of fidgit the moth should have in flight between points.")]
+	public float FidgitInFlightReducer = 2;
+	[Tooltip("The scalar that controls how quickly the moth should switch between fidgit points")]
+	public float fidgitTimeScalar = 1.5f;
+	[Space(15)]
 
     [Header("Fragment Attributes")]
     [Tooltip("Determines the speed ups, and slow downs when dollying to/from the fragments")]
