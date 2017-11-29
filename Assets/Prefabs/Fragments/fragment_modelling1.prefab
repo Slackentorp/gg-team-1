@@ -102,8 +102,7 @@ MeshRenderer:
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 111300000, guid: 2098153cc94af304fb3fe36a6637dbb0,
-    type: 2}
+  m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -124,8 +123,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Size: {x: 0.15, y: 0.05, z: 0.15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114378851380670858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +136,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPosition: {x: 0.45, y: -0.27, z: 0.39}
+  interactionDistance: 2
+  cameraPosition: {x: 0.45, y: -0.27, z: -0.32}
   cameraOrientation: {x: 0, y: -0.06, z: 0}
+  landingPosition: {x: 0, y: 0, z: 0}
   storyFragment: FRAGMENT_MODELLING1
+  hasPlayed: 0
+  counter: 0
+  fragmentIsOn: 0
+  markerr: 0
+  storyFragmentt: 
+  realDuration: 0
+  durationn: 0
+  fragmentIsOnn: 0
+  thePlayedFragment: {fileID: 0}
