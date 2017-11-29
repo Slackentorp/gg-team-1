@@ -33,9 +33,17 @@ public abstract class Interactable : MonoBehaviour
     private Vector3 cameraOrientation;
     [SerializeField, Tooltip("Where the moth should land")]
     private Vector3 landingPosition;
+    [SerializeField, Tooltip("Should the moth land vertically or horizontally")]
+    private LandRotation landingRotation;
+    public LandRotation LandingRotation { get { return landingRotation; } }
 
     [SerializeField, Tooltip("The name of the story fragment")]
     private string storyFragment;
+
+    public enum LandRotation{
+        HORIZONTAL,
+        VERTICAL
+    }
 
     [SerializeField]
     private bool hasPlayed;
