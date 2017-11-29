@@ -29,7 +29,7 @@ public class CameraController
     public bool isDebug = true;
     public static bool isMouseTouchingObject;
     public Vector3 heading { get; private set; }
-    public Vector3 InitialHeading { get {return initialHeading;} }
+    public Vector3 InitialHeading { get { return initialHeading; } }
     Vector3 initialHeading;
     private float initialMagnitude;
     Vector3 flattened;
@@ -107,22 +107,28 @@ public class CameraController
         else
         {
             RotateAroundMoth();
-            
+
             // Camera collision
             RaycastHit hit;
-            if(Physics.Raycast(targetPos.position, heading.normalized, out hit, initialMagnitude, collisionLayermask))
+            if (Physics.Raycast(targetPos.position, heading.normalized, out hit, initialMagnitude, collisionLayermask))
             {
                 heading = hit.point - targetPos.position;
-                heading = heading.ResizeMagnitude(heading.magnitude - 0.2f);
+                float magn = heading.magnitude;
+                if (magn - 0.2f > 0.2f)
+                {
+                    heading = heading.ResizeMagnitude(magn - 0.2f);
+                }
                 heading = Vector3.ClampMagnitude(heading, initialMagnitude);
-            } else {
+            }
+            else
+            {
                 heading = heading.ResizeMagnitude(initialMagnitude);
             }
 
             Vector3 nextPos = Vector3.SmoothDamp(transform.position, heading + targetPos.position, ref currentVelocity, damping);
 
             transform.position = nextPos;
-            if(heading.normalized != Vector3.zero)
+            if (heading.normalized != Vector3.zero)
             {
                 transform.rotation = Quaternion.LookRotation(-heading.normalized);
                 targetPos.rotation = Quaternion.LookRotation(heading);
@@ -251,7 +257,6 @@ public class CameraController
             return;
         }
     }
-    
 
     public void SetHeading(Vector3 h)
     {
