@@ -293,9 +293,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 618153606}
-  - component: {fileID: 618153608}
   - component: {fileID: 618153607}
-  m_Layer: 0
+  - component: {fileID: 618153609}
+  - component: {fileID: 618153608}
+  - component: {fileID: 618153610}
+  m_Layer: 8
   m_Name: Piece 1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,8 +361,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!64 &618153608
-MeshCollider:
+--- !u!54 &618153608
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 618153605}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &618153609
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -369,10 +386,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 5.3, y: 5.17, z: 0.2}
+  m_Center: {x: 0.00000011920929, y: 0, z: 0}
+--- !u!114 &618153610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 618153605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f3a2067acb41e43843ad1f5682bd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &664498894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,9 +1233,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1633987838}
-  - component: {fileID: 1633987840}
   - component: {fileID: 1633987839}
-  m_Layer: 0
+  - component: {fileID: 1633987841}
+  - component: {fileID: 1633987840}
+  - component: {fileID: 1633987842}
+  m_Layer: 8
   m_Name: Piece 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1273,8 +1301,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!64 &1633987840
-MeshCollider:
+--- !u!54 &1633987840
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633987837}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1633987841
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1283,10 +1326,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 5.25, y: 5.26, z: 0.2}
+  m_Center: {x: -0.00000011920929, y: 0, z: 0}
+--- !u!114 &1633987842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633987837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f3a2067acb41e43843ad1f5682bd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1668110653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1389,7 @@ MonoBehaviour:
   - {fileID: 1326126826}
   - {fileID: 781375075}
   - {fileID: 1293258973}
+  mercyDistance: 0
 --- !u!1 &1752729368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,9 +1461,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1758049630}
-  - component: {fileID: 1758049632}
   - component: {fileID: 1758049631}
-  m_Layer: 0
+  - component: {fileID: 1758049633}
+  - component: {fileID: 1758049632}
+  - component: {fileID: 1758049634}
+  m_Layer: 8
   m_Name: Piece 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1474,8 +1529,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!64 &1758049632
-MeshCollider:
+--- !u!54 &1758049632
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1758049629}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1758049633
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1484,10 +1554,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 5.11, y: 5.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1758049634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1758049629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f3a2067acb41e43843ad1f5682bd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1828861439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,9 +1575,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1828861440}
-  - component: {fileID: 1828861442}
   - component: {fileID: 1828861441}
-  m_Layer: 0
+  - component: {fileID: 1828861443}
+  - component: {fileID: 1828861442}
+  - component: {fileID: 1828861444}
+  m_Layer: 8
   m_Name: Piece 1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1562,8 +1643,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!64 &1828861442
-MeshCollider:
+--- !u!54 &1828861442
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828861439}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1828861443
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1572,10 +1668,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 4.93, y: 5.07, z: 0.2}
+  m_Center: {x: 0.00000023841858, y: -0.00000047683716, z: 0}
+--- !u!114 &1828861444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828861439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f3a2067acb41e43843ad1f5682bd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1913800718
 GameObject:
   m_ObjectHideFlags: 0
