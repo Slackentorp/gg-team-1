@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Managers;
-using UnityEngine;
 using Gamelogic.Extensions;
+using UnityEngine;
 
 public class InteractableState : GameState
 {
@@ -24,6 +24,14 @@ public class InteractableState : GameState
     {
         if (lerpOut) return;
         gm.mothBehaviour.Update();
+
+        // We should be able to look around if the interactable has been viewed
+        if (currentInteractable.HasPlayed && currentInteractable is Fragment)
+        {
+            //   gm.cameraController.Update();
+            CheckInput();
+        }
+
         float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
 
         Vector3 position;
@@ -36,15 +44,17 @@ public class InteractableState : GameState
         rotation = Quaternion.Lerp(originRotation, Quaternion.Euler(currentInteractable.CamOrientaion), t);
 
         Quaternion mothRotation = Quaternion.identity;
-        if(currentInteractableRenderer != null)
+        if (currentInteractableRenderer != null)
         {
-            if(currentInteractable.LandingRotation == Interactable.LandRotation.VERTICAL)
+            if (currentInteractable.LandingRotation == Interactable.LandRotation.VERTICAL)
             {
                 // Land vertically
-                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,90), t + .1f);
-            } else {
+                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0, 0, 90), t + .1f);
+            }
+            else
+            {
                 // Land horizontally
-                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,0), t + .1f);
+                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0, 0, 0), t + .1f);
             }
         }
 
@@ -57,12 +67,12 @@ public class InteractableState : GameState
             time += Time.deltaTime;
         }
         else
-        {    
+        {
             if (currentInteractable is Puzzle)
             {
                 CheckInput();
-                ((Puzzle)currentInteractable).UpdatePuzzle();
-                if(((Puzzle)currentInteractable).IsSolved)
+                ((Puzzle) currentInteractable).UpdatePuzzle();
+                if (((Puzzle) currentInteractable).IsSolved)
                 {
                     lerpOut = true;
                     currentInteractable.Play(EndOfFragmentCallback);
@@ -81,9 +91,14 @@ public class InteractableState : GameState
         originMothRotation = gm.Moth.transform.rotation;
 
         gm.mothBehaviour.OnReachedPosition += OnMothLands;
-        gm.mothBehaviour.SetFragmentMode(true);
 
-        gm.CinemaBars.gameObject.SetActive(true);
+        // We should be able to move to a new location if the interactable has played
+        // Black bars should not show if the interactable has been seen
+        if (!currentInteractable.HasPlayed)
+        {
+            gm.mothBehaviour.SetFragmentMode(true);
+            gm.CinemaBars.gameObject.SetActive(true);
+        }
 
         Vector3 newMothPos = currentInteractable.transform.TransformPoint(currentInteractable.LandingPosition);
         gm.mothBehaviour.SetMothPos(newMothPos);
@@ -111,9 +126,9 @@ public class InteractableState : GameState
     private void EndOfFragmentCallback()
     {
         Debug.Log("End of interactable: " + currentInteractable.gameObject.name);
-        gm.StartCoroutine(Leaving());
+        gm.StartCoroutine(Leaving(1f));
         lerpOut = true;
-        
+
     }
 
     public override void OnStateExit()
@@ -123,22 +138,24 @@ public class InteractableState : GameState
         gm.mothBehaviour.SetFragmentMode(false);
     }
 
-    private IEnumerator Leaving()
+    private IEnumerator Leaving(float multiplier)
     {
         time = 0;
         gm.mothBehaviour.SetMothAnimationState("Flying");
-        
-        Vector3 heading = gm.GameCamera.transform.position - gm.Moth.transform.position;
-        heading = heading.ResizeMagnitude(gm.cameraController.InitialHeading.magnitude);
-
-        Vector3 desiredPosition = heading + gm.Moth.transform.position;
-        Quaternion desiredRotation = Quaternion.LookRotation(-heading.normalized);
+        Vector3 heading = Vector3.zero;
 
         Quaternion cameraStartRotation = gm.GameCamera.transform.rotation;
-        Quaternion mothStartRotation = gm.Moth.transform.rotation;
 
-        while (time * gm.cameraToFragmentSpeed < 1)
+        while (time * gm.cameraToFragmentSpeed * multiplier < 1)
         {
+            heading = gm.GameCamera.transform.position - gm.Moth.transform.position;
+            heading = heading.ResizeMagnitude(gm.cameraController.InitialHeading.magnitude);
+
+            Vector3 desiredPosition = heading + gm.Moth.transform.position;
+            Quaternion desiredRotation = Quaternion.LookRotation(-heading.normalized);
+
+            Quaternion mothStartRotation = gm.Moth.transform.rotation;
+
             float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
 
             Vector3 position = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.CamPosition, desiredPosition, t);
@@ -146,7 +163,7 @@ public class InteractableState : GameState
             Quaternion mothQ = Quaternion.Lerp(mothStartRotation, desiredRotation, t);
 
             gm.GameCamera.transform.position = position;
-            gm.GameCamera.transform.rotation  = camQ;
+            gm.GameCamera.transform.rotation = camQ;
             gm.Moth.transform.rotation = mothQ;
 
             time += Time.deltaTime;
@@ -154,7 +171,10 @@ public class InteractableState : GameState
         }
 
         gm.cameraController.SetHeading(heading);
-        gm.CinemaBars.SetTrigger("Up");
+        if (gm.CinemaBars.gameObject.activeInHierarchy)
+        {
+            gm.CinemaBars.SetTrigger("Up");
+        }
 
         gm.SetState(new RunState(gm));
     }
@@ -164,6 +184,15 @@ public class InteractableState : GameState
         InputEvent inputEvent = gm.InputManager.CheckInput();
         if (inputEvent.GameObject != null)
         {
+            // Check if wall
+            if (inputEvent.GameObject.CompareTag("Wall") && inputEvent.InputType == InputType.TAP)
+            {
+                EndOfFragmentCallback();
+                AkSoundEngine.StopAll(currentInteractable.gameObject);
+                cameraController.SetFragmentMode(false);
+                gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit);
+                return;
+            }
             ITouchInput itt = inputEvent.GameObject.GetComponent<ITouchInput>();
             if (itt != null)
             {
@@ -188,11 +217,12 @@ public class InteractableState : GameState
                         itt.OnTap();
                         break;
                 }
-            } 
+            }
             else
             {
                 cameraController.Update();
             }
+
         }
     }
 }
