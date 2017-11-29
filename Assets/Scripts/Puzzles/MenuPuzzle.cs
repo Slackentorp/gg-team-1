@@ -9,6 +9,7 @@ public class MenuPuzzle : MonoBehaviour
 
     [SerializeField]
     private Transform[] startPositions;
+    private Vector3[] scrambledPosition;
 
     private Transform[] correctPosition;
 
@@ -16,33 +17,33 @@ public class MenuPuzzle : MonoBehaviour
 
     private Vector3 centerPosition;
 
-    // Use this for initialization
+
+    private float globalWaitSeconds = 2f;
+
     void Start()
     {
         correctPosition = transform.GetComponentsInChildren<Transform>();
         startPos = new List<Vector3>();
+        centerPosition = Vector3.zero;
 
-        Debug.Log("Child count " + transform.childCount); 
         for (int i = 0; i < transform.childCount; i++)
         {
-            startPos.Add(transform.GetChild(0).position); 
-            //Debug.Log("Child " + i + " " + correctPosition[i].position); 
-            //startPos[i] = correctPosition[i].position;
-            //centerPosition += correctPosition[i].position;
+            startPos.Add(transform.GetChild(i).position);
+            centerPosition += transform.GetChild(i).position;
         }
 
-        centerPosition = centerPosition / correctPosition.Length;
-        GoToStartPoints();
-        //startPositions = transform.GetComponentsInChildren<Transform>();
+        centerPosition = centerPosition / startPos.Count;
+
+
+        StartCoroutine(OpeningSequence());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ResetPosition();
-            GoToStartPoints();
+            StartCoroutine(OpeningSequence());
         }
     }
 
@@ -58,31 +59,65 @@ public class MenuPuzzle : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).position = correctPosition[i].position;
+            transform.GetChild(i).position = startPos[i];
         }
     }
 
     private void OnDrawGizmos()
     {
-        for (int i = 0; i < startPositions.Length; i++)
+        if (Application.isPlaying)
         {
-            if (startPos[0] != null)
-                Gizmos.DrawWireSphere(startPos[i], 0.1f * i + 0.1f);
-            Gizmos.DrawWireSphere(startPositions[i].position, 0.5f);
+            Gizmos.DrawWireSphere(centerPosition, 0.1f);
+            for (int i = 0; i < startPositions.Length; i++)
+            {
+                if (startPos[0] != null)
+                    Gizmos.DrawWireSphere(startPos[i], 0.1f);
+                Gizmos.DrawWireSphere(((startPos[i] - centerPosition)) * distance, 0.2f);
+            }
         }
     }
+
+    IEnumerator OpeningSequence()
+    {
+        yield return new WaitForSeconds(globalWaitSeconds);
+
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            StartCoroutine(ScaleUp(transform.GetChild(i).gameObject));
+        }
+        yield return ScaleUp(transform.GetChild(0).gameObject);
+
+        GoToStartPoints();
+    }
+
+    IEnumerator ScaleUp(GameObject piece)
+    {
+        float t = 0;
+        Vector3 rot = Vector3.zero;
+
+        while (t < 1f)
+        {
+            piece.transform.localScale = Vector3.one + new Vector3(0.1f, 0.1f, 0.1f) * t;
+            rot.z = Random.Range(-1f, 1f) * 5f * (t / 2);
+            piece.transform.rotation = Quaternion.Euler(rot);
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        piece.transform.localScale = Vector3.one;
+        piece.transform.rotation = Quaternion.Euler(Vector3.zero); 
+    }
+
 
     IEnumerator Spring(GameObject piece, Vector3 endPos)
     {
         float t = 0f;
         float x = 0f;
-        float factor = 0.4f;
+        float factor = 0.7f;
 
         Vector3 startPos = piece.transform.position;
 
-        yield return new WaitForSeconds(2f);
-
-        yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
+        yield return new WaitForSeconds(Random.Range(0f, 0.15f));
 
         while (t < 1)
         {
@@ -91,8 +126,5 @@ public class MenuPuzzle : MonoBehaviour
             t += Time.deltaTime;
             yield return null;
         }
-
-        //factor = 0.4
-        //pow(2, -10 * x) * sin((x - factor / 4) * (2 * PI) / factor) + 1
     }
 }
