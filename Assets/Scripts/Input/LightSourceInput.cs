@@ -191,6 +191,7 @@ public class LightSourceInput : MonoBehaviour
         particle.transform.GetChild(1).gameObject.SetActive(false);
 
         ParticleSystem explosionSystem = particle.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+        AkSoundEngine.PostEvent("PARTICLE_APPEAR_FRAGMENT", particle);
 
         while (time < endTime)
         {
@@ -205,6 +206,7 @@ public class LightSourceInput : MonoBehaviour
 
         particle.transform.GetChild(1).gameObject.SetActive(true);
         FragmentChecker(null);
+        AkSoundEngine.PostEvent("PARTICLE_ENTER_LAMP", particle);
         yield return new WaitForSeconds(explosionSystem.main.duration + explosionSystem.main.startLifetime.constant + explosionSystem.main.startLifetime.constant / 2);
         Destroy(particle);
     }
