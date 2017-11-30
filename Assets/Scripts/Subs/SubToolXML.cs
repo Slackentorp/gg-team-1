@@ -24,23 +24,24 @@ public class SubToolXML : Singleton<SubToolXML>
     [XmlAttribute("duration")]
     public float duration;
 
-
-    public List<string> speakers = new List<string>();
-    public List<float> startingPoss = new List<float>();
-    public List<string> texts = new List<string>();
-    public List<float> durations = new List<float>();
-
-    private int nextSubtitle = 0;
-    int uPosition = 0;
     public Text subtitlesToShow;
-    public GameObject texty;
+    public GameObject SubtitleContainer;
     uint g_markersPlayingID = 1;
     bool showSubs = false;
-    private LocalizationItem language;
 
+    [SerializeField]
+    List<string> activeSubs = new List<string>();
 
     private Dictionary<char, string> characterColor = new Dictionary<char, string>();
-    private Dictionary<string, float> currentSubtitles;
+
+    private struct SubInfo
+    {
+        public char color;
+        public string text;
+        public float duration;
+    };
+
+    private Dictionary<float, SubInfo> subtitles;
 
     private const float secPerWord = 0.375f;
 
@@ -49,56 +50,10 @@ public class SubToolXML : Singleton<SubToolXML>
 
     private void Awake()
     {
-        currentSubtitles = new Dictionary<string, float>();
         characterColor.Add('D', "FFFFFF");
-        characterColor.Add('S', "FF0000");
-        characterColor.Add('E', "00FF00");
-        characterColor.Add('M', "0000FF");
-    }
-
-    private void ShowSubtitles()
-    {
-
-    }
-
-    void ShowSubs()
-    {
-        //check for language above this on
-        if (nextSubtitle < texts.Count)
-        {
-            AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
-            uPosition = uPosition / 100;
-            // Debug.Log(uPosition+15);
-            if (startingPoss[nextSubtitle] < (uPosition + Time.deltaTime) &&
-                startingPoss[nextSubtitle] > (uPosition - Time.deltaTime))
-            {
-                StartCoroutine(DisplaySubs(texts[nextSubtitle], durations[nextSubtitle], speakers[nextSubtitle]));
-
-                foreach (var item in activeSubs)
-                {
-                    subtitlesToShow.text += item;
-                }
-
-                //subtitlesToShow.text = texts[nextSubtitle];
-                //StartCoroutine(Wait(nextSubtitle));
-
-                if (OnShowSubs != null)
-                {
-                    OnShowSubs();
-                }
-                nextSubtitle++;
-
-            }
-        }
-        else
-        {
-            startingPoss.Clear();
-            texts.Clear();
-            durations.Clear();
-            speakers.Clear();
-            showSubs = false;
-            texty.SetActive(false);
-        }
+        characterColor.Add('M', "7A98A5");
+        characterColor.Add('S', "F2CEAD");
+        characterColor.Add('E', "FFFFFF");
     }
 
     public void InitSubs(uint markerId, string eventName)
@@ -114,14 +69,25 @@ public class SubToolXML : Singleton<SubToolXML>
         {
             g_markersPlayingID = markerId;
             string addDK = eventName;
-            //addDK = addDK + "DK";
             addDK = addDK + "_da";
             XMLReader(addDK);
         }
     }
+
     void XMLReader(string eventName)
     {
+        if (subtitles != null)
+            subtitles.Clear();
+
+        subtitles = new Dictionary<float, SubInfo>();
+
+        List<char> character = new List<char>();
+        List<float> startingPosition = new List<float>();
+        List<string> lines = new List<string>();
+        List<float> textDuration = new List<float>();
+
         TextAsset subText = Resources.Load<TextAsset>(eventName);
+
         if (subText == null)
         {
             return;
@@ -129,58 +95,59 @@ public class SubToolXML : Singleton<SubToolXML>
 
         XmlTextReader reader = new XmlTextReader(new StringReader(subText.text));
 
-        Debug.Log(reader.GetAttribute("subsCollection"));
-
         if (reader.ReadToDescendant("subsCollection"))
         {
-
             XmlReader subReader = reader.ReadSubtree();
-            
+
             while (subReader.Read())
             {
-                //print("Read " + subReader.);
-                //currentSubtitles.Add(subReader.GetAttribute("text"), 0f);
-                //Debug.Log(subReader.Name);
-
-                if (subReader.Name == "startPos")
-                {
-                    print("Hello " + subReader.ReadContentAsFloat());
-                }
                 switch (subReader.Name)
                 {
                     case "startPos":
                         subReader.Read();
                         startingPos = subReader.ReadContentAsFloat();
-                        startingPoss.Add(startingPos + 15);
+                        startingPosition.Add(startingPos + 15f);
                         break;
-
                     case "duration":
                         subReader.Read();
                         duration = subReader.ReadContentAsFloat();
-                        durations.Add(duration);
+                        textDuration.Add(duration);
                         break;
-
                     case "text":
                         subReader.Read();//we put this because otherwise it just reads the ID tag and doesnt go through there
                         text = subReader.ReadContentAsString();
-                        texts.Add(text);
+                        lines.Add(text);
                         break;
-
                     case "speaker":
                         subReader.Read();
                         speaker = subReader.ReadContentAsString();
-                        speakers.Add(speaker);
+                        character.Add(speaker[0]);
                         break;
                 }
             }
 
-            subReader.Close();
+            for (int j = 0; j < lines.Count; j++)
+            {
+                SubInfo tmp = new SubInfo();
+                int index = j;
+                tmp.color = character[index];
+                tmp.text = lines[j];
+                tmp.duration = textDuration[j];
+                subtitles.Add(startingPosition[j], tmp);
+            }
 
+            subReader.Close();
         }
+
         showSubs = true;
 
+        character.Clear();
+        startingPosition.Clear();
+        lines.Clear();
+        textDuration.Clear();
 
         reader.Close();
+        StartCoroutine(DisplaySubtitles());
     }
 
     private void Update()
@@ -190,69 +157,46 @@ public class SubToolXML : Singleton<SubToolXML>
             return;
         }
 
-        ShowSubs();
+        subtitlesToShow.text = "";
 
-    }
-    IEnumerator Wait(int a)
-    {
-
-        yield return new WaitForSeconds(durations[a]);
-        texty.SetActive(false);
-    }
-
-
-    [SerializeField]
-    List<string> activeSubs = new List<string>();
-    IEnumerator DisplaySubs(string text, float duration, string speaker)
-    {
-        texty.SetActive(true);
-        switch (speaker)
+        foreach (var item in activeSubs)
         {
-            case "D":
-                activeSubs.Add("<color=#FF0000>" + text + "</color>");
-                subtitlesToShow.text = "";
-                yield return new WaitForSeconds(duration);
-                activeSubs.Remove("<color=#FF0000>" + text + "</color>");
-                break;
+            subtitlesToShow.text += item;
 
-            case "S":
-                //we put this because otherwise it just reas the ID tag and doesnt go through there
-
-                activeSubs.Add("<color=#00FF00>" + text + "</color>");
-                subtitlesToShow.text = "";
-                yield return new WaitForSeconds(duration);
-                activeSubs.Remove("<color=#00FF00>" + text + "</color>");
-                break;
-
-            case "E":
-                activeSubs.Add("<color=#00FFFF>" + text + "</color>");
-                subtitlesToShow.text = "";
-                yield return new WaitForSeconds(duration);
-                activeSubs.Remove("<color=#00FFFF>" + text + "</color>");
-                break;
-
-            case "M":
-                activeSubs.Add("<color=#FF0000>" + text + "</color>");
-                subtitlesToShow.text = "";
-                yield return new WaitForSeconds(duration);
-                activeSubs.Remove("<color=#FF0000>" + text + "</color>");
-                break;
+            if (activeSubs.IndexOf(item) != activeSubs.Count - 1)
+            {
+                subtitlesToShow.text += "\n";
+            }
         }
 
-
-        //gets hidden way too fast than showing the last one.
+        SubtitleContainer.SetActive(subtitlesToShow.text.Length > 1);
     }
 
-    private void AddSubtitle(string text)
+    IEnumerator DisplaySubtitles()
     {
-        activeSubs.Add(text);
-    }
+        SubtitleContainer.SetActive(true);
 
-    private void RemoveSubtitle(string text)
-    {
-        if (activeSubs.Contains(text))
+        float prev = 0;
+
+        foreach (var item in subtitles)
         {
-            activeSubs.Remove(text);
+            yield return new WaitForSeconds((item.Key - prev) / 10);
+            prev = item.Key;
+            string text = AddColorToText(characterColor[item.Value.color], item.Value.text);
+            activeSubs.Add(text);
+            StartCoroutine(RemoveSubtitles(text, item.Value.duration));
+        }
+
+        subtitles.Clear();
+        activeSubs.Clear();
+    }
+
+    IEnumerator RemoveSubtitles(string key, float duration)
+    {
+        if (activeSubs.Contains(key))
+        {
+            yield return new WaitForSeconds(duration);
+            activeSubs.Remove(key);
         }
     }
 
@@ -261,3 +205,5 @@ public class SubToolXML : Singleton<SubToolXML>
         return "<color=#" + color + ">" + text + "</color>";
     }
 }
+
+
