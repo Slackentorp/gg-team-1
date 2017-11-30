@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public abstract class Interactable : MonoBehaviour
 {
-    public delegate void InteractableAction();
+    public delegate void InteractableAction(Interactable sender);
     public static event InteractableAction InteractableCall;
     public delegate void EasyWwiseCallback();
     public float InteractionDistance { get { return interactionDistance; } }
@@ -72,9 +72,9 @@ public abstract class Interactable : MonoBehaviour
         {
             HasPlayed = true;
             t.Invoke();
+            InvokeInteractableCall();
         }
 
-        InvokeInteractableCall();
     }
 
     public virtual void Awake()
@@ -86,7 +86,7 @@ public abstract class Interactable : MonoBehaviour
     {
         if (InteractableCall != null)
         {
-            InteractableCall();
+            InteractableCall(this);
         }
     }
 
