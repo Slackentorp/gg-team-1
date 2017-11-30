@@ -24,7 +24,7 @@ public class SubToolXML : Singleton<SubToolXML>
     [XmlAttribute("duration")]
     public float duration;
 
-   
+
     public List<string> speakers = new List<string>();
     public List<float> startingPoss = new List<float>();
     public List<string> texts = new List<string>();
@@ -38,8 +38,28 @@ public class SubToolXML : Singleton<SubToolXML>
     bool showSubs = false;
     private LocalizationItem language;
 
+
+    private Dictionary<char, string> characterColor = new Dictionary<char, string>();
+    private Dictionary<string, float> currentSubtitles;
+
+    private const float secPerWord = 0.375f;
+
     public delegate void OnShow();
     public static event OnShow OnShowSubs;
+
+    private void Awake()
+    {
+        currentSubtitles = new Dictionary<string, float>();
+        characterColor.Add('D', "FFFFFF");
+        characterColor.Add('S', "FF0000");
+        characterColor.Add('E', "00FF00");
+        characterColor.Add('M', "0000FF");
+    }
+
+    private void ShowSubtitles()
+    {
+
+    }
 
     void ShowSubs()
     {
@@ -48,7 +68,7 @@ public class SubToolXML : Singleton<SubToolXML>
         {
             AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
             uPosition = uPosition / 100;
-           // Debug.Log(uPosition+15);
+            // Debug.Log(uPosition+15);
             if (startingPoss[nextSubtitle] < (uPosition + Time.deltaTime) &&
                 startingPoss[nextSubtitle] > (uPosition - Time.deltaTime))
             {
@@ -58,7 +78,7 @@ public class SubToolXML : Singleton<SubToolXML>
                 {
                     subtitlesToShow.text += item;
                 }
-                    
+
                 //subtitlesToShow.text = texts[nextSubtitle];
                 //StartCoroutine(Wait(nextSubtitle));
 
@@ -68,7 +88,7 @@ public class SubToolXML : Singleton<SubToolXML>
                 }
                 nextSubtitle++;
 
-            }   
+            }
         }
         else
         {
@@ -86,10 +106,12 @@ public class SubToolXML : Singleton<SubToolXML>
         LocalizationItem.Language language =
            (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
         if (language == LocalizationItem.Language.ENGLISH)
-        { XMLReader(eventName);
+        {
+            XMLReader(eventName);
             g_markersPlayingID = markerId;
         }
-        else {
+        else
+        {
             g_markersPlayingID = markerId;
             string addDK = eventName;
             //addDK = addDK + "DK";
@@ -99,7 +121,6 @@ public class SubToolXML : Singleton<SubToolXML>
     }
     void XMLReader(string eventName)
     {
-
         TextAsset subText = Resources.Load<TextAsset>(eventName);
         if (subText == null)
         {
@@ -108,43 +129,58 @@ public class SubToolXML : Singleton<SubToolXML>
 
         XmlTextReader reader = new XmlTextReader(new StringReader(subText.text));
 
+        Debug.Log(reader.GetAttribute("subsCollection"));
+
         if (reader.ReadToDescendant("subsCollection"))
         {
 
-            XmlReader reader1 = reader.ReadSubtree();
-
-            while (reader1.Read())
+            XmlReader subReader = reader.ReadSubtree();
+            
+            while (subReader.Read())
             {
-                switch (reader1.Name)
+                //print("Read " + subReader.);
+                //currentSubtitles.Add(subReader.GetAttribute("text"), 0f);
+                //Debug.Log(subReader.Name);
+
+                if (subReader.Name == "startPos")
+                {
+                    print("Hello " + subReader.ReadContentAsFloat());
+                }
+                switch (subReader.Name)
                 {
                     case "startPos":
-                        reader1.Read();
-                        startingPos = reader1.ReadContentAsFloat();
+                        subReader.Read();
+                        startingPos = subReader.ReadContentAsFloat();
                         startingPoss.Add(startingPos + 15);
                         break;
 
                     case "duration":
-                        reader1.Read();
-                        duration = reader1.ReadContentAsFloat();
+                        subReader.Read();
+                        duration = subReader.ReadContentAsFloat();
                         durations.Add(duration);
                         break;
 
                     case "text":
-                        reader1.Read();//we put this because otherwise it just reads the ID tag and doesnt go through there
-                        text = reader1.ReadContentAsString();
+                        subReader.Read();//we put this because otherwise it just reads the ID tag and doesnt go through there
+                        text = subReader.ReadContentAsString();
                         texts.Add(text);
                         break;
 
                     case "speaker":
-                        reader1.Read();
-                        speaker = reader1.ReadContentAsString();
+                        subReader.Read();
+                        speaker = subReader.ReadContentAsString();
                         speakers.Add(speaker);
                         break;
                 }
             }
 
+            subReader.Close();
+
         }
         showSubs = true;
+
+
+        reader.Close();
     }
 
     private void Update()
@@ -155,7 +191,7 @@ public class SubToolXML : Singleton<SubToolXML>
         }
 
         ShowSubs();
-        
+
     }
     IEnumerator Wait(int a)
     {
@@ -165,9 +201,9 @@ public class SubToolXML : Singleton<SubToolXML>
     }
 
 
-   [SerializeField]
-   List<string> activeSubs = new List<string>();
-   IEnumerator DisplaySubs(string text, float duration, string speaker)
+    [SerializeField]
+    List<string> activeSubs = new List<string>();
+    IEnumerator DisplaySubs(string text, float duration, string speaker)
     {
         texty.SetActive(true);
         switch (speaker)
@@ -201,9 +237,27 @@ public class SubToolXML : Singleton<SubToolXML>
                 yield return new WaitForSeconds(duration);
                 activeSubs.Remove("<color=#FF0000>" + text + "</color>");
                 break;
-        } 
-       
-       
+        }
+
+
         //gets hidden way too fast than showing the last one.
+    }
+
+    private void AddSubtitle(string text)
+    {
+        activeSubs.Add(text);
+    }
+
+    private void RemoveSubtitle(string text)
+    {
+        if (activeSubs.Contains(text))
+        {
+            activeSubs.Remove(text);
+        }
+    }
+
+    private string AddColorToText(string color, string text)
+    {
+        return "<color=#" + color + ">" + text + "</color>";
     }
 }
