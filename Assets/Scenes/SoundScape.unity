@@ -148,7 +148,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 19801231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.034, y: 0.957, z: 0.03}
+  m_LocalPosition: {x: -8.616, y: 0.957, z: -0.049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 429209116}
   - component: {fileID: 429209115}
   - component: {fileID: 429209114}
+  - component: {fileID: 429209117}
   m_Layer: 2
   m_Name: Trigger_Hallway (1)
   m_TagString: Untagged
@@ -257,6 +258,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429209117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 429209113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef8b6f873ac64c40a0b96cfb76bf401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChosenType: 6
+  WwiseEventID: WALKMAN
+--- !u!1 &571132594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 571132596}
+  - component: {fileID: 571132595}
+  m_Layer: 0
+  m_Name: Walkman
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &571132595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 571132594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef8b6f873ac64c40a0b96cfb76bf401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChosenType: 1
+  WwiseEventID: WALKMAN
+--- !u!4 &571132596
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 571132594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.36, y: 0.306, z: -2.757}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &571748587
 GameObject:
@@ -471,7 +527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &889221242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,6 +589,7 @@ GameObject:
   - component: {fileID: 1057821783}
   - component: {fileID: 1057821782}
   - component: {fileID: 1057821781}
+  - component: {fileID: 1057821784}
   m_Layer: 2
   m_Name: Trigger_Hallway
   m_TagString: Untagged
@@ -579,6 +636,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1057821784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1057821780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef8b6f873ac64c40a0b96cfb76bf401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChosenType: 6
+  WwiseEventID: WALKMAN
 --- !u!1 &1095531079
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +887,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1504275822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1504275824}
+  - component: {fileID: 1504275823}
+  - component: {fileID: 1504275826}
+  m_Layer: 0
+  m_Name: Sink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1504275823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504275822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef8b6f873ac64c40a0b96cfb76bf401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChosenType: 1
+  WwiseEventID: SINK
+--- !u!4 &1504275824
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504275822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.3, y: 0.59, z: 0.895}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1504275826
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504275822}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79e5ad4239ef5466ebe4ae0c0aa2f713, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1505103337
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,6 +1110,7 @@ GameObject:
   - component: {fileID: 1699741690}
   - component: {fileID: 1699741689}
   - component: {fileID: 1699741688}
+  - component: {fileID: 1699741691}
   m_Layer: 2
   m_Name: Trigger_Hallway
   m_TagString: Untagged
@@ -1026,6 +1157,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1699741691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699741687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef8b6f873ac64c40a0b96cfb76bf401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChosenType: 6
+  WwiseEventID: WALKMAN
 --- !u!1 &1889909127
 GameObject:
   m_ObjectHideFlags: 0
