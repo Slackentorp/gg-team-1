@@ -30,11 +30,16 @@ public class ParticleTapController : MonoBehaviour
         tapParticle = (ParticleSystem)Resources.Load(particlePath, typeof(ParticleSystem));
         AkSoundEngine.PostEvent("TAP_PARTICLE", gameObject);
 
-        StopAllCoroutines();
+        if (instantiatedParticle != null)
+        {
+            StopAllCoroutines();
+            var em = instantiatedParticle.emission;
+            em.enabled = false;
+            Destroy(instantiatedParticle.gameObject);
+        }
 
         instantiatedParticle = ParticleSystem.Instantiate(tapParticle, particlePos, Quaternion.identity);
-        var em = instantiatedParticle.emission;
-        em.enabled = false;
+
         StartCoroutine(ParticleTapEffect());
         return;
     }

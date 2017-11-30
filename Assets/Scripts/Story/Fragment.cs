@@ -43,7 +43,6 @@ public class Fragment : Interactable
             return;
         }
 
-        HasPlayed = true;
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
                         (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_Duration
