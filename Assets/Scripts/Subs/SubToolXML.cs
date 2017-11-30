@@ -15,13 +15,13 @@ public class SubToolXML : Singleton<SubToolXML>
     [XmlArray("subsLine")]
     [XmlArrayItem("subsId")]
     List<string> subsToLoad2 = new List<string>();
-    [XmlAttribute("speaker")]
+    [XmlAttribute("speaker"), HideInInspector]
     public string speaker;
-    [XmlAttribute("text")]
+    [XmlAttribute("text"), HideInInspector]
     public string text;
-    [XmlAttribute("startPos")]
+    [XmlAttribute("startPos"), HideInInspector]
     public float startingPos;
-    [XmlAttribute("duration")]
+    [XmlAttribute("duration"), HideInInspector]
     public float duration;
 
     public Text subtitlesToShow;
@@ -29,7 +29,7 @@ public class SubToolXML : Singleton<SubToolXML>
     uint g_markersPlayingID = 1;
     bool showSubs = false;
 
-    [SerializeField]
+    //[SerializeField]
     List<string> activeSubs = new List<string>();
 
     private Dictionary<char, string> characterColor = new Dictionary<char, string>();
