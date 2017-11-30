@@ -71,7 +71,7 @@ public class InteractableState : GameState
             if (currentInteractable is Puzzle)
             {
                 CheckInput();
-                ((Puzzle) currentInteractable).UpdatePuzzle();
+         //       ((Puzzle) currentInteractable).UpdatePuzzle();
                 if (((Puzzle) currentInteractable).IsSolved)
                 {
                     lerpOut = true;

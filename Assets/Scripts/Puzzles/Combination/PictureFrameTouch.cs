@@ -6,6 +6,9 @@ using UnityEngine;
 //[ExecuteInEditMode]
 public class PictureFrameTouch : MonoBehaviour, ITouchInput
 {
+    public delegate void TouchUpDelegate();
+    public event TouchUpDelegate OnTouchUpEvent;
+
     [HideInInspector]
     public bool isCorrect;
 
@@ -36,13 +39,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         if (isCorrect)
             return;
 
-        //if (controller != null)
-        //{
-        //    controller.OnBeginSolving();
-        //}
         distanceWorldPos = worldPos - transform.position;
-
-
         PlayEvent(pickupWwiseEvent);
     }
 
@@ -52,6 +49,10 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
             return;
 
         PlayEvent(placeWwiseEvent);
+        if(OnTouchUpEvent != null)
+        {
+            OnTouchUpEvent();
+        }
     }
 
     public void OnToucHold(Vector3 worldPos)
@@ -93,6 +94,10 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
         PlayEvent(placeWwiseEvent);
         transform.SetY(startY);
+        if(OnTouchUpEvent != null)
+        {
+            OnTouchUpEvent();
+        }
     }
 
     public void OnSwipe(TouchDirection direction)
