@@ -6,6 +6,8 @@ using UnityEngine;
 public class RunState : GameState
 {
     private CameraController cameraController;
+	private FragmentParticleController fragParticleController;
+	private Fragment fragment;
 
     public delegate void ParticleTapCall(Vector3 position);
     public static event ParticleTapCall particleTapCall;
@@ -14,14 +16,19 @@ public class RunState : GameState
     private string particlePath;
     private Vector3 particlePos;
 
+	private Fragment[] fragmentPositions;
+
     public RunState(GameController gm) : base(gm)
     {
     }
 
-    public override void OnStateEnter()
-    {
-        cameraController = gm.cameraController;
-        cameraController.SetFragmentMode(false);
+	public override void OnStateEnter()
+	{
+		cameraController = gm.cameraController;
+		cameraController.SetFragmentMode(false);
+		fragmentPositions = GameObject.FindObjectsOfType<Fragment>(); 
+		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.fragmentParticles, gm.Moth.transform);
+		gm.fragParticleController.OnRunStart();
     }
 
     void CheckInput()
@@ -90,7 +97,8 @@ public class RunState : GameState
         gm.mothBehaviour.Update();
         gm.mothSounds.UpdateMothSounds();
         gm.HeadsetStateUIText.text = gm.InputManager.GetHeadsetState() ? "Headset plugged in" : "Headset not plugged in";
-    }
+		gm.fragParticleController.Update();
+	}
 
     public override void InternalOnGUI()
     {
