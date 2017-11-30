@@ -19,7 +19,6 @@ public class EasyWwiseCinemachineSounds : MonoBehaviour {
 
 	public void playSound (int index)
 	{
-		print("played");
 		AkSoundEngine.PostEvent( sounds[index].wwiseEvent, sounds[index].source);
 		
 	}
