@@ -16,11 +16,14 @@ namespace AK
         static const AkUniqueID ANSWERING_TRIGGER = 944261500U;
         static const AkUniqueID CAMERA_MOVE = 746056516U;
         static const AkUniqueID CARS = 4189504244U;
+        static const AkUniqueID FOGWALL_DISABLE = 3059416910U;
+        static const AkUniqueID FOGWALL_ENABLE = 1536333371U;
         static const AkUniqueID FRAGMENT_BIRTHDAY = 2817540555U;
         static const AkUniqueID FRAGMENT_CLOCK = 708113490U;
         static const AkUniqueID FRAGMENT_COZYKITCHEN = 589325167U;
         static const AkUniqueID FRAGMENT_DISCOVER = 3960073237U;
         static const AkUniqueID FRAGMENT_END = 2161294919U;
+        static const AkUniqueID FRAGMENT_LEAVE = 3283089637U;
         static const AkUniqueID FRAGMENT_MODELLING1 = 2002587924U;
         static const AkUniqueID FRAGMENT_MODELLING2 = 2002587927U;
         static const AkUniqueID FRAGMENT_NEWYEARS = 1286978176U;
@@ -61,6 +64,10 @@ namespace AK
         static const AkUniqueID MUSIC_START = 3725903807U;
         static const AkUniqueID MUSIC_UNMUTE = 2132259803U;
         static const AkUniqueID NEIGHBOUR = 1451837118U;
+        static const AkUniqueID PARTICLE_APPEAR_FRAGMENT = 1914731752U;
+        static const AkUniqueID PARTICLE_APPEAR_LAMP = 2308008558U;
+        static const AkUniqueID PARTICLE_ENTER_FOGWALL = 1102612893U;
+        static const AkUniqueID PARTICLE_ENTER_LAMP = 3704242213U;
         static const AkUniqueID PIECE_PICK = 394109931U;
         static const AkUniqueID PIECE_PLACED_RIGHT = 2720771844U;
         static const AkUniqueID PIECE_PLACED_WRONG = 2177473561U;
@@ -68,6 +75,7 @@ namespace AK
         static const AkUniqueID PUZZLE_SOLVING = 3258781332U;
         static const AkUniqueID SFX_MUTE = 2835551186U;
         static const AkUniqueID SFX_UNMUTE = 1305045635U;
+        static const AkUniqueID SINK = 805220752U;
         static const AkUniqueID STORYEVENT_1 = 1922983904U;
         static const AkUniqueID STORYEVENT_2 = 1922983907U;
         static const AkUniqueID STORYEVENT_3 = 1922983906U;
@@ -76,6 +84,7 @@ namespace AK
         static const AkUniqueID STREET = 4142189312U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
         static const AkUniqueID TRIGGEREDSOUND_ANSWERING = 3021174106U;
+        static const AkUniqueID WALKMAN = 760300722U;
     } // namespace EVENTS
 
     namespace STATES
@@ -262,6 +271,7 @@ namespace AK
     namespace AUX_BUSSES
     {
         static const AkUniqueID MEMORY_VERB = 141137888U;
+        static const AkUniqueID REVERB_KITCHEN = 1290916568U;
         static const AkUniqueID REVERB_LIVINGROOM = 400405326U;
     } // namespace AUX_BUSSES
 

@@ -224,6 +224,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="WALKMAN" ID="{D43C1DF8-8412-4BD7-9BC6-30DF6D7C2B7A}">
+							<ChildrenList>
+								<Action Name="" ID="{CF8F96FC-C97E-422E-A766-7D91AE45637F}" ShortID="378139367">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="My Loss, My Moth_v1_clean" ID="{A78D2756-6834-4C40-809C-FF7F26D25BA3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Puzzles" ID="{804443FD-D136-4407-A437-AE603B8EE6C5}" ShortID="671669688">
@@ -1986,13 +2000,13 @@
 				</Event>
 				<Event Name="FRIDGE" ID="{99FCC3F6-1F4C-4B7D-9649-522FFBA6C731}">
 					<ChildrenList>
-						<Action Name="" ID="{5C9DC657-0C2F-4E9A-9AE2-BC136ABC8CA5}" ShortID="827783478">
+						<Action Name="" ID="{65F222D0-6518-4703-ADEF-09C3B4AA74F3}" ShortID="1052608872">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Lonely Hum" ID="{EF810569-4D7B-4CDB-8656-F2386D070E3D}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+									<ObjectRef Name="Fridge" ID="{A77E104E-0D05-4813-ADE6-7091152007DE}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -2191,11 +2205,6 @@
 								<Action Name="" ID="{899266E0-E175-4A65-84B5-3261CFFB6256}" ShortID="1011655384">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
-										<Property Name="Inclusion" Type="bool">
-											<ValueList>
-												<Value>False</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2286,6 +2295,20 @@
 						<Event Name="PARTICLE_APPEAR_LAMP" ID="{EBD4BEE7-EC68-4836-8268-DE85780BF9B1}"/>
 					</ChildrenList>
 				</Folder>
+				<Event Name="SINK" ID="{90013F4F-F1D4-4ACF-A0CA-DC74AC9C4055}">
+					<ChildrenList>
+						<Action Name="" ID="{B3DBD44D-5D7B-4DA0-A809-B7CB88D1D3B9}" ShortID="689889997">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Drops" ID="{31F181C4-0DBE-4DA3-B198-43945E7F1FA5}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -124,6 +124,13 @@
 													</SequenceList>
 												</MusicTrack>
 												<MusicTrack Name="Hallways_STRINGS_91bpm" ID="{57D2DD29-78B5-4011-96E5-7E3152BD9785}" ShortID="511090196">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-2</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -198,7 +205,7 @@
 													<PropertyList>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-5</Value>
+																<Value>-2</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -457,6 +464,13 @@
 									</Playlist>
 								</MusicPlaylistContainer>
 								<MusicPlaylistContainer Name="Livingroom" ID="{B6A4CC90-E7E6-49D1-8793-E3C69C11DF34}" ShortID="199780653">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -629,14 +643,6 @@
 															</StateGroupInfo>
 														</StateGroupList>
 														<CustomStateList>
-															<CustomState>
-																<StateRef Name="LAMP_2" ID="{2746F27B-6336-4419-A1BD-B2181F93FCD3}"/>
-																<State Name="Custom State" ID="{D7394B5F-7D1C-400E-B171-136628E8864F}" ShortID="419886324">
-																	<PropertyList>
-																		<Property Name="Volume" Type="Real64" Value="-96"/>
-																	</PropertyList>
-																</State>
-															</CustomState>
 															<CustomState>
 																<StateRef Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
 																<State Name="Custom State" ID="{56EE5F83-7C03-4759-BE0A-7C492D449623}" ShortID="791462871">
