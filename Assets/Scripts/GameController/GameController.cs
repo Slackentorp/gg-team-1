@@ -82,6 +82,8 @@ public class GameController : Singleton<GameController>
     [Tooltip("Decides the speed with which the camera moves to defined puzzle position." +
             "Also determines rotation speed of camera when moving to puzzle")]
     public float cameraToPuzzleSpeed;
+    public GameObject FragmentToLightSourceParticles;
+    public AnimationCurve FragmentToLightSourceCurve;
     [Space(15)]
 
     [HideInInspector]

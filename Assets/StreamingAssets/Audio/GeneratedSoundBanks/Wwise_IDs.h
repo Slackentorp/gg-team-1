@@ -130,9 +130,20 @@ namespace AK
             } // namespace STATE
         } // namespace INSIDE_STATE
 
-        namespace LAMPS_ON
+        namespace LAMPS_ON_0
         {
-            static const AkUniqueID GROUP = 3863998494U;
+            static const AkUniqueID GROUP = 242486223U;
+
+            namespace STATE
+            {
+                static const AkUniqueID LAMP_0 = 1942065222U;
+                static const AkUniqueID LAMP_1 = 1942065223U;
+            } // namespace STATE
+        } // namespace LAMPS_ON_0
+
+        namespace LAMPS_ON_1
+        {
+            static const AkUniqueID GROUP = 242486222U;
 
             namespace STATE
             {
@@ -141,7 +152,41 @@ namespace AK
                 static const AkUniqueID LAMP_2 = 1942065220U;
                 static const AkUniqueID LAMP_3 = 1942065221U;
             } // namespace STATE
-        } // namespace LAMPS_ON
+        } // namespace LAMPS_ON_1
+
+        namespace LAMPS_ON_2
+        {
+            static const AkUniqueID GROUP = 242486221U;
+
+            namespace STATE
+            {
+                static const AkUniqueID LAMP_0 = 1942065222U;
+                static const AkUniqueID LAMP_1 = 1942065223U;
+                static const AkUniqueID LAMP_2 = 1942065220U;
+            } // namespace STATE
+        } // namespace LAMPS_ON_2
+
+        namespace LAMPS_ON_3
+        {
+            static const AkUniqueID GROUP = 242486220U;
+
+            namespace STATE
+            {
+                static const AkUniqueID LAMP_0 = 1942065222U;
+                static const AkUniqueID LAMP_1 = 1942065223U;
+            } // namespace STATE
+        } // namespace LAMPS_ON_3
+
+        namespace LAMPS_ON_4
+        {
+            static const AkUniqueID GROUP = 242486219U;
+
+            namespace STATE
+            {
+                static const AkUniqueID LAMP_0 = 1942065222U;
+                static const AkUniqueID LAMP_1 = 1942065223U;
+            } // namespace STATE
+        } // namespace LAMPS_ON_4
 
         namespace LANGUAGE
         {
