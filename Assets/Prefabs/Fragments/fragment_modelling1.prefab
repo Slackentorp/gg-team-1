@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1961992769242328}
+  m_RootGameObject: {fileID: 1397968589036502}
   m_IsPrefabParent: 1
---- !u!1 &1866618866361290
+--- !u!1 &1141227424480278
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4369377070740786}
-  - component: {fileID: 33562390850235284}
-  - component: {fileID: 23096362218465982}
+  - component: {fileID: 4238837757005554}
+  - component: {fileID: 33114295129918884}
+  - component: {fileID: 23483384375036726}
   m_Layer: 0
   m_Name: polaroid_01
   m_TagString: Untagged
@@ -28,16 +28,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967293
   m_IsActive: 1
---- !u!1 &1961992769242328
+--- !u!1 &1397968589036502
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4012662159745468}
-  - component: {fileID: 65792982749670786}
-  - component: {fileID: 114378851380670858}
+  - component: {fileID: 4100989330723094}
+  - component: {fileID: 65049405547151538}
+  - component: {fileID: 114164508151207410}
   m_Layer: 0
   m_Name: fragment_modelling1
   m_TagString: Untagged
@@ -45,39 +45,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967293
   m_IsActive: 1
---- !u!4 &4012662159745468
+--- !u!4 &4100989330723094
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1961992769242328}
+  m_GameObject: {fileID: 1397968589036502}
   m_LocalRotation: {x: 0.00000027149758, y: -0.00000035017726, z: -0.7071068, w: 0.70710677}
   m_LocalPosition: {x: -5.916, y: 1.21, z: -0.115}
   m_LocalScale: {x: 4, y: 1, z: 2}
   m_Children:
-  - {fileID: 4369377070740786}
+  - {fileID: 4238837757005554}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
---- !u!4 &4369377070740786
+--- !u!4 &4238837757005554
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1866618866361290}
+  m_GameObject: {fileID: 1141227424480278}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4012662159745468}
+  m_Father: {fileID: 4100989330723094}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23096362218465982
+--- !u!23 &23483384375036726
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1866618866361290}
+  m_GameObject: {fileID: 1141227424480278}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -106,31 +106,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33562390850235284
+--- !u!33 &33114295129918884
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1866618866361290}
+  m_GameObject: {fileID: 1141227424480278}
   m_Mesh: {fileID: 4300000, guid: e40938f1c7da69a4e829c0486399976d, type: 3}
---- !u!65 &65792982749670786
+--- !u!65 &65049405547151538
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1961992769242328}
+  m_GameObject: {fileID: 1397968589036502}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.05, z: 0.15}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114378851380670858
+--- !u!114 &114164508151207410
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1961992769242328}
+  m_GameObject: {fileID: 1397968589036502}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
@@ -140,6 +140,7 @@ MonoBehaviour:
   cameraPosition: {x: 0.45, y: -0.27, z: -0.32}
   cameraOrientation: {x: 0, y: -0.06, z: 0}
   landingPosition: {x: 0, y: 0, z: 0}
+  landingRotation: 0
   storyFragment: FRAGMENT_MODELLING1
   hasPlayed: 0
   counter: 0
