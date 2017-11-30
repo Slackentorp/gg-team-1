@@ -71,7 +71,7 @@ public class InteractableState : GameState
             if (currentInteractable is Puzzle)
             {
                 CheckInput();
-                ((Puzzle) currentInteractable).UpdatePuzzle();
+         //       ((Puzzle) currentInteractable).UpdatePuzzle();
                 if (((Puzzle) currentInteractable).IsSolved)
                 {
                     lerpOut = true;
@@ -84,6 +84,12 @@ public class InteractableState : GameState
     public override void OnStateEnter()
     {
         cameraController = gm.cameraController;
+
+        // Guards against a zero heading vector, which breaks the camera look
+        if(currentInteractable.CamPosition == Vector3.zero)
+        {
+            currentInteractable.CamPosition = new Vector3(0,.5f,0);
+        }
 
         originPos = gm.GameCamera.transform.position;
         originForward = gm.GameCamera.transform.forward;
@@ -185,12 +191,16 @@ public class InteractableState : GameState
         if (inputEvent.GameObject != null)
         {
             // Check if wall
-            if (inputEvent.GameObject.CompareTag("Wall") && inputEvent.InputType == InputType.TAP)
+            if ((inputEvent.GameObject.CompareTag("Wall") || inputEvent.GameObject.CompareTag("Ceiling")) && inputEvent.InputType == InputType.TAP)
             {
                 EndOfFragmentCallback();
                 AkSoundEngine.StopAll(currentInteractable.gameObject);
                 cameraController.SetFragmentMode(false);
-                gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit);
+                if(inputEvent.GameObject.CompareTag("Wall")){
+                    gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, true);
+                } else {
+                    gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, false);
+                }
                 return;
             }
             ITouchInput itt = inputEvent.GameObject.GetComponent<ITouchInput>();
