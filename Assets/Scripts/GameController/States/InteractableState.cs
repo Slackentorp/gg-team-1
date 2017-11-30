@@ -85,6 +85,12 @@ public class InteractableState : GameState
     {
         cameraController = gm.cameraController;
 
+        // Guards against a zero heading vector, which breaks the camera look
+        if(currentInteractable.CamPosition == Vector3.zero)
+        {
+            currentInteractable.CamPosition = new Vector3(0,.5f,0);
+        }
+
         originPos = gm.GameCamera.transform.position;
         originForward = gm.GameCamera.transform.forward;
         originRotation = gm.GameCamera.transform.rotation;
