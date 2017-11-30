@@ -35,6 +35,8 @@ public class CameraController
     Vector3 flattened;
     private bool fragmentMode;
     private int collisionLayermask;
+    
+    float GnewAngleY = 0, GnewAngleX = 0;
 
     public Transform TargetPos
     {
@@ -128,6 +130,7 @@ public class CameraController
             Vector3 nextPos = Vector3.SmoothDamp(transform.position, heading + targetPos.position, ref currentVelocity, damping);
 
             transform.position = nextPos;
+
             if (heading.normalized != Vector3.zero)
             {
                 transform.rotation = Quaternion.LookRotation(-heading.normalized);
@@ -197,8 +200,10 @@ public class CameraController
 #if UNITY_EDITOR
         if (Input.GetMouseButton(0) && !InputManager.isTouchingObject && !isMouseTouchingObject)
         {
+            GnewAngleY += -Input.GetAxis("Mouse X") * cameraTurnSpeedY;
+            GnewAngleX += Input.GetAxis("Mouse Y") * cameraTurnSpeedX;
             newAngleY = -Input.GetAxis("Mouse X") * cameraTurnSpeedY;
-            newAngleX += Input.GetAxis("Mouse Y") * cameraTurnSpeedX;
+            newAngleX = Input.GetAxis("Mouse Y") * cameraTurnSpeedX;
         }
 #endif
         if (Input.touchCount > 0 && !InputManager.isTouchingObject && !isMouseTouchingObject)
@@ -209,26 +214,25 @@ public class CameraController
                 cameraTurnSpeedX / 10;
         }
 
-        if (!(newAngleX > 0) && !(newAngleY > 0) && !(newAngleX < 0) &&
-            !(newAngleY < 0))
-        {
-            return;
-        }
         // Yaw
-        Vector3 localUpAxis =
-            transform.InverseTransformDirection(Vector3.up);
-        heading = Quaternion.AngleAxis(newAngleY, localUpAxis) * heading;
+        heading = Quaternion.AngleAxis(newAngleY, transform.up) * heading;
 
         // Pitch
-        Quaternion q = Quaternion.AngleAxis(newAngleX, transform.right);
+        Vector3 nextHeading = Quaternion.AngleAxis(newAngleX, transform.right) * heading;
 
-        Vector3 nextHeading = q * heading;
         float a = Vector3.Angle(nextHeading, Vector3.up);
-        if (a >= 20 && a <= 160)
+        if(a > 10 && a < 170)
         {
             heading = nextHeading;
         }
 
+      /* THIS WORKS - but uses euler
+      
+        GnewAngleX = Mathf.Clamp(GnewAngleX, -89, 89);
+        Vector3 v = new Vector3(GnewAngleX, GnewAngleY, 0);
+  
+        heading = Quaternion.Euler(v) * new Vector3(0,0,1).ResizeMagnitude(initialHeading.magnitude);
+         */
     }
 
     public void SetTarget(Vector3 newTarget)
@@ -270,4 +274,10 @@ public static class Vector3Extensions
     {
         return vector.normalized * magnitude;
     }
+
+    public static Vector3 Absolute(this Vector3 vector)
+    {
+        return new Vector3(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
+    }
+
 }
