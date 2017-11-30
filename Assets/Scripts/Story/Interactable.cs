@@ -56,8 +56,7 @@ public abstract class Interactable : MonoBehaviour
             Callback();
             return;
         }
-
-        HasPlayed = true;
+        
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
             (uint) AkCallbackType.AK_EnableGetSourcePlayPosition |
@@ -71,6 +70,7 @@ public abstract class Interactable : MonoBehaviour
 
         if (t != null && callbackType == AkCallbackType.AK_EndOfEvent)
         {
+            HasPlayed = true;
             t.Invoke();
         }
 
