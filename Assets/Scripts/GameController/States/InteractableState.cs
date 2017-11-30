@@ -191,7 +191,8 @@ public class InteractableState : GameState
         if (inputEvent.GameObject != null)
         {
             // Check if wall
-            if ((inputEvent.GameObject.CompareTag("Wall") || inputEvent.GameObject.CompareTag("Ceiling")) && inputEvent.InputType == InputType.TAP)
+            if (currentInteractable is Fragment && (inputEvent.GameObject.CompareTag("Wall") || inputEvent.GameObject.CompareTag("Ceiling")) 
+                && inputEvent.InputType == InputType.TAP)
             {
                 EndOfFragmentCallback();
                 AkSoundEngine.StopAll(currentInteractable.gameObject);
