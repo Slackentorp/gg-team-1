@@ -191,12 +191,16 @@ public class InteractableState : GameState
         if (inputEvent.GameObject != null)
         {
             // Check if wall
-            if (inputEvent.GameObject.CompareTag("Wall") && inputEvent.InputType == InputType.TAP)
+            if ((inputEvent.GameObject.CompareTag("Wall") || inputEvent.GameObject.CompareTag("Ceiling")) && inputEvent.InputType == InputType.TAP)
             {
                 EndOfFragmentCallback();
                 AkSoundEngine.StopAll(currentInteractable.gameObject);
                 cameraController.SetFragmentMode(false);
-                gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit);
+                if(inputEvent.GameObject.CompareTag("Wall")){
+                    gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, true);
+                } else {
+                    gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, false);
+                }
                 return;
             }
             ITouchInput itt = inputEvent.GameObject.GetComponent<ITouchInput>();

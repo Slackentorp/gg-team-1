@@ -45,6 +45,8 @@ public class GameController : Singleton<GameController>
     public AnimationCurve mothFlightSpeedCurve;
     [Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
     public float mothDistanceToObject;
+    [Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
+    public float mothDistanceToCeiling;
 	[Space(7)]
     [Tooltip("The speed up and slow down curve of the Moth's fidgiting speed")]
     public AnimationCurve MothFidgitingCurve;
