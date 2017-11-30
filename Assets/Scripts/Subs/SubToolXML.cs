@@ -48,16 +48,17 @@ public class SubToolXML : Singleton<SubToolXML>
         {
             AkSoundEngine.GetSourcePlayPosition(g_markersPlayingID, out uPosition);
             uPosition = uPosition / 100;
-            //Debug.Log(uPosition);
+           // Debug.Log(uPosition+15);
             if (startingPoss[nextSubtitle] < (uPosition + Time.deltaTime) &&
                 startingPoss[nextSubtitle] > (uPosition - Time.deltaTime))
             {
                 StartCoroutine(DisplaySubs(texts[nextSubtitle], durations[nextSubtitle], speakers[nextSubtitle]));
+
                 foreach (var item in activeSubs)
                 {
                     subtitlesToShow.text += item;
                 }
-
+                    
                 //subtitlesToShow.text = texts[nextSubtitle];
                 //StartCoroutine(Wait(nextSubtitle));
 
@@ -65,32 +66,9 @@ public class SubToolXML : Singleton<SubToolXML>
                 {
                     OnShowSubs();
                 }
-                /*
-                switch (speakers[nextSubtitle])
-                {
-                    case "D":
-                        //we put this because otherwise it just reas the ID tag and doesnt go through there
-                        subtitlesToShow.color = Color.green;
-
-                        break;
-                    case "S":
-                        //we put this because otherwise it just reas the ID tag and doesnt go through there
-                        subtitlesToShow.color = Color.green;
-
-                        break;
-                    case "E":
-                        //we put this because otherwise it just reas the ID tag and doesnt go through there
-                        subtitlesToShow.color = Color.blue;
-
-                        break;
-                    case "M":
-                        //we put this because otherwise it just reas the ID tag and doesnt go through there
-                        subtitlesToShow.color = Color.red;
-
-                        break;
-                }*/
                 nextSubtitle++;
-            }
+
+            }   
         }
         else
         {
@@ -187,8 +165,8 @@ public class SubToolXML : Singleton<SubToolXML>
     }
 
 
-    [SerializeField]
-    List<string> activeSubs = new List<string>();
+   [SerializeField]
+   List<string> activeSubs = new List<string>();
    IEnumerator DisplaySubs(string text, float duration, string speaker)
     {
         texty.SetActive(true);
@@ -199,7 +177,6 @@ public class SubToolXML : Singleton<SubToolXML>
                 subtitlesToShow.text = "";
                 yield return new WaitForSeconds(duration);
                 activeSubs.Remove("<color=#FF0000>" + text + "</color>");
-                subtitlesToShow.text = null;
                 break;
 
             case "S":
@@ -209,7 +186,6 @@ public class SubToolXML : Singleton<SubToolXML>
                 subtitlesToShow.text = "";
                 yield return new WaitForSeconds(duration);
                 activeSubs.Remove("<color=#00FF00>" + text + "</color>");
-                subtitlesToShow.text = null;
                 break;
 
             case "E":
@@ -217,7 +193,6 @@ public class SubToolXML : Singleton<SubToolXML>
                 subtitlesToShow.text = "";
                 yield return new WaitForSeconds(duration);
                 activeSubs.Remove("<color=#00FFFF>" + text + "</color>");
-                subtitlesToShow.text = null;
                 break;
 
             case "M":
@@ -225,11 +200,10 @@ public class SubToolXML : Singleton<SubToolXML>
                 subtitlesToShow.text = "";
                 yield return new WaitForSeconds(duration);
                 activeSubs.Remove("<color=#FF0000>" + text + "</color>");
-                subtitlesToShow.text = null;
                 break;
-        }
-        //activeSubs.Add(text);
+        } 
        
-        
+       
+        //gets hidden way too fast than showing the last one.
     }
 }

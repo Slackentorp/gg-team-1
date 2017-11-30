@@ -12,7 +12,8 @@ public class GameController : Singleton<GameController>
 
     public GameObject Moth;
     public GameObject GameCamera;
-    public Queue StoryQueue;
+    public Animator CinemaBars;
+
     public LocalizationManager localization;
     public LightController LightController;
     public InputManager InputManager;
