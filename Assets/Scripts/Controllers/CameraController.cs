@@ -101,6 +101,10 @@ public class CameraController
     public void Update()
     {
         Debug.DrawLine(targetPos.position, targetPos.position + heading, Color.blue);
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
 
         if (fragmentMode)
         {
