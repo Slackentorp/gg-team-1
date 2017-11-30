@@ -28,8 +28,7 @@ public class DoorWallController : MonoBehaviour
     {
         int numActiveLamps = roomLamps.Count(l => l.LampActivated);
         int numFullOnLamps = roomLamps.Count(l => l.LampFullOn);
-        print("active lamps: " + numActiveLamps);
-        print("Full lamps: " + numFullOnLamps);
+
         AkSoundEngine.SetState("LAMPS_ON_" + roomIndex, "LAMP_" + numFullOnLamps);
         if(roomLamps.Length == 1 && numFullOnLamps == 1)
         {
