@@ -11,6 +11,8 @@ public class InteractableState : GameState
     private float time;
     private bool lerpOut;
 
+    private bool keepMothLandingState;
+
     private CameraController cameraController;
     private Interactable currentInteractable;
     private Renderer currentInteractableRenderer;
@@ -79,6 +81,10 @@ public class InteractableState : GameState
                 }
             }
         }
+        if (keepMothLandingState)
+        {
+            ForceLanding();
+        }
     }
 
     public override void OnStateEnter()
@@ -125,16 +131,29 @@ public class InteractableState : GameState
 
     private void OnMothLands()
     {
+        if (currentInteractable.firstPuzzleCheck)
+        {
+            gm.mothBehaviour.SetMothAnimationState("Flying");
+        }
+        else if (!currentInteractable.firstPuzzleCheck)
+        {
+            keepMothLandingState = true;
+            ForceLanding();
+        }
+    }
+
+    private void ForceLanding()
+    {
         AkSoundEngine.PostEvent("MOTH_LANDING", gm.Moth);
         gm.mothBehaviour.SetMothAnimationState("Landing");
     }
 
     private void EndOfFragmentCallback()
     {
-        Debug.Log("End of interactable: " + currentInteractable.gameObject.name);
+        keepMothLandingState = false;
+        gm.mothBehaviour.SetMothAnimationState("Flying");
         gm.StartCoroutine(Leaving(1f));
         lerpOut = true;
-
     }
 
     public override void OnStateExit()
@@ -147,8 +166,8 @@ public class InteractableState : GameState
     private IEnumerator Leaving(float multiplier)
     {
         time = 0;
-        gm.mothBehaviour.SetMothAnimationState("Flying");
         Vector3 heading = Vector3.zero;
+
 
         Quaternion cameraStartRotation = gm.GameCamera.transform.rotation;
 
@@ -177,6 +196,7 @@ public class InteractableState : GameState
         }
 
         gm.cameraController.SetHeading(heading);
+        gm.mothBehaviour.SetMothAnimationState("Flying");
         if (gm.CinemaBars.gameObject.activeInHierarchy)
         {
             gm.CinemaBars.SetTrigger("Up");
