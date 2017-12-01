@@ -58,8 +58,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4f2aa2d7e4bae284daed11bc2a3a7e5b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MaintexEmission:
+        m_Texture: {fileID: 2800000, guid: 4f2aa2d7e4bae284daed11bc2a3a7e5b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MaintexEmissionMap:
-        m_Texture: {fileID: 2800000, guid: aa5bcec7025aa954e9f96dea8f526c49, type: 3}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaintexEmissionMapOverlay:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaintexNormalMap:
@@ -99,7 +107,7 @@ Material:
     - _DissolveMin: -4
     - _DstBlend: 0
     - _EmissionIntensity: 0.4
-    - _EmissionNoiseIntensity: 1
+    - _EmissionNoiseIntensity: 0.3
     - _EmissionNoiseSpeed: 0.1
     - _EmissionNoiseU: 1
     - _EmissionNoiseV: 1
@@ -107,7 +115,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _MaintexEmissionIntensity: 0.5
+    - _MaintexEmissionIntensity: 0.3
+    - _MaintexEmissionOverlayIntensity: 0.5
     - _MaintexNormalIntensity: 0
     - _Metallic: 0
     - _Mode: 0
@@ -116,7 +125,7 @@ Material:
     - _Opacity: 0.36
     - _Parallax: 0.02
     - _SaturationIntensity: 1
-    - _SilhouetteIntensity: 0.3
+    - _SilhouetteIntensity: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -126,7 +135,9 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0.91724133, b: 1, a: 0}
-    - _FresnelColor: {r: 0, g: 1, b: 1, a: 1}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _MaintexColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MaintexEmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _maintexEmissionColor: {r: 0, g: 1, b: 1, a: 1}
+    - _maintexEmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _maintexEmissionOverlayColor: {r: 1, g: 1, b: 1, a: 1}

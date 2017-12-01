@@ -64,6 +64,13 @@
 											</ReferenceList>
 											<ChildrenList>
 												<MusicTrack Name="Hallways_PIANO_91bpm" ID="{105D994D-F818-4835-B4A6-27FDDF10FBC9}" ShortID="44804136">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-1</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -78,21 +85,13 @@
 													<StateInfo>
 														<StateGroupList>
 															<StateGroupInfo>
-																<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+																<StateGroupRef Name="LAMPS_ON_2" ID="{FB4F9D73-38C4-420B-8A28-0DB17C8E2C5F}"/>
 															</StateGroupInfo>
 														</StateGroupList>
 														<CustomStateList>
 															<CustomState>
-																<StateRef Name="LAMP_0" ID="{D215C82D-B5A0-4238-BC70-EDE9F6F52976}"/>
-																<State Name="Custom State" ID="{88DAAC08-9FBE-46DF-9CAD-EFF0752F87C1}" ShortID="367793712">
-																	<PropertyList>
-																		<Property Name="Volume" Type="Real64" Value="-96"/>
-																	</PropertyList>
-																</State>
-															</CustomState>
-															<CustomState>
-																<StateRef Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
-																<State Name="Custom State" ID="{A20FCA82-5FED-49BF-85FB-52A3F2B60480}" ShortID="671151346">
+																<StateRef Name="LAMP_0" ID="{DF72C0AE-0259-443D-9E40-E7B526F3B6C8}"/>
+																<State Name="Custom State" ID="{F7F74BCB-7691-47A8-A4E8-EA2EEA984F46}" ShortID="751082068">
 																	<PropertyList>
 																		<Property Name="Volume" Type="Real64" Value="-96"/>
 																	</PropertyList>
@@ -124,6 +123,13 @@
 													</SequenceList>
 												</MusicTrack>
 												<MusicTrack Name="Hallways_STRINGS_91bpm" ID="{57D2DD29-78B5-4011-96E5-7E3152BD9785}" ShortID="511090196">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-7</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -141,29 +147,13 @@
 													<StateInfo>
 														<StateGroupList>
 															<StateGroupInfo>
-																<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+																<StateGroupRef Name="LAMPS_ON_2" ID="{FB4F9D73-38C4-420B-8A28-0DB17C8E2C5F}"/>
 															</StateGroupInfo>
 														</StateGroupList>
 														<CustomStateList>
 															<CustomState>
-																<StateRef Name="LAMP_0" ID="{D215C82D-B5A0-4238-BC70-EDE9F6F52976}"/>
-																<State Name="Custom State" ID="{90861C66-908D-48F0-B4C6-38B457F232A2}" ShortID="207479648">
-																	<PropertyList>
-																		<Property Name="Volume" Type="Real64" Value="-96"/>
-																	</PropertyList>
-																</State>
-															</CustomState>
-															<CustomState>
-																<StateRef Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
-																<State Name="Custom State" ID="{C0967F01-8BCC-4A4C-8A91-FF6601797150}" ShortID="304346624">
-																	<PropertyList>
-																		<Property Name="Volume" Type="Real64" Value="-96"/>
-																	</PropertyList>
-																</State>
-															</CustomState>
-															<CustomState>
-																<StateRef Name="LAMP_1" ID="{5CD9C236-0FC1-49C7-8F9E-196D0B304E8E}"/>
-																<State Name="Custom State" ID="{69C0FD12-C906-4A5A-9A55-9EB1EBE2BA18}" ShortID="858452933">
+																<StateRef Name="LAMP_0" ID="{DF72C0AE-0259-443D-9E40-E7B526F3B6C8}"/>
+																<State Name="Custom State" ID="{7939F500-BAD0-4D10-B12C-E95F9443BF58}" ShortID="112173070">
 																	<PropertyList>
 																		<Property Name="Volume" Type="Real64" Value="-96"/>
 																	</PropertyList>
@@ -198,7 +188,7 @@
 													<PropertyList>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-5</Value>
+																<Value>-2</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -219,19 +209,10 @@
 													<StateInfo>
 														<StateGroupList>
 															<StateGroupInfo>
-																<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+																<StateGroupRef Name="LAMPS_ON_2" ID="{FB4F9D73-38C4-420B-8A28-0DB17C8E2C5F}"/>
 															</StateGroupInfo>
 														</StateGroupList>
-														<CustomStateList>
-															<CustomState>
-																<StateRef Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
-																<State Name="Custom State" ID="{1186A0E8-B35C-40BD-9C19-CAECAF0E839D}" ShortID="465662421">
-																	<PropertyList>
-																		<Property Name="Volume" Type="Real64" Value="-96"/>
-																	</PropertyList>
-																</State>
-															</CustomState>
-														</CustomStateList>
+														<CustomStateList/>
 													</StateInfo>
 													<TransitionList>
 														<MusicTransition Name="Root" ID="{7AFDFA72-3ED0-4F03-95D0-DBD5F97FE375}">
@@ -457,6 +438,13 @@
 									</Playlist>
 								</MusicPlaylistContainer>
 								<MusicPlaylistContainer Name="Livingroom" ID="{B6A4CC90-E7E6-49D1-8793-E3C69C11DF34}" ShortID="199780653">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -496,29 +484,21 @@
 													<StateInfo>
 														<StateGroupList>
 															<StateGroupInfo>
-																<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+																<StateGroupRef Name="LAMPS_ON_1" ID="{8C24DEB1-2692-4D79-8119-EF10EB19C46B}"/>
 															</StateGroupInfo>
 														</StateGroupList>
 														<CustomStateList>
 															<CustomState>
-																<StateRef Name="LAMP_0" ID="{D215C82D-B5A0-4238-BC70-EDE9F6F52976}"/>
-																<State Name="Custom State" ID="{FE5E99F5-F6E7-4374-B65E-6C62B7E391E0}" ShortID="34657247">
+																<StateRef Name="LAMP_0" ID="{47BC3F36-4959-4257-A3B3-1F335671B78E}"/>
+																<State Name="Custom State" ID="{EA51F2EE-1B94-421B-A042-579438681A2E}" ShortID="93379708">
 																	<PropertyList>
 																		<Property Name="Volume" Type="Real64" Value="-96"/>
 																	</PropertyList>
 																</State>
 															</CustomState>
 															<CustomState>
-																<StateRef Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
-																<State Name="Custom State" ID="{C9C1D195-37B9-41A6-A2A9-6470CEB132CF}" ShortID="214229390">
-																	<PropertyList>
-																		<Property Name="Volume" Type="Real64" Value="-96"/>
-																	</PropertyList>
-																</State>
-															</CustomState>
-															<CustomState>
-																<StateRef Name="LAMP_1" ID="{5CD9C236-0FC1-49C7-8F9E-196D0B304E8E}"/>
-																<State Name="Custom State" ID="{FEB3CB0B-36E8-4AF3-BA10-959C6028B72A}" ShortID="147274675">
+																<StateRef Name="LAMP_1" ID="{4A058A11-8C2D-4EB8-A466-3C7AB5C1251F}"/>
+																<State Name="Custom State" ID="{ED9369E7-E1A3-4DD8-B7FC-A19FA9094947}" ShortID="63089824">
 																	<PropertyList>
 																		<Property Name="Volume" Type="Real64" Value="-96"/>
 																	</PropertyList>
@@ -625,27 +605,10 @@
 													<StateInfo>
 														<StateGroupList>
 															<StateGroupInfo>
-																<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+																<StateGroupRef Name="LAMPS_ON_1" ID="{8C24DEB1-2692-4D79-8119-EF10EB19C46B}"/>
 															</StateGroupInfo>
 														</StateGroupList>
-														<CustomStateList>
-															<CustomState>
-																<StateRef Name="LAMP_2" ID="{2746F27B-6336-4419-A1BD-B2181F93FCD3}"/>
-																<State Name="Custom State" ID="{D7394B5F-7D1C-400E-B171-136628E8864F}" ShortID="419886324">
-																	<PropertyList>
-																		<Property Name="Volume" Type="Real64" Value="-96"/>
-																	</PropertyList>
-																</State>
-															</CustomState>
-															<CustomState>
-																<StateRef Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
-																<State Name="Custom State" ID="{56EE5F83-7C03-4759-BE0A-7C492D449623}" ShortID="791462871">
-																	<PropertyList>
-																		<Property Name="Volume" Type="Real64" Value="-96"/>
-																	</PropertyList>
-																</State>
-															</CustomState>
-														</CustomStateList>
+														<CustomStateList/>
 													</StateInfo>
 													<TransitionList>
 														<MusicTransition Name="Root" ID="{62969395-2404-45CC-83A4-5F3958289368}">
@@ -746,21 +709,13 @@
 													<StateInfo>
 														<StateGroupList>
 															<StateGroupInfo>
-																<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+																<StateGroupRef Name="LAMPS_ON_1" ID="{8C24DEB1-2692-4D79-8119-EF10EB19C46B}"/>
 															</StateGroupInfo>
 														</StateGroupList>
 														<CustomStateList>
 															<CustomState>
-																<StateRef Name="LAMP_0" ID="{D215C82D-B5A0-4238-BC70-EDE9F6F52976}"/>
-																<State Name="Custom State" ID="{35A01899-3AD9-43C3-A29C-7968C9724A15}" ShortID="228076065">
-																	<PropertyList>
-																		<Property Name="Volume" Type="Real64" Value="-96"/>
-																	</PropertyList>
-																</State>
-															</CustomState>
-															<CustomState>
-																<StateRef Name="LAMP_3" ID="{F05F251B-AAB4-45E8-AB9A-31CFE13CCCAC}"/>
-																<State Name="Custom State" ID="{68D18D3F-0610-475E-BF68-F3CA8CBA7B0A}" ShortID="298474723">
+																<StateRef Name="LAMP_0" ID="{47BC3F36-4959-4257-A3B3-1F335671B78E}"/>
+																<State Name="Custom State" ID="{4DCC0A9D-3D28-4C81-97E6-F9B24A6A2A48}" ShortID="946918777">
 																	<PropertyList>
 																		<Property Name="Volume" Type="Real64" Value="-96"/>
 																	</PropertyList>
@@ -899,7 +854,7 @@
 							<StateInfo>
 								<StateGroupList>
 									<StateGroupInfo>
-										<StateGroupRef Name="LAMPS_ON" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
+										<StateGroupRef Name="LAMPS_ON_0" ID="{C0369825-F59B-4B5C-8793-9A3A69CEA07E}"/>
 									</StateGroupInfo>
 								</StateGroupList>
 								<CustomStateList/>
@@ -1245,6 +1200,195 @@
 										</MusicCue>
 									</CueList>
 								</MusicSegment>
+								<MusicSegment Name="Bittersweet" ID="{3911149A-6AE0-4834-BEE5-7D59AA8048A0}" ShortID="774977462">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="50526.3038548753"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Bittersweet" ID="{CCAEE036-849A-495E-9B72-A1BA83D71CAE}" ShortID="651370608">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Bittersweet" ID="{01E951EF-544F-43BA-BCFF-DB136031F7DC}" ShortID="378624728">
+													<Language>SFX</Language>
+													<AudioFile>Bittersweet.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{34D6FE91-7BB7-4FA1-B408-AE6724AAEE11}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{EAC66707-068F-46C7-8EC2-3C30BA38059D}">
+													<ClipList>
+														<MusicClip Name="Bittersweet" ID="{E8657783-7BC7-4E8D-8D68-A7A46DF631A7}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="50526.3038548753"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Bittersweet" ID="{01E951EF-544F-43BA-BCFF-DB136031F7DC}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{BD66A252-9645-49E4-90D7-4B236817C374}"/>
+										<MusicCue Name="Exit Cue" ID="{72A41448-0848-42E3-B7FD-0EC3A158F66B}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="50526.3038548753"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+								<MusicSegment Name="Happy perhaps" ID="{204A2D85-FD61-4683-8B40-FEAB3FB36963}" ShortID="694195303">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="32053.1519274376"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Happy perhaps" ID="{FF431729-F9F0-4AC8-B58A-FE8C2F21591E}" ShortID="344356769">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Happy perhaps" ID="{309F12A9-E9D2-4AED-B35B-1AD3A2665279}" ShortID="883646110">
+													<Language>SFX</Language>
+													<AudioFile>Happy perhaps.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{EA633B6D-D914-4BC8-98F5-876905298A32}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{03797A10-E168-46E7-8F5E-EDE8E4F17321}">
+													<ClipList>
+														<MusicClip Name="Happy perhaps" ID="{CDC625C1-A160-4692-AAF3-75342220B855}">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="2500"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="32053.1519274376"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="-2500"/>
+															</PropertyList>
+															<AudioSourceRef Name="Happy perhaps" ID="{309F12A9-E9D2-4AED-B35B-1AD3A2665279}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{71BB2C4E-AFE9-4C0F-B643-B96EC86FA6D3}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>2.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>32.0531519274376</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{5FFD0EC4-F4D7-461C-80B2-52A22669C4F2}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>2.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>32.0531519274376</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{21A1A2C8-094B-49A7-A3E9-8ACF19267B75}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>2.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>32.0531519274376</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{36A801C7-5EF3-4629-A172-2F479BCAAF55}"/>
+										<MusicCue Name="Exit Cue" ID="{7F9A6D62-7E42-4AB7-932B-B67466C99143}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="32053.1519274376"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
 							</ChildrenList>
 							<TransitionList>
 								<MusicTransition Name="Root" ID="{84EC9BAD-7422-4BAF-8A9A-3F999294A8C9}">
@@ -1253,6 +1397,9 @@
 									</PropertyList>
 									<ChildrenList>
 										<MusicTransition Name="Transition" ID="{B85D809E-ECB8-4ACE-B50B-57469B81E69B}">
+											<PropertyList>
+												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+											</PropertyList>
 											<TransitionInfo/>
 										</MusicTransition>
 									</ChildrenList>
@@ -1292,7 +1439,7 @@
 										<PathElementRef Name="Bittersweet" ID="{1A7EB430-2F32-43C6-B4C5-04683179DF35}"/>
 									</Path>
 									<AudioNodeInfo>
-										<AudioNodeRef Name="Testmusic" ID="{B77142C2-DF25-4878-AD0E-107DE5DC611B}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
+										<AudioNodeRef Name="Bittersweet" ID="{3911149A-6AE0-4834-BEE5-7D59AA8048A0}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
 									</AudioNodeInfo>
 								</Entry>
 								<Entry>
@@ -1317,6 +1464,14 @@
 									</Path>
 									<AudioNodeInfo>
 										<NoObject Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
+								<Entry>
+									<Path>
+										<PathElementRef Name="Happy_2" ID="{F9CA9C3B-6F3F-4595-BACB-A2AE05AFBFB8}"/>
+									</Path>
+									<AudioNodeInfo>
+										<AudioNodeRef Name="Happy perhaps" ID="{204A2D85-FD61-4683-8B40-FEAB3FB36963}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
 									</AudioNodeInfo>
 								</Entry>
 							</EntryList>
@@ -1400,6 +1555,70 @@
 										</SourceFadeOut>
 										<DestinationFadeIn>
 											<MusicFade Name="Destination Fade-in" ID="{F2BCE2D2-35A5-4729-BD00-B2B315CF0FB3}">
+												<PropertyList>
+													<Property Name="FadeTime" Type="Real64" Value="3"/>
+												</PropertyList>
+											</MusicFade>
+										</DestinationFadeIn>
+									</TransitionInfo>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{EC9B8DC5-FD5D-4A01-9FD4-7C9B544E6405}">
+									<PropertyList>
+										<Property Name="DestinationContextType" Type="int16" Value="2"/>
+										<Property Name="DestinationJumpPositionPreset" Type="int16" Value="3"/>
+										<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+										<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="DestinationContextObject">
+											<ObjectRef Name="Hallways Piano" ID="{3BAC89BF-7A20-425E-B2B5-50D95D290984}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionInfo>
+										<SourceFadeOut>
+											<MusicFade Name="Source Fade-out" ID="{873BA863-3D1E-4BC4-9F30-73C561E9D723}">
+												<PropertyList>
+													<Property Name="FadeOffset" Type="Real64" Value="2"/>
+													<Property Name="FadeTime" Type="Real64" Value="2"/>
+													<Property Name="FadeType" Type="int16" Value="1"/>
+												</PropertyList>
+											</MusicFade>
+										</SourceFadeOut>
+										<DestinationFadeIn>
+											<MusicFade Name="Destination Fade-in" ID="{47257D1A-4353-4A60-9EE8-D9F6F858BDD4}">
+												<PropertyList>
+													<Property Name="FadeTime" Type="Real64" Value="3"/>
+												</PropertyList>
+											</MusicFade>
+										</DestinationFadeIn>
+									</TransitionInfo>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{79C914CB-AA45-4991-8936-EC6997F1CE49}">
+									<PropertyList>
+										<Property Name="DestinationContextType" Type="int16" Value="2"/>
+										<Property Name="DestinationJumpPositionPreset" Type="int16" Value="3"/>
+										<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+										<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="DestinationContextObject">
+											<ObjectRef Name="Kitchen" ID="{4BC45243-3894-4A33-9057-4E04C22B54CF}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionInfo>
+										<SourceFadeOut>
+											<MusicFade Name="Source Fade-out" ID="{7877191C-EF54-4884-AB52-9E50B17A8EE3}">
+												<PropertyList>
+													<Property Name="FadeOffset" Type="Real64" Value="2"/>
+													<Property Name="FadeTime" Type="Real64" Value="2"/>
+													<Property Name="FadeType" Type="int16" Value="1"/>
+												</PropertyList>
+											</MusicFade>
+										</SourceFadeOut>
+										<DestinationFadeIn>
+											<MusicFade Name="Destination Fade-in" ID="{90DDE183-B818-4FC6-8006-0EBE9A3ABD16}">
 												<PropertyList>
 													<Property Name="FadeTime" Type="Real64" Value="3"/>
 												</PropertyList>

@@ -46,6 +46,7 @@ public class MothBehaviour
 	float distance, timeToTarget = 1.0f, timeSpentInDamp = 1.5f;
 	float fidgitInFlightReducer = 0;
 	float velocity;
+	private float mothDistanceToCeiling;
 
 	public float MothSpeed
 	{
@@ -69,7 +70,7 @@ public class MothBehaviour
 	public MothBehaviour(GameObject moth, Camera camera, float mothDistanceToObject, float MothSpeed, AnimationCurve curve,
 						int noiseReducerMax, int noiseReducerMin, float speedModifier, AnimationCurve MothFlightLerpCurve,
 						float verticalMothScreenPlacement, float limitMothForwardFidgit, float fidgitInFlightReducer, 
-						float timeSpentInDamp)
+						float timeSpentInDamp, float mothDistanceToCeiling)
 	{
 		this.moth = moth;
 		this.camera = camera;
@@ -84,6 +85,7 @@ public class MothBehaviour
 		this.limitMothForwardFidgit = limitMothForwardFidgit;
 		this.fidgitInFlightReducer = fidgitInFlightReducer;
 		this.timeSpentInDamp = timeSpentInDamp;
+		this.mothDistanceToCeiling = mothDistanceToCeiling;
 	}
 
 	public void SetFragmentMode(bool b)
@@ -108,12 +110,17 @@ public class MothBehaviour
 		}
 	}
 
-	public void SetMothPos(RaycastHit hit)
+	public void SetMothPos(RaycastHit hit, bool wall)
 	{
 		AkSoundEngine.PostEvent("MOTH_START_FLIGHT", moth);
 		mothStartPos = moth.transform.position;
 		mothRotation = moth.transform.forward;
-		hitPoint = hit.point + hit.normal * mothDistanceToObject;
+		if(wall)
+		{
+			hitPoint = hit.point + hit.normal * mothDistanceToObject;
+		} else {
+			hitPoint = hit.point + hit.normal * mothDistanceToCeiling;
+		}
 
 		DistancefromMothToHitpoint();
 		lerpRunning = true;

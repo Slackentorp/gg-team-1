@@ -12,6 +12,8 @@ public class DoorWallController : MonoBehaviour
 
     private ParticleSystem doorParticleSystem;
     private int LampsON = 0;
+    [SerializeField]
+    private int roomIndex;
 
     void OnEnable()
     {
@@ -27,7 +29,7 @@ public class DoorWallController : MonoBehaviour
         int numActiveLamps = roomLamps.Count(l => l.LampActivated);
         int numFullOnLamps = roomLamps.Count(l => l.LampFullOn);
 
-        AkSoundEngine.SetState("LAMPS_ON", "LAMP_" + numActiveLamps);
+        AkSoundEngine.SetState("LAMPS_ON_" + roomIndex, "LAMP_" + numFullOnLamps);
         if(roomLamps.Length == 1 && numFullOnLamps == 1)
         {
             gameObject.SetActive(false);

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public abstract class Interactable : MonoBehaviour
 {
-    public delegate void InteractableAction();
+    public delegate void InteractableAction(Interactable sender);
     public static event InteractableAction InteractableCall;
     public delegate void EasyWwiseCallback();
     public float InteractionDistance { get { return interactionDistance; } }
@@ -59,8 +59,7 @@ public abstract class Interactable : MonoBehaviour
             Callback();
             return;
         }
-
-        HasPlayed = true;
+        
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
             (uint) AkCallbackType.AK_EnableGetSourcePlayPosition |
@@ -74,10 +73,11 @@ public abstract class Interactable : MonoBehaviour
 
         if (t != null && callbackType == AkCallbackType.AK_EndOfEvent)
         {
+            HasPlayed = true;
             t.Invoke();
+            InvokeInteractableCall();
         }
 
-        InvokeInteractableCall();
     }
 
     public virtual void Awake()
@@ -89,7 +89,7 @@ public abstract class Interactable : MonoBehaviour
     {
         if (InteractableCall != null)
         {
-            InteractableCall();
+            InteractableCall(this);
         }
     }
 
