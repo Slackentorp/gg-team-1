@@ -12,7 +12,8 @@ public class GameController : Singleton<GameController>
 
     public GameObject Moth;
     public GameObject GameCamera;
-    public Queue StoryQueue;
+    public Animator CinemaBars;
+
     public LocalizationManager localization;
     public LightController LightController;
     public InputManager InputManager;
@@ -44,6 +45,8 @@ public class GameController : Singleton<GameController>
     public AnimationCurve mothFlightSpeedCurve;
     [Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
     public float mothDistanceToObject;
+    [Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
+    public float mothDistanceToCeiling;
 	[Space(7)]
     [Tooltip("The speed up and slow down curve of the Moth's fidgiting speed")]
     public AnimationCurve MothFidgitingCurve;
@@ -81,13 +84,14 @@ public class GameController : Singleton<GameController>
     [Tooltip("Decides the speed with which the camera moves to defined puzzle position." +
             "Also determines rotation speed of camera when moving to puzzle")]
     public float cameraToPuzzleSpeed;
+    public GameObject FragmentToLightSourceParticles;
+    public AnimationCurve FragmentToLightSourceCurve;
     [Space(15)]
 
     [HideInInspector]
     public Vector3 cameraHeading;
     [HideInInspector]
     public Puzzle tutorialPuzzle;
-
 
     [SerializeField, Tooltip("Loading Screen")]
     private GameObject loadingPanel;

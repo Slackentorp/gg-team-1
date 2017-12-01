@@ -28,11 +28,18 @@ public class ParticleTapController : MonoBehaviour
         particlePos = partPos;
         particlePath = "ResourcesPrefabs/Glow";
         tapParticle = (ParticleSystem)Resources.Load(particlePath, typeof(ParticleSystem));
-        StopAllCoroutines();
+        AkSoundEngine.PostEvent("TAP_PARTICLE", gameObject);
+
+        if (instantiatedParticle != null)
+        {
+            StopAllCoroutines();
+            var em = instantiatedParticle.emission;
+            em.enabled = false;
+            Destroy(instantiatedParticle.gameObject);
+        }
 
         instantiatedParticle = ParticleSystem.Instantiate(tapParticle, particlePos, Quaternion.identity);
-        var em = instantiatedParticle.emission;
-        em.enabled = false;
+
         StartCoroutine(ParticleTapEffect());
         return;
     }
@@ -40,8 +47,9 @@ public class ParticleTapController : MonoBehaviour
 
     IEnumerator ParticleTapEffect()
     {
-        yield return new WaitForSeconds(particleLiveTime);
         var em = instantiatedParticle.emission;
+        em.enabled = true;
+        yield return new WaitForSeconds(particleLiveTime);
         em.enabled = false;
 
         yield return new WaitForSeconds(particleLiveTime);

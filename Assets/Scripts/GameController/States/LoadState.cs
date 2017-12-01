@@ -24,7 +24,7 @@ public class LoadState : GameState
         
         gm.mothBehaviour = new MothBehaviour(gm.Moth, gm.GameCamera.GetComponent<Camera>(), gm.mothDistanceToObject, gm.mothFlightSpeed, gm.MothFidgitingCurve, 
 											gm.FidgetingDistanceReducerMax, gm.FidgetingDistanceReducerMin, gm.mothSpeedModifier, gm.mothFlightSpeedCurve,
-											gm.VerticalMothScreenPosition, gm.LimitMothForwardFidgit, gm.FidgitInFlightReducer, gm.fidgitTimeScalar);
+											gm.VerticalMothScreenPosition, gm.LimitMothForwardFidgit, gm.FidgitInFlightReducer, gm.fidgitTimeScalar, gm.mothDistanceToCeiling);
         gm.mothSounds = new MothSounds(gm.GameCamera.transform, gm.mothBehaviour, gm.Moth.transform);
         gm.cameraHeading = gm.GameCamera.transform.position - gm.Moth.transform.position;
 
@@ -46,10 +46,11 @@ public class LoadState : GameState
         {
             if (GameObject.FindWithTag("Respawn") != null)
             {
-                gm.tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>();
-                gm.SetState(new InteractableState(gm, gm.tutorialPuzzle));
+                gm.SetState(new RunState(gm));
+                //gm.tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>();
+                //gm.SetState(new InteractableState(gm, gm.tutorialPuzzle));
             }
-           
+
         }
     }
 
