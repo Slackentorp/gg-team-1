@@ -11,6 +11,8 @@ public class InteractableState : GameState
     private float time;
     private bool lerpOut;
 
+    private bool keepBirdLaned;
+
     private CameraController cameraController;
     private Interactable currentInteractable;
     private Renderer currentInteractableRenderer;
@@ -36,15 +38,17 @@ public class InteractableState : GameState
         rotation = Quaternion.Lerp(originRotation, Quaternion.Euler(currentInteractable.CamOrientaion), t);
 
         Quaternion mothRotation = Quaternion.identity;
-        if(currentInteractableRenderer != null)
+        if (currentInteractableRenderer != null)
         {
-            if(currentInteractable.LandingRotation == Interactable.LandRotation.VERTICAL)
+            if (currentInteractable.LandingRotation == Interactable.LandRotation.VERTICAL)
             {
                 // Land vertically
-                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,90), t + .1f);
-            } else {
+                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0, 0, 90), t + .1f);
+            }
+            else
+            {
                 // Land horizontally
-                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0,0,0), t + .1f);
+                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0, 0, 0), t + .1f);
             }
         }
 
@@ -57,17 +61,21 @@ public class InteractableState : GameState
             time += Time.deltaTime;
         }
         else
-        {    
+        {
             if (currentInteractable is Puzzle)
             {
                 CheckInput();
                 ((Puzzle)currentInteractable).UpdatePuzzle();
-                if(((Puzzle)currentInteractable).IsSolved)
+                if (((Puzzle)currentInteractable).IsSolved)
                 {
                     lerpOut = true;
                     currentInteractable.Play(EndOfFragmentCallback);
                 }
             }
+        }
+        if (keepBirdLaned)
+        {
+            MakeLanded();
         }
     }
 
@@ -102,16 +110,29 @@ public class InteractableState : GameState
 
     private void OnMothLands()
     {
+        if (currentInteractable.firstPuzzleCheck)
+        {
+            gm.mothBehaviour.SetMothAnimationState("Flying");
+        }
+        else if (!currentInteractable.firstPuzzleCheck)
+        {
+            keepBirdLaned = true;
+            MakeLanded();
+        }
+    }
+
+    private void MakeLanded()
+    {
         AkSoundEngine.PostEvent("MOTH_LANDING", gm.Moth);
         gm.mothBehaviour.SetMothAnimationState("Landing");
     }
 
     private void EndOfFragmentCallback()
     {
-        Debug.Log("End of interactable: " + currentInteractable.gameObject.name);
+        keepBirdLaned = false;
+        gm.mothBehaviour.SetMothAnimationState("Flying");
         gm.StartCoroutine(Leaving());
         lerpOut = true;
-        
     }
 
     public override void OnStateExit()
@@ -124,8 +145,7 @@ public class InteractableState : GameState
     private IEnumerator Leaving()
     {
         time = 0;
-        gm.mothBehaviour.SetMothAnimationState("Flying");
-        
+
         Vector3 heading = gm.GameCamera.transform.position - gm.Moth.transform.position;
         heading = heading.ResizeMagnitude(gm.cameraController.InitialHeading.magnitude);
 
@@ -144,7 +164,7 @@ public class InteractableState : GameState
             Quaternion mothQ = Quaternion.Lerp(mothStartRotation, desiredRotation, t);
 
             gm.GameCamera.transform.position = position;
-            gm.GameCamera.transform.rotation  = camQ;
+            gm.GameCamera.transform.rotation = camQ;
             gm.Moth.transform.rotation = mothQ;
 
             time += Time.deltaTime;
@@ -152,7 +172,7 @@ public class InteractableState : GameState
         }
 
         gm.cameraController.SetHeading(heading);
-
+        gm.mothBehaviour.SetMothAnimationState("Flying");
         gm.SetState(new RunState(gm));
     }
 
@@ -185,7 +205,7 @@ public class InteractableState : GameState
                         itt.OnTap();
                         break;
                 }
-            } 
+            }
             else
             {
                 cameraController.Update();

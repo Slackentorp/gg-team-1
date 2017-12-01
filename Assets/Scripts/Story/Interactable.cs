@@ -24,6 +24,9 @@ public abstract class Interactable : MonoBehaviour
     public string StoryFragment { get { return storyFragment; } }
     public Vector3 LandingPosition { get { return landingPosition; } }
 
+    [SerializeField]
+    public bool firstPuzzleCheck;
+
     [SerializeField, Tooltip("The maximum distance of interaction")]
     private float interactionDistance = 2f;
 
