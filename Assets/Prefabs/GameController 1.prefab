@@ -68,13 +68,14 @@ MonoBehaviour:
   currentStateLiteral: 
   Moth: {fileID: 0}
   GameCamera: {fileID: 0}
+  CinemaBars: {fileID: 0}
   LightController: {fileID: 0}
   HeadsetStateUIText: {fileID: 0}
   InputSettings: {fileID: 11400000, guid: e18b67782cd8cfe469dc6b5dad4db415, type: 2}
   cameraTurnSpeedY: 1.4
   cameraTurnSpeedX: 1.4
-  minimumVerticalAngle: 80
-  maximumVerticalAngle: 100
+  minimumVerticalAngle: 30
+  maximumVerticalAngle: 150
   cameraDamping: 0.2
   mothFlightSpeed: 0.5
   mothFlightSpeedCurve:
@@ -102,6 +103,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   mothDistanceToObject: 0.588
+  mothDistanceToCeiling: 0
   MothFidgitingCurve:
     serializedVersion: 2
     m_Curve:
@@ -177,6 +179,26 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   cameraToPuzzleSpeed: 0.3
+  FragmentToLightSourceParticles: {fileID: 1865884038229420, guid: 0a1094e5d365a9b4d8731840897ea3c5,
+    type: 2}
+  FragmentToLightSourceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 2
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   cameraHeading: {x: 0, y: 0, z: 0}
   tutorialPuzzle: {fileID: 0}
   loadingPanel: {fileID: 0}
