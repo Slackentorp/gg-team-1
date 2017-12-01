@@ -66,6 +66,12 @@ public class Puzzle : Interactable
                 puzzlePieces[i].transform.position = newRandomPos;
                 correctPuzzle.Add(puzzlePieces[i], correctPositions[i]);
             }
+
+            PictureFrameTouch pft = child.GetComponent<PictureFrameTouch>();
+            if(pft != null)
+            {
+                pft.OnTouchUpEvent += UpdatePuzzle;
+            }
         }
 
         GetComponent<BoxCollider>().size = boundingBoxSize;
@@ -97,6 +103,17 @@ public class Puzzle : Interactable
 
     private void OnSolved(GameObject puzzleObj)
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            PictureFrameTouch pft = child.GetComponent<PictureFrameTouch>();
+            if(pft != null)
+            {
+                pft.OnTouchUpEvent -= UpdatePuzzle;
+            }
+        }
+
+
         if (PuzzleCall != null)
         {
             PuzzleCall(puzzleObj); 

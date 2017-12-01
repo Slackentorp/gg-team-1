@@ -8,7 +8,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	722690795	FRAGMENT_SMOKING1			\Default Work Unit\Fragments\FRAGMENT_SMOKING1	
 	731569454	FRAGMENT_WHISPER			\Default Work Unit\Fragments\Common\FRAGMENT_WHISPER	
 	746056516	CAMERA_MOVE			\Default Work Unit\CAMERA_MOVE	
+	760300722	WALKMAN			\Default Work Unit\Ambience\WALKMAN	
+	805220752	SINK			\Default Work Unit\SINK	
 	944261500	ANSWERING_TRIGGER			\Default Work Unit\ANSWERING_TRIGGER	
+	1102612893	PARTICLE_ENTER_FOGWALL			\Default Work Unit\Particle\PARTICLE_ENTER_FOGWALL	
 	1107599359	PUZZLE_SOLVED			\Default Work Unit\Puzzles\PUZZLE_SOLVED	
 	1204468941	FRAGMENT_POLAROID1			\Default Work Unit\Fragments\FRAGMENT_POLAROID1	
 	1275729080	LIVINGROOM_ENTER			\Default Work Unit\Ambience\LIVINGROOM_ENTER	
@@ -18,12 +21,14 @@ Event	ID	Name			Wwise Object Path	Notes
 	1451837118	NEIGHBOUR			\Default Work Unit\NEIGHBOUR	
 	1512987680	MENUBUTTON_PRESS			\Default Work Unit\Menu\MENUBUTTON_PRESS	
 	1520330871	FRAGMENT_TATTOO			\Default Work Unit\Fragments\FRAGMENT_TATTOO	
+	1536333371	FOGWALL_ENABLE			\Default Work Unit\Fog wall\FOGWALL_ENABLE	
 	1571339874	INGAMEMENU_CLOSE			\Default Work Unit\Menu\INGAMEMENU_CLOSE	
 	1669806022	MOTH_HIT_WINDOW			\Default Work Unit\Moth\MOTH_HIT_WINDOW	
 	1683668984	FRAGMENT_WORLDMAP2			\Default Work Unit\Fragments\FRAGMENT_WORLDMAP2	
 	1683668987	FRAGMENT_WORLDMAP1			\Default Work Unit\Fragments\FRAGMENT_WORLDMAP1	
 	1696404602	MUSIC_MUTE			\Default Work Unit\Menu\MUSIC_MUTE	
 	1875687151	FRAGMENT_POSTER			\Default Work Unit\Fragments\FRAGMENT_POSTER	
+	1914731752	PARTICLE_APPEAR_FRAGMENT			\Default Work Unit\Particle\PARTICLE_APPEAR_FRAGMENT	
 	1922983904	STORYEVENT_1			\Default Work Unit\Fragments\STORYEVENT_1	
 	1922983906	STORYEVENT_3			\Default Work Unit\Fragments\STORYEVENT_3	
 	1922983907	STORYEVENT_2			\Default Work Unit\Fragments\STORYEVENT_2	
@@ -38,19 +43,23 @@ Event	ID	Name			Wwise Object Path	Notes
 	2132259803	MUSIC_UNMUTE			\Default Work Unit\Menu\MUSIC_UNMUTE	
 	2161294919	FRAGMENT_END			\Default Work Unit\Fragments\Common\FRAGMENT_END	
 	2177473561	PIECE_PLACED_WRONG			\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_WRONG	
+	2308008558	PARTICLE_APPEAR_LAMP			\Default Work Unit\Particle\PARTICLE_APPEAR_LAMP	
 	2337612214	FRIDGE			\Default Work Unit\FRIDGE	
 	2361534988	FRAGMENT_TEST			\Default Work Unit\Fragments\Common\FRAGMENT_TEST	
 	2720771844	PIECE_PLACED_RIGHT			\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_RIGHT	
 	2817540555	FRAGMENT_BIRTHDAY			\Default Work Unit\Fragments\FRAGMENT_BIRTHDAY	
 	2835551186	SFX_MUTE			\Default Work Unit\Menu\SFX_MUTE	
 	3021174106	TRIGGEREDSOUND_ANSWERING			\Default Work Unit\TRIGGEREDSOUND_ANSWERING	
+	3059416910	FOGWALL_DISABLE			\Default Work Unit\Fog wall\FOGWALL_DISABLE	
 	3118183458	LAMP_FLICKER_ON			\Default Work Unit\Lamp\LAMP_FLICKER_ON	
 	3143729630	LAMP_FLICKERING			\Default Work Unit\Lamp\LAMP_FLICKERING	
 	3202129528	LAMP_FLICKER_OFF			\Default Work Unit\Lamp\LAMP_FLICKER_OFF	
 	3258781332	PUZZLE_SOLVING			\Default Work Unit\Puzzles\PUZZLE_SOLVING	
+	3283089637	FRAGMENT_LEAVE			\Default Work Unit\Fragments\Common\FRAGMENT_LEAVE	
 	3307976374	MAINMENU_OPEN			\Default Work Unit\Menu\MAINMENU_OPEN	
 	3443637649	TESTMAPBUTTON			\Default Work Unit\TESTMAPBUTTON	
 	3567046626	FRAGMENT_TIRED			\Default Work Unit\Fragments\FRAGMENT_TIRED	
+	3704242213	PARTICLE_ENTER_LAMP			\Default Work Unit\Particle\PARTICLE_ENTER_LAMP	
 	3721137874	STORYEVENT_END			\Default Work Unit\Fragments\Common\STORYEVENT_END	
 	3725903807	MUSIC_START			\Default Work Unit\MUSIC_START	
 	3797182232	FRAGMENT_PARENTS1			\Default Work Unit\Fragments\FRAGMENT_PARENTS1	
@@ -64,12 +73,34 @@ Event	ID	Name			Wwise Object Path	Notes
 	4189504244	CARS			\Default Work Unit\Ambience\Cars\CARS	
 
 State Group	ID	Name			Wwise Object Path	Notes
+	242486221	LAMPS_ON_2			\Default Work Unit\LAMPS_ON_2	
+	242486222	LAMPS_ON_1			\Default Work Unit\LAMPS_ON_1	
+	242486223	LAMPS_ON_0			\Default Work Unit\LAMPS_ON_0	
+	1809766800	NEXT_STORYEVENT			\Default Work Unit\NEXT_STORYEVENT	
 	2077253480	ROOM			\Default Work Unit\ROOM	
 	2441027675	LANGUAGE			\Default Work Unit\LANGUAGE	
 	3826569560	MUSIC_STATE			\Default Work Unit\MUSIC_STATE	
-	3863998494	LAMPS_ON			\Default Work Unit\LAMPS_ON	
 
 State	ID	Name	State Group			Notes
+	748895195	None	LAMPS_ON_2			
+	1942065220	LAMP_2	LAMPS_ON_2			
+	1942065222	LAMP_0	LAMPS_ON_2			
+	1942065223	LAMP_1	LAMPS_ON_2			
+	748895195	None	LAMPS_ON_1			
+	1942065220	LAMP_2	LAMPS_ON_1			
+	1942065221	LAMP_3	LAMPS_ON_1			
+	1942065222	LAMP_0	LAMPS_ON_1			
+	1942065223	LAMP_1	LAMPS_ON_1			
+	748895195	None	LAMPS_ON_0			
+	1942065222	LAMP_0	LAMPS_ON_0			
+	1942065223	LAMP_1	LAMPS_ON_0			
+	748895195	None	NEXT_STORYEVENT			
+	1922983904	STORYEVENT_1	NEXT_STORYEVENT			
+	1922983906	STORYEVENT_3	NEXT_STORYEVENT			
+	1922983907	STORYEVENT_2	NEXT_STORYEVENT			
+	1922983909	STORYEVENT_4	NEXT_STORYEVENT			
+	2540243936	FINALE	NEXT_STORYEVENT			
+	3762955427	TUTORIAL	NEXT_STORYEVENT			
 	28587383	LIVINGROOM	ROOM			
 	748895195	None	ROOM			
 	1586158131	KITCHEN	ROOM			
@@ -82,37 +113,25 @@ State	ID	Name	State Group			Notes
 	748895195	None	MUSIC_STATE			
 	2582085496	EXPLORATION	MUSIC_STATE			
 	2651529573	FRAGMENT	MUSIC_STATE			
-	748895195	None	LAMPS_ON			
-	1942065220	LAMP_2	LAMPS_ON			
-	1942065221	LAMP_3	LAMPS_ON			
-	1942065222	LAMP_0	LAMPS_ON			
-	1942065223	LAMP_1	LAMPS_ON			
 
 Custom State	ID	Name	State Group	Owner		Notes
-	34657247	LAMP_0	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Cello_80bpm		
 	44252098	BEDROOM	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours		
+	63089824	LAMP_1	LAMPS_ON_1	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Cello_80bpm		
 	79174248	LIVINGROOM	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Triggered Sounds\Phone Ringing		
+	93379708	LAMP_0	LAMPS_ON_1	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Cello_80bpm		
+	112173070	LAMP_0	LAMPS_ON_2	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_STRINGS_91bpm		
 	142758920	KITCHEN	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours		
-	147274675	LAMP_1	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Cello_80bpm		
-	207479648	LAMP_0	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_STRINGS_91bpm		
-	214229390	LAMP_3	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Cello_80bpm		
-	228076065	LAMP_0	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Piano_80bpm		
-	298474723	LAMP_3	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Piano_80bpm		
-	304346624	LAMP_3	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_STRINGS_91bpm		
+	163998571	STORYEVENT_4	NEXT_STORYEVENT	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours		
 	318185643	STUDY	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Triggered Sounds\Phone Ringing		
-	367793712	LAMP_0	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_PIANO_91bpm		
-	419886324	LAMP_2	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Pad_80bpm		
-	465662421	LAMP_3	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_PAD_91bpm		
 	477559190	FRAGMENT	MUSIC_STATE	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects		
-	671151346	LAMP_3	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_PIANO_91bpm		
 	708355971	LIVINGROOM	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours		
+	751082068	LAMP_0	LAMPS_ON_2	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_PIANO_91bpm		
 	756094304	BEDROOM	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Triggered Sounds\Phone Ringing		
 	758777467	HALLWAY	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street		
 	762107889	FRAGMENT	MUSIC_STATE	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours		
 	771567590	FRAGMENT	MUSIC_STATE	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street		
-	791462871	LAMP_3	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Pad_80bpm		
 	855464711	LIVINGROOM	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street		
-	858452933	LAMP_1	LAMPS_ON	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_STRINGS_91bpm		
+	946918777	LAMP_0	LAMPS_ON_1	\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Piano_80bpm		
 	1020892867	KITCHEN	ROOM	\Actor-Mixer Hierarchy\Default Work Unit\Triggered Sounds\Phone Ringing		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
@@ -136,6 +155,9 @@ Effect plug-ins	ID	Name	Type				Notes
 	1675424737	Extreme_Limiting_1	Wwise Peak Limiter			
 	2652646462	Dialog_Leveler_Soft	Wwise Compressor			
 
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	841346845	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Silence\Wwise Silence	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	27429217	STORYEVENT_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\STORYEVENT_1_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Storyevents\Storyevent 1\STORYEVENT_1		483144
 	28899600	Reward_03	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Reward_03_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Reward\Reward_03		88779
@@ -147,21 +169,24 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	64340832	NEIGHBOUR_NOISE_07	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_07_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_07		30109
 	67108989	Phone Ringing	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Phone Ringing_005E2381.wem		\Actor-Mixer Hierarchy\Default Work Unit\Triggered Sounds\Phone Ringing		83796
 	70723791	MUSIC_SUSIES_TATTOO_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MUSIC_SUSIES_TATTOO_da_005E2381.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\MUSIC_SUSIES_TATTOO_da\MUSIC_SUSIES_TATTOO_da		494383
+	75012734	FRAGMENT_DISCOVER_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_DISCOVER_2_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_2		49749
 	82701772	MEET_THE_PARENTS_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MEET_THE_PARENTS_1_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 1\MEET_THE_PARENTS_1_da		352165
 	89270064	cadillac_1960_30mph_driveby_LtoR_001	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\cadillac_1960_30mph_driveby_LtoR_001_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\cadillac_1960_30mph_driveby_LtoR_001		64649
 	97043590	BULB_AC_NOISE	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\BULB_AC_NOISE_E85C34A0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\AC power\BULB_AC_NOISE		14523
 	101372784	SMOKING_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\SMOKING_2_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Smoking 2\SMOKING_2_da		344935
 	104430729	NEIGHBOUR_NOISE_06	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_06_7163D8B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_06		19099
+	105251111	DROP_02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\DROP_02_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Drop\DROP_02		10071
 	106102015	Police_Siren_PSEM_198	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Police_Siren_PSEM.198_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\Random Siren Pass\Police_Siren_PSEM_198		136386
 	109303465	City_Loud	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\SW010_New_York_City_Room_Tone_Lower_Eastside_Window_5121B778.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\City_Loud		2802848
 	118409208	NEIGHBOUR_NOISE_09	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_09_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_09		48401
 	119947923	No light	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\No light_005E2381.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Kitchen\No light\No light		2023864
 	122170802	Laser_Sword_Movements_PSEM_156	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Laser_Sword_Movements_PSEM.156_539372B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Laser_Sword_Movements_PSEM_156		12627
-	130421691	MODELING_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MODELING_1_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 2\MODELING_2		316839
+	130421691	MODELING_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MODELING_1_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 2\MODELING_2		313639
 	135164530	CLOCK_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\CLOCK_da_B7CD2B9C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Clock\CLOCK_da		198633
 	138948462	Crumbling Printer Paper 9_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Crumbling Printer Paper 9_942EC1BB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Paper\Move Paper\Crumbling Printer Paper 9_01		5998
 	141821625	179354__lolamadeus__pint-glass-hits-2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\179354__lolamadeus__pint-glass-hits-2_B7E173A7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Glass ring\179354__lolamadeus__pint-glass-hits-2		4381
 	145004352	Rattle_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Rattle_3_E8E612C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_3		5813
+	145032082	DROP_06	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\DROP_06_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Drop\DROP_06		9028
 	146808175	AT_THE_TABLE_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\AT_THE_TABLE_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\At the table\AT_THE_TABLE_da		359220
 	156411334	NEIGHBOUR_NOISE_08	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_08_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_08		39041
 	172808139	Reward_04	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Reward_04_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Reward\Reward_04		70336
@@ -172,14 +197,16 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	208200834	Rattle_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Rattle_1_E8E612C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_1		6300
 	224276298	THE_TV_IS_GONE_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\THE_TV_IS_GONE.1_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\We need a tv 1\THE_TV_IS_GONE_1_da		233936
 	226379606	WORLD_MAP_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\WORLD_MAP_2_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\World Map 2\WORLD_MAP_2		268970
+	229842446	201788__st303__room-with-buzz-incandescent-light-bulb	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\201788__st303__room-with-buzz-incandescent-light-bulb_7D4F9767.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Buzz\201788__st303__room-with-buzz-incandescent-light-bulb		194962
 	239241968	WORLD_MAP_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\WORLD_MAP_2_da_22D5B6D7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\World Map 2\WORLD_MAP_2_da		335445
 	240862891	NEIGHBOUR_NOISE_10	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_10_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_10		36148
 	251152880	Shot_Laser_Very Light_PSEM_227	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Shot_Laser_Very Light_PSEM.227_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Shot_Laser_Very Light_PSEM_227		5646
 	251313862	HIT_WINDOW_SOFT_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\HIT_WINDOW_SOFT_2_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Flicker\HIT_WINDOW_SOFT_2		3225
 	252175184	NEIGHBOUR_NOISE_13	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_13_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_13		24834
-	269082610	TRIGGEREDSOUND_ANSWERING_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\TRIGGEREDSOUND_ANSWERING_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Triggered Sounds\Answering\TRIGGEREDSOUND_ANSWERING_da		194543
+	269082610	TRIGGEREDSOUND_ANSWERING_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\TRIGGEREDSOUND_ANSWERING_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Triggered Sounds\Answering\TRIGGEREDSOUND_ANSWERING_da		143192
 	276167098	Rattle_6	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Rattle_6_E8E612C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_6		2890
 	296498789	UGLY_POSTER_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\UGLY_POSTER_da_6152F39A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Ugly Poster\UGLY_POSTER_da		284945
+	316385003	DROP_07	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\DROP_07_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Drop\DROP_07		4288
 	321766520	HIT_WINDOW_SOFT_6	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\HIT_WINDOW_SOFT_6_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Flicker\HIT_WINDOW_SOFT_6		3697
 	322530949	WE_NEED_A_TV_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\WE_NEED_A_TV_2_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\We need a tv 2\WE_NEED_A_TV_2		250026
 	326962797	megane rs u turn	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\megane rs u turn_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\megane rs u turn		69357
@@ -188,32 +215,38 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	333601142	WORLD_MAP_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\WORLD_MAP_1_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\World Map 1\WORLD_MAP_1_da		245155
 	337351369	WORLD_MAP_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\WORLD_MAP_1_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\World Map 1\WORLD_MAP_1		226489
 	348121157	THE_TV_IS_GONE_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\THE_TV_IS_GONE.2_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\We need a tv 2\THE_TV_IS_GONE_2_da		266860
+	352703553	FRAGMENT_DISCOVER_6	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_DISCOVER_6_843F302D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_6		49642
 	353157923	MEET_THE_PARENTS_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MEET_THE_PARENTS_2_EA58F9DB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 2\MEET_THE_PARENTS_2		252547
 	358666137	MEET_THE_PARENTS_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MEET_THE_PARENTS_1_69B216E5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 1\MEET_THE_PARENTS_1		325012
 	372989033	Rattle_4	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Rattle_4_E8E612C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_4		3589
+	378624728	Bittersweet	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Bittersweet_005E2381.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\Bittersweet\Bittersweet		576915
 	380682911	Living_Cello_80bpm	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Living_Cello_80bpm_005E2381.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Livingroom\Living_80bpm\Living_Cello_80bpm		2967268
 	382868015	STORYEVENT_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\STORYEVENT_2_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Storyevents\Storyevent 2\STORYEVENT_2		654774
-	400040827	MODELING_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MODELING_2_da_68498918.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 1\MODELING_2_da		186930
+	400040827	MODELING_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MODELING_2_da_68498918.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 1\MODELING_2_da		189416
 	405674400	ZODIAC_SIGN	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\ZODIAC_SIGN_E2211953.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Zodiac Sign\ZODIAC_SIGN		204009
 	411352755	NEIGHBOUR_NOISE_04	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_04_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_04		31173
 	412104274	HIT_WINDOW_SOFT_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\HIT_WINDOW_SOFT_3_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Flicker\HIT_WINDOW_SOFT_3		3270
 	412123357	NEIGHBOUR_NOISE_11	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_11_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_11		17666
-	447932395	MEET_THE_PARENTS_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MEET_THE_PARENTS_2_da_BF933908.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 2\MEET_THE_PARENTS_2_da		248910
+	447411529	FRAGMENT_DISCOVER_5	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_DISCOVER_5_45712F9C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_5		47022
+	447932395	MEET_THE_PARENTS_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MEET_THE_PARENTS_2_da_AAEAFFED.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 2\MEET_THE_PARENTS_2_da		246543
+	454696326	FRAGMENT_DISCOVER_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_DISCOVER_3_65BB0C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_3		43368
 	458506893	NEIGHBOUR_NOISE__2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE__2_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE__2		26159
-	476987817	FRAGMENT_ENERGY_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_ENERGY_1_B2001E7E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Energy\FRAGMENT_ENERGY_1		115215
 	480296371	FRAGMENT_START	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_START_AA4A68F7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Start\FRAGMENT_START		105395
 	486017468	corvette arrive	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\corvette arrive_AB036473.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\corvette arrive		96625
 	489046082	TIRED	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\TIRED_DAEBE698.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Tired\TIRED		265504
 	494118861	235540__simosco__lamp-click-on-off_02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\235540__simosco__lamp-click-on-off_2D86C582.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Turn on\235540__simosco__lamp-click-on-off_02		4298
 	495826903	CLOCK	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\CLOCK_446361C4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Clock\CLOCK		140514
 	497534885	NEIGHBOUR_NOISE_12	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_12_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_12		58856
-	498877039	MODELING_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MODELING_2_C8E03F67.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 1\MODELING_1		251930
+	498877039	MODELING_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MODELING_2_C8E03F67.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 1\MODELING_1		245175
 	504967435	Grabbing Paper 03	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Grabbing Paper 03_EA0C76C3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Paper\Move Paper\Grabbing Paper 03		5624
 	510315872	BIRTHDAY_MOMENT	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\BIRTHDAY_MOMENT_FDA0EA71.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Birthday Moment\BIRTHDAY_MOMENT		311279
 	519353667	NEIGHBOUR_NOISE_	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE__31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_		26979
 	520742939	CAMERA_MOVE_03	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\CAMERA_MOVE_03_DF1A24E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camera\Move\CAMERA_MOVE_03		73944
+	520907211	DROP_08	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\DROP_08_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Drop\DROP_08		6906
 	541851934	Flying	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Flying_81BF8AB2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Flying		355015
+	542862603	DROP_05	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\DROP_05_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Drop\DROP_05		6990
 	550718053	NEIGHBOUR_NOISE_03	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_03_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_03		26004
+	557904992	DROP_03	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\DROP_03_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Drop\DROP_03		9397
 	557998825	Reward_02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Reward_02_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Reward\Reward_02		68537
 	568910565	POLOROID_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\POLOROID_2_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Polaroid 2\POLOROID_2		269658
 	580470410	KITCHEN_TABLE	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\KITCHEN_TABLE_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\At the table\KITCHEN_TABLE		304732
@@ -230,9 +263,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	654449630	Hallways_PAD_91bpm	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Hallways_PAD_91bpm_005E2381.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_PAD_91bpm		2013322
 	657681073	SMOKING_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\SMOKING_2_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Smoking 2\SMOKING_2		301665
 	667994024	NEW_YEARS	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEW_YEARS_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\New Year's\NEW_YEARS		164593
+	675704401	FRAGMENT_DISCOVER_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_DISCOVER_1_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_1		47472
 	686259063	Crumbling Printer Paper 9	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Crumbling Printer Paper 9_F50ABB7E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Paper\Move Paper\Crumbling Printer Paper 9		6675
 	687402096	Lonely Hum	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Light_Hum_Street_Lamp_Lonely_PSEM.160_5F4F7F75.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Fridge\Lonely Hum		171855
 	687684511	Beep	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Beep_661B25BD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Triggered Sounds\Beep		19826
+	690350930	PARTICLE_ENTER_LAMP	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\PARTICLE_ENTER_LAMP_48D76476.wem		\Actor-Mixer Hierarchy\Default Work Unit\Particle\Particle_enter_lamp\PARTICLE_ENTER_LAMP		39349
 	693349639	POLAROID_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\POLAROID_1_66E084FD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Polaroid 1\POLAROID_1		162746
 	697414599	BIRTHDAY_MOMENT_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\BIRTHDAY_MOMENT_da_A1800191.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Birthday Moment\BIRTHDAY_MOMENT_da		320360
 	706919211	POLAROID_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\POLAROID_1_da_28F30218.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Polaroid 1\POLAROID_1_da		131337
@@ -240,13 +275,16 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	723887160	STORYEVENT_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\STORYEVENT_3_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Storyevents\Storyevent 3\STORYEVENT_3		567259
 	736791367	STORYEVENT_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\STORYEVENT_1_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Storyevents\Storyevent 1\STORYEVENT_1_da		510023
 	737787349	Testmusic	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Testmusic_005E2381.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\Testmusic\Testmusic		596313
+	743699595	FRAGMENT_DISCOVER_4	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_DISCOVER_4_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_4		46041
 	746538295	179354__lolamadeus__pint-glass-hits-2_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\179354__lolamadeus__pint-glass-hits-2_70127A9A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Glass ring\179354__lolamadeus__pint-glass-hits-2_01		4384
+	752911955	PARTICLE_APPEAR_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\PARTICLE_APPEAR_2_4B9137DE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Particle\Particle_appear_fragment\PARTICLE_APPEAR_2		210185
 	754530548	WINE_ON_A_WEDNESDAY	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\WINE_ON_A_WEDNESDAY_39CBDB50.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Wine on a wednesday\WINE_ON_A_WEDNESDAY		359673
 	759583116	FRAGMENT_WHISPER	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_WHISPER_C5DDAC08.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Whisper\FRAGMENT_WHISPER		507917
 	776353407	NEIGHBOUR_NOISE_05	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_05_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_05		28749
 	777357154	179354__lolamadeus__pint-glass-hits-2_02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\179354__lolamadeus__pint-glass-hits-2_4583614E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\Glass ring\179354__lolamadeus__pint-glass-hits-2_02		4190
-	778584774	MODELING_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MODELING_1_da_7E3B2771.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 2\MODELING_1_da		337952
+	778584774	MODELING_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MODELING_1_da_7E3B2771.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 2\MODELING_1_da		337083
 	791677628	Rattle_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Rattle_2_E8E612C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_2		6251
+	797310725	My Loss, My Moth_v1_clean	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\My Loss, My Moth_v1_clean_005E2381.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\My Loss, My Moth_v1_clean		5134562
 	808012157	Reward_05	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Reward_05_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Reward\Reward_05		70365
 	808932615	CAMERA_MOVE_02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\CAMERA_MOVE_02_AE7C6E76.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camera\Move\CAMERA_MOVE_02		74895
 	815467655	235540__simosco__lamp-click-on-off_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\235540__simosco__lamp-click-on-off_BDF2B32A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Turn on\235540__simosco__lamp-click-on-off_01		3805
@@ -255,9 +293,13 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	863795838	Protests_Our_Streets_01_Downtown	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Protests_Our_Streets_01_Downtown_17AAD59D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\Protests_Our_Streets_01_Downtown		434735
 	864872431	Train	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\CNT01_EXTRA_TRAIN PASS BY_Arrival and departure_L train_963F5F57.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\Train		360902
 	873861823	Rajdoot,motorcycle,approach,by,away,fast,rattle 02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Rajdoot,motorcycle,approach,by,away,fast,rattle 02_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\Rajdoot,motorcycle,approach,by,away,fast,rattle 02		104681
+	874403874	PARTICLE_APPEAR	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\PARTICLE_APPEAR_8C2DE64A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Particle\Particle_appear_fragment\PARTICLE_APPEAR		280036
+	881650606	DROP_04	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\DROP_04_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Drop\DROP_04		7445
+	883646110	Happy perhaps	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Happy perhaps_005E2381.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\Happy perhaps\Happy perhaps		347806
 	914615725	FRAGMENT_START_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FRAGMENT_START_1_CF207138.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Start\FRAGMENT_START_1		141284
 	916308489	NEIGHBOUR_NOISE_02	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_02_31813313.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_02		25836
 	933462240	UGLY_POSTER	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\UGLY_POSTER_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Ugly Poster\UGLY_POSTER		286283
+	946359298	PARTICLE_APPEAR_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\PARTICLE_APPEAR_3_0FE12AE0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Particle\Particle_appear_fragment\PARTICLE_APPEAR_3		185241
 	946869893	Detunized_Urban-Crows_12c	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Detunized_Urban-Crows_12c_B5E058FE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\Detunized_Urban-Crows_12c		1101529
 	951030059	birds_outside_002_wide	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\birds_outside_002_wide_8FF9A2E1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\City\City Ambience Kitchen\birds_outside_002_wide		378204
 	961599924	BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR_E8E612C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Button\BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR		2909
@@ -271,7 +313,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	991979302	HIT_WINDOW_SOFT_7	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\HIT_WINDOW_SOFT_7_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Flicker\HIT_WINDOW_SOFT_7		3515
 	992088354	MOTH_FLY_LOUD	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\MOTH_FLY_LOUD_86134CF9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\MOTH_FLY_LOUD		218209
 	992203550	Paper Handling and Turning Sequence	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Paper Handling and Turning Sequence_C3353445.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Paper\Pick Paper Up\Paper Handling and Turning Sequence		6937
-	998771404	POLAROID_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\POLAROID_2_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Polaroid 2\POLAROID_2_da		286872
+	995427511	DROP_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\DROP_01_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Drop\DROP_01		10298
+	998771404	POLAROID_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\POLAROID_2_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Polaroid 2\POLAROID_2_da		274931
 	998870621	NEW_YEARS_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEW_YEARS_da_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\New Year's\NEW_YEARS_da		133489
 	1001796412	SMOKING_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\SMOKING_1_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Smoking_1\SMOKING_1		186223
 	1009401605	Car_Ford_Focus_2009_Accel_Slowly_PSEM_051	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Car_Ford_Focus_2009_Accel_Slowly_PSEM.051_48DE3C05.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\Car_Ford_Focus_2009_Accel_Slowly_PSEM_051		32043
@@ -280,6 +323,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1027056534	SMOKING_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\SMOKING_1_da_B786ECDB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Smoking_1\SMOKING_1_da		186730
 	1029777502	NEIGHBOUR_NOISE_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\NEIGHBOUR_NOISE_01_78BA5373.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_01		19850
 	1044749691	Rattle_5	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Rattle_5_E8E612C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_5		2822
+	1055778626	FOGWALL_IDLE	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\FOGWALL_IDLE_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Fog Wall\FOGWALL_IDLE		755339
 	1062689332	Bug_Zapper_PSEM_043	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\Bug_Zapper_PSEM.043_AA103273.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Crackle\Bug_Zapper_PSEM_043		13144
 	1063253616	HIT_WINDOW_SOFT_4	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Mac\SFX\HIT_WINDOW_SOFT_4_379244B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Flicker\HIT_WINDOW_SOFT_4		3415
 

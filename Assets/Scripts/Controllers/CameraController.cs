@@ -35,6 +35,7 @@ public class CameraController
     Vector3 flattened;
     private bool fragmentMode;
     private int collisionLayermask;
+    private float collisionConstant = 0.1f;
     
     float GnewAngleY = 0, GnewAngleX = 0;
 
@@ -101,6 +102,10 @@ public class CameraController
     public void Update()
     {
         Debug.DrawLine(targetPos.position, targetPos.position + heading, Color.blue);
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
 
         if (fragmentMode)
         {
@@ -116,11 +121,8 @@ public class CameraController
             {
                 heading = hit.point - targetPos.position;
                 float magn = heading.magnitude;
-                if (magn - 0.2f > 0.2f)
-                {
-                    heading = heading.ResizeMagnitude(magn - 0.2f);
-                }
-                heading = Vector3.ClampMagnitude(heading, initialMagnitude);
+                magn = Mathf.Max(collisionConstant, magn - collisionConstant);
+                heading = heading.ResizeMagnitude(magn);
             }
             else
             {
@@ -221,7 +223,7 @@ public class CameraController
         Vector3 nextHeading = Quaternion.AngleAxis(newAngleX, transform.right) * heading;
 
         float a = Vector3.Angle(nextHeading, Vector3.up);
-        if(a > 10 && a < 170)
+        if(a > minimumVerticalAngle && a < maximumVerticalAngle)
         {
             heading = nextHeading;
         }
