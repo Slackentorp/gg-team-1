@@ -22,7 +22,7 @@ public class LoadState : GameState
             gm.LightController.LoadLights();
         }
 
-        if(PlayerPrefs.GetInt("SAVELOAD", 0) == 1)
+        if(PlayerPrefs.GetInt("saveload", 0) == 1)
         {
             loadedGame = SaveLoad.Load(gm);
         }
