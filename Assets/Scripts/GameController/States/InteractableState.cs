@@ -11,7 +11,7 @@ public class InteractableState : GameState
     private float time;
     private bool lerpOut;
 
-    private bool keepBirdLaned;
+    private bool keepMothLandingState;
 
     private CameraController cameraController;
     private Interactable currentInteractable;
@@ -81,9 +81,9 @@ public class InteractableState : GameState
                 }
             }
         }
-        if (keepBirdLaned)
+        if (keepMothLandingState)
         {
-            MakeLanded();
+            ForceLanding();
         }
     }
 
@@ -137,12 +137,12 @@ public class InteractableState : GameState
         }
         else if (!currentInteractable.firstPuzzleCheck)
         {
-            keepBirdLaned = true;
-            MakeLanded();
+            keepMothLandingState = true;
+            ForceLanding();
         }
     }
 
-    private void MakeLanded()
+    private void ForceLanding()
     {
         AkSoundEngine.PostEvent("MOTH_LANDING", gm.Moth);
         gm.mothBehaviour.SetMothAnimationState("Landing");
@@ -150,7 +150,7 @@ public class InteractableState : GameState
 
     private void EndOfFragmentCallback()
     {
-        keepBirdLaned = false;
+        keepMothLandingState = false;
         gm.mothBehaviour.SetMothAnimationState("Flying");
         gm.StartCoroutine(Leaving(1f));
         lerpOut = true;
