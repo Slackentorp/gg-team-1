@@ -78,6 +78,10 @@ namespace Assets.Scripts.Managers
                
                 if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
+                    if (EventSystem.current.IsPointerOverGameObject(t.fingerId))
+                    {
+                        return ie;
+                    }
                     GameObject touchObject = hit.transform.gameObject;
                     ie.GameObject = touchObject;
                     ie.TouchPosition = hit.point;
@@ -91,10 +95,6 @@ namespace Assets.Scripts.Managers
                     objectOnTouchDownState.TryGetValue(touchObject,
                         out ts);
 
-                    if (EventSystem.current.IsPointerOverGameObject())
-                    {
-                        Debug.Log("Clicked on the UI");
-                    }
 
                     // Tap
                     if (t.phase == TouchPhase.Ended && ts.onTouchTime > 0 &&
@@ -357,5 +357,10 @@ namespace Assets.Scripts.Managers
         public TouchDirection TouchDirection;
         public Vector3 TouchPosition;
         public RaycastHit RaycastHit;
+
+        public override string ToString()
+        {
+            return string.Format("GameObject: {0} - InputType: {1} - TouchDirection: {2} - TouchPosition: {3}", GameObject, InputType, TouchDirection, TouchPosition);
+        }
     }
 }
