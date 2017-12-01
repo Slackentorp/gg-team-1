@@ -39,8 +39,8 @@ public class MenuPuzzle : MonoBehaviour
 
         centerPosition = centerPosition / startPos.Count;
 
-
-        StartCoroutine(OpeningSequence());
+        SolvedPuzzle(); 
+        //StartCoroutine(OpeningSequence());
     }
 
     public bool CorrectPosition(Vector3 piece, Vector3 correctPos)
@@ -56,6 +56,11 @@ public class MenuPuzzle : MonoBehaviour
             ResetPosition();
             StartCoroutine(OpeningSequence());
         }
+    }
+
+    private void SolvedPuzzle()
+    {
+
     }
 
     private void GoToStartPoints()
@@ -74,19 +79,19 @@ public class MenuPuzzle : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        if (Application.isPlaying)
-        {
-            Gizmos.DrawWireSphere(centerPosition, 0.1f);
-            for (int i = 0; i < startPositions.Length; i++)
-            {
-                if (startPos[0] != null)
-                    Gizmos.DrawWireSphere(startPos[i], 0.1f);
-                Gizmos.DrawWireSphere(((startPos[i] - centerPosition)) * distance, 0.2f);
-            }
-        }
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    if (Application.isPlaying)
+    //    {
+    //        Gizmos.DrawWireSphere(centerPosition, 0.1f);
+    //        for (int i = 0; i < startPositions.Length; i++)
+    //        {
+    //            if (startPos[0] != null)
+    //                Gizmos.DrawWireSphere(startPos[i], 0.1f);
+    //            Gizmos.DrawWireSphere(((startPos[i] - centerPosition)) * distance, 0.2f);
+    //        }
+    //    }
+    //}
 
     private void OnPuzzleSolved()
     {
