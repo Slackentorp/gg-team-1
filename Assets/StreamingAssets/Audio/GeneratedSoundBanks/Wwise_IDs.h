@@ -57,6 +57,7 @@ namespace AK
         static const AkUniqueID MAINMENU_OPEN = 3307976374U;
         static const AkUniqueID MENU_START_GAME = 1931074718U;
         static const AkUniqueID MENUBUTTON_PRESS = 1512987680U;
+        static const AkUniqueID MOTH_APPEAR = 2904931443U;
         static const AkUniqueID MOTH_END_FLIGHT = 410314580U;
         static const AkUniqueID MOTH_HIT_WINDOW = 1669806022U;
         static const AkUniqueID MOTH_START_FLIGHT = 541555517U;
@@ -68,6 +69,7 @@ namespace AK
         static const AkUniqueID PARTICLE_APPEAR_LAMP = 2308008558U;
         static const AkUniqueID PARTICLE_ENTER_FOGWALL = 1102612893U;
         static const AkUniqueID PARTICLE_ENTER_LAMP = 3704242213U;
+        static const AkUniqueID PARTICLE_MERGE = 2458842678U;
         static const AkUniqueID PIECE_PICK = 394109931U;
         static const AkUniqueID PIECE_PLACED_RIGHT = 2720771844U;
         static const AkUniqueID PIECE_PLACED_WRONG = 2177473561U;
@@ -80,8 +82,10 @@ namespace AK
         static const AkUniqueID STORYEVENT_2 = 1922983907U;
         static const AkUniqueID STORYEVENT_3 = 1922983906U;
         static const AkUniqueID STORYEVENT_4 = 1922983909U;
+        static const AkUniqueID STORYEVENT_5 = 1922983908U;
         static const AkUniqueID STORYEVENT_END = 3721137874U;
         static const AkUniqueID STREET = 4142189312U;
+        static const AkUniqueID TAP_PARTICLE = 3809097629U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
         static const AkUniqueID TRIGGEREDSOUND_ANSWERING = 3021174106U;
         static const AkUniqueID WALKMAN = 760300722U;

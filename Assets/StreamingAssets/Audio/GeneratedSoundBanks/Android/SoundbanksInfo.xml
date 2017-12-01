@@ -65,6 +65,7 @@
 				<Event Id="3307976374" Name="MAINMENU_OPEN" ObjectPath="\Events\Default Work Unit\Menu\MAINMENU_OPEN" MaxAttenuation="0.000000"/>
 				<Event Id="1931074718" Name="MENU_START_GAME" ObjectPath="\Events\Default Work Unit\Menu\MENU_START_GAME" MaxAttenuation="0.000000"/>
 				<Event Id="1512987680" Name="MENUBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Menu\MENUBUTTON_PRESS" MaxAttenuation="0.000000"/>
+				<Event Id="2904931443" Name="MOTH_APPEAR" ObjectPath="\Events\Default Work Unit\Moth\MOTH_APPEAR"/>
 				<Event Id="410314580" Name="MOTH_END_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_END_FLIGHT" MaxAttenuation="0.000000"/>
 				<Event Id="1669806022" Name="MOTH_HIT_WINDOW" ObjectPath="\Events\Default Work Unit\Moth\MOTH_HIT_WINDOW" MaxAttenuation="6.000000"/>
 				<Event Id="541555517" Name="MOTH_START_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_START_FLIGHT" MaxAttenuation="6.000000"/>
@@ -74,8 +75,9 @@
 				<Event Id="1451837118" Name="NEIGHBOUR" ObjectPath="\Events\Default Work Unit\NEIGHBOUR" MaxAttenuation="6.000000"/>
 				<Event Id="1914731752" Name="PARTICLE_APPEAR_FRAGMENT" ObjectPath="\Events\Default Work Unit\Particle\PARTICLE_APPEAR_FRAGMENT"/>
 				<Event Id="2308008558" Name="PARTICLE_APPEAR_LAMP" ObjectPath="\Events\Default Work Unit\Particle\PARTICLE_APPEAR_LAMP"/>
-				<Event Id="1102612893" Name="PARTICLE_ENTER_FOGWALL" ObjectPath="\Events\Default Work Unit\Particle\PARTICLE_ENTER_FOGWALL" MaxAttenuation="0.000000"/>
+				<Event Id="1102612893" Name="PARTICLE_ENTER_FOGWALL" ObjectPath="\Events\Default Work Unit\Particle\PARTICLE_ENTER_FOGWALL"/>
 				<Event Id="3704242213" Name="PARTICLE_ENTER_LAMP" ObjectPath="\Events\Default Work Unit\Particle\PARTICLE_ENTER_LAMP"/>
+				<Event Id="2458842678" Name="PARTICLE_MERGE" ObjectPath="\Events\Default Work Unit\Particle\PARTICLE_MERGE"/>
 				<Event Id="394109931" Name="PIECE_PICK" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PICK"/>
 				<Event Id="2720771844" Name="PIECE_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_RIGHT"/>
 				<Event Id="2177473561" Name="PIECE_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_WRONG"/>
@@ -88,8 +90,10 @@
 				<Event Id="1922983907" Name="STORYEVENT_2" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_2"/>
 				<Event Id="1922983906" Name="STORYEVENT_3" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_3"/>
 				<Event Id="1922983909" Name="STORYEVENT_4" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_4"/>
+				<Event Id="1922983908" Name="STORYEVENT_5" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_5"/>
 				<Event Id="3721137874" Name="STORYEVENT_END" ObjectPath="\Events\Default Work Unit\Fragments\Common\STORYEVENT_END"/>
 				<Event Id="4142189312" Name="STREET" ObjectPath="\Events\Default Work Unit\Ambience\City\STREET" MaxAttenuation="50.000000"/>
+				<Event Id="3809097629" Name="TAP_PARTICLE" ObjectPath="\Events\Default Work Unit\Particle\TAP_PARTICLE"/>
 				<Event Id="3443637649" Name="TESTMAPBUTTON" ObjectPath="\Events\Default Work Unit\TESTMAPBUTTON"/>
 				<Event Id="3021174106" Name="TRIGGEREDSOUND_ANSWERING" ObjectPath="\Events\Default Work Unit\TRIGGEREDSOUND_ANSWERING"/>
 				<Event Id="760300722" Name="WALKMAN" ObjectPath="\Events\Default Work Unit\Ambience\WALKMAN" MaxAttenuation="5.000000"/>
@@ -175,6 +179,10 @@
 					<ShortName>NEIGHBOUR_NOISE_09.wav</ShortName>
 					<Path>SFX/NEIGHBOUR_NOISE_09_6DB458CF.wem</Path>
 				</File>
+				<File Id="119191261" Language="SFX">
+					<ShortName>Ending_MUSIC.wav</ShortName>
+					<Path>SFX/Ending_MUSIC_FF424C0E.wem</Path>
+				</File>
 				<File Id="119947923" Language="SFX">
 					<ShortName>No light.wav</ShortName>
 					<Path>SFX/No light_722ECDC8.wem</Path>
@@ -234,6 +242,10 @@
 				<File Id="202166482" Language="SFX">
 					<ShortName>Living_Pad_80bpm.wav</ShortName>
 					<Path>SFX/Living_Pad_80bpm_722ECDC8.wem</Path>
+				</File>
+				<File Id="205304090" Language="SFX">
+					<ShortName>Ending_SFX.wav</ShortName>
+					<Path>SFX/Ending_SFX_FF424C0E.wem</Path>
 				</File>
 				<File Id="208200834" Language="SFX">
 					<ShortName>Rattle_1.wav</ShortName>
@@ -515,6 +527,10 @@
 					<ShortName>FRAGMENT_DISCOVER_1.wav</ShortName>
 					<Path>SFX/FRAGMENT_DISCOVER_1_FF424C0E.wem</Path>
 				</File>
+				<File Id="680229721" Language="SFX">
+					<ShortName>PARTICLE_TAP_2.wav</ShortName>
+					<Path>SFX/PARTICLE_TAP_2_6DB458CF.wem</Path>
+				</File>
 				<File Id="686259063" Language="SFX">
 					<ShortName>Crumbling Printer Paper 9.wav</ShortName>
 					<Path>SFX/Crumbling Printer Paper 9_D6E7B33B.wem</Path>
@@ -591,6 +607,10 @@
 					<ShortName>MODELING_1_da.wav</ShortName>
 					<Path>SFX/MODELING_1_da_DD30021C.wem</Path>
 				</File>
+				<File Id="783772933" Language="SFX">
+					<ShortName>MOTH_APPEAR.wav</ShortName>
+					<Path>SFX/MOTH_APPEAR_FF424C0E.wem</Path>
+				</File>
 				<File Id="791677628" Language="SFX">
 					<ShortName>Rattle_2.wav</ShortName>
 					<Path>SFX/Rattle_2_B52A7F01.wem</Path>
@@ -610,6 +630,10 @@
 				<File Id="815467655" Language="SFX">
 					<ShortName>235540__simosco__lamp-click-on-off.wav</ShortName>
 					<Path>SFX/235540__simosco__lamp-click-on-off_8AC02CFF.wem</Path>
+				</File>
+				<File Id="829610781" Language="SFX">
+					<ShortName>PARTICLE_TAP_3.wav</ShortName>
+					<Path>SFX/PARTICLE_TAP_3_6DB458CF.wem</Path>
 				</File>
 				<File Id="836804791" Language="SFX">
 					<ShortName>STORYEVENT_3_da.wav</ShortName>
