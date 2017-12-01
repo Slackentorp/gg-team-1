@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 public class MothBehaviour
 {
@@ -269,6 +270,7 @@ public class MothBehaviour
 
 	public void SetMothAnimationState(string triggerName)
 	{
-		mothChild.gameObject.GetComponent<Animator>().SetTrigger(triggerName);
-	}
+        Animator mothAnimator = mothChild.gameObject.GetComponent<Animator>();
+        mothAnimator.SetTrigger(triggerName);
+    }
 }
