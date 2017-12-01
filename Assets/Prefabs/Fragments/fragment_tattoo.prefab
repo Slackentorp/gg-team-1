@@ -66,6 +66,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1277667223184822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4461687258153162}
+  m_Layer: 0
+  m_Name: SpawnParticlesPosObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1504648399917852
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +162,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1504648399917852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.008000027, y: 0.0048999786, z: 0.13900016}
+  m_LocalPosition: {x: 0.008000027, y: -0.002399973, z: 0.13900016}
   m_LocalScale: {x: 0.14000003, y: 0.0009999999, z: 0.19000001}
   m_Children: []
   m_Father: {fileID: 4375305705998718}
@@ -173,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1148100797051808}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07100004, y: 0.0027999878, z: 0.12999988}
+  m_LocalPosition: {x: -0.07100004, y: -0.004499964, z: 0.12999988}
   m_LocalScale: {x: 0.14000003, y: 0.0009999999, z: 0.19000001}
   m_Children: []
   m_Father: {fileID: 4375305705998718}
@@ -186,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1598566996975996}
   m_LocalRotation: {x: -0, y: 0.4083047, z: -0, w: -0.91284573}
-  m_LocalPosition: {x: -5.514, y: 0.7279999, z: 3.129}
+  m_LocalPosition: {x: -5.514, y: 0.7254, z: 3.129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4536537127913440}
@@ -195,6 +210,7 @@ Transform:
   - {fileID: 4667523601114394}
   - {fileID: 4178225049921238}
   - {fileID: 4152417186966702}
+  - {fileID: 4461687258153162}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 311.803, z: 0}
@@ -205,11 +221,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201440251690748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06800011, y: 0.0037999153, z: 0.081000105}
+  m_LocalPosition: {x: 0.06800011, y: -0.0035000364, z: 0.081000105}
   m_LocalScale: {x: 0.14000003, y: 0.0009999999, z: 0.19000001}
   m_Children: []
   m_Father: {fileID: 4375305705998718}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4461687258153162
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277667223184822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.007, y: 0.014, z: 0.053}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4375305705998718}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4536537127913440
 Transform:
@@ -218,7 +247,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975803934398098}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11199989, y: 0.005800009, z: 0.042000055}
+  m_LocalPosition: {x: -0.11199989, y: -0.001499943, z: 0.042000055}
   m_LocalScale: {x: 0.14000003, y: 0.0009999999, z: 0.19000001}
   m_Children: []
   m_Father: {fileID: 4375305705998718}
@@ -231,7 +260,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1586650340058954}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.009999899, y: 0.0032999516, z: 0.032000083}
+  m_LocalPosition: {x: -0.009999899, y: -0.004, z: 0.032000083}
   m_LocalScale: {x: 0.14000003, y: 0.001, z: 0.19000001}
   m_Children: []
   m_Father: {fileID: 4375305705998718}
@@ -528,8 +557,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: -0.11, y: 0.048, z: -0.03}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114610116901216538}
   Directions:
     X: 1
@@ -549,8 +578,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: -0.07, y: 0.04, z: 0.04}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114610116901216538}
   Directions:
     X: 1
@@ -570,8 +599,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: 0.08, y: 0.044, z: -0.01}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114610116901216538}
   Directions:
     X: 1
@@ -588,10 +617,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26707468efb69e54699b38c6f8b47db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstPuzzleCheck: 1
   interactionDistance: 2
   cameraPosition: {x: -0.19, y: 0.3, z: 0.37}
   cameraOrientation: {x: 0, y: 0, z: 0}
-  landingPosition: {x: 0, y: 0, z: 0}
+  landingPosition: {x: 0, y: 0.2, z: 0}
   landingRotation: 0
   storyFragment: FRAGMENT_TATTOO
   hasPlayed: 0
@@ -616,8 +646,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: 0, y: 0.042, z: -0.06}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114610116901216538}
   Directions:
     X: 1
@@ -637,8 +667,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: 0.015, y: 0.046, z: 0.06}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114610116901216538}
   Directions:
     X: 1
@@ -704,7 +734,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1811168363
+  randomSeed: 1271337357
   InitialModule:
     serializedVersion: 3
     enabled: 1
