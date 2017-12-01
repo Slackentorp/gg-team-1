@@ -1,52 +1,141 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using System;
-
-
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using EasyButtons;
+using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
-   public struct PlayerData
+    [SerializeField]
+    GameController gm;
+
+    [Button]
+    public void SaveGame()
     {
-        public int door;
-        public float positionOfCamera;
-        public float cx, cy, cz;
-        public float positionOfMoth;
-        public float mx, my, mz;
-
-        public string fragment;
-
-        public int[] doors;
-        public float[] positionsOfCamera;
-        public float[] positionsOfMoth;
-        public string[] fragments;
-
-    }
-
-    public static void SaveGame()
-    {//in the brackets put the palce where to save from
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream stream = new FileStream(Application.persistentDataPath + "/gameSave.sav", FileMode.Create);
 
-        PlayerData data = new PlayerData();//here is the relevant information
-        data.cx = 2f;        
+        // Add Surrogates for missing serializers
+        SurrogateSelector surrogateSelector = new SurrogateSelector();
+
+        Vector3SerializationSurrogate vector3Surrogate = new Vector3SerializationSurrogate();
+        surrogateSelector.AddSurrogate(typeof(Vector3),
+            new StreamingContext(StreamingContextStates.All),
+            vector3Surrogate);
+
+        bf.SurrogateSelector = surrogateSelector;
+
+        // Get a timestamp for the file name
+        DateTime dt = DateTime.UtcNow;
+        string fileName = dt.ToString("ddmmyy-HH-mm");
+
+        FileStream stream = new FileStream(Application.persistentDataPath + "/saved_game.sav", FileMode.Create);
+
+        PlayerData data = new PlayerData();
+
+        // Get Moth Position
+        data.MothPosition = gm.Moth.transform.position;
+        // Get Camera Position
+        data.CameraPosition = gm.GameCamera.transform.position;
+
+        // Get all interactables
+        Interactable[] interactables = GameObject.FindObjectsOfType<Interactable>();
+        // Get all interactable states
+        Dictionary<int, bool> dict = new Dictionary<int, bool>();
+        foreach (var item in interactables)
+        {
+            dict.Add(item.gameObject.GetInstanceID(), item.HasPlayed);
+            if(item.gameObject.name == "fragment_tattoo")
+            {
+                print(item.gameObject.GetInstanceID());
+            }
+        }
+        data.InteractableStates = dict;
+
         bf.Serialize(stream, data);
         stream.Close();
     }
-   
-    public static void LoadPlayer()
-    {
-        if (File.Exists((Application.persistentDataPath + "/gameSave.sav")))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream stream = new FileStream(Application.persistentDataPath + "/gameSave.sav", FileMode.Open);
 
-            //PlayerData data = bf.Deserialize(stream);
-            stream.Close();
-            
+    [Button]
+    public void Load()
+    {
+        if (File.Exists((Application.persistentDataPath + "/saved_game.stls")))
+        {
+            FileStream stream = new FileStream(Application.persistentDataPath + "/saved_game.stls", FileMode.Open);
+            PlayerData data = new PlayerData();
+
+            // Disable StoryEvent System
+            GameObject StoryEventSystem = GameObject.Find("StoryEvent System");
+            if(StoryEventSystem != null)
+            {
+                StoryEventSystem.SetActive(false);
+            }
+            // Disable ParticleSystems
+            try
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+
+                // Add Surrogates for missing serializers
+                SurrogateSelector surrogateSelector = new SurrogateSelector();
+
+                Vector3SerializationSurrogate vector3Surrogate = new Vector3SerializationSurrogate();
+                surrogateSelector.AddSurrogate(typeof(Vector3),
+                    new StreamingContext(StreamingContextStates.All),
+                    vector3Surrogate);
+
+                bf.SurrogateSelector = surrogateSelector;
+
+                data = (PlayerData) bf.Deserialize(stream);
+            }
+            catch (SerializationException ex)
+            {
+                Debug.LogError("Could not deserialize the saved_game.stls");
+                Debug.LogError(ex.Message);
+            }
+            finally
+            {
+                stream.Close();
+            }
+
+            // Set moth position
+            gm.Moth.transform.position = data.MothPosition;
+            // Set Camera Position
+            gm.GameCamera.transform.position = data.CameraPosition;
+
+            // Get all instance ID's of objects with Interactable
+            Interactable[] allInteractables = GameObject.FindObjectsOfType<Interactable>();
+            Dictionary<int, GameObject> idGameObjectDict = new Dictionary<int, GameObject>();
+
+            foreach(var item in allInteractables)
+            {
+                idGameObjectDict.Add(item.gameObject.GetInstanceID(), item.gameObject);
+            }
+
+            // Set Interactable states
+            Dictionary<int, bool> loadedStates = data.InteractableStates;
+
+            foreach (var item in idGameObjectDict)
+            {
+                Interactable component = item.Value.GetComponent<Interactable>();
+                component.HasPlayed = loadedStates[item.Key];
+                if(component.HasPlayed)
+                {
+                    if(component is Puzzle)
+                    {
+                        ((Puzzle)component).SolvePuzzleNow();
+                    }
+                    
+                    component.InvokeInteractableCall();
+                }
+            }
+
+            // Enable StoryEvent System
+            if(StoryEventSystem != null)
+            {
+                StoryEventSystem.SetActive(true);
+            }
         }
         else
         {
@@ -55,33 +144,42 @@ public class SaveLoad : MonoBehaviour
     }
 }
 
-//just an example
-[Serializable]
-    public class PlayerData2
-        {
-            public int[] settings;
+[System.Serializable]
+public class PlayerData
+{
+    [SerializeField]
+    public Vector3 MothPosition;
+    [SerializeField]
+    public Vector3 CameraPosition;
 
+    public Dictionary<int, bool> InteractableStates;
+}
 
-        public PlayerData2()
-            {
-                settings = new int[4];//check it out
-                settings[0] = 1;
-                settings[1] = 2;
-                settings[2] = 3;
-                settings[3] = 4;
-            }
-        }
+sealed class Vector3SerializationSurrogate : ISerializationSurrogate
+{
 
-/*
-   public void Save()
-   {
-       SaveLoad.SaveGame(this);//for example
-   }
-   public void Load()
-   {
-       int[] loadedStats = SaveLoad.LoadPlayer();
-       level = loadedStats[0];
+    // Method called to serialize a Vector3 object
+    public void GetObjectData(System.Object obj,
+        SerializationInfo info, StreamingContext context)
+    {
 
+        Vector3 v3 = (Vector3) obj;
+        info.AddValue("x", v3.x);
+        info.AddValue("y", v3.y);
+        info.AddValue("z", v3.z);
+    }
 
-   }
-   */
+    // Method called to deserialize a Vector3 object
+    public System.Object SetObjectData(System.Object obj,
+        SerializationInfo info, StreamingContext context,
+        ISurrogateSelector selector)
+    {
+
+        Vector3 v3 = (Vector3) obj;
+        v3.x = (float) info.GetValue("x", typeof(float));
+        v3.y = (float) info.GetValue("y", typeof(float));
+        v3.z = (float) info.GetValue("z", typeof(float));
+        obj = v3;
+        return obj;
+    }
+}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
+[System.Serializable]
 public abstract class Interactable : MonoBehaviour
 {
     public delegate void InteractableAction(Interactable sender);
@@ -82,7 +83,7 @@ public abstract class Interactable : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Touch Object");
     }
 
-    private void InvokeInteractableCall()
+    public void InvokeInteractableCall()
     {
         if (InteractableCall != null)
         {
