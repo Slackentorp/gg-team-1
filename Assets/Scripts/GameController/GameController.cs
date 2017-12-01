@@ -93,7 +93,6 @@ public class GameController : Singleton<GameController>
     [HideInInspector]
     public Puzzle tutorialPuzzle;
 
-
     [SerializeField, Tooltip("Loading Screen")]
     private GameObject loadingPanel;
     public GameObject LoadingPanel { get { return loadingPanel; } }
