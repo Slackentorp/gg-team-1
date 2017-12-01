@@ -6,6 +6,7 @@ using UnityEngine;
 /// Defines the position and orientation of the camera when interacting with it.
 /// </summary>
 //[RequireComponent(typeof(BoxCollider))]
+[System.Serializable]
 public class Fragment : Interactable
 {
     public delegate void FragmentAction();
