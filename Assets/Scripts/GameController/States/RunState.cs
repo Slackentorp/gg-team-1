@@ -29,14 +29,17 @@ public class RunState : GameState
         InputEvent inputEvent = gm.InputManager.CheckInput();
         if (inputEvent.GameObject != null)
         {
-            if (inputEvent.GameObject.CompareTag("Wall") && inputEvent.InputType == InputType.TAP)
+            if ((inputEvent.GameObject.CompareTag("Wall") || inputEvent.GameObject.CompareTag("Ceiling")) && inputEvent.InputType == InputType.TAP)
             {
                 particlePos = inputEvent.RaycastHit.point + inputEvent.RaycastHit.normal * 0.07f;
                 particleTapCall(particlePos);
 
-                gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit);
+                if(inputEvent.GameObject.CompareTag("Wall")){
+                    gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, true);
+                } else {
+                    gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, false);
+                }
 
-                //Debug.Log("Ey I'm flying'ere");
                 return;
             }
 
@@ -50,6 +53,8 @@ public class RunState : GameState
                 if (Mathf.Abs(dist) < interactable.InternalInteractionDistion)
                 {
                     gm.SetState(new InteractableState(gm, interactable));
+                } else {
+                    gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, true);
                 }
             }
             else
