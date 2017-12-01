@@ -78,8 +78,10 @@ public class GameController : Singleton<GameController>
     [Tooltip("Decides the speed with which the camera moves to defined fragment position." +
             "Also determines rotation speed of camera when moving to fragment")]
     public float cameraToFragmentSpeed;
-    [Space(15)]
-    [Header("Puzzle Attributes")]
+	public GameObject fragmentParticles;
+	[Space(15)]
+
+	[Header("Puzzle Attributes")]
     [Tooltip("Determines the speed ups, and slow downs when dollying to/from the puzzles")]
     public AnimationCurve PuzzleLerpCurve;
     [Tooltip("Decides the speed with which the camera moves to defined puzzle position." +
