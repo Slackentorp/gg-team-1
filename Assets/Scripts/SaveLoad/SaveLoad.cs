@@ -7,13 +7,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 using EasyButtons;
 using UnityEngine;
 
-public class SaveLoad : MonoBehaviour
+public class SaveLoad
 {
-    [SerializeField]
-    GameController gm;
+    static string filePath = Application.persistentDataPath + "/saved_game.stls";
 
-    [Button]
-    public void SaveGame()
+    public static bool SaveGame(GameController gm)
     {
         BinaryFormatter bf = new BinaryFormatter();
 
@@ -25,13 +23,7 @@ public class SaveLoad : MonoBehaviour
             new StreamingContext(StreamingContextStates.All),
             vector3Surrogate);
 
-        bf.SurrogateSelector = surrogateSelector;
-
-        // Get a timestamp for the file name
-        DateTime dt = DateTime.UtcNow;
-        string fileName = dt.ToString("ddmmyy-HH-mm");
-
-        FileStream stream = new FileStream(Application.persistentDataPath + "/saved_game.sav", FileMode.Create);
+        bf.SurrogateSelector = surrogateSelector;  
 
         PlayerData data = new PlayerData();
 
@@ -47,23 +39,30 @@ public class SaveLoad : MonoBehaviour
         foreach (var item in interactables)
         {
             dict.Add(item.gameObject.GetInstanceID(), item.HasPlayed);
-            if(item.gameObject.name == "fragment_tattoo")
-            {
-                print(item.gameObject.GetInstanceID());
-            }
         }
         data.InteractableStates = dict;
 
-        bf.Serialize(stream, data);
-        stream.Close();
+
+        if(File.Exists(filePath))
+        {
+            File.Delete(filePath);
+        }
+        try{
+            FileStream stream = new FileStream(filePath, FileMode.Create);
+            bf.Serialize(stream, data);
+            stream.Close();
+            return true;
+        } catch {
+            return false;
+        }
     }
 
-    [Button]
-    public void Load()
+
+    public static bool Load(GameController gm)
     {
-        if (File.Exists((Application.persistentDataPath + "/saved_game.stls")))
+        if (File.Exists(filePath))
         {
-            FileStream stream = new FileStream(Application.persistentDataPath + "/saved_game.stls", FileMode.Open);
+            FileStream stream = new FileStream(filePath, FileMode.Open);
             PlayerData data = new PlayerData();
 
             // Disable StoryEvent System
@@ -93,6 +92,7 @@ public class SaveLoad : MonoBehaviour
             {
                 Debug.LogError("Could not deserialize the saved_game.stls");
                 Debug.LogError(ex.Message);
+                return false;
             }
             finally
             {
@@ -136,11 +136,11 @@ public class SaveLoad : MonoBehaviour
             {
                 StoryEventSystem.SetActive(true);
             }
+
+            return true;
         }
-        else
-        {
-            Debug.Log("Save file does not exist");
-        }
+
+        return false;
     }
 }
 
