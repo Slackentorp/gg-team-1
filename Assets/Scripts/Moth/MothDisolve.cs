@@ -23,11 +23,11 @@ public class MothDisolve : MonoBehaviour
 
     private void OnEnable()
     {
-        Puzzle.AssembleCall += AssembleEffect;
+        Interactable.TUTInteractableCall += AssembleEffect;
     }
     private void OnDisable()
     {
-        Puzzle.AssembleCall -= AssembleEffect;
+        Interactable.TUTInteractableCall += AssembleEffect;
     }
 
     private void Start()
@@ -44,7 +44,7 @@ public class MothDisolve : MonoBehaviour
         }
     }
 
-    public void AssembleEffect(Vector3 puzPos)
+    public void AssembleEffect(Interactable puzPos)
     {
         LocalizationItem.Language language;
         language = (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
@@ -57,8 +57,9 @@ public class MothDisolve : MonoBehaviour
             mothAssembleTiming = ENGTiming; // ENG Timing
         }
 
-        puzzlePosition = puzPos;
-
+        puzzlePosition = puzPos.transform.position;
+        print("Position: " + puzzlePosition);
+         
         particleHolder = ParticleSystem.Instantiate(assembleParticle, puzzlePosition, assembleParticle.transform.rotation);
         var em = particleHolder.emission;
         em.enabled = true;

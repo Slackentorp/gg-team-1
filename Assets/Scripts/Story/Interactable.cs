@@ -7,6 +7,8 @@ public abstract class Interactable : MonoBehaviour
 {
     public delegate void InteractableAction(Interactable sender);
     public static event InteractableAction InteractableCall;
+    public delegate void TUTInteractableAction(Interactable sender);
+    public static event TUTInteractableAction TUTInteractableCall;
     public delegate void EasyWwiseCallback();
     public float InteractionDistance { get { return interactionDistance; } }
     public Vector3 CamPosition { get { return cameraPosition; } set { cameraPosition = value; } }
@@ -59,7 +61,7 @@ public abstract class Interactable : MonoBehaviour
             Callback();
             return;
         }
-        
+        TUTInteractableCall(this);
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
             (uint) AkCallbackType.AK_EnableGetSourcePlayPosition |
