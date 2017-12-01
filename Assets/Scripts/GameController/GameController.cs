@@ -10,9 +10,10 @@ public class GameController : Singleton<GameController>
 	[SerializeField, ReadOnly]
 	private string currentStateLiteral;
 
-	public GameObject Moth;
-	public GameObject GameCamera;
-	public Queue StoryQueue;
+    public GameObject Moth;
+    public GameObject GameCamera;
+    public Animator CinemaBars;
+
 	public LocalizationManager localization;
 	public LightController LightController;
 	public InputManager InputManager;
@@ -23,28 +24,30 @@ public class GameController : Singleton<GameController>
 	public CameraController cameraController;
 	public FragmentParticleController fragParticleController;
 
-	[Header("Camera Attributes")]
-	[Tooltip("Determines the camera's turn speed on it's y-axis")]
-	public float cameraTurnSpeedY;
-	[Tooltip("Determines the camera's turn speed on it's x-axis")]
-	public float cameraTurnSpeedX;
-	[Tooltip("Controls the angle that the Camera maximum can move to underneath the Moth, " +
-			"0 being directly below"), Range(0.0f, 90.0f)]
-	public float minimumVerticalAngle = 20;
-	[Tooltip("Controls the angle that the Camera maximum can move to above the Moth, " +
-			"180 being directly above"), Range(90.0f, 180.0f)]
-	public float maximumVerticalAngle = 160;
-	[Tooltip("Adjusts the smoothness of the Moth displacement based on the Camera movement.")]
-	public float cameraDamping;
-	[Space(15)]
+    [Header("Camera Attributes")]
+    [Tooltip("Determines the camera's turn speed on it's y-axis")]
+    public float cameraTurnSpeedY;
+    [Tooltip("Determines the camera's turn speed on it's x-axis")]
+    public float cameraTurnSpeedX;
+    [Tooltip("Controls the angle that the Camera maximum can move to underneath the Moth, " +
+            "0 being directly below"), Range(0.0f, 90.0f)]
+    public float minimumVerticalAngle = 20;
+    [Tooltip("Controls the angle that the Camera maximum can move to above the Moth, " +
+            "180 being directly above"), Range(90.0f, 180.0f)]
+    public float maximumVerticalAngle = 160;
+    [Tooltip("Adjusts the smoothness of the Moth displacement based on the Camera movement.")]
+    public float cameraDamping;
+    [Space(15)]
 
-	[Header("Moth Attributes")]
-	[Tooltip("Determines the speed of the moths flight to/from points")]
-	public float mothFlightSpeed;
-	[Tooltip("The speed up and slow down curve of the Moth's flight speed")]
-	public AnimationCurve mothFlightSpeedCurve;
-	[Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
-	public float mothDistanceToObject;
+    [Header("Moth Attributes")]
+    [Tooltip("Determines the speed of the moths flight to/from points")]
+    public float mothFlightSpeed;
+    [Tooltip("The speed up and slow down curve of the Moth's flight speed")]
+    public AnimationCurve mothFlightSpeedCurve;
+    [Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
+    public float mothDistanceToObject;
+    [Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
+    public float mothDistanceToCeiling;
 	[Space(7)]
 	[Tooltip("The speed up and slow down curve of the Moth's fidgiting speed")]
 	public AnimationCurve MothFidgitingCurve;
@@ -69,27 +72,27 @@ public class GameController : Singleton<GameController>
 	public float fidgitTimeScalar = 1.5f;
 	[Space(15)]
 
-	[Header("Fragment Attributes")]
-	[Tooltip("Determines the speed ups, and slow downs when dollying to/from the fragments")]
-	public AnimationCurve FragmentLerpCurve;
-	[Tooltip("Decides the speed with which the camera moves to defined fragment position." +
-			"Also determines rotation speed of camera when moving to fragment")]
-	public float cameraToFragmentSpeed;
-	public GameObject fragmentParticles;
-	[Space(15)]
-	[Header("Puzzle Attributes")]
-	[Tooltip("Determines the speed ups, and slow downs when dollying to/from the puzzles")]
-	public AnimationCurve PuzzleLerpCurve;
-	[Tooltip("Decides the speed with which the camera moves to defined puzzle position." +
-			"Also determines rotation speed of camera when moving to puzzle")]
-	public float cameraToPuzzleSpeed;
-	[Space(15)]
+    [Header("Fragment Attributes")]
+    [Tooltip("Determines the speed ups, and slow downs when dollying to/from the fragments")]
+    public AnimationCurve FragmentLerpCurve;
+    [Tooltip("Decides the speed with which the camera moves to defined fragment position." +
+            "Also determines rotation speed of camera when moving to fragment")]
+    public float cameraToFragmentSpeed;
+    [Space(15)]
+    [Header("Puzzle Attributes")]
+    [Tooltip("Determines the speed ups, and slow downs when dollying to/from the puzzles")]
+    public AnimationCurve PuzzleLerpCurve;
+    [Tooltip("Decides the speed with which the camera moves to defined puzzle position." +
+            "Also determines rotation speed of camera when moving to puzzle")]
+    public float cameraToPuzzleSpeed;
+    public GameObject FragmentToLightSourceParticles;
+    public AnimationCurve FragmentToLightSourceCurve;
+    [Space(15)]
 
 	[HideInInspector]
 	public Vector3 cameraHeading;
 	[HideInInspector]
 	public Puzzle tutorialPuzzle;
-
 
 	[SerializeField, Tooltip("Loading Screen")]
 	private GameObject loadingPanel;
