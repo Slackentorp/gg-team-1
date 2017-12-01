@@ -57,6 +57,7 @@ namespace AK
         static const AkUniqueID MAINMENU_OPEN = 3307976374U;
         static const AkUniqueID MENU_START_GAME = 1931074718U;
         static const AkUniqueID MENUBUTTON_PRESS = 1512987680U;
+        static const AkUniqueID MENUTOGGLEBUTTON_PRESS = 2268000284U;
         static const AkUniqueID MOTH_APPEAR = 2904931443U;
         static const AkUniqueID MOTH_END_FLIGHT = 410314580U;
         static const AkUniqueID MOTH_HIT_WINDOW = 1669806022U;

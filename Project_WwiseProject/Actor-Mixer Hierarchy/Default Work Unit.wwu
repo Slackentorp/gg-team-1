@@ -5305,6 +5305,135 @@
 				</ActorMixer>
 				<Folder Name="Interaction" ID="{D5C64084-F381-47FE-815C-DEC098607F84}" ShortID="115543730">
 					<ChildrenList>
+						<Sound Name="DRONE_FRAIL" ID="{BA959EF1-225E-4483-9AE0-ACC0D571A04E}" ShortID="936411222">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-29</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DRONE_FRAIL" ID="{9E568093-A60C-4678-BF43-87CED18B3DFD}" ShortID="867878174">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.226649011388073"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.906596045552281"/>
+										<Property Name="FadeOutShape" Type="int16" Value="4"/>
+										<Property Name="TrimBegin" Type="Real64" Value="28.8297542485629"/>
+										<Property Name="TrimEnd" Type="Real64" Value="29.7363502941152"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>DRONE_FRAIL.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DRONE_FRAIL" ID="{9E568093-A60C-4678-BF43-87CED18B3DFD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<ActorMixer Name="Menu" ID="{B7A3E426-0BA3-464D-A429-E174A7092156}" ShortID="758899988">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Menu button press" ID="{0ED17D2F-63B1-4032-BC6E-FB331294F5E8}" ShortID="826957596">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="MENUBUTTON_PRESS" ID="{452B5309-2A71-4DE2-997A-4A0E7199BB30}" ShortID="572314623">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="MENUBUTTON_PRESS" ID="{8D5D1E19-BCAD-4C9B-BCEC-4EA1753ADFFD}" ShortID="932777142">
+													<Language>SFX</Language>
+													<AudioFile>MENUBUTTON_PRESS.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="MENUBUTTON_PRESS" ID="{8D5D1E19-BCAD-4C9B-BCEC-4EA1753ADFFD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="MENUBUTTON_PRESS_1" ID="{AF0267EA-587F-4B6D-9840-383706C9B231}" ShortID="503166295">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="MENUBUTTON_PRESS_1" ID="{E79A0D8C-2094-4425-923F-0A32877EFC51}" ShortID="611076972">
+													<Language>SFX</Language>
+													<AudioFile>MENUBUTTON_PRESS_1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="MENUBUTTON_PRESS_1" ID="{E79A0D8C-2094-4425-923F-0A32877EFC51}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Toggle button press" ID="{133BAA2D-BB0D-4769-96A5-157534D5B02B}" ShortID="176369164">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="TOGGLE_BUTTON_PRESS" ID="{9D6C9CB5-5677-4D79-8246-41ADEB581D63}" ShortID="667334394">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="TOGGLE_BUTTON_PRESS" ID="{33D37696-821B-43AF-A522-C5BAC5D1323F}" ShortID="362347329">
+													<Language>SFX</Language>
+													<AudioFile>TOGGLE_BUTTON_PRESS.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="TOGGLE_BUTTON_PRESS" ID="{33D37696-821B-43AF-A522-C5BAC5D1323F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+						</ActorMixer>
 						<RandomSequenceContainer Name="Tap particle" ID="{3AC87845-DA3A-4975-9621-7E0B77882BBD}" ShortID="961605651">
 							<PropertyList>
 								<Property Name="Pitch" Type="int32">
@@ -5342,7 +5471,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="Really compressed mono" ID="{67179E8B-05DB-4110-A418-07CD164CC880}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -5392,42 +5521,6 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<Sound Name="DRONE_FRAIL" ID="{BA959EF1-225E-4483-9AE0-ACC0D571A04E}" ShortID="936411222">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-29</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-								<Reference Name="UserAuxSend0">
-									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="DRONE_FRAIL" ID="{9E568093-A60C-4678-BF43-87CED18B3DFD}" ShortID="867878174">
-									<PropertyList>
-										<Property Name="FadeInDuration" Type="Real64" Value="0.226649011388073"/>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.906596045552281"/>
-										<Property Name="FadeOutShape" Type="int16" Value="4"/>
-										<Property Name="TrimBegin" Type="Real64" Value="28.8297542485629"/>
-										<Property Name="TrimEnd" Type="Real64" Value="29.7363502941152"/>
-									</PropertyList>
-									<Language>SFX</Language>
-									<AudioFile>DRONE_FRAIL.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="DRONE_FRAIL" ID="{9E568093-A60C-4678-BF43-87CED18B3DFD}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Puzzle" ID="{94195760-C3BB-47C3-A9AD-270E1EE03E58}" ShortID="1000398142">
@@ -11296,7 +11389,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-32</Value>
+										<Value>-14</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11358,36 +11451,13 @@
 										<ActiveSource Name="PARTICLE_APPEAR_2" ID="{EFF4A6B4-FAE4-4CAC-B375-756E5E6EFB71}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="PARTICLE_APPEAR_3" ID="{EBE3F270-58EB-46F3-8FF5-CEB61CDEDB44}" ShortID="214569150">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="PARTICLE_APPEAR_3" ID="{2F7C5DCC-9ECF-4278-AC11-2A32EC8D3CEA}" ShortID="946359298">
-											<PropertyList>
-												<Property Name="FadeInDuration" Type="Real64" Value="0.295838324505694"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.181320263406716"/>
-											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>PARTICLE_APPEAR_3.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="PARTICLE_APPEAR_3" ID="{2F7C5DCC-9ECF-4278-AC11-2A32EC8D3CEA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Particle_enter_lamp" ID="{08490310-6CC2-45E5-94D2-FB20E50AAF58}" ShortID="958131877">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-39</Value>
+										<Value>-14</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11424,6 +11494,123 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<Sound Name="PARTICLE_FLY_LOOP" ID="{543C3647-F447-4120-9A94-2A6321BB8E67}" ShortID="36762281">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Spatialization" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{22A172EF-49D2-4C28-8F0B-C415856A10D7}" ShortID="358141765">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="5"/>
+											</PropertyList>
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{D9A3DF98-296F-466D-B0B8-B2EEF8F6ECA3}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>5</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PARTICLE_FLY_LOOP" ID="{F6381912-B875-4C0F-BD9A-F4F5C6C116F7}" ShortID="863052547">
+									<Language>SFX</Language>
+									<AudioFile>PARTICLE_FLY_LOOP.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PARTICLE_FLY_LOOP" ID="{F6381912-B875-4C0F-BD9A-F4F5C6C116F7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PARTICLE_APPEAR_3" ID="{EBE3F270-58EB-46F3-8FF5-CEB61CDEDB44}" ShortID="214569150">
+							<PropertyList>
+								<Property Name="UserAuxSendVolume0" Type="Real64">
+									<ValueList>
+										<Value>-16</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PARTICLE_APPEAR_3" ID="{2F7C5DCC-9ECF-4278-AC11-2A32EC8D3CEA}" ShortID="946359298">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.295838324505694"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.181320263406716"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>PARTICLE_APPEAR_3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PARTICLE_APPEAR_3" ID="{2F7C5DCC-9ECF-4278-AC11-2A32EC8D3CEA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
