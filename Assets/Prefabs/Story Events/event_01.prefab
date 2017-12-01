@@ -11,6 +11,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1455956642135318}
   m_IsPrefabParent: 1
+--- !u!1 &1021400100389514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4141892249080914}
+  - component: {fileID: 33467604089472538}
+  - component: {fileID: 23405468690894806}
+  m_Layer: 0
+  m_Name: Storyevent 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967293
+  m_IsActive: 1
 --- !u!1 &1455956642135318
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,58 +41,41 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967292
+  m_StaticEditorFlags: 4294967293
   m_IsActive: 1
---- !u!1 &1920206707979774
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4996244233104446}
-  - component: {fileID: 33231820359509942}
-  - component: {fileID: 23215990567717570}
-  m_Layer: 0
-  m_Name: PaperCutout Russia
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967292
-  m_IsActive: 1
---- !u!4 &4607972379379198
+--- !u!4 &4141892249080914
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455956642135318}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.59, y: 1.444, z: -0.663}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4996244233104446}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4996244233104446
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1920206707979774}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_GameObject: {fileID: 1021400100389514}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4607972379379198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23215990567717570
+--- !u!4 &4607972379379198
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455956642135318}
+  m_LocalRotation: {x: -0, y: -0.12297256, z: -0, w: 0.9924101}
+  m_LocalPosition: {x: -3.463, y: 1.4537, z: -0.6372}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4141892249080914}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -14.127001, z: 0}
+--- !u!23 &23405468690894806
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1920206707979774}
+  m_GameObject: {fileID: 1021400100389514}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,7 +84,12 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3df8ae8d61fe6444db76b760c7ade9cb, type: 2}
+  - {fileID: 2100000, guid: 017475b52ac9eec4993185be3919ded1, type: 2}
+  - {fileID: 2100000, guid: e5a53501e5724f84c9343eab272a278c, type: 2}
+  - {fileID: 2100000, guid: 39eebae0e46718042b52a22f3fab51f7, type: 2}
+  - {fileID: 2100000, guid: 798e20e82bc7bc245a911e60ae0cb9c3, type: 2}
+  - {fileID: 2100000, guid: 0eef3cdcc47942c4499220ebb67514e3, type: 2}
+  - {fileID: 2100000, guid: 8870d5bf56e026a4790411be19251ccb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,10 +109,10 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33231820359509942
+--- !u!33 &33467604089472538
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1920206707979774}
-  m_Mesh: {fileID: 4300000, guid: 66432468ee410ee4a9035fb8f17d056f, type: 3}
+  m_GameObject: {fileID: 1021400100389514}
+  m_Mesh: {fileID: 4300010, guid: b8f3359c92cd5f540a4bc458f22b2f70, type: 3}
