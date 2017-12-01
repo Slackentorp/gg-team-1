@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //[RequireComponent(typeof(CombinationPuzzleController))]
+[System.Serializable]
 public class Puzzle : Interactable
 {
     //public delegate void EasyWwiseCallback();
@@ -15,7 +16,7 @@ public class Puzzle : Interactable
     private Vector3 boundingBoxSize = Vector3.one;
     [SerializeField]
     private Vector3 boundingBoxOffset;
-    
+
     [SerializeField, Tooltip("The name of the puzzle.")]
     private string puzzleId;
 
@@ -58,17 +59,17 @@ public class Puzzle : Interactable
                 correctPositions.Add(child.position);
                 Vector3 newRandomPos = new Vector3(
                     Random.Range(transform.localPosition.x - (boundingBoxSize.x + boundingBoxOffset.x) / 2f,
-                    transform.position.x + (boundingBoxSize.x + boundingBoxOffset.x) / 2f),
+                        transform.position.x + (boundingBoxSize.x + boundingBoxOffset.x) / 2f),
                     transform.localPosition.y,
-                     Random.Range(transform.localPosition.z - (boundingBoxSize.z + boundingBoxOffset.z) / 2f,
-                    transform.localPosition.z + (boundingBoxSize.z + boundingBoxOffset.z) / 2f)
-                    );
+                    Random.Range(transform.localPosition.z - (boundingBoxSize.z + boundingBoxOffset.z) / 2f,
+                        transform.localPosition.z + (boundingBoxSize.z + boundingBoxOffset.z) / 2f)
+                );
                 puzzlePieces[i].transform.position = newRandomPos;
                 correctPuzzle.Add(puzzlePieces[i], correctPositions[i]);
             }
 
             PictureFrameTouch pft = child.GetComponent<PictureFrameTouch>();
-            if(pft != null)
+            if (pft != null)
             {
                 pft.OnTouchUpEvent += UpdatePuzzle;
             }
@@ -87,10 +88,15 @@ public class Puzzle : Interactable
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            for (int i = 0; i < puzzlePieces.Count; i++)
-            {
-                PositionPieceCorrectly(i);
-            }
+            SolvePuzzleNow();
+        }
+    }
+
+    public void SolvePuzzleNow()
+    {
+        for (int i = 0; i < puzzlePieces.Count; i++)
+        {
+            PositionPieceCorrectly(i);
         }
     }
 
@@ -107,16 +113,15 @@ public class Puzzle : Interactable
         {
             Transform child = transform.GetChild(i);
             PictureFrameTouch pft = child.GetComponent<PictureFrameTouch>();
-            if(pft != null)
+            if (pft != null)
             {
                 pft.OnTouchUpEvent -= UpdatePuzzle;
             }
         }
 
-
         if (PuzzleCall != null)
         {
-            PuzzleCall(puzzleObj); 
+            PuzzleCall(puzzleObj);
         }
     }
 
@@ -133,7 +138,6 @@ public class Puzzle : Interactable
             }
         }
     }
-
 
     private void PositionPieceCorrectly(int piece)
     {
@@ -156,8 +160,6 @@ public class Puzzle : Interactable
         OnSolved(gameObject);
         return true;
     }
-
-    
 
     public void TurnOffCollider()
     {

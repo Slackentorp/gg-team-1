@@ -9,7 +9,7 @@ public class BootstrapLoader
     static string bootstrapSceneName = "Bootstrap";
     static BootstrapLoader()
     {
-        if (EditorApplication.isPlayingOrWillChangePlaymode && EditorPrefs.GetBool("BootstrapEnabled", true))
+        if (EditorApplication.isPlayingOrWillChangePlaymode && BootstrapEditor.isActive)
         {
             Debug.Log("Editor is playing");
             bool bootstrapLoaded = false;
