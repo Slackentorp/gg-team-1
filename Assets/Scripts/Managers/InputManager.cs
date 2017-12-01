@@ -357,5 +357,10 @@ namespace Assets.Scripts.Managers
         public TouchDirection TouchDirection;
         public Vector3 TouchPosition;
         public RaycastHit RaycastHit;
+
+        public override string ToString()
+        {
+            return string.Format("GameObject: {0} - InputType: {1} - TouchDirection: {2} - TouchPosition: {3}", GameObject, InputType, TouchDirection, TouchPosition);
+        }
     }
 }
