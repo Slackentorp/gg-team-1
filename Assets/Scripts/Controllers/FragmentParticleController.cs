@@ -15,26 +15,25 @@ public class FragmentParticleController
 
 	List<FragmentParticleController> fragmentParticles = new List<FragmentParticleController>();
 
-	int Id;
-	Fragment[] fragmentPosition;
-	ParticleSystem[] fragmentParticleArr;
-	bool fragmentPlayedState;
-
 	public FragmentParticleController(Fragment[] fragmentObjects, GameObject fragmentParticles,
 									  Transform mothPos)
 	{
-		this.fragmentPos = fragmentObjects;
-		this.fragParticle = fragmentParticles;
-		this.MothPosition = mothPos;
-		fragParticleParent = new GameObject("Fragment Particles");
-		fragParticleArray = new GameObject[fragmentObjects.Length];
-
-		if (fragmentPos != null && done == false)
+		if (done == false)
 		{
-			for (int i = 0; i < fragmentPos.Length; i++)
+			this.fragmentPos = fragmentObjects;
+			this.fragParticle = fragmentParticles;
+			this.MothPosition = mothPos;
+			fragParticleParent = new GameObject("Fragment Particles");
+			fragParticleArray = new GameObject[fragmentObjects.Length];
+
+			if (fragmentPos != null && done == false)
 			{
-				InstanceParticlesToParent(fragmentPos[i].gameObject.transform.position, i);
-				fragmentDictionary.Add(fragmentPos[i], FragmentState.NOT_PLAYED);
+				for (int i = 0; i < fragmentPos.Length; i++)
+				{
+					InstanceParticlesToParent(fragmentPos[i].gameObject.transform.position, i);
+					fragmentDictionary.Add(fragmentPos[i], FragmentState.NOT_PLAYED);
+				}
+				done = true;
 			}
 			done = true;
 		}
@@ -52,15 +51,15 @@ public class FragmentParticleController
 				{
 					fragParticleArray[i].SetActive(true);
 
-					if (fragmentPos[i].HasPlayed == true && fragmentDictionary[fragmentPos[i]] == FragmentState.NOT_PLAYED)
+					if (fragmentPos[i].HasPlayed == false && fragmentDictionary[fragmentPos[i]] == FragmentState.NOT_PLAYED )
 					{
+						PlaySoundEvents("DISCOVER",i);
 						fragmentDictionary[fragmentPos[i]] = FragmentState.DISCOVER;
-						EnterFragmentArea(i);
 					}
 					else if (fragmentDictionary[fragmentPos[i]] == FragmentState.DISCOVER)
 					{
 						fragmentDictionary[fragmentPos[i]] = FragmentState.WHISPER;
-						AfterPlayEnterFragmentArea(i);
+						PlaySoundEvents("WHISPER", i);
 					}
 				}
 				else if (Mathf.Abs(dist) >= fragmentPos[i].InternalInteractionDistion &&
@@ -68,13 +67,13 @@ public class FragmentParticleController
 				{
 					fragmentDictionary[fragmentPos[i]] = FragmentState.LEAVE;
 					fragParticleArray[i].SetActive(false);
-					LeaveFragmentArea(i);
+					PlaySoundEvents("LEAVE", i);
 				}
 				else if (Mathf.Abs(dist) > fragmentPos[i].InternalInteractionDistion)
 				{
 					if (fragmentDictionary[fragmentPos[i]] == FragmentState.LEAVE)
 					{
-						fragmentDictionary[fragmentPos[i]] = FragmentState.LEFT;
+						fragmentDictionary[fragmentPos[i]] = FragmentState.DISCOVER;
 						fragParticleArray[i].SetActive(false);
 					}
 					else
@@ -92,27 +91,6 @@ public class FragmentParticleController
 		fragParticleArray[iteration].transform.parent = fragParticleParent.transform;
 	}
 
-	void EnterFragmentArea(int iteration)
-	{
-
-		AkSoundEngine.PostEvent("FRAGMENT_DISCOVER", fragmentPos[iteration].gameObject);
-		Debug.Log("Should be playing Discover");
-	}
-
-	void AfterPlayEnterFragmentArea(int iteration)
-	{
-		//if (playingWhisper) return;
-		AkSoundEngine.PostEvent("FRAGMENT_WHISPER", fragmentPos[iteration].gameObject);
-		Debug.Log("Should be playing Whisper");
-	}
-
-	void LeaveFragmentArea(int iteration)
-	{
-		//if (plaingLeave) return;
-		AkSoundEngine.PostEvent("FRAGMENT_LEAVE", fragmentPos[iteration].gameObject);
-		Debug.Log("Should be playing Leave");
-	}
-
 	Dictionary<Fragment, FragmentState> fragmentDictionary = new Dictionary<Fragment, FragmentState>();
 
 	public enum FragmentState
@@ -120,16 +98,27 @@ public class FragmentParticleController
 		NOT_PLAYED,
 		DISCOVER,
 		WHISPER,
-		LEAVE,
-		LEFT
+		LEAVE
 	}
 
-	//Create dictionary where the key is the fragments, and value is the state for each fragment.
-	//Check if fragment is in specific state, if yes then set to a new state, if no do something else....
-	//Discover play once when discovered, (Should cascade sounds if mulitple are "Discovered" at the same time)
-	//same for the activation of particles.
-	//Whisper play when discovered and played once, && within a range.
-	//Leave play when leaving the area for fragment interaction && then stop playing
+	void PlaySoundEvents(string soundEvent, int fragmentNumber)
+	{
+
+		switch (soundEvent)
+		{
+			case "DISCOVER":
+				AkSoundEngine.PostEvent("FRAGMENT_DISCOVER", fragmentPos[fragmentNumber].gameObject);
+				break;
+
+			case "WHISPER":
+				AkSoundEngine.PostEvent("FRAGMENT_WHISPER", fragmentPos[fragmentNumber].gameObject);
+				break;
+
+			case "LEAVE":
+				AkSoundEngine.PostEvent("FRAGMENT_LEAVE", fragmentPos[fragmentNumber].gameObject);
+				break;
+		}
+	}
 }
 
 

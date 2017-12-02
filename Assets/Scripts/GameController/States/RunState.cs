@@ -28,7 +28,6 @@ public class RunState : GameState
 		cameraController.SetFragmentMode(false);
 		fragmentPositions = GameObject.FindObjectsOfType<Fragment>(); 
 		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.fragmentParticles, gm.Moth.transform);
-		gm.fragParticleController.OnRunStart();
     }
 
     void CheckInput()
