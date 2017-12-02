@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Assets.Scripts.Managers;
+using EasyButtons;
 using Gamelogic.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -165,14 +166,27 @@ public class GameController : Singleton<GameController>
 			currentState.OnStateEnter();
 		}
 	}
+    [Button]
+    public void SaveGame()
+    {
+        SaveLoad.SaveGame(this);
+    }
 
-	public void QuitFragment()
-	{
-		if (currentState is InteractableState)
-		{
-			SetState(new RunState(this));
-		}
-	}
+    public void QuitFragment()
+    {
+        if (currentState is InteractableState)
+        {
+            SetState(new RunState(this));
+        }
+    }
 
+    /// <summary>
+    /// Callback sent to all game objects before the application is quit.
+    /// </summary>
+    void OnApplicationQuit()
+    {
+        SaveLoad.SaveGame(this);
+    }
+    
 
 }
