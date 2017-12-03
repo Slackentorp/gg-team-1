@@ -78,7 +78,6 @@ public abstract class Interactable : MonoBehaviour
         {
             HasPlayed = true;
             t.Invoke();
-            InvokeInteractableCall();
         }
 
     }

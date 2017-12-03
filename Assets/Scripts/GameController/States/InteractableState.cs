@@ -150,6 +150,11 @@ public class InteractableState : GameState
 
     private void EndOfFragmentCallback()
     {
+        if(gm.GetGameState() != this)
+        {
+            return;
+        }
+        currentInteractable.InvokeInteractableCall();
         keepMothLandingState = false;
         gm.mothBehaviour.SetMothAnimationState("Flying");
         gm.StartCoroutine(Leaving(1f));
@@ -158,16 +163,18 @@ public class InteractableState : GameState
 
     public override void OnStateExit()
     {
-        AkSoundEngine.StopAll(currentInteractable.gameObject);
         gm.mothBehaviour.OnReachedPosition -= OnMothLands;
         gm.mothBehaviour.SetFragmentMode(false);
+        if (currentInteractable is Puzzle)
+        {
+            currentInteractable.GetComponent<BoxCollider>().enabled = true;
+        }
     }
 
     private IEnumerator Leaving(float multiplier)
     {
         time = 0;
         Vector3 heading = Vector3.zero;
-
 
         Quaternion cameraStartRotation = gm.GameCamera.transform.rotation;
 
@@ -215,7 +222,6 @@ public class InteractableState : GameState
                 && inputEvent.InputType == InputType.TAP)
             {
                 EndOfFragmentCallback();
-                AkSoundEngine.StopAll(currentInteractable.gameObject);
                 cameraController.SetFragmentMode(false);
                 if(inputEvent.GameObject.CompareTag("Wall")){
                     gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, true);
