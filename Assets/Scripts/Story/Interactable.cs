@@ -64,9 +64,7 @@ public abstract class Interactable : MonoBehaviour
         }
         TUTInteractableCall(this);
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
-        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
-            (uint) AkCallbackType.AK_EnableGetSourcePlayPosition |
-            (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject, (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
     }
 
