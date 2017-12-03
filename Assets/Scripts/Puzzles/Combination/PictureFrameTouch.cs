@@ -106,7 +106,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
     private void PlayEvent(string wwiseevent)
     {
-        if (string.IsNullOrEmpty(wwiseevent))
+        if (!string.IsNullOrEmpty(wwiseevent))
         {
             AkSoundEngine.PostEvent(wwiseevent, gameObject);
         }

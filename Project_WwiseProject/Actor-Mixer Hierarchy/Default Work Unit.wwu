@@ -4633,7 +4633,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-8</Value>
+										<Value>-6</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{93B9D20E-03E9-4F79-BE77-4584D3BC1F3A}" ShortID="546935811">
@@ -5011,7 +5011,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-19</Value>
+										<Value>-15</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{C12EFD54-228D-4F97-8A82-D3635ABD4116}" ShortID="938072440">
@@ -5279,7 +5279,7 @@
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-22</Value>
+										<Value>-35</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5290,9 +5290,16 @@
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="MOTH_APPEAR" ID="{77EF9B11-3175-45C8-976E-511182D22E21}" ShortID="783772933">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="1.05531407150806"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.620772983240037"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>MOTH_APPEAR.wav</AudioFile>
 								</AudioFileSource>
@@ -5454,7 +5461,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-39</Value>
+										<Value>-42</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -5948,7 +5955,7 @@
 										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>2</Value>
+												<Value>-9</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -6153,6 +6160,11 @@
 												<Value>510</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-19</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -6245,7 +6257,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-9</Value>
+								<Value>-12</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>

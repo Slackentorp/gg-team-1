@@ -33,6 +33,7 @@ public class MothDisolve : MonoBehaviour
     private void Start()
     {
         GetMaterial();
+		rend.material.SetFloat("_DissolveAmount", mothDissolvedState);
     }
 
     private void GetMaterial()
@@ -71,6 +72,8 @@ public class MothDisolve : MonoBehaviour
     {
         float time = .0f;
         yield return new WaitForSeconds(mothAssembleTiming);
+        AkSoundEngine.PostEvent("MOTH_APPEAR", gameObject);
+
         while (time < 1)
         {
             mothCurrentDisolveState = Mathf.Lerp(mothDissolvedState, mothAssembledState, time);
