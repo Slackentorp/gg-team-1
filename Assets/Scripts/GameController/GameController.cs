@@ -108,6 +108,11 @@ public class GameController : Singleton<GameController>
 	}
 
 	private GameState currentState;
+	public GameState GetGameState()
+	{
+		return currentState;
+	}
+
 
 	// Use this for initialization
 	void Start()
