@@ -165,6 +165,10 @@ public class InteractableState : GameState
     {
         gm.mothBehaviour.OnReachedPosition -= OnMothLands;
         gm.mothBehaviour.SetFragmentMode(false);
+        if (currentInteractable is Puzzle)
+        {
+            currentInteractable.GetComponent<BoxCollider>().enabled = true;
+        }
     }
 
     private IEnumerator Leaving(float multiplier)
