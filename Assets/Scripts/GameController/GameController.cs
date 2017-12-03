@@ -8,21 +8,22 @@ using UnityEngine.UI;
 #pragma warning disable 0414
 public class GameController : Singleton<GameController>
 {
-    [SerializeField, ReadOnly]
-    private string currentStateLiteral;
+	[SerializeField, ReadOnly]
+	private string currentStateLiteral;
 
     public GameObject Moth;
     public GameObject GameCamera;
     public Animator CinemaBars;
 
-    public LocalizationManager localization;
-    public LightController LightController;
-    public InputManager InputManager;
-    public Text HeadsetStateUIText;
-    public MothBehaviour mothBehaviour;
-    public MothSounds mothSounds;
-    public InputHandlerSettings InputSettings;
-    public CameraController cameraController;
+	public LocalizationManager localization;
+	public LightController LightController;
+	public InputManager InputManager;
+	public Text HeadsetStateUIText;
+	public MothBehaviour mothBehaviour;
+	public MothSounds mothSounds;
+	public InputHandlerSettings InputSettings;
+	public CameraController cameraController;
+	public FragmentParticleController fragParticleController;
 
     [Header("Camera Attributes")]
     [Tooltip("Determines the camera's turn speed on it's y-axis")]
@@ -49,16 +50,16 @@ public class GameController : Singleton<GameController>
     [Tooltip("How close the Moth should be placed to the clicked destination"), Range(0.0f, 1.0f)]
     public float mothDistanceToCeiling;
 	[Space(7)]
-    [Tooltip("The speed up and slow down curve of the Moth's fidgiting speed")]
-    public AnimationCurve MothFidgitingCurve;
-    [Tooltip("Controls the speed of the Moth's movement while fidgiting")]
-    public float mothSpeedModifier;
-    [Tooltip("The max distance of the randomized value between each fidgit point. " +
-            "The higher it is the shorter the distance"), Range(1, 100)]
-    public int FidgetingDistanceReducerMax;
-    [Tooltip("The minimum distance of the randomized value between each fidgit point. " +
-            "The higher it is the shorter the distance"), Range(0, 99)]
-    public int FidgetingDistanceReducerMin;
+	[Tooltip("The speed up and slow down curve of the Moth's fidgiting speed")]
+	public AnimationCurve MothFidgitingCurve;
+	[Tooltip("Controls the speed of the Moth's movement while fidgiting")]
+	public float mothSpeedModifier;
+	[Tooltip("The max distance of the randomized value between each fidgit point. " +
+			"The higher it is the shorter the distance"), Range(1, 100)]
+	public int FidgetingDistanceReducerMax;
+	[Tooltip("The minimum distance of the randomized value between each fidgit point. " +
+			"The higher it is the shorter the distance"), Range(0, 99)]
+	public int FidgetingDistanceReducerMin;
 	[Tooltip("Limits the forward/backwards figiding of the Moth. " +
 			"The larger the more the movement is limited")]
 	public float LimitMothForwardFidgit = 1.5f;
@@ -78,8 +79,10 @@ public class GameController : Singleton<GameController>
     [Tooltip("Decides the speed with which the camera moves to defined fragment position." +
             "Also determines rotation speed of camera when moving to fragment")]
     public float cameraToFragmentSpeed;
-    [Space(15)]
-    [Header("Puzzle Attributes")]
+	public GameObject fragmentParticles;
+	[Space(15)]
+
+	[Header("Puzzle Attributes")]
     [Tooltip("Determines the speed ups, and slow downs when dollying to/from the puzzles")]
     public AnimationCurve PuzzleLerpCurve;
     [Tooltip("Decides the speed with which the camera moves to defined puzzle position." +
@@ -89,79 +92,85 @@ public class GameController : Singleton<GameController>
     public AnimationCurve FragmentToLightSourceCurve;
     [Space(15)]
 
-    [HideInInspector]
-    public Vector3 cameraHeading;
-    [HideInInspector]
-    public Puzzle tutorialPuzzle;
+	[HideInInspector]
+	public Vector3 cameraHeading;
+	[HideInInspector]
+	public Puzzle tutorialPuzzle;
 
-    [SerializeField, Tooltip("Loading Screen")]
-    private GameObject loadingPanel;
-    public GameObject LoadingPanel { get { return loadingPanel; } }
+	[SerializeField, Tooltip("Loading Screen")]
+	private GameObject loadingPanel;
+	public GameObject LoadingPanel
+	{
+		get
+		{
+			return loadingPanel;
+		}
+	}
 
-    private GameState currentState;
-    public GameState GetGameState()
-    {
-        return currentState;
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-        cameraHeading = GameCamera.transform.position - Moth.transform.position;
-        cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, Moth.transform, false,
-                                                cameraDamping, cameraTurnSpeedY, cameraTurnSpeedX, minimumVerticalAngle,
-                                                maximumVerticalAngle);
+	private GameState currentState;
+	public GameState GetGameState()
+	{
+		return currentState;
+	}
 
 
-        SetState(new LoadState(this));
-    }
+	// Use this for initialization
+	void Start()
+	{
+		cameraHeading = GameCamera.transform.position - Moth.transform.position;
+		cameraController = new CameraController(GameCamera.transform, 2, cameraHeading, 1, Moth.transform, false,
+												cameraDamping, cameraTurnSpeedY, cameraTurnSpeedX, minimumVerticalAngle,
+												maximumVerticalAngle);
 
-    private void Update()
-    {
-        if (currentState != null)
-        {
-            // CheckInput(); 
-            currentState.Tick();
-        }
-    }
 
-    private void OnGUI()
-    {
-        if (currentState != null)
-        {
-            currentState.InternalOnGUI();
-        }
-    }
+		SetState(new LoadState(this));
+	}
 
-    [ContextMenu("DAN")]
-    public void SetDanish()
-    {
-        localization.SetDanish();
-        AkSoundEngine.SetState("LANGUAGE", "DANISH");
-    }
+	private void Update()
+	{
+		if (currentState != null)
+		{
+			// CheckInput(); 
+			currentState.Tick();
+		}
+	}
 
-    [ContextMenu("ENG")]
-    public void SetEnglish()
-    {
-        localization.SetEnglish();
-        AkSoundEngine.SetState("LANGUAGE", "ENGLISH");
-    }
+	private void OnGUI()
+	{
+		if (currentState != null)
+		{
+			currentState.InternalOnGUI();
+		}
+	}
 
-    public void SetState(GameState state)
-    {
-        if (currentState != null)
-        {
-            currentState.OnStateExit();
-        }
-        currentState = state;
-        currentStateLiteral = state.ToString();
+	[ContextMenu("DAN")]
+	public void SetDanish()
+	{
+		localization.SetDanish();
+		AkSoundEngine.SetState("LANGUAGE", "DANISH");
+	}
 
-        if (currentState != null)
-        {
-            currentState.OnStateEnter();
-        }
-    }
+	[ContextMenu("ENG")]
+	public void SetEnglish()
+	{
+		localization.SetEnglish();
+		AkSoundEngine.SetState("LANGUAGE", "ENGLISH");
+	}
 
+	public void SetState(GameState state)
+	{
+		if (currentState != null)
+		{
+			currentState.OnStateExit();
+		}
+		currentState = state;
+		currentStateLiteral = state.ToString();
+
+		if (currentState != null)
+		{
+			currentState.OnStateEnter();
+		}
+	}
     [Button]
     public void SaveGame()
     {
