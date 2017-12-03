@@ -99,6 +99,10 @@ public class GameController : Singleton<GameController>
     public GameObject LoadingPanel { get { return loadingPanel; } }
 
     private GameState currentState;
+    public GameState GetGameState()
+    {
+        return currentState;
+    }
 
     // Use this for initialization
     void Start()
