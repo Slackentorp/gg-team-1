@@ -160,14 +160,4 @@ public class Puzzle : Interactable
         OnSolved(gameObject);
         return true;
     }
-
-    public void TurnOffCollider()
-    {
-        GetComponent<BoxCollider>().enabled = false;
-    }
-
-    public override void Play(Interactable.EasyWwiseCallback Callback)
-    {
-        base.Play(Callback);
-    }
 }
