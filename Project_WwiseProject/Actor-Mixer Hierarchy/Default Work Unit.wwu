@@ -10254,6 +10254,9 @@
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>580</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{E335E813-81DB-4D63-83B0-0D54B3B327AB}">
@@ -10270,8 +10273,41 @@
 								<Property Name="PriorityDistanceFactor" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-25</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{7D7A7147-3CC5-4FAA-A8C9-98A5A29CF0DF}" ShortID="666779863">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<Custom>
+														<ModulatorEnvelope Name="Modulator Envelope (Custom)" ID="{7A312A45-F2A8-4FDC-8CCF-39393B7DA156}" ShortID="286356571">
+															<PropertyList>
+																<Property Name="EnvelopeDecayTime" Type="Real64" Value="0.726"/>
+																<Property Name="EnvelopeSustainLevel" Type="Real64" Value="63.2"/>
+															</PropertyList>
+														</ModulatorEnvelope>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{A7CDF705-EF10-444D-A9F0-1455D1ADE694}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -10300,8 +10336,13 @@
 																	<Flags>0</Flags>
 																</Point>
 																<Point>
-																	<XPos>1.05329</XPos>
-																	<YPos>-13.09065</YPos>
+																	<XPos>0.6395</XPos>
+																	<YPos>0</YPos>
+																	<Flags>0</Flags>
+																</Point>
+																<Point>
+																	<XPos>1.66928</XPos>
+																	<YPos>-13.7622</YPos>
 																	<Flags>0</Flags>
 																</Point>
 																<Point>
@@ -10459,9 +10500,27 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="MUSIC_STATE" ID="{114B4A0E-2938-4B04-97C8-10B1F1AAA73A}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
+										<State Name="Custom State" ID="{BEF6B3DC-27A9-465D-B115-3BFE3921D382}" ShortID="1035026725">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Discover" ID="{FE44850A-9AC3-41B4-8272-9734623A7CB0}" ShortID="666371939">
 							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -10475,6 +10534,7 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-7</Value>
@@ -10482,6 +10542,56 @@
 								</Property>
 							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{EE56AFED-0063-40AF-B8BD-E762AA70592E}" ShortID="729572476">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="5"/>
+											</PropertyList>
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{ED59BA04-A045-4289-971E-BE755B05B1D7}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>5</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 								</Reference>
