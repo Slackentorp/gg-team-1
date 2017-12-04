@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: FRIDGE
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &19801233
 Transform:
   m_ObjectHideFlags: 0
@@ -183,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: CARS
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &152144153
 Transform:
   m_ObjectHideFlags: 0
@@ -202,6 +204,62 @@ Transform:
   m_Father: {fileID: 571748590}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &338462146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 338462149}
+  - component: {fileID: 338462148}
+  - component: {fileID: 338462147}
+  m_Layer: 0
+  m_Name: Trigger_Phone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &338462147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338462146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef8b6f873ac64c40a0b96cfb76bf401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChosenType: 6
+  WwiseEventID: ANSWERING_TRIGGER
+  PostOnlyAfterPointOfNoReturn: 1
+--- !u!65 &338462148
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338462146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &338462149
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338462146}
+  m_LocalRotation: {x: -0, y: 0.4006679, z: -0, w: 0.9162234}
+  m_LocalPosition: {x: -5.6, y: 1.01, z: -1.94}
+  m_LocalScale: {x: 2.6392095, y: 2.6499994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 47.24, z: 0}
 --- !u!1 &429209113
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +292,7 @@ MonoBehaviour:
   ChosenType: 6
   WwiseStateGroupID: ROOM
   WwiseStateID: HALLWAY
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &429209115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -272,6 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 6
   WwiseEventID: WALKMAN
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!1 &571132594
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: WALKMAN
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &571132596
 Transform:
   m_ObjectHideFlags: 0
@@ -356,6 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: STREET
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &571748590
 Transform:
   m_ObjectHideFlags: 0
@@ -399,6 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: NEIGHBOUR
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &789972825
 Transform:
   m_ObjectHideFlags: 0
@@ -443,6 +506,7 @@ MonoBehaviour:
   ChosenType: 6
   WwiseStateGroupID: ROOM
   WwiseStateID: STUDY
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &809321656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -497,6 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: CARS
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &885735970
 Transform:
   m_ObjectHideFlags: 0
@@ -541,6 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 6
   WwiseEventID: FRIDGE_INVISIBLE
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!114 &889221243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,6 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: FRIDGE_INVISIBLE
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &889221244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -611,6 +678,7 @@ MonoBehaviour:
   ChosenType: 6
   WwiseStateGroupID: ROOM
   WwiseStateID: HALLWAY
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &1057821782
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -649,6 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 6
   WwiseEventID: WALKMAN
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!1 &1095531079
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: CARS
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &1095531081
 Transform:
   m_ObjectHideFlags: 0
@@ -720,6 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: NEIGHBOUR
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &1101171417
 Transform:
   m_ObjectHideFlags: 0
@@ -762,6 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: CARS
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &1284824622
 Transform:
   m_ObjectHideFlags: 0
@@ -806,6 +878,7 @@ MonoBehaviour:
   ChosenType: 6
   WwiseStateGroupID: ROOM
   WwiseStateID: STUDY
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &1426283653
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -862,6 +935,7 @@ MonoBehaviour:
   ChosenType: 6
   WwiseStateGroupID: ROOM
   WwiseStateID: LIVINGROOM
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &1431972027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -917,6 +991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: SINK
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &1504275824
 Transform:
   m_ObjectHideFlags: 0
@@ -978,6 +1053,7 @@ MonoBehaviour:
   ChosenType: 6
   WwiseStateGroupID: ROOM
   WwiseStateID: BEDROOM
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &1505103339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1033,6 +1109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 6
   WwiseEventID: FRIDGE_VISIBLE
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &1551835731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1087,6 +1164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: NEIGHBOUR
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!4 &1662930664
 Transform:
   m_ObjectHideFlags: 0
@@ -1132,6 +1210,7 @@ MonoBehaviour:
   ChosenType: 6
   WwiseStateGroupID: ROOM
   WwiseStateID: HALLWAY
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &1699741689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1170,6 +1249,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 6
   WwiseEventID: WALKMAN
+  PostOnlyAfterPointOfNoReturn: 0
+--- !u!1 &1804645160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1804645162}
+  - component: {fileID: 1804645161}
+  m_Layer: 0
+  m_Name: Phone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1804645161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804645160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285605a3c073ccf41b072203c8f1b74f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reference: {fileID: 0}
+  WwiseEventName: TRIGGEREDSOUND_ANSWERING
+--- !u!4 &1804645162
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804645160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.201, y: 0.758, z: -3.298}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1889909127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1323,7 @@ MonoBehaviour:
   ChosenType: 6
   WwiseStateGroupID: ROOM
   WwiseStateID: KITCHEN
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &1889909129
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1260,6 +1383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: STREET
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!65 &1952533622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1298,6 +1422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChosenType: 1
   WwiseEventID: MUSIC_START
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!114 &1952533625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1312,6 +1437,7 @@ MonoBehaviour:
   ChosenType: 1
   WwiseStateGroupID: ROOM
   WwiseStateID: LIVINGROOM
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!114 &1952533626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,6 +1452,7 @@ MonoBehaviour:
   ChosenType: 1
   WwiseStateGroupID: LAMPS_ON
   WwiseStateID: LAMP_0
+  PostOnlyAfterPointOfNoReturn: 0
 --- !u!114 &1952533627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1340,3 +1467,4 @@ MonoBehaviour:
   ChosenType: 1
   WwiseStateGroupID: MUSIC_STATE
   WwiseStateID: EXPLORATION
+  PostOnlyAfterPointOfNoReturn: 0
