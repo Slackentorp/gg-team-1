@@ -57,6 +57,12 @@ public class MainMenu : MonoBehaviour
         newGameButton.onClick.AddListener(() => StartGame(0));
         tapToStartButton.onClick.AddListener(() => StartGame(0));
 
+        // Don't show Continue Button if there is nothing to continue
+        if(!SaveLoad.SavegameExists())
+        {
+            continueButton.gameObject.SetActive(false);
+        }
+
         puzzleSprites = puzzleContainer.GetComponentsInChildren<SpriteRenderer>();
         ShowMenu();
     }
@@ -162,9 +168,10 @@ public class MainMenu : MonoBehaviour
     IEnumerator LoadScenes()
     {
         SceneManager.sceneLoaded += ApartmentLoaded;
+
+        apartmentLoad.allowSceneActivation = true;
         bootstrapLoad.allowSceneActivation = true;
         soundScapeLoad.allowSceneActivation = true;
-        apartmentLoad.allowSceneActivation = true;
         print("Triggered load scenes");
         yield return null;
     }

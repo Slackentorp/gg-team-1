@@ -60,7 +60,7 @@ public class Puzzle : Interactable
                 Vector3 newRandomPos = new Vector3(
                     Random.Range(transform.localPosition.x - (boundingBoxSize.x + boundingBoxOffset.x) / 2f,
                         transform.position.x + (boundingBoxSize.x + boundingBoxOffset.x) / 2f),
-                    transform.localPosition.y,
+                    puzzlePieces[i].transform.position.y,
                     Random.Range(transform.localPosition.z - (boundingBoxSize.z + boundingBoxOffset.z) / 2f,
                         transform.localPosition.z + (boundingBoxSize.z + boundingBoxOffset.z) / 2f)
                 );
