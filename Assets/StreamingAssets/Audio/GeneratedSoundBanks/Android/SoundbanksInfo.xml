@@ -21,7 +21,7 @@
 			<ShortName>MAIN_BANK</ShortName>
 			<Path>MAIN_BANK.bnk</Path>
 			<IncludedEvents>
-				<Event Id="944261500" Name="ANSWERING_TRIGGER" ObjectPath="\Events\Default Work Unit\ANSWERING_TRIGGER"/>
+				<Event Id="944261500" Name="ANSWERING_TRIGGER" ObjectPath="\Events\Default Work Unit\ANSWERING_TRIGGER" MaxAttenuation="10.000000"/>
 				<Event Id="746056516" Name="CAMERA_MOVE" ObjectPath="\Events\Default Work Unit\CAMERA_MOVE"/>
 				<Event Id="4189504244" Name="CARS" ObjectPath="\Events\Default Work Unit\Ambience\Cars\CARS" MaxAttenuation="6.000000"/>
 				<Event Id="3059416910" Name="FOGWALL_DISABLE" ObjectPath="\Events\Default Work Unit\Fog wall\FOGWALL_DISABLE" MaxAttenuation="0.000000"/>
@@ -54,6 +54,7 @@
 				<Event Id="2337612214" Name="FRIDGE" ObjectPath="\Events\Default Work Unit\FRIDGE" MaxAttenuation="5.000000"/>
 				<Event Id="2128490106" Name="FRIDGE_INVISIBLE" ObjectPath="\Events\Default Work Unit\Ambience\FRIDGE_INVISIBLE" MaxAttenuation="0.000000"/>
 				<Event Id="2092442601" Name="FRIDGE_VISIBLE" ObjectPath="\Events\Default Work Unit\Ambience\FRIDGE_VISIBLE" MaxAttenuation="0.000000"/>
+				<Event Id="733168346" Name="GAME_START" ObjectPath="\Events\Default Work Unit\Menu\GAME_START" MaxAttenuation="0.000000"/>
 				<Event Id="1571339874" Name="INGAMEMENU_CLOSE" ObjectPath="\Events\Default Work Unit\Menu\INGAMEMENU_CLOSE" MaxAttenuation="0.000000"/>
 				<Event Id="4165127606" Name="INGAMEMENU_OPEN" ObjectPath="\Events\Default Work Unit\Menu\INGAMEMENU_OPEN" MaxAttenuation="0.000000"/>
 				<Event Id="3202129528" Name="LAMP_FLICKER_OFF" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_FLICKER_OFF" MaxAttenuation="0.000000"/>
@@ -63,12 +64,11 @@
 				<Event Id="4005406552" Name="LAMP_PARTICLE" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_PARTICLE"/>
 				<Event Id="1275729080" Name="LIVINGROOM_ENTER" ObjectPath="\Events\Default Work Unit\Ambience\LIVINGROOM_ENTER" MaxAttenuation="0.000000"/>
 				<Event Id="3307976374" Name="MAINMENU_OPEN" ObjectPath="\Events\Default Work Unit\Menu\MAINMENU_OPEN" MaxAttenuation="0.000000"/>
-				<Event Id="1931074718" Name="MENU_START_GAME" ObjectPath="\Events\Default Work Unit\Menu\MENU_START_GAME" MaxAttenuation="0.000000"/>
+				<Event Id="1784160095" Name="MAINMENU_START_GAME" ObjectPath="\Events\Default Work Unit\Menu\MAINMENU_START_GAME" MaxAttenuation="0.000000"/>
 				<Event Id="1512987680" Name="MENUBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Menu\MENUBUTTON_PRESS"/>
 				<Event Id="2268000284" Name="MENUTOGGLEBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Menu\MENUTOGGLEBUTTON_PRESS"/>
 				<Event Id="2904931443" Name="MOTH_APPEAR" ObjectPath="\Events\Default Work Unit\Moth\MOTH_APPEAR"/>
 				<Event Id="410314580" Name="MOTH_END_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_END_FLIGHT" MaxAttenuation="0.000000"/>
-				<Event Id="1669806022" Name="MOTH_HIT_WINDOW" ObjectPath="\Events\Default Work Unit\Moth\MOTH_HIT_WINDOW" MaxAttenuation="6.000000"/>
 				<Event Id="541555517" Name="MOTH_START_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_START_FLIGHT" MaxAttenuation="6.000000"/>
 				<Event Id="1696404602" Name="MUSIC_MUTE" ObjectPath="\Events\Default Work Unit\Menu\MUSIC_MUTE" MaxAttenuation="0.000000"/>
 				<Event Id="3725903807" Name="MUSIC_START" ObjectPath="\Events\Default Work Unit\MUSIC_START"/>
@@ -81,7 +81,9 @@
 				<Event Id="2458842678" Name="PARTICLE_MERGE" ObjectPath="\Events\Default Work Unit\Particle\PARTICLE_MERGE"/>
 				<Event Id="394109931" Name="PIECE_PICK" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PICK"/>
 				<Event Id="778173897" Name="PIECE_PLACE" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACE"/>
+				<Event Id="2720771844" Name="PIECE_PLACED_RIGHT" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_RIGHT"/>
 				<Event Id="2177473561" Name="PIECE_PLACED_WRONG" ObjectPath="\Events\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_WRONG"/>
+				<Event Id="2274196952" Name="PUZZLE_OPENING" ObjectPath="\Events\Default Work Unit\Menu\PUZZLE_OPENING"/>
 				<Event Id="1107599359" Name="PUZZLE_SOLVED" ObjectPath="\Events\Default Work Unit\Puzzles\PUZZLE_SOLVED"/>
 				<Event Id="3258781332" Name="PUZZLE_SOLVING" ObjectPath="\Events\Default Work Unit\Puzzles\PUZZLE_SOLVING" MaxAttenuation="0.000000"/>
 				<Event Id="2835551186" Name="SFX_MUTE" ObjectPath="\Events\Default Work Unit\Menu\SFX_MUTE" MaxAttenuation="0.000000"/>
@@ -93,10 +95,11 @@
 				<Event Id="1922983909" Name="STORYEVENT_4" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_4"/>
 				<Event Id="1922983908" Name="STORYEVENT_5" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_5"/>
 				<Event Id="3721137874" Name="STORYEVENT_END" ObjectPath="\Events\Default Work Unit\Fragments\Common\STORYEVENT_END" MaxAttenuation="0.000000"/>
+				<Event Id="1357239343" Name="STORYEVENT_INTRO" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_INTRO" MaxAttenuation="0.000000"/>
 				<Event Id="4142189312" Name="STREET" ObjectPath="\Events\Default Work Unit\Ambience\City\STREET" MaxAttenuation="50.000000"/>
 				<Event Id="3809097629" Name="TAP_PARTICLE" ObjectPath="\Events\Default Work Unit\Particle\TAP_PARTICLE"/>
 				<Event Id="3443637649" Name="TESTMAPBUTTON" ObjectPath="\Events\Default Work Unit\TESTMAPBUTTON"/>
-				<Event Id="3021174106" Name="TRIGGEREDSOUND_ANSWERING" ObjectPath="\Events\Default Work Unit\TRIGGEREDSOUND_ANSWERING"/>
+				<Event Id="3021174106" Name="TRIGGEREDSOUND_ANSWERING" ObjectPath="\Events\Default Work Unit\TRIGGEREDSOUND_ANSWERING" MaxAttenuation="10.000000"/>
 				<Event Id="760300722" Name="WALKMAN" ObjectPath="\Events\Default Work Unit\Ambience\WALKMAN" MaxAttenuation="5.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -134,7 +137,7 @@
 				</File>
 				<File Id="67108989" Language="SFX">
 					<ShortName>Phone Ringing.wav</ShortName>
-					<Path>SFX/Phone Ringing_722ECDC8.wem</Path>
+					<Path>SFX/Phone Ringing_7DDF4AFD.wem</Path>
 				</File>
 				<File Id="70723791" Language="SFX">
 					<ShortName>MUSIC_SUSIES_TATTOO_da.wav</ShortName>
@@ -142,7 +145,7 @@
 				</File>
 				<File Id="75012734" Language="SFX">
 					<ShortName>FRAGMENT_DISCOVER_2.wav</ShortName>
-					<Path>SFX/FRAGMENT_DISCOVER_2_FF424C0E.wem</Path>
+					<Path>SFX/FRAGMENT_DISCOVER_2_76781F36.wem</Path>
 				</File>
 				<File Id="82701772" Language="SFX">
 					<ShortName>MEET_THE_PARENTS_1_da.wav</ShortName>
@@ -154,7 +157,7 @@
 				</File>
 				<File Id="97043590" Language="SFX">
 					<ShortName>BULB_AC_NOISE.wav</ShortName>
-					<Path>SFX/BULB_AC_NOISE_7BA06DA1.wem</Path>
+					<Path>SFX/BULB_AC_NOISE_41BB3C7C.wem</Path>
 				</File>
 				<File Id="101372784" Language="SFX">
 					<ShortName>SMOKING_2_da.wav</ShortName>
@@ -166,7 +169,7 @@
 				</File>
 				<File Id="105251111" Language="SFX">
 					<ShortName>DROP_02.wav</ShortName>
-					<Path>SFX/DROP_02_FF424C0E.wem</Path>
+					<Path>SFX/DROP_02_6DB458CF.wem</Path>
 				</File>
 				<File Id="106102015" Language="SFX">
 					<ShortName>Police_Siren_PSEM.198.wav</ShortName>
@@ -190,7 +193,7 @@
 				</File>
 				<File Id="122170802" Language="SFX">
 					<ShortName>Laser_Sword_Movements_PSEM.156.wav</ShortName>
-					<Path>SFX/Laser_Sword_Movements_PSEM.156_03AB699E.wem</Path>
+					<Path>SFX/Laser_Sword_Movements_PSEM.156_54AF9D23.wem</Path>
 				</File>
 				<File Id="130421691" Language="SFX">
 					<ShortName>MODELING_1.wav</ShortName>
@@ -204,17 +207,13 @@
 					<ShortName>Crumbling Printer Paper 9.wav</ShortName>
 					<Path>SFX/Crumbling Printer Paper 9_E39F0762.wem</Path>
 				</File>
-				<File Id="141821625" Language="SFX">
-					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
-					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_034506CE.wem</Path>
-				</File>
 				<File Id="145004352" Language="SFX">
 					<ShortName>Rattle_3.wav</ShortName>
 					<Path>SFX/Rattle_3_B52A7F01.wem</Path>
 				</File>
 				<File Id="145032082" Language="SFX">
 					<ShortName>DROP_06.wav</ShortName>
-					<Path>SFX/DROP_06_FF424C0E.wem</Path>
+					<Path>SFX/DROP_06_6DB458CF.wem</Path>
 				</File>
 				<File Id="146808175" Language="SFX">
 					<ShortName>AT_THE_TABLE_da.wav</ShortName>
@@ -224,13 +223,13 @@
 					<ShortName>NEIGHBOUR_NOISE_08.wav</ShortName>
 					<Path>SFX/NEIGHBOUR_NOISE_08_6DB458CF.wem</Path>
 				</File>
+				<File Id="162149590" Language="SFX">
+					<ShortName>PIECE_PAD_2.wav</ShortName>
+					<Path>SFX/PIECE_PAD_2_722ECDC8.wem</Path>
+				</File>
 				<File Id="172808139" Language="SFX">
 					<ShortName>Reward_04.wav</ShortName>
 					<Path>SFX/Reward_04_FF424C0E.wem</Path>
-				</File>
-				<File Id="174683352" Language="SFX">
-					<ShortName>RATH - Rain Hard Loop 08.wav</ShortName>
-					<Path>SFX/RATH - Rain Hard Loop 08_7DDF4AFD.wem</Path>
 				</File>
 				<File Id="177010536" Language="SFX">
 					<ShortName>CAMERA_MOVE_05.wav</ShortName>
@@ -238,7 +237,7 @@
 				</File>
 				<File Id="191639381" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_1.wav</ShortName>
-					<Path>SFX/HIT_WINDOW_SOFT_1_FF424C0E.wem</Path>
+					<Path>SFX/HIT_WINDOW_SOFT_1_6DB458CF.wem</Path>
 				</File>
 				<File Id="202166482" Language="SFX">
 					<ShortName>Living_Pad_80bpm.wav</ShortName>
@@ -262,7 +261,7 @@
 				</File>
 				<File Id="229842446" Language="SFX">
 					<ShortName>201788__st303__room-with-buzz-incandescent-light-bulb.wav</ShortName>
-					<Path>SFX/201788__st303__room-with-buzz-incandescent-light-bulb_DA835CB6.wem</Path>
+					<Path>SFX/201788__st303__room-with-buzz-incandescent-light-bulb_73782D8B.wem</Path>
 				</File>
 				<File Id="239241968" Language="SFX">
 					<ShortName>WORLD_MAP_2_da.wav</ShortName>
@@ -274,11 +273,11 @@
 				</File>
 				<File Id="251152880" Language="SFX">
 					<ShortName>Shot_Laser_Very Light_PSEM.227.wav</ShortName>
-					<Path>SFX/Shot_Laser_Very Light_PSEM.227_FF424C0E.wem</Path>
+					<Path>SFX/Shot_Laser_Very Light_PSEM.227_6DB458CF.wem</Path>
 				</File>
 				<File Id="251313862" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_2.wav</ShortName>
-					<Path>SFX/HIT_WINDOW_SOFT_2_FF424C0E.wem</Path>
+					<Path>SFX/HIT_WINDOW_SOFT_2_6DB458CF.wem</Path>
 				</File>
 				<File Id="252175184" Language="SFX">
 					<ShortName>NEIGHBOUR_NOISE_13.wav</ShortName>
@@ -286,7 +285,7 @@
 				</File>
 				<File Id="269082610" Language="SFX">
 					<ShortName>TRIGGEREDSOUND_ANSWERING_da.wav</ShortName>
-					<Path>SFX/TRIGGEREDSOUND_ANSWERING_da_FF424C0E.wem</Path>
+					<Path>SFX/TRIGGEREDSOUND_ANSWERING_da_6DB458CF.wem</Path>
 				</File>
 				<File Id="276167098" Language="SFX">
 					<ShortName>Rattle_6.wav</ShortName>
@@ -298,11 +297,11 @@
 				</File>
 				<File Id="316385003" Language="SFX">
 					<ShortName>DROP_07.wav</ShortName>
-					<Path>SFX/DROP_07_FF424C0E.wem</Path>
+					<Path>SFX/DROP_07_6DB458CF.wem</Path>
 				</File>
 				<File Id="321766520" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_6.wav</ShortName>
-					<Path>SFX/HIT_WINDOW_SOFT_6_FF424C0E.wem</Path>
+					<Path>SFX/HIT_WINDOW_SOFT_6_6DB458CF.wem</Path>
 				</File>
 				<File Id="322530949" Language="SFX">
 					<ShortName>WE_NEED_A_TV_2.wav</ShortName>
@@ -332,10 +331,6 @@
 					<ShortName>THE_TV_IS_GONE.2_da.wav</ShortName>
 					<Path>SFX/THE_TV_IS_GONE.2_da_FF424C0E.wem</Path>
 				</File>
-				<File Id="352703553" Language="SFX">
-					<ShortName>FRAGMENT_DISCOVER_6.wav</ShortName>
-					<Path>SFX/FRAGMENT_DISCOVER_6_EB8D0F34.wem</Path>
-				</File>
 				<File Id="353157923" Language="SFX">
 					<ShortName>MEET_THE_PARENTS_2.wav</ShortName>
 					<Path>SFX/MEET_THE_PARENTS_2_3B729522.wem</Path>
@@ -358,7 +353,7 @@
 				</File>
 				<File Id="380682911" Language="SFX">
 					<ShortName>Living_Cello_80bpm.wav</ShortName>
-					<Path>SFX/Living_Cello_80bpm_722ECDC8.wem</Path>
+					<Path>SFX/Living_Cello_80bpm_7DDF4AFD.wem</Path>
 				</File>
 				<File Id="382868015" Language="SFX">
 					<ShortName>STORYEVENT_2.wav</ShortName>
@@ -378,15 +373,11 @@
 				</File>
 				<File Id="412104274" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_3.wav</ShortName>
-					<Path>SFX/HIT_WINDOW_SOFT_3_FF424C0E.wem</Path>
+					<Path>SFX/HIT_WINDOW_SOFT_3_6DB458CF.wem</Path>
 				</File>
 				<File Id="412123357" Language="SFX">
 					<ShortName>NEIGHBOUR_NOISE_11.wav</ShortName>
 					<Path>SFX/NEIGHBOUR_NOISE_11_6DB458CF.wem</Path>
-				</File>
-				<File Id="447411529" Language="SFX">
-					<ShortName>FRAGMENT_DISCOVER_5.wav</ShortName>
-					<Path>SFX/FRAGMENT_DISCOVER_5_D2F74839.wem</Path>
 				</File>
 				<File Id="447932395" Language="SFX">
 					<ShortName>MEET_THE_PARENTS_2_da.wav</ShortName>
@@ -394,7 +385,7 @@
 				</File>
 				<File Id="454696326" Language="SFX">
 					<ShortName>FRAGMENT_DISCOVER_3.wav</ShortName>
-					<Path>SFX/FRAGMENT_DISCOVER_3_3B820CE3.wem</Path>
+					<Path>SFX/FRAGMENT_DISCOVER_3_64AFA09C.wem</Path>
 				</File>
 				<File Id="458506893" Language="SFX">
 					<ShortName>NEIGHBOUR_NOISE__2.wav</ShortName>
@@ -416,9 +407,13 @@
 					<ShortName>TIRED.wav</ShortName>
 					<Path>SFX/TIRED_DB5FF8B5.wem</Path>
 				</File>
+				<File Id="489155974" Language="SFX">
+					<ShortName>PIECE_PAD_1.wav</ShortName>
+					<Path>SFX/PIECE_PAD_1_722ECDC8.wem</Path>
+				</File>
 				<File Id="494118861" Language="SFX">
 					<ShortName>235540__simosco__lamp-click-on-off.wav</ShortName>
-					<Path>SFX/235540__simosco__lamp-click-on-off_CEF3540F.wem</Path>
+					<Path>SFX/235540__simosco__lamp-click-on-off_09842106.wem</Path>
 				</File>
 				<File Id="495826903" Language="SFX">
 					<ShortName>CLOCK.wav</ShortName>
@@ -450,7 +445,7 @@
 				</File>
 				<File Id="520907211" Language="SFX">
 					<ShortName>DROP_08.wav</ShortName>
-					<Path>SFX/DROP_08_FF424C0E.wem</Path>
+					<Path>SFX/DROP_08_6DB458CF.wem</Path>
 				</File>
 				<File Id="541851934" Language="SFX">
 					<ShortName>Flying.wav</ShortName>
@@ -458,7 +453,7 @@
 				</File>
 				<File Id="542862603" Language="SFX">
 					<ShortName>DROP_05.wav</ShortName>
-					<Path>SFX/DROP_05_FF424C0E.wem</Path>
+					<Path>SFX/DROP_05_6DB458CF.wem</Path>
 				</File>
 				<File Id="550718053" Language="SFX">
 					<ShortName>NEIGHBOUR_NOISE_03.wav</ShortName>
@@ -466,7 +461,7 @@
 				</File>
 				<File Id="557904992" Language="SFX">
 					<ShortName>DROP_03.wav</ShortName>
-					<Path>SFX/DROP_03_FF424C0E.wem</Path>
+					<Path>SFX/DROP_03_6DB458CF.wem</Path>
 				</File>
 				<File Id="557998825" Language="SFX">
 					<ShortName>Reward_02.wav</ShortName>
@@ -482,7 +477,7 @@
 				</File>
 				<File Id="580998060" Language="SFX">
 					<ShortName>Hallways_STRINGS_91bpm.wav</ShortName>
-					<Path>SFX/Hallways_STRINGS_91bpm_722ECDC8.wem</Path>
+					<Path>SFX/Hallways_STRINGS_91bpm_7DDF4AFD.wem</Path>
 				</File>
 				<File Id="588071616" Language="SFX">
 					<ShortName>ZODIAC_da.wav</ShortName>
@@ -512,13 +507,17 @@
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE.wav</ShortName>
 					<Path>SFX/BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_CLOSE_B52A7F01.wem</Path>
 				</File>
+				<File Id="634299973" Language="SFX">
+					<ShortName>PIECE_PAD_4.wav</ShortName>
+					<Path>SFX/PIECE_PAD_4_722ECDC8.wem</Path>
+				</File>
 				<File Id="636909708" Language="SFX">
 					<ShortName>CAMERA_MOVE_06.wav</ShortName>
 					<Path>SFX/CAMERA_MOVE_06_3588E66F.wem</Path>
 				</File>
 				<File Id="646051879" Language="SFX">
 					<ShortName>TRIGGEREDSOUND_ANSWERING.wav</ShortName>
-					<Path>SFX/TRIGGEREDSOUND_ANSWERING_FF424C0E.wem</Path>
+					<Path>SFX/TRIGGEREDSOUND_ANSWERING_6DB458CF.wem</Path>
 				</File>
 				<File Id="649696666" Language="SFX">
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_2_CLOSE.wav</ShortName>
@@ -538,7 +537,7 @@
 				</File>
 				<File Id="675704401" Language="SFX">
 					<ShortName>FRAGMENT_DISCOVER_1.wav</ShortName>
-					<Path>SFX/FRAGMENT_DISCOVER_1_FF424C0E.wem</Path>
+					<Path>SFX/FRAGMENT_DISCOVER_1_A4F82399.wem</Path>
 				</File>
 				<File Id="680229721" Language="SFX">
 					<ShortName>PARTICLE_TAP_2.wav</ShortName>
@@ -550,11 +549,11 @@
 				</File>
 				<File Id="687402096" Language="SFX">
 					<ShortName>Light_Hum_Street_Lamp_Lonely_PSEM.160.wav</ShortName>
-					<Path>SFX/Light_Hum_Street_Lamp_Lonely_PSEM.160_14445690.wem</Path>
+					<Path>SFX/Light_Hum_Street_Lamp_Lonely_PSEM.160_1A345449.wem</Path>
 				</File>
 				<File Id="687684511" Language="SFX">
 					<ShortName>Beep.wav</ShortName>
-					<Path>SFX/Beep_DB62F75C.wem</Path>
+					<Path>SFX/Beep_F5424831.wem</Path>
 				</File>
 				<File Id="690350930" Language="SFX">
 					<ShortName>PARTICLE_ENTER_LAMP.wav</ShortName>
@@ -580,6 +579,10 @@
 					<ShortName>STORYEVENT_3.wav</ShortName>
 					<Path>SFX/STORYEVENT_3_FF424C0E.wem</Path>
 				</File>
+				<File Id="734944896" Language="SFX">
+					<ShortName>PIECE_PAD_3.wav</ShortName>
+					<Path>SFX/PIECE_PAD_3_722ECDC8.wem</Path>
+				</File>
 				<File Id="736791367" Language="SFX">
 					<ShortName>STORYEVENT_1_da.wav</ShortName>
 					<Path>SFX/STORYEVENT_1_da_FF424C0E.wem</Path>
@@ -590,11 +593,7 @@
 				</File>
 				<File Id="743699595" Language="SFX">
 					<ShortName>FRAGMENT_DISCOVER_4.wav</ShortName>
-					<Path>SFX/FRAGMENT_DISCOVER_4_FF424C0E.wem</Path>
-				</File>
-				<File Id="746538295" Language="SFX">
-					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
-					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_2D73DC1B.wem</Path>
+					<Path>SFX/FRAGMENT_DISCOVER_4_B59D2D36.wem</Path>
 				</File>
 				<File Id="752911955" Language="SFX">
 					<ShortName>PARTICLE_APPEAR_2.wav</ShortName>
@@ -606,15 +605,11 @@
 				</File>
 				<File Id="759583116" Language="SFX">
 					<ShortName>FRAGMENT_WHISPER.wav</ShortName>
-					<Path>SFX/FRAGMENT_WHISPER_15CB3B41.wem</Path>
+					<Path>SFX/FRAGMENT_WHISPER_EAC504D4.wem</Path>
 				</File>
 				<File Id="776353407" Language="SFX">
 					<ShortName>NEIGHBOUR_NOISE_05.wav</ShortName>
 					<Path>SFX/NEIGHBOUR_NOISE_05_6DB458CF.wem</Path>
-				</File>
-				<File Id="777357154" Language="SFX">
-					<ShortName>179354__lolamadeus__pint-glass-hits-2.wav</ShortName>
-					<Path>SFX/179354__lolamadeus__pint-glass-hits-2_1EFC7B47.wem</Path>
 				</File>
 				<File Id="778584774" Language="SFX">
 					<ShortName>MODELING_1_da.wav</ShortName>
@@ -622,7 +617,7 @@
 				</File>
 				<File Id="783772933" Language="SFX">
 					<ShortName>MOTH_APPEAR.wav</ShortName>
-					<Path>SFX/MOTH_APPEAR_B99E3F30.wem</Path>
+					<Path>SFX/MOTH_APPEAR_10B7980B.wem</Path>
 				</File>
 				<File Id="791677628" Language="SFX">
 					<ShortName>Rattle_2.wav</ShortName>
@@ -630,7 +625,11 @@
 				</File>
 				<File Id="797310725" Language="SFX">
 					<ShortName>My Loss, My Moth_v1_clean.wav</ShortName>
-					<Path>SFX/My Loss, My Moth_v1_clean_722ECDC8.wem</Path>
+					<Path>SFX/My Loss, My Moth_v1_clean_7DDF4AFD.wem</Path>
+				</File>
+				<File Id="798566715" Language="SFX">
+					<ShortName>No light.wav</ShortName>
+					<Path>SFX/No light_7DDF4AFD.wem</Path>
 				</File>
 				<File Id="808012157" Language="SFX">
 					<ShortName>Reward_05.wav</ShortName>
@@ -642,7 +641,7 @@
 				</File>
 				<File Id="815467655" Language="SFX">
 					<ShortName>235540__simosco__lamp-click-on-off.wav</ShortName>
-					<Path>SFX/235540__simosco__lamp-click-on-off_8AC02CFF.wem</Path>
+					<Path>SFX/235540__simosco__lamp-click-on-off_36A6615E.wem</Path>
 				</File>
 				<File Id="829610781" Language="SFX">
 					<ShortName>PARTICLE_TAP_3.wav</ShortName>
@@ -660,10 +659,6 @@
 					<ShortName>PARTICLE_FLY_LOOP.wav</ShortName>
 					<Path>SFX/PARTICLE_FLY_LOOP_FF424C0E.wem</Path>
 				</File>
-				<File Id="863795838" Language="SFX">
-					<ShortName>Protests_Our_Streets_01_Downtown.wav</ShortName>
-					<Path>SFX/Protests_Our_Streets_01_Downtown_92F48299.wem</Path>
-				</File>
 				<File Id="864872431" Language="SFX">
 					<ShortName>CNT01_EXTRA_TRAIN PASS BY_Arrival and departure_L train.wav</ShortName>
 					<Path>SFX/CNT01_EXTRA_TRAIN PASS BY_Arrival and departure_L train_50B09E4B.wem</Path>
@@ -678,11 +673,15 @@
 				</File>
 				<File Id="881650606" Language="SFX">
 					<ShortName>DROP_04.wav</ShortName>
-					<Path>SFX/DROP_04_FF424C0E.wem</Path>
+					<Path>SFX/DROP_04_6DB458CF.wem</Path>
 				</File>
 				<File Id="883646110" Language="SFX">
 					<ShortName>Happy perhaps.wav</ShortName>
 					<Path>SFX/Happy perhaps_722ECDC8.wem</Path>
+				</File>
+				<File Id="898545005" Language="SFX">
+					<ShortName>STORYEVENT_INTRO.wav</ShortName>
+					<Path>SFX/STORYEVENT_INTRO_722ECDC8.wem</Path>
 				</File>
 				<File Id="914615725" Language="SFX">
 					<ShortName>FRAGMENT_START_1.wav</ShortName>
@@ -734,7 +733,7 @@
 				</File>
 				<File Id="980128403" Language="SFX">
 					<ShortName>235540__simosco__lamp-click-on-off.wav</ShortName>
-					<Path>SFX/235540__simosco__lamp-click-on-off_8FFB5BC5.wem</Path>
+					<Path>SFX/235540__simosco__lamp-click-on-off_F1F8CF54.wem</Path>
 				</File>
 				<File Id="989804104" Language="SFX">
 					<ShortName>Rajdoot,motorcycle,kick,start,rev,away,slow.wav</ShortName>
@@ -746,7 +745,7 @@
 				</File>
 				<File Id="991979302" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_7.wav</ShortName>
-					<Path>SFX/HIT_WINDOW_SOFT_7_FF424C0E.wem</Path>
+					<Path>SFX/HIT_WINDOW_SOFT_7_6DB458CF.wem</Path>
 				</File>
 				<File Id="992088354" Language="SFX">
 					<ShortName>MOTH_FLY_LOUD.wav</ShortName>
@@ -758,7 +757,7 @@
 				</File>
 				<File Id="995427511" Language="SFX">
 					<ShortName>DROP_01.wav</ShortName>
-					<Path>SFX/DROP_01_FF424C0E.wem</Path>
+					<Path>SFX/DROP_01_6DB458CF.wem</Path>
 				</File>
 				<File Id="998771404" Language="SFX">
 					<ShortName>POLAROID_2_da.wav</ShortName>
@@ -767,6 +766,10 @@
 				<File Id="998870621" Language="SFX">
 					<ShortName>NEW_YEARS_da.wav</ShortName>
 					<Path>SFX/NEW_YEARS_da_FF424C0E.wem</Path>
+				</File>
+				<File Id="1001379966" Language="SFX">
+					<ShortName>PIECE_PAD_5.wav</ShortName>
+					<Path>SFX/PIECE_PAD_5_722ECDC8.wem</Path>
 				</File>
 				<File Id="1001796412" Language="SFX">
 					<ShortName>SMOKING_1.wav</ShortName>
@@ -798,15 +801,15 @@
 				</File>
 				<File Id="1055778626" Language="SFX">
 					<ShortName>FOGWALL_IDLE.wav</ShortName>
-					<Path>SFX/FOGWALL_IDLE_722ECDC8.wem</Path>
+					<Path>SFX/FOGWALL_IDLE_7DDF4AFD.wem</Path>
 				</File>
 				<File Id="1062689332" Language="SFX">
 					<ShortName>Bug_Zapper_PSEM.043.wav</ShortName>
-					<Path>SFX/Bug_Zapper_PSEM.043_27342646.wem</Path>
+					<Path>SFX/Bug_Zapper_PSEM.043_7620D4A7.wem</Path>
 				</File>
 				<File Id="1063253616" Language="SFX">
 					<ShortName>HIT_WINDOW_SOFT_4.wav</ShortName>
-					<Path>SFX/HIT_WINDOW_SOFT_4_FF424C0E.wem</Path>
+					<Path>SFX/HIT_WINDOW_SOFT_4_6DB458CF.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
