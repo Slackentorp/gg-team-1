@@ -47,8 +47,13 @@ public class DoorWallController : MonoBehaviour
     {
         if(StoryEventName != null && StoryEventController.Instance != null)
         {
-            StoryEventController.Instance.PostStoryEvent(StoryEventName);
+            StoryEventController.Instance.PostStoryEvent(StoryEventName, EndOfEvent);
         }
     }
+
+    private void EndOfEvent()
+	{
+		gameObject.SetActive(false);
+	}
 }
 

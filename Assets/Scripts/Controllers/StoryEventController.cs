@@ -14,6 +14,7 @@ public class StoryEventController : Singleton<StoryEventController>
 
 	StoryEvent currentStoryEvent;
 	StoryEvent nullStoryEvent;
+	Action currentCallback;
 	PlayableDirector director;
 	bool isPosting;
 
@@ -37,7 +38,7 @@ public class StoryEventController : Singleton<StoryEventController>
 		}
 	}
 
-	public void PostStoryEvent(string StoryEvent)
+	public void PostStoryEvent(string StoryEvent, Action Callback)
 	{
 		if (isPosting)
 		{
@@ -50,6 +51,7 @@ public class StoryEventController : Singleton<StoryEventController>
 			if (se.StoryEventID.Equals(StoryEvent))
 			{
 				currentStoryEvent = se;
+				currentCallback = Callback;
 				director.Stop();
 				director.playableAsset = se.TimelinePlayableAsset;
 				director.time = 0;
@@ -76,8 +78,13 @@ public class StoryEventController : Singleton<StoryEventController>
 			director.playableAsset = null;
 			currentStoryEvent.StoryEventGroup.SetActive(false);
 			AkSoundEngine.StopAll(gameObject);
+			if(currentCallback != null)
+			{
+				currentCallback.Invoke();
+			}
 
 			currentStoryEvent = nullStoryEvent;
+			currentCallback = null;
 		}
 		
 	}
