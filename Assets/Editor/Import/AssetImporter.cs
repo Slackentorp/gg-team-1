@@ -54,26 +54,30 @@ public class CompressTextures
     static void Execute()
     {
         string folderPath = AssetDatabase.GetAssetPath(Selection.activeObject);
-        
-        string[] paths = {folderPath};
+
+        string[] paths = { folderPath };
         var guids = AssetDatabase.FindAssets("t:texture2D", paths);
         int total = guids.Length;
         int progress = 0;
 
-        EditorUtility.DisplayProgressBar("Hold On", "Compressing textures", progress / total);
-
         foreach (var item in guids)
-        { 
+        {
             string path = AssetDatabase.GUIDToAssetPath(item);
-            if(string.IsNullOrEmpty(path)) continue;
+            if (string.IsNullOrEmpty(path)) continue;
 
             TextureImporter importer = (TextureImporter) TextureImporter.GetAtPath(path);
             importer.isReadable = false;
             importer.alphaIsTransparency = true;
             importer.maxTextureSize = 512;
-            importer.compressionQuality = (int) TextureCompressionQuality.Normal;
+            importer.textureCompression = TextureImporterCompression.CompressedHQ;
 
-            EditorUtility.DisplayProgressBar("Hold On", path.Replace(folderPath,""), progress / total);
+            if (EditorUtility.DisplayCancelableProgressBar(
+                    "Compressing Textures",
+                    path.Replace(folderPath, ""),
+                    (float)progress / (float)total))
+            {
+                break;
+            }
             importer.SaveAndReimport();
             progress++;
         }
