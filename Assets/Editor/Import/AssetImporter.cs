@@ -50,17 +50,22 @@ public class AssetImporter : AssetPostprocessor
 
 public class CompressTextures
 {
-    [MenuItem("Tools/Compress Textures")]
+    [MenuItem("Assets/Compress Textures")]
     static void Execute()
     {
-     //   string path = AssetDatabase.GetAssetPath(Selection.activeObject);
+        string folderPath = AssetDatabase.GetAssetPath(Selection.activeObject);
+        
+        string[] paths = {folderPath};
+        var guids = AssetDatabase.FindAssets("t:texture2D", paths);
+        int total = guids.Length;
+        int progress = 0;
 
-        var guids = AssetDatabase.FindAssets("t:texture2D");
+        EditorUtility.DisplayProgressBar("Hold On", "Compressing textures", progress / total);
+
         foreach (var item in guids)
         { 
             string path = AssetDatabase.GUIDToAssetPath(item);
             if(string.IsNullOrEmpty(path)) continue;
-            Debug.Log(path);
 
             TextureImporter importer = (TextureImporter) TextureImporter.GetAtPath(path);
             importer.isReadable = false;
@@ -68,7 +73,11 @@ public class CompressTextures
             importer.maxTextureSize = 512;
             importer.compressionQuality = (int) TextureCompressionQuality.Normal;
 
+            EditorUtility.DisplayProgressBar("Hold On", path.Replace(folderPath,""), progress / total);
             importer.SaveAndReimport();
+            progress++;
         }
+
+        EditorUtility.ClearProgressBar();
     }
 }

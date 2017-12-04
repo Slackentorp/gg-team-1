@@ -78,7 +78,7 @@ public class StoryEventController : Singleton<StoryEventController>
 		}
 	}
 
-	private void ResetStoryEvent()
+	public void ResetStoryEvent()
 	{
 		if(currentStoryEvent.StoryEventGroup != null)
 		{
