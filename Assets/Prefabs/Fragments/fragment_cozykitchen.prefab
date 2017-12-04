@@ -83,26 +83,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721182645946046}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.50000024, y: 0.4999997, z: 0.49999994, w: 0.5000001}
   m_LocalPosition: {x: 0.053, y: 0, z: 0.008}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4527604988214886}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 90.00001}
 --- !u!4 &4967097254186166
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673106527245968}
-  m_LocalRotation: {x: -0.7031302, y: 0.074886635, z: 0.074886635, w: 0.7031302}
+  m_LocalRotation: {x: -0.36862713, y: 0.60341847, z: 0.6034188, w: 0.36862707}
   m_LocalPosition: {x: -0.0379, y: 0.0004, z: 0.0404}
-  m_LocalScale: {x: 0.9136125, y: 0.9075002, z: 1.0000005}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4527604988214886}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 12.159}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 117.159004}
 --- !u!23 &23041999829914098
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -177,14 +177,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721182645946046}
-  m_Mesh: {fileID: 4300000, guid: e40938f1c7da69a4e829c0486399976d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: a2fbf934cff8917449a196204d9fb94e, type: 3}
 --- !u!33 &33646662457747556
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673106527245968}
-  m_Mesh: {fileID: 4300000, guid: e40938f1c7da69a4e829c0486399976d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: a2fbf934cff8917449a196204d9fb94e, type: 3}
 --- !u!65 &65585318641511644
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -208,8 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstPuzzleCheck: 0
   interactionDistance: 2
-  cameraPosition: {x: -0.1, y: 0.22, z: 0.09}
+  cameraPosition: {x: -0.14, y: 0.22, z: -0.1}
   cameraOrientation: {x: 0, y: 0, z: 0}
   landingPosition: {x: 0, y: 0, z: 0}
   landingRotation: 0
