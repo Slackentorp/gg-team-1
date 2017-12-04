@@ -403,7 +403,20 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="MAINMENU_OPEN" ID="{F57412A0-CBED-4E0E-B4C5-358AA27E86A0}"/>
-						<Event Name="MENUBUTTON_PRESS" ID="{E13D8E67-5FB2-4A15-A3C0-5680A7B8EDBA}"/>
+						<Event Name="MENUBUTTON_PRESS" ID="{E13D8E67-5FB2-4A15-A3C0-5680A7B8EDBA}">
+							<ChildrenList>
+								<Action Name="" ID="{D215A2EF-CCAE-4650-AEF9-735A302EAFC8}" ShortID="822153384">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu button press" ID="{0ED17D2F-63B1-4032-BC6E-FB331294F5E8}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="MENU_START_GAME" ID="{13549D70-DC0E-4887-8B18-E9012C0D2CF3}"/>
 						<Event Name="SFX_MUTE" ID="{A7EC4BB8-F6DB-480A-820B-B7917930C421}">
 							<ChildrenList>
