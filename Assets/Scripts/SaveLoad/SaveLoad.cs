@@ -30,7 +30,7 @@ public class SaveLoad
         // Get Moth Position
         data.MothPosition = gm.Moth.transform.position;
         // Get Camera Position
-        data.CameraPosition = gm.GameCamera.transform.position;
+        data.CamereHeading = gm.cameraController.heading;
 
         // Get all interactables
         Interactable[] interactables = GameObject.FindObjectsOfType<Interactable>();
@@ -57,6 +57,10 @@ public class SaveLoad
         }
     }
 
+    public static bool SavegameExists()
+    {
+        return File.Exists(filePath);
+    }
 
     public static bool Load(GameController gm)
     {
@@ -101,8 +105,9 @@ public class SaveLoad
 
             // Set moth position
             gm.Moth.transform.position = data.MothPosition;
+            gm.Moth.GetComponentInChildren<Renderer>().material.SetFloat("_DissolveAmount", 0);
             // Set Camera Position
-            gm.GameCamera.transform.position = data.CameraPosition;
+            gm.cameraController.SetHeading(data.CamereHeading);
 
             // Get all instance ID's of objects with Interactable
             Interactable[] allInteractables = GameObject.FindObjectsOfType<Interactable>();
@@ -150,7 +155,7 @@ public class PlayerData
     [SerializeField]
     public Vector3 MothPosition;
     [SerializeField]
-    public Vector3 CameraPosition;
+    public Vector3 CamereHeading;
 
     public Dictionary<int, bool> InteractableStates;
 }

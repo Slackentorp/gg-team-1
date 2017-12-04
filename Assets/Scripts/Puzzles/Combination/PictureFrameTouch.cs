@@ -81,7 +81,9 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         if(newPosition.x >= boundingCenter.x - boundingSize.x/2 &&
            newPosition.x <= boundingCenter.x + boundingSize.x/2 &&
            newPosition.y >= boundingCenter.y - boundingSize.y/2 &&
-           newPosition.y <= boundingCenter.y + boundingSize.y/2)
+           newPosition.y <= boundingCenter.y + boundingSize.y/2 &&
+           newPosition.z >= boundingCenter.z - boundingSize.z/2 &&
+           newPosition.z <= boundingCenter.z + boundingSize.z/2)
         {
             transform.position = newPosition;
         }
@@ -106,7 +108,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
 
     private void PlayEvent(string wwiseevent)
     {
-        if (string.IsNullOrEmpty(wwiseevent))
+        if (!string.IsNullOrEmpty(wwiseevent))
         {
             AkSoundEngine.PostEvent(wwiseevent, gameObject);
         }

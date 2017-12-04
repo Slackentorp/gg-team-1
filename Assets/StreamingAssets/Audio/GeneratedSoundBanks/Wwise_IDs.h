@@ -72,7 +72,7 @@ namespace AK
         static const AkUniqueID PARTICLE_ENTER_LAMP = 3704242213U;
         static const AkUniqueID PARTICLE_MERGE = 2458842678U;
         static const AkUniqueID PIECE_PICK = 394109931U;
-        static const AkUniqueID PIECE_PLACED_RIGHT = 2720771844U;
+        static const AkUniqueID PIECE_PLACE = 778173897U;
         static const AkUniqueID PIECE_PLACED_WRONG = 2177473561U;
         static const AkUniqueID PUZZLE_SOLVED = 1107599359U;
         static const AkUniqueID PUZZLE_SOLVING = 3258781332U;
