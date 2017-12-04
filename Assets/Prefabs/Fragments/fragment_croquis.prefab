@@ -147,8 +147,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583546585700778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09650041, y: 0.0018000007, z: 0.08999984}
-  m_LocalScale: {x: 0.15595052, y: 0.0009999999, z: 0.25625992}
+  m_LocalPosition: {x: -0.19135, y: -0.0028317, z: 0.21145}
+  m_LocalScale: {x: 0.33212674, y: 0.0021296928, z: 0.54575497}
   m_Children: []
   m_Father: {fileID: 4912516238816000}
   m_RootOrder: 3
@@ -173,8 +173,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1333406564312746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.014999991, y: 0.0063000005, z: 0.17189968}
-  m_LocalScale: {x: 0.21296802, y: 0.0009999999, z: 0.17506461}
+  m_LocalPosition: {x: 0.046113, y: 0.0067519, z: 0.38587}
+  m_LocalScale: {x: 0.4535565, y: 0.0021296928, z: 0.37283388}
   m_Children: []
   m_Father: {fileID: 4912516238816000}
   m_RootOrder: 4
@@ -186,8 +186,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1361419825258214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.079999715, y: 0.01, z: -0.13999988}
-  m_LocalScale: {x: 0.1557192, y: 0.0009999999, z: 0.24459931}
+  m_LocalPosition: {x: 0.18454, y: 0.014632, z: -0.27838}
+  m_LocalScale: {x: 0.3316341, y: 0.0021296928, z: 0.52092147}
   m_Children: []
   m_Father: {fileID: 4912516238816000}
   m_RootOrder: 0
@@ -199,8 +199,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848331502403184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06270009, y: 0.006000001, z: 0.055600077}
-  m_LocalScale: {x: 0.18570232, y: 0.0009999999, z: 0.18415484}
+  m_LocalPosition: {x: 0.1477, y: 0.006113, z: 0.13819}
+  m_LocalScale: {x: 0.39548895, y: 0.0021296928, z: 0.3921933}
   m_Children: []
   m_Father: {fileID: 4912516238816000}
   m_RootOrder: 2
@@ -212,8 +212,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398590140857764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07420038, y: 0.0056000007, z: -0.15130015}
-  m_LocalScale: {x: 0.15816928, y: 0.0009999999, z: 0.24807337}
+  m_LocalPosition: {x: -0.14386, y: 0.0052611, z: -0.30244}
+  m_LocalScale: {x: 0.336852, y: 0.0021296928, z: 0.52832013}
   m_Children: []
   m_Father: {fileID: 4912516238816000}
   m_RootOrder: 1
@@ -225,7 +225,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1230287749659830}
   m_LocalRotation: {x: -0, y: 0.5780881, z: -0, w: -0.8159744}
-  m_LocalPosition: {x: -6.755, y: 0.002, z: -5.512}
+  m_LocalPosition: {x: -6.692, y: 0.002, z: -5.334}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
   m_Children:
   - {fileID: 4613088170084116}
@@ -528,8 +528,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: -0.07, y: 0.04, z: 0.04}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114621739121140806}
   Directions:
     X: 1
@@ -549,8 +549,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: 0.015, y: 0.046, z: 0.06}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114621739121140806}
   Directions:
     X: 1
@@ -570,8 +570,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: 0, y: 0.042, z: -0.06}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114621739121140806}
   Directions:
     X: 1
@@ -588,15 +588,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26707468efb69e54699b38c6f8b47db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstPuzzleCheck: 0
   interactionDistance: 2
-  cameraPosition: {x: -0.23, y: 0.42, z: 0.15}
+  cameraPosition: {x: -0.68, y: 0.67, z: 0.41}
   cameraOrientation: {x: 0, y: 0, z: 0}
   landingPosition: {x: 0, y: 0, z: 0}
   landingRotation: 0
   storyFragment: 
   hasPlayed: 0
   mercyDistance: 0.05
-  boundingBoxSize: {x: 0.5, y: 0.1, z: 0.5}
+  boundingBoxSize: {x: 1, y: 0.1, z: 0.5}
   boundingBoxOffset: {x: 0, y: 0, z: 0}
   puzzleId: 
   x: 0
@@ -616,8 +617,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: 0.08, y: 0.044, z: -0.01}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114621739121140806}
   Directions:
     X: 1
@@ -637,8 +638,8 @@ MonoBehaviour:
   isCorrect: 0
   correctPostion: {x: -0.11, y: 0.048, z: -0.03}
   correctRotation: {x: 0, y: 0, z: 0}
-  pickupWwiseEvent: 
-  placeWwiseEvent: 
+  pickupWwiseEvent: PIECE_PICK
+  placeWwiseEvent: PIECE_PLACE
   parentPuzzle: {fileID: 114621739121140806}
   Directions:
     X: 1

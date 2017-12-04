@@ -11,23 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1449151931348802}
   m_IsPrefabParent: 1
---- !u!1 &1246994628304882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4188262310017286}
-  - component: {fileID: 33538841355407714}
-  - component: {fileID: 23992997946992734}
-  m_Layer: 0
-  m_Name: Winebottle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967293
-  m_IsActive: 1
 --- !u!1 &1449151931348802
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,19 +28,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967293
   m_IsActive: 1
---- !u!4 &4188262310017286
-Transform:
-  m_ObjectHideFlags: 1
+--- !u!1 &1521506139928502
+GameObject:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1246994628304882}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4565916002494922}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4980872951968726}
+  - component: {fileID: 33459363814816184}
+  - component: {fileID: 23711926600303862}
+  m_Layer: 0
+  m_Name: Winebottle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967293
+  m_IsActive: 1
 --- !u!4 &4565916002494922
 Transform:
   m_ObjectHideFlags: 1
@@ -68,16 +55,29 @@ Transform:
   m_LocalPosition: {x: -9.116, y: 0.747, z: 2.099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4188262310017286}
+  - {fileID: 4980872951968726}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -249.341, z: 0}
---- !u!23 &23992997946992734
+--- !u!4 &4980872951968726
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1521506139928502}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4565916002494922}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
+--- !u!23 &23711926600303862
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1246994628304882}
+  m_GameObject: {fileID: 1521506139928502}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -106,12 +106,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33538841355407714
+--- !u!33 &33459363814816184
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1246994628304882}
+  m_GameObject: {fileID: 1521506139928502}
   m_Mesh: {fileID: 4300000, guid: 35c2398e264fd4c4db1aeba9271806ec, type: 3}
 --- !u!65 &65248127138447272
 BoxCollider:
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstPuzzleCheck: 0
   interactionDistance: 2
   cameraPosition: {x: 0.19, y: 0.2, z: 0.06}
   cameraOrientation: {x: 0, y: 0, z: 0}
