@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 public class AssetImporter : AssetPostprocessor
 {
@@ -26,7 +26,7 @@ public class AssetImporter : AssetPostprocessor
     {
         import.isStatic = true;
         import.transform.position = Vector3.zero;
-        import.transform.rotation = Quaternion.identity; 
+        import.transform.rotation = Quaternion.identity;
     }
 
     private void OnPreProcessTexture()
@@ -38,12 +38,37 @@ public class AssetImporter : AssetPostprocessor
             if (importer.isReadable == false)
             {
                 importer.isReadable = false;
-                importer.alphaIsTransparency = true; 
+                importer.alphaIsTransparency = true;
                 importer.maxTextureSize = 512;
-                importer.compressionQuality = (int)TextureCompressionQuality.Normal;
+                importer.compressionQuality = (int) TextureCompressionQuality.Normal;
                 importer.SaveAndReimport();
             }
         }
     }
 
+}
+
+public class CompressTextures
+{
+    [MenuItem("Tools/Compress Textures")]
+    static void Execute()
+    {
+     //   string path = AssetDatabase.GetAssetPath(Selection.activeObject);
+
+        var guids = AssetDatabase.FindAssets("t:texture2D");
+        foreach (var item in guids)
+        { 
+            string path = AssetDatabase.GUIDToAssetPath(item);
+            if(string.IsNullOrEmpty(path)) continue;
+            Debug.Log(path);
+
+            TextureImporter importer = (TextureImporter) TextureImporter.GetAtPath(path);
+            importer.isReadable = false;
+            importer.alphaIsTransparency = true;
+            importer.maxTextureSize = 512;
+            importer.compressionQuality = (int) TextureCompressionQuality.Normal;
+
+            importer.SaveAndReimport();
+        }
+    }
 }
