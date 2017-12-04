@@ -7,6 +7,7 @@ public class EasyWwiseSwitch : MonoBehaviour
     public EasyWWiseEventType ChosenType;
     public string WwiseSwitchGroupID;
     public string WwiseSwitchID;
+    public bool PostOnlyAfterPointOfNoReturn;
     public GameObject ReferenceGameObject;
 
     void Awake()
@@ -16,72 +17,96 @@ public class EasyWwiseSwitch : MonoBehaviour
             ReferenceGameObject = gameObject;
         }
 
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.Awake)
         {
-            print("Awake: " + WwiseSwitchID);
             AkSoundEngine.SetSwitch(WwiseSwitchGroupID, WwiseSwitchID, ReferenceGameObject);
         }
     }
 
     void Start()
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.Start)
         {
-            print("Start: " + WwiseSwitchID);
             AkSoundEngine.SetSwitch(WwiseSwitchGroupID, WwiseSwitchID, ReferenceGameObject);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerEnter)
         {
-            print("On Trigger Enter: " + WwiseSwitchID);
             AkSoundEngine.SetSwitch(WwiseSwitchGroupID, WwiseSwitchID, ReferenceGameObject);
         }
     }
 
     void OnTriggerStay(Collider other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerStay)
         {
-            print("On Trigger Stay: " + WwiseSwitchID);
             AkSoundEngine.SetSwitch(WwiseSwitchGroupID, WwiseSwitchID, ReferenceGameObject);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerExit)
         {
-            print("On Trigger Exit: " + WwiseSwitchID);
             AkSoundEngine.SetSwitch(WwiseSwitchGroupID, WwiseSwitchID, ReferenceGameObject);
         }
     }
 
     void OnCollisionEnter(Collision other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionEnter)
         {
-            print("On Collision Enter: " + WwiseSwitchID);
             AkSoundEngine.SetSwitch(WwiseSwitchGroupID, WwiseSwitchID, ReferenceGameObject);
         }
     }
 
     void OnCollisionStay(Collision other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionStay)
         {
-            print("On Collision Stay: " + WwiseSwitchID);
             AkSoundEngine.SetSwitch(WwiseSwitchGroupID, WwiseSwitchID, ReferenceGameObject);
         }
     }
 
     void OnCollisionExit(Collision other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionExit)
         {
-            print("On Trigger Exit: " + WwiseSwitchID);
             AkSoundEngine.SetSwitch(WwiseSwitchGroupID, WwiseSwitchID, ReferenceGameObject);
         }
     }
