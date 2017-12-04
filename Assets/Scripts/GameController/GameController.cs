@@ -184,7 +184,7 @@ public class GameController : Singleton<GameController>
     {
         if (currentState is InteractableState)
         {
-            SetState(new RunState(this));
+			((InteractableState)currentState).EndOfFragmentCallback();
         }
     }
 

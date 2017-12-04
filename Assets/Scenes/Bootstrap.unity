@@ -812,6 +812,69 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 293094960}
+--- !u!1 &296086051 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1267281724632188, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 746609513}
+--- !u!114 &296086053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 296086051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 296086054}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1269676095}
+        m_MethodName: QuitFragment
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &296086054 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114615404643122990, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 746609513}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &317502468 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114768884792592948, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc,
@@ -968,7 +1031,7 @@ Prefab:
     - target: {fileID: 224243318881095654, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -295
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 224523906103981180, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc,
         type: 2}
@@ -990,7 +1053,31 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -399.83115
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1267281724632188, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224243318881095654, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030933379217906, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699405792751452, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1269676095}
+    - target: {fileID: 114699405792751452, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitFragment
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114699405792751452, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &885384899
@@ -1150,6 +1237,12 @@ MonoBehaviour:
   __messageText: 
   gameCamera: {fileID: 1869819397}
   mothObject: {fileID: 470128922}
+--- !u!114 &1269676095 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114455985029975442, guid: 5dd11819e46f89a49930c7562cef8a67,
+    type: 2}
+  m_PrefabInternal: {fileID: 61396005}
+  m_Script: {fileID: 11500000, guid: 62788bfba51576c4abe1c003fdb637d7, type: 3}
 --- !u!114 &1550925234 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114917832645190300, guid: 0ad7b2a3f4734b44b82d07cdc5f633bc,
@@ -1322,6 +1415,11 @@ Prefab:
         type: 2}
       propertyPath: _Brightness
       value: 1.089
+      objectReference: {fileID: 0}
+    - target: {fileID: 20292521309587950, guid: 2f2e41f2ebcfbc94cba04cd986ab815a,
+        type: 2}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f2e41f2ebcfbc94cba04cd986ab815a, type: 2}

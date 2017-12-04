@@ -38,9 +38,6 @@ public class LoadState : GameState
         {
             gm.SetState(new RunState(gm));
         }
-#if UNITY_EDITOR
-        gm.SetState(new RunState(gm));
-#endif
     }
 
     public override void OnStateExit()

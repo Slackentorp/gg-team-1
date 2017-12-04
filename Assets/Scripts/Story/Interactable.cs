@@ -22,10 +22,11 @@ public abstract class Interactable : MonoBehaviour
                 (transform.position + cameraPosition);
         }
     }
-    public float InternalInteractionDistion { get { return Mathf.Sqrt(interactionDistance); } }
+    public float InternalInteractionDistance { get { return Mathf.Sqrt(interactionDistance); } }
     public bool HasPlayed { get { return hasPlayed; } set { hasPlayed = value; } }
     public string StoryFragment { get { return storyFragment; } }
     public Vector3 LandingPosition { get { return landingPosition; } }
+    public Vector3 MothResetPosition { get { return resetPosition; } }
 
     [SerializeField]
     public bool firstPuzzleCheck;
@@ -40,16 +41,13 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField, Tooltip("Where the moth should land")]
     private Vector3 landingPosition;
     [SerializeField, Tooltip("Should the moth land vertically or horizontally")]
-    private LandRotation landingRotation;
-    public LandRotation LandingRotation { get { return landingRotation; } }
+    private Vector3 landingRotation;
+    [SerializeField, Tooltip("Where the moth should go to after the interactable")]
+    private Vector3 resetPosition;
+    public Vector3 LandingRotation { get { return landingRotation; } }
 
     [SerializeField, Tooltip("The name of the story fragment")]
     private string storyFragment;
-
-    public enum LandRotation{
-        HORIZONTAL,
-        VERTICAL
-    }
 
     [SerializeField]
     private bool hasPlayed;
@@ -98,5 +96,10 @@ public abstract class Interactable : MonoBehaviour
         Gizmos.DrawIcon(transform.position + cameraPosition, "CameraIcon.tif");
         Gizmos.DrawLine(transform.position + cameraPosition, transform.position + cameraOrientation);
         Gizmos.DrawIcon(transform.TransformPoint(landingPosition), "MothIcon.tif", true);
+
+        Gizmos.DrawSphere(transform.TransformPoint(resetPosition), .05f);
+        Gizmos.color = Color.blue;
+        Vector3 rotatedVector = Quaternion.Euler(landingRotation) * transform.up;
+        Gizmos.DrawLine(transform.TransformPoint(landingPosition), transform.TransformPoint(landingPosition) + rotatedVector.ResizeMagnitude(.2f));
     }
 }

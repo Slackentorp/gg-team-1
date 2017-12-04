@@ -170,6 +170,8 @@ public class MainMenu : MonoBehaviour
     {
         continueButton.enabled = false;
         newGameButton.enabled = false; 
+        tapToStartButton.enabled = false;
+        firstMenu.SetActive(false);
        
         AkSoundEngine.PostEvent("MAINMENU_START_GAME", this.gameObject);
         PlayerPrefs.SetInt("saveload", saveload);
