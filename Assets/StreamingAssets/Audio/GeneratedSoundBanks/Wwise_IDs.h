@@ -60,7 +60,6 @@ namespace AK
         static const AkUniqueID MENUTOGGLEBUTTON_PRESS = 2268000284U;
         static const AkUniqueID MOTH_APPEAR = 2904931443U;
         static const AkUniqueID MOTH_END_FLIGHT = 410314580U;
-        static const AkUniqueID MOTH_HIT_WINDOW = 1669806022U;
         static const AkUniqueID MOTH_START_FLIGHT = 541555517U;
         static const AkUniqueID MUSIC_MUTE = 1696404602U;
         static const AkUniqueID MUSIC_START = 3725903807U;
@@ -85,6 +84,7 @@ namespace AK
         static const AkUniqueID STORYEVENT_4 = 1922983909U;
         static const AkUniqueID STORYEVENT_5 = 1922983908U;
         static const AkUniqueID STORYEVENT_END = 3721137874U;
+        static const AkUniqueID STORYEVENT_INTRO = 1357239343U;
         static const AkUniqueID STREET = 4142189312U;
         static const AkUniqueID TAP_PARTICLE = 3809097629U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
@@ -229,6 +229,7 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID CUTSCENE = 1182958561U;
                 static const AkUniqueID EXPLORATION = 2582085496U;
                 static const AkUniqueID FRAGMENT = 2651529573U;
             } // namespace STATE
@@ -255,6 +256,8 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID DONE = 1861070025U;
+                static const AkUniqueID PIECE_0 = 2533340104U;
                 static const AkUniqueID PIECE_1 = 2533340105U;
                 static const AkUniqueID PIECE_2 = 2533340106U;
                 static const AkUniqueID PIECE_3 = 2533340107U;
