@@ -1053,71 +1053,6 @@
 														<ItemRef Name="Police_Siren_PSEM_198" ID="{2EB70E2E-F452-4E0A-945A-1FE131E2B85C}"/>
 													</Playlist>
 												</RandomSequenceContainer>
-												<Sound Name="Protests_Our_Streets_01_Downtown" ID="{F18B93F8-D194-4588-AA39-5EE53A1BE984}" ShortID="31167797">
-													<PropertyList>
-														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="Pitch" Type="int32">
-															<ValueList>
-																<Value>-100</Value>
-															</ValueList>
-														</Property>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-2</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Protests_Our_Streets_01_Downtown" ID="{0421FA3F-5FBA-4EFD-AA06-A61105BD31C4}" ShortID="863795838">
-															<PropertyList>
-																<Property Name="CrossfadeDuration" Type="Real64" Value="2"/>
-																<Property Name="LoopBegin" Type="Real64" Value="2.07626176140013"/>
-																<Property Name="LoopEnd" Type="Real64" Value="54.9116597422929"/>
-																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>Protests_Our_Streets_01_Downtown.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Protests_Our_Streets_01_Downtown" ID="{0421FA3F-5FBA-4EFD-AA06-A61105BD31C4}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="RATH - Rain Hard Loop 08" ID="{110BC0D2-9498-4DA1-8E2E-ABB087868337}" ShortID="1036430306">
-													<PropertyList>
-														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="Pitch" Type="int32">
-															<ValueList>
-																<Value>-630</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="RATH - Rain Hard Loop 08" ID="{8A88E24C-203D-42F4-B4D7-EA02AB030E6E}" ShortID="174683352">
-															<Language>SFX</Language>
-															<AudioFile>RATH - Rain Hard Loop 08.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="RATH - Rain Hard Loop 08" ID="{8A88E24C-203D-42F4-B4D7-EA02AB030E6E}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
 											</ChildrenList>
 											<BlendTrackList>
 												<BlendTrack Name="Basic Ambience" ID="{C7DD7202-5F95-4DB2-9C96-6E8AD1AA5AC1}" ShortID="957690267">
@@ -1296,15 +1231,6 @@
 																<RightFadingMode>Automatic</RightFadingMode>
 															</CrossfadingInfo>
 														</BlendTrackAssoc>
-														<BlendTrackAssoc>
-															<ItemRef Name="RATH - Rain Hard Loop 08" ID="{110BC0D2-9498-4DA1-8E2E-ABB087868337}"/>
-															<CrossfadingInfo>
-																<LeftEdgePos>57.9846659364732</LeftEdgePos>
-																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>100</RightEdgePos>
-																<RightFadingMode>Automatic</RightFadingMode>
-															</CrossfadingInfo>
-														</BlendTrackAssoc>
 													</BlendTrackAssocList>
 												</BlendTrack>
 												<BlendTrack Name="Birds" ID="{A08F319B-C125-4F80-941A-F907F5FDF1CB}" ShortID="188496053">
@@ -1469,17 +1395,6 @@
 															<ObjectRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
 														</Reference>
 													</ReferenceList>
-													<BlendTrackAssocList>
-														<BlendTrackAssoc>
-															<ItemRef Name="Protests_Our_Streets_01_Downtown" ID="{F18B93F8-D194-4588-AA39-5EE53A1BE984}"/>
-															<CrossfadingInfo>
-																<LeftEdgePos>0</LeftEdgePos>
-																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>100</RightEdgePos>
-																<RightFadingMode>Automatic</RightFadingMode>
-															</CrossfadingInfo>
-														</BlendTrackAssoc>
-													</BlendTrackAssocList>
 												</BlendTrack>
 												<BlendTrack Name="Neighbours" ID="{C7E455F3-6B38-44DF-ADAD-6D88D5A38A23}" ShortID="14882826"/>
 											</BlendTrackList>
@@ -10636,9 +10551,62 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Triggered Sounds" ID="{63B7B660-F3BE-4AFD-B3AC-7E7091E3FF87}" ShortID="352373861">
+					<PropertyList>
+						<Property Name="PositioningType" Type="int16" Value="1"/>
+					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<Custom>
+								<Attenuation Name="Attenuation (Custom)" ID="{25178F4F-A82B-430B-82CD-35755A756F6D}" ShortID="217979778">
+									<PropertyList>
+										<Property Name="RadiusMax" Type="Real64" Value="10"/>
+									</PropertyList>
+									<CurveUsageInfoList>
+										<VolumeDryUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+												<Curve Name="VolumeDry" ID="{5CB9CE8E-576D-41BC-80C8-484CC191B801}">
+													<PropertyList>
+														<Property Name="Flags" Type="int32" Value="3"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>0</XPos>
+															<YPos>0</YPos>
+															<Flags>5</Flags>
+														</Point>
+														<Point>
+															<XPos>10</XPos>
+															<YPos>-200</YPos>
+															<Flags>37</Flags>
+														</Point>
+													</PointList>
+												</Curve>
+											</CurveUsageInfo>
+										</VolumeDryUsage>
+										<VolumeWetGameUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetGameUsage>
+										<VolumeWetUserUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetUserUsage>
+										<LowPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</LowPassFilterUsage>
+										<HighPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</HighPassFilterUsage>
+										<SpreadUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</SpreadUsage>
+										<FocusUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</FocusUsage>
+									</CurveUsageInfoList>
+								</Attenuation>
+							</Custom>
+						</Reference>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+							<ObjectRef Name="Really compressed mono" ID="{67179E8B-05DB-4110-A418-07CD164CC880}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -10657,7 +10625,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-9</Value>
+										<Value>-12</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -10727,6 +10695,11 @@
 							<PropertyList>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -10866,7 +10839,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-23</Value>
+										<Value>-26</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

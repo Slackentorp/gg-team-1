@@ -392,7 +392,30 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="MAINMENU_OPEN" ID="{F57412A0-CBED-4E0E-B4C5-358AA27E86A0}"/>
+						<Event Name="MAINMENU_OPEN" ID="{F57412A0-CBED-4E0E-B4C5-358AA27E86A0}">
+							<ChildrenList>
+								<Action Name="" ID="{6CCF38EC-D914-44DB-8D1B-35BCEC6BEFF0}" ShortID="305473478">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu Puzzle" ID="{AA6D2D6D-A0F6-4832-9D2D-C5CE156D1FA7}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{46D13FB7-63FF-45DA-B46F-94C3B0A61DF8}" ShortID="1039089955">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PIECE_0" ID="{7A2772C0-D900-4047-BABE-3BE42AE785E1}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="MENUBUTTON_PRESS" ID="{E13D8E67-5FB2-4A15-A3C0-5680A7B8EDBA}">
 							<ChildrenList>
 								<Action Name="" ID="{D215A2EF-CCAE-4650-AEF9-735A302EAFC8}" ShortID="822153384">
@@ -2203,6 +2226,7 @@
 						<Action Name="" ID="{2B787352-3ADA-4602-8F35-467229AB9744}" ShortID="190506044">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -2481,6 +2505,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="PARTICLE_FLY_LOOP" ID="{543C3647-F447-4120-9A94-2A6321BB8E67}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{DDCA52FE-E8E9-40F5-A29E-D0BFF5C6EA81}" ShortID="1020207716">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+										<Property Name="Delay" Type="Real64" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PARTICLE_ENTER_LAMP" ID="{A1C91C38-B395-4867-B46A-3685C93BD0E8}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

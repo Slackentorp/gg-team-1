@@ -72,6 +72,7 @@ namespace AK
         static const AkUniqueID PARTICLE_MERGE = 2458842678U;
         static const AkUniqueID PIECE_PICK = 394109931U;
         static const AkUniqueID PIECE_PLACE = 778173897U;
+        static const AkUniqueID PIECE_PLACED_RIGHT = 2720771844U;
         static const AkUniqueID PIECE_PLACED_WRONG = 2177473561U;
         static const AkUniqueID PUZZLE_SOLVED = 1107599359U;
         static const AkUniqueID PUZZLE_SOLVING = 3258781332U;
@@ -304,6 +305,7 @@ namespace AK
         static const AkUniqueID MOTH_SPEED = 4010911193U;
         static const AkUniqueID MUSIC_VOLUME = 1006694123U;
         static const AkUniqueID OBJECT_SPEED = 507859948U;
+        static const AkUniqueID PICTUREPUZZLE_STATE = 2001893719U;
         static const AkUniqueID SFX_VOLUME = 1564184899U;
         static const AkUniqueID TENSION = 1571361561U;
     } // namespace GAME_PARAMETERS
