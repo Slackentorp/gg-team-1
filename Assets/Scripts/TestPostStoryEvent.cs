@@ -7,7 +7,13 @@ public class TestPostStoryEvent : MonoBehaviour {
 
 	public string eventName;
 	[Button]
-	void PostEvent(){
-		StoryEventController.Instance.PostStoryEvent(eventName);
+	void PostEvent()
+	{
+		StoryEventController.Instance.PostStoryEvent(eventName, EndOfEvent);
+	}
+
+	private void EndOfEvent()
+	{
+		print("End of StoryEvent: " +eventName);
 	}
 }
