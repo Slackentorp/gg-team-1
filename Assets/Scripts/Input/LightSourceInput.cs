@@ -96,27 +96,10 @@ public class LightSourceInput : MonoBehaviour
 
         }
 
-
-        //    if (sender != null)
-        //    {
-        //        for (int i = 0; i <= interactables.Length; i++)
-        //        {
-        //        }
-        //    }
-        //}
-
-        //if (sender.StoryFragment != interactables[0].StoryFragment)
-        //{
-        //    return;
-        //}
         foreach (Interactable localInteractables in interactables)
         {
             if (localInteractables.StoryFragment == sender.StoryFragment)
             {
-                Debug.Log("i am totally touched");
-
-
-
                 if (interactables.Length == 3)
                 {
                     if (numPlayedFragments >= interactables.Length - 1)
@@ -124,7 +107,6 @@ public class LightSourceInput : MonoBehaviour
                         LampON();
                         if (sender != null)
                         {
-                            Debug.Log("1   " + lightMapIndex);
                             StartCoroutine(ParticleLerp(sender));
                         }
                     }
@@ -133,7 +115,6 @@ public class LightSourceInput : MonoBehaviour
                         LampFlickering();
                         if (sender != null)
                         {
-                            Debug.Log("2  " + lightMapIndex);
                             StartCoroutine(ParticleLerp(sender));
                         }
                     }
@@ -145,7 +126,6 @@ public class LightSourceInput : MonoBehaviour
                         LampON();
                         if (sender != null)
                         {
-                            Debug.Log("3   " + lightMapIndex);
                             StartCoroutine(ParticleLerp(sender));
                         }
                     }
@@ -154,7 +134,6 @@ public class LightSourceInput : MonoBehaviour
                         LampFlickering();
                         if (sender != null)
                         {
-                            Debug.Log("4  " + lightMapIndex);
                             StartCoroutine(ParticleLerp(sender));
                         }
                     }
