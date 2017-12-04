@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 100512210}
   - component: {fileID: 100512212}
   - component: {fileID: 100512211}
+  - component: {fileID: 100512213}
   m_Layer: 0
   m_Name: StoryEvent1Particles_1_LampToMerge
   m_TagString: Untagged
@@ -386,6 +387,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &100512213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 100512209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 0
+  soundOnDisable: 0
 --- !u!1 &118241772
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,15 +429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - source: {fileID: 529033537}
-    wwiseEvent: PARTICLE_APPEAR_LAMP
-  - source: {fileID: 1724152589}
-    wwiseEvent: PARTICLE_APPEAR_LAMP
-  - source: {fileID: 1006805762}
-    wwiseEvent: PARTICLE_MERGE
-  - source: {fileID: 1006805762}
-    wwiseEvent: PARTICLE_ENTER_FOGWALL
+  setting: 0
+  soundOnDisable: 0
 --- !u!4 &118241774
 Transform:
   m_ObjectHideFlags: 0
@@ -483,7 +490,7 @@ PlayableDirector:
   m_GameObject: {fileID: 156943489}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 2297120c18a20d64f88914d0164cb41a, type: 2}
+  m_PlayableAsset: {fileID: 0}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -771,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e304f338583e594cbe34460dad93279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: STORYEVENT_0
+  eventName: STORYEVENT_INTRO
 --- !u!1 &168354059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,7 +1470,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 307828706}
-  m_LocalRotation: {x: -0.024206227, y: -0.5913055, z: -0.01776086, w: 0.8058886}
+  m_LocalRotation: {x: -0.021891069, y: -0.53476274, z: -0.016062148, w: 0.844566}
   m_LocalPosition: {x: -5.396837, y: 0.6742399, z: 0.20363629}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1655,17 +1662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - source: {fileID: 100512209}
-    wwiseEvent: PARTICLE_APPEAR_LAMP
-  - source: {fileID: 1409459844}
-    wwiseEvent: PARTICLE_APPEAR_LAMP
-  - source: {fileID: 1659402873}
-    wwiseEvent: PARTICLE_APPEAR_LAMP
-  - source: {fileID: 1830624366}
-    wwiseEvent: PARTICLE_MERGE
-  - source: {fileID: 1830624366}
-    wwiseEvent: PARTICLE_ENTER_FOGWALL
+  setting: 0
+  soundOnDisable: 0
 --- !u!1 &335400900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2345,7 @@ GameObject:
   - component: {fileID: 458860543}
   - component: {fileID: 458860545}
   - component: {fileID: 458860544}
+  - component: {fileID: 458860546}
   m_Layer: 0
   m_Name: StoryEvent4Particles_1_LampToDoor
   m_TagString: Untagged
@@ -2404,6 +2403,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &458860546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458860542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 0
+  soundOnDisable: 1
 --- !u!1 &458979617
 GameObject:
   m_ObjectHideFlags: 3
@@ -2618,6 +2630,7 @@ GameObject:
   - component: {fileID: 529033538}
   - component: {fileID: 529033540}
   - component: {fileID: 529033539}
+  - component: {fileID: 529033541}
   m_Layer: 0
   m_Name: StoryEvent2Particles_1_LampToMerge
   m_TagString: Untagged
@@ -2632,8 +2645,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 529033537}
-  m_LocalRotation: {x: 0.051705696, y: 0.10419908, z: -0.0054245917, w: 0.99319667}
-  m_LocalPosition: {x: -5.3255234, y: 1.0339515, z: -2.5347543}
+  m_LocalRotation: {x: -0.04619804, y: 0.5086496, z: 0.027346283, w: 0.8592983}
+  m_LocalPosition: {x: -4.4505563, y: 0.9665055, z: -0.8900036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 431992167}
@@ -2675,6 +2688,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &529033541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529033537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 0
+  soundOnDisable: 0
 --- !u!1 &536511067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,6 +3125,7 @@ GameObject:
   - component: {fileID: 631382696}
   - component: {fileID: 631382698}
   - component: {fileID: 631382697}
+  - component: {fileID: 631382699}
   m_Layer: 0
   m_Name: StoryEvent3Particles_1_LampToDoor
   m_TagString: Untagged
@@ -3156,6 +3183,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &631382699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 631382695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 0
+  soundOnDisable: 1
 --- !u!1 &635985647
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,11 +3280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - source: {fileID: 631382695}
-    wwiseEvent: PARTICLE_APPEAR_LAMP
-  - source: {fileID: 631382695}
-    wwiseEvent: PARTICLE_ENTER_FOGWALL
+  setting: 0
+  soundOnDisable: 0
 --- !u!4 &635985663
 Transform:
   m_ObjectHideFlags: 0
@@ -3285,7 +3322,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 635985652}
-  m_LocalRotation: {x: 0.20355426, y: -0.30066133, z: 0.06584807, w: 0.9294259}
+  m_LocalRotation: {x: 0.2276698, y: -0.282839, z: -0.011069977, w: 0.93168986}
   m_LocalPosition: {x: -7.2224026, y: 1.2238646, z: 1.1856343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3949,6 +3986,7 @@ GameObject:
   - component: {fileID: 789560288}
   - component: {fileID: 789560290}
   - component: {fileID: 789560289}
+  - component: {fileID: 789560291}
   m_Layer: 0
   m_Name: StoryEvent0Particles_1_LampToDoor
   m_TagString: Untagged
@@ -4006,6 +4044,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &789560291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 789560287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 0
+  soundOnDisable: 1
 --- !u!1001 &885133594
 Prefab:
   m_ObjectHideFlags: 0
@@ -4284,6 +4335,7 @@ GameObject:
   - component: {fileID: 1006805763}
   - component: {fileID: 1006805765}
   - component: {fileID: 1006805764}
+  - component: {fileID: 1006805766}
   m_Layer: 0
   m_Name: StoryEvent2Particles_3_MergeToDoor
   m_TagString: Untagged
@@ -4298,8 +4350,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1006805762}
-  m_LocalRotation: {x: -0.03744344, y: 0.089725256, z: 0.0033756334, w: 0.9952568}
-  m_LocalPosition: {x: -4.485798, y: 0.96414495, z: -0.8808975}
+  m_LocalRotation: {x: -0.023342941, y: -0.76168436, z: -0.014003221, w: 0.6473763}
+  m_LocalPosition: {x: -6.016756, y: 0.8515923, z: 0.98491716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1300136752}
@@ -4341,6 +4393,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1006805766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1006805762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 1
+  soundOnDisable: 1
 --- !u!1 &1027921644
 GameObject:
   m_ObjectHideFlags: 0
@@ -5459,6 +5524,7 @@ GameObject:
   - component: {fileID: 1409459845}
   - component: {fileID: 1409459847}
   - component: {fileID: 1409459846}
+  - component: {fileID: 1409459848}
   m_Layer: 0
   m_Name: StoryEvent1Particles_2_LampToMerge
   m_TagString: Untagged
@@ -5516,6 +5582,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1409459848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409459844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 0
+  soundOnDisable: 0
 --- !u!1001 &1431772484
 Prefab:
   m_ObjectHideFlags: 0
@@ -5751,11 +5830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - source: {fileID: 458860542}
-    wwiseEvent: PARTICLE_APPEAR_LAMP
-  - source: {fileID: 458860542}
-    wwiseEvent: PARTICLE_ENTER_FOGWALL
+  setting: 0
+  soundOnDisable: 0
 --- !u!95 &1473769479
 Animator:
   serializedVersion: 3
@@ -6143,11 +6219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - source: {fileID: 789560287}
-    wwiseEvent: PARTICLE_APPEAR_LAMP
-  - source: {fileID: 789560287}
-    wwiseEvent: PARTICLE_ENTER_FOGWALL
+  setting: 0
+  soundOnDisable: 0
 --- !u!95 &1586208283
 Animator:
   serializedVersion: 3
@@ -6192,7 +6265,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1608600426}
-  m_LocalRotation: {x: 0.09187107, y: 0.9081166, z: -0.28636765, w: 0.29133755}
+  m_LocalRotation: {x: 0.09187047, y: 0.9081172, z: -0.28636545, w: 0.291338}
   m_LocalPosition: {x: -5.7140617, y: 1.024452, z: 3.4934034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6286,6 +6359,7 @@ GameObject:
   - component: {fileID: 1659402874}
   - component: {fileID: 1659402876}
   - component: {fileID: 1659402875}
+  - component: {fileID: 1659402877}
   m_Layer: 0
   m_Name: StoryEvent1Particles_3_LampToMerge
   m_TagString: Untagged
@@ -6343,6 +6417,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1659402877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659402873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 0
+  soundOnDisable: 0
 --- !u!114 &1667593969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6443,6 +6530,7 @@ GameObject:
   - component: {fileID: 1724152590}
   - component: {fileID: 1724152592}
   - component: {fileID: 1724152591}
+  - component: {fileID: 1724152593}
   m_Layer: 0
   m_Name: StoryEvent2Particles_2_LampToMerge
   m_TagString: Untagged
@@ -6457,8 +6545,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1724152589}
-  m_LocalRotation: {x: 0.009296382, y: 0.98527116, z: -0.17065723, w: 0.0055186152}
-  m_LocalPosition: {x: -4.92161, y: 1.5102544, z: 1.5650786}
+  m_LocalRotation: {x: -0.003018281, y: 0.99610883, z: -0.037788298, w: -0.07956264}
+  m_LocalPosition: {x: -4.45122, y: 0.9678483, z: -0.883696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 685923390}
@@ -6500,6 +6588,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1724152593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1724152589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 0
+  soundOnDisable: 0
 --- !u!1 &1768735239
 GameObject:
   m_ObjectHideFlags: 0
@@ -6747,6 +6848,7 @@ GameObject:
   - component: {fileID: 1830624367}
   - component: {fileID: 1830624369}
   - component: {fileID: 1830624368}
+  - component: {fileID: 1830624370}
   m_Layer: 0
   m_Name: StoryEvent1Particles_4_MergeToDoor
   m_TagString: Untagged
@@ -6804,6 +6906,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1830624370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1830624366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: 1
+  soundOnDisable: 1
 --- !u!1 &1834635114 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1403212298109344, guid: e7ebb0e32e5cb2844849c8942624d733,
@@ -7122,17 +7237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12bd853016324a8f93f550ad441da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - source: {fileID: 0}
-    wwiseEvent: 
-  - source: {fileID: 0}
-    wwiseEvent: 
-  - source: {fileID: 0}
-    wwiseEvent: 
-  - source: {fileID: 0}
-    wwiseEvent: 
-  - source: {fileID: 0}
-    wwiseEvent: 
+  setting: 0
+  soundOnDisable: 0
 --- !u!1001 &2041923157
 Prefab:
   m_ObjectHideFlags: 0
