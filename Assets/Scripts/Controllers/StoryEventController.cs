@@ -89,6 +89,10 @@ public class StoryEventController : Singleton<StoryEventController>
 			AkSoundEngine.StopAll(gameObject);
 			if(currentCallback != null)
 			{
+				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_3"))
+				{
+					GameController.instance.InvokePointOfNoReturn();
+				}
 				currentCallback.Invoke();
 			}
 
@@ -100,6 +104,7 @@ public class StoryEventController : Singleton<StoryEventController>
 	private void HandlePointOfNoReturn()
 	{
 		GameController.Instance.SetState(new PointOfNoReturnState(GameController.instance));
+		
 	/*	GameObject livingRoomDoor = GameObject.FindObjectsOfType<DoorWallController>().First(d => d.GetRoomIndex() == 0).gameObject;
 		print(livingRoomDoor.name);
 		livingRoomDoor.SetActive(false);*/
