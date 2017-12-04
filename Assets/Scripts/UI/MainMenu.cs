@@ -50,6 +50,7 @@ public class MainMenu : MonoBehaviour
     AsyncOperation bootstrapLoad;
     AsyncOperation soundScapeLoad;
     AsyncOperation apartmentLoad;
+    AsyncOperation storyEventsLoad;
 
     private void OnEnable()
     {
@@ -78,12 +79,15 @@ public class MainMenu : MonoBehaviour
     SceneManager.LoadSceneAsync("Bootstrap", LoadSceneMode.Single);
         soundScapeLoad =
             SceneManager.LoadSceneAsync("SoundScape", LoadSceneMode.Additive);
+        storyEventsLoad =
+            SceneManager.LoadSceneAsync("StoryEvents", LoadSceneMode.Additive);
         apartmentLoad =
             SceneManager.LoadSceneAsync("Apartment", LoadSceneMode.Additive);
 
         bootstrapLoad.allowSceneActivation = false;
         soundScapeLoad.allowSceneActivation = false;
         apartmentLoad.allowSceneActivation = false;
+        storyEventsLoad.allowSceneActivation = false;
 
         continueButton.onClick.AddListener(() => StartGame(1));
         newGameButton.onClick.AddListener(() => StartGame(0));
@@ -251,6 +255,7 @@ public class MainMenu : MonoBehaviour
         apartmentLoad.allowSceneActivation = true;
         bootstrapLoad.allowSceneActivation = true;
         soundScapeLoad.allowSceneActivation = true;
+        storyEventsLoad.allowSceneActivation = true;
         yield return null;
     }
 
