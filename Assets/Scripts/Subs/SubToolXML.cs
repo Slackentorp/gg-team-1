@@ -28,8 +28,8 @@ public class SubToolXML : Singleton<SubToolXML>
     public GameObject SubtitleContainer;
     uint g_markersPlayingID = 1;
     bool showSubs = false;
+    bool subtitlesIsOn = true; 
 
-    //[SerializeField]
     List<string> activeSubs = new List<string>();
 
     private Dictionary<char, string> characterColor = new Dictionary<char, string>();
@@ -48,6 +48,16 @@ public class SubToolXML : Singleton<SubToolXML>
 
     public delegate void OnShow();
     public static event OnShow OnShowSubs;
+
+    private void OnEnable()
+    {
+        PauseCanvas.OnSubtitleButton += ShowSubtitles; 
+    }
+
+    private void OnDisable()
+    {
+        PauseCanvas.OnSubtitleButton -= ShowSubtitles;
+    }
 
     private void Awake()
     {
@@ -157,7 +167,7 @@ public class SubToolXML : Singleton<SubToolXML>
 
     private void Update()
     {
-        if (!showSubs)
+        if (!showSubs || !subtitlesIsOn)
         {
             return;
         }
@@ -200,6 +210,11 @@ public class SubToolXML : Singleton<SubToolXML>
             yield return new WaitForSeconds(duration);
             activeSubs.Remove(key);
         }
+    }
+
+    private void ShowSubtitles(bool show)
+    {
+        subtitlesIsOn = show; 
     }
 
     private string AddColorToText(string color, string text)
