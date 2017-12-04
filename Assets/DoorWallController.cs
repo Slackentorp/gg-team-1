@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class DoorWallController : MonoBehaviour
 {
@@ -14,6 +14,11 @@ public class DoorWallController : MonoBehaviour
     private int LampsON = 0;
     [SerializeField]
     private int roomIndex;
+
+    public int GetRoomIndex()
+    {
+        return roomIndex;
+    }
 
     void OnEnable()
     {
@@ -30,30 +35,27 @@ public class DoorWallController : MonoBehaviour
         int numFullOnLamps = roomLamps.Count(l => l.LampFullOn);
 
         AkSoundEngine.SetState("LAMPS_ON_" + roomIndex, "LAMP_" + numFullOnLamps);
-        if(roomLamps.Length == 1 && numFullOnLamps == 1)
+        if (roomLamps.Length == 1 && numFullOnLamps == 1)
         {
-            gameObject.SetActive(false);
             CallStoryEvent();
         }
 
         else if (numFullOnLamps >= 1 && numActiveLamps == roomLamps.Length)
         {
-            gameObject.SetActive(false);
             CallStoryEvent();
         }
     }
 
     private void CallStoryEvent()
     {
-        if(StoryEventName != null && StoryEventController.Instance != null)
+        if (StoryEventName != null && StoryEventController.Instance != null)
         {
             StoryEventController.Instance.PostStoryEvent(StoryEventName, EndOfEvent);
         }
     }
 
     private void EndOfEvent()
-	{
-		gameObject.SetActive(false);
-	}
+    {
+        gameObject.SetActive(false);
+    }
 }
-

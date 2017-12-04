@@ -28,7 +28,7 @@ public class InteractableState : GameState
         gm.mothBehaviour.Update();
 
         // We should be able to look around if the interactable has been viewed
-        if (currentInteractable.HasPlayed && currentInteractable is Fragment)
+        if ((currentInteractable.HasPlayed || gm.hasReachedPointOfNoReturn) && currentInteractable is Fragment)
         {
             //   gm.cameraController.Update();
             CheckInput();
@@ -74,7 +74,7 @@ public class InteractableState : GameState
             {
                 CheckInput();
          //       ((Puzzle) currentInteractable).UpdatePuzzle();
-                if (((Puzzle) currentInteractable).IsSolved)
+                if (((Puzzle) currentInteractable).IsSolved && !gm.hasReachedPointOfNoReturn)
                 {
                     lerpOut = true;
                     currentInteractable.Play(EndOfFragmentCallback);
@@ -106,7 +106,7 @@ public class InteractableState : GameState
 
         // We should be able to move to a new location if the interactable has played
         // Black bars should not show if the interactable has been seen
-        if (!currentInteractable.HasPlayed)
+        if (!currentInteractable.HasPlayed && !gm.hasReachedPointOfNoReturn)
         {
             gm.mothBehaviour.SetFragmentMode(true);
             gm.CinemaBars.gameObject.SetActive(true);
@@ -122,7 +122,7 @@ public class InteractableState : GameState
         {
             currentInteractable.GetComponent<BoxCollider>().enabled = false;
         }
-        else
+        else if(!gm.hasReachedPointOfNoReturn)
         {
             // It's a Fragment
             currentInteractable.Play(EndOfFragmentCallback);
@@ -209,7 +209,14 @@ public class InteractableState : GameState
             gm.CinemaBars.SetTrigger("Up");
         }
 
-        gm.SetState(new RunState(gm));
+        if(gm.hasReachedPointOfNoReturn)
+        {
+            gm.SetState(new PointOfNoReturnState(gm)); 
+        } 
+        else 
+        {
+            gm.SetState(new RunState(gm));
+        }
     }
 
     void CheckInput()

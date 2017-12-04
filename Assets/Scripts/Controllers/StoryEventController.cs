@@ -52,16 +52,25 @@ public class StoryEventController : Singleton<StoryEventController>
 			{
 				currentStoryEvent = se;
 				currentCallback = Callback;
+				if(StoryEvent.Equals("STORYEVENT_3"))
+				{
+					HandlePointOfNoReturn();
+				}
+				
 				director.Stop();
 				director.playableAsset = se.TimelinePlayableAsset;
 				director.time = 0;
 				director.initialTime = 0;
+				
 				AkSoundEngine.PostEvent(se.FragmentWwiseEvent, gameObject);
 				director.Play();
+				
 				se.StoryEventGroup.SetActive(true);
 				isPosting = true;
 			}
-		} catch (InvalidOperationException){ }
+		} catch (InvalidOperationException e){ 
+			print(e.Message);
+		}
 
 		if(!isPosting)
 		{
@@ -86,7 +95,14 @@ public class StoryEventController : Singleton<StoryEventController>
 			currentStoryEvent = nullStoryEvent;
 			currentCallback = null;
 		}
-		
+	}
+
+	private void HandlePointOfNoReturn()
+	{
+		GameController.Instance.SetState(new PointOfNoReturnState(GameController.instance));
+	/*	GameObject livingRoomDoor = GameObject.FindObjectsOfType<DoorWallController>().First(d => d.GetRoomIndex() == 0).gameObject;
+		print(livingRoomDoor.name);
+		livingRoomDoor.SetActive(false);*/
 	}
 
 	[System.Serializable]
