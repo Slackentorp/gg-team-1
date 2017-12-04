@@ -6,13 +6,13 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: worldmap1
-  m_Shader: {fileID: 4800000, guid: 63b840af1d3f3fb4dadae632a0a28eff, type: 3}
-  m_ShaderKeywords: _METALLICGLOSSMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_Name: fog_01_material
+  m_Shader: {fileID: 4800000, guid: ca8171bbeadf03640a05ff3786b4d5ef, type: 3}
+  m_ShaderKeywords: _ALPHABLEND_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -36,7 +36,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DissolveNoise:
         m_Texture: {fileID: 2800000, guid: 54ed97f1c5b2ce54cb82c4c2c1cf007e, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 4, y: 4}
         m_Offset: {x: 0, y: 0}
     - _DissolveRamp:
         m_Texture: {fileID: 2800000, guid: 19f34113455b8304cad6c4dd09377655, type: 3}
@@ -46,23 +46,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _EmissionNoise:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: e53a1a5b0a336694fa6dcbbacf12dd49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Maintex:
         m_Texture: {fileID: 2800000, guid: 54ed97f1c5b2ce54cb82c4c2c1cf007e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: caa5364622008e54f92213321e1e2496, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaintexEmission:
-        m_Texture: {fileID: 2800000, guid: caa5364622008e54f92213321e1e2496, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MaintexEmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaintexEmissionMapOverlay:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -71,14 +63,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 8029cf12f57e7e243b139e92fb8f19de, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 6ee189297820e7b4f813d434b6f61273, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -86,36 +82,51 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DissolveAmount: -0
-    - _DissolveMax: 4
-    - _DissolveMin: -4
-    - _DstBlend: 0
-    - _EmissionNoiseIntensity: 0.3
-    - _EmissionNoiseSpeed: 0.1
-    - _EmissionNoiseU: 1
-    - _EmissionNoiseV: 1
+    - _DissolveAmount: 0
+    - _DissolveColorIntensity: 10
+    - _DissolveMax: 5
+    - _DissolveMin: -2
+    - _DstBlend: 10
+    - _Fog1MapIntensity: 0.5
+    - _Fog1Offset: 0.5
+    - _Fog1speed: 0.2
+    - _Fog2MapIntensity: 0.5
+    - _Fog2speed: 0.5
     - _Gloss: 0
-    - _GlossMapScale: 0
+    - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _MaintexEmissionIntensity: 0.2
-    - _MaintexEmissionOverlayIntensity: 0.5
+    - _MaintexEmissionIntensity: 1
     - _MaintexNormalIntensity: 0
+    - _MaintexUSpeed: 0
+    - _MaintexVSpeed: 0.05
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 2
+    - _Noise1speed: 0.25
+    - _Noise2speed: 1
     - _OcclusionStrength: 1
+    - _OpacityIntensity: 0.8
+    - _OpacityMap1Intensity: 0.5
+    - _OpacityMap2Intensity: 0.5
+    - _OpacityMapIntensity: 0.5
     - _Parallax: 0.02
-    - _SilhouetteIntensity: 0
-    - _SmoothnessTextureChannel: 1
+    - _SmoothnessTextureChannel: 0
+    - _Specular: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
+    - _TotalOpacityIntensity: 1.37
     - _UVSec: 0
-    - _ZWrite: 1
+    - _ZWrite: 0
+    - _node_1872: 0
+    - _node_3752: 0
+    - _node_4099: 1
+    - _node_4587: 2.64155
+    - _node_7148: -1.269156
+    - _node_9068: 10
+    - _node_9403: 10
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 0.772}
+    - _DissolveColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
-    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MaintexColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MaintexEmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _maintexEmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _maintexEmissionOverlayColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MaintexColor: {r: 0.4705882, g: 0.4705882, b: 0.4705882, a: 1}
+    - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
