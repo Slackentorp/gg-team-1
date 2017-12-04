@@ -121,6 +121,7 @@ namespace AK
                 static const AkUniqueID MEMORY = 3509424520U;
                 static const AkUniqueID PLAYFUL = 1971384320U;
                 static const AkUniqueID SILENT = 3160623154U;
+                static const AkUniqueID TENDER = 305047131U;
             } // namespace STATE
         } // namespace FRAGMENT_MUSIC
 

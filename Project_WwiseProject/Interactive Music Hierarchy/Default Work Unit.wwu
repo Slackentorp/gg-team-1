@@ -1389,6 +1389,126 @@
 										</MusicCue>
 									</CueList>
 								</MusicSegment>
+								<MusicSegment Name="Slow but happy" ID="{66437315-504A-4B28-8459-C2D2FF03777A}" ShortID="478130962">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="53193.9229024943"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Slow but happy" ID="{088BBCDC-5F6E-48BF-9F79-0D7D2C44C91E}" ShortID="319384304">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Slow but happy" ID="{A82410BC-BC27-4AA3-A340-8895769668DC}" ShortID="478933272">
+													<Language>SFX</Language>
+													<AudioFile>Slow but happy.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{6C87F399-D6B3-42AA-A8E1-49E94857B548}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{2B298AAA-9A0D-4B58-9030-0853CF63CA9B}">
+													<ClipList>
+														<MusicClip Name="Slow but happy" ID="{E7653703-4495-4E6E-A701-099724D57D3B}">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="1002.20434453975"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="53193.9229024943"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="-1002.20434453975"/>
+															</PropertyList>
+															<AudioSourceRef Name="Slow but happy" ID="{A82410BC-BC27-4AA3-A340-8895769668DC}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{9D6FF73F-DEC4-4B86-8E98-0D8821855FBA}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>1.0022</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>53.1939229024943</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{65A8083D-908E-49F5-8539-260AF12367E6}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>1.0022</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>53.1939229024943</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{0E26CC5B-1B19-4D63-8B47-AD5424013CAA}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>1.0022</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>53.1939229024943</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{22CF8F0B-E2BC-4033-9223-1CAC3E256DC4}"/>
+										<MusicCue Name="Exit Cue" ID="{B6051C99-F236-4EC3-BA75-6E305514BAFD}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="53193.9229024943"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
 							</ChildrenList>
 							<TransitionList>
 								<MusicTransition Name="Root" ID="{84EC9BAD-7422-4BAF-8A9A-3F999294A8C9}">
@@ -1472,6 +1592,14 @@
 									</Path>
 									<AudioNodeInfo>
 										<AudioNodeRef Name="Happy perhaps" ID="{204A2D85-FD61-4683-8B40-FEAB3FB36963}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
+								<Entry>
+									<Path>
+										<PathElementRef Name="Tender" ID="{B29DB40C-B673-4CF4-9646-FA13184DFCE4}"/>
+									</Path>
+									<AudioNodeInfo>
+										<AudioNodeRef Name="Slow but happy" ID="{66437315-504A-4B28-8459-C2D2FF03777A}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
 									</AudioNodeInfo>
 								</Entry>
 							</EntryList>

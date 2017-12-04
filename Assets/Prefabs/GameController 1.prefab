@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c279eeb01e738941976b0811ec8f86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleLiveTime: 2
+  particleLiveTime: 5
 --- !u!114 &114455985029975442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,6 +72,7 @@ MonoBehaviour:
   LightController: {fileID: 0}
   HeadsetStateUIText: {fileID: 0}
   InputSettings: {fileID: 11400000, guid: e18b67782cd8cfe469dc6b5dad4db415, type: 2}
+  hasReachedPointOfNoReturn: 0
   cameraTurnSpeedY: 1.4
   cameraTurnSpeedX: 1.4
   minimumVerticalAngle: 30
@@ -103,7 +104,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   mothDistanceToObject: 0.588
-  mothDistanceToCeiling: 0
+  mothDistanceToCeiling: 1
   MothFidgitingCurve:
     serializedVersion: 2
     m_Curve:
@@ -160,6 +161,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   cameraToFragmentSpeed: 0.3
+  fragmentParticles: {fileID: 1097909914399492, guid: 2fb6cd3aab40d384dba5dbd409a8ecc4,
+    type: 2}
   PuzzleLerpCurve:
     serializedVersion: 2
     m_Curve:
@@ -179,7 +182,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   cameraToPuzzleSpeed: 0.3
-  FragmentToLightSourceParticles: {fileID: 1865884038229420, guid: 0a1094e5d365a9b4d8731840897ea3c5,
+  FragmentToLightSourceParticles: {fileID: 1097909914399492, guid: 2fb6cd3aab40d384dba5dbd409a8ecc4,
     type: 2}
   FragmentToLightSourceCurve:
     serializedVersion: 2
@@ -187,11 +190,11 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.0011656726
+      outSlope: 0.0011656726
       tangentMode: 0
     - serializedVersion: 2
-      time: 2
+      time: 3
       value: 1
       inSlope: 0
       outSlope: 0
