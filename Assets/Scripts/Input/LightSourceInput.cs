@@ -92,54 +92,81 @@ public class LightSourceInput : MonoBehaviour
     public void FragmentChecker(Interactable sender)
     {
         int numPlayedFragments = interactables.Count(f => f.HasPlayed);
-
+        
         if (interactables.Length == 0)
         {
             return;
+
         }
 
-        if (interactables.Length == 3)
-        {
-            if (numPlayedFragments >= interactables.Length - 1)
-            {
-                LampON();
-                if (sender != null)
-                {
-                    StartCoroutine(ParticleLerp(sender));
-                }
-            }
-            else if (numPlayedFragments == interactables.Length - 2)
-            {
-                LampFlickering();
-                if (sender != null)
-                {
-                    StartCoroutine(ParticleLerp(sender));
-                }
-            }
-        }
-        else if (interactables.Length == 1)
-        {
-            if (numPlayedFragments == interactables.Length)
-            {
-                LampON();
-                if (sender != null)
-                {
-                    StartCoroutine(ParticleLerp(sender));
-                }
-            }
-            else if (numPlayedFragments == 0)
-            {
-                LampFlickering();
-                if (sender != null)
-                {
-                    StartCoroutine(ParticleLerp(sender));
-                }
-            }
-        }
 
+        //    if (sender != null)
+        //    {
+        //        for (int i = 0; i <= interactables.Length; i++)
+        //        {
+        //        }
+        //    }
+        //}
+
+        //if (sender.StoryFragment != interactables[0].StoryFragment)
+        //{
+        //    return;
+        //}
+        foreach (Interactable localInteractables in interactables)
+        {
+            if (localInteractables.StoryFragment == sender.StoryFragment)
+            {
+                Debug.Log("i am totally touched");
+
+
+
+                if (interactables.Length == 3)
+                {
+                    if (numPlayedFragments >= interactables.Length - 1)
+                    {
+                        LampON();
+                        if (sender != null)
+                        {
+                            Debug.Log("1   " + lightMapIndex);
+                            StartCoroutine(ParticleLerp(sender));
+                        }
+                    }
+                    else if (numPlayedFragments == interactables.Length - 2)
+                    {
+                        LampFlickering();
+                        if (sender != null)
+                        {
+                            Debug.Log("2  " + lightMapIndex);
+                            StartCoroutine(ParticleLerp(sender));
+                        }
+                    }
+                }
+                else if (interactables.Length == 1)
+                {
+                    if (numPlayedFragments == interactables.Length)
+                    {
+                        LampON();
+                        if (sender != null)
+                        {
+                            Debug.Log("3   " + lightMapIndex);
+                            StartCoroutine(ParticleLerp(sender));
+                        }
+                    }
+                    else if (numPlayedFragments == 0)
+                    {
+                        LampFlickering();
+                        if (sender != null)
+                        {
+                            Debug.Log("4  " + lightMapIndex);
+                            StartCoroutine(ParticleLerp(sender));
+                        }
+                    }
+                }
+            }
+        }
         LightSourceCallz();
-
     }
+
 
     public void LightSourceCallz()
     {
@@ -154,10 +181,10 @@ public class LightSourceInput : MonoBehaviour
         LAMP_OFF,
         LAMP_FLICKERING,
         LAMP_ON
-        };
+    };
 
-        private void LampOFF()
-        {
+    private void LampOFF()
+    {
         currentLampState = State.LAMP_OFF;
         lampStateCheck = false;
         LightSwitch(currentLampState);
@@ -192,6 +219,7 @@ public class LightSourceInput : MonoBehaviour
 
         ParticleSystem explosionSystem = particle.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
         AkSoundEngine.PostEvent("PARTICLE_APPEAR_FRAGMENT", particle);
+        Debug.Log("Particle_appear_fragment");
 
         while (time < endTime)
         {
@@ -234,9 +262,9 @@ public class LightSourceInput : MonoBehaviour
                 if (firstTimeFlickerCheck)
                 {
                     AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
+                    Debug.Log("lamp_flikering");
                 }
                 lampFlickerCheck = true;
-
                 Flickering = FlickeringSequence();
                 StartCoroutine(Flickering);
                 var em = particleSystemLamp.emission;
@@ -250,6 +278,7 @@ public class LightSourceInput : MonoBehaviour
                 }
 
                 AkSoundEngine.PostEvent("LAMP_ON", gameObject);
+                Debug.Log("lamp_on");
                 lampFlickerCheck = false;
                 rend.sharedMaterial = lampMaterialOn;
                 var em = particleSystemLamp.emission;
