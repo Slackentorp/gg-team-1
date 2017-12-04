@@ -29,7 +29,7 @@
 				<Event Id="2817540555" Name="FRAGMENT_BIRTHDAY" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_BIRTHDAY"/>
 				<Event Id="708113490" Name="FRAGMENT_CLOCK" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_CLOCK"/>
 				<Event Id="589325167" Name="FRAGMENT_COZYKITCHEN" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_COZYKITCHEN"/>
-				<Event Id="3960073237" Name="FRAGMENT_DISCOVER" ObjectPath="\Events\Default Work Unit\Fragments\Common\FRAGMENT_DISCOVER"/>
+				<Event Id="3960073237" Name="FRAGMENT_DISCOVER" ObjectPath="\Events\Default Work Unit\Fragments\Common\FRAGMENT_DISCOVER" MaxAttenuation="5.000000"/>
 				<Event Id="2161294919" Name="FRAGMENT_END" ObjectPath="\Events\Default Work Unit\Fragments\Common\FRAGMENT_END"/>
 				<Event Id="3283089637" Name="FRAGMENT_LEAVE" ObjectPath="\Events\Default Work Unit\Fragments\Common\FRAGMENT_LEAVE" MaxAttenuation="0.000000"/>
 				<Event Id="2002587924" Name="FRAGMENT_MODELLING1" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_MODELLING1"/>
@@ -64,7 +64,7 @@
 				<Event Id="1275729080" Name="LIVINGROOM_ENTER" ObjectPath="\Events\Default Work Unit\Ambience\LIVINGROOM_ENTER" MaxAttenuation="0.000000"/>
 				<Event Id="3307976374" Name="MAINMENU_OPEN" ObjectPath="\Events\Default Work Unit\Menu\MAINMENU_OPEN" MaxAttenuation="0.000000"/>
 				<Event Id="1931074718" Name="MENU_START_GAME" ObjectPath="\Events\Default Work Unit\Menu\MENU_START_GAME" MaxAttenuation="0.000000"/>
-				<Event Id="1512987680" Name="MENUBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Menu\MENUBUTTON_PRESS" MaxAttenuation="0.000000"/>
+				<Event Id="1512987680" Name="MENUBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Menu\MENUBUTTON_PRESS"/>
 				<Event Id="2268000284" Name="MENUTOGGLEBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Menu\MENUTOGGLEBUTTON_PRESS"/>
 				<Event Id="2904931443" Name="MOTH_APPEAR" ObjectPath="\Events\Default Work Unit\Moth\MOTH_APPEAR"/>
 				<Event Id="410314580" Name="MOTH_END_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_END_FLIGHT" MaxAttenuation="0.000000"/>
@@ -92,7 +92,7 @@
 				<Event Id="1922983906" Name="STORYEVENT_3" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_3"/>
 				<Event Id="1922983909" Name="STORYEVENT_4" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_4"/>
 				<Event Id="1922983908" Name="STORYEVENT_5" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_5"/>
-				<Event Id="3721137874" Name="STORYEVENT_END" ObjectPath="\Events\Default Work Unit\Fragments\Common\STORYEVENT_END"/>
+				<Event Id="3721137874" Name="STORYEVENT_END" ObjectPath="\Events\Default Work Unit\Fragments\Common\STORYEVENT_END" MaxAttenuation="0.000000"/>
 				<Event Id="4142189312" Name="STREET" ObjectPath="\Events\Default Work Unit\Ambience\City\STREET" MaxAttenuation="50.000000"/>
 				<Event Id="3809097629" Name="TAP_PARTICLE" ObjectPath="\Events\Default Work Unit\Particle\TAP_PARTICLE"/>
 				<Event Id="3443637649" Name="TESTMAPBUTTON" ObjectPath="\Events\Default Work Unit\TESTMAPBUTTON"/>
@@ -400,6 +400,10 @@
 					<ShortName>NEIGHBOUR_NOISE__2.wav</ShortName>
 					<Path>SFX/NEIGHBOUR_NOISE__2_31813313.wem</Path>
 				</File>
+				<File Id="478933272" Language="SFX">
+					<ShortName>Slow but happy.wav</ShortName>
+					<Path>SFX/Slow but happy_005E2381.wem</Path>
+				</File>
 				<File Id="480296371" Language="SFX">
 					<ShortName>FRAGMENT_START.wav</ShortName>
 					<Path>SFX/FRAGMENT_START_AA4A68F7.wem</Path>
@@ -495,6 +499,10 @@
 				<File Id="606185163" Language="SFX">
 					<ShortName>Rattle.wav</ShortName>
 					<Path>SFX/Rattle_E8E612C0.wem</Path>
+				</File>
+				<File Id="611076972" Language="SFX">
+					<ShortName>MENUBUTTON_PRESS_1.wav</ShortName>
+					<Path>SFX/MENUBUTTON_PRESS_1_379244B3.wem</Path>
 				</File>
 				<File Id="613866147" Language="SFX">
 					<ShortName>WE_NEED_A_TV_1.wav</ShortName>
@@ -684,6 +692,10 @@
 					<ShortName>NEIGHBOUR_NOISE_02.wav</ShortName>
 					<Path>SFX/NEIGHBOUR_NOISE_02_31813313.wem</Path>
 				</File>
+				<File Id="932777142" Language="SFX">
+					<ShortName>MENUBUTTON_PRESS.wav</ShortName>
+					<Path>SFX/MENUBUTTON_PRESS_379244B3.wem</Path>
+				</File>
 				<File Id="933462240" Language="SFX">
 					<ShortName>UGLY_POSTER.wav</ShortName>
 					<Path>SFX/UGLY_POSTER_379244B3.wem</Path>
@@ -786,7 +798,7 @@
 				</File>
 				<File Id="1055778626" Language="SFX">
 					<ShortName>FOGWALL_IDLE.wav</ShortName>
-					<Path>SFX/FOGWALL_IDLE_379244B3.wem</Path>
+					<Path>SFX/FOGWALL_IDLE_005E2381.wem</Path>
 				</File>
 				<File Id="1062689332" Language="SFX">
 					<ShortName>Bug_Zapper_PSEM.043.wav</ShortName>
