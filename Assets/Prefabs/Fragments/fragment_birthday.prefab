@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33674852485762758}
   - component: {fileID: 23916689700164514}
   m_Layer: 0
-  m_Name: BGF Cup
+  m_Name: WBG Cup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1081885729545996}
-  m_Mesh: {fileID: 4300000, guid: c2f245ef0d9f16e4e89db3f56d9fe1c7, type: 3}
+  m_Mesh: {fileID: 4300000, guid: a802fc103fea46c48b3a996e96324e57, type: 3}
 --- !u!65 &65550611510080142
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -136,10 +136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83bd974c841a7847b906e165533e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstPuzzleCheck: 0
   interactionDistance: 2
   cameraPosition: {x: 0.1, y: 0.21, z: 0.08}
   cameraOrientation: {x: 0, y: 0, z: 0}
-  landingPosition: {x: 0, y: 0, z: 0}
+  landingPosition: {x: 0.01, y: 0, z: 0.09}
   landingRotation: 0
   storyFragment: FRAGMENT_BIRTHDAY
   hasPlayed: 0
