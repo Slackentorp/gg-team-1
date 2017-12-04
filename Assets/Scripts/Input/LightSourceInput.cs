@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EasyButtons;
 using Gamelogic.Extensions;
 using UnityEngine;
 
@@ -20,17 +21,13 @@ public class LightSourceInput : MonoBehaviour
     [SerializeField]
     private Material lampMaterialOn, lampMaterialOff;
     private ParticleSystem particleSystemLamp;
-    private bool lampParticleStatus;
     private Renderer rend;
     private State currentLampState;
-    [SerializeField]
-    private bool[] localFragmentsState;
     [SerializeField]
     private bool lampStateCheck = false;
     private bool lampFlickerCheck = false;
     [SerializeField]
     private int lightMapIndex;
-    private int getNrOfFragments = 0;
     private bool firstTimeFlickerCheck;
 
     private float flickerRangeLong, flickerRangeShort;
@@ -156,8 +153,8 @@ public class LightSourceInput : MonoBehaviour
         LAMP_ON
         };
 
-        private void LampOFF()
-        {
+    private void LampOFF()
+    {
         currentLampState = State.LAMP_OFF;
         lampStateCheck = false;
         LightSwitch(currentLampState);
@@ -170,6 +167,21 @@ public class LightSourceInput : MonoBehaviour
         isActivated = true;
         lampFullOn = false;
     }
+
+    [Button]
+    public void ForceSwitchOn()
+    {
+        LampON();
+        LightSourceCallz();
+    }
+    
+
+    [Button]
+    public void ForceSwitchOff()
+    {
+        LampOFF();
+    }
+    
     private void LampON()
     {
         currentLampState = State.LAMP_ON;
@@ -221,7 +233,10 @@ public class LightSourceInput : MonoBehaviour
 
             if (currentLampState == State.LAMP_OFF)
             {
-                StopCoroutine(Flickering);
+                if(Flickering != null)
+                {
+                    StopCoroutine(Flickering);
+                }
 
                 rend.sharedMaterial = lampMaterialOff;
                 var em = particleSystemLamp.emission;

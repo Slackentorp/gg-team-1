@@ -28,8 +28,8 @@ public class SubToolXML : Singleton<SubToolXML>
     public GameObject SubtitleContainer;
     uint g_markersPlayingID = 1;
     bool showSubs = false;
+    bool subtitlesIsOn = true; 
 
-    //[SerializeField]
     List<string> activeSubs = new List<string>();
 
     private Dictionary<char, string> characterColor = new Dictionary<char, string>();
@@ -38,15 +38,26 @@ public class SubToolXML : Singleton<SubToolXML>
     {
         public char color;
         public string text;
+        public float startTime;
         public float duration;
     };
 
-    private Dictionary<float, SubInfo> subtitles;
+    private Dictionary<int, SubInfo> subtitles;
 
     private const float secPerWord = 0.375f;
 
     public delegate void OnShow();
     public static event OnShow OnShowSubs;
+
+    private void OnEnable()
+    {
+        PauseCanvas.OnSubtitleButton += ShowSubtitles; 
+    }
+
+    private void OnDisable()
+    {
+        PauseCanvas.OnSubtitleButton -= ShowSubtitles;
+    }
 
     private void Awake()
     {
@@ -79,7 +90,10 @@ public class SubToolXML : Singleton<SubToolXML>
         if (subtitles != null)
             subtitles.Clear();
 
-        subtitles = new Dictionary<float, SubInfo>();
+        if (activeSubs != null)
+            activeSubs.Clear();
+
+        subtitles = new Dictionary<int, SubInfo>();
 
         List<char> character = new List<char>();
         List<float> startingPosition = new List<float>();
@@ -133,7 +147,8 @@ public class SubToolXML : Singleton<SubToolXML>
                 tmp.color = character[index];
                 tmp.text = lines[j];
                 tmp.duration = textDuration[j];
-                subtitles.Add(startingPosition[j], tmp);
+                tmp.startTime = startingPosition[j];
+                subtitles.Add(j, tmp);
             }
 
             subReader.Close();
@@ -152,7 +167,7 @@ public class SubToolXML : Singleton<SubToolXML>
 
     private void Update()
     {
-        if (!showSubs)
+        if (!showSubs || !subtitlesIsOn)
         {
             return;
         }
@@ -180,15 +195,12 @@ public class SubToolXML : Singleton<SubToolXML>
 
         foreach (var item in subtitles)
         {
-            yield return new WaitForSeconds((item.Key - prev) / 10);
-            prev = item.Key;
+            yield return new WaitForSeconds((item.Value.startTime - prev) / 10);
+            prev = item.Value.startTime;
             string text = AddColorToText(characterColor[item.Value.color], item.Value.text);
             activeSubs.Add(text);
             StartCoroutine(RemoveSubtitles(text, item.Value.duration));
         }
-
-        subtitles.Clear();
-        activeSubs.Clear();
     }
 
     IEnumerator RemoveSubtitles(string key, float duration)
@@ -198,6 +210,11 @@ public class SubToolXML : Singleton<SubToolXML>
             yield return new WaitForSeconds(duration);
             activeSubs.Remove(key);
         }
+    }
+
+    private void ShowSubtitles(bool show)
+    {
+        subtitlesIsOn = show; 
     }
 
     private string AddColorToText(string color, string text)
