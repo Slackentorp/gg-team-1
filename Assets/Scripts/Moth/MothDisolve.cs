@@ -14,12 +14,15 @@ public class MothDisolve : MonoBehaviour
     [SerializeField]
     private Shader mothShader;
     [SerializeField]
-    private ParticleSystem assembleParticle;
-    private ParticleSystem particleHolder;
+    private GameObject assemblePrefab;
+    private ParticleSystem[] assembleParticle;
+    private GameObject particleHolder;
     private Vector3 puzzlePosition;
     private float mothAssembleTiming;
     [SerializeField]
     private float DKTiming = 5f, ENGTiming = 3.5f;
+    [SerializeField]
+    private Vector3 particleOffset; 
 
     private void OnEnable()
     {
@@ -34,6 +37,7 @@ public class MothDisolve : MonoBehaviour
     {
         GetMaterial();
 		rend.material.SetFloat("_DissolveAmount", mothDissolvedState);
+        assembleParticle = assemblePrefab.GetComponentsInChildren<ParticleSystem>();
     }
 
     private void GetMaterial()
@@ -59,11 +63,14 @@ public class MothDisolve : MonoBehaviour
         }
 
         puzzlePosition = puzPos.transform.position;
-        print("Position: " + puzzlePosition);
-         
-        particleHolder = ParticleSystem.Instantiate(assembleParticle, puzzlePosition, assembleParticle.transform.rotation);
-        var em = particleHolder.emission;
-        em.enabled = true;
+
+        particleHolder = Instantiate(assemblePrefab, puzzlePosition + particleOffset, assemblePrefab.transform.rotation);
+        assembleParticle = particleHolder.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem assembleParticle in assembleParticle)
+        {
+            var em = assembleParticle.emission;
+            em.enabled = true;
+        }
 
         StartCoroutine(MothMaterialisation());
     }
@@ -82,8 +89,11 @@ public class MothDisolve : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(mothAssembleTiming + 3f);
-        var em = particleHolder.emission;
-        em.enabled = false;
+        foreach (ParticleSystem assembleParticle in assembleParticle)
+        {
+            var em = assembleParticle.emission;
+            em.enabled = false;
+        }
         yield return new WaitForSeconds(4f);
         Destroy(particleHolder.gameObject);
         yield return null;
