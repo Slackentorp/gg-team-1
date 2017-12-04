@@ -62,6 +62,20 @@
 						<State Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
 						<State Name="CUTSCENE" ID="{CF65DA72-4E24-4B9E-A64C-5AF3DBBFE3F7}"/>
 					</ChildrenList>
+					<TransitionList>
+						<Transition>
+							<StartState Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}"/>
+							<EndState Name="CUTSCENE" ID="{CF65DA72-4E24-4B9E-A64C-5AF3DBBFE3F7}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="None" ID="{5D54B2EB-B513-4172-89F4-B6F866279BD5}"/>
+							<EndState Name="CUTSCENE" ID="{CF65DA72-4E24-4B9E-A64C-5AF3DBBFE3F7}"/>
+							<Time>0</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+					</TransitionList>
 				</StateGroup>
 				<StateGroup Name="ROOM" ID="{3CEC4412-1E33-4E4B-A9AD-2AE42D268D8D}">
 					<PropertyList>
