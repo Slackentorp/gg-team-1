@@ -3735,7 +3735,11 @@
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-17</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -3803,6 +3807,7 @@
 									<ChildrenList>
 										<Sound Name="FOGWALL_IDLE" ID="{2F96ADB8-41E6-48A2-834A-FDD8E5FF86AB}" ShortID="820216275">
 											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="Spatialization" Type="bool" Value="False"/>
 												<Property Name="Volume" Type="Real64">
@@ -3885,6 +3890,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<RandomSequenceContainer Name="Collision" ID="{5487CAC9-CD3B-400D-BCB8-2B4F6FB5E59D}" ShortID="793568394">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-510</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -4638,7 +4650,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-6</Value>
+										<Value>-3</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{93B9D20E-03E9-4F79-BE77-4584D3BC1F3A}" ShortID="546935811">
@@ -10450,7 +10462,7 @@
 										<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
 										<Property Name="Highpass" Type="int16">
 											<ValueList>
-												<Value>29</Value>
+												<Value>44</Value>
 											</ValueList>
 										</Property>
 										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
@@ -10472,7 +10484,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>5</Value>
+												<Value>8</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
