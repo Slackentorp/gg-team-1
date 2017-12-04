@@ -128,6 +128,8 @@ public class MenuPuzzle : MonoBehaviour
 
     private void OnPuzzleSolved()
     {
+		AkSoundEngine.PostEvent("PUZZLE_SOLVED", currentPiece);
+
         if (OnFinished != null)
         {
             OnFinished();
