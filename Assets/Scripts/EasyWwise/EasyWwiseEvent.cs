@@ -6,9 +6,14 @@ public class EasyWwiseEvent : MonoBehaviour
 {
     public EasyWWiseEventType ChosenType;
     public string WwiseEventID;
+    public bool PostOnlyAfterPointOfNoReturn;
 
     void Awake()
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.Awake)
         {
             AkSoundEngine.PostEvent(WwiseEventID, gameObject);
@@ -17,6 +22,10 @@ public class EasyWwiseEvent : MonoBehaviour
 
     void Start()
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.Start)
         {
             AkSoundEngine.PostEvent(WwiseEventID, gameObject);
@@ -25,6 +34,10 @@ public class EasyWwiseEvent : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerEnter)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
@@ -33,6 +46,10 @@ public class EasyWwiseEvent : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerStay)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
@@ -41,6 +58,10 @@ public class EasyWwiseEvent : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerExit)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
@@ -49,6 +70,10 @@ public class EasyWwiseEvent : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionEnter)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
@@ -57,6 +82,10 @@ public class EasyWwiseEvent : MonoBehaviour
 
     void OnCollisionStay(Collision other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionStay)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
@@ -65,6 +94,10 @@ public class EasyWwiseEvent : MonoBehaviour
 
     void OnCollisionExit(Collision other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionExit)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
