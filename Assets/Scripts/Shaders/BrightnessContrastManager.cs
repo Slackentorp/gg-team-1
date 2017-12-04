@@ -12,6 +12,18 @@ public class BrightnessContrastManager : MonoBehaviour
     [Range(0f, 2f)] public float _Brightness = 1f;
     [Range(0f, 2f)] public float _Contrast = 1f;
 
+    private void OnEnable()
+    {
+        PauseCanvas.OnGammaChange += SetBrightness;
+        PauseCanvas.OnContrastChange += SetContrast; 
+    }
+
+    private void OnDisable()
+    {
+        PauseCanvas.OnGammaChange -= SetBrightness;
+        PauseCanvas.OnContrastChange -= SetContrast;
+    }
+
     Material material
     {
         get
