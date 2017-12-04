@@ -303,6 +303,19 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
+										<Action Name="" ID="{FD8FE43E-D19A-4DF6-846E-03781FD8431F}" ShortID="226685951">
+											<PropertyList>
+												<Property Name="AbsoluteOrRelative" Type="int16" Value="1"/>
+												<Property Name="ActionType" Type="int16" Value="38"/>
+												<Property Name="GameParameterValue" Type="Real64" Value="1"/>
+												<Property Name="Scope" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="PICTUREPUZZLE_STATE" ID="{40A0EEB6-4948-4594-8DFA-4974BD810844}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 									</ChildrenList>
 								</Event>
 							</ChildrenList>
@@ -394,16 +407,6 @@
 						</Event>
 						<Event Name="MAINMENU_OPEN" ID="{F57412A0-CBED-4E0E-B4C5-358AA27E86A0}">
 							<ChildrenList>
-								<Action Name="" ID="{6CCF38EC-D914-44DB-8D1B-35BCEC6BEFF0}" ShortID="305473478">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Menu Puzzle" ID="{AA6D2D6D-A0F6-4832-9D2D-C5CE156D1FA7}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{46D13FB7-63FF-45DA-B46F-94C3B0A61DF8}" ShortID="1039089955">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
@@ -430,7 +433,22 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="MENU_START_GAME" ID="{13549D70-DC0E-4887-8B18-E9012C0D2CF3}"/>
+						<Event Name="MAINMENU_START_GAME" ID="{13549D70-DC0E-4887-8B18-E9012C0D2CF3}">
+							<ChildrenList>
+								<Action Name="" ID="{18B9F3BC-9AF3-4E7F-A47E-78E4723A3E48}" ShortID="158992690">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="3"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu Puzzle" ID="{AA6D2D6D-A0F6-4832-9D2D-C5CE156D1FA7}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="SFX_MUTE" ID="{A7EC4BB8-F6DB-480A-820B-B7917930C421}">
 							<ChildrenList>
 								<Action Name="" ID="{69541EF5-76FF-4237-BD71-329D1C39EC06}" ShortID="740513012">
@@ -504,6 +522,21 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Toggle button press" ID="{133BAA2D-BB0D-4769-96A5-157534D5B02B}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="GAME_START" ID="{2CC4BD66-BA2C-43F8-A0BB-5D64983C8C70}"/>
+						<Event Name="PUZZLE_OPENING" ID="{AF2EF721-3C4E-4BE7-BEA9-FD8790A30F14}">
+							<ChildrenList>
+								<Action Name="" ID="{6CCF38EC-D914-44DB-8D1B-35BCEC6BEFF0}" ShortID="305473478">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu Puzzle" ID="{AA6D2D6D-A0F6-4832-9D2D-C5CE156D1FA7}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

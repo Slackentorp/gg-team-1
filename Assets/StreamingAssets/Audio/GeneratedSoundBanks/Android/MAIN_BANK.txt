@@ -7,6 +7,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	722690792	FRAGMENT_SMOKING2			\Default Work Unit\Fragments\FRAGMENT_SMOKING2	
 	722690795	FRAGMENT_SMOKING1			\Default Work Unit\Fragments\FRAGMENT_SMOKING1	
 	731569454	FRAGMENT_WHISPER			\Default Work Unit\Fragments\Common\FRAGMENT_WHISPER	
+	733168346	GAME_START			\Default Work Unit\Menu\GAME_START	
 	746056516	CAMERA_MOVE			\Default Work Unit\CAMERA_MOVE	
 	760300722	WALKMAN			\Default Work Unit\Ambience\WALKMAN	
 	778173897	PIECE_PLACE			\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACE	
@@ -28,6 +29,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1683668984	FRAGMENT_WORLDMAP2			\Default Work Unit\Fragments\FRAGMENT_WORLDMAP2	
 	1683668987	FRAGMENT_WORLDMAP1			\Default Work Unit\Fragments\FRAGMENT_WORLDMAP1	
 	1696404602	MUSIC_MUTE			\Default Work Unit\Menu\MUSIC_MUTE	
+	1784160095	MAINMENU_START_GAME			\Default Work Unit\Menu\MAINMENU_START_GAME	
 	1875687151	FRAGMENT_POSTER			\Default Work Unit\Fragments\FRAGMENT_POSTER	
 	1914731752	PARTICLE_APPEAR_FRAGMENT			\Default Work Unit\Particle\PARTICLE_APPEAR_FRAGMENT	
 	1922983904	STORYEVENT_1			\Default Work Unit\Fragments\STORYEVENT_1	
@@ -35,7 +37,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	1922983907	STORYEVENT_2			\Default Work Unit\Fragments\STORYEVENT_2	
 	1922983908	STORYEVENT_5			\Default Work Unit\Fragments\STORYEVENT_5	
 	1922983909	STORYEVENT_4			\Default Work Unit\Fragments\STORYEVENT_4	
-	1931074718	MENU_START_GAME			\Default Work Unit\Menu\MENU_START_GAME	
 	1995931404	FRAGMENT_TV2			\Default Work Unit\Fragments\FRAGMENT_TV2	
 	1995931407	FRAGMENT_TV1			\Default Work Unit\Fragments\FRAGMENT_TV1	
 	2002587924	FRAGMENT_MODELLING1			\Default Work Unit\Fragments\FRAGMENT_MODELLING1	
@@ -46,6 +47,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2161294919	FRAGMENT_END			\Default Work Unit\Fragments\Common\FRAGMENT_END	
 	2177473561	PIECE_PLACED_WRONG			\Default Work Unit\Puzzles\PicturePuzzle\PIECE_PLACED_WRONG	
 	2268000284	MENUTOGGLEBUTTON_PRESS			\Default Work Unit\Menu\MENUTOGGLEBUTTON_PRESS	
+	2274196952	PUZZLE_OPENING			\Default Work Unit\Menu\PUZZLE_OPENING	
 	2308008558	PARTICLE_APPEAR_LAMP			\Default Work Unit\Particle\PARTICLE_APPEAR_LAMP	
 	2337612214	FRIDGE			\Default Work Unit\FRIDGE	
 	2361534988	FRAGMENT_TEST			\Default Work Unit\Fragments\Common\FRAGMENT_TEST	
@@ -146,6 +148,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	1571361561	TENSION			\Default Work Unit\TENSION	
+	2001893719	PICTUREPUZZLE_STATE			\Default Work Unit\PICTUREPUZZLE_STATE	
 	3334266196	MOTH_DOPPLER			\Default Work Unit\MOTH_DOPPLER	
 	4010911193	MOTH_SPEED			\Default Work Unit\MOTH_SPEED	
 
@@ -181,7 +184,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	64340832	NEIGHBOUR_NOISE_07	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE_07_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_07		18014
 	67108989	Phone Ringing	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Phone Ringing_7DDF4AFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Triggered Sounds\Phone Ringing		17076
 	70723791	MUSIC_SUSIES_TATTOO_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\MUSIC_SUSIES_TATTOO_da_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\MUSIC_SUSIES_TATTOO_da\MUSIC_SUSIES_TATTOO_da		470859
-	75012734	FRAGMENT_DISCOVER_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_DISCOVER_2_C8B4BAB5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_2		27599
+	75012734	FRAGMENT_DISCOVER_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_DISCOVER_2_76781F36.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_2		27599
 	82701772	MEET_THE_PARENTS_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\MEET_THE_PARENTS_1_da_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 1\MEET_THE_PARENTS_1_da		352165
 	89270064	cadillac_1960_30mph_driveby_LtoR_001	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\cadillac_1960_30mph_driveby_LtoR_001_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\cadillac_1960_30mph_driveby_LtoR_001		38832
 	97043590	BULB_AC_NOISE	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\BULB_AC_NOISE_41BB3C7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\AC power\BULB_AC_NOISE		6101
@@ -241,7 +244,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	412104274	HIT_WINDOW_SOFT_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\HIT_WINDOW_SOFT_3_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Lamp\Flicker\HIT_WINDOW_SOFT_3		1444
 	412123357	NEIGHBOUR_NOISE_11	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE_11_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_11		10478
 	447932395	MEET_THE_PARENTS_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\MEET_THE_PARENTS_2_da_EA6F59C7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Meet the Parents 2\MEET_THE_PARENTS_2_da		246543
-	454696326	FRAGMENT_DISCOVER_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_DISCOVER_3_DB6374CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_3		24462
+	454696326	FRAGMENT_DISCOVER_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_DISCOVER_3_64AFA09C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_3		24462
 	458506893	NEIGHBOUR_NOISE__2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE__2_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE__2		15772
 	478933272	Slow but happy	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Slow but happy_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\Slow but happy\Slow but happy		738728
 	480296371	FRAGMENT_START	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_START_C532D9BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Start\FRAGMENT_START		105395
@@ -279,7 +282,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	654449630	Hallways_PAD_91bpm	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Hallways_PAD_91bpm_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Hallways Piano\Hallways_PIANO_91bpm\Hallways_PAD_91bpm		2013322
 	657681073	SMOKING_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\SMOKING_2_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Smoking 2\SMOKING_2		301665
 	667994024	NEW_YEARS	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEW_YEARS_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\New Year's\NEW_YEARS		164593
-	675704401	FRAGMENT_DISCOVER_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_DISCOVER_1_EF0570FA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_1		28023
+	675704401	FRAGMENT_DISCOVER_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_DISCOVER_1_A4F82399.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_1		28023
 	680229721	PARTICLE_TAP_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\PARTICLE_TAP_2_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Interaction\Tap particle\PARTICLE_TAP_2		17580
 	686259063	Crumbling Printer Paper 9	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Crumbling Printer Paper 9_D6E7B33B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Paper\Move Paper\Crumbling Printer Paper 9		6675
 	687402096	Lonely Hum	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Light_Hum_Street_Lamp_Lonely_PSEM.160_1A345449.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Fridge\Lonely Hum		46228
@@ -293,13 +296,13 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	734944896	PIECE_PAD_3	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\PIECE_PAD_3_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu Puzzle\PIECE_PAD_3\PIECE_PAD_3		121753
 	736791367	STORYEVENT_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\STORYEVENT_1_da_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Storyevents\Storyevent 1\STORYEVENT_1_da		510023
 	737787349	Testmusic	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Testmusic_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Fragment Music\Testmusic\Testmusic		596313
-	743699595	FRAGMENT_DISCOVER_4	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_DISCOVER_4_BD88B852.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_4		28500
+	743699595	FRAGMENT_DISCOVER_4	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_DISCOVER_4_B59D2D36.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Discover\FRAGMENT_DISCOVER_4		28500
 	752911955	PARTICLE_APPEAR_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\PARTICLE_APPEAR_2_DEE6DA60.wem		\Actor-Mixer Hierarchy\Default Work Unit\Particle\Particle_appear_fragment\PARTICLE_APPEAR_2		210185
 	754530548	WINE_ON_A_WEDNESDAY	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\WINE_ON_A_WEDNESDAY_34718CB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Wine on a wednesday\WINE_ON_A_WEDNESDAY		359673
 	759583116	FRAGMENT_WHISPER	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_WHISPER_EAC504D4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Whisper\FRAGMENT_WHISPER		138244
 	776353407	NEIGHBOUR_NOISE_05	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEIGHBOUR_NOISE_05_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Neighbours\Noise sequence\Noise\NEIGHBOUR_NOISE_05		16879
 	778584774	MODELING_1_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\MODELING_1_da_DD30021C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Modeling 2\MODELING_1_da		337083
-	783772933	MOTH_APPEAR	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\MOTH_APPEAR_8CC57128.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\MOTH_APPEAR		77519
+	783772933	MOTH_APPEAR	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\MOTH_APPEAR_10B7980B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Moth\MOTH_APPEAR		77519
 	791677628	Rattle_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Rattle_2_B52A7F01.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzle\Map\Press Pin\Rattle\Rattle_2		6251
 	797310725	My Loss, My Moth_v1_clean	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\My Loss, My Moth_v1_clean_7DDF4AFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\My Loss, My Moth_v1_clean		1023343
 	798566715	No light	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\No light_7DDF4AFD.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Exploration Music\Kitchen\No light\No light		553485
@@ -337,7 +340,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	995427511	DROP_01	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\DROP_01_6DB458CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Objects\Drops\Drop\DROP_01		3141
 	998771404	POLAROID_2_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\POLAROID_2_da_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Polaroid 2\POLAROID_2_da		274931
 	998870621	NEW_YEARS_da	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\NEW_YEARS_da_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\New Year's\NEW_YEARS_da		133489
-	1001379966	PIECE_PAD_5	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\PIECE_PAD_5_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu Puzzle\PIECE_PAD_5\PIECE_PAD_5		127814
+	1001379966	PIECE_PAD_5	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\PIECE_PAD_5_722ECDC8.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu Puzzle\Done\PIECE_PAD_5\PIECE_PAD_5		127814
 	1001796412	SMOKING_1	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\SMOKING_1_FF424C0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Smoking_1\SMOKING_1		186223
 	1009401605	Car_Ford_Focus_2009_Accel_Slowly_PSEM_051	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\Car_Ford_Focus_2009_Accel_Slowly_PSEM.051_CAA1F3A1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Street\Cars\Car Sequence\Random Car Pass\Car_Ford_Focus_2009_Accel_Slowly_PSEM_051		25223
 	1010715437	FRAGMENT_START_2	Y:\Documents\DADIU\Graduation Game\Project\Project_WwiseProject\.cache\Android\SFX\FRAGMENT_START_2_A737231F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fragment\Start\FRAGMENT_START_2		153646

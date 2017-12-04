@@ -46,6 +46,7 @@ namespace AK
         static const AkUniqueID FRIDGE = 2337612214U;
         static const AkUniqueID FRIDGE_INVISIBLE = 2128490106U;
         static const AkUniqueID FRIDGE_VISIBLE = 2092442601U;
+        static const AkUniqueID GAME_START = 733168346U;
         static const AkUniqueID INGAMEMENU_CLOSE = 1571339874U;
         static const AkUniqueID INGAMEMENU_OPEN = 4165127606U;
         static const AkUniqueID LAMP_FLICKER_OFF = 3202129528U;
@@ -55,7 +56,7 @@ namespace AK
         static const AkUniqueID LAMP_PARTICLE = 4005406552U;
         static const AkUniqueID LIVINGROOM_ENTER = 1275729080U;
         static const AkUniqueID MAINMENU_OPEN = 3307976374U;
-        static const AkUniqueID MENU_START_GAME = 1931074718U;
+        static const AkUniqueID MAINMENU_START_GAME = 1784160095U;
         static const AkUniqueID MENUBUTTON_PRESS = 1512987680U;
         static const AkUniqueID MENUTOGGLEBUTTON_PRESS = 2268000284U;
         static const AkUniqueID MOTH_APPEAR = 2904931443U;
@@ -74,6 +75,7 @@ namespace AK
         static const AkUniqueID PIECE_PLACE = 778173897U;
         static const AkUniqueID PIECE_PLACED_RIGHT = 2720771844U;
         static const AkUniqueID PIECE_PLACED_WRONG = 2177473561U;
+        static const AkUniqueID PUZZLE_OPENING = 2274196952U;
         static const AkUniqueID PUZZLE_SOLVED = 1107599359U;
         static const AkUniqueID PUZZLE_SOLVING = 3258781332U;
         static const AkUniqueID SFX_MUTE = 2835551186U;
@@ -295,6 +297,24 @@ namespace AK
         } // namespace STAR_STATE
 
     } // namespace STATES
+
+    namespace SWITCHES
+    {
+        namespace PICTUREPUZZLE_SWITCH
+        {
+            static const AkUniqueID GROUP = 1021806116U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DONE = 1861070025U;
+                static const AkUniqueID PIECE_0 = 2533340104U;
+                static const AkUniqueID PIECE_01 = 2089288681U;
+                static const AkUniqueID PIECE_02 = 2089288682U;
+                static const AkUniqueID PIECE_03 = 2089288683U;
+            } // namespace SWITCH
+        } // namespace PICTUREPUZZLE_SWITCH
+
+    } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {
