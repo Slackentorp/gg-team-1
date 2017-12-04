@@ -53,9 +53,24 @@ public class PauseCanvas : MonoBehaviour, IPointerUpHandler
         sfxSliderPrev = sfxSlider.value;
         musicSliderPrev = musicSlider.value;
         englishLanguage = (PlayerPrefs.GetInt("LANGUAGE") == 0 ? true : false);
-        languageButton.onClick.AddListener(() => OnLanguageButtonPressed(englishLanguage));
-        subtitleButton.onClick.AddListener(() => OnSubtitleButtonPressed(subtitlesIsOn));
-        menuButton.onClick.AddListener(() => GoToMenu());
+        languageButton.onClick.AddListener(() =>
+        {
+            OnLanguageButtonPressed(englishLanguage);
+            SoundPress();
+        });
+
+        subtitleButton.onClick.AddListener(() =>
+        {
+            OnSubtitleButtonPressed(subtitlesIsOn);
+            SoundPress();
+        });
+
+        menuButton.onClick.AddListener(() =>
+        {
+            GoToMenu();
+            SoundPress();
+        });
+
         sfxSlider.onValueChanged.AddListener(delegate { SFXSlider(); });
         musicSlider.onValueChanged.AddListener(delegate { MusicSlider(); });
         gammaSlider.onValueChanged.AddListener(delegate { GammaSliderChanged(); });
@@ -70,7 +85,7 @@ public class PauseCanvas : MonoBehaviour, IPointerUpHandler
         MusicSlider();
     }
 
-    private void SoundPress()
+    public void SoundPress()
     {
         AkSoundEngine.PostEvent("MENUBUTTON_PRESS", this.gameObject);
     }
@@ -140,7 +155,7 @@ public class PauseCanvas : MonoBehaviour, IPointerUpHandler
         else
             GameController.Instance.SetDanish();
 
-        AkSoundEngine.PostEvent("MENUBUTTON_PRESS", this.gameObject); 
+        AkSoundEngine.PostEvent("MENUBUTTON_PRESS", this.gameObject);
 
         if (OnLanguageButton != null)
         {
