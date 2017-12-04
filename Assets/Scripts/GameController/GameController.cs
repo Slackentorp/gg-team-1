@@ -24,6 +24,7 @@ public class GameController : Singleton<GameController>
 	public InputHandlerSettings InputSettings;
 	public CameraController cameraController;
 	public FragmentParticleController fragParticleController;
+	public bool hasReachedPointOfNoReturn;
 
     [Header("Camera Attributes")]
     [Tooltip("Determines the camera's turn speed on it's y-axis")]
