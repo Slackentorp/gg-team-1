@@ -15,7 +15,12 @@ public class DoorWallController : MonoBehaviour
     [SerializeField]
     private int roomIndex;
 
-    void OnEnable()
+	private void Start()
+	{
+		AkSoundEngine.PostEvent("FOGWALL_ENABLE", gameObject);
+	}
+
+	void OnEnable()
     {
         LightSourceInput.LightSourceCall += LampChecker;
     }
@@ -24,6 +29,7 @@ public class DoorWallController : MonoBehaviour
     {
         LightSourceInput.LightSourceCall -= LampChecker;
     }
+
     void LampChecker()
     {
         int numActiveLamps = roomLamps.Count(l => l.LampActivated);
@@ -32,13 +38,15 @@ public class DoorWallController : MonoBehaviour
         AkSoundEngine.SetState("LAMPS_ON_" + roomIndex, "LAMP_" + numFullOnLamps);
         if(roomLamps.Length == 1 && numFullOnLamps == 1)
         {
-            gameObject.SetActive(false);
-            CallStoryEvent();
+			AkSoundEngine.PostEvent("FOGWALL_DISABLE", gameObject);
+			gameObject.SetActive(false);
+			CallStoryEvent();
         }
 
         else if (numFullOnLamps >= 1 && numActiveLamps == roomLamps.Length)
         {
-            gameObject.SetActive(false);
+			AkSoundEngine.PostEvent("FOGWALL_DISABLE", gameObject);
+			gameObject.SetActive(false);
             CallStoryEvent();
         }
     }
