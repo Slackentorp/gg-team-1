@@ -12,6 +12,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private float fadeTime = 2f;
 
+    [Header("Opening panels")]
+    [SerializeField]
+    private GameObject languageSelect;
+    [SerializeField]
+    private Button dkButton;
+    [SerializeField]
+    private Button enButton;
+    [SerializeField]
+    private GameObject headphonesPanel;
+
     [Header("Buttons")]
     [SerializeField]
     private Button continueButton;
@@ -30,6 +40,8 @@ public class MainMenu : MonoBehaviour
     private GameObject puzzleContainer;
     [SerializeField]
     private SpriteRenderer bgImage;
+    [SerializeField]
+    private MenuPuzzle puzzle;
 
     private GameObject currentMenu;
     private SpriteRenderer[] puzzleSprites;
@@ -38,6 +50,26 @@ public class MainMenu : MonoBehaviour
     AsyncOperation bootstrapLoad;
     AsyncOperation soundScapeLoad;
     AsyncOperation apartmentLoad;
+
+    private void OnEnable()
+    {
+        AkSoundEngine.PostEvent("GAME_START", this.gameObject);
+        MenuPuzzle.OnFinished += OnPuzzleSolved;
+    }
+
+    private void OnDisable()
+    {
+        MenuPuzzle.OnFinished -= OnPuzzleSolved;
+    }
+
+#if UNITY_EDITOR
+    private void OnDestroy()
+    {
+        SceneManager.UnloadSceneAsync("Bootstrap");
+        SceneManager.UnloadSceneAsync("SoundScape");
+        SceneManager.UnloadSceneAsync("Apartment");
+    }
+#endif
 
     // Use this for initialization
     void Start()
@@ -57,13 +89,33 @@ public class MainMenu : MonoBehaviour
         newGameButton.onClick.AddListener(() => StartGame(0));
         tapToStartButton.onClick.AddListener(() => StartGame(0));
 
+        dkButton.onClick.AddListener(() => SetLang(0));
+        enButton.onClick.AddListener(() => SetLang(1));
+
         // Don't show Continue Button if there is nothing to continue
-        if(!SaveLoad.SavegameExists())
+        if (!SaveLoad.SavegameExists())
         {
             continueButton.gameObject.SetActive(false);
+            languageSelect.SetActive(true);
+        }
+        else
+        {
+            StartCoroutine(HeadphonesCanvas(true));
         }
 
+        languageSelect.transform.parent.gameObject.SetActive(true);
+
         puzzleSprites = puzzleContainer.GetComponentsInChildren<SpriteRenderer>();
+    }
+
+
+    private void StartPuzzle()
+    {
+        puzzle.InitializePuzzle();
+    }
+
+    private void OnPuzzleSolved()
+    {
         ShowMenu();
     }
 
@@ -76,10 +128,29 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    private void SetLang(int lang)
+    {
+        PlayerPrefs.SetInt("LANGUAGE", lang);
+        languageSelect.SetActive(false);
+        StartCoroutine(HeadphonesCanvas(false));
+    }
+
+
+    IEnumerator HeadphonesCanvas(bool toPuzzle)
+    {
+        headphonesPanel.SetActive(true);
+        yield return new WaitForSeconds(2f);
+
+        StartPuzzle();
+
+        headphonesPanel.transform.parent.gameObject.SetActive(false);
+        headphonesPanel.SetActive(false);
+        AkSoundEngine.PostEvent("MAINMENU_OPEN", this.gameObject);
+    }
 
     private void ShowMenu()
     {
-        if (false)
+        if (!SaveLoad.SavegameExists())
         {
             currentMenu = firstMenu;
         }
@@ -88,6 +159,8 @@ public class MainMenu : MonoBehaviour
             currentMenu = mainMenu;
         }
 
+        continueButton.enabled = true;
+        newGameButton.enabled = true;
         menuTexts = currentMenu.GetComponentsInChildren<Text>();
         currentMenu.SetActive(true);
 
@@ -95,6 +168,10 @@ public class MainMenu : MonoBehaviour
 
     private void StartGame(int saveload)
     {
+        continueButton.enabled = false;
+        newGameButton.enabled = false; 
+       
+        AkSoundEngine.PostEvent("MAINMENU_START_GAME", this.gameObject);
         PlayerPrefs.SetInt("saveload", saveload);
         StartCoroutine(LoadGame());
     }
@@ -172,7 +249,6 @@ public class MainMenu : MonoBehaviour
         apartmentLoad.allowSceneActivation = true;
         bootstrapLoad.allowSceneActivation = true;
         soundScapeLoad.allowSceneActivation = true;
-        print("Triggered load scenes");
         yield return null;
     }
 

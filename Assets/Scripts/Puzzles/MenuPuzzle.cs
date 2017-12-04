@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MenuPuzzle : MonoBehaviour
 {
     public delegate void PuzzleSolved();
-    public static event PuzzleSolved OnFinished; 
+    public static event PuzzleSolved OnFinished;
 
     // Setup Variables
     [SerializeField]
@@ -17,16 +18,22 @@ public class MenuPuzzle : MonoBehaviour
     private List<Vector3> startPos;
     private Vector3 centerPosition;
 
+    private Camera inputCamera;
+    private GameObject currentPiece;
+
+    private Dictionary<GameObject, Vector3> piecesPos;
 
     // Puzzle Variables
     [SerializeField]
-    private float mercyDistance; 
+    private float mercyDistance;
 
+    private float globalWaitSeconds = 0.6f;
 
-    private float globalWaitSeconds = 2f;
-
-    void Start()
+    public void InitializePuzzle()
     {
+        piecesPos = new Dictionary<GameObject, Vector3>();
+
+        inputCamera = Camera.main;
         correctPosition = transform.GetComponentsInChildren<Transform>();
         startPos = new List<Vector3>();
         centerPosition = Vector3.zero;
@@ -35,18 +42,18 @@ public class MenuPuzzle : MonoBehaviour
         {
             startPos.Add(transform.GetChild(i).position);
             centerPosition += transform.GetChild(i).position;
+            piecesPos.Add(transform.GetChild(i).gameObject, transform.GetChild(i).position);
         }
 
         centerPosition = centerPosition / startPos.Count;
 
-        SolvedPuzzle(); 
-        //StartCoroutine(OpeningSequence());
+        StartCoroutine(OpeningSequence());
     }
 
     public bool CorrectPosition(Vector3 piece, Vector3 correctPos)
     {
-        float distance = Vector3.Distance(piece, correctPos); 
-        return distance < mercyDistance; 
+        float distance = Vector3.Distance(piece, correctPos);
+        return distance < mercyDistance;
     }
 
     void Update()
@@ -56,11 +63,51 @@ public class MenuPuzzle : MonoBehaviour
             ResetPosition();
             StartCoroutine(OpeningSequence());
         }
+
+        if (Input.GetMouseButtonDown(0) && currentPiece == null)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                if (piecesPos.ContainsKey(hit.transform.gameObject))
+                {
+                    currentPiece = hit.transform.gameObject;
+                    AkSoundEngine.PostEvent("PIECE_PICK", currentPiece);
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0) && currentPiece != null)
+        {
+            bool close = Vector3.Distance(piecesPos[currentPiece], currentPiece.transform.position) < mercyDistance;
+            AkSoundEngine.PostEvent("PIECE_PLACE", currentPiece);
+            if (close)
+            {
+                currentPiece.transform.position = piecesPos[currentPiece];
+                piecesPos.Remove(currentPiece);
+                AkSoundEngine.PostEvent("PIECE_PLACED_RIGHT", currentPiece);
+                if (piecesPos.Count <= 0)
+                {
+                    OnPuzzleSolved();
+                }
+            }
+            currentPiece = null;
+        }
+
+        if (Input.GetMouseButton(0) && currentPiece != null)
+        {
+            currentPiece.transform.position = MovePiece();
+        }
     }
 
-    private void SolvedPuzzle()
+    private Vector3 MovePiece()
     {
-
+        Vector3 result;
+        result = inputCamera.ScreenToWorldPoint(Input.mousePosition);
+        result.z = 0f;
+        return result;
     }
 
     private void GoToStartPoints()
@@ -79,31 +126,19 @@ public class MenuPuzzle : MonoBehaviour
         }
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    if (Application.isPlaying)
-    //    {
-    //        Gizmos.DrawWireSphere(centerPosition, 0.1f);
-    //        for (int i = 0; i < startPositions.Length; i++)
-    //        {
-    //            if (startPos[0] != null)
-    //                Gizmos.DrawWireSphere(startPos[i], 0.1f);
-    //            Gizmos.DrawWireSphere(((startPos[i] - centerPosition)) * distance, 0.2f);
-    //        }
-    //    }
-    //}
-
     private void OnPuzzleSolved()
     {
         if (OnFinished != null)
         {
-            OnFinished(); 
+            OnFinished();
         }
     }
 
     IEnumerator OpeningSequence()
     {
         yield return new WaitForSeconds(globalWaitSeconds);
+
+        AkSoundEngine.PostEvent("PUZZLE_OPENING", currentPiece);
 
         for (int i = 1; i < transform.childCount; i++)
         {
@@ -122,14 +157,12 @@ public class MenuPuzzle : MonoBehaviour
 
         while (t < 1f)
         {
-            //piece.transform.localScale = startSize + new Vector3(0.1f, 0.1f, 0.1f) * t;
             rot.z = Random.Range(-1f, 1f) * 2f * (t / 2);
             piece.transform.rotation = Quaternion.Euler(rot);
             t += Time.deltaTime;
             yield return null;
         }
 
-        //piece.transform.localScale = startSize;
         piece.transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 
@@ -144,6 +177,7 @@ public class MenuPuzzle : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(0f, 0.15f));
 
+
         while (t < 1)
         {
             x = Mathf.Pow(2, -10f * t) * Mathf.Sin((t - factor / 4) * (2 * Mathf.PI) / factor) + 1;
@@ -151,5 +185,7 @@ public class MenuPuzzle : MonoBehaviour
             t += Time.deltaTime;
             yield return null;
         }
+
+
     }
 }
