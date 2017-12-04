@@ -121,6 +121,7 @@ public class InteractableState : GameState
         if (currentInteractable is Puzzle)
         {
             currentInteractable.GetComponent<BoxCollider>().enabled = false;
+			AkSoundEngine.PostEvent("CAMERA_MOVE", gm.GameCamera);
         }
         else
         {
