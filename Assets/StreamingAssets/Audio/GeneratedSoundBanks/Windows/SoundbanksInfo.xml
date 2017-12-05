@@ -24,6 +24,8 @@
 				<Event Id="944261500" Name="ANSWERING_TRIGGER" ObjectPath="\Events\Default Work Unit\ANSWERING_TRIGGER" MaxAttenuation="10.000000"/>
 				<Event Id="746056516" Name="CAMERA_MOVE" ObjectPath="\Events\Default Work Unit\CAMERA_MOVE"/>
 				<Event Id="4189504244" Name="CARS" ObjectPath="\Events\Default Work Unit\Ambience\Cars\CARS" MaxAttenuation="6.000000"/>
+				<Event Id="2634775690" Name="CONSTRUCTION" ObjectPath="\Events\Default Work Unit\Ambience\City\CONSTRUCTION" MaxAttenuation="5.000000"/>
+				<Event Id="1784195655" Name="DISTANT_SOUNDS" ObjectPath="\Events\Default Work Unit\Ambience\City\DISTANT_SOUNDS"/>
 				<Event Id="3059416910" Name="FOGWALL_DISABLE" ObjectPath="\Events\Default Work Unit\Fog wall\FOGWALL_DISABLE" MaxAttenuation="0.000000"/>
 				<Event Id="1536333371" Name="FOGWALL_ENABLE" ObjectPath="\Events\Default Work Unit\Fog wall\FOGWALL_ENABLE" MaxAttenuation="5.000000"/>
 				<Event Id="2817540555" Name="FRAGMENT_BIRTHDAY" ObjectPath="\Events\Default Work Unit\Fragments\FRAGMENT_BIRTHDAY"/>
@@ -54,9 +56,10 @@
 				<Event Id="2337612214" Name="FRIDGE" ObjectPath="\Events\Default Work Unit\FRIDGE" MaxAttenuation="5.000000"/>
 				<Event Id="2128490106" Name="FRIDGE_INVISIBLE" ObjectPath="\Events\Default Work Unit\Ambience\FRIDGE_INVISIBLE" MaxAttenuation="0.000000"/>
 				<Event Id="2092442601" Name="FRIDGE_VISIBLE" ObjectPath="\Events\Default Work Unit\Ambience\FRIDGE_VISIBLE" MaxAttenuation="0.000000"/>
-				<Event Id="733168346" Name="GAME_START" ObjectPath="\Events\Default Work Unit\Menu\GAME_START" MaxAttenuation="0.000000"/>
+				<Event Id="733168346" Name="GAME_START" ObjectPath="\Events\Default Work Unit\Menu\GAME_START"/>
 				<Event Id="1571339874" Name="INGAMEMENU_CLOSE" ObjectPath="\Events\Default Work Unit\Menu\INGAMEMENU_CLOSE" MaxAttenuation="0.000000"/>
 				<Event Id="4165127606" Name="INGAMEMENU_OPEN" ObjectPath="\Events\Default Work Unit\Menu\INGAMEMENU_OPEN" MaxAttenuation="0.000000"/>
+				<Event Id="2165061602" Name="KIDS" ObjectPath="\Events\Default Work Unit\Ambience\City\KIDS" MaxAttenuation="5.000000"/>
 				<Event Id="3202129528" Name="LAMP_FLICKER_OFF" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_FLICKER_OFF" MaxAttenuation="0.000000"/>
 				<Event Id="3118183458" Name="LAMP_FLICKER_ON" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_FLICKER_ON" MaxAttenuation="5.000000"/>
 				<Event Id="3143729630" Name="LAMP_FLICKERING" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_FLICKERING" MaxAttenuation="5.000000"/>
@@ -92,12 +95,18 @@
 				<Event Id="1305045635" Name="SFX_UNMUTE" ObjectPath="\Events\Default Work Unit\Menu\SFX_UNMUTE" MaxAttenuation="0.000000"/>
 				<Event Id="805220752" Name="SINK" ObjectPath="\Events\Default Work Unit\SINK" MaxAttenuation="5.000000"/>
 				<Event Id="1922983904" Name="STORYEVENT_1" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_1"/>
+				<Event Id="800353323" Name="STORYEVENT_1_LOAD" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_1_LOAD" MaxAttenuation="0.000000"/>
 				<Event Id="1922983907" Name="STORYEVENT_2" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_2"/>
+				<Event Id="1405453454" Name="STORYEVENT_2_LOAD" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_2_LOAD" MaxAttenuation="0.000000"/>
 				<Event Id="1922983906" Name="STORYEVENT_3" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_3"/>
+				<Event Id="1034512089" Name="STORYEVENT_3_LOAD" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_3_LOAD" MaxAttenuation="0.000000"/>
 				<Event Id="1922983909" Name="STORYEVENT_4" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_4"/>
+				<Event Id="3856771188" Name="STORYEVENT_4_LOAD" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_4_LOAD" MaxAttenuation="0.000000"/>
 				<Event Id="1922983908" Name="STORYEVENT_5" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_5"/>
+				<Event Id="3490949287" Name="STORYEVENT_5_LOAD" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_5_LOAD"/>
 				<Event Id="3721137874" Name="STORYEVENT_END" ObjectPath="\Events\Default Work Unit\Fragments\Common\STORYEVENT_END" MaxAttenuation="0.000000"/>
 				<Event Id="1357239343" Name="STORYEVENT_INTRO" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_INTRO" MaxAttenuation="0.000000"/>
+				<Event Id="612823810" Name="STORYEVENT_INTRO_LOAD" ObjectPath="\Events\Default Work Unit\Fragments\STORYEVENT_INTRO_LOAD" MaxAttenuation="0.000000"/>
 				<Event Id="4142189312" Name="STREET" ObjectPath="\Events\Default Work Unit\Ambience\City\STREET" MaxAttenuation="50.000000"/>
 				<Event Id="3809097629" Name="TAP_PARTICLE" ObjectPath="\Events\Default Work Unit\Particle\TAP_PARTICLE"/>
 				<Event Id="3443637649" Name="TESTMAPBUTTON" ObjectPath="\Events\Default Work Unit\TESTMAPBUTTON"/>
@@ -457,6 +466,10 @@
 					<ShortName>DROP_08.wav</ShortName>
 					<Path>SFX/DROP_08_31813313.wem</Path>
 				</File>
+				<File Id="525896482" Language="SFX">
+					<ShortName>AMB_EXT_ApartmentCourtyard_ChildrenPlaying.wav</ShortName>
+					<Path>SFX/AMB_EXT_ApartmentCourtyard_ChildrenPlaying_73E20AD2.wem</Path>
+				</File>
 				<File Id="541851934" Language="SFX">
 					<ShortName>Flying.wav</ShortName>
 					<Path>SFX/Flying_81BF8AB2.wem</Path>
@@ -536,6 +549,10 @@
 				<File Id="657681073" Language="SFX">
 					<ShortName>SMOKING_2.wav</ShortName>
 					<Path>SFX/SMOKING_2_379244B3.wem</Path>
+				</File>
+				<File Id="666262367" Language="SFX">
+					<ShortName>JustAmbience_ConstructionSite_21.wav</ShortName>
+					<Path>SFX/JustAmbience_ConstructionSite_21_BBC43EB1.wem</Path>
 				</File>
 				<File Id="667994024" Language="SFX">
 					<ShortName>NEW_YEARS.wav</ShortName>
@@ -617,6 +634,10 @@
 					<ShortName>FRAGMENT_WHISPER.wav</ShortName>
 					<Path>SFX/FRAGMENT_WHISPER_495A0568.wem</Path>
 				</File>
+				<File Id="769475107" Language="SFX">
+					<ShortName>Dog_Bark_Cutsie_Many_PSEM.085.wav</ShortName>
+					<Path>SFX/Dog_Bark_Cutsie_Many_PSEM.085_379244B3.wem</Path>
+				</File>
 				<File Id="776353407" Language="SFX">
 					<ShortName>NEIGHBOUR_NOISE_05.wav</ShortName>
 					<Path>SFX/NEIGHBOUR_NOISE_05_31813313.wem</Path>
@@ -635,7 +656,7 @@
 				</File>
 				<File Id="797310725" Language="SFX">
 					<ShortName>My Loss, My Moth_v1_clean.wav</ShortName>
-					<Path>SFX/My Loss, My Moth_v1_clean_B59F86F2.wem</Path>
+					<Path>SFX/My Loss, My Moth_v1_clean_872AABFF.wem</Path>
 				</File>
 				<File Id="798566715" Language="SFX">
 					<ShortName>No light.wav</ShortName>
@@ -708,6 +729,10 @@
 				<File Id="933462240" Language="SFX">
 					<ShortName>UGLY_POSTER.wav</ShortName>
 					<Path>SFX/UGLY_POSTER_379244B3.wem</Path>
+				</File>
+				<File Id="942791648" Language="SFX">
+					<ShortName>Church_Bells_France_PSEM.067.wav</ShortName>
+					<Path>SFX/Church_Bells_France_PSEM.067_0233F0C0.wem</Path>
 				</File>
 				<File Id="946359298" Language="SFX">
 					<ShortName>PARTICLE_APPEAR_3.wav</ShortName>

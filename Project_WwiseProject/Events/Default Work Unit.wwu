@@ -151,6 +151,7 @@
 										<Action Name="" ID="{472AD6DC-57C0-4388-A3B6-3C635BE58906}" ShortID="274262176">
 											<PropertyList>
 												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="FadeTime" Type="Real64" Value="3"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
@@ -169,10 +170,54 @@
 										<Action Name="" ID="{DB536824-FCD6-4B19-8E6E-A2BC06BCAA20}" ShortID="728516185">
 											<PropertyList>
 												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="FadeTime" Type="Real64" Value="3"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="City Ambience Kitchen" ID="{35B5821B-5A6A-4666-8668-5B1A1B5F68D4}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="CONSTRUCTION" ID="{A8FD844A-9AE7-4E33-8B19-EB679E799F79}">
+									<ChildrenList>
+										<Action Name="" ID="{B239D48A-38F2-45E1-BDD6-6363EB31B47A}" ShortID="501478860">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="JustAmbience_ConstructionSite_21" ID="{9F4A0835-393F-4496-AB6F-A226E9982796}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="DISTANT_SOUNDS" ID="{7B924E9F-4667-4230-91C8-73959F6D90A3}">
+									<ChildrenList>
+										<Action Name="" ID="{55A5AAD5-EF02-429B-BE69-08E151B37C7D}" ShortID="1006425756">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Distant sounds" ID="{95CF880E-736E-4732-8AB1-DD99BAF23679}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="KIDS" ID="{5A105D95-BA5B-4DB6-A6AD-B622956BB986}">
+									<ChildrenList>
+										<Action Name="" ID="{B39E86AC-6201-49DA-9DE8-1A96B1C58BD9}" ShortID="903564128">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="FadeTime" Type="Real64" Value="3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB_EXT_ApartmentCourtyard_ChildrenPlaying" ID="{04B1B590-23C1-4B77-BA64-778CC58CB10C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -449,6 +494,18 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{BAFC6FFD-DBD7-46A6-AA14-6BB45D06CAF1}" ShortID="619364655">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Delay" Type="Real64" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="City_Quiet" ID="{062EFF50-726D-4904-B5EB-29DB37EDB5BF}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="SFX_MUTE" ID="{A7EC4BB8-F6DB-480A-820B-B7917930C421}">
@@ -529,7 +586,21 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="GAME_START" ID="{2CC4BD66-BA2C-43F8-A0BB-5D64983C8C70}"/>
+						<Event Name="GAME_START" ID="{2CC4BD66-BA2C-43F8-A0BB-5D64983C8C70}">
+							<ChildrenList>
+								<Action Name="" ID="{4EE4C705-1874-4892-AD4F-FE82E199F1AE}" ShortID="312892268">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="FadeTime" Type="Real64" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="City_Quiet" ID="{062EFF50-726D-4904-B5EB-29DB37EDB5BF}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="PUZZLE_OPENING" ID="{AF2EF721-3C4E-4BE7-BEA9-FD8790A30F14}">
 							<ChildrenList>
 								<Action Name="" ID="{6CCF38EC-D914-44DB-8D1B-35BCEC6BEFF0}" ShortID="305473478">

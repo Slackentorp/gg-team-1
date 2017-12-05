@@ -23,9 +23,10 @@ public class LoadState : GameState
             gm.LightController.LoadLights();
         }
 
-        if(PlayerPrefs.GetInt("saveload", 0) == 1)
+        if(PlayerPrefs.GetInt("saveload", -1) == 1)
         {
             loadedGame = SaveLoad.Load(gm);
+            Debug.Log("Loading game: " +loadedGame);
         }
 
         gm.InputManager = new InputManager(gm.InputSettings, gm.GameCamera.GetComponent<Camera>());      
@@ -38,13 +39,10 @@ public class LoadState : GameState
 		fragmentPositions = GameObject.FindObjectsOfType<Fragment>();
 		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.fragmentParticles, gm.Moth.transform);
 
-		if (loadedGame)
+	   if(SceneManager.GetSceneByName("Apartment").isLoaded)
         {
             gm.SetState(new RunState(gm));
         }
-        #if UNITY_EDITOR
-        gm.SetState(new RunState(gm));
-        #endif
     }
 
     public override void OnStateExit()
@@ -57,24 +55,22 @@ public class LoadState : GameState
             return;
         }
         #endif
-        StoryEventController.Instance.PostStoryEvent("STORYEVENT_INTRO", null);
+        if(StoryEventController.Instance != null && !loadedGame)
+        {
+            StoryEventController.Instance.PostStoryEvent("STORYEVENT_INTRO", null);
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Apartment")
         {
-            if (GameObject.FindWithTag("Respawn") != null && !loadedGame)
+            if (GameObject.FindWithTag("Respawn") != null)
             {
                  gm.SetState(new RunState(gm));
             }
 
         }
-    }
-
-    private void SetUpState()
-    {
-        gm.SetState(new RunState(gm));
     }
 
     public override void Tick()
