@@ -6,7 +6,6 @@ using UnityEngine;
 public class PointOfNoReturnState : GameState
 {
     private CameraController cameraController;
-	private FragmentParticleController fragParticleController;
 	private Fragment fragment;
 
     public delegate void ParticleTapCall(Vector3 position);
@@ -16,7 +15,6 @@ public class PointOfNoReturnState : GameState
     private string particlePath;
     private Vector3 particlePos;
 
-	private Fragment[] fragmentPositions;
 
     public PointOfNoReturnState(GameController gm) : base(gm)
     {
@@ -26,6 +24,7 @@ public class PointOfNoReturnState : GameState
 	{
 		cameraController = gm.cameraController;
 		cameraController.SetFragmentMode(false);
+        gm.mothBehaviour.SetFragmentMode(false);
         gm.hasReachedPointOfNoReturn = true;
 	//	fragmentPositions = GameObject.FindObjectsOfType<Fragment>(); 
 	//	gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.fragmentParticles, gm.Moth.transform);
@@ -64,7 +63,7 @@ public class PointOfNoReturnState : GameState
                 particleTapCall(particlePos);
 
                 float dist = Vector3.SqrMagnitude(gm.Moth.transform.position - interactable.transform.position);
-                if (Mathf.Abs(dist) < interactable.InternalInteractionDistion)
+                if (Mathf.Abs(dist) < interactable.InternalInteractionDistance)
                 {
                     gm.SetState(new InteractableState(gm, interactable));
                 } else {

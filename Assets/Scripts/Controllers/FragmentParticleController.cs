@@ -47,7 +47,7 @@ public class FragmentParticleController
 			for (int i = 0; i < fragmentPos.Length; i++)
 			{
 				float dist = Vector3.SqrMagnitude(MothPosition.position - fragmentPos[i].transform.position);
-				if (Mathf.Abs(dist) < fragmentPos[i].InternalInteractionDistion)
+				if (Mathf.Abs(dist) < fragmentPos[i].InternalInteractionDistance)
 				{
 					fragParticleArray[i].SetActive(true);
 
@@ -62,14 +62,14 @@ public class FragmentParticleController
 						PlaySoundEvents("WHISPER", i);
 					}
 				}
-				else if (Mathf.Abs(dist) >= fragmentPos[i].InternalInteractionDistion &&
+				else if (Mathf.Abs(dist) >= fragmentPos[i].InternalInteractionDistance &&
 						fragmentDictionary[fragmentPos[i]] == FragmentState.WHISPER)
 				{
 					fragmentDictionary[fragmentPos[i]] = FragmentState.LEAVE;
 					fragParticleArray[i].SetActive(false);
 					PlaySoundEvents("LEAVE", i);
 				}
-				else if (Mathf.Abs(dist) > fragmentPos[i].InternalInteractionDistion)
+				else if (Mathf.Abs(dist) > fragmentPos[i].InternalInteractionDistance)
 				{
 					if (fragmentDictionary[fragmentPos[i]] == FragmentState.LEAVE)
 					{

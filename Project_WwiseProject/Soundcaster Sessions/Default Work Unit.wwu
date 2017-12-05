@@ -231,6 +231,14 @@
 							<ObjectRef Name="FRAGMENT_SMOKING2" ID="{C87BC886-8624-4449-AFC8-D4CBF38725B3}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
 							<Position X="4" Y="3"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="PIECE_PLACED_RIGHT" ID="{7029520A-2FA4-44F4-B33D-1A908B0EFD48}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="4" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MAINMENU_OPEN" ID="{F57412A0-CBED-4E0E-B4C5-358AA27E86A0}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="5" Y="3"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
@@ -240,6 +248,10 @@
 						<RTPCValue>
 							<GameParameterRef Name="FLICKER_VOLUME" ID="{55301302-5A4B-43B0-AC6A-A9AD2368252D}"/>
 							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="PICTUREPUZZLE_STATE" ID="{40A0EEB6-4948-4594-8DFA-4974BD810844}"/>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
@@ -271,16 +283,20 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="LAMP_2" ID="{B38F31B8-43EF-49CC-A738-66BCE982E2FC}"/>
-						<CurrentStateRef Name="STORYEVENT_2" ID="{68AEB1EC-3BF0-40DF-990E-883F0E5166E4}"/>
+						<CurrentStateRef Name="PIECE_0" ID="{7A2772C0-D900-4047-BABE-3BE42AE785E1}"/>
+						<CurrentStateRef Name="LAMP_1" ID="{E98279E1-F872-4DFA-9093-50FAEDD2EF84}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{B1D1BB4D-45FD-4B45-9A17-63EECDE55CFD}"/>
+						<CurrentStateRef Name="STORYEVENT_4" ID="{850C466F-1FC2-421A-AD3A-F382A7F1EE5A}"/>
 						<CurrentStateRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
-						<CurrentStateRef Name="Bittersweet" ID="{1A7EB430-2F32-43C6-B4C5-04683179DF35}"/>
+						<CurrentStateRef Name="Silent" ID="{84B7082D-A327-4B85-8344-6103AF1519E9}"/>
 						<CurrentStateRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}"/>
-						<CurrentStateRef Name="LAMP_0" ID="{D215C82D-B5A0-4238-BC70-EDE9F6F52976}"/>
-						<CurrentStateRef Name="LAMP_2" ID="{E799395E-A5A5-4D8F-82A7-EB6B20A7C5CB}"/>
+						<CurrentStateRef Name="LAMP_1" ID="{5CD9C236-0FC1-49C7-8F9E-196D0B304E8E}"/>
+						<CurrentStateRef Name="LAMP_1" ID="{4A058A11-8C2D-4EB8-A466-3C7AB5C1251F}"/>
 						<CurrentStateRef Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
 					</CurrentStateList>
-					<CurrentSwitchList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Done" ID="{74D0208A-9436-4570-9A15-98DBA9AAF737}"/>
+					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>

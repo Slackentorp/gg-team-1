@@ -22,10 +22,11 @@ public abstract class Interactable : MonoBehaviour
                 (transform.position + cameraPosition);
         }
     }
-    public float InternalInteractionDistion { get { return Mathf.Sqrt(interactionDistance); } }
+    public float InternalInteractionDistance { get { return Mathf.Sqrt(interactionDistance); } }
     public bool HasPlayed { get { return hasPlayed; } set { hasPlayed = value; } }
     public string StoryFragment { get { return storyFragment; } }
     public Vector3 LandingPosition { get { return landingPosition; } }
+    public Vector3 MothResetPosition { get { return resetPosition; } }
 
     [SerializeField]
     public bool firstPuzzleCheck;
@@ -40,17 +41,13 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField, Tooltip("Where the moth should land")]
     private Vector3 landingPosition;
     [SerializeField, Tooltip("Should the moth land vertically or horizontally")]
-    private LandRotation landingRotation;
-    public LandRotation LandingRotation { get { return landingRotation; } }
+    private Vector3 landingRotation;
+    [SerializeField, Tooltip("Where the moth should go to after the interactable")]
+    private Vector3 resetPosition;
+    public Vector3 LandingRotation { get { return landingRotation; } }
 
     [SerializeField, Tooltip("The name of the story fragment")]
     private string storyFragment;
-
-    public enum LandRotation
-    {
-        HORIZONTAL,
-        VERTICAL
-    }
 
     [SerializeField]
     private bool hasPlayed;
@@ -70,19 +67,91 @@ public abstract class Interactable : MonoBehaviour
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject, (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
+        EndFragments(markerId, StoryFragment);
+        
     }
 
     public virtual void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
     {
-        var t = sender as EasyWwiseCallback;
-
-        if (t != null && callbackType == AkCallbackType.AK_EndOfEvent)
+        if (callbackType == AkCallbackType.AK_Duration)
         {
-            HasPlayed = true;
-            t.Invoke();
+            var i = info as AkDurationCallbackInfo;
+            fragmentDurations[counter] = i.fDuration;
+
+            if (counter == 1)
+            {
+                fragmentIsOn = true;
+                Durations(fragmentDurations[1], fragmentIsOn, gameObject);
+            }
+
+            counter++;
+
+            if (counter == 2)
+            {
+                fragmentIsOn = false;
+                counter = 0;
+            }
         }
+        EndOfEventCallback(sender, callbackType, info);
 
     }
+    public int counter = 0;
+    private float[] fragmentDurations = new float[2];
+    public bool fragmentIsOn = false;
+    public uint markerr;
+    public string storyFragmentt;
+    public int realDuration;
+    public float durationn;
+    public bool fragmentIsOnn = false;
+    public GameObject thePlayedFragment;
+    int uPosition;
+
+    public void EndFragments(uint marker, string storyFragment)
+    {
+        markerr = marker;
+        storyFragmentt = storyFragment;
+
+    }
+
+    public void TwoSecondsBeforeEnd()
+    {
+        AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
+        uPosition = uPosition / 10;
+        LocalizationItem.Language language =
+           (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
+
+        if (fragmentIsOnn)
+        {
+            if (uPosition > realDuration)
+            {
+
+                AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
+                fragmentIsOnn = false;
+                return;
+            }
+        }
+    }
+
+    public void Durations(float duration, bool fragmentIsOn, GameObject playedFragment)
+    {
+        thePlayedFragment = playedFragment;
+        fragmentIsOnn = fragmentIsOn;
+        durationn = duration / 10;
+        realDuration = (int)durationn;
+        realDuration = realDuration - 20;
+
+        //Debug.Log(realDuration);
+    }
+
+    void Update()
+    {
+        if (fragmentIsOnn == true)
+        {
+            TwoSecondsBeforeEnd();
+        }
+    }
+    
+
 
     public virtual void Awake()
     {
@@ -102,5 +171,10 @@ public abstract class Interactable : MonoBehaviour
         Gizmos.DrawIcon(transform.position + cameraPosition, "CameraIcon.tif");
         Gizmos.DrawLine(transform.position + cameraPosition, transform.position + cameraOrientation);
         Gizmos.DrawIcon(transform.TransformPoint(landingPosition), "MothIcon.tif", true);
+
+        Gizmos.DrawSphere(transform.TransformPoint(resetPosition), .05f);
+        Gizmos.color = Color.blue;
+        Vector3 rotatedVector = Quaternion.Euler(landingRotation) * Vector3.up;
+        Gizmos.DrawLine(transform.TransformPoint(landingPosition), transform.TransformPoint(landingPosition) + rotatedVector.ResizeMagnitude(.2f));
     }
 }

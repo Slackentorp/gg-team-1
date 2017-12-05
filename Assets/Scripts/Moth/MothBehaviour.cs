@@ -39,6 +39,7 @@ public class MothBehaviour
 	Vector3 hitDotPoint, hitDotNormal, mothRotation, dampVelocity, mothOriginPos, parentPos;
 	Vector3 pos, anchorPointPlusPos, currentVelocity;
 	Ray ray;
+	BoxCollider mothBoxCollider;
 	float veticalMothScreenPlacement, limitMothForwardFidgit;
 	float turningTime, turningSpeed, proceduralLerpTime, time;
 	float perlinNoiseX, perlinNoiseY, perlinNoiseZ, levelOfNoise = 0.5f;
@@ -85,6 +86,7 @@ public class MothBehaviour
 		this.fidgitInFlightReducer = fidgitInFlightReducer;
 		this.timeSpentInDamp = timeSpentInDamp;
 		this.mothDistanceToCeiling = mothDistanceToCeiling;
+		this.mothBoxCollider = moth.GetComponent<BoxCollider>();
 	}
 
 	public void SetFragmentMode(bool b)
@@ -106,6 +108,12 @@ public class MothBehaviour
 				ProceduralMovement();
 			}
 			MothGoToPosition();
+			/*int layerMask = 1 << 11;
+			layerMask = ~layerMask;
+			if(Physics.CheckBox(moth.transform.position, mothBoxCollider.size/2, Quaternion.identity, layerMask))
+			{
+				hitPoint = moth.transform.position;
+			}*/
 		}
 	}
 

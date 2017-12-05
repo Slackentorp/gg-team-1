@@ -17,10 +17,12 @@ public class ParticleTapController : MonoBehaviour
     private void OnEnable()
     {
         RunState.particleTapCall += TapParticle;
+        PointOfNoReturnState.particleTapCall += TapParticle;
     }
     private void OnDisable()
     {
         RunState.particleTapCall -= TapParticle;
+        PointOfNoReturnState.particleTapCall -= TapParticle;
     }
 
     void TapParticle(Vector3 partPos)

@@ -46,6 +46,7 @@ namespace AK
         static const AkUniqueID FRIDGE = 2337612214U;
         static const AkUniqueID FRIDGE_INVISIBLE = 2128490106U;
         static const AkUniqueID FRIDGE_VISIBLE = 2092442601U;
+        static const AkUniqueID GAME_START = 733168346U;
         static const AkUniqueID INGAMEMENU_CLOSE = 1571339874U;
         static const AkUniqueID INGAMEMENU_OPEN = 4165127606U;
         static const AkUniqueID LAMP_FLICKER_OFF = 3202129528U;
@@ -55,12 +56,11 @@ namespace AK
         static const AkUniqueID LAMP_PARTICLE = 4005406552U;
         static const AkUniqueID LIVINGROOM_ENTER = 1275729080U;
         static const AkUniqueID MAINMENU_OPEN = 3307976374U;
-        static const AkUniqueID MENU_START_GAME = 1931074718U;
+        static const AkUniqueID MAINMENU_START_GAME = 1784160095U;
         static const AkUniqueID MENUBUTTON_PRESS = 1512987680U;
         static const AkUniqueID MENUTOGGLEBUTTON_PRESS = 2268000284U;
         static const AkUniqueID MOTH_APPEAR = 2904931443U;
         static const AkUniqueID MOTH_END_FLIGHT = 410314580U;
-        static const AkUniqueID MOTH_HIT_WINDOW = 1669806022U;
         static const AkUniqueID MOTH_START_FLIGHT = 541555517U;
         static const AkUniqueID MUSIC_MUTE = 1696404602U;
         static const AkUniqueID MUSIC_START = 3725903807U;
@@ -73,7 +73,9 @@ namespace AK
         static const AkUniqueID PARTICLE_MERGE = 2458842678U;
         static const AkUniqueID PIECE_PICK = 394109931U;
         static const AkUniqueID PIECE_PLACE = 778173897U;
+        static const AkUniqueID PIECE_PLACED_RIGHT = 2720771844U;
         static const AkUniqueID PIECE_PLACED_WRONG = 2177473561U;
+        static const AkUniqueID PUZZLE_OPENING = 2274196952U;
         static const AkUniqueID PUZZLE_SOLVED = 1107599359U;
         static const AkUniqueID PUZZLE_SOLVING = 3258781332U;
         static const AkUniqueID SFX_MUTE = 2835551186U;
@@ -85,6 +87,7 @@ namespace AK
         static const AkUniqueID STORYEVENT_4 = 1922983909U;
         static const AkUniqueID STORYEVENT_5 = 1922983908U;
         static const AkUniqueID STORYEVENT_END = 3721137874U;
+        static const AkUniqueID STORYEVENT_INTRO = 1357239343U;
         static const AkUniqueID STREET = 4142189312U;
         static const AkUniqueID TAP_PARTICLE = 3809097629U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
@@ -229,6 +232,7 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID CUTSCENE = 1182958561U;
                 static const AkUniqueID EXPLORATION = 2582085496U;
                 static const AkUniqueID FRAGMENT = 2651529573U;
             } // namespace STATE
@@ -255,6 +259,8 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID DONE = 1861070025U;
+                static const AkUniqueID PIECE_0 = 2533340104U;
                 static const AkUniqueID PIECE_1 = 2533340105U;
                 static const AkUniqueID PIECE_2 = 2533340106U;
                 static const AkUniqueID PIECE_3 = 2533340107U;
@@ -292,6 +298,24 @@ namespace AK
 
     } // namespace STATES
 
+    namespace SWITCHES
+    {
+        namespace PICTUREPUZZLE_SWITCH
+        {
+            static const AkUniqueID GROUP = 1021806116U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DONE = 1861070025U;
+                static const AkUniqueID PIECE_0 = 2533340104U;
+                static const AkUniqueID PIECE_01 = 2089288681U;
+                static const AkUniqueID PIECE_02 = 2089288682U;
+                static const AkUniqueID PIECE_03 = 2089288683U;
+            } // namespace SWITCH
+        } // namespace PICTUREPUZZLE_SWITCH
+
+    } // namespace SWITCHES
+
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID DIALOGUE_VOLUME = 725232568U;
@@ -301,6 +325,7 @@ namespace AK
         static const AkUniqueID MOTH_SPEED = 4010911193U;
         static const AkUniqueID MUSIC_VOLUME = 1006694123U;
         static const AkUniqueID OBJECT_SPEED = 507859948U;
+        static const AkUniqueID PICTUREPUZZLE_STATE = 2001893719U;
         static const AkUniqueID SFX_VOLUME = 1564184899U;
         static const AkUniqueID TENSION = 1571361561U;
     } // namespace GAME_PARAMETERS

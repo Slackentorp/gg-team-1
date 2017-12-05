@@ -128,6 +128,8 @@ public class MenuPuzzle : MonoBehaviour
 
     private void OnPuzzleSolved()
     {
+		AkSoundEngine.PostEvent("PUZZLE_SOLVED", currentPiece);
+
         if (OnFinished != null)
         {
             OnFinished();
@@ -138,7 +140,7 @@ public class MenuPuzzle : MonoBehaviour
     {
         yield return new WaitForSeconds(globalWaitSeconds);
 
-        AkSoundEngine.PostEvent("PUZZLE_OPENING", currentPiece);
+        AkSoundEngine.PostEvent("PUZZLE_OPENING", gameObject);
 
         for (int i = 1; i < transform.childCount; i++)
         {
