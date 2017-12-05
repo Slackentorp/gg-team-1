@@ -89,7 +89,7 @@ public class StoryEventController : Singleton<StoryEventController>
 			AkSoundEngine.StopAll(gameObject);
 			if(currentCallback != null)
 			{
-				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_3"))
+				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_4"))
 				{
 					GameController.instance.InvokePointOfNoReturn();
 				}
