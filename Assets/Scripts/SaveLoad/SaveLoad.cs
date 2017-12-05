@@ -124,15 +124,19 @@ public class SaveLoad
             foreach (var item in idGameObjectDict)
             {
                 Interactable component = item.Value.GetComponent<Interactable>();
-                component.HasPlayed = loadedStates[item.Key];
-                if(component.HasPlayed)
+                bool tmp;
+                if(loadedStates.TryGetValue(item.Key, out tmp))
                 {
-                    if(component is Puzzle)
+                    component.HasPlayed = tmp;
+                    if(component.HasPlayed)
                     {
-                        ((Puzzle)component).SolvePuzzleNow();
+                        if(component is Puzzle)
+                        {
+                            ((Puzzle)component).SolvePuzzleNow();
+                        }
+                        
+                        component.InvokeInteractableCall();
                     }
-                    
-                    component.InvokeInteractableCall();
                 }
             }
 
