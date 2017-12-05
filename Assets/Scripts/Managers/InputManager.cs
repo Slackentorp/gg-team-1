@@ -14,6 +14,7 @@ namespace Assets.Scripts.Managers
     public class InputManager
     {
         public static bool isTouchingObject;
+        public static bool pauseShown;
 
         private readonly LayerMask touchInputMask;
         private readonly float tapTimeThreshold = 1f;
@@ -67,6 +68,10 @@ namespace Assets.Scripts.Managers
         {
             isTouchingObject = false;
             InputEvent ie = new InputEvent();
+            if(pauseShown)
+            {
+                return ie;
+            }
 
             foreach (Touch t in Input.touches)
             {
@@ -133,6 +138,10 @@ namespace Assets.Scripts.Managers
         {
             isTouchingObject = false;
             InputEvent ie = new InputEvent();
+            if(pauseShown)
+            {
+                return ie;
+            }
 
             if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) ||
                 Input.GetMouseButtonUp(0))

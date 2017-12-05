@@ -16,8 +16,6 @@ public class RunState : GameState
     private string particlePath;
     private Vector3 particlePos;
 
-	private Fragment[] fragmentPositions;
-
     public RunState(GameController gm) : base(gm)
     {
     }
@@ -26,8 +24,6 @@ public class RunState : GameState
 	{
 		cameraController = gm.cameraController;
 		cameraController.SetFragmentMode(false);
-		fragmentPositions = GameObject.FindObjectsOfType<Fragment>(); 
-		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.fragmentParticles, gm.Moth.transform);
     }
 
     void CheckInput()

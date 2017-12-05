@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Managers;
 
 public class PauseCanvas : MonoBehaviour, IPointerUpHandler
 {
@@ -46,6 +47,28 @@ public class PauseCanvas : MonoBehaviour, IPointerUpHandler
 
     private float sfxSliderPrev;
     private float musicSliderPrev;
+
+    /// <summary>
+    /// This function is called when the behaviour becomes disabled or inactive.
+    /// </summary>
+    void OnDisable()
+    {
+        InputManager.pauseShown = false;
+    }
+
+    /// <summary>
+    /// This function is called when the object becomes enabled and active.
+    /// </summary>
+    void OnEnable()
+    {
+        InputManager.pauseShown = true;
+        if(SaveLoad.SaveGame(GameController.Instance))
+        {
+            print("Save complete.");
+        } else {
+            print("Save unsucessful.");
+        }
+    }
 
     // Use this for initialization
     void Start()
