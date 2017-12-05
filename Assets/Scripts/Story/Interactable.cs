@@ -171,7 +171,7 @@ public abstract class Interactable : MonoBehaviour
 
         Gizmos.DrawSphere(transform.TransformPoint(resetPosition), .05f);
         Gizmos.color = Color.blue;
-        Vector3 rotatedVector = Quaternion.Euler(landingRotation) * Vector3.up;
+        Vector3 rotatedVector = Quaternion.Euler(landingRotation) * transform.up;
         Gizmos.DrawLine(transform.TransformPoint(landingPosition), transform.TransformPoint(landingPosition) + rotatedVector.ResizeMagnitude(.2f));
     }
 }
