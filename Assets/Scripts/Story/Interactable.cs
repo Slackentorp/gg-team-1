@@ -46,7 +46,8 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField, Tooltip("The name of the story fragment")]
     private string storyFragment;
 
-    public enum LandRotation{
+    public enum LandRotation
+    {
         HORIZONTAL,
         VERTICAL
     }
@@ -62,9 +63,12 @@ public abstract class Interactable : MonoBehaviour
             Callback();
             return;
         }
-        TUTInteractableCall(this);
+        if (firstPuzzleCheck)
+        {
+            TUTInteractableCall(this);
+        }
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
-        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject, (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject, (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
     }
 
