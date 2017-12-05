@@ -90,6 +90,8 @@ public class GameController : Singleton<GameController>
     public float cameraToPuzzleSpeed;
     public GameObject FragmentToLightSourceParticles;
     public AnimationCurve FragmentToLightSourceCurve;
+	public AnimationCurve DissolveAmount;
+	public AnimationCurve MainTexEmission;
     [Space(15)]
 
 	[HideInInspector]
