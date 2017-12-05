@@ -81,7 +81,7 @@ public class LightSourceInput : MonoBehaviour
     private void Start()
     {
         fragmentToLightsourceCurve = GameController.Instance.FragmentToLightSourceCurve;
-        FragmentChecker(null);
+        //FragmentChecker(null);
         firstTimeFlickerCheck = true;
 
     }
@@ -219,12 +219,12 @@ public class LightSourceInput : MonoBehaviour
             particle.transform.position = Vector3.Lerp(interactable.transform.position, transform.position, t);
 
             time += Time.deltaTime;
-
             yield return null;
         }
 
         particle.transform.GetChild(1).gameObject.SetActive(true);
-        FragmentChecker(null);
+        //FragmentChecker(null);
+        print("end particle: " + particle);
         AkSoundEngine.PostEvent("PARTICLE_ENTER_LAMP", particle);
         yield return new WaitForSeconds(explosionSystem.main.duration + explosionSystem.main.startLifetime.constant + explosionSystem.main.startLifetime.constant / 2);
         Destroy(particle);
