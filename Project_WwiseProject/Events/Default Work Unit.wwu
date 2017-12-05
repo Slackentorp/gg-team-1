@@ -318,6 +318,8 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="PIECE_IN_PLACE" ID="{1D3D9CF4-AB22-42E4-A26B-3791E74FD0D5}"/>
+								<Event Name="PIECE_PLACED_CORRECTLY" ID="{DCAF48A2-CB74-4BFD-9185-BD6D059FB86A}"/>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -668,6 +670,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{2543D3E6-1B46-4800-9878-C1341376936B}" ShortID="327395118">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PUZZLE_SOLVED" ID="{5690CBDC-AE94-4C2A-A217-13E31F1255F2}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="FRAGMENT_TATTOO" ID="{F2167923-AA66-4428-A204-4F0F454DDAFD}">
@@ -684,6 +696,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{A0D14D93-BCF7-4BE1-8A33-D1DFD16CE009}" ShortID="221578593">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{18FD496C-4C10-4A6C-899B-685CBB039C56}" ShortID="347480797">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
@@ -692,16 +714,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Susie's Tattoo" ID="{94AF7F8F-932C-4DAB-A82A-69112949885F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{A0D14D93-BCF7-4BE1-8A33-D1DFD16CE009}" ShortID="221578593">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -739,10 +751,25 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="41"/>
 										<Property Name="Delay" Type="Real64" Value="20"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="FRAGMENT_END" ID="{DA185ABF-394C-4E37-87D9-B6179BD28503}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{335856EE-20F1-4BE8-B936-BF923E400813}" ShortID="727638443">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PUZZLE_SOLVED" ID="{5690CBDC-AE94-4C2A-A217-13E31F1255F2}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1031,6 +1058,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{AFACDAA2-D080-4411-A399-82C94AA9D9A4}" ShortID="1029231722">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PUZZLE_SOLVED" ID="{5690CBDC-AE94-4C2A-A217-13E31F1255F2}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="FRAGMENT_NEWYEARS" ID="{005421FB-9909-40F9-A1B2-14E4587DF489}">
@@ -1085,7 +1122,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Silent" ID="{84B7082D-A327-4B85-8344-6103AF1519E9}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+											<ObjectRef Name="Bittersweet" ID="{1A7EB430-2F32-43C6-B4C5-04683179DF35}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1142,7 +1179,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Happy" ID="{461CFEF7-31A9-4AF4-9160-A4D4981E8916}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+											<ObjectRef Name="Silent" ID="{84B7082D-A327-4B85-8344-6103AF1519E9}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1317,6 +1354,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{A1CCB4D8-66DE-4A53-84ED-8D2562618A81}" ShortID="816808049">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PUZZLE_SOLVED" ID="{5690CBDC-AE94-4C2A-A217-13E31F1255F2}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="FRAGMENT_COZYKITCHEN" ID="{3D4E4800-9669-49E1-9629-5803BE002E6E}">
@@ -1361,17 +1408,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{FF26C05D-2841-49B4-92E8-9A74E6CE5A43}" ShortID="714299834">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="10"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1713,7 +1749,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Playful" ID="{1190627D-AF61-4D07-A8D7-B3A7E43EDAA2}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+											<ObjectRef Name="Tender" ID="{B29DB40C-B673-4CF4-9646-FA13184DFCE4}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1876,6 +1912,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="STORYEVENT_4" ID="{850C466F-1FC2-421A-AD3A-F382A7F1EE5A}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{B5226D9A-B0EF-4798-A11F-A24168BC76E9}" ShortID="1048165898">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="My Loss, My Moth_v1_clean" ID="{A78D2756-6834-4C40-809C-FF7F26D25BA3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -2101,6 +2148,16 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Ending" ID="{E09F67F6-4BF4-445F-82BE-1B4E3C7911F3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{904B01FE-7461-4CAC-BFA1-5B4958D2D9EA}" ShortID="40138035">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PUZZLE_SOLVED" ID="{5690CBDC-AE94-4C2A-A217-13E31F1255F2}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -2545,6 +2602,11 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="41"/>
 										<Property Name="Delay" Type="Real64" Value="2"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2599,7 +2661,30 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Particle_enter_lamp" ID="{08490310-6CC2-45E5-94D2-FB20E50AAF58}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+											<ObjectRef Name="PARTICLE_ENTER_FOGWALL" ID="{68244742-F2A9-414A-83D2-84219ECFC756}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8EB84137-393C-4275-8B2E-462B8A16A282}" ShortID="1064038887">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.4"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PARTICLE__MERGE_FLY" ID="{3B4027B2-F246-497C-A1EF-FDE95DFA7CA3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{B135FBDA-C698-4395-81A1-52312E7E978D}" ShortID="784740765">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PARTICLE_FLY_LOOP" ID="{543C3647-F447-4120-9A94-2A6321BB8E67}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -2652,7 +2737,17 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Particle_appear_fragment" ID="{24FEBDB9-1990-4CD8-9056-8764DC32B67C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+											<ObjectRef Name="PARTICLE_MERGE" ID="{4C38C44E-E9BA-45E9-815B-5FAECB05D1CF}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{4BA01309-EFE6-4553-B0B2-3BBEEC5B8999}" ShortID="972650680">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PARTICLE__MERGE_FLY" ID="{3B4027B2-F246-497C-A1EF-FDE95DFA7CA3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

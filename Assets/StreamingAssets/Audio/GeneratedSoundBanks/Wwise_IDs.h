@@ -71,8 +71,10 @@ namespace AK
         static const AkUniqueID PARTICLE_ENTER_FOGWALL = 1102612893U;
         static const AkUniqueID PARTICLE_ENTER_LAMP = 3704242213U;
         static const AkUniqueID PARTICLE_MERGE = 2458842678U;
+        static const AkUniqueID PIECE_IN_PLACE = 4190122921U;
         static const AkUniqueID PIECE_PICK = 394109931U;
         static const AkUniqueID PIECE_PLACE = 778173897U;
+        static const AkUniqueID PIECE_PLACED_CORRECTLY = 2947861873U;
         static const AkUniqueID PIECE_PLACED_RIGHT = 2720771844U;
         static const AkUniqueID PIECE_PLACED_WRONG = 2177473561U;
         static const AkUniqueID PUZZLE_OPENING = 2274196952U;
@@ -125,6 +127,7 @@ namespace AK
                 static const AkUniqueID PLAYFUL = 1971384320U;
                 static const AkUniqueID SILENT = 3160623154U;
                 static const AkUniqueID TENDER = 305047131U;
+                static const AkUniqueID TEST = 3157003241U;
             } // namespace STATE
         } // namespace FRAGMENT_MUSIC
 
