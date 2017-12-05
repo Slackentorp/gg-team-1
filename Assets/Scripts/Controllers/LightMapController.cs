@@ -22,11 +22,13 @@ public class LightMapController : MonoBehaviour
     void OnEnable()
     {
         LightSourceInput.LightMapSwitchCall += LampAssigner;
+        DioramaLights.DioramaLightsCall += LampAssigner;
     }
 
     void OnDisable()
     {
         LightSourceInput.LightMapSwitchCall -= LampAssigner;
+        DioramaLights.DioramaLightsCall -= LampAssigner;
     }
 
     // Use this for initialization
