@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.Managers;
 
-public class PauseCanvas : MonoBehaviour, IPointerUpHandler
+public class PauseCanvas : MonoBehaviour
 {
     [Header("Buttons")]
     [SerializeField]
@@ -62,11 +62,17 @@ public class PauseCanvas : MonoBehaviour, IPointerUpHandler
     void OnEnable()
     {
         InputManager.pauseShown = true;
-        if(SaveLoad.SaveGame(GameController.Instance))
+
+        if (GameController.Instance != null)
         {
-            print("Save complete.");
-        } else {
-            print("Save unsucessful.");
+            if (SaveLoad.SaveGame(GameController.Instance))
+            {
+                print("Save complete.");
+            }
+            else
+            {
+                print("Save unsucessful.");
+            }
         }
     }
 
@@ -76,23 +82,30 @@ public class PauseCanvas : MonoBehaviour, IPointerUpHandler
         sfxSliderPrev = sfxSlider.value;
         musicSliderPrev = musicSlider.value;
         englishLanguage = (PlayerPrefs.GetInt("LANGUAGE") == 0 ? true : false);
-        languageButton.onClick.AddListener(() =>
-        {
-            OnLanguageButtonPressed(englishLanguage);
-            SoundPress();
-        });
 
-        subtitleButton.onClick.AddListener(() =>
+        if (languageButton != null)
         {
-            OnSubtitleButtonPressed(subtitlesIsOn);
-            SoundPress();
-        });
+            languageButton.onClick.AddListener(() =>
+            {
+                OnLanguageButtonPressed(englishLanguage);
+                SoundPress();
+            });
+            languageButton.GetComponentInChildren<Text>().text = "language: " + (!englishLanguage ? "english" : "dansk");
+        }
 
-        menuButton.onClick.AddListener(() =>
-        {
-            GoToMenu();
-            SoundPress();
-        });
+        if (subtitleButton != null)
+            subtitleButton.onClick.AddListener(() =>
+            {
+                OnSubtitleButtonPressed(subtitlesIsOn);
+                SoundPress();
+            });
+
+        if (menuButton != null)
+            menuButton.onClick.AddListener(() =>
+            {
+                GoToMenu();
+                SoundPress();
+            });
 
         sfxSlider.onValueChanged.AddListener(delegate { SFXSlider(); });
         musicSlider.onValueChanged.AddListener(delegate { MusicSlider(); });
@@ -100,12 +113,18 @@ public class PauseCanvas : MonoBehaviour, IPointerUpHandler
         contrastSlider.onValueChanged.AddListener(delegate { ContrastSliderChanged(); });
 
 
-        languageButton.GetComponentInChildren<Text>().text = "language: " + (!englishLanguage ? "english" : "dansk");
 
 
         // Calls wwise events to set initial values
         SFXSlider();
         MusicSlider();
+    }
+
+    public void SetLang(GameObject button)
+    {
+        englishLanguage = !englishLanguage;
+        PlayerPrefs.SetInt("LANGUAGE", englishLanguage ? 0 : 1);
+        button.GetComponent<Text>().text = "language: " + (englishLanguage ? "english" : "dansk");
     }
 
     public void SoundPress()
@@ -194,14 +213,6 @@ public class PauseCanvas : MonoBehaviour, IPointerUpHandler
         if (OnSubtitleButton != null)
         {
             OnSubtitleButton(isOn);
-        }
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (eventData.lastPress.GetComponent<Slider>())
-        {
-            Debug.Log("Slider");
         }
     }
 }
