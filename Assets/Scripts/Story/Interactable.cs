@@ -131,13 +131,6 @@ public abstract class Interactable : MonoBehaviour
     public GameObject thePlayedFragment;
     int uPosition;
 
-    public void EndFragments(uint marker, string storyFragment)
-    {
-        markerr = marker;
-        storyFragmentt = storyFragment;
-
-    }
-
     public void TwoSecondsBeforeEnd()
     {
         AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
@@ -203,11 +196,11 @@ public abstract class Interactable : MonoBehaviour
     {
         Gizmos.DrawIcon(transform.position + cameraPosition, "CameraIcon.tif");
         Gizmos.DrawLine(transform.position + cameraPosition, transform.position + cameraOrientation);
-        Gizmos.DrawIcon(transform.TransformPoint(landingPosition), "MothIcon.tif", true);
+        Gizmos.DrawIcon(transform.position + landingPosition, "MothIcon.tif", true);
 
-        Gizmos.DrawSphere(transform.TransformPoint(resetPosition), .05f);
+        Gizmos.DrawSphere(transform.position + resetPosition, .05f);
         Gizmos.color = Color.blue;
-        Vector3 rotatedVector = Quaternion.Euler(landingRotation) * transform.up;
-        Gizmos.DrawLine(transform.TransformPoint(landingPosition), transform.TransformPoint(landingPosition) + rotatedVector.ResizeMagnitude(.2f));
+        Vector3 rotatedVector = Quaternion.Euler(landingRotation) * Vector3.up;
+        Gizmos.DrawLine(transform.position + landingPosition, transform.position + landingPosition + rotatedVector.ResizeMagnitude(.2f));
     }
 }
