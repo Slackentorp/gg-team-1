@@ -9,7 +9,7 @@ public class FragmentParticleController
 	Transform MothPosition;
 	private GameObject fragParticleParent;
 	private GameObject fragParticle;
-	bool done = false;
+	bool loaded = false;
 	bool fragmentPlayed = false;
 	bool playingDiscover = false, playingWhisper = false, playingLeave = false;
 
@@ -18,7 +18,7 @@ public class FragmentParticleController
 	public FragmentParticleController(Fragment[] fragmentObjects, GameObject fragmentParticles,
 									  Transform mothPos)
 	{
-		if (done == false)
+		if (loaded == false)
 		{
 			this.fragmentPos = fragmentObjects;
 			this.fragParticle = fragmentParticles;
@@ -26,16 +26,16 @@ public class FragmentParticleController
 			fragParticleParent = new GameObject("Fragment Particles");
 			fragParticleArray = new GameObject[fragmentObjects.Length];
 
-			if (fragmentPos != null && done == false)
+			if (fragmentPos != null)
 			{
 				for (int i = 0; i < fragmentPos.Length; i++)
 				{
 					InstanceParticlesToParent(fragmentPos[i].gameObject.transform.position, i);
 					fragmentDictionary.Add(fragmentPos[i], FragmentState.NOT_PLAYED);
 				}
-				done = true;
+				loaded = true;
 			}
-			done = true;
+			loaded = true;
 		}
 	}
 
@@ -51,7 +51,7 @@ public class FragmentParticleController
 				{
 					fragParticleArray[i].SetActive(true);
 
-					if (fragmentPos[i].HasPlayed == false && fragmentDictionary[fragmentPos[i]] == FragmentState.NOT_PLAYED )
+					if (fragmentDictionary[fragmentPos[i]] == FragmentState.NOT_PLAYED )
 					{
 						PlaySoundEvents("DISCOVER",i);
 						fragmentDictionary[fragmentPos[i]] = FragmentState.DISCOVER;
@@ -76,10 +76,11 @@ public class FragmentParticleController
 						fragmentDictionary[fragmentPos[i]] = FragmentState.DISCOVER;
 						fragParticleArray[i].SetActive(false);
 					}
-					else
-					{
-						fragParticleArray[i].SetActive(false);
-					}
+
+				}
+				if (fragmentPos[i].HasPlayed == true)
+				{
+					fragParticleArray[i].SetActive(false);
 				}
 			}
 		}

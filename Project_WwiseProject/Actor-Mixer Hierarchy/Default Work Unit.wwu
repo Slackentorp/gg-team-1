@@ -449,6 +449,23 @@
 													</PositioningInfo>
 												</RandomSequenceContainer>
 											</ChildrenList>
+											<StateInfo>
+												<StateGroupList>
+													<StateGroupInfo>
+														<StateGroupRef Name="NEXT_STORYEVENT" ID="{08D52ED3-8654-46E5-A9F6-F867EAB652D1}"/>
+													</StateGroupInfo>
+												</StateGroupList>
+												<CustomStateList>
+													<CustomState>
+														<StateRef Name="FINALE" ID="{5C5D6D0F-506B-4766-A9ED-5D198D6FB590}"/>
+														<State Name="Custom State" ID="{FECD9794-6A71-4D27-B68E-CD8F197CFCB0}" ShortID="812956577">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-96"/>
+															</PropertyList>
+														</State>
+													</CustomState>
+												</CustomStateList>
+											</StateInfo>
 											<Playlist>
 												<ItemRef Name="Random Car Pass" ID="{2CDD15D1-C028-43A2-A836-096F7811CD88}"/>
 											</Playlist>
@@ -1360,6 +1377,48 @@
 										</BlendContainer>
 									</ChildrenList>
 								</Folder>
+								<Sound Name="City_Quiet" ID="{062EFF50-726D-4904-B5EB-29DB37EDB5BF}" ShortID="72531055">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>54</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic" ID="{A9423BC9-9278-4441-80ED-2B592E0387B6}" ShortID="379002834">
+											<PropertyList>
+												<Property Name="CrossfadeDuration" Type="Real64" Value="2"/>
+												<Property Name="LoopBegin" Type="Real64" Value="8.78244897037572"/>
+												<Property Name="LoopEnd" Type="Real64" Value="177.979016889451"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="62958245"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic" ID="{A9423BC9-9278-4441-80ED-2B592E0387B6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 							<StateInfo>
 								<StateGroupList>
@@ -1392,6 +1451,14 @@
 										<State Name="Custom State" ID="{A31AD32A-70BC-4B03-96E9-68B6F71F41AB}" ShortID="758777467">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64" Value="-10"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="STUDY" ID="{4A00DAAB-2C75-4DD4-B4D0-B48E5CC11E44}"/>
+										<State Name="Custom State" ID="{7DD307F4-4131-48FC-8D86-58A2C51E5B56}" ShortID="85740126">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-7"/>
 											</PropertyList>
 										</State>
 									</CustomState>
@@ -2027,14 +2094,6 @@
 										</State>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="STORYEVENT_4" ID="{850C466F-1FC2-421A-AD3A-F382A7F1EE5A}"/>
-										<State Name="Custom State" ID="{2A6B182F-F103-4E8E-99F6-45B88E0767FE}" ShortID="163998571">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="-96"/>
-											</PropertyList>
-										</State>
-									</CustomState>
-									<CustomState>
 										<StateRef Name="KITCHEN" ID="{58A3C77B-7624-424D-B2DF-8412BB792C58}"/>
 										<State Name="Custom State" ID="{37500E41-49AF-4818-AF62-9018543813FF}" ShortID="142758920">
 											<PropertyList>
@@ -2053,6 +2112,14 @@
 									<CustomState>
 										<StateRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
 										<State Name="Custom State" ID="{FBCF1C5B-D735-40E5-9F12-31AF94C70B85}" ShortID="762107889">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="FINALE" ID="{5C5D6D0F-506B-4766-A9ED-5D198D6FB590}"/>
+										<State Name="Custom State" ID="{67702C19-85FC-4038-A3AF-94C7DB957012}" ShortID="925109963">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64" Value="-96"/>
 											</PropertyList>
@@ -3346,6 +3413,14 @@
 										</StateGroupList>
 										<CustomStateList>
 											<CustomState>
+												<StateRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
+												<State Name="Custom State" ID="{28FE6D04-4E90-4EF8-B264-983274C99E82}" ShortID="833359343">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-96"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
 												<StateRef Name="CUTSCENE" ID="{CF65DA72-4E24-4B9E-A64C-5AF3DBBFE3F7}"/>
 												<State Name="Custom State" ID="{FB6EC528-337D-434F-A3BF-144096D26176}" ShortID="562949495">
 													<PropertyList>
@@ -3814,6 +3889,499 @@
 								</CustomStateList>
 							</StateInfo>
 						</ActorMixer>
+						<RandomSequenceContainer Name="Distant sounds" ID="{95CF880E-736E-4732-8AB1-DD99BAF23679}" ShortID="606925858">
+							<PropertyList>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{D16522A3-A04C-41ED-A120-5F423E79478B}" ShortID="571622770">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="5"/>
+											</PropertyList>
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{F06D84FC-65F3-4C16-91D6-5D81F7AC1268}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>5</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Church_Bells_France_PSEM_067" ID="{DA3B8080-38BE-4FE0-8BF3-9022205763D8}" ShortID="379818267">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{AF356777-D26E-44ED-B85E-990B08E029EE}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="4"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>45</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-480</Value>
+											</ValueList>
+										</Property>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-24</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<Custom>
+												<Attenuation Name="Attenuation (Custom)" ID="{147D48AD-EE50-43D4-86A9-AC6CB3C2B049}" ShortID="301034508">
+													<PropertyList>
+														<Property Name="RadiusMax" Type="Real64" Value="5"/>
+													</PropertyList>
+													<CurveUsageInfoList>
+														<VolumeDryUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+																<Curve Name="VolumeDry" ID="{97A7F357-302A-4884-9F89-C1D81D493CF6}">
+																	<PropertyList>
+																		<Property Name="Flags" Type="int32" Value="3"/>
+																	</PropertyList>
+																	<PointList>
+																		<Point>
+																			<XPos>0</XPos>
+																			<YPos>0</YPos>
+																			<Flags>5</Flags>
+																		</Point>
+																		<Point>
+																			<XPos>5</XPos>
+																			<YPos>-200</YPos>
+																			<Flags>37</Flags>
+																		</Point>
+																	</PointList>
+																</Curve>
+															</CurveUsageInfo>
+														</VolumeDryUsage>
+														<VolumeWetGameUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+														</VolumeWetGameUsage>
+														<VolumeWetUserUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+														</VolumeWetUserUsage>
+														<LowPassFilterUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</LowPassFilterUsage>
+														<HighPassFilterUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</HighPassFilterUsage>
+														<SpreadUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</SpreadUsage>
+														<FocusUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</FocusUsage>
+													</CurveUsageInfoList>
+												</Attenuation>
+											</Custom>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Really compressed mono" ID="{67179E8B-05DB-4110-A418-07CD164CC880}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Church_Bells_France_PSEM_067" ID="{1C430C29-3979-46D3-B8DC-FD441733683E}" ShortID="942791648">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="2.61941057810578"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="6.0829913899139"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Church_Bells_France_PSEM.067.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Church_Bells_France_PSEM_067" ID="{1C430C29-3979-46D3-B8DC-FD441733683E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Dog_Bark_Cutsie_Many_PSEM_085" ID="{1015BF5B-5E85-4571-8A56-8615A0B38132}" ShortID="478563056">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{4C74770C-120C-435B-A140-966697A6D020}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="6"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>44</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+										<Property Name="UserAuxSendVolume0" Type="Real64">
+											<ValueList>
+												<Value>-35</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-35</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Dog_Bark_Cutsie_Many_PSEM_085" ID="{88818568-DB0E-4D41-BCEA-D9A1B9CE6E04}" ShortID="769475107">
+											<Language>SFX</Language>
+											<AudioFile>Dog_Bark_Cutsie_Many_PSEM.085.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Dog_Bark_Cutsie_Many_PSEM_085" ID="{88818568-DB0E-4D41-BCEA-D9A1B9CE6E04}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="NEXT_STORYEVENT" ID="{08D52ED3-8654-46E5-A9F6-F867EAB652D1}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="STORYEVENT_2" ID="{68AEB1EC-3BF0-40DF-990E-883F0E5166E4}"/>
+										<State Name="Custom State" ID="{C3753F2B-2505-4295-93ED-B74CB2F09E91}" ShortID="667204294">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="STORYEVENT_4" ID="{850C466F-1FC2-421A-AD3A-F382A7F1EE5A}"/>
+										<State Name="Custom State" ID="{FF543D93-EFE1-435C-9BC8-8A92DC43433C}" ShortID="46924383">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="STORYEVENT_3" ID="{CFCB357C-9133-457F-933F-C4DA3476D0FB}"/>
+										<State Name="Custom State" ID="{E30FE692-AD7A-4D62-ACED-F019B20DFDBD}" ShortID="155098116">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="TUTORIAL" ID="{E90A3B69-8C93-45CC-BA20-2556DBB4252C}"/>
+										<State Name="Custom State" ID="{3F12FAC5-7F28-416F-B437-6EB6F0E58A67}" ShortID="916753023">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="STORYEVENT_1" ID="{BEDD3699-1B03-4E8E-9B3E-80091FD0F93A}"/>
+										<State Name="Custom State" ID="{8F8270B6-56AC-4AE7-9793-55A62415D4F6}" ShortID="116977717">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
+						</RandomSequenceContainer>
+						<Sound Name="JustAmbience_ConstructionSite_21" ID="{9F4A0835-393F-4496-AB6F-A226E9982796}" ShortID="526015431">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>28</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{D03FC48F-4ABD-4348-9CC7-C6211759AC51}" ShortID="975384196">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="5"/>
+											</PropertyList>
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{200754C1-630E-4FF8-92A3-FE34B6A19819}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>5</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Really compressed mono" ID="{67179E8B-05DB-4110-A418-07CD164CC880}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="JustAmbience_ConstructionSite_21" ID="{F5EC25E5-DBD2-48E6-9BA2-955AB1BB3358}" ShortID="666262367">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="93"/>
+										<Property Name="LoopBegin" Type="Real64" Value="18.43386449877"/>
+										<Property Name="LoopEnd" Type="Real64" Value="59.3364737084871"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="68.672078905289"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>JustAmbience_ConstructionSite_21.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="ROOM" ID="{3CEC4412-1E33-4E4B-A9AD-2AE42D268D8D}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
+										<State Name="Custom State" ID="{DDBF9EBB-D7BB-4931-9A34-2C67CF2CCC86}" ShortID="513078449">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="KITCHEN" ID="{58A3C77B-7624-424D-B2DF-8412BB792C58}"/>
+										<State Name="Custom State" ID="{1D18ACAA-7659-4381-A6EF-0E8C4BA4F9A4}" ShortID="130905356">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="BEDROOM" ID="{80345D10-291B-42E3-9119-E2F3CACABB96}"/>
+										<State Name="Custom State" ID="{3F826626-A9D6-4EE7-8225-9AE977C1186D}" ShortID="335156534">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="HALLWAY" ID="{6BB75331-C2D5-4696-A368-81731DA3946E}"/>
+										<State Name="Custom State" ID="{2811153F-F854-40C1-8404-27C8CBB8E2D0}" ShortID="1018991278">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="JustAmbience_ConstructionSite_21" ID="{F5EC25E5-DBD2-48E6-9BA2-955AB1BB3358}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="AMB_EXT_ApartmentCourtyard_ChildrenPlaying" ID="{04B1B590-23C1-4B77-BA64-778CC58CB10C}" ShortID="717653248">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{968261B9-8A62-4247-8BB8-35E6AA17ABD2}" ShortID="1011414728">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="5"/>
+											</PropertyList>
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{319ED05B-DBD4-4404-82A4-5D9E53D942D1}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>5</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Really compressed mono" ID="{67179E8B-05DB-4110-A418-07CD164CC880}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AMB_EXT_ApartmentCourtyard_ChildrenPlaying" ID="{09F7CF7C-31A1-4810-862C-F2DF699B2074}" ShortID="525896482">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="104"/>
+										<Property Name="LoopBegin" Type="Real64" Value="11.8263899138991"/>
+										<Property Name="LoopEnd" Type="Real64" Value="93.6774569495695"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>AMB_EXT_ApartmentCourtyard_ChildrenPlaying.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="AMB_EXT_ApartmentCourtyard_ChildrenPlaying" ID="{09F7CF7C-31A1-4810-862C-F2DF699B2074}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<ActorMixer Name="Moth" ID="{36C3990D-956D-471E-B4E8-1E86B509FA48}" ShortID="885581033">
@@ -10365,7 +10933,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5</Value>
+										<Value>-13</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

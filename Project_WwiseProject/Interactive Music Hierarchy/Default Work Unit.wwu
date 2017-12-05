@@ -1350,7 +1350,7 @@
 										<MusicCue Name="Exit Cue" ID="{ED2C0F79-F4C2-4C18-8DD9-EBB5BB445A11}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="42897.4829931973"/>
+												<Property Name="TimeMs" Type="Real64" Value="28000"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
@@ -1761,9 +1761,15 @@
 						</MusicSwitchContainer>
 						<MusicSwitchContainer Name="Menu Puzzle" ID="{AA6D2D6D-A0F6-4832-9D2D-C5CE156D1FA7}" ShortID="916018334">
 							<PropertyList>
+								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+								<Property Name="PlaybackSpeed" Type="Real64">
+									<ValueList>
+										<Value>0.7</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-11</Value>
+										<Value>-24</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1773,6 +1779,9 @@
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
