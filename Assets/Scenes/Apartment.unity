@@ -3597,6 +3597,7 @@ Transform:
   - {fileID: 1072984775}
   - {fileID: 1734371853}
   - {fileID: 551640875}
+  - {fileID: 1888521159}
   - {fileID: 62995119}
   - {fileID: 1840416005}
   - {fileID: 935744768}
@@ -3641,7 +3642,6 @@ Transform:
   - {fileID: 1041367000}
   - {fileID: 895027259}
   - {fileID: 1383084446}
-  - {fileID: 1888521159}
   - {fileID: 86550455}
   - {fileID: 794067685}
   - {fileID: 1401805557}
@@ -3653,6 +3653,7 @@ Transform:
   - {fileID: 8922898}
   - {fileID: 1236303906}
   - {fileID: 1853985482}
+  - {fileID: 225535471}
   - {fileID: 268236956}
   - {fileID: 1951788166}
   - {fileID: 538696834}
@@ -3660,7 +3661,6 @@ Transform:
   - {fileID: 454854569}
   - {fileID: 1104753300}
   - {fileID: 140981771}
-  - {fileID: 225535471}
   - {fileID: 63667588}
   - {fileID: 528190158}
   - {fileID: 689709558}
@@ -4045,7 +4045,7 @@ Transform:
   - {fileID: 1977705542}
   - {fileID: 1958872999}
   m_Father: {fileID: 215607466}
-  m_RootOrder: 98
+  m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &231029949
 GameObject:
@@ -33223,6 +33223,7 @@ MonoBehaviour:
   - {fileID: 625360800}
   StoryEventName: 
   roomIndex: 3
+  fogIdentifier: 
 --- !u!65 &1261101947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43089,7 +43090,7 @@ Transform:
   - {fileID: 65294693}
   - {fileID: 936717141}
   m_Father: {fileID: 215607466}
-  m_RootOrder: 79
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1894318465
 Prefab:
@@ -50159,6 +50160,26 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6600b57475f8e34468a622636a9a8b0f, type: 2}
+    - target: {fileID: 114385878214877654, guid: 47920560ca05fbe4e9bb59ac322aed22,
+        type: 2}
+      propertyPath: fogIdentifier
+      value: HallwayToLivingRoomFog
+      objectReference: {fileID: 0}
+    - target: {fileID: 114897933860569028, guid: 47920560ca05fbe4e9bb59ac322aed22,
+        type: 2}
+      propertyPath: fogIdentifier
+      value: KitchenToHallwayFog
+      objectReference: {fileID: 0}
+    - target: {fileID: 114908112223768902, guid: 47920560ca05fbe4e9bb59ac322aed22,
+        type: 2}
+      propertyPath: fogIdentifier
+      value: KitchenFog
+      objectReference: {fileID: 0}
+    - target: {fileID: 114196409437184672, guid: 47920560ca05fbe4e9bb59ac322aed22,
+        type: 2}
+      propertyPath: fogIdentifier
+      value: HallwayToKitchenFog
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
   m_IsPrefabParent: 0
