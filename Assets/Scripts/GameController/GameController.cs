@@ -174,7 +174,8 @@ public class GameController : Singleton<GameController>
 			currentState.OnStateEnter();
 		}
 	}
-    [Button]
+    
+	[ContextMenu("Save Game")]
     public void SaveGame()
     {
         SaveLoad.SaveGame(this);
