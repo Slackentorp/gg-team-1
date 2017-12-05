@@ -16,6 +16,8 @@ namespace AK
         static const AkUniqueID ANSWERING_TRIGGER = 944261500U;
         static const AkUniqueID CAMERA_MOVE = 746056516U;
         static const AkUniqueID CARS = 4189504244U;
+        static const AkUniqueID CONSTRUCTION = 2634775690U;
+        static const AkUniqueID DISTANT_SOUNDS = 1784195655U;
         static const AkUniqueID FOGWALL_DISABLE = 3059416910U;
         static const AkUniqueID FOGWALL_ENABLE = 1536333371U;
         static const AkUniqueID FRAGMENT_BIRTHDAY = 2817540555U;
@@ -49,6 +51,7 @@ namespace AK
         static const AkUniqueID GAME_START = 733168346U;
         static const AkUniqueID INGAMEMENU_CLOSE = 1571339874U;
         static const AkUniqueID INGAMEMENU_OPEN = 4165127606U;
+        static const AkUniqueID KIDS = 2165061602U;
         static const AkUniqueID LAMP_FLICKER_OFF = 3202129528U;
         static const AkUniqueID LAMP_FLICKER_ON = 3118183458U;
         static const AkUniqueID LAMP_FLICKERING = 3143729630U;
@@ -84,12 +87,18 @@ namespace AK
         static const AkUniqueID SFX_UNMUTE = 1305045635U;
         static const AkUniqueID SINK = 805220752U;
         static const AkUniqueID STORYEVENT_1 = 1922983904U;
+        static const AkUniqueID STORYEVENT_1_LOAD = 800353323U;
         static const AkUniqueID STORYEVENT_2 = 1922983907U;
+        static const AkUniqueID STORYEVENT_2_LOAD = 1405453454U;
         static const AkUniqueID STORYEVENT_3 = 1922983906U;
+        static const AkUniqueID STORYEVENT_3_LOAD = 1034512089U;
         static const AkUniqueID STORYEVENT_4 = 1922983909U;
+        static const AkUniqueID STORYEVENT_4_LOAD = 3856771188U;
         static const AkUniqueID STORYEVENT_5 = 1922983908U;
+        static const AkUniqueID STORYEVENT_5_LOAD = 3490949287U;
         static const AkUniqueID STORYEVENT_END = 3721137874U;
         static const AkUniqueID STORYEVENT_INTRO = 1357239343U;
+        static const AkUniqueID STORYEVENT_INTRO_LOAD = 612823810U;
         static const AkUniqueID STREET = 4142189312U;
         static const AkUniqueID TAP_PARTICLE = 3809097629U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
