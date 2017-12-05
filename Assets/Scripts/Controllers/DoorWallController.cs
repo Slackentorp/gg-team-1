@@ -14,6 +14,8 @@ public class DoorWallController : MonoBehaviour
     private int LampsON = 0;
     [SerializeField]
     private int roomIndex;
+    [SerializeField, Tooltip("Optional: Identifier for this fogwall")]
+    public string fogIdentifier;
 
     public int GetRoomIndex()
     {
