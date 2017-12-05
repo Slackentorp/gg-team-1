@@ -15,7 +15,6 @@ public class InteractableState : GameState
 
     private CameraController cameraController;
     private Interactable currentInteractable;
-    private Renderer currentInteractableRenderer;
 
     public InteractableState(GameController gm, Interactable interactable) : base(gm)
     {
@@ -28,7 +27,7 @@ public class InteractableState : GameState
         gm.mothBehaviour.Update();
 
         // We should be able to look around if the interactable has been viewed
-        if (currentInteractable.HasPlayed && currentInteractable is Fragment)
+        if ((currentInteractable.HasPlayed || gm.hasReachedPointOfNoReturn) && currentInteractable is Fragment)
         {
             //   gm.cameraController.Update();
             CheckInput();
@@ -45,21 +44,8 @@ public class InteractableState : GameState
         Quaternion rotation;
         rotation = Quaternion.Lerp(originRotation, Quaternion.Euler(currentInteractable.CamOrientaion), t);
 
-        Quaternion mothRotation = Quaternion.identity;
-        if (currentInteractableRenderer != null)
-        {
-            if (currentInteractable.LandingRotation == Interactable.LandRotation.VERTICAL)
-            {
-                // Land vertically
-                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0, 0, 90), t + .1f);
-            }
-            else
-            {
-                // Land horizontally
-                mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(0, 0, 0), t + .1f);
-            }
-        }
-
+        Quaternion mothRotation = Quaternion.Lerp(originMothRotation, Quaternion.Euler(currentInteractable.LandingRotation), t + .1f);
+        
         if (t < 1)
         {
             gm.GameCamera.transform.position = position;
@@ -74,7 +60,7 @@ public class InteractableState : GameState
             {
                 CheckInput();
          //       ((Puzzle) currentInteractable).UpdatePuzzle();
-                if (((Puzzle) currentInteractable).IsSolved)
+                if (((Puzzle) currentInteractable).IsSolved && !gm.hasReachedPointOfNoReturn)
                 {
                     lerpOut = true;
                     currentInteractable.Play(EndOfFragmentCallback);
@@ -106,7 +92,7 @@ public class InteractableState : GameState
 
         // We should be able to move to a new location if the interactable has played
         // Black bars should not show if the interactable has been seen
-        if (!currentInteractable.HasPlayed)
+        if (!currentInteractable.HasPlayed && !gm.hasReachedPointOfNoReturn)
         {
             gm.mothBehaviour.SetFragmentMode(true);
             gm.CinemaBars.gameObject.SetActive(true);
@@ -115,15 +101,13 @@ public class InteractableState : GameState
         Vector3 newMothPos = currentInteractable.transform.TransformPoint(currentInteractable.LandingPosition);
         gm.mothBehaviour.SetMothPos(newMothPos);
 
-        currentInteractableRenderer = currentInteractable.GetComponentInChildren<Renderer>();
-
         cameraController.SetFragmentMode(true);
         if (currentInteractable is Puzzle)
         {
             currentInteractable.GetComponent<BoxCollider>().enabled = false;
 			AkSoundEngine.PostEvent("CAMERA_MOVE", gm.GameCamera);
         }
-        else
+        else if(!gm.hasReachedPointOfNoReturn)
         {
             // It's a Fragment
             currentInteractable.Play(EndOfFragmentCallback);
@@ -149,7 +133,7 @@ public class InteractableState : GameState
         gm.mothBehaviour.SetMothAnimationState("Landing");
     }
 
-    private void EndOfFragmentCallback()
+    public void EndOfFragmentCallback()
     {
         if(gm.GetGameState() != this)
         {
@@ -192,12 +176,16 @@ public class InteractableState : GameState
             float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
 
             Vector3 position = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.CamPosition, desiredPosition, t);
+            Vector3 mothPos = Vector3.Lerp(currentInteractable.transform.TransformPoint(currentInteractable.LandingPosition), 
+                                            currentInteractable.transform.TransformPoint(currentInteractable.MothResetPosition), t);
+
             Quaternion camQ = Quaternion.Lerp(cameraStartRotation, desiredRotation, t);
             Quaternion mothQ = Quaternion.Lerp(mothStartRotation, desiredRotation, t);
 
             gm.GameCamera.transform.position = position;
             gm.GameCamera.transform.rotation = camQ;
             gm.Moth.transform.rotation = mothQ;
+            gm.Moth.transform.position = mothPos;
 
             time += Time.deltaTime;
             yield return null;
@@ -210,7 +198,14 @@ public class InteractableState : GameState
             gm.CinemaBars.SetTrigger("Up");
         }
 
-        gm.SetState(new RunState(gm));
+        if(gm.hasReachedPointOfNoReturn)
+        {
+            gm.SetState(new PointOfNoReturnState(gm)); 
+        } 
+        else 
+        {
+            gm.SetState(new RunState(gm));
+        }
     }
 
     void CheckInput()

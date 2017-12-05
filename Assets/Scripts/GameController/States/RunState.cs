@@ -57,7 +57,7 @@ public class RunState : GameState
                 particleTapCall(particlePos);
 
                 float dist = Vector3.SqrMagnitude(gm.Moth.transform.position - interactable.transform.position);
-                if (Mathf.Abs(dist) < interactable.InternalInteractionDistion)
+                if (Mathf.Abs(dist) < interactable.InternalInteractionDistance)
                 {
                     gm.SetState(new InteractableState(gm, interactable));
                 } else {

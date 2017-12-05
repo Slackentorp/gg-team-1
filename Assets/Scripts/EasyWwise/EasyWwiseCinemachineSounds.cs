@@ -2,26 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class CinemachineSound {
+public class EasyWwiseCinemachineSounds : MonoBehaviour 
+{
 
-public GameObject source;
-public string wwiseEvent;
+	[HideInInspector]
+	public enum Particles {LampParticle, MergedParticle};
 
-}
-
-
-public class EasyWwiseCinemachineSounds : MonoBehaviour {
+	public Particles setting = Particles.LampParticle;
+	public bool soundOnDisable = false;
 
 
-	public CinemachineSound[] sounds;
-
-
-	public void playSound (int index)
+	void OnEnable ()
 	{
-		AkSoundEngine.PostEvent( sounds[index].wwiseEvent, sounds[index].source);
-		
+
+		if (setting == Particles.LampParticle) 
+		{
+			//AkSoundEngine.PostEvent ("PARTICLE_APPEAR_LAMP", gameObject);
+		} 
+		else if (setting == Particles.MergedParticle) 
+		{
+			//AkSoundEngine.PostEvent("PARTICLE_MERGE", gameObject);
+		}
 	}
 
+
+	void OnDisable()
+	{
+
+		//if (soundOnDisable)
+		//AkSoundEngine.PostEvent("PARTICLE_ENTER_FOGWALL", gameObject);
+
+	}
 
 }

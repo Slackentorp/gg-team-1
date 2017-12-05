@@ -8,6 +8,9 @@ using UnityEngine.UI;
 #pragma warning disable 0414
 public class GameController : Singleton<GameController>
 {
+	public delegate void PointOfNoReturn();
+    public static event PointOfNoReturn OnPointOfNoReturn;
+
 	[SerializeField, ReadOnly]
 	private string currentStateLiteral;
 
@@ -24,6 +27,7 @@ public class GameController : Singleton<GameController>
 	public InputHandlerSettings InputSettings;
 	public CameraController cameraController;
 	public FragmentParticleController fragParticleController;
+	public bool hasReachedPointOfNoReturn;
 
     [Header("Camera Attributes")]
     [Tooltip("Determines the camera's turn speed on it's y-axis")]
@@ -132,7 +136,6 @@ public class GameController : Singleton<GameController>
 	{
 		if (currentState != null)
 		{
-			// CheckInput(); 
 			currentState.Tick();
 		}
 	}
@@ -183,9 +186,17 @@ public class GameController : Singleton<GameController>
     {
         if (currentState is InteractableState)
         {
-            SetState(new RunState(this));
+			((InteractableState)currentState).EndOfFragmentCallback();
         }
     }
+
+	public void InvokePointOfNoReturn()
+	{
+		if(OnPointOfNoReturn != null)
+		{
+			OnPointOfNoReturn();	
+		}
+	}
 
     /// <summary>
     /// Callback sent to all game objects before the application is quit.

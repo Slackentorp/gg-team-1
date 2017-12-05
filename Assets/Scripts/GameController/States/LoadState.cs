@@ -38,16 +38,22 @@ public class LoadState : GameState
         {
             gm.SetState(new RunState(gm));
         }
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         gm.SetState(new RunState(gm));
-#endif
+        #endif
     }
 
     public override void OnStateExit()
     {
         gm.LoadingPanel.SetActive(false); 
-        base.OnStateExit();
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        #if UNITY_EDITOR
+        if(!UnityEditor.EditorPrefs.GetBool("ShowIntro", true))
+        {
+            return;
+        }
+        #endif
+        StoryEventController.Instance.PostStoryEvent("STORYEVENT_INTRO", null);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -56,12 +62,15 @@ public class LoadState : GameState
         {
             if (GameObject.FindWithTag("Respawn") != null && !loadedGame)
             {
-                gm.SetState(new RunState(gm));
-                //gm.tutorialPuzzle = GameObject.FindWithTag("Respawn").GetComponent<Puzzle>();
-                //gm.SetState(new InteractableState(gm, gm.tutorialPuzzle));
+                 gm.SetState(new RunState(gm));
             }
 
         }
+    }
+
+    private void SetUpState()
+    {
+        gm.SetState(new RunState(gm));
     }
 
     public override void Tick()
