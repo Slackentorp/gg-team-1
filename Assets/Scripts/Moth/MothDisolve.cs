@@ -22,7 +22,8 @@ public class MothDisolve : MonoBehaviour
     [SerializeField]
     private float DKTiming = 5f, ENGTiming = 3.5f;
     [SerializeField]
-    private Vector3 particleOffset; 
+    private Vector3 particleOffset;
+	private bool firstPuzzleSolved = false;
 
     private void OnEnable()
     {
@@ -51,28 +52,38 @@ public class MothDisolve : MonoBehaviour
 
     public void AssembleEffect(Interactable puzPos)
     {
-        LocalizationItem.Language language;
-        language = (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
-        if (language == LocalizationItem.Language.DANISH)
-        {
-            mothAssembleTiming = DKTiming; //DK Timing
-        }
-        else if(language == LocalizationItem.Language.ENGLISH)
-        {
-            mothAssembleTiming = ENGTiming; // ENG Timing
-        }
+		
+			LocalizationItem.Language language;
+			language = (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
+			if (language == LocalizationItem.Language.DANISH)
+			{
+				mothAssembleTiming = DKTiming; //DK Timing
+			}
+			else if (language == LocalizationItem.Language.ENGLISH)
+			{
+				mothAssembleTiming = ENGTiming; // ENG Timing
+			}
 
-        puzzlePosition = puzPos.transform.position;
+		if (firstPuzzleSolved == false)
+		{
+			puzzlePosition = puzPos.transform.position;
 
-        particleHolder = Instantiate(assemblePrefab, puzzlePosition + particleOffset, assemblePrefab.transform.rotation);
-        assembleParticle = particleHolder.GetComponentsInChildren<ParticleSystem>();
-        foreach (ParticleSystem assembleParticle in assembleParticle)
-        {
-            var em = assembleParticle.emission;
-            em.enabled = true;
-        }
+			particleHolder = Instantiate(assemblePrefab, puzzlePosition + particleOffset, assemblePrefab.transform.rotation);
+			assembleParticle = particleHolder.GetComponentsInChildren<ParticleSystem>();
+			foreach (ParticleSystem assembleParticle in assembleParticle)
+			{
+				var em = assembleParticle.emission;
+				em.enabled = true;
+			}
 
-        StartCoroutine(MothMaterialisation());
+			StartCoroutine(MothMaterialisation());
+
+			firstPuzzleSolved = true;
+		}
+		else
+		{
+			return;
+		}
     }
 
     IEnumerator MothMaterialisation()

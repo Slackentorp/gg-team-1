@@ -53,11 +53,8 @@ public class Fragment : Interactable
         EndFragments(markerId, StoryFragment);
         OnFragmentCall();
     }
-    public int counter = 0;
-    private float[] fragmentDurations = new float[2];
-    public bool fragmentIsOn = false;
-    
-    public override void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
+
+    public virtual void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
     {
         if (callbackType == AkCallbackType.AK_Duration)
         {
@@ -71,6 +68,7 @@ public class Fragment : Interactable
             }
 
             counter++;
+
             if (counter == 2)
             {
                 fragmentIsOn = false;
@@ -78,14 +76,19 @@ public class Fragment : Interactable
             }
         }
         base.EndOfEventCallback(sender, callbackType, info);
+
     }
 
+    public int counter = 0;
+    private float[] fragmentDurations = new float[2];
+    public bool fragmentIsOn = false;
     public uint markerr;
     public string storyFragmentt;
     public int realDuration;
     public float durationn;
     public bool fragmentIsOnn = false;
     public GameObject thePlayedFragment;
+    //int uPosition;
 
     public void EndFragments(uint marker, string storyFragment)
     {
@@ -93,6 +96,7 @@ public class Fragment : Interactable
         storyFragmentt = storyFragment;
 
     }
+
     public void TwoSecondsBeforeEnd()
     {
         AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
@@ -123,7 +127,8 @@ public class Fragment : Interactable
         //Debug.Log(realDuration);
     }
 
-    void Update()
+
+    void Update()//maybe a problem
     {
         if (fragmentIsOnn == true)
         {
