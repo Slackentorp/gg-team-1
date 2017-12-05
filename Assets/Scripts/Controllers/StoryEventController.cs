@@ -9,6 +9,8 @@ using UnityEngine.Playables;
 [RequireComponent(typeof(PlayableDirector))]
 public class StoryEventController : Singleton<StoryEventController>
 {
+	public bool isMuted;
+
 	[SerializeField]
 	List<StoryEvent> StoryEvents;
 
@@ -40,7 +42,7 @@ public class StoryEventController : Singleton<StoryEventController>
 
 	public void PostStoryEvent(string StoryEvent, Action Callback)
 	{
-		if (isPosting)
+		if (isPosting || isMuted)
 		{
 			return;
 		}
@@ -67,6 +69,15 @@ public class StoryEventController : Singleton<StoryEventController>
 				
 				se.StoryEventGroup.SetActive(true);
 				isPosting = true;
+
+				// Save state in playerprefs
+				string lastChar = StoryEvent[StoryEvent.Length - 1].ToString();
+				int storyEventNumber = -1;
+				int.TryParse(lastChar, out storyEventNumber);
+				if(storyEventNumber > -1)
+				{
+					PlayerPrefs.SetInt("SE_REACHED", storyEventNumber);
+				}
 			}
 		} catch (InvalidOperationException e){ 
 			print(e.Message);
