@@ -31,7 +31,7 @@ public class MothDisolve : MonoBehaviour
     }
     private void OnDisable()
     {
-        Interactable.TUTInteractableCall += AssembleEffect;
+        Interactable.TUTInteractableCall -= AssembleEffect;
     }
 
     private void Start()
