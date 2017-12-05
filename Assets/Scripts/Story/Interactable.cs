@@ -60,9 +60,12 @@ public abstract class Interactable : MonoBehaviour
             Callback();
             return;
         }
-        TUTInteractableCall(this);
+        if (firstPuzzleCheck)
+        {
+            TUTInteractableCall(this);
+        }
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
-        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject, (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject, (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
        // EndFragments(markerId, StoryFragment);
         
