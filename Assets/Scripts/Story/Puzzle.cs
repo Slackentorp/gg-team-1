@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //[RequireComponent(typeof(CombinationPuzzleController))]
@@ -16,7 +17,6 @@ public class Puzzle : Interactable
     private Vector3 boundingBoxSize = Vector3.one;
     [SerializeField]
     private Vector3 boundingBoxOffset;
-
     [SerializeField, Tooltip("The name of the puzzle.")]
     private string puzzleId;
 
@@ -27,6 +27,7 @@ public class Puzzle : Interactable
     private Dictionary<GameObject, Vector3> correctPuzzle;
 
     private bool isSolved;
+    private GameObject puzzleOutline;
 
     [SerializeField, Tooltip("Dimensions which the puzzle should work in")]
     private bool x, y, z;
@@ -66,6 +67,10 @@ public class Puzzle : Interactable
                 );
                 puzzlePieces[i].transform.position = newRandomPos;
                 correctPuzzle.Add(puzzlePieces[i], correctPositions[i]);
+            }
+            else if (transform.GetChild(i).CompareTag("PuzzleFeedforward"))
+            {
+                puzzleOutline = transform.GetChild(i).gameObject;
             }
 
             PictureFrameTouch pft = child.GetComponent<PictureFrameTouch>();
@@ -123,6 +128,10 @@ public class Puzzle : Interactable
         {
             PuzzleCall(puzzleObj);
         }
+        if (puzzleOutline != null)
+        {
+            StartCoroutine(FadeOutline(puzzleOutline.transform));
+        }
     }
 
     public void UpdatePuzzle()
@@ -141,6 +150,10 @@ public class Puzzle : Interactable
 
     private void PositionPieceCorrectly(int piece)
     {
+        // Piece already flagged as correctly placed, no need to go through again.
+        if (piecePlaced[piece]) return;
+
+        AkSoundEngine.PostEvent("PIECE_PLACED_CORRECTLY", puzzlePieces[piece]);
         piecePlaced[piece] = true;
         puzzlePieces[piece].transform.position = correctPuzzle[puzzlePieces[piece]];
         puzzlePieces[piece].GetComponent<PictureFrameTouch>().isCorrect = true;
@@ -159,5 +172,36 @@ public class Puzzle : Interactable
 
         OnSolved(gameObject);
         return true;
+    }
+
+    IEnumerator FadeOutline(Transform outline)
+    {
+        if(!outline.gameObject.activeSelf)
+        {
+            yield break;
+        }
+
+        Renderer[] rendereres = outline.GetComponentsInChildren<Renderer>();
+        float time = 0;
+        Color startColor = Color.white;
+        if (rendereres[0].material.HasProperty("_TintColor"))
+        {
+            startColor = rendereres[0].material.GetColor("_TintColor");
+        }
+
+        while (time < 1)
+        {
+            foreach (var item in rendereres)
+            {
+                if (item.material.HasProperty("_TintColor"))
+                {
+                    item.material.SetColor("_TintColor", new Color(startColor.r, startColor.g, startColor.b, 1 - time));
+                }
+            }
+            time += Time.deltaTime;
+            yield return null;
+        }
+        
+        outline.gameObject.SetActive(false);
     }
 }

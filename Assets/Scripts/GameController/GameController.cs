@@ -176,7 +176,8 @@ public class GameController : Singleton<GameController>
 			currentState.OnStateEnter();
 		}
 	}
-    [Button]
+    
+	[ContextMenu("Save Game")]
     public void SaveGame()
     {
         SaveLoad.SaveGame(this);
@@ -198,12 +199,12 @@ public class GameController : Singleton<GameController>
 		}
 	}
 
-    /// <summary>
-    /// Callback sent to all game objects before the application is quit.
-    /// </summary>
-    void OnApplicationQuit()
+    private void OnApplicationPause(bool pauseStatus)
     {
-        SaveLoad.SaveGame(this);
+		if(pauseStatus)
+		{
+        	SaveLoad.SaveGame(this);
+		}
     }
     
 

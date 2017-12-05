@@ -35,10 +35,10 @@ public class SaveLoad
         // Get all interactables
         Interactable[] interactables = GameObject.FindObjectsOfType<Interactable>();
         // Get all interactable states
-        Dictionary<int, bool> dict = new Dictionary<int, bool>();
+        Dictionary<string, bool> dict = new Dictionary<string, bool>();
         foreach (var item in interactables)
         {
-            dict.Add(item.gameObject.GetInstanceID(), item.HasPlayed);
+            dict.Add(item.uniqueGUID, item.HasPlayed);
         }
         data.InteractableStates = dict;
 
@@ -111,28 +111,32 @@ public class SaveLoad
 
             // Get all instance ID's of objects with Interactable
             Interactable[] allInteractables = GameObject.FindObjectsOfType<Interactable>();
-            Dictionary<int, GameObject> idGameObjectDict = new Dictionary<int, GameObject>();
+            Dictionary<string, GameObject> idGameObjectDict = new Dictionary<string, GameObject>();
 
             foreach(var item in allInteractables)
             {
-                idGameObjectDict.Add(item.gameObject.GetInstanceID(), item.gameObject);
+                idGameObjectDict.Add(item.uniqueGUID, item.gameObject);
             }
 
             // Set Interactable states
-            Dictionary<int, bool> loadedStates = data.InteractableStates;
+            Dictionary<string, bool> loadedStates = data.InteractableStates;
 
             foreach (var item in idGameObjectDict)
             {
                 Interactable component = item.Value.GetComponent<Interactable>();
-                component.HasPlayed = loadedStates[item.Key];
-                if(component.HasPlayed)
+                bool tmp;
+                if(loadedStates.TryGetValue(item.Key, out tmp))
                 {
-                    if(component is Puzzle)
+                    component.HasPlayed = tmp;
+                    if(component.HasPlayed)
                     {
-                        ((Puzzle)component).SolvePuzzleNow();
+                        if(component is Puzzle)
+                        {
+                            ((Puzzle)component).SolvePuzzleNow();
+                        }
+                        
+                        component.InvokeInteractableCall();
                     }
-                    
-                    component.InvokeInteractableCall();
                 }
             }
 
@@ -157,7 +161,7 @@ public class PlayerData
     [SerializeField]
     public Vector3 CamereHeading;
 
-    public Dictionary<int, bool> InteractableStates;
+    public Dictionary<string, bool> InteractableStates;
 }
 
 sealed class Vector3SerializationSurrogate : ISerializationSurrogate
