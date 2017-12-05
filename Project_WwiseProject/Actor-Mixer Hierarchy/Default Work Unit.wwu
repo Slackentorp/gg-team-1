@@ -683,11 +683,6 @@
 																<Value>69</Value>
 															</ValueList>
 														</Property>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>11</Value>
-															</ValueList>
-														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -761,7 +756,7 @@
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>8</Value>
+																<Value>-12</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -794,33 +789,6 @@
 														<ActiveSource Name="Detunized_Urban-Crows_12c" ID="{6425E928-D824-4A67-A68A-E990CA9C97D5}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="RATH - Rain, Distant Thunder and Bird Loop" ID="{EEBBC39B-9662-49D4-BBC6-41DB4876A06B}" ShortID="560369086">
-													<PropertyList>
-														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>6</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="RATH - Rain, Distant Thunder and Bird Loop" ID="{7D3A2DA7-63A5-4E71-8F2E-DF14423666CA}" ShortID="601362214">
-															<Language>SFX</Language>
-															<AudioFile>RATH - Rain, Distant Thunder and Bird Loop.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="RATH - Rain, Distant Thunder and Bird Loop" ID="{7D3A2DA7-63A5-4E71-8F2E-DF14423666CA}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
 												<RandomSequenceContainer Name="Random Siren Pass" ID="{49FE7899-8AC5-45D5-85DA-54E2AB86DEF4}" ShortID="254833807">
 													<PropertyList>
 														<Property Name="3DPositionSource" Type="int16" Value="0"/>
@@ -830,7 +798,7 @@
 																	<Modifier Name="" ID="{D7C31329-599C-459F-94B9-370E5CFF230B}">
 																		<PropertyList>
 																			<Property Name="Enabled" Type="bool" Value="True"/>
-																			<Property Name="Max" Type="Real64" Value="1"/>
+																			<Property Name="Max" Type="Real64" Value="8"/>
 																		</PropertyList>
 																	</Modifier>
 																</ModifierInfo>
@@ -844,7 +812,7 @@
 														<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-4</Value>
+																<Value>-16</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -1223,17 +1191,6 @@
 															<ObjectRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
 														</Reference>
 													</ReferenceList>
-													<BlendTrackAssocList>
-														<BlendTrackAssoc>
-															<ItemRef Name="RATH - Rain, Distant Thunder and Bird Loop" ID="{EEBBC39B-9662-49D4-BBC6-41DB4876A06B}"/>
-															<CrossfadingInfo>
-																<LeftEdgePos>44.4245976177437</LeftEdgePos>
-																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>95.2022536966046</RightEdgePos>
-																<RightFadingMode>Automatic</RightFadingMode>
-															</CrossfadingInfo>
-														</BlendTrackAssoc>
-													</BlendTrackAssocList>
 												</BlendTrack>
 												<BlendTrack Name="Birds" ID="{A08F319B-C125-4F80-941A-F907F5FDF1CB}" ShortID="188496053">
 													<PropertyList>
@@ -2365,6 +2322,7 @@
 								<ActorMixer Name="Lamp" ID="{C2A98379-14BB-481D-AFD6-84C937C2D859}" ShortID="669392134">
 									<PropertyList>
 										<Property Name="OverrideConversion" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
@@ -2393,7 +2351,7 @@
 																			<Flags>5</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>2.00627</XPos>
+																			<XPos>4.999</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>0</Flags>
 																		</Point>
@@ -2438,6 +2396,7 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Turn on" ID="{8E256CAF-46EA-43F4-95E4-D2D71C8B9434}" ShortID="16772953">
 											<PropertyList>
+												<Property Name="EnablePositioning" Type="bool" Value="False"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>6</Value>
@@ -3694,18 +3653,23 @@
 									<PropertyList>
 										<Property Name="Highpass" Type="int16">
 											<ValueList>
-												<Value>84</Value>
+												<Value>79</Value>
 											</ValueList>
 										</Property>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="Lowpass" Type="int16">
 											<ValueList>
-												<Value>32</Value>
+												<Value>34</Value>
 											</ValueList>
 										</Property>
 										<Property Name="OverrideConversion" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-100</Value>
+											</ValueList>
+										</Property>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
@@ -3714,7 +3678,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-5</Value>
+												<Value>-7</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -9565,7 +9529,7 @@
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>580</Value>
+										<Value>130</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -9583,7 +9547,7 @@
 								<Property Name="PriorityDistanceFactor" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-25</Value>
+										<Value>-33</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{7D7A7147-3CC5-4FAA-A8C9-98A5A29CF0DF}" ShortID="666779863">
@@ -10581,6 +10545,11 @@
 															<Flags>5</Flags>
 														</Point>
 														<Point>
+															<XPos>5.01567</XPos>
+															<YPos>-200</YPos>
+															<Flags>0</Flags>
+														</Point>
+														<Point>
 															<XPos>10</XPos>
 															<YPos>-200</YPos>
 															<Flags>37</Flags>
@@ -10700,7 +10669,6 @@
 						</Sound>
 						<SwitchContainer Name="Answering" ID="{854AB27B-83C6-4AAC-8845-F12201DFC5EA}" ShortID="878405867">
 							<PropertyList>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
@@ -10880,6 +10848,7 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="Particle_appear_fragment" ID="{24FEBDB9-1990-4CD8-9056-8764DC32B67C}" ShortID="619388204">
 							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 								<Property Name="UserAuxSendVolume0" Type="Real64">
 									<ValueList>
@@ -10888,7 +10857,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-14</Value>
+										<Value>-19</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -10950,6 +10919,39 @@
 										<ActiveSource Name="PARTICLE_APPEAR_2" ID="{EFF4A6B4-FAE4-4CAC-B375-756E5E6EFB71}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="PARTICLE_APPEAR_3" ID="{EBE3F270-58EB-46F3-8FF5-CEB61CDEDB44}" ShortID="214569150">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="PARTICLE_APPEAR_3" ID="{2F7C5DCC-9ECF-4278-AC11-2A32EC8D3CEA}" ShortID="946359298">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.295838324505694"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.181320263406716"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>PARTICLE_APPEAR_3.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="PARTICLE_APPEAR_3" ID="{2F7C5DCC-9ECF-4278-AC11-2A32EC8D3CEA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Particle_enter_lamp" ID="{08490310-6CC2-45E5-94D2-FB20E50AAF58}" ShortID="958131877">
@@ -11000,7 +11002,7 @@
 								<Property Name="Spatialization" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-11</Value>
+										<Value>-19</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11072,45 +11074,14 @@
 								<ActiveSource Name="PARTICLE_FLY_LOOP" ID="{F6381912-B875-4C0F-BD9A-F4F5C6C116F7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="PARTICLE_APPEAR_3" ID="{EBE3F270-58EB-46F3-8FF5-CEB61CDEDB44}" ShortID="214569150">
+						<Sound Name="PARTICLE__MERGE_FLY" ID="{3B4027B2-F246-497C-A1EF-FDE95DFA7CA3}" ShortID="60699363">
 							<PropertyList>
-								<Property Name="UserAuxSendVolume0" Type="Real64">
-									<ValueList>
-										<Value>-16</Value>
-									</ValueList>
-								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-12</Value>
+										<Value>-17</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-								<Reference Name="UserAuxSend0">
-									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="PARTICLE_APPEAR_3" ID="{2F7C5DCC-9ECF-4278-AC11-2A32EC8D3CEA}" ShortID="946359298">
-									<PropertyList>
-										<Property Name="FadeInDuration" Type="Real64" Value="0.295838324505694"/>
-										<Property Name="TrimBegin" Type="Real64" Value="0.181320263406716"/>
-									</PropertyList>
-									<Language>SFX</Language>
-									<AudioFile>PARTICLE_APPEAR_3.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="PARTICLE_APPEAR_3" ID="{2F7C5DCC-9ECF-4278-AC11-2A32EC8D3CEA}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="PARTICLE__MERGE_FLY" ID="{3B4027B2-F246-497C-A1EF-FDE95DFA7CA3}" ShortID="60699363">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -11130,6 +11101,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="PARTICLE_ENTER_FOGWALL" ID="{68244742-F2A9-414A-83D2-84219ECFC756}" ShortID="795264929">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-17</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -11149,6 +11127,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="PARTICLE_MERGE" ID="{4C38C44E-E9BA-45E9-815B-5FAECB05D1CF}" ShortID="30805536">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
