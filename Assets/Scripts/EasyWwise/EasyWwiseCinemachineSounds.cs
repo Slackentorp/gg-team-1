@@ -17,11 +17,11 @@ public class EasyWwiseCinemachineSounds : MonoBehaviour
 
 		if (setting == Particles.LampParticle) 
 		{
-			//AkSoundEngine.PostEvent ("PARTICLE_APPEAR_LAMP", gameObject);
+			AkSoundEngine.PostEvent ("PARTICLE_APPEAR_LAMP", gameObject);
 		} 
 		else if (setting == Particles.MergedParticle) 
 		{
-			//AkSoundEngine.PostEvent("PARTICLE_MERGE", gameObject);
+			AkSoundEngine.PostEvent("PARTICLE_MERGE", gameObject);
 		}
 	}
 
@@ -29,8 +29,8 @@ public class EasyWwiseCinemachineSounds : MonoBehaviour
 	void OnDisable()
 	{
 
-		//if (soundOnDisable)
-		//AkSoundEngine.PostEvent("PARTICLE_ENTER_FOGWALL", gameObject);
+		if (soundOnDisable)
+		AkSoundEngine.PostEvent("PARTICLE_ENTER_FOGWALL", gameObject);
 
 	}
 
