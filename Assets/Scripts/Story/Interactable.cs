@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Gamelogic.Extensions;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
-[System.Serializable]
 public abstract class Interactable : MonoBehaviour
 {
+    [ReadOnly]
+    public string uniqueGUID;
+
     public delegate void InteractableAction(Interactable sender);
     public static event InteractableAction InteractableCall;
     public delegate void TUTInteractableAction(Interactable sender);
@@ -24,7 +27,19 @@ public abstract class Interactable : MonoBehaviour
     }
     public float InternalInteractionDistance { get { return Mathf.Sqrt(interactionDistance); } }
     public bool HasPlayed { get { return hasPlayed; } set { hasPlayed = value; } }
-    public string StoryFragment { get { return storyFragment; } }
+	private bool HashasPlayed;
+	public bool HasHasPlayed
+	{
+		get
+		{
+			return HashasPlayed;
+		}
+		set
+		{
+			HashasPlayed = value;
+		}
+	}
+	public string StoryFragment { get { return storyFragment; } }
     public Vector3 LandingPosition { get { return landingPosition; } }
     public Vector3 MothResetPosition { get { return resetPosition; } }
 
@@ -54,7 +69,7 @@ public abstract class Interactable : MonoBehaviour
 
     public virtual void Play(Interactable.EasyWwiseCallback Callback)
     {
-        if (string.IsNullOrEmpty(StoryFragment))
+		if (string.IsNullOrEmpty(StoryFragment))
         {
             Debug.LogWarning("StoryFragment: \"" + StoryFragment + "\" does not exist");
             Callback();
@@ -65,13 +80,13 @@ public abstract class Interactable : MonoBehaviour
             TUTInteractableCall(this);
         }
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
-        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject, (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject, (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
-       // EndFragments(markerId, StoryFragment);
-        
+        // EndFragments(markerId, StoryFragment);
+
     }
 
-  public virtual void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
+    public virtual void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
     {
         var t = sender as EasyWwiseCallback;
 
@@ -101,11 +116,11 @@ public abstract class Interactable : MonoBehaviour
             }
         }
 
-        //EndOfEventCallback(sender, callbackType, info);
+		//EndOfEventCallback(sender, callbackType, info);
 
-    }
+	}
 
-    public int counter = 0;
+	public int counter = 0;
     private float[] fragmentDurations = new float[2];
     public bool fragmentIsOn = false;
     public uint markerr;
@@ -128,7 +143,7 @@ public abstract class Interactable : MonoBehaviour
         AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
         uPosition = uPosition / 10;
         LocalizationItem.Language language =
-           (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
+            (LocalizationItem.Language) PlayerPrefs.GetInt("LANGUAGE");
 
         if (fragmentIsOnn)
         {
@@ -147,13 +162,13 @@ public abstract class Interactable : MonoBehaviour
         thePlayedFragment = playedFragment;
         fragmentIsOnn = fragmentIsOn;
         durationn = duration / 10;
-        realDuration = (int)durationn;
+        realDuration = (int) durationn;
         realDuration = realDuration - 20;
 
         //Debug.Log(realDuration);
     }
 
-    void Update()//maybe a problem
+    void Update() //maybe a problem
     {
         if (fragmentIsOnn == true)
         {
@@ -164,6 +179,16 @@ public abstract class Interactable : MonoBehaviour
     public virtual void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Touch Object");
+    }
+
+    [ContextMenu("Generate GUID")]
+    private void GenerateGUID()
+    {
+        if (string.IsNullOrEmpty(uniqueGUID))
+        {
+            Debug.Log("uniqueGUID is apparently null");
+            uniqueGUID = System.Guid.NewGuid().ToString();
+        }
     }
 
     public void InvokeInteractableCall()
