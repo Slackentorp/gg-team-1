@@ -64,6 +64,8 @@ public abstract class Interactable : MonoBehaviour
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject, (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
+       // EndFragments(markerId, StoryFragment);
+        
     }
 
     public virtual void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
@@ -77,6 +79,8 @@ public abstract class Interactable : MonoBehaviour
         }
 
     }
+
+
 
     public virtual void Awake()
     {
