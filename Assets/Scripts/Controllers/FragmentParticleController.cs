@@ -51,7 +51,7 @@ public class FragmentParticleController
 				{
 					fragParticleArray[i].SetActive(true);
 
-					if (fragmentPos[i].HasPlayed == false && fragmentDictionary[fragmentPos[i]] == FragmentState.NOT_PLAYED )
+					if (fragmentDictionary[fragmentPos[i]] == FragmentState.NOT_PLAYED )
 					{
 						PlaySoundEvents("DISCOVER",i);
 						fragmentDictionary[fragmentPos[i]] = FragmentState.DISCOVER;
@@ -76,10 +76,11 @@ public class FragmentParticleController
 						fragmentDictionary[fragmentPos[i]] = FragmentState.DISCOVER;
 						fragParticleArray[i].SetActive(false);
 					}
-					else
-					{
-						fragParticleArray[i].SetActive(false);
-					}
+
+				}
+				if (fragmentPos[i].HasPlayed == true)
+				{
+					fragParticleArray[i].SetActive(false);
 				}
 			}
 		}
