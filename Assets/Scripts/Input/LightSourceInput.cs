@@ -36,6 +36,7 @@ public class LightSourceInput : MonoBehaviour
 
     [SerializeField]
     private bool isActivated;
+    [SerializeField]
     private bool lampFullOn;
 
     private AnimationCurve fragmentToLightsourceCurve;
@@ -84,7 +85,7 @@ public class LightSourceInput : MonoBehaviour
     {
         fragmentToLightsourceCurve = GameController.Instance.FragmentToLightSourceCurve;
         firstTimeFlickerCheck = true;
-
+        FragmentCheckerSwitch(interactables[0]); // set tutorial lamp to Flicker
     }
 
     public void FragmentCheckerLerp(Interactable sender)
@@ -175,7 +176,6 @@ public class LightSourceInput : MonoBehaviour
                     else if (numPlayedFragments == 0)
                     {
                         LampFlickering();
-
                     }
                 }
             }
@@ -250,7 +250,6 @@ public class LightSourceInput : MonoBehaviour
 
         ParticleSystem explosionSystem = particle.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
         AkSoundEngine.PostEvent("PARTICLE_APPEAR_FRAGMENT", particle);
-        Debug.Log("Particle_appear_fragment");
 
         while (time < endTime)
         {
@@ -264,7 +263,6 @@ public class LightSourceInput : MonoBehaviour
 
         particle.transform.GetChild(1).gameObject.SetActive(true);
         FragmentCheckerSwitch(interactable);
-        print("end particle: " + particle);
         AkSoundEngine.PostEvent("PARTICLE_ENTER_LAMP", particle);
         yield return new WaitForSeconds(explosionSystem.main.duration + explosionSystem.main.startLifetime.constant + explosionSystem.main.startLifetime.constant / 2);
         Destroy(particle);
@@ -296,7 +294,6 @@ public class LightSourceInput : MonoBehaviour
                 if (firstTimeFlickerCheck)
                 {
                     AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
-                    Debug.Log("lamp_flikering");
                 }
                 lampFlickerCheck = true;
                 Flickering = FlickeringSequence();
@@ -319,6 +316,10 @@ public class LightSourceInput : MonoBehaviour
                 em.enabled = true;
 
             }
+        }
+        else
+        {
+            Debug.Log("ParticleSystem or Renderer not on lamp nr. " + lightMapIndex);
         }
     }
 
