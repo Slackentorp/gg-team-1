@@ -483,6 +483,11 @@
 												<MusicTrack Name="Living_Cello_80bpm" ID="{6352EAA1-AC33-4D88-ABFE-F1B27AB1555E}" ShortID="374845127">
 													<PropertyList>
 														<Property Name="OverrideConversion" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-9</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -1026,7 +1031,7 @@
 										<PathElementRef Name="TUTORIAL" ID="{E90A3B69-8C93-45CC-BA20-2556DBB4252C}"/>
 									</Path>
 									<AudioNodeInfo>
-										<NoObject Platform="Linked"/>
+										<AudioNodeRef Name="Livingroom" ID="{B6A4CC90-E7E6-49D1-8793-E3C69C11DF34}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
 									</AudioNodeInfo>
 								</Entry>
 							</EntryList>
@@ -1270,11 +1275,70 @@
 													<ClipList>
 														<MusicClip Name="MUSIC_SUSIES_TATTOO_da" ID="{58A7D51D-D5B0-4FC6-8CD6-2FBA498086FB}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="42897.4829931973"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="30712.111012521"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="2735.49166913142"/>
 															</PropertyList>
 															<AudioSourceRef Name="MUSIC_SUSIES_TATTOO_da" ID="{A7EEB0A5-A851-4386-8357-DCB758287DFE}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{64AB8A5C-A189-4F98-9A26-2939E0515AAC}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>30.71211</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{CC219388-0566-4FEC-B5E1-89AFE4D437B3}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>30.71211</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{7D788181-1A5D-4127-9256-F75F819E3536}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>30.71211</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -3104,7 +3168,39 @@
 										<PathElementRef Name="STORYEVENT_1" ID="{BEDD3699-1B03-4E8E-9B3E-80091FD0F93A}"/>
 									</Path>
 									<AudioNodeInfo>
+										<NoObject Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
+								<Entry>
+									<Path>
+										<PathElementRef Name="STORYEVENT_2" ID="{68AEB1EC-3BF0-40DF-990E-883F0E5166E4}"/>
+									</Path>
+									<AudioNodeInfo>
+										<NoObject Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
+								<Entry>
+									<Path>
+										<PathElementRef Name="TUTORIAL" ID="{E90A3B69-8C93-45CC-BA20-2556DBB4252C}"/>
+									</Path>
+									<AudioNodeInfo>
 										<AudioNodeRef Name="STORYEVENT_INTRO" ID="{2EC23F89-0D85-4D98-93C4-FD128EC4A910}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}" Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
+								<Entry>
+									<Path>
+										<PathElementRef Name="STORYEVENT_4" ID="{850C466F-1FC2-421A-AD3A-F382A7F1EE5A}"/>
+									</Path>
+									<AudioNodeInfo>
+										<NoObject Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
+								<Entry>
+									<Path>
+										<PathElementRef Name="STORYEVENT_3" ID="{CFCB357C-9133-457F-933F-C4DA3476D0FB}"/>
+									</Path>
+									<AudioNodeInfo>
+										<NoObject Platform="Linked"/>
 									</AudioNodeInfo>
 								</Entry>
 							</EntryList>
@@ -3180,7 +3276,7 @@
 										<SourceFadeOut>
 											<MusicFade Name="Source Fade-out" ID="{5F19D43B-404A-447D-B648-786897FBDC39}">
 												<PropertyList>
-													<Property Name="FadeOffset" Type="Real64" Value="2"/>
+													<Property Name="FadeOffset" Type="Real64" Value="4"/>
 													<Property Name="FadeTime" Type="Real64" Value="2"/>
 													<Property Name="FadeType" Type="int16" Value="1"/>
 												</PropertyList>
@@ -3189,7 +3285,8 @@
 										<DestinationFadeIn>
 											<MusicFade Name="Destination Fade-in" ID="{F2BCE2D2-35A5-4729-BD00-B2B315CF0FB3}">
 												<PropertyList>
-													<Property Name="FadeTime" Type="Real64" Value="3"/>
+													<Property Name="FadeOffset" Type="Real64" Value="2"/>
+													<Property Name="FadeTime" Type="Real64" Value="4"/>
 												</PropertyList>
 											</MusicFade>
 										</DestinationFadeIn>
@@ -3258,6 +3355,21 @@
 											</MusicFade>
 										</DestinationFadeIn>
 									</TransitionInfo>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{014B4955-E003-4411-8988-F0D313B728C5}">
+									<PropertyList>
+										<Property Name="DestinationContextType" Type="int16" Value="2"/>
+										<Property Name="SourceContextType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="DestinationContextObject">
+											<ObjectRef Name="Livingroom" ID="{B6A4CC90-E7E6-49D1-8793-E3C69C11DF34}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+										</Reference>
+										<Reference Name="SourceContextObject">
+											<ObjectRef Name="MUSIC_SUSIES_TATTOO_da" ID="{69EE3EE9-824E-4A5F-BA13-611926642E8C}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionInfo/>
 								</MusicTransition>
 							</ChildrenList>
 							<TransitionInfo/>
