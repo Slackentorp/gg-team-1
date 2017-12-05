@@ -696,6 +696,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{A0D14D93-BCF7-4BE1-8A33-D1DFD16CE009}" ShortID="221578593">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{18FD496C-4C10-4A6C-899B-685CBB039C56}" ShortID="347480797">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
@@ -704,16 +714,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Susie's Tattoo" ID="{94AF7F8F-932C-4DAB-A82A-69112949885F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{A0D14D93-BCF7-4BE1-8A33-D1DFD16CE009}" ShortID="221578593">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Start" ID="{B358C8B7-9ED7-46D1-9887-405D3079217F}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -751,6 +751,11 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="41"/>
 										<Property Name="Delay" Type="Real64" Value="20"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2597,6 +2602,11 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="41"/>
 										<Property Name="Delay" Type="Real64" Value="2"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2651,7 +2661,30 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Particle_enter_lamp" ID="{08490310-6CC2-45E5-94D2-FB20E50AAF58}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+											<ObjectRef Name="PARTICLE_ENTER_FOGWALL" ID="{68244742-F2A9-414A-83D2-84219ECFC756}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8EB84137-393C-4275-8B2E-462B8A16A282}" ShortID="1064038887">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.4"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PARTICLE__MERGE_FLY" ID="{3B4027B2-F246-497C-A1EF-FDE95DFA7CA3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{B135FBDA-C698-4395-81A1-52312E7E978D}" ShortID="784740765">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PARTICLE_FLY_LOOP" ID="{543C3647-F447-4120-9A94-2A6321BB8E67}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -2704,7 +2737,17 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Particle_appear_fragment" ID="{24FEBDB9-1990-4CD8-9056-8764DC32B67C}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+											<ObjectRef Name="PARTICLE_MERGE" ID="{4C38C44E-E9BA-45E9-815B-5FAECB05D1CF}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{4BA01309-EFE6-4553-B0B2-3BBEEC5B8999}" ShortID="972650680">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PARTICLE__MERGE_FLY" ID="{3B4027B2-F246-497C-A1EF-FDE95DFA7CA3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
