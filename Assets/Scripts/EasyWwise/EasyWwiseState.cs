@@ -7,18 +7,26 @@ public class EasyWwiseState : MonoBehaviour
     public EasyWWiseEventType ChosenType;
     public string WwiseStateGroupID;
     public string WwiseStateID;
-
+    public bool PostOnlyAfterPointOfNoReturn;
+    
     void Awake()
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.Awake)
         {
-            print("Awake: " + WwiseStateID);
             AkSoundEngine.SetState(WwiseStateGroupID, WwiseStateID);
         }
     }
 
     void Start()
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.Start)
         {
             AkSoundEngine.SetState(WwiseStateGroupID, WwiseStateID);
@@ -27,54 +35,72 @@ public class EasyWwiseState : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerEnter)
         {
-            print("On Trigger Enter: " + WwiseStateID);
             AkSoundEngine.SetState(WwiseStateGroupID, WwiseStateID);
         }
     }
 
     void OnTriggerStay(Collider other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerStay)
         {
-            print("On Trigger Stay: " + WwiseStateID);
             AkSoundEngine.SetState(WwiseStateGroupID, WwiseStateID);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerExit)
         {
-            print("On Trigger Exit: " + WwiseStateID);
             AkSoundEngine.SetState(WwiseStateGroupID, WwiseStateID);
         }
     }
 
     void OnCollisionEnter(Collision other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionEnter)
         {
-            print("On Collision Enter: " + WwiseStateID);
             AkSoundEngine.SetState(WwiseStateGroupID, WwiseStateID);
         }
     }
 
     void OnCollisionStay(Collision other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionStay)
         {
-            print("On Collision Stay: " + WwiseStateID);
             AkSoundEngine.SetState(WwiseStateGroupID, WwiseStateID);
         }
     }
 
     void OnCollisionExit(Collision other)
     {
+        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionExit)
         {
-            print("On Trigger Exit: " + WwiseStateID);
             AkSoundEngine.SetState(WwiseStateGroupID, WwiseStateID);
         }
     }

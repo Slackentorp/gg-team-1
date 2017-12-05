@@ -8,6 +8,9 @@ using UnityEngine.UI;
 #pragma warning disable 0414
 public class GameController : Singleton<GameController>
 {
+	public delegate void PointOfNoReturn();
+    public static event PointOfNoReturn OnPointOfNoReturn;
+
 	[SerializeField, ReadOnly]
 	private string currentStateLiteral;
 
@@ -131,7 +134,6 @@ public class GameController : Singleton<GameController>
 	{
 		if (currentState != null)
 		{
-			// CheckInput(); 
 			currentState.Tick();
 		}
 	}
@@ -185,6 +187,14 @@ public class GameController : Singleton<GameController>
             SetState(new RunState(this));
         }
     }
+
+	public void InvokePointOfNoReturn()
+	{
+		if(OnPointOfNoReturn != null)
+		{
+			OnPointOfNoReturn();	
+		}
+	}
 
     /// <summary>
     /// Callback sent to all game objects before the application is quit.
