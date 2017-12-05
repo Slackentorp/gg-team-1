@@ -54,7 +54,7 @@ public class Fragment : Interactable
         OnFragmentCall();
     }
     
-    void Update()
+    void Update()//maybe a problem
     {
         if (fragmentIsOnn == true)
         {
