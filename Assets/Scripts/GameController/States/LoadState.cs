@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadState : GameState
 {
-    private bool loadedGame;
+	private Fragment[] fragmentPositions;
+	private bool loadedGame;
     public LoadState(GameController gm) : base(gm)
     {
         SceneManager.sceneLoaded += OnSceneLoaded; 
@@ -34,7 +35,10 @@ public class LoadState : GameState
         gm.mothSounds = new MothSounds(gm.GameCamera.transform, gm.mothBehaviour, gm.Moth.transform);
         gm.cameraHeading = gm.GameCamera.transform.position - gm.Moth.transform.position;
 
-        if(loadedGame)
+		fragmentPositions = GameObject.FindObjectsOfType<Fragment>();
+		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.fragmentParticles, gm.Moth.transform);
+
+		if (loadedGame)
         {
             gm.SetState(new RunState(gm));
         }
