@@ -24,7 +24,19 @@ public abstract class Interactable : MonoBehaviour
     }
     public float InternalInteractionDistance { get { return Mathf.Sqrt(interactionDistance); } }
     public bool HasPlayed { get { return hasPlayed; } set { hasPlayed = value; } }
-    public string StoryFragment { get { return storyFragment; } }
+	private bool HashasPlayed;
+	public bool HasHasPlayed
+	{
+		get
+		{
+			return HashasPlayed;
+		}
+		set
+		{
+			HashasPlayed = value;
+		}
+	}
+	public string StoryFragment { get { return storyFragment; } }
     public Vector3 LandingPosition { get { return landingPosition; } }
     public Vector3 MothResetPosition { get { return resetPosition; } }
 
@@ -54,7 +66,7 @@ public abstract class Interactable : MonoBehaviour
 
     public virtual void Play(Interactable.EasyWwiseCallback Callback)
     {
-        if (string.IsNullOrEmpty(StoryFragment))
+		if (string.IsNullOrEmpty(StoryFragment))
         {
             Debug.LogWarning("StoryFragment: \"" + StoryFragment + "\" does not exist");
             Callback();
@@ -101,11 +113,11 @@ public abstract class Interactable : MonoBehaviour
             }
         }
 
-        //EndOfEventCallback(sender, callbackType, info);
+		//EndOfEventCallback(sender, callbackType, info);
 
-    }
+	}
 
-    public int counter = 0;
+	public int counter = 0;
     private float[] fragmentDurations = new float[2];
     public bool fragmentIsOn = false;
     public uint markerr;
