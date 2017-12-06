@@ -623,6 +623,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{529FF1CD-41C9-49CC-BE58-EE599C781C01}" ShortID="780397562">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PUZZLE_OPENING" ID="{C2C58461-5158-4EA0-A8E4-325FCEF33162}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 					</ChildrenList>
@@ -2275,6 +2285,20 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="STORYEVENT_ON" ID="{20C88B63-6C97-419E-96DC-87A71FF35ADF}">
+									<ChildrenList>
+										<Action Name="" ID="{3BE25D97-8EAB-44F5-A901-0E630A28F1CE}" ShortID="656387737">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Button" ID="{A45D4F49-5192-4FA9-BE8D-3ED04B2702F3}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Event Name="STORYEVENT_5" ID="{DF494C46-6609-4C5F-AE47-F2EBE54D4D03}">
@@ -2348,7 +2372,7 @@
 								<Action Name="" ID="{F8CE37B1-1051-4CD6-B37F-AC7D520C583C}" ShortID="228884087">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="30"/>
+										<Property Name="Delay" Type="Real64" Value="35"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -3047,7 +3071,8 @@
 								<Action Name="" ID="{8EB84137-393C-4275-8B2E-462B8A16A282}" ShortID="1064038887">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
-										<Property Name="FadeTime" Type="Real64" Value="0.4"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 										<Property Name="Scope" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
@@ -3059,7 +3084,8 @@
 								<Action Name="" ID="{B135FBDA-C698-4395-81A1-52312E7E978D}" ShortID="784740765">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
-										<Property Name="Scope" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
