@@ -99,6 +99,7 @@ namespace AK
         static const AkUniqueID STORYEVENT_END = 3721137874U;
         static const AkUniqueID STORYEVENT_INTRO = 1357239343U;
         static const AkUniqueID STORYEVENT_INTRO_LOAD = 612823810U;
+        static const AkUniqueID STORYEVENT_ON = 761090164U;
         static const AkUniqueID STREET = 4142189312U;
         static const AkUniqueID TAP_PARTICLE = 3809097629U;
         static const AkUniqueID TESTMAPBUTTON = 3443637649U;
