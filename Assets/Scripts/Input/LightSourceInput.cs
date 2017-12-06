@@ -18,7 +18,7 @@ public class LightSourceInput : MonoBehaviour
 	[SerializeField]
 	private Interactable[] interactables;
 
-	[SerializeField]
+	[SerializeField] 
 	private Material lampMaterialOn, lampMaterialOff;
 	private ParticleSystem particleSystemLamp;
 	private Renderer rend;
