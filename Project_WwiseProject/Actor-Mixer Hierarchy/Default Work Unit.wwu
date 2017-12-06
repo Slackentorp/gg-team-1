@@ -5379,7 +5379,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-23</Value>
+										<Value>-18</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5403,6 +5403,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Reward_02" ID="{C3492A02-E3C2-4807-B8AC-9C2FB49B6928}" ShortID="557998825">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0612450067357816"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.306225033678908"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Reward_02.wav</AudioFile>
 										</AudioFileSource>
@@ -5422,6 +5426,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Reward_03" ID="{72B6B54D-1C2C-461A-B0D8-874A1036AC1B}" ShortID="28899600">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0678773502020735"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.1538553271247"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Reward_03.wav</AudioFile>
 										</AudioFileSource>
@@ -5441,6 +5449,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Reward_04" ID="{7F42FDE1-0E2C-4F96-946E-0B1E7C817A6B}" ShortID="172808139">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0913353582515417"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.256441582783175"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Reward_04.wav</AudioFile>
 										</AudioFileSource>
@@ -5460,6 +5472,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Reward_05" ID="{073FAD89-C642-40CD-A04D-B77F063B2CD3}" ShortID="808012157">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0421547807314808"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.270493176360335"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Reward_05.wav</AudioFile>
 										</AudioFileSource>
@@ -6135,6 +6151,59 @@
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</Folder>
+						<Sound Name="PUZZLE_OPENING" ID="{C2C58461-5158-4EA0-A8E4-325FCEF33162}" ShortID="322461658">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>28</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UserAuxSendVolume0" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UserAuxSendVolume1" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-22</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+								<Reference Name="UserAuxSend1">
+									<ObjectRef Name="Reverb_kitchen" ID="{9D74BA67-5427-4F05-B5E0-D9ABFBC5563C}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PUZZLE_OPENING" ID="{D88FC305-4AE1-42E9-BC1D-C76EC2E18598}" ShortID="907124145">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.932225485520161"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.625139443231167"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0679976236497059"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.72406878027964"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>PUZZLE_OPENING.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PUZZLE_OPENING" ID="{D88FC305-4AE1-42E9-BC1D-C76EC2E18598}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<ActorMixer Name="Dialogue" ID="{92F1056B-7844-467C-A3BE-D1EE28A4802F}" ShortID="896599731">
