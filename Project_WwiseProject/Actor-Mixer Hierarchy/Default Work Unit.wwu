@@ -686,6 +686,9 @@
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="379002834"/>
+															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
@@ -3204,6 +3207,23 @@
 											</ChildrenList>
 										</RandomSequenceContainer>
 									</ChildrenList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="MUSIC_STATE" ID="{114B4A0E-2938-4B04-97C8-10B1F1AAA73A}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="CUTSCENE" ID="{CF65DA72-4E24-4B9E-A64C-5AF3DBBFE3F7}"/>
+												<State Name="Custom State" ID="{E76A73F6-38A7-4E86-B1F2-354882F735A4}" ShortID="733973427">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-96"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
 								</ActorMixer>
 								<ActorMixer Name="Fog Wall" ID="{CF227101-4FD0-42F9-8D0B-121B33D47E4C}" ShortID="259529927">
 									<PropertyList>
@@ -8762,6 +8782,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11548,7 +11573,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-19</Value>
+										<Value>-27</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11649,7 +11674,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-16</Value>
+										<Value>-28</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11693,7 +11718,7 @@
 								<Property Name="Spatialization" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-19</Value>
+										<Value>-22</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11769,7 +11794,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-17</Value>
+										<Value>-22</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11795,7 +11820,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-17</Value>
+										<Value>-19</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11821,7 +11846,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-11</Value>
+										<Value>-17</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11844,6 +11869,14 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="MUSIC_STATE" ID="{114B4A0E-2938-4B04-97C8-10B1F1AAA73A}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList/>
+					</StateInfo>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
