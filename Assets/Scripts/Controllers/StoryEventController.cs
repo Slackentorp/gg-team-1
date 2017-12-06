@@ -9,6 +9,8 @@ using UnityEngine.Playables;
 [RequireComponent(typeof(PlayableDirector))]
 public class StoryEventController : Singleton<StoryEventController>
 {
+	public bool isMuted;
+
 	[SerializeField]
 	List<StoryEvent> StoryEvents;
 
@@ -18,7 +20,10 @@ public class StoryEventController : Singleton<StoryEventController>
 	PlayableDirector director;
 	bool isPosting;
 
-	void Awake()
+    public delegate void StoryEventLightAction(int index);
+    public static event StoryEventLightAction StoryEventLightCall;
+
+    void Awake()
 	{
 		director = GetComponent<PlayableDirector>();
 		director.playableAsset = null;
@@ -40,7 +45,7 @@ public class StoryEventController : Singleton<StoryEventController>
 
 	public void PostStoryEvent(string StoryEvent, Action Callback)
 	{
-		if (isPosting)
+		if (isPosting || isMuted)
 		{
 			return;
 		}
@@ -52,7 +57,22 @@ public class StoryEventController : Singleton<StoryEventController>
 			{
 				currentStoryEvent = se;
 				currentCallback = Callback;
-				if(StoryEvent.Equals("STORYEVENT_3"))
+                if (StoryEvent.Equals("STORYEVENT_1"))
+                {
+                    Debug.Log("STORYEVENT_1");
+                    StoryEventLightCall(1);
+                }
+                if (StoryEvent.Equals("STORYEVENT_2"))
+                {
+                    Debug.Log("STORYEVENT_1");
+                    StoryEventLightCall(2);
+                }
+                if (StoryEvent.Equals("STORYEVENT_3"))
+                {
+                    Debug.Log("STORYEVENT_1");
+                    StoryEventLightCall(3);
+                }
+                if (StoryEvent.Equals("STORYEVENT_4"))
 				{
 					HandlePointOfNoReturn();
 				}
@@ -67,6 +87,15 @@ public class StoryEventController : Singleton<StoryEventController>
 				
 				se.StoryEventGroup.SetActive(true);
 				isPosting = true;
+
+				// Save state in playerprefs
+				string lastChar = StoryEvent[StoryEvent.Length - 1].ToString();
+				int storyEventNumber = -1;
+				int.TryParse(lastChar, out storyEventNumber);
+				if(storyEventNumber > -1)
+				{
+					PlayerPrefs.SetInt("SE_REACHED", storyEventNumber);
+				}
 			}
 		} catch (InvalidOperationException e){ 
 			print(e.Message);
@@ -89,7 +118,7 @@ public class StoryEventController : Singleton<StoryEventController>
 			AkSoundEngine.StopAll(gameObject);
 			if(currentCallback != null)
 			{
-				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_3"))
+				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_4"))
 				{
 					GameController.instance.InvokePointOfNoReturn();
 				}

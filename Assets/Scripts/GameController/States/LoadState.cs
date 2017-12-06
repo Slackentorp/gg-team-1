@@ -25,7 +25,17 @@ public class LoadState : GameState
 
         if(PlayerPrefs.GetInt("saveload", -1) == 1)
         {
+            if(StoryEventController.Instance != null)
+            {
+                StoryEventController.Instance.isMuted = true;
+            }
+            AkSoundEngine.PostEvent("SFX_MUTE", gm.gameObject);
             loadedGame = SaveLoad.Load(gm);
+            int storyeventReached = PlayerPrefs.GetInt("SE_REACHED", 0);
+            if(storyeventReached != 0)
+            {
+                AkSoundEngine.PostEvent("STORYEVENT_" + storyeventReached + "_LOAD", gm.gameObject);
+            }
             Debug.Log("Loading game: " +loadedGame);
         }
 
@@ -50,15 +60,21 @@ public class LoadState : GameState
     {
         gm.LoadingPanel.SetActive(false); 
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        AkSoundEngine.PostEvent("SFX_UNMUTE", gm.gameObject);
+
         #if UNITY_EDITOR
         if(!UnityEditor.EditorPrefs.GetBool("ShowIntro", true))
         {
             return;
         }
         #endif
-        if(StoryEventController.Instance != null && !loadedGame)
+        if(StoryEventController.Instance != null)
         {
-            StoryEventController.Instance.PostStoryEvent("STORYEVENT_INTRO", null);
+            StoryEventController.Instance.isMuted = false;
+            if(!loadedGame)
+            {
+                StoryEventController.Instance.PostStoryEvent("STORYEVENT_INTRO", null);
+            }
         }
     }
 

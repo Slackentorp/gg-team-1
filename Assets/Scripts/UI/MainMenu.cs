@@ -139,7 +139,6 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(HeadphonesCanvas(false));
     }
 
-
     IEnumerator HeadphonesCanvas(bool toPuzzle)
     {
         headphonesPanel.SetActive(true);
@@ -173,10 +172,10 @@ public class MainMenu : MonoBehaviour
     private void StartGame(int saveload)
     {
         continueButton.enabled = false;
-        newGameButton.enabled = false; 
+        newGameButton.enabled = false;
         tapToStartButton.enabled = false;
         firstMenu.SetActive(false);
-       
+
         AkSoundEngine.PostEvent("MAINMENU_START_GAME", this.gameObject);
         PlayerPrefs.SetInt("saveload", saveload);
         StartCoroutine(LoadGame());
