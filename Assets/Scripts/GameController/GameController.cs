@@ -94,6 +94,8 @@ public class GameController : Singleton<GameController>
     public float cameraToPuzzleSpeed;
     public GameObject FragmentToLightSourceParticles;
     public AnimationCurve FragmentToLightSourceCurve;
+	public AnimationCurve DissolveAmount;
+	public AnimationCurve MainTexEmission;
     [Space(15)]
 
 	[HideInInspector]
@@ -179,6 +181,12 @@ public class GameController : Singleton<GameController>
     public void SaveGame()
     {
         SaveLoad.SaveGame(this);
+    }
+
+	[ContextMenu("PONR State")]
+    public void PONR()
+    {
+        SetState(new PointOfNoReturnState(this));
     }
 
     public void QuitFragment()
