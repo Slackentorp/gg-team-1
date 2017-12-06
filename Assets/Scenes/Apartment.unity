@@ -33379,6 +33379,7 @@ MonoBehaviour:
   - {fileID: 625360800}
   StoryEventName: 
   roomIndex: 3
+  fogIdentifier: 
 --- !u!65 &1261101947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37872,25 +37873,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4507235927476500, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.9048825
-      objectReference: {fileID: 0}
-    - target: {fileID: 4507235927476500, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.0000007964795
-      objectReference: {fileID: 0}
-    - target: {fileID: 4507235927476500, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.0000001541257
-      objectReference: {fileID: 0}
-    - target: {fileID: 4507235927476500, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.4256615
-      objectReference: {fileID: 0}
     - target: {fileID: 1659492340199628, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
       propertyPath: m_Name
       value: outro_animation
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149372328262610, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
+      propertyPath: m_TagString
+      value: OutroObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399413570668266, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
+      propertyPath: m_TagString
+      value: OutroObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613653300203896, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
+      propertyPath: m_TagString
+      value: OutroParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 320981331086285280, guid: ff1cc638293c58a45841b47be892d7af,
+        type: 2}
+      propertyPath: m_InitialState
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
@@ -42561,7 +42563,7 @@ GameObject:
   - component: {fileID: 1857203927}
   - component: {fileID: 1857203926}
   m_Layer: 0
-  m_Name: fogwall_01
+  m_Name: fogwall_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50009,6 +50011,38 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6600b57475f8e34468a622636a9a8b0f, type: 2}
+    - target: {fileID: 1594796961723412, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
+      propertyPath: m_Name
+      value: fogwall_00
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000753189001126, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
+      propertyPath: m_Name
+      value: fogwall_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841363720897938, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
+      propertyPath: m_Name
+      value: fogwall_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072770604912650, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
+      propertyPath: m_Name
+      value: fogwall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434322775143702, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
+      propertyPath: m_Name
+      value: Fogwall_02_inverted
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215178158864778, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
+      propertyPath: m_Name
+      value: fogwall_02_inverted
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750152887760508, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
+      propertyPath: m_Name
+      value: Fogwall_01_inverted
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074139674069878, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
+      propertyPath: m_Name
+      value: fogwall_01_inverted
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
   m_IsPrefabParent: 0

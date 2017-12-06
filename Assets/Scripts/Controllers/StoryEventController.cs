@@ -20,11 +20,19 @@ public class StoryEventController : Singleton<StoryEventController>
 	PlayableDirector director;
 	bool isPosting;
 
+	private GameObject[] outroObjects;
+
 	void Awake()
 	{
 		director = GetComponent<PlayableDirector>();
 		director.playableAsset = null;
 		currentStoryEvent = nullStoryEvent;
+
+		outroObjects = GameObject.FindGameObjectsWithTag("OutroObject");
+		foreach (var item in outroObjects)
+		{
+			item.SetActive(false);
+		}
 	}
 
 	// Update is called once per frame
@@ -57,6 +65,9 @@ public class StoryEventController : Singleton<StoryEventController>
 				if(StoryEvent.Equals("STORYEVENT_3"))
 				{
 					HandlePointOfNoReturn();
+				} else if(StoryEvent.Equals("STORYEVENT_END"))
+				{
+					HandleEnd();
 				}
 				
 				director.Stop();
@@ -115,10 +126,16 @@ public class StoryEventController : Singleton<StoryEventController>
 	private void HandlePointOfNoReturn()
 	{
 		GameController.Instance.SetState(new PointOfNoReturnState(GameController.instance));
-		
-	/*	GameObject livingRoomDoor = GameObject.FindObjectsOfType<DoorWallController>().First(d => d.GetRoomIndex() == 0).gameObject;
-		print(livingRoomDoor.name);
-		livingRoomDoor.SetActive(false);*/
+	}
+	private void HandleEnd()
+	{
+		print("Handling end");
+		GameObject outroParent = GameObject.FindGameObjectWithTag("OutroParent");
+		outroParent.GetComponent<PlayableDirector>().Play();
+		foreach (var item in outroObjects)
+		{
+			item.SetActive(true);
+		}
 	}
 
 	[System.Serializable]

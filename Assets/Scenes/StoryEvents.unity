@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 156943490}
   - component: {fileID: 156943492}
   - component: {fileID: 156943493}
+  - component: {fileID: 156943494}
   m_Layer: 0
   m_Name: StoryEvent System
   m_TagString: Untagged
@@ -476,7 +477,7 @@ PlayableDirector:
   m_GameObject: {fileID: 156943489}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
+  m_PlayableAsset: {fileID: 11400000, guid: 4b29a35f12c714147965e50bd2625c5a, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -702,6 +703,8 @@ PlayableDirector:
     value: {fileID: 865440094}
   - key: {fileID: 114852623064591170, guid: 4e14c16d058642c47bd6d325b7c742ee, type: 2}
     value: {fileID: 872537578}
+  - key: {fileID: 114898394772515902, guid: 4b29a35f12c714147965e50bd2625c5a, type: 2}
+    value: {fileID: 156943489}
   m_ExposedReferences:
     m_References:
     - 6065213543ecc5943bee26778e43d95e: {fileID: 270234002}
@@ -732,6 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __messageText: 
+  isMuted: 0
   StoryEvents:
   - StoryEventID: STORYEVENT_1
     FragmentWwiseEvent: STORYEVENT_1
@@ -763,6 +767,11 @@ MonoBehaviour:
     TimelinePlayableAsset: {fileID: 11400000, guid: 2297120c18a20d64f88914d0164cb41a,
       type: 2}
     StoryEventGroup: {fileID: 1027921644}
+  - StoryEventID: STORYEVENT_END
+    FragmentWwiseEvent: STORYEVENT_END
+    TimelinePlayableAsset: {fileID: 11400000, guid: 4b29a35f12c714147965e50bd2625c5a,
+      type: 2}
+    StoryEventGroup: {fileID: 279526450}
 --- !u!114 &156943493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,7 +783,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e304f338583e594cbe34460dad93279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: STORYEVENT_INTRO
+  eventName: STORYEVENT_END
+--- !u!95 &156943494
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 156943489}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &168354059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1306,36 @@ Transform:
   m_PrefabParentObject: {fileID: 4081853127191830, guid: 0ae565b85dfb3ab46a4ee106d2c5d46a,
     type: 2}
   m_PrefabInternal: {fileID: 271696054}
+--- !u!1 &279526450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1187033716263008, guid: 4119a6d7aaeff054a903030adfa24aa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 279526451}
+  m_Layer: 0
+  m_Name: StoryEvent_END
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &279526451
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4077699822166868, guid: 4119a6d7aaeff054a903030adfa24aa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 279526450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &291150328
 GameObject:
   m_ObjectHideFlags: 0
@@ -6720,7 +6776,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768735239
 GameObject:
