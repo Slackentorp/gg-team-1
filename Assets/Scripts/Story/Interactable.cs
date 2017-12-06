@@ -135,14 +135,11 @@ public abstract class Interactable : MonoBehaviour
     {
         AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
         uPosition = uPosition / 10;
-        LocalizationItem.Language language =
-            (LocalizationItem.Language) PlayerPrefs.GetInt("LANGUAGE");
 
         if (fragmentIsOnn)
         {
             if (uPosition > realDuration)
             {
-
                 AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
                 fragmentIsOnn = false;
                 return;
