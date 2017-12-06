@@ -123,7 +123,7 @@ public class LightSourceInput : MonoBehaviour
 
 		foreach (Interactable localInteractables in interactables)
 		{
-			if (localInteractables.StoryFragment == sender.StoryFragment)
+			if (localInteractables == sender)
 			{
 				if (!localInteractables.HasHasPlayed)
 				{
@@ -179,7 +179,7 @@ public class LightSourceInput : MonoBehaviour
 
 		foreach (Interactable localInteractables in interactables)
 		{
-			if (localInteractables.StoryFragment == sender.StoryFragment)
+			if (localInteractables == sender)
 			{
 				if (interactables.Length == 3)
 				{
@@ -323,8 +323,9 @@ public class LightSourceInput : MonoBehaviour
 			{
 				if (firstTimeFlickerCheck)
 				{
-					AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
-				}
+				    AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
+            firstTimeFlickerCheck = false;
+        }
 				lampFlickerCheck = true;
 				Flickering = FlickeringSequence();
 				StartCoroutine(Flickering);

@@ -10,19 +10,23 @@ public class FogwallMaterialAnimator : MonoBehaviour {
 	[Range(0.0f, 1.0f)]
 	public float dissolveAmount;
 
+	public string fogwallObjectName;
+
 
 	// Use this for initialization
-	void Start () {
-
-	myMaterial = GetComponent<Renderer>().material;
-	GetComponent<Renderer>().material = myMaterial;
-		
+	void Start ()
+	{
+		myMaterial = GameObject.Find(fogwallObjectName).GetComponent<Renderer>().material;
+		GameObject.Find(fogwallObjectName).GetComponent<Renderer>().material = myMaterial;	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-		myMaterial.SetFloat("_DissolveAmount", dissolveAmount);
+	void Update ()
+	{
+		if(myMaterial != null)
+		{
+			myMaterial.SetFloat("_DissolveAmount", dissolveAmount);
+		}
 		
 	}
 

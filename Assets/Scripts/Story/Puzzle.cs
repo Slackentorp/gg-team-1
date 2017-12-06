@@ -32,6 +32,7 @@ public class Puzzle : Interactable
     [SerializeField, Tooltip("Dimensions which the puzzle should work in")]
     private bool x, y, z;
 
+    public bool LastPuzzle;
     public bool IsSolved { get { return isSolved; } private set { isSolved = value; } }
     public string PuzzleId { get { return PuzzleId; } }
     public Vector3 BoundingBoxSize()
@@ -181,22 +182,16 @@ public class Puzzle : Interactable
             yield break;
         }
 
-        Renderer[] rendereres = outline.GetComponentsInChildren<Renderer>();
+        Renderer[] rendereres = outline.GetComponentsInChildren<Renderer>().Where(r => r.material.HasProperty("_TintColor")).ToArray();
         float time = 0;
         Color startColor = Color.white;
-        if (rendereres[0].material.HasProperty("_TintColor"))
-        {
-            startColor = rendereres[0].material.GetColor("_TintColor");
-        }
+        startColor = rendereres[0].material.GetColor("_TintColor");
 
         while (time < 1)
         {
             foreach (var item in rendereres)
             {
-                if (item.material.HasProperty("_TintColor"))
-                {
-                    item.material.SetColor("_TintColor", new Color(startColor.r, startColor.g, startColor.b, 1 - time));
-                }
+                item.material.SetColor("_TintColor", new Color(startColor.r, startColor.g, startColor.b, 1 - time));
             }
             time += Time.deltaTime;
             yield return null;

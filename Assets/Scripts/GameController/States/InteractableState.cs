@@ -59,11 +59,17 @@ public class InteractableState : GameState
             if (currentInteractable is Puzzle)
             {
                 CheckInput();
-         //       ((Puzzle) currentInteractable).UpdatePuzzle();
-                if (((Puzzle) currentInteractable).IsSolved && !gm.hasReachedPointOfNoReturn)
+                if (((Puzzle) currentInteractable).IsSolved && !gm.hasReachedPointOfNoReturn && !((Puzzle) currentInteractable).LastPuzzle)
                 {
                     lerpOut = true;
                     currentInteractable.Play(EndOfFragmentCallback);
+                }
+                if(((Puzzle) currentInteractable).LastPuzzle && ((Puzzle)currentInteractable).IsSolved)
+                {
+                    currentInteractable.HasPlayed = true;
+                    currentInteractable.InvokeInteractableCall();
+                  //  gm.SetState(new RunState(gm));
+                    lerpOut = true;
                 }
             }
         }
@@ -98,7 +104,7 @@ public class InteractableState : GameState
             gm.CinemaBars.gameObject.SetActive(true);
         }
 
-        Vector3 newMothPos = currentInteractable.transform.TransformPoint(currentInteractable.LandingPosition);
+        Vector3 newMothPos = currentInteractable.transform.position + currentInteractable.LandingPosition;
         gm.mothBehaviour.SetMothPos(newMothPos);
 
         cameraController.SetFragmentMode(true);
@@ -118,7 +124,7 @@ public class InteractableState : GameState
     {
         if (currentInteractable.firstPuzzleCheck)
         {
-            gm.mothBehaviour.SetMothAnimationState("Flying");
+            gm.mothBehaviour.SetMothAnimationState("Flying", "Landing");
         }
         else if (!currentInteractable.firstPuzzleCheck)
         {
@@ -130,10 +136,15 @@ public class InteractableState : GameState
     private void ForceLanding()
     {
         AkSoundEngine.PostEvent("MOTH_LANDING", gm.Moth);
-        gm.mothBehaviour.SetMothAnimationState("Landing");
+        gm.mothBehaviour.SetMothAnimationState("Landing", "Flying");
     }
 
     public void EndOfFragmentCallback()
+    {
+        EndOfFragmentCallback(false);
+    }
+
+    public void EndOfFragmentCallback(bool leavingEarly)
     {
         if(gm.GetGameState() != this)
         {
@@ -141,29 +152,35 @@ public class InteractableState : GameState
         }
         currentInteractable.InvokeInteractableCall();
         keepMothLandingState = false;
-        gm.mothBehaviour.SetMothAnimationState("Flying");
-        gm.StartCoroutine(Leaving(1f));
+        gm.mothBehaviour.SetMothAnimationState("Flying", "Landing");
+        gm.StartCoroutine(Leaving(leavingEarly));
         lerpOut = true;
     }
 
     public override void OnStateExit()
     {
         gm.mothBehaviour.OnReachedPosition -= OnMothLands;
+        keepMothLandingState = false;
         gm.mothBehaviour.SetFragmentMode(false);
+        gm.mothBehaviour.SetMothAnimationState("Flying", "Landing");
+        if (gm.CinemaBars.gameObject.activeInHierarchy)
+        {
+            gm.CinemaBars.SetTrigger("Up");
+        }
         if (currentInteractable is Puzzle)
         {
             currentInteractable.GetComponent<BoxCollider>().enabled = true;
         }
     }
 
-    private IEnumerator Leaving(float multiplier)
+    private IEnumerator Leaving(bool leavingEarly)
     {
         time = 0;
         Vector3 heading = Vector3.zero;
 
         Quaternion cameraStartRotation = gm.GameCamera.transform.rotation;
 
-        while (time * gm.cameraToFragmentSpeed * multiplier < 1)
+        while (time * gm.cameraToFragmentSpeed < 1)
         {
             heading = gm.GameCamera.transform.position - gm.Moth.transform.position;
             heading = heading.ResizeMagnitude(gm.cameraController.InitialHeading.magnitude);
@@ -176,23 +193,27 @@ public class InteractableState : GameState
             float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
 
             Vector3 position = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.CamPosition, desiredPosition, t);
-            Vector3 mothPos = Vector3.Lerp(currentInteractable.transform.TransformPoint(currentInteractable.LandingPosition), 
-                                            currentInteractable.transform.TransformPoint(currentInteractable.MothResetPosition), t);
+            Vector3 mothPos = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.LandingPosition, 
+                                            currentInteractable.transform.position + currentInteractable.MothResetPosition, t);
 
             Quaternion camQ = Quaternion.Lerp(cameraStartRotation, desiredRotation, t);
             Quaternion mothQ = Quaternion.Lerp(mothStartRotation, desiredRotation, t);
 
             gm.GameCamera.transform.position = position;
             gm.GameCamera.transform.rotation = camQ;
-            gm.Moth.transform.rotation = mothQ;
-            gm.Moth.transform.position = mothPos;
+
+            if(!leavingEarly)
+            {
+                gm.Moth.transform.rotation = mothQ;
+                gm.Moth.transform.position = mothPos;
+            }
 
             time += Time.deltaTime;
             yield return null;
         }
 
         gm.cameraController.SetHeading(heading);
-        gm.mothBehaviour.SetMothAnimationState("Flying");
+        gm.mothBehaviour.SetMothAnimationState("Flying", "Landing");
         if (gm.CinemaBars.gameObject.activeInHierarchy)
         {
             gm.CinemaBars.SetTrigger("Up");
@@ -217,7 +238,7 @@ public class InteractableState : GameState
             if (currentInteractable is Fragment && (inputEvent.GameObject.CompareTag("Wall") || inputEvent.GameObject.CompareTag("Ceiling")) 
                 && inputEvent.InputType == InputType.TAP)
             {
-                EndOfFragmentCallback();
+                EndOfFragmentCallback(true);
                 cameraController.SetFragmentMode(false);
                 if(inputEvent.GameObject.CompareTag("Wall")){
                     gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, true);
