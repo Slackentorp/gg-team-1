@@ -12,27 +12,11 @@ public class Fragment : Interactable
     public delegate void FragmentAction();
     public static event FragmentAction FragmentCall;
 
-    private int callBackCounter = 0;
-    private bool firstEventFrame = false;
-
     uint marker;
-    int clipLength;
-    int uPosition;
 
     public override void Awake()
     {
         base.Awake();
-    }
-
-    private int ClipDuration(int time)
-    {
-        return (int)(time) - 20;
-    }
-
-    private bool WwiseEventDoesntExist(string eventName)
-    {
-        return AkSoundEngine.PrepareEvent(PreparationType.Preparation_Load, new string[] { eventName }, 1) == AKRESULT.AK_IDNotFound;
-
     }
 
     public override void Play(Interactable.EasyWwiseCallback Callback)
@@ -54,9 +38,6 @@ public class Fragment : Interactable
         OnFragmentCall();
     }
 
-    
-
-   
 
     private void OnFragmentCall()
     {
