@@ -123,7 +123,7 @@ public class LightSourceInput : MonoBehaviour
 
 		foreach (Interactable localInteractables in interactables)
 		{
-			if (localInteractables.StoryFragment == sender.StoryFragment)
+			if (localInteractables == sender)
 			{
 				if (!localInteractables.HasHasPlayed)
 				{
@@ -179,7 +179,7 @@ public class LightSourceInput : MonoBehaviour
 
 		foreach (Interactable localInteractables in interactables)
 		{
-			if (localInteractables.StoryFragment == sender.StoryFragment)
+			if (localInteractables == sender)
 			{
 				if (interactables.Length == 3)
 				{

@@ -14,18 +14,19 @@ public class FogwallMaterialAnimator : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
-
-	myMaterial = GameObject.Find(fogwallObjectName).GetComponent<Renderer>().material;
-	GameObject.Find(fogwallObjectName).GetComponent<Renderer>().material = myMaterial;
-	
-		
+	void Start ()
+	{
+		myMaterial = GameObject.Find(fogwallObjectName).GetComponent<Renderer>().material;
+		GameObject.Find(fogwallObjectName).GetComponent<Renderer>().material = myMaterial;	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-		myMaterial.SetFloat("_DissolveAmount", dissolveAmount);
+	void Update ()
+	{
+		if(myMaterial != null)
+		{
+			myMaterial.SetFloat("_DissolveAmount", dissolveAmount);
+		}
 		
 	}
 
