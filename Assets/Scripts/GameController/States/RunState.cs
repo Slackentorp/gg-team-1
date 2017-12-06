@@ -59,7 +59,8 @@ public class RunState : GameState
                     gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, true);
                 }
             }
-            else
+
+          /*  else
             {
                 ITouchInput itt = inputEvent.GameObject.GetComponent<ITouchInput>();
                 if (itt != null)
@@ -86,7 +87,8 @@ public class RunState : GameState
                             break;
                     }
                 }
-            }
+            }*/
+
         }
     }
 

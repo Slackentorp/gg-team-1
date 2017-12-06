@@ -7,6 +7,9 @@ public class EasyWwiseEvent : MonoBehaviour
     public EasyWWiseEventType ChosenType;
     public string WwiseEventID;
     public bool PostOnlyAfterPointOfNoReturn;
+    public bool PostOnlyOnce;
+
+    private bool postedBefore;
 
     void Awake()
     {
@@ -14,9 +17,14 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             return;
         }
+        if(PostOnlyOnce && postedBefore)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.Awake)
         {
             AkSoundEngine.PostEvent(WwiseEventID, gameObject);
+            postedBefore = true;
         }
     }
 
@@ -26,9 +34,14 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             return;
         }
+        if(PostOnlyOnce && postedBefore)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.Start)
         {
             AkSoundEngine.PostEvent(WwiseEventID, gameObject);
+            postedBefore = true;
         }
     }
 
@@ -38,9 +51,14 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             return;
         }
+        if(PostOnlyOnce && postedBefore)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerEnter)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
+            postedBefore = true;
         }
     }
 
@@ -50,9 +68,14 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             return;
         }
+        if(PostOnlyOnce && postedBefore)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerStay)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
+            postedBefore = true;
         }
     }
 
@@ -62,9 +85,14 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             return;
         }
+        if(PostOnlyOnce && postedBefore)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnTriggerExit)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
+            postedBefore = true;
         }
     }
 
@@ -74,9 +102,14 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             return;
         }
+        if(PostOnlyOnce && postedBefore)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionEnter)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
+            postedBefore = true;
         }
     }
 
@@ -86,9 +119,14 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             return;
         }
+        if(PostOnlyOnce && postedBefore)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionStay)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
+            postedBefore = true;
         }
     }
 
@@ -98,9 +136,14 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             return;
         }
+        if(PostOnlyOnce && postedBefore)
+        {
+            return;
+        }
         if (ChosenType == EasyWWiseEventType.OnCollisionExit)
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
+            postedBefore = true;
         }
     }
 

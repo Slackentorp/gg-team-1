@@ -59,10 +59,17 @@ public class InteractableState : GameState
             if (currentInteractable is Puzzle)
             {
                 CheckInput();
-                if (((Puzzle) currentInteractable).IsSolved && !gm.hasReachedPointOfNoReturn)
+                if (((Puzzle) currentInteractable).IsSolved && !gm.hasReachedPointOfNoReturn && !((Puzzle) currentInteractable).LastPuzzle)
                 {
                     lerpOut = true;
                     currentInteractable.Play(EndOfFragmentCallback);
+                }
+                if(((Puzzle) currentInteractable).LastPuzzle && ((Puzzle)currentInteractable).IsSolved)
+                {
+                    currentInteractable.HasPlayed = true;
+                    currentInteractable.InvokeInteractableCall();
+                  //  gm.SetState(new RunState(gm));
+                    lerpOut = true;
                 }
             }
         }
@@ -153,7 +160,12 @@ public class InteractableState : GameState
     public override void OnStateExit()
     {
         gm.mothBehaviour.OnReachedPosition -= OnMothLands;
+        keepMothLandingState = false;
         gm.mothBehaviour.SetFragmentMode(false);
+        if (gm.CinemaBars.gameObject.activeInHierarchy)
+        {
+            gm.CinemaBars.SetTrigger("Up");
+        }
         if (currentInteractable is Puzzle)
         {
             currentInteractable.GetComponent<BoxCollider>().enabled = true;

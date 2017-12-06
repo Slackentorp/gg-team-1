@@ -62,7 +62,7 @@ public class StoryEventController : Singleton<StoryEventController>
 			{
 				currentStoryEvent = se;
 				currentCallback = Callback;
-				if(StoryEvent.Equals("STORYEVENT_3"))
+				if(StoryEvent.Equals("STORYEVENT_4"))
 				{
 					HandlePointOfNoReturn();
 				} else if(StoryEvent.Equals("STORYEVENT_END"))
@@ -121,7 +121,7 @@ public class StoryEventController : Singleton<StoryEventController>
 					outroParent.GetComponent<PlayableDirector>().Play();
 					foreach (var item in outroObjects)
 					{
-						item.SetActive(true);
+						item.SetActive(false);
 					}
 				}
 				currentCallback.Invoke();
