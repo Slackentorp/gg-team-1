@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 156943490}
   - component: {fileID: 156943492}
   - component: {fileID: 156943493}
+  - component: {fileID: 156943494}
   m_Layer: 0
   m_Name: StoryEvent System
   m_TagString: Untagged
@@ -372,7 +373,7 @@ PlayableDirector:
   m_GameObject: {fileID: 156943489}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: dda58b5576581c64a9ad486c30ee864c, type: 2}
+  m_PlayableAsset: {fileID: 0}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -612,10 +613,23 @@ PlayableDirector:
     value: {fileID: 1272307989}
   - key: {fileID: 114982651542766634, guid: dda58b5576581c64a9ad486c30ee864c, type: 2}
     value: {fileID: 941152922}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 114898394772515902, guid: 4b29a35f12c714147965e50bd2625c5a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114319121212942722, guid: 4b29a35f12c714147965e50bd2625c5a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 114377516658743494, guid: 4e14c16d058642c47bd6d325b7c742ee, type: 2}
+    value: {fileID: 156943489}
   m_ExposedReferences:
     m_References:
     - 6065213543ecc5943bee26778e43d95e: {fileID: 270234002}
     - 59453bc417c330642bffe208e7d371fa: {fileID: 0}
+    - 08ae1a8f0cde9a941a81abef42972305: {fileID: 156943489}
     - 441624ea3f86d2f4bac5401bcc50ae74: {fileID: 0}
 --- !u!4 &156943491
 Transform:
@@ -642,7 +656,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __messageText: 
-  isMuted: 0
   StoryEvents:
   - StoryEventID: STORYEVENT_1
     FragmentWwiseEvent: STORYEVENT_1
@@ -691,6 +704,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: STORYEVENT_END
+--- !u!114 &156943494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 156943489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03de8838afdc6d84a94c2f81c93bb061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &202202790
 Prefab:
   m_ObjectHideFlags: 0
@@ -1575,6 +1599,26 @@ Prefab:
         type: 2}
       propertyPath: m_Lens.NearClipPlane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912456194983548, guid: e7ebb0e32e5cb2844849c8942624d733, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253722588913902, guid: e7ebb0e32e5cb2844849c8942624d733, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000007745758
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253722588913902, guid: e7ebb0e32e5cb2844849c8942624d733, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.021142462
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253722588913902, guid: e7ebb0e32e5cb2844849c8942624d733, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.0000000016380101
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253722588913902, guid: e7ebb0e32e5cb2844849c8942624d733, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9997765
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7ebb0e32e5cb2844849c8942624d733, type: 2}

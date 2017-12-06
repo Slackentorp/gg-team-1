@@ -41,6 +41,7 @@ public class LightSourceInput : MonoBehaviour
 
 	private AnimationCurve fragmentToLightsourceCurve;
 	private IEnumerator Flickering;
+	private IEnumerator IEParticle;
 
 	public bool Lit
 	{
@@ -89,7 +90,7 @@ public class LightSourceInput : MonoBehaviour
 		}
 	}
 
-	public delegate void LightSourceAction();
+	public delegate void LightSourceAction(bool beingLoaded);
 	public static event LightSourceAction LightSourceCall;
 
 	public delegate void LightMapSwitchAction(bool StateCheck, bool flickCheck, int indexNr);
@@ -112,7 +113,7 @@ public class LightSourceInput : MonoBehaviour
 		FragmentCheckerSwitch(interactables[0]); // set tutorial lamp to Flicker
 	}
 
-	public void FragmentCheckerLerp(Interactable sender)
+	public void FragmentCheckerLerp(Interactable sender, bool beingLoaded)
 	{
 		int numPlayedFragments = interactables.Count(f => f.HasPlayed);
 
@@ -125,22 +126,24 @@ public class LightSourceInput : MonoBehaviour
 		{
 			if (localInteractables == sender)
 			{
-				if (!localInteractables.HasHasPlayed)
+				if (!localInteractables.HasHasPlayed && !beingLoaded)
 				{
 					if (interactables.Length == 3)
 					{
 						if (numPlayedFragments >= interactables.Length - 1)
 						{
-							if (sender != null)
+							if (sender != null && IEParticle == null)
 							{
-								StartCoroutine(ParticleLerp(sender));
+								IEParticle = ParticleLerp(sender);
+								StartCoroutine(IEParticle);
 							}
 						}
 						else if (numPlayedFragments == interactables.Length - 2)
 						{
-							if (sender != null)
+							if (sender != null && IEParticle == null)
 							{
-								StartCoroutine(ParticleLerp(sender));
+								IEParticle = ParticleLerp(sender);
+								StartCoroutine(IEParticle);
 							}
 						}
 					}
@@ -148,9 +151,10 @@ public class LightSourceInput : MonoBehaviour
 					{
 						if (numPlayedFragments == interactables.Length)
 						{
-							if (sender != null)
+							if (sender != null && IEParticle == null)
 							{
-								StartCoroutine(ParticleLerp(sender));
+								IEParticle = ParticleLerp(sender);
+								StartCoroutine(IEParticle);
 							}
 						}
 						else if (numPlayedFragments == 0)
@@ -165,7 +169,7 @@ public class LightSourceInput : MonoBehaviour
 				localInteractables.HasHasPlayed = true;
 			}
 		}
-		LightSourceCallz();
+		LightSourceCallz(beingLoaded);
 	}
 
 	public void FragmentCheckerSwitch(Interactable sender)
@@ -209,15 +213,15 @@ public class LightSourceInput : MonoBehaviour
 
 			}
 		}
-		LightSourceCallz();
+	//	LightSourceCallz();
 	}
 
 
-	public void LightSourceCallz()
+	public void LightSourceCallz(bool beingLoaded)
 	{
 		if (LightSourceCall != null)
 		{
-			LightSourceCall();
+			LightSourceCall(beingLoaded);
 		}
 	}
 
@@ -247,7 +251,7 @@ public class LightSourceInput : MonoBehaviour
 	public void ForceSwitchOn()
 	{
 		LampON();
-		LightSourceCallz();
+		LightSourceCallz(true);
 	}
 
 
@@ -271,7 +275,11 @@ public class LightSourceInput : MonoBehaviour
 	private IEnumerator ParticleLerp(Interactable interactable)
 	{
 		float time = 0;
-		float endTime = fragmentToLightsourceCurve.keys[fragmentToLightsourceCurve.length - 1].time;
+		float endTime = 1;
+		if(fragmentToLightsourceCurve != null)
+		{
+			endTime = fragmentToLightsourceCurve.keys[fragmentToLightsourceCurve.length - 1].time;
+		}
 
 		GameObject particle = Instantiate(GameController.Instance.FragmentToLightSourceParticles, interactable.transform.position, Quaternion.identity);
 		particle.transform.GetChild(0).gameObject.SetActive(true);
@@ -282,7 +290,11 @@ public class LightSourceInput : MonoBehaviour
 
 		while (time < endTime)
 		{
-			float t = fragmentToLightsourceCurve.Evaluate(time);
+			float t = time;
+			if(fragmentToLightsourceCurve != null)
+			{
+				t = fragmentToLightsourceCurve.Evaluate(time);
+			}
 
 			particle.transform.position = Vector3.Lerp(interactable.transform.position, transform.position + lerpParticleOffset, t);
 
@@ -295,7 +307,7 @@ public class LightSourceInput : MonoBehaviour
 		AkSoundEngine.PostEvent("PARTICLE_ENTER_LAMP", particle);
 		yield return new WaitForSeconds(explosionSystem.main.duration + explosionSystem.main.startLifetime.constant + explosionSystem.main.startLifetime.constant / 2);
 		Destroy(particle);
-
+		IEParticle = null;
 	}
 
 	private void LightSwitch(State currentLampState)

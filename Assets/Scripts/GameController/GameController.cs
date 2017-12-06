@@ -3,6 +3,7 @@ using Assets.Scripts.Managers;
 using EasyButtons;
 using Gamelogic.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 #pragma warning disable 0414
@@ -119,6 +120,23 @@ public class GameController : Singleton<GameController>
 		return currentState;
 	}
 
+	void OnEnable()
+	{
+		SceneManager.sceneLoaded += HandleApartmentLoad;
+	}
+
+	void OnDisable(){
+		SceneManager.sceneLoaded -= HandleApartmentLoad;
+	}
+
+	void HandleApartmentLoad(Scene scene, LoadSceneMode mode){
+		Scene appartment = SceneManager.GetSceneByName("Apartment");
+		if(scene == appartment)
+		{
+			SetState(new LoadState(this));
+		}
+	}
+
 
 	// Use this for initialization
 	void Start()
@@ -128,8 +146,10 @@ public class GameController : Singleton<GameController>
 												cameraDamping, cameraTurnSpeedY, cameraTurnSpeedX, minimumVerticalAngle,
 												maximumVerticalAngle);
 
-
-		SetState(new LoadState(this));
+		if(SceneManager.GetSceneByName("Apartment").isLoaded)
+		{
+			SetState(new LoadState(this));
+		}
 	}
 
 	private void Update()

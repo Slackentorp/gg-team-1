@@ -35,7 +35,7 @@ public class DoorWallController : MonoBehaviour
         LightSourceInput.LightSourceCall -= LampChecker;
     }
 
-    void LampChecker()
+    void LampChecker(bool beingLoaded)
     {
         int numActiveLamps = roomLamps.Count(l => l.LampActivated);
         int numFullOnLamps = roomLamps.Count(l => l.LampFullOn);
@@ -43,12 +43,24 @@ public class DoorWallController : MonoBehaviour
         AkSoundEngine.SetState("LAMPS_ON_" + roomIndex, "LAMP_" + numFullOnLamps);
         if (roomLamps.Length == 1 && numFullOnLamps == 1)
         {
-            CallStoryEvent();
+            if(beingLoaded)
+            {
+                EndOfEvent();
+                return;
+            } else {    
+                CallStoryEvent();
+            }
         }
 
         else if (numFullOnLamps >= roomLamps.Length && numActiveLamps == roomLamps.Length)
         {
-            CallStoryEvent();
+            if(beingLoaded)
+            {
+                EndOfEvent();
+                return;
+            } else {    
+                CallStoryEvent();
+            }
         }
     }
 
@@ -67,6 +79,7 @@ public class DoorWallController : MonoBehaviour
 
     private void EndOfEvent()
     {
+        print("Door EOE called");
         gameObject.SetActive(false);
         AkSoundEngine.PostEvent("FOGWALL_DISABLE", gameObject);
     }
