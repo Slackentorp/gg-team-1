@@ -115,6 +115,15 @@ public class StoryEventController : Singleton<StoryEventController>
 				{
 					GameController.instance.InvokePointOfNoReturn();
 				}
+				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_END"))
+				{
+					GameObject outroParent = GameObject.FindGameObjectWithTag("OutroParent");
+					outroParent.GetComponent<PlayableDirector>().Play();
+					foreach (var item in outroObjects)
+					{
+						item.SetActive(true);
+					}
+				}
 				currentCallback.Invoke();
 			}
 

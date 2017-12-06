@@ -59,7 +59,6 @@ public class InteractableState : GameState
             if (currentInteractable is Puzzle)
             {
                 CheckInput();
-         //       ((Puzzle) currentInteractable).UpdatePuzzle();
                 if (((Puzzle) currentInteractable).IsSolved && !gm.hasReachedPointOfNoReturn)
                 {
                     lerpOut = true;
@@ -118,7 +117,7 @@ public class InteractableState : GameState
     {
         if (currentInteractable.firstPuzzleCheck)
         {
-            gm.mothBehaviour.SetMothAnimationState("Flying");
+            gm.mothBehaviour.SetMothAnimationState("Flying", "Landing");
         }
         else if (!currentInteractable.firstPuzzleCheck)
         {
@@ -130,10 +129,15 @@ public class InteractableState : GameState
     private void ForceLanding()
     {
         AkSoundEngine.PostEvent("MOTH_LANDING", gm.Moth);
-        gm.mothBehaviour.SetMothAnimationState("Landing");
+        gm.mothBehaviour.SetMothAnimationState("Landing", "Flying");
     }
 
     public void EndOfFragmentCallback()
+    {
+        EndOfFragmentCallback(false);
+    }
+
+    public void EndOfFragmentCallback(bool leavingEarly)
     {
         if(gm.GetGameState() != this)
         {
@@ -141,8 +145,8 @@ public class InteractableState : GameState
         }
         currentInteractable.InvokeInteractableCall();
         keepMothLandingState = false;
-        gm.mothBehaviour.SetMothAnimationState("Flying");
-        gm.StartCoroutine(Leaving(1f));
+        gm.mothBehaviour.SetMothAnimationState("Flying", "Landing");
+        gm.StartCoroutine(Leaving(leavingEarly));
         lerpOut = true;
     }
 
@@ -156,14 +160,14 @@ public class InteractableState : GameState
         }
     }
 
-    private IEnumerator Leaving(float multiplier)
+    private IEnumerator Leaving(bool leavingEarly)
     {
         time = 0;
         Vector3 heading = Vector3.zero;
 
         Quaternion cameraStartRotation = gm.GameCamera.transform.rotation;
 
-        while (time * gm.cameraToFragmentSpeed * multiplier < 1)
+        while (time * gm.cameraToFragmentSpeed < 1)
         {
             heading = gm.GameCamera.transform.position - gm.Moth.transform.position;
             heading = heading.ResizeMagnitude(gm.cameraController.InitialHeading.magnitude);
@@ -184,15 +188,19 @@ public class InteractableState : GameState
 
             gm.GameCamera.transform.position = position;
             gm.GameCamera.transform.rotation = camQ;
-            gm.Moth.transform.rotation = mothQ;
-            gm.Moth.transform.position = mothPos;
+
+            if(!leavingEarly)
+            {
+                gm.Moth.transform.rotation = mothQ;
+                gm.Moth.transform.position = mothPos;
+            }
 
             time += Time.deltaTime;
             yield return null;
         }
 
         gm.cameraController.SetHeading(heading);
-        gm.mothBehaviour.SetMothAnimationState("Flying");
+        gm.mothBehaviour.SetMothAnimationState("Flying", "Landing");
         if (gm.CinemaBars.gameObject.activeInHierarchy)
         {
             gm.CinemaBars.SetTrigger("Up");
@@ -217,7 +225,7 @@ public class InteractableState : GameState
             if (currentInteractable is Fragment && (inputEvent.GameObject.CompareTag("Wall") || inputEvent.GameObject.CompareTag("Ceiling")) 
                 && inputEvent.InputType == InputType.TAP)
             {
-                EndOfFragmentCallback();
+                EndOfFragmentCallback(true);
                 cameraController.SetFragmentMode(false);
                 if(inputEvent.GameObject.CompareTag("Wall")){
                     gm.mothBehaviour.SetMothPos(inputEvent.RaycastHit, true);

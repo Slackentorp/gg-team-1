@@ -181,6 +181,12 @@ public class GameController : Singleton<GameController>
         SaveLoad.SaveGame(this);
     }
 
+	[ContextMenu("PONR State")]
+    public void PONR()
+    {
+        SetState(new PointOfNoReturnState(this));
+    }
+
     public void QuitFragment()
     {
         if (currentState is InteractableState)
