@@ -104,7 +104,7 @@ public class InteractableState : GameState
             gm.CinemaBars.gameObject.SetActive(true);
         }
 
-        Vector3 newMothPos = currentInteractable.transform.TransformPoint(currentInteractable.LandingPosition);
+        Vector3 newMothPos = currentInteractable.transform.position + currentInteractable.LandingPosition;
         gm.mothBehaviour.SetMothPos(newMothPos);
 
         cameraController.SetFragmentMode(true);
@@ -192,8 +192,8 @@ public class InteractableState : GameState
             float t = gm.FragmentLerpCurve.Evaluate(time * gm.cameraToFragmentSpeed);
 
             Vector3 position = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.CamPosition, desiredPosition, t);
-            Vector3 mothPos = Vector3.Lerp(currentInteractable.transform.TransformPoint(currentInteractable.LandingPosition), 
-                                            currentInteractable.transform.TransformPoint(currentInteractable.MothResetPosition), t);
+            Vector3 mothPos = Vector3.Lerp(currentInteractable.transform.position + currentInteractable.LandingPosition, 
+                                            currentInteractable.transform.position + currentInteractable.MothResetPosition, t);
 
             Quaternion camQ = Quaternion.Lerp(cameraStartRotation, desiredRotation, t);
             Quaternion mothQ = Quaternion.Lerp(mothStartRotation, desiredRotation, t);

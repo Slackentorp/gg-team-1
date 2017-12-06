@@ -323,8 +323,9 @@ public class LightSourceInput : MonoBehaviour
 			{
 				if (firstTimeFlickerCheck)
 				{
-					AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
-				}
+				    AkSoundEngine.PostEvent("LAMP_FLICKERING", gameObject);
+            firstTimeFlickerCheck = false;
+        }
 				lampFlickerCheck = true;
 				Flickering = FlickeringSequence();
 				StartCoroutine(Flickering);

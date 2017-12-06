@@ -47,7 +47,7 @@ public class DoorWallController : MonoBehaviour
             CallStoryEvent();
         }
 
-        else if (numFullOnLamps >= 1 && numActiveLamps == roomLamps.Length)
+        else if (numFullOnLamps >= roomLamps.Length && numActiveLamps == roomLamps.Length)
         {
             CallStoryEvent();
         }
