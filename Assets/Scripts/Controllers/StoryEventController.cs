@@ -9,53 +9,54 @@ using UnityEngine.Playables;
 [RequireComponent(typeof(PlayableDirector))]
 public class StoryEventController : Singleton<StoryEventController>
 {
-    [SerializeField]
-    List<StoryEvent> StoryEvents;
+	public bool isMuted;
 
-    StoryEvent currentStoryEvent;
-    StoryEvent nullStoryEvent;
-    Action currentCallback;
-    PlayableDirector director;
-    bool isPosting;
+	[SerializeField]
+	List<StoryEvent> StoryEvents;
+
+	StoryEvent currentStoryEvent;
+	StoryEvent nullStoryEvent;
+	Action currentCallback;
+	PlayableDirector director;
+	bool isPosting;
 
     public delegate void StoryEventLightAction(int index);
     public static event StoryEventLightAction StoryEventLightCall;
 
     void Awake()
-    {
-        director = GetComponent<PlayableDirector>();
-        director.playableAsset = null;
-        currentStoryEvent = nullStoryEvent;
-    }
+	{
+		director = GetComponent<PlayableDirector>();
+		director.playableAsset = null;
+		currentStoryEvent = nullStoryEvent;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (isPosting)
-        {
-            if (!director.playableGraph.IsValid())
-            {
-                isPosting = false;
-                ResetStoryEvent();
-            }
-        }
-    }
+	// Update is called once per frame
+	void Update()
+	{
+		if (isPosting)
+		{
+			if (!director.playableGraph.IsValid())
+			{
+				isPosting = false;
+				ResetStoryEvent();
+			}
+		}
+	}
 
-    public void PostStoryEvent(string StoryEvent, Action Callback)
-    {
-        if (isPosting)
-        {
-            return;
-        }
+	public void PostStoryEvent(string StoryEvent, Action Callback)
+	{
+		if (isPosting || isMuted)
+		{
+			return;
+		}
 
-        try
-        {
-            StoryEvent se = StoryEvents.First(o => o.StoryEventID == StoryEvent);
+		try{
+			StoryEvent se = StoryEvents.First(o => o.StoryEventID == StoryEvent);
 
-            if (se.StoryEventID.Equals(StoryEvent))
-            {
-                currentStoryEvent = se;
-                currentCallback = Callback;
+			if (se.StoryEventID.Equals(StoryEvent))
+			{
+				currentStoryEvent = se;
+				currentCallback = Callback;
                 if (StoryEvent.Equals("STORYEVENT_1"))
                 {
                     Debug.Log("STORYEVENT_1");
@@ -70,74 +71,84 @@ public class StoryEventController : Singleton<StoryEventController>
                 {
                     Debug.Log("STORYEVENT_1");
                     StoryEventLightCall(3);
-                    HandlePointOfNoReturn();
                 }
+                if (StoryEvent.Equals("STORYEVENT_4"))
+				{
+					HandlePointOfNoReturn();
+				}
+				
+				director.Stop();
+				director.playableAsset = se.TimelinePlayableAsset;
+				director.time = 0;
+				director.initialTime = 0;
+				
+				AkSoundEngine.PostEvent(se.FragmentWwiseEvent, gameObject);
+				director.Play();
+				
+				se.StoryEventGroup.SetActive(true);
+				isPosting = true;
 
-                director.Stop();
-                director.playableAsset = se.TimelinePlayableAsset;
-                director.time = 0;
-                director.initialTime = 0;
+				// Save state in playerprefs
+				string lastChar = StoryEvent[StoryEvent.Length - 1].ToString();
+				int storyEventNumber = -1;
+				int.TryParse(lastChar, out storyEventNumber);
+				if(storyEventNumber > -1)
+				{
+					PlayerPrefs.SetInt("SE_REACHED", storyEventNumber);
+				}
+			}
+		} catch (InvalidOperationException e){ 
+			print(e.Message);
+		}
 
-                AkSoundEngine.PostEvent(se.FragmentWwiseEvent, gameObject);
-                director.Play();
+		if(!isPosting)
+		{
+			Debug.LogWarning("Story event did not start. Are you using the correct StoryEvent name?");
+		}
+	}
 
-                se.StoryEventGroup.SetActive(true);
-                isPosting = true;
-            }
-        }
-        catch (InvalidOperationException e)
-        {
-            print(e.Message);
-        }
+	public void ResetStoryEvent()
+	{
+		if(currentStoryEvent.StoryEventGroup != null)
+		{
+			print("Resetting story event system");
+			director.Stop();
+			director.playableAsset = null;
+			currentStoryEvent.StoryEventGroup.SetActive(false);
+			AkSoundEngine.StopAll(gameObject);
+			if(currentCallback != null)
+			{
+				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_4"))
+				{
+					GameController.instance.InvokePointOfNoReturn();
+				}
+				currentCallback.Invoke();
+			}
 
-        if (!isPosting)
-        {
-            Debug.LogWarning("Story event did not start. Are you using the correct StoryEvent name?");
-        }
-    }
+			currentStoryEvent = nullStoryEvent;
+			currentCallback = null;
+		}
+	}
 
-    public void ResetStoryEvent()
-    {
-        if (currentStoryEvent.StoryEventGroup != null)
-        {
-            print("Resetting story event system");
-            director.Stop();
-            director.playableAsset = null;
-            currentStoryEvent.StoryEventGroup.SetActive(false);
-            AkSoundEngine.StopAll(gameObject);
-            if (currentCallback != null)
-            {
-                if (currentStoryEvent.StoryEventID.Equals("STORYEVENT_3"))
-                {
-                    GameController.instance.InvokePointOfNoReturn();
-                }
-                currentCallback.Invoke();
-            }
+	private void HandlePointOfNoReturn()
+	{
+		GameController.Instance.SetState(new PointOfNoReturnState(GameController.instance));
+		
+	/*	GameObject livingRoomDoor = GameObject.FindObjectsOfType<DoorWallController>().First(d => d.GetRoomIndex() == 0).gameObject;
+		print(livingRoomDoor.name);
+		livingRoomDoor.SetActive(false);*/
+	}
 
-            currentStoryEvent = nullStoryEvent;
-            currentCallback = null;
-        }
-    }
-
-    private void HandlePointOfNoReturn()
-    {
-        GameController.Instance.SetState(new PointOfNoReturnState(GameController.instance));
-
-        /*	GameObject livingRoomDoor = GameObject.FindObjectsOfType<DoorWallController>().First(d => d.GetRoomIndex() == 0).gameObject;
-            print(livingRoomDoor.name);
-            livingRoomDoor.SetActive(false);*/
-    }
-
-    [System.Serializable]
-    public struct StoryEvent
-    {
-        [Tooltip("Name of the event the game will use to start this story event")]
-        public string StoryEventID;
-        [Tooltip("Name of the Wwise event to play while the story event is playing")]
-        public string FragmentWwiseEvent;
-        [Tooltip("A .playable file which defines the actual Timeline animations to play")]
-        public PlayableAsset TimelinePlayableAsset;
-        [Tooltip("The GameObject that holds all GameObjects neccesary for the story event. Should follow the \"StoryEvent Template\" prefab")]
-        public GameObject StoryEventGroup;
-    }
+	[System.Serializable]
+	public struct StoryEvent
+	{
+		[Tooltip("Name of the event the game will use to start this story event")]
+		public string StoryEventID;
+		[Tooltip("Name of the Wwise event to play while the story event is playing")]
+		public string FragmentWwiseEvent;
+		[Tooltip("A .playable file which defines the actual Timeline animations to play")]
+		public PlayableAsset TimelinePlayableAsset;
+		[Tooltip("The GameObject that holds all GameObjects neccesary for the story event. Should follow the \"StoryEvent Template\" prefab")]
+		public GameObject StoryEventGroup;
+	}
 }
