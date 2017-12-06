@@ -20,7 +20,10 @@ public class StoryEventController : Singleton<StoryEventController>
 	PlayableDirector director;
 	bool isPosting;
 
-	void Awake()
+    public delegate void StoryEventLightAction(int index);
+    public static event StoryEventLightAction StoryEventLightCall;
+
+    void Awake()
 	{
 		director = GetComponent<PlayableDirector>();
 		director.playableAsset = null;
@@ -54,7 +57,22 @@ public class StoryEventController : Singleton<StoryEventController>
 			{
 				currentStoryEvent = se;
 				currentCallback = Callback;
-				if(StoryEvent.Equals("STORYEVENT_3"))
+                if (StoryEvent.Equals("STORYEVENT_1"))
+                {
+                    Debug.Log("STORYEVENT_1");
+                    StoryEventLightCall(1);
+                }
+                if (StoryEvent.Equals("STORYEVENT_2"))
+                {
+                    Debug.Log("STORYEVENT_1");
+                    StoryEventLightCall(2);
+                }
+                if (StoryEvent.Equals("STORYEVENT_3"))
+                {
+                    Debug.Log("STORYEVENT_1");
+                    StoryEventLightCall(3);
+                }
+                if (StoryEvent.Equals("STORYEVENT_4"))
 				{
 					HandlePointOfNoReturn();
 				}
