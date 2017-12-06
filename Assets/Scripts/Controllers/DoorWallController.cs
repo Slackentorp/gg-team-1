@@ -11,7 +11,6 @@ public class DoorWallController : MonoBehaviour
     private string StoryEventName;
 
     private ParticleSystem doorParticleSystem;
-    private int LampsON = 0;
     [SerializeField]
     private int roomIndex;
     [SerializeField, Tooltip("Optional: Identifier for this fogwall")]

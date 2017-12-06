@@ -14,19 +14,10 @@ public class MothBehaviour
 	[SerializeField]
 	private float timeScale = 1;
 
-	[SerializeField, Range(0, 1), Tooltip("Adjusts the allowed distance between moth and anchor point")]
-	float allowedDistance = 0.2f;
-
-	[SerializeField]
-	private AnimationCurve mothChildCurve;
-
 	[SerializeField]
 	int noiseReducerMax = 16;
 
 	int noiseReducerMin = 10;
-
-	[SerializeField]
-	float mothSpeedModifier = 1.0f;
 
 	[SerializeField]
 	float mothDistanceToObject = 0.2f;
@@ -36,13 +27,11 @@ public class MothBehaviour
 	Camera camera;
 	Vector3 hitPoint, mothStartPos;
 	RaycastHit hit;
-	Vector3 hitDotPoint, hitDotNormal, mothRotation, dampVelocity, mothOriginPos, parentPos;
+	Vector3 mothRotation, dampVelocity, parentPos;
 	Vector3 pos, anchorPointPlusPos, currentVelocity;
-	Ray ray;
-	BoxCollider mothBoxCollider;
 	float veticalMothScreenPlacement, limitMothForwardFidgit;
 	float turningTime, turningSpeed, proceduralLerpTime, time;
-	float perlinNoiseX, perlinNoiseY, perlinNoiseZ, levelOfNoise = 0.5f;
+	float perlinNoiseX, perlinNoiseY, perlinNoiseZ;
 	float distance, timeToTarget = 1.0f, timeSpentInDamp = 1.5f;
 	float fidgitInFlightReducer = 0;
 	float velocity;
@@ -54,7 +43,6 @@ public class MothBehaviour
 	}
 
 	private bool lerpRunning = false;
-	private bool mothTurning = true;
 	private bool mothDampProcedural = false;
 	public bool fragmentMode { get; private set; }
 	
@@ -76,17 +64,14 @@ public class MothBehaviour
 		this.camera = camera;
 		this.mothDistanceToObject = mothDistanceToObject;
 		this.MothSpeed = MothSpeed;
-		this.mothChildCurve = curve;
 		this.noiseReducerMax = noiseReducerMax;
 		this.noiseReducerMin = noiseReducerMin;
-		this.mothSpeedModifier = speedModifier;
 		this.MothFlightLerpCurve = MothFlightLerpCurve;
 		this.veticalMothScreenPlacement = verticalMothScreenPlacement;
 		this.limitMothForwardFidgit = limitMothForwardFidgit;
 		this.fidgitInFlightReducer = fidgitInFlightReducer;
 		this.timeSpentInDamp = timeSpentInDamp;
 		this.mothDistanceToCeiling = mothDistanceToCeiling;
-		this.mothBoxCollider = moth.GetComponent<BoxCollider>();
 	}
 
 	public void SetFragmentMode(bool b)
@@ -185,13 +170,10 @@ public class MothBehaviour
 	private void PointfromRaycast()
 	{
 		AkSoundEngine.PostEvent("MOTH_START_FLIGHT", moth);
-		ray = camera.ScreenPointToRay(Input.mousePosition);
+		Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit))
 		{
 			hitPoint = hit.point + hit.normal * mothDistanceToObject;
-			hitDotPoint = hit.point;
-			hitDotNormal = hit.normal;
-
 			lerpRunning = true;
 		}
 	}
@@ -213,8 +195,6 @@ public class MothBehaviour
 
 		if (mothDampProcedural == false)
 		{
-			mothOriginPos = mothChild.transform.localPosition;
-
 			if (lerpRunning == true)
 			{
 				CalculatePerlinNoise(fidgitInFlightReducer, fidgitInFlightReducer);
