@@ -162,6 +162,7 @@ public class InteractableState : GameState
         gm.mothBehaviour.OnReachedPosition -= OnMothLands;
         keepMothLandingState = false;
         gm.mothBehaviour.SetFragmentMode(false);
+        gm.mothBehaviour.SetMothAnimationState("Flying", "Landing");
         if (gm.CinemaBars.gameObject.activeInHierarchy)
         {
             gm.CinemaBars.SetTrigger("Up");
