@@ -18,9 +18,6 @@ namespace Assets.Scripts.Managers
 
         private readonly LayerMask touchInputMask;
         private readonly float tapTimeThreshold = 1f;
-        private readonly float swipeSquaredDistanceThreshold = 1f;
-        private readonly float swipeStraightness = 1f;
-        private readonly float swipeTimeThreshold = 1f;
 
         private readonly Camera mainCamera;
         private readonly Dictionary<GameObject, TouchState> objectOnTouchDownState = new Dictionary<GameObject, TouchState>();
@@ -35,10 +32,6 @@ namespace Assets.Scripts.Managers
             mainCamera = camera;
             touchInputMask = settings._TouchInputMask;
             tapTimeThreshold = settings._TapTimeThreshold;
-            swipeSquaredDistanceThreshold =
-                settings._SwipeSquaredDistanceThreshold;
-            swipeStraightness = settings._SwipeStraightness;
-            swipeTimeThreshold = settings._SwipeTimeThreshold;
         }
 
         // Update is called once per frame
