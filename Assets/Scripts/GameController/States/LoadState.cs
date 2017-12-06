@@ -37,7 +37,8 @@ public class LoadState : GameState
         gm.cameraHeading = gm.GameCamera.transform.position - gm.Moth.transform.position;
 
 		fragmentPositions = GameObject.FindObjectsOfType<Fragment>();
-		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.fragmentParticles, gm.Moth.transform);
+		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.Moth.transform,
+																	gm.DissolveAmount, gm.MainTexEmission);
 
 	   if(SceneManager.GetSceneByName("Apartment").isLoaded)
         {
@@ -69,7 +70,6 @@ public class LoadState : GameState
             {
                  gm.SetState(new RunState(gm));
             }
-
         }
     }
 
