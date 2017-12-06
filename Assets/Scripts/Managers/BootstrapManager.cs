@@ -15,24 +15,13 @@ public class BootstrapManager : Singleton<BootstrapManager>
     [SerializeField]
     private Scene levelScene;
 
-    /*
-    for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
-        {
-            string sceneName = SceneManager.GetSceneByBuildIndex(i).name;
-            if(sceneName.Equals("SplashScreen"))
-            {
-                return;
-            }
-        }
-    */
-
     // Use this for initialization
     void Start()
     {
 #if UNITY_ANDROID
         return;
 #endif
-        print("Bootstrap Start");
+
         levelScene = new Scene();
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
@@ -71,13 +60,14 @@ public class BootstrapManager : Singleton<BootstrapManager>
 
     IEnumerator DelayReload()
     {
-
         AsyncOperation soundScapeLoad =
             SceneManager.LoadSceneAsync("SoundScape", LoadSceneMode.Additive);
         AsyncOperation apartmentLoad =
             SceneManager.LoadSceneAsync("Apartment", LoadSceneMode.Additive);
+        AsyncOperation storyeventLoad =
+            SceneManager.LoadSceneAsync("StoryEvents", LoadSceneMode.Additive);
 
-        while (!soundScapeLoad.isDone || !apartmentLoad.isDone)
+        while (!soundScapeLoad.isDone || !apartmentLoad.isDone || !storyeventLoad.isDone)
         {
             yield return null;
         }
@@ -96,7 +86,6 @@ public class BootstrapManager : Singleton<BootstrapManager>
         {
             yield return null;
         }
-        //     Start();
     }
 
 }

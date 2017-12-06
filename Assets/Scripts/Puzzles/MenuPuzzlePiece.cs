@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MenuPuzzlePiece : MonoBehaviour, ITouchInput
 {
-    MenuPuzzle parentPuzzle; 
 
     private bool isCorrect;
     public bool IsCorrect { get { return isCorrect; } set { isCorrect = value; } }
@@ -38,17 +37,5 @@ public class MenuPuzzlePiece : MonoBehaviour, ITouchInput
 
     public void OnTouchUp()
     {
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-        parentPuzzle = GetComponentInParent<MenuPuzzle>(); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

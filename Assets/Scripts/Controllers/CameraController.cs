@@ -7,8 +7,6 @@ public class CameraController
 {
     [SerializeField, Tooltip("Sets the distance that the camera can move away from moth")]
     private float maxDistance = 2.0f;
-    [SerializeField, Tooltip("Decides the speed of which the camera follow the moth")]
-    private float followSpeed = 1.0f;
     [SerializeField, Tooltip("Determines the turn speed of the camera's Y-axis")]
     private float cameraTurnSpeedY = 1.0f;
     [SerializeField, Tooltip("Determines the turn speed of the camera's X-axis")]
@@ -77,7 +75,6 @@ public class CameraController
     {
         this.transform = transform;
         this.maxDistance = maxDistance;
-        this.followSpeed = followSpeed;
         this.targetPos = target;
         this.fragmentMode = fragmentMode;
         this.damping = damping;

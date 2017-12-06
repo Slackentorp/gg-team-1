@@ -1,9 +1,9 @@
 /***********************************************
- * Copyright © Far-Flung Creations Ltd.
+ * Copyright ï¿½ Far-Flung Creations Ltd.
  * Author: Marius George
  * Date: 25 October 2017
  * Email: marius@farflunggames.com	
- * DISCLAIMER: THE SOURCE CODE IN THIS FILE IS PROVIDED “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * DISCLAIMER: THE SOURCE CODE IN THIS FILE IS PROVIDED ï¿½AS ISï¿½ AND ANY EXPRESS OR IMPLIED WARRANTIES,
  * INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
  * IN NO EVENT SHALL FAR-FLUNG CREATIONS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
@@ -32,7 +32,6 @@ public class EventsMixerBehaviour : PlayableBehaviour
 
       for (int i = 0; i < inputCount; i++)
       {
-         float inputWeight = playable.GetInputWeight(i);
          ScriptPlayable<EventsPlayableBehaviour> inputPlayable = (ScriptPlayable<EventsPlayableBehaviour>)playable.GetInput(i);
          EventsPlayableBehaviour input = inputPlayable.GetBehaviour();
 

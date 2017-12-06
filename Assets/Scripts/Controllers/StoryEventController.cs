@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(PlayableDirector))]
 public class StoryEventController : Singleton<StoryEventController>
 {
-	public bool isMuted;
+	public static bool isMuted;
 
 	[SerializeField]
 	List<StoryEvent> StoryEvents;
