@@ -5,6 +5,7 @@ using System.Linq;
 using Gamelogic.Extensions;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayableDirector))]
 public class StoryEventController : Singleton<StoryEventController>
@@ -23,6 +24,26 @@ public class StoryEventController : Singleton<StoryEventController>
 	private GameObject[] outroObjects;
     public delegate void StoryEventLightAction(int index);
     public static event StoryEventLightAction StoryEventLightCall;
+
+	void OnEnable()
+	{
+		SceneManager.sceneLoaded += HandleApartmentLoad;
+	}
+
+	void OnDisable(){
+		SceneManager.sceneLoaded -= HandleApartmentLoad;
+	}
+
+	void HandleApartmentLoad(Scene scene, LoadSceneMode mode){
+		Scene appartment = SceneManager.GetSceneByName("Apartment");
+		if(scene == appartment && outroObjects.Length == 0){
+			outroObjects = GameObject.FindGameObjectsWithTag("OutroObject");
+			foreach (var item in outroObjects)
+			{
+				item.SetActive(false);
+			}
+		}
+	}
 
     void Awake()
 	{
