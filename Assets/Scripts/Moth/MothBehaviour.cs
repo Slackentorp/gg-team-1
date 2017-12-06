@@ -280,4 +280,10 @@ public class MothBehaviour
         Animator mothAnimator = mothChild.gameObject.GetComponent<Animator>();
         mothAnimator.SetTrigger(triggerName);
     }
+	public void SetMothAnimationState(string triggerName, string resetName)
+	{
+        Animator mothAnimator = mothChild.gameObject.GetComponent<Animator>();
+        mothAnimator.ResetTrigger(resetName);
+        mothAnimator.SetTrigger(triggerName);
+    }
 }
