@@ -103,7 +103,7 @@ public class Fragment : Interactable
         uPosition = uPosition / 10;
         LocalizationItem.Language language =
            (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
-        Debug.Log(uPosition);
+        //Debug.Log(uPosition);
         if (fragmentIsOnn)
         {
             if (uPosition > realDuration)
@@ -124,7 +124,7 @@ public class Fragment : Interactable
         realDuration = (int)durationn;
         realDuration = realDuration - 20;
 
-        Debug.Log(realDuration);
+       // Debug.Log(realDuration);
     }
 
 
