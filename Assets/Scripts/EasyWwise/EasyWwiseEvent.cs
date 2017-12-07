@@ -25,6 +25,7 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, gameObject);
             postedBefore = true;
+            //SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING"); 
         }
     }
 
@@ -42,6 +43,7 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, gameObject);
             postedBefore = true;
+            //SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
@@ -59,6 +61,7 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
+            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
@@ -76,6 +79,7 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
+            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
@@ -93,6 +97,7 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
+            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
@@ -110,6 +115,7 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
+            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
@@ -127,6 +133,7 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
+            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
@@ -144,6 +151,7 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
+            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 

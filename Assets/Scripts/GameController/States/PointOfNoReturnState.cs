@@ -25,7 +25,7 @@ public class PointOfNoReturnState : GameState
 		cameraController = gm.cameraController;
 		cameraController.SetFragmentMode(false);
         gm.mothBehaviour.SetFragmentMode(false);
-        gm.hasReachedPointOfNoReturn = true;
+        gm.hasGamePlayReachedPointOfNoReturn = true;
 	//	fragmentPositions = GameObject.FindObjectsOfType<Fragment>(); 
 	//	gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.fragmentParticles, gm.Moth.transform);
 
@@ -107,7 +107,7 @@ public class PointOfNoReturnState : GameState
         cameraController.Update();
         gm.mothBehaviour.Update();
         gm.mothSounds.UpdateMothSounds();
-        gm.HeadsetStateUIText.text = gm.InputManager.GetHeadsetState() ? "Headset plugged in" : "Headset not plugged in";
+        //gm.HeadsetStateUIText.text = gm.InputManager.GetHeadsetState() ? "Headset plugged in" : "Headset not plugged in";
 	//	gm.fragParticleController.Update();
 	}
 
