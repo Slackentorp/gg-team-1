@@ -10,7 +10,6 @@ public class LoadState : GameState
 	private bool loadedGame;
     public LoadState(GameController gm) : base(gm)
     {
-        SceneManager.sceneLoaded += OnSceneLoaded; 
     }
 
     public override void OnStateEnter()
@@ -49,14 +48,13 @@ public class LoadState : GameState
 
 	   if(SceneManager.GetSceneByName("Apartment").isLoaded)
         {
-            gm.SetState(new RunState(gm));
+        //    gm.SetState(new RunState(gm));
         }
     }
 
     public override void OnStateExit()
     {
         gm.LoadingPanel.SetActive(false); 
-        SceneManager.sceneLoaded -= OnSceneLoaded;
         AkSoundEngine.PostEvent("SFX_UNMUTE", gm.gameObject);
 
         #if UNITY_EDITOR
@@ -73,19 +71,9 @@ public class LoadState : GameState
                 StoryEventController.Instance.PostStoryEvent("STORYEVENT_INTRO", null);
             }
         }
+        Debug.Log("Changed to RunState");
     }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "Apartment")
-        {
-            if (GameObject.FindWithTag("Respawn") != null)
-            {
-                 gm.SetState(new RunState(gm));
-            }
-        }
-    }
-
+    
     public override void Tick()
     {
     }
