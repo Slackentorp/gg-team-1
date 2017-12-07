@@ -64,6 +64,7 @@ namespace AK
         static const AkUniqueID MENUTOGGLEBUTTON_PRESS = 2268000284U;
         static const AkUniqueID MOTH_APPEAR = 2904931443U;
         static const AkUniqueID MOTH_END_FLIGHT = 410314580U;
+        static const AkUniqueID MOTH_LANDING = 1374975049U;
         static const AkUniqueID MOTH_START_FLIGHT = 541555517U;
         static const AkUniqueID MUSIC_MUTE = 1696404602U;
         static const AkUniqueID MUSIC_START = 3725903807U;
