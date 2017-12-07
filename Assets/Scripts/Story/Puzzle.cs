@@ -216,13 +216,10 @@ public class Puzzle : Interactable
             Callback();
             return;
         }
-
-        Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
+        base.Play(Callback);
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
                             (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_Duration
                           | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
-       
-        SubToolXML.Instance.InitSubs(markerId, StoryFragment);
         EndFragments(markerId, StoryFragment);
         
     }
@@ -233,13 +230,6 @@ public class Puzzle : Interactable
         {
             var i = info as AkDurationCallbackInfo;
             fragmentDurations[counter] = i.fDuration;
-            //for(int ni=0; ni<fragmentDurations.Length; ni++)
-            //{
-
-            //    fragmentDurations[ni] = i.fDuration;
-            //    Debug.Log(fragmentDurations[ni]);
-            //}
-        
             
                 if (counter == 2)
                 {
