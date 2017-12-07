@@ -8,7 +8,28 @@
 		<ExternalSourcesOutputRoot>/Users/tobiasdahlnielsen/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/DADIU/Graduation Game/Project/Project_WwiseProject/GeneratedSoundBanks/Mac/</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
-	<StreamedFiles/>
+	<StreamedFiles>
+		<File Id="62958245" Language="SFX">
+			<ShortName>ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic.wav</ShortName>
+			<Path>SFX/ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic_57592AE5.wem</Path>
+		</File>
+		<File Id="106102015" Language="SFX">
+			<ShortName>Police_Siren_PSEM.198.wav</ShortName>
+			<Path>SFX/Police_Siren_PSEM.198_C866F393.wem</Path>
+		</File>
+		<File Id="525896482" Language="SFX">
+			<ShortName>AMB_EXT_ApartmentCourtyard_ChildrenPlaying.wav</ShortName>
+			<Path>SFX/AMB_EXT_ApartmentCourtyard_ChildrenPlaying_1B07F1C3.wem</Path>
+		</File>
+		<File Id="666262367" Language="SFX">
+			<ShortName>JustAmbience_ConstructionSite_21.wav</ShortName>
+			<Path>SFX/JustAmbience_ConstructionSite_21_BCA9D688.wem</Path>
+		</File>
+		<File Id="951030059" Language="SFX">
+			<ShortName>birds_outside_002_wide.wav</ShortName>
+			<Path>SFX/birds_outside_002_wide_8FF9A2E1.wem</Path>
+		</File>
+	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
 		<SoundBank Id="1355168291" Language="SFX">
@@ -61,8 +82,8 @@
 				<Event Id="4165127606" Name="INGAMEMENU_OPEN" ObjectPath="\Events\Default Work Unit\Menu\INGAMEMENU_OPEN" MaxAttenuation="0.000000"/>
 				<Event Id="2165061602" Name="KIDS" ObjectPath="\Events\Default Work Unit\Ambience\City\KIDS" MaxAttenuation="5.000000"/>
 				<Event Id="3202129528" Name="LAMP_FLICKER_OFF" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_FLICKER_OFF" MaxAttenuation="0.000000"/>
-				<Event Id="3118183458" Name="LAMP_FLICKER_ON" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_FLICKER_ON" MaxAttenuation="7.000000"/>
-				<Event Id="3143729630" Name="LAMP_FLICKERING" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_FLICKERING" MaxAttenuation="7.000000"/>
+				<Event Id="3118183458" Name="LAMP_FLICKER_ON" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_FLICKER_ON" MaxAttenuation="5.000000"/>
+				<Event Id="3143729630" Name="LAMP_FLICKERING" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_FLICKERING" MaxAttenuation="6.000000"/>
 				<Event Id="1387648821" Name="LAMP_ON" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_ON"/>
 				<Event Id="4005406552" Name="LAMP_PARTICLE" ObjectPath="\Events\Default Work Unit\Lamp\LAMP_PARTICLE"/>
 				<Event Id="1275729080" Name="LIVINGROOM_ENTER" ObjectPath="\Events\Default Work Unit\Ambience\LIVINGROOM_ENTER" MaxAttenuation="0.000000"/>
@@ -72,6 +93,7 @@
 				<Event Id="2268000284" Name="MENUTOGGLEBUTTON_PRESS" ObjectPath="\Events\Default Work Unit\Menu\MENUTOGGLEBUTTON_PRESS"/>
 				<Event Id="2904931443" Name="MOTH_APPEAR" ObjectPath="\Events\Default Work Unit\Moth\MOTH_APPEAR"/>
 				<Event Id="410314580" Name="MOTH_END_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_END_FLIGHT" MaxAttenuation="0.000000"/>
+				<Event Id="1374975049" Name="MOTH_LANDING" ObjectPath="\Events\Default Work Unit\Moth\MOTH_LANDING" MaxAttenuation="0.000000"/>
 				<Event Id="541555517" Name="MOTH_START_FLIGHT" ObjectPath="\Events\Default Work Unit\Moth\MOTH_START_FLIGHT" MaxAttenuation="6.000000"/>
 				<Event Id="1696404602" Name="MUSIC_MUTE" ObjectPath="\Events\Default Work Unit\Menu\MUSIC_MUTE" MaxAttenuation="0.000000"/>
 				<Event Id="3725903807" Name="MUSIC_START" ObjectPath="\Events\Default Work Unit\MUSIC_START"/>
@@ -114,6 +136,13 @@
 				<Event Id="3021174106" Name="TRIGGEREDSOUND_ANSWERING" ObjectPath="\Events\Default Work Unit\TRIGGEREDSOUND_ANSWERING" MaxAttenuation="10.000000"/>
 				<Event Id="760300722" Name="WALKMAN" ObjectPath="\Events\Default Work Unit\Ambience\WALKMAN" MaxAttenuation="5.000000"/>
 			</IncludedEvents>
+			<ReferencedStreamedFiles>
+				<File Id="62958245"/>
+				<File Id="106102015"/>
+				<File Id="525896482"/>
+				<File Id="666262367"/>
+				<File Id="951030059"/>
+			</ReferencedStreamedFiles>
 			<IncludedMemoryFiles>
 				<File Id="27429217" Language="SFX">
 					<ShortName>STORYEVENT_1.wav</ShortName>
@@ -138,10 +167,6 @@
 				<File Id="55609851" Language="SFX">
 					<ShortName>CAMERA_MOVE_01.wav</ShortName>
 					<Path>SFX/CAMERA_MOVE_01_3CA8EC25.wem</Path>
-				</File>
-				<File Id="62958245" Language="SFX">
-					<ShortName>ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic.wav</ShortName>
-					<Path>SFX/ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic_57592AE5.wem</Path>
 				</File>
 				<File Id="64340832" Language="SFX">
 					<ShortName>NEIGHBOUR_NOISE_07.wav</ShortName>
@@ -187,13 +212,9 @@
 					<ShortName>DROP_02.wav</ShortName>
 					<Path>SFX/DROP_02_31813313.wem</Path>
 				</File>
-				<File Id="106102015" Language="SFX">
-					<ShortName>Police_Siren_PSEM.198.wav</ShortName>
-					<Path>SFX/Police_Siren_PSEM.198_C866F393.wem</Path>
-				</File>
 				<File Id="109303465" Language="SFX">
 					<ShortName>SW010_New_York_City_Room_Tone_Lower_Eastside_Window.WAV</ShortName>
-					<Path>SFX/SW010_New_York_City_Room_Tone_Lower_Eastside_Window_52DD9AF8.wem</Path>
+					<Path>SFX/SW010_New_York_City_Room_Tone_Lower_Eastside_Window_F96BE430.wem</Path>
 				</File>
 				<File Id="118409208" Language="SFX">
 					<ShortName>NEIGHBOUR_NOISE_09.wav</ShortName>
@@ -254,10 +275,6 @@
 				<File Id="202166482" Language="SFX">
 					<ShortName>Living_Pad_80bpm.wav</ShortName>
 					<Path>SFX/Living_Pad_80bpm_005E2381.wem</Path>
-				</File>
-				<File Id="205304090" Language="SFX">
-					<ShortName>Ending_SFX.wav</ShortName>
-					<Path>SFX/Ending_SFX_379244B3.wem</Path>
 				</File>
 				<File Id="208200834" Language="SFX">
 					<ShortName>Rattle_1.wav</ShortName>
@@ -369,7 +386,7 @@
 				</File>
 				<File Id="379002834" Language="SFX">
 					<ShortName>ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic.wav</ShortName>
-					<Path>SFX/ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic_04EE7865.wem</Path>
+					<Path>SFX/ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic_52039CBB.wem</Path>
 				</File>
 				<File Id="380682911" Language="SFX">
 					<ShortName>Living_Cello_80bpm.wav</ShortName>
@@ -471,10 +488,6 @@
 					<ShortName>DROP_08.wav</ShortName>
 					<Path>SFX/DROP_08_31813313.wem</Path>
 				</File>
-				<File Id="525896482" Language="SFX">
-					<ShortName>AMB_EXT_ApartmentCourtyard_ChildrenPlaying.wav</ShortName>
-					<Path>SFX/AMB_EXT_ApartmentCourtyard_ChildrenPlaying_1B07F1C3.wem</Path>
-				</File>
 				<File Id="541851934" Language="SFX">
 					<ShortName>Flying.wav</ShortName>
 					<Path>SFX/Flying_81BF8AB2.wem</Path>
@@ -498,6 +511,10 @@
 				<File Id="568910565" Language="SFX">
 					<ShortName>POLOROID_2.wav</ShortName>
 					<Path>SFX/POLOROID_2_379244B3.wem</Path>
+				</File>
+				<File Id="574950184" Language="SFX">
+					<ShortName>Ending_SFX_timed_perhaps.wav</ShortName>
+					<Path>SFX/Ending_SFX_timed_perhaps_FDED730B.wem</Path>
 				</File>
 				<File Id="580470410" Language="SFX">
 					<ShortName>KITCHEN_TABLE.wav</ShortName>
@@ -554,10 +571,6 @@
 				<File Id="657681073" Language="SFX">
 					<ShortName>SMOKING_2.wav</ShortName>
 					<Path>SFX/SMOKING_2_379244B3.wem</Path>
-				</File>
-				<File Id="666262367" Language="SFX">
-					<ShortName>JustAmbience_ConstructionSite_21.wav</ShortName>
-					<Path>SFX/JustAmbience_ConstructionSite_21_BCA9D688.wem</Path>
 				</File>
 				<File Id="667994024" Language="SFX">
 					<ShortName>NEW_YEARS.wav</ShortName>
@@ -725,7 +738,7 @@
 				</File>
 				<File Id="907124145" Language="SFX">
 					<ShortName>PUZZLE_OPENING.wav</ShortName>
-					<Path>SFX/PUZZLE_OPENING_D91323B1.wem</Path>
+					<Path>SFX/PUZZLE_OPENING_14AE7470.wem</Path>
 				</File>
 				<File Id="914615725" Language="SFX">
 					<ShortName>FRAGMENT_START_1.wav</ShortName>
@@ -754,10 +767,6 @@
 				<File Id="946869893" Language="SFX">
 					<ShortName>Detunized_Urban-Crows_12c.wav</ShortName>
 					<Path>SFX/Detunized_Urban-Crows_12c_F685557E.wem</Path>
-				</File>
-				<File Id="951030059" Language="SFX">
-					<ShortName>birds_outside_002_wide.wav</ShortName>
-					<Path>SFX/birds_outside_002_wide_8FF9A2E1.wem</Path>
 				</File>
 				<File Id="961599924" Language="SFX">
 					<ShortName>BUTTONS_TAPE_MACHINE_GRANULAR_MEDIUM_3_FAR.wav</ShortName>
@@ -809,7 +818,7 @@
 				</File>
 				<File Id="998771404" Language="SFX">
 					<ShortName>POLAROID_2_da.wav</ShortName>
-					<Path>SFX/POLAROID_2_da_379244B3.wem</Path>
+					<Path>SFX/POLAROID_2_da_82C28605.wem</Path>
 				</File>
 				<File Id="998870621" Language="SFX">
 					<ShortName>NEW_YEARS_da.wav</ShortName>
