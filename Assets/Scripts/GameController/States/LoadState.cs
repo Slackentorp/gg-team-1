@@ -45,7 +45,7 @@ public class LoadState : GameState
 
 		fragmentPositions = GameObject.FindObjectsOfType<Fragment>();
 		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.Moth.transform,
-																	gm.DissolveAmount, gm.MainTexEmission);
+																	gm.DissolveAmount, gm.MainTexEmission, gm.EmissionInt);
 
 	   if(SceneManager.GetSceneByName("Apartment").isLoaded)
         {

@@ -7,13 +7,14 @@ public class FragmentParticleController
 	private Fragment[] fragmentPos;
 	private Renderer[] fragmentMaterials;
 	private Transform MothPosition;
-	private AnimationCurve dissolveAmount, mainTexEmission;
+	private AnimationCurve dissolveAmount, mainTexEmission, emissionIntCurve;
 	private Material[] fragMaterialsArray;
 	private GameObject fragMaterial;
 	private bool done = false;
-	private float mainTexLerp = 1.0f, dissolveLerp = 1.0f;
-	private float[] dissolveTime;
-	private float[] maintexTime;
+	private float mainTexLerp = 1.0f, dissolveLerp = 1.0f, emissionLerp = 0.5f;
+	private float[] dissolveTime, maintexTime, emissionIntTime;
+	private bool[] emissionIntReverse;
+	private int maintexId, dissolveId, emissionIntId;
 	Dictionary<Fragment, FragmentState> fragmentDictionary = new Dictionary<Fragment, FragmentState>();
 
 	public enum FragmentState
@@ -24,8 +25,8 @@ public class FragmentParticleController
 		LEAVE
 	}
 
-	public FragmentParticleController(Fragment[] fragmentObjects, Transform mothPos,
-									  AnimationCurve dissolveAmount, AnimationCurve mainTexEmission)
+	public FragmentParticleController(Fragment[] fragmentObjects, Transform mothPos, AnimationCurve dissolveAmount,
+									  AnimationCurve mainTexEmission, AnimationCurve emissionInt)
 	{
 		if (done == false)
 		{
@@ -33,12 +34,18 @@ public class FragmentParticleController
 			this.MothPosition = mothPos;
 			this.dissolveAmount = dissolveAmount;
 			this.mainTexEmission = mainTexEmission;
+			this.emissionIntCurve = emissionInt;
 			fragMaterialsArray = new Material[fragmentPos.Length];
 			fragmentMaterials = new Renderer[fragmentPos.Length];
 			dissolveTime = new float[fragmentMaterials.Length];
 			maintexTime = new float[fragmentMaterials.Length];
+			emissionIntTime = new float[fragmentMaterials.Length];
+			emissionIntReverse = new bool[fragmentMaterials.Length];
+			maintexId = Shader.PropertyToID("_MaintexEmissionOverlayIntensity");
+			dissolveId = Shader.PropertyToID("_DissolveAmount");
+			emissionIntId = Shader.PropertyToID("_MaintexEmissionIntensity");
 
-			if (fragmentPos != null && done == false)
+			if (fragmentPos != null)
 			{
 				for (int i = 0; i < fragmentPos.Length; i++)
 				{
@@ -51,10 +58,11 @@ public class FragmentParticleController
 				{
 					dissolveTime[j] = 0.0f;
 					maintexTime[j] = 0.0f;
-					fragMaterialsArray[j].SetFloat("_MaintexEmissionOverlayIntensity", Mathf.Lerp(0.5f, 1.0f,
-													mainTexEmission.Evaluate(maintexTime[j])));
+					emissionIntTime[j] = 0.0f;
+					fragMaterialsArray[j].SetFloat(maintexId, 0.5f);
+					fragMaterialsArray[j].SetFloat(dissolveId, 0.0f);
+
 				}
-				done = true;
 			}
 			done = true;
 		}
@@ -67,15 +75,16 @@ public class FragmentParticleController
 			for (int i = 0; i < fragmentPos.Length; i++)
 			{
 				float dist = Vector3.SqrMagnitude(MothPosition.position - fragmentPos[i].transform.position);
+
 				if (Mathf.Abs(dist) < fragmentPos[i].InternalInteractionDistance)
 				{
 					if (dissolveTime[i] < 1.0f)
 					{
-						FragMaterialDissolve(i);
+						FragMaterialDissolve(i, true);
 					}
 					if (maintexTime[i] < 1.0f)
 					{
-						FragMaterialEmission(i);
+						FragMaterialEmission(i, true);
 					}
 					if (fragmentDictionary[fragmentPos[i]] == FragmentState.NOT_PLAYED)
 					{
@@ -87,59 +96,93 @@ public class FragmentParticleController
 						fragmentDictionary[fragmentPos[i]] = FragmentState.WHISPER;
 						PlaySoundEvents("WHISPER", i);
 					}
+					FragmentMaterialEmissionInt(i, 0.4f);
 				}
-				else if (Mathf.Abs(dist) >= fragmentPos[i].InternalInteractionDistance &&
+				if (Mathf.Abs(dist) >= fragmentPos[i].InternalInteractionDistance &&
 						fragmentDictionary[fragmentPos[i]] == FragmentState.WHISPER)
 				{
 					fragmentDictionary[fragmentPos[i]] = FragmentState.LEAVE;
 					PlaySoundEvents("LEAVE", i);
 				}
-				else if (Mathf.Abs(dist) > fragmentPos[i].InternalInteractionDistance)
+				if (Mathf.Abs(dist) > fragmentPos[i].InternalInteractionDistance)
 				{
+					if (dissolveTime[i] >= 1)
+					{
+						FragmentMaterialEmissionInt(i, 0.4f);
+					}
 					if (fragmentDictionary[fragmentPos[i]] == FragmentState.LEAVE)
 					{
 						fragmentDictionary[fragmentPos[i]] = FragmentState.DISCOVER;
 					}
 				}
+				if (fragmentPos[i].HasPlayed)
+				{
+					FragmentMaterialEmissionInt(i, 0.27f);
+				}
 			}
 		}
 	}
 
-	void FragMaterialEmission(int i)
+	void FragMaterialEmission(int i, bool reverse)
 	{
-			maintexTime[i] += Time.deltaTime * mainTexLerp;
-			if (fragMaterialsArray[i] == null)
-			{
-				return;
-			}
-			fragMaterialsArray[i].SetFloat("_MaintexEmissionOverlayIntensity", Mathf.Lerp(0.5f, 1.0f,
-													mainTexEmission.Evaluate(maintexTime[i])));
-	}
-
-	void FragMaterialDissolve(int i)
-	{
-		dissolveTime[i] += Time.deltaTime * dissolveLerp;
-		if (fragMaterialsArray[i] == null)
+		float t = 0.0f;
+		if (reverse)
 		{
-			return;
+			t = maintexTime[i];
 		}
-		fragMaterialsArray[i].SetFloat("_DissolveAmount", Mathf.Lerp(0.0f, 1.0f,
-					dissolveAmount.Evaluate(dissolveTime[i])));
+		else
+		{
+			t = 1 - dissolveTime[i];
+		}
+		fragMaterialsArray[i].SetFloat(maintexId, Mathf.Lerp(0.5f, 1.0f,
+									   mainTexEmission.Evaluate(maintexTime[i])));
+		maintexTime[i] += Time.deltaTime * mainTexLerp;
 	}
 
-	float MaterialGetFloat(int i, string attribute, float currentValue)
+	void FragMaterialDissolve(int i, bool reverse)
 	{
-		currentValue = fragmentMaterials[i].material.GetFloat(attribute);
-
-		return currentValue;
+		float t = 0.0f;
+		if (reverse)
+		{
+			t = dissolveTime[i];
+		}
+		else
+		{
+			t = 1 - dissolveTime[i];
+		}
+		fragMaterialsArray[i].SetFloat(dissolveId, Mathf.Lerp(0.0f, 1.0f,
+									   dissolveAmount.Evaluate(t)));
+		dissolveTime[i] += Time.deltaTime * dissolveLerp;
 	}
+
+	void FragmentMaterialEmissionInt(int i, float maxValue)
+	{
+		float t = 0;
+		if (emissionIntReverse[i])
+		{
+			t = emissionIntTime[i];
+		}
+		else
+		{
+			t = 1 - emissionIntTime[i];
+		}
+		fragMaterialsArray[i].SetFloat(emissionIntId, Mathf.Lerp(0.2f, maxValue,
+										emissionIntCurve.Evaluate(t)));
+		emissionIntTime[i] += Time.deltaTime * 0.7f;
+		if (emissionIntTime[i] >= 1.0f)
+		{
+			emissionIntTime[i] = 0.0f;
+			emissionIntReverse[i] = !emissionIntReverse[i];
+		}
+	}
+
 
 	void InstanceMaterialsToParent(Vector3 fragmentPoss, int iteration)
 	{
-		fragMaterialsArray[iteration] = Material.Instantiate(fragmentMaterials[iteration].material, fragmentPoss, Quaternion.identity);
+		fragMaterialsArray[iteration] = Material.Instantiate(fragmentMaterials[iteration].material,
+										fragmentPoss, Quaternion.identity);
 		fragmentPos[iteration].GetComponentInChildren<Renderer>().material = fragMaterialsArray[iteration];
 	}
-
 
 	void PlaySoundEvents(string soundEvent, int fragmentNumber)
 	{
