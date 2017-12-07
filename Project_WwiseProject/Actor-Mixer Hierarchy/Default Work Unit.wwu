@@ -646,10 +646,12 @@
 													<ChildrenList>
 														<AudioFileSource Name="SW010_New_York_City_Room_Tone_Lower_Eastside_Window" ID="{A39469F3-0113-4A20-9AFD-8AB8ECBEAFB5}" ShortID="109303465">
 															<PropertyList>
-																<Property Name="CrossfadeDuration" Type="Real64" Value="2"/>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="79"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="3.10660654981552"/>
 																<Property Name="LoopBegin" Type="Real64" Value="69.3464615245665"/>
-																<Property Name="LoopEnd" Type="Real64" Value="358.898353504335"/>
+																<Property Name="LoopEnd" Type="Real64" Value="178.940537269373"/>
 																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="191.677624123616"/>
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>SW010_New_York_City_Room_Tone_Lower_Eastside_Window.WAV</AudioFile>
@@ -679,10 +681,11 @@
 													<ChildrenList>
 														<AudioFileSource Name="ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic" ID="{2572E714-9C1A-4B71-8CDE-B3E8DEE34F10}" ShortID="62958245">
 															<PropertyList>
-																<Property Name="CrossfadeDuration" Type="Real64" Value="2"/>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="61"/>
 																<Property Name="LoopBegin" Type="Real64" Value="8.78244897037572"/>
-																<Property Name="LoopEnd" Type="Real64" Value="177.979016889451"/>
+																<Property Name="LoopEnd" Type="Real64" Value="124.980353374691"/>
 																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="128.240289437269"/>
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic.wav</AudioFile>
@@ -731,6 +734,11 @@
 												<Sound Name="birds_outside_002_wide" ID="{A1DFBA9B-25F4-475E-9696-7E8A86E8B25E}" ShortID="16979400">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+														<Property Name="IsStreamingEnabled" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
 														<Property Name="Lowpass" Type="int16">
 															<ValueList>
 																<Value>3</Value>
@@ -893,6 +901,13 @@
 													</ReferenceList>
 													<ChildrenList>
 														<Sound Name="Police_Siren_PSEM_198" ID="{2EB70E2E-F452-4E0A-945A-1FE131E2B85C}" ShortID="705564641">
+															<PropertyList>
+																<Property Name="IsStreamingEnabled" Type="bool">
+																	<ValueList>
+																		<Value>True</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -1383,6 +1398,11 @@
 								<Sound Name="City_Quiet" ID="{062EFF50-726D-4904-B5EB-29DB37EDB5BF}" ShortID="72531055">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="IsStreamingEnabled" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Lowpass" Type="int16">
 											<ValueList>
 												<Value>54</Value>
@@ -2405,7 +2425,7 @@
 											<Custom>
 												<Attenuation Name="Attenuation (Custom)" ID="{C75294FA-CAB2-44D1-9D04-2AE98EA77174}" ShortID="822184846">
 													<PropertyList>
-														<Property Name="RadiusMax" Type="Real64" Value="7"/>
+														<Property Name="RadiusMax" Type="Real64" Value="6"/>
 													</PropertyList>
 													<CurveUsageInfoList>
 														<VolumeDryUsage>
@@ -2421,12 +2441,17 @@
 																			<Flags>5</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>6.9986</XPos>
+																			<XPos>1.73708571428571</XPos>
+																			<YPos>-1.7278</YPos>
+																			<Flags>0</Flags>
+																		</Point>
+																		<Point>
+																			<XPos>5.9988</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>0</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>7</XPos>
+																			<XPos>6</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>37</Flags>
 																		</Point>
@@ -2558,6 +2583,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Buzz" ID="{F89A502D-952A-4D09-A720-1539C11B78A1}" ShortID="1063049650">
 											<PropertyList>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
 														<Value>-1090</Value>
@@ -2571,7 +2597,7 @@
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-3</Value>
+														<Value>-1</Value>
 													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
@@ -2590,7 +2616,7 @@
 													<Custom>
 														<Attenuation Name="Attenuation (Custom)" ID="{EE1F5E33-6056-4CB0-81D2-95AB89886F56}" ShortID="544276762">
 															<PropertyList>
-																<Property Name="RadiusMax" Type="Real64" Value="20"/>
+																<Property Name="RadiusMax" Type="Real64" Value="5"/>
 															</PropertyList>
 															<CurveUsageInfoList>
 																<VolumeDryUsage>
@@ -2606,12 +2632,12 @@
 																					<Flags>5</Flags>
 																				</Point>
 																				<Point>
-																					<XPos>5.04389</XPos>
+																					<XPos>3.02936</XPos>
 																					<YPos>-200</YPos>
 																					<Flags>0</Flags>
 																				</Point>
 																				<Point>
-																					<XPos>20</XPos>
+																					<XPos>5</XPos>
 																					<YPos>-200</YPos>
 																					<Flags>37</Flags>
 																				</Point>
@@ -2925,6 +2951,7 @@
 														<Value>39</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
 														<Value>1690</Value>
@@ -2938,7 +2965,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-2</Value>
+														<Value>-1</Value>
 													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
@@ -2973,7 +3000,7 @@
 																					<Flags>5</Flags>
 																				</Point>
 																				<Point>
-																					<XPos>1.99373</XPos>
+																					<XPos>3.01407</XPos>
 																					<YPos>-200</YPos>
 																					<Flags>0</Flags>
 																				</Point>
@@ -3775,7 +3802,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-7</Value>
+												<Value>-16</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3800,12 +3827,12 @@
 																			<Flags>5</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>0.30564</XPos>
+																			<XPos>0.54037</XPos>
 																			<YPos>0</YPos>
 																			<Flags>0</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>2.06114</XPos>
+																			<XPos>1.32563</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>0</Flags>
 																		</Point>
@@ -3916,6 +3943,11 @@
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-19</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -3984,7 +4016,7 @@
 													<Modifier Name="" ID="{AF356777-D26E-44ED-B85E-990B08E029EE}">
 														<PropertyList>
 															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="4"/>
+															<Property Name="Max" Type="Real64" Value="15"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
@@ -4090,7 +4122,7 @@
 													<Modifier Name="" ID="{4C74770C-120C-435B-A140-966697A6D020}">
 														<PropertyList>
 															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="6"/>
+															<Property Name="Max" Type="Real64" Value="20"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
@@ -4102,6 +4134,19 @@
 											</ValueList>
 										</Property>
 										<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E0888E93-4781-496C-86FF-CE3340B5D4E5}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="429"/>
+															<Property Name="Min" Type="Real64" Value="-328"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-35</Value>
@@ -4187,6 +4232,11 @@
 						</RandomSequenceContainer>
 						<Sound Name="JustAmbience_ConstructionSite_21" ID="{9F4A0835-393F-4496-AB6F-A226E9982796}" ShortID="526015431">
 							<PropertyList>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
 										<Value>28</Value>
@@ -4318,6 +4368,11 @@
 						<Sound Name="AMB_EXT_ApartmentCourtyard_ChildrenPlaying" ID="{04B1B590-23C1-4B77-BA64-778CC58CB10C}" ShortID="717653248">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
 										<Value>70</Value>
@@ -5085,7 +5140,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-19</Value>
+										<Value>-17</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -5212,6 +5267,13 @@
 				<Folder Name="Interaction" ID="{D5C64084-F381-47FE-815C-DEC098607F84}" ShortID="115543730">
 					<ChildrenList>
 						<ActorMixer Name="Menu" ID="{B7A3E426-0BA3-464D-A429-E174A7092156}" ShortID="758899988">
+							<PropertyList>
+								<Property Name="UserAuxSendVolume0" Type="Real64">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -5219,9 +5281,19 @@
 								<Reference Name="OutputBus">
 									<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="Reverb_livingroom" ID="{15279453-A672-4F5D-8661-BDBC44113891}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<RandomSequenceContainer Name="Menu button press" ID="{0ED17D2F-63B1-4032-BC6E-FB331294F5E8}" ShortID="826957596">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -6178,6 +6250,11 @@
 										<Value>28</Value>
 									</ValueList>
 								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
 								<Property Name="UserAuxSendVolume0" Type="Real64">
 									<ValueList>
 										<Value>-12</Value>
@@ -6190,7 +6267,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-22</Value>
+										<Value>-23</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6211,9 +6288,9 @@
 							<ChildrenList>
 								<AudioFileSource Name="PUZZLE_OPENING" ID="{D88FC305-4AE1-42E9-BC1D-C76EC2E18598}" ShortID="907124145">
 									<PropertyList>
-										<Property Name="FadeInDuration" Type="Real64" Value="0.932225485520161"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.921258126866983"/>
 										<Property Name="FadeOutDuration" Type="Real64" Value="0.625139443231167"/>
-										<Property Name="TrimBegin" Type="Real64" Value="0.0679976236497059"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.109673586531784"/>
 										<Property Name="TrimEnd" Type="Real64" Value="1.72406878027964"/>
 									</PropertyList>
 									<Language>SFX</Language>
@@ -6240,7 +6317,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-12</Value>
+								<Value>-9</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -6910,6 +6987,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -6944,7 +7026,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-2</Value>
+												<Value>-5</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -7085,6 +7167,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7155,6 +7242,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="SMOKING_1" ID="{6BC81E81-D9A2-4721-BBF4-47CE5D6DDD62}" ShortID="287364958">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -7211,6 +7305,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7241,6 +7340,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -7367,6 +7471,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7451,7 +7560,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-2</Value>
+												<Value>-4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -7664,6 +7773,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7699,7 +7813,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>4</Value>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -7805,6 +7919,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7834,7 +7953,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1</Value>
+												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -7928,6 +8047,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7962,7 +8086,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>3</Value>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8271,6 +8395,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8301,6 +8430,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8387,7 +8521,7 @@
 												<Property Name="TrimEnd" Type="Real64" Value="18.5956981700429"/>
 												<Property Name="VolumeOffset" Type="Real64">
 													<ValueList>
-														<Value>2.8</Value>
+														<Value>-1.5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -8434,6 +8568,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8464,6 +8603,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8519,7 +8663,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-2</Value>
+												<Value>-1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8562,7 +8706,7 @@
 											<Language>SFX</Language>
 											<AudioFile>POLAROID_2_da.wav</AudioFile>
 											<ConvertedFileIDList>
-												<File ID="998771404"/>
+												<File Platform="Android" ID="998771404"/>
 											</ConvertedFileIDList>
 										</AudioFileSource>
 										<AudioFileSource Name="SMOKING_1_da" ID="{4EFBDC74-5C09-412D-AD17-71BC0D7B05AE}" ShortID="146965410">
@@ -8616,6 +8760,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8650,7 +8799,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>2</Value>
+												<Value>4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8784,7 +8933,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8822,6 +8971,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8959,6 +9113,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8995,8 +9154,15 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="POLAROID_2_da" ID="{A3274A00-0A8B-4384-917C-B62F5CAC2B04}" ShortID="998771404">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.842293144564099"/>
+												<Property Name="TrimEnd" Type="Real64" Value="14.792773351407"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>POLAROID_2_da.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File Platform="Android" ID="785791517"/>
+											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
@@ -9004,6 +9170,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="POLOROID_2" ID="{6E3FE85E-DF18-49E0-9553-C3E2D2FEBE31}" ShortID="767032943">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -9071,6 +9244,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9101,11 +9279,6 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -9241,6 +9414,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9270,7 +9448,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-4</Value>
+												<Value>1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -9398,7 +9576,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>4</Value>
+												<Value>1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -9538,6 +9716,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9564,6 +9747,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="WE_NEED_A_TV_2" ID="{B2CF0EEB-BF2B-4AF5-A86B-89ED1258FEE3}" ShortID="131921228">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -9574,13 +9764,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="WE_NEED_A_TV_2" ID="{9CE06EBC-D685-4FEB-8C0E-CEDC1E3DE211}" ShortID="716821867">
-											<PropertyList>
-												<Property Name="VolumeOffset" Type="Real64">
-													<ValueList>
-														<Value>4</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>WE_NEED_A_TV_2.wav</AudioFile>
 											<ConvertedFileIDList>
@@ -9656,6 +9839,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9682,13 +9870,6 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="WORLD_MAP_2" ID="{6089FC8C-EDB5-4BE7-950F-971A332E462A}" ShortID="166352232">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -9787,6 +9968,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9816,7 +10002,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -9921,6 +10107,11 @@
 										<Value>-12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9950,7 +10141,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>1</Value>
+												<Value>3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -10704,6 +10895,13 @@
 					</StateInfo>
 				</ActorMixer>
 				<ActorMixer Name="Storyevents" ID="{D9C40D0D-4F26-4091-9B0A-995E82186E84}" ShortID="743416718">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-2</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -10717,7 +10915,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-7</Value>
+										<Value>-10</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -10753,6 +10951,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="STORYEVENT_1" ID="{4BA132F8-B93F-4233-8B2D-A922A6BD1FBE}" ShortID="700544138">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -10806,7 +11011,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-12</Value>
+										<Value>-17</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -10821,6 +11026,11 @@
 							<ChildrenList>
 								<Sound Name="STORYEVENT_2" ID="{D3BEB749-844F-4F1B-9BFA-31930DB35498}" ShortID="1051041882">
 									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-4</Value>
@@ -10849,6 +11059,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="STORYEVENT_2_da" ID="{B17F312A-E3CA-4C54-AEA1-03427C28FC7B}" ShortID="417926855">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -10902,7 +11119,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-9</Value>
+										<Value>-16</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -10938,6 +11155,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="STORYEVENT_3" ID="{36BBC091-302B-4F98-ACD1-329C9E412F21}" ShortID="13827170">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -11033,6 +11257,11 @@
 								</Sound>
 								<Sound Name="Ending_SFX" ID="{3016C1C0-3D51-4B71-AA8B-61DBB533047A}" ShortID="248656873">
 									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-9</Value>
@@ -11049,12 +11278,52 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Ending_SFX" ID="{469E1FBD-6999-4428-9D9E-EB38267E4FA4}" ShortID="205304090">
+											<PropertyList>
+												<Property Name="CrossfadeDuration" Type="Real64" Value="149"/>
+												<Property Name="LoopBegin" Type="Real64" Value="66.3440319301152"/>
+												<Property Name="LoopEnd" Type="Real64" Value="149.849974897708"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Ending_SFX.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Ending_SFX" ID="{469E1FBD-6999-4428-9D9E-EB38267E4FA4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ending_SFX_timed_perhaps" ID="{FE6530A1-7DAB-46E7-9AD0-8AC6E32E9273}" ShortID="309796503">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ending_SFX_timed_perhaps" ID="{886F8E0C-024E-455E-AF38-B7EE6081C2C0}" ShortID="574950184">
+											<PropertyList>
+												<Property Name="CrossfadeDuration" Type="Real64" Value="104"/>
+												<Property Name="FadeInDuration" Type="Real64" Value="2.41281890369923"/>
+												<Property Name="LoopBegin" Type="Real64" Value="69.9191048857427"/>
+												<Property Name="LoopEnd" Type="Real64" Value="147.024023161048"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Ending_SFX_timed_perhaps.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Ending_SFX_timed_perhaps" ID="{886F8E0C-024E-455E-AF38-B7EE6081C2C0}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -11385,6 +11654,11 @@
 						<SwitchContainer Name="Answering" ID="{854AB27B-83C6-4AAC-8845-F12201DFC5EA}" ShortID="878405867">
 							<PropertyList>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">

@@ -9,7 +9,7 @@ public abstract class Interactable : MonoBehaviour
     [ReadOnly]
     public string uniqueGUID;
 
-    public delegate void InteractableAction(Interactable sender);
+    public delegate void InteractableAction(Interactable sender, bool beingLoaded);
     public static event InteractableAction InteractableCall;
     public delegate void TUTInteractableAction(Interactable sender);
     public static event TUTInteractableAction TUTInteractableCall;
@@ -96,80 +96,13 @@ public abstract class Interactable : MonoBehaviour
             t.Invoke();
         }
 
-        else if (callbackType == AkCallbackType.AK_Duration)
-        {
-            var i = info as AkDurationCallbackInfo;
-            fragmentDurations[counter] = i.fDuration;
-
-            if (counter == 1)
-            {
-                fragmentIsOn = true;
-                Durations(fragmentDurations[1], fragmentIsOn, gameObject);
-            }
-
-            counter++;
-
-            if (counter == 2)
-            {
-                fragmentIsOn = false;
-                counter = 0;
-            }
-        }
-
-		//EndOfEventCallback(sender, callbackType, info);
-
-	}
-
-	public int counter = 0;
-    private float[] fragmentDurations = new float[2];
-    public bool fragmentIsOn = false;
-    public uint markerr;
-    public string storyFragmentt;
-    public int realDuration;
-    public float durationn;
-    public bool fragmentIsOnn = false;
-    public GameObject thePlayedFragment;
-    int uPosition;
-
-    public void TwoSecondsBeforeEnd()
-    {
-        AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
-        uPosition = uPosition / 10;
-
-        if (fragmentIsOnn)
-        {
-            if (uPosition > realDuration)
-            {
-                AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
-                fragmentIsOnn = false;
-                return;
-            }
-        }
-    }
-
-    public void Durations(float duration, bool fragmentIsOn, GameObject playedFragment)
-    {
-        thePlayedFragment = playedFragment;
-        fragmentIsOnn = fragmentIsOn;
-        durationn = duration / 10;
-        realDuration = (int) durationn;
-        realDuration = realDuration - 20;
-
-        //Debug.Log(realDuration);
-    }
-
-    void Update() //maybe a problem
-    {
-        if (fragmentIsOnn == true)
-        {
-            TwoSecondsBeforeEnd();
-        }
     }
 
     public virtual void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Touch Object");
     }
+    
 
     [ContextMenu("Generate GUID")]
     private void GenerateGUID()
@@ -180,15 +113,15 @@ public abstract class Interactable : MonoBehaviour
             uniqueGUID = System.Guid.NewGuid().ToString();
         }
     }
-
-    public void InvokeInteractableCall()
+    
+    public void InvokeInteractableCall(bool beingLoaded)
     {
         if (InteractableCall != null)
         {
-            InteractableCall(this);
+            InteractableCall(this, beingLoaded);
         }
     }
-
+    
     private void OnDrawGizmos()
     {
         Gizmos.DrawIcon(transform.position + cameraPosition, "CameraIcon.tif");
@@ -199,5 +132,9 @@ public abstract class Interactable : MonoBehaviour
         Gizmos.color = Color.blue;
         Vector3 rotatedVector = Quaternion.Euler(landingRotation) * Vector3.up;
         Gizmos.DrawLine(transform.position + landingPosition, transform.position + landingPosition + rotatedVector.ResizeMagnitude(.2f));
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position + landingPosition, transform.position + landingPosition - rotatedVector.ResizeMagnitude(.075f));
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position + landingPosition, transform.position + landingPosition + (Quaternion.Euler(landingRotation) * -Vector3.forward.ResizeMagnitude(.075f)));
     }
 }

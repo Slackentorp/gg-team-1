@@ -3,6 +3,7 @@ using Assets.Scripts.Managers;
 using EasyButtons;
 using Gamelogic.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 #pragma warning disable 0414
@@ -21,13 +22,13 @@ public class GameController : Singleton<GameController>
 	public LocalizationManager localization;
 	public LightController LightController;
 	public InputManager InputManager;
-	public Text HeadsetStateUIText;
 	public MothBehaviour mothBehaviour;
 	public MothSounds mothSounds;
 	public InputHandlerSettings InputSettings;
 	public CameraController cameraController;
 	public FragmentParticleController fragParticleController;
 	public bool hasReachedPointOfNoReturn;
+	public bool hasGamePlayReachedPointOfNoReturn;
 
     [Header("Camera Attributes")]
     [Tooltip("Determines the camera's turn speed on it's y-axis")]
@@ -120,6 +121,23 @@ public class GameController : Singleton<GameController>
 		return currentState;
 	}
 
+	void OnEnable()
+	{
+		SceneManager.sceneLoaded += HandleApartmentLoad;
+	}
+
+	void OnDisable(){
+		SceneManager.sceneLoaded -= HandleApartmentLoad;
+	}
+
+	void HandleApartmentLoad(Scene scene, LoadSceneMode mode){
+		Scene appartment = SceneManager.GetSceneByName("Apartment");
+		if(scene == appartment)
+		{
+			SetState(new LoadState(this));
+		}
+	}
+
 
 	// Use this for initialization
 	void Start()
@@ -129,8 +147,10 @@ public class GameController : Singleton<GameController>
 												cameraDamping, cameraTurnSpeedY, cameraTurnSpeedX, minimumVerticalAngle,
 												maximumVerticalAngle);
 
-
-		SetState(new LoadState(this));
+		if(SceneManager.GetSceneByName("Apartment").isLoaded)
+		{
+			SetState(new LoadState(this));
+		}
 	}
 
 	private void Update()
@@ -198,8 +218,9 @@ public class GameController : Singleton<GameController>
         }
     }
 
-	public void InvokePointOfNoReturn()
+	public void InvokeWwisePointOfNoReturn()
 	{
+		hasReachedPointOfNoReturn = true;
 		if(OnPointOfNoReturn != null)
 		{
 			OnPointOfNoReturn();	

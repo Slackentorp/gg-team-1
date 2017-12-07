@@ -2,44 +2,44 @@
 using System.Collections.Generic;
 using Assets.Scripts.Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class LoadState : GameState
 {
-	private Fragment[] fragmentPositions;
-	private bool loadedGame;
+    private Fragment[] fragmentPositions;
+    private bool loadedGame;
     public LoadState(GameController gm) : base(gm)
     {
-        SceneManager.sceneLoaded += OnSceneLoaded; 
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public override void OnStateEnter()
     {
         gm.LoadingPanel.SetActive(true);
-        
+
         gm.localization = new LocalizationManager();
         if (gm.LightController != null)
         {
             gm.LightController.LoadLights();
         }
 
-        if(PlayerPrefs.GetInt("saveload", -1) == 1)
+        if (PlayerPrefs.GetInt("saveload", -1) == 1)
         {
-            StoryEventController.isMuted = true;   
+            StoryEventController.isMuted = true;
             AkSoundEngine.PostEvent("SFX_MUTE", gm.gameObject);
             loadedGame = SaveLoad.Load(gm);
             int storyeventReached = PlayerPrefs.GetInt("SE_REACHED", 0);
-            if(storyeventReached != 0)
+            if (storyeventReached != 0)
             {
                 AkSoundEngine.PostEvent("STORYEVENT_" + storyeventReached + "_LOAD", gm.gameObject);
             }
-            Debug.Log("Loading game: " +loadedGame);
+            Debug.Log("Loading game: " + loadedGame);
         }
 
-        gm.InputManager = new InputManager(gm.InputSettings, gm.GameCamera.GetComponent<Camera>());      
-        gm.mothBehaviour = new MothBehaviour(gm.Moth, gm.GameCamera.GetComponent<Camera>(), gm.mothDistanceToObject, gm.mothFlightSpeed, gm.MothFidgitingCurve, 
-											gm.FidgetingDistanceReducerMax, gm.FidgetingDistanceReducerMin, gm.mothSpeedModifier, gm.mothFlightSpeedCurve,
-											gm.VerticalMothScreenPosition, gm.LimitMothForwardFidgit, gm.FidgitInFlightReducer, gm.fidgitTimeScalar, gm.mothDistanceToCeiling);
+        gm.InputManager = new InputManager(gm.InputSettings, gm.GameCamera.GetComponent<Camera>());
+        gm.mothBehaviour = new MothBehaviour(gm.Moth, gm.GameCamera.GetComponent<Camera>(), gm.mothDistanceToObject, gm.mothFlightSpeed, gm.MothFidgitingCurve,
+                                            gm.FidgetingDistanceReducerMax, gm.FidgetingDistanceReducerMin, gm.mothSpeedModifier, gm.mothFlightSpeedCurve,
+                                            gm.VerticalMothScreenPosition, gm.LimitMothForwardFidgit, gm.FidgitInFlightReducer, gm.fidgitTimeScalar, gm.mothDistanceToCeiling);
         gm.mothSounds = new MothSounds(gm.GameCamera.transform, gm.mothBehaviour, gm.Moth.transform);
         gm.cameraHeading = gm.GameCamera.transform.position - gm.Moth.transform.position;
 
@@ -47,7 +47,7 @@ public class LoadState : GameState
 		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.Moth.transform,
 																	gm.DissolveAmount, gm.MainTexEmission, gm.EmissionInt);
 
-	   if(SceneManager.GetSceneByName("Apartment").isLoaded)
+        if (SceneManager.GetSceneByName("Apartment").isLoaded)
         {
             gm.SetState(new RunState(gm));
         }
@@ -55,34 +55,34 @@ public class LoadState : GameState
 
     public override void OnStateExit()
     {
-        gm.LoadingPanel.SetActive(false); 
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        gm.LoadingPanel.SetActive(false);
         AkSoundEngine.PostEvent("SFX_UNMUTE", gm.gameObject);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
 
-        #if UNITY_EDITOR
-        if(!UnityEditor.EditorPrefs.GetBool("ShowIntro", true))
+
+#if UNITY_EDITOR
+        if (!UnityEditor.EditorPrefs.GetBool("ShowIntro", true))
         {
             return;
         }
-        #endif
+#endif
         StoryEventController.isMuted = false;
-        if(StoryEventController.Instance != null)
+        if (StoryEventController.Instance != null)
         {
-            if(!loadedGame)
+            if (!loadedGame)
             {
                 StoryEventController.Instance.PostStoryEvent("STORYEVENT_INTRO", null);
             }
         }
+        Debug.Log("Changed to RunState");
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("Hello " + scene.name); 
         if (scene.name == "Apartment")
         {
-            if (GameObject.FindWithTag("Respawn") != null)
-            {
-                 gm.SetState(new RunState(gm));
-            }
+            gm.SetState(new RunState(gm)); 
         }
     }
 
