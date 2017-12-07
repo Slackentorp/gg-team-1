@@ -107,6 +107,11 @@ public class StoryEventController : Singleton<StoryEventController>
 				{
 					HandleEnd();
 				}
+
+				if(GameController.Instance != null)
+				{
+					Invoke(() => GameController.Instance.SetState(new PauseGameState(GameController.Instance)), Time.deltaTime);
+				}
 				
 				director.Stop();
 				director.playableAsset = se.TimelinePlayableAsset;
@@ -165,6 +170,10 @@ public class StoryEventController : Singleton<StoryEventController>
 				currentCallback.Invoke();
 			}
 
+			if(GameController.Instance != null)
+			{
+				GameController.Instance.SetState(new RunState(GameController.Instance));
+			}
 			currentStoryEvent = nullStoryEvent;
 			currentCallback = null;
 		}
