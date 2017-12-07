@@ -96,79 +96,19 @@ public abstract class Interactable : MonoBehaviour
             t.Invoke();
         }
 
-        else if (callbackType == AkCallbackType.AK_Duration)
-        {
-            var i = info as AkDurationCallbackInfo;
-            fragmentDurations[counter] = i.fDuration;
-
-            if (counter == 1)
-            {
-                fragmentIsOn = true;
-                Durations(fragmentDurations[1], fragmentIsOn, gameObject);
-            }
-
-            counter++;
-
-            if (counter == 2)
-            {
-                fragmentIsOn = false;
-                counter = 0;
-            }
-        }
-
-		//EndOfEventCallback(sender, callbackType, info);
-
-	}
-
-	public int counter = 0;
-    private float[] fragmentDurations = new float[2];
-    public bool fragmentIsOn = false;
-    public uint markerr;
-    public string storyFragmentt;
-    public int realDuration;
-    public float durationn;
-    public bool fragmentIsOnn = false;
-    public GameObject thePlayedFragment;
-    int uPosition;
-
-    public void TwoSecondsBeforeEnd()
-    {
-        AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
-        uPosition = uPosition / 10;
-
-        if (fragmentIsOnn)
-        {
-            if (uPosition > realDuration)
-            {
-                AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
-                fragmentIsOnn = false;
-                return;
-            }
-        }
-    }
-
-    public void Durations(float duration, bool fragmentIsOn, GameObject playedFragment)
-    {
-        thePlayedFragment = playedFragment;
-        fragmentIsOnn = fragmentIsOn;
-        durationn = duration / 10;
-        realDuration = (int) durationn;
-        realDuration = realDuration - 20;
-
-        //Debug.Log(realDuration);
-    }
-
-    void Update() //maybe a problem
-    {
-        if (fragmentIsOnn == true)
-        {
-            TwoSecondsBeforeEnd();
-        }
     }
 
     public virtual void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Touch Object");
+    }
+
+    public void InvokeInteractableCall()
+    {
+        if (InteractableCall != null)
+        {
+            InteractableCall(this);
+        }
     }
 
     [ContextMenu("Generate GUID")]
@@ -178,14 +118,6 @@ public abstract class Interactable : MonoBehaviour
         {
             Debug.Log("uniqueGUID is apparently null");
             uniqueGUID = System.Guid.NewGuid().ToString();
-        }
-    }
-
-    public void InvokeInteractableCall()
-    {
-        if (InteractableCall != null)
-        {
-            InteractableCall(this);
         }
     }
 
