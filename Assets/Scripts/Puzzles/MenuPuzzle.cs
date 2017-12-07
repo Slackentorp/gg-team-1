@@ -14,7 +14,6 @@ public class MenuPuzzle : MonoBehaviour
     [SerializeField]
     private Transform[] startPositions;
     private Vector3[] scrambledPosition;
-    private Transform[] correctPosition;
     private List<Vector3> startPos;
     private Vector3 centerPosition;
 
@@ -34,7 +33,6 @@ public class MenuPuzzle : MonoBehaviour
         piecesPos = new Dictionary<GameObject, Vector3>();
 
         inputCamera = Camera.main;
-        correctPosition = transform.GetComponentsInChildren<Transform>();
         startPos = new List<Vector3>();
         centerPosition = Vector3.zero;
 

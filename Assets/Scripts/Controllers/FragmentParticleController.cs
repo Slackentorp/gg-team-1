@@ -9,14 +9,20 @@ public class FragmentParticleController
 	private Transform MothPosition;
 	private AnimationCurve dissolveAmount, mainTexEmission;
 	private Material[] fragMaterialsArray;
-	private GameObject fragMaterialParent, fragMaterial;
-	private bool fragmentPlayed = false, done = false;
-	private bool playingDiscover = false, playingWhisper = false, playingLeave = false;
+	private GameObject fragMaterial;
+	private bool done = false;
 	private float mainTexLerp = 1.0f, dissolveLerp = 1.0f;
 	private float[] dissolveTime;
 	private float[] maintexTime;
+	Dictionary<Fragment, FragmentState> fragmentDictionary = new Dictionary<Fragment, FragmentState>();
 
-	List<FragmentParticleController> fragmentParticles = new List<FragmentParticleController>();
+	public enum FragmentState
+	{
+		NOT_PLAYED,
+		DISCOVER,
+		WHISPER,
+		LEAVE
+	}
 
 	public FragmentParticleController(Fragment[] fragmentObjects, Transform mothPos,
 									  AnimationCurve dissolveAmount, AnimationCurve mainTexEmission)
@@ -27,7 +33,6 @@ public class FragmentParticleController
 			this.MothPosition = mothPos;
 			this.dissolveAmount = dissolveAmount;
 			this.mainTexEmission = mainTexEmission;
-			fragMaterialParent = new GameObject("Fragment Materials");
 			fragMaterialsArray = new Material[fragmentPos.Length];
 			fragmentMaterials = new Renderer[fragmentPos.Length];
 			dissolveTime = new float[fragmentMaterials.Length];
@@ -135,15 +140,6 @@ public class FragmentParticleController
 		fragmentPos[iteration].GetComponentInChildren<Renderer>().material = fragMaterialsArray[iteration];
 	}
 
-	Dictionary<Fragment, FragmentState> fragmentDictionary = new Dictionary<Fragment, FragmentState>();
-
-	public enum FragmentState
-	{
-		NOT_PLAYED,
-		DISCOVER,
-		WHISPER,
-		LEAVE
-	}
 
 	void PlaySoundEvents(string soundEvent, int fragmentNumber)
 	{

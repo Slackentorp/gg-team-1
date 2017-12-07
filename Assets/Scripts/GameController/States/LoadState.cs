@@ -25,10 +25,7 @@ public class LoadState : GameState
 
         if(PlayerPrefs.GetInt("saveload", -1) == 1)
         {
-            if(StoryEventController.Instance != null)
-            {
-                StoryEventController.Instance.isMuted = true;
-            }
+            StoryEventController.isMuted = true;   
             AkSoundEngine.PostEvent("SFX_MUTE", gm.gameObject);
             loadedGame = SaveLoad.Load(gm);
             int storyeventReached = PlayerPrefs.GetInt("SE_REACHED", 0);
@@ -68,9 +65,9 @@ public class LoadState : GameState
             return;
         }
         #endif
+        StoryEventController.isMuted = false;
         if(StoryEventController.Instance != null)
         {
-            StoryEventController.Instance.isMuted = false;
             if(!loadedGame)
             {
                 StoryEventController.Instance.PostStoryEvent("STORYEVENT_INTRO", null);

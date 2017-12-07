@@ -12,8 +12,6 @@ public class Fragment : Interactable
     public delegate void FragmentAction();
     public static event FragmentAction FragmentCall;
 
-    uint marker;
-
     public override void Awake()
     {
         base.Awake();
@@ -32,7 +30,6 @@ public class Fragment : Interactable
         uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
                         (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_Duration
                       | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
-        marker = markerId;
         SubToolXML.Instance.InitSubs(markerId, StoryFragment);
         //EndFragments(markerId, StoryFragment);
         OnFragmentCall();

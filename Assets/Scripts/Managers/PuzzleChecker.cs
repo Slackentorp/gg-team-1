@@ -19,7 +19,7 @@ public class PuzzleChecker : MonoBehaviour
     [SerializeField]
     private GameController getGameController;
     [SerializeField]
-    private Vector3 endLightPosition, mothPosition;
+    private Vector3 mothPosition;
     [SerializeField]
     private GameObject endGameCanvas;
 
@@ -28,8 +28,6 @@ public class PuzzleChecker : MonoBehaviour
     void Start()
     {
         _SolvedPuzzels = new bool[puzzels.Length];
-        endLightPosition = endLight.transform.position;
-//        mothPosition = BootstrapManager.Instance.mothObject.transform.position;
     }
 
     void Update()

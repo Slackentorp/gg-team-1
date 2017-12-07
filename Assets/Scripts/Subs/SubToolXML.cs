@@ -26,7 +26,6 @@ public class SubToolXML : Singleton<SubToolXML>
 
     public Text subtitlesToShow;
     public GameObject SubtitleContainer;
-    uint g_markersPlayingID = 1;
     bool showSubs = false;
     bool subtitlesIsOn = true; 
 
@@ -74,11 +73,9 @@ public class SubToolXML : Singleton<SubToolXML>
         if (language == LocalizationItem.Language.ENGLISH)
         {
             XMLReader(eventName);
-            g_markersPlayingID = markerId;
         }
         else
         {
-            g_markersPlayingID = markerId;
             string addDK = eventName;
             addDK = addDK + "_da";
             XMLReader(addDK);

@@ -20,8 +20,6 @@ public class CombinationPuzzleController : BasePuzzle
 
     [SerializeField]
     private string onCorrectWwiseEvent;
-    [SerializeField, Range(0,1)]
-    private float onCorrectBrightness = 1;
 
     [SerializeField, Tooltip("Specify the bounds of the puzzle. This is the area the pieces can be dragged within")]
     private Vector3 bounds;
