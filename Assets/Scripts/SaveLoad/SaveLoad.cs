@@ -135,7 +135,7 @@ public class SaveLoad
                             ((Puzzle)component).SolvePuzzleNow();
                         }
                         
-                        component.InvokeInteractableCall();
+                        component.InvokeInteractableCall(true);
                     }
                 }
             }

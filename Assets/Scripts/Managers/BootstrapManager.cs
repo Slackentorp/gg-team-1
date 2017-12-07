@@ -18,10 +18,9 @@ public class BootstrapManager : Singleton<BootstrapManager>
     // Use this for initialization
     void Start()
     {
-#if UNITY_ANDROID
-        return;
-#endif
-
+        #if UNITY_ANDROID
+            return;
+        #endif
         levelScene = new Scene();
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
