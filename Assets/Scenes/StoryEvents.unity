@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 156943490}
   - component: {fileID: 156943492}
   - component: {fileID: 156943493}
+  - component: {fileID: 156943494}
   m_Layer: 0
   m_Name: StoryEvent System
   m_TagString: Untagged
@@ -504,7 +505,7 @@ PlayableDirector:
   m_GameObject: {fileID: 156943489}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
+  m_PlayableAsset: {fileID: 11400000, guid: 49a9e9eb53e76524ea04ad2577fecca4, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -750,10 +751,16 @@ PlayableDirector:
     value: {fileID: 1366105378}
   - key: {fileID: 114671390361586120, guid: 49a9e9eb53e76524ea04ad2577fecca4, type: 2}
     value: {fileID: 2080680920}
+  - key: {fileID: 114869257596434912, guid: 49a9e9eb53e76524ea04ad2577fecca4, type: 2}
+    value: {fileID: 156943489}
+  - key: {fileID: 114181284716642982, guid: 49a9e9eb53e76524ea04ad2577fecca4, type: 2}
+    value: {fileID: 156943489}
   m_ExposedReferences:
     m_References:
     - 6065213543ecc5943bee26778e43d95e: {fileID: 270234002}
     - 59453bc417c330642bffe208e7d371fa: {fileID: 0}
+    - 538b82ca27882004297797a190874f35: {fileID: 156943489}
+    - f6cc2e6ec77116b499d77f18fe4d8ccb: {fileID: 156943489}
     - 441624ea3f86d2f4bac5401bcc50ae74: {fileID: 0}
 --- !u!4 &156943491
 Transform:
@@ -827,7 +834,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e304f338583e594cbe34460dad93279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: STORYEVENT_END
+  eventName: STORYEVENT_3
+--- !u!114 &156943494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 156943489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03de8838afdc6d84a94c2f81c93bb061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HallwayToKitchenFog: {fileID: 0}
+  HallwayToLivingRoomFog: {fileID: 0}
+  KitchenFog: {fileID: 0}
+  KitchenToHallwayFog: {fileID: 0}
 --- !u!1001 &202202790
 Prefab:
   m_ObjectHideFlags: 0
@@ -1197,35 +1219,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1690784762990734, guid: 4119a6d7aaeff054a903030adfa24aa2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4523880574053396, guid: 4119a6d7aaeff054a903030adfa24aa2, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.6221859
+      value: 0.9405907
       objectReference: {fileID: 0}
     - target: {fileID: 4523880574053396, guid: 4119a6d7aaeff054a903030adfa24aa2, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.026931895
+      value: 0.18120447
       objectReference: {fileID: 0}
     - target: {fileID: 4523880574053396, guid: 4119a6d7aaeff054a903030adfa24aa2, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.78167427
+      value: -0.28196353
       objectReference: {fileID: 0}
     - target: {fileID: 4523880574053396, guid: 4119a6d7aaeff054a903030adfa24aa2, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.033835504
+      value: 0.054320175
       objectReference: {fileID: 0}
     - target: {fileID: 4523880574053396, guid: 4119a6d7aaeff054a903030adfa24aa2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.201748
+      value: -7.2224026
       objectReference: {fileID: 0}
     - target: {fileID: 4523880574053396, guid: 4119a6d7aaeff054a903030adfa24aa2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.04333
+      value: 1.1867883
       objectReference: {fileID: 0}
     - target: {fileID: 4523880574053396, guid: 4119a6d7aaeff054a903030adfa24aa2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.1651202
+      value: 1.1000992
       objectReference: {fileID: 0}
     - target: {fileID: 4125513106378162, guid: 4119a6d7aaeff054a903030adfa24aa2, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2635,7 +2657,7 @@ Prefab:
     - target: {fileID: 198490260425091122, guid: 43cfd9c6872ad3f4baa1eafde59500c3,
         type: 2}
       propertyPath: randomSeed
-      value: -262712742
+      value: 1421553480
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43cfd9c6872ad3f4baa1eafde59500c3, type: 2}

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimelinePersistentState : MonoBehaviour
 {
-	private GameObject HallwayToKitchenFog, HallwayToLivingRoomFog, KitchenFog, KitchenToHallwayFog;
+	public DoorWallController HallwayToKitchenFog, HallwayToLivingRoomFog, KitchenFog, KitchenToHallwayFog;
 	DoorWallController[] dwcs;
 
 	void OnEnable()
@@ -22,35 +22,35 @@ public class TimelinePersistentState : MonoBehaviour
 		Scene appartment = SceneManager.GetSceneByName("Apartment");
 		if(scene == appartment && dwcs.Length == 0)
 		{
-			dwcs = GameObject.FindObjectsOfType<DoorWallController>();
+			dwcs = GameObject.Find("FogWalls").GetComponentsInChildren<DoorWallController>();
 		}
 	}
 
 	private void Awake()
 	{
-		dwcs = GameObject.FindObjectsOfType<DoorWallController>();
+		dwcs = GameObject.Find("FogWalls").GetComponentsInChildren<DoorWallController>();
 		if(dwcs.Length == 0) return;
-		HallwayToKitchenFog = dwcs.First(d => d.fogIdentifier == "HallwayToKitchenFog").gameObject;
-		HallwayToLivingRoomFog = dwcs.First(d => d.fogIdentifier == "HallwayToLivingRoomFog").gameObject;
-		KitchenFog = dwcs.First(d => d.fogIdentifier == "KitchenFog").gameObject;
-		KitchenToHallwayFog = dwcs.First(d => d.fogIdentifier == "KitchenToHallwayFog").gameObject;
+		HallwayToKitchenFog = dwcs.FirstOrDefault(d => d.fogIdentifier == "HallwayToKitchenFog");
+		HallwayToLivingRoomFog = dwcs.FirstOrDefault(d => d.fogIdentifier == "HallwayToLivingRoomFog");
+		KitchenFog = dwcs.FirstOrDefault(d => d.fogIdentifier == "KitchenFog");
+		KitchenToHallwayFog = dwcs.FirstOrDefault(d => d.fogIdentifier == "KitchenToHallwayFog");
 	}
 
 	public void EnableHallwayToKitchenFog()
 	{
-		HallwayToKitchenFog.SetActive(true);
+		HallwayToKitchenFog.gameObject.SetActive(true);
 	}
 	public void EnableKitchenToHallwayFog()
 	{
-		KitchenToHallwayFog.SetActive(true);
+		KitchenToHallwayFog.gameObject.SetActive(true);
 	}
 	public void EnableHallwayToLivingRoomFog()
 	{
-		HallwayToLivingRoomFog.SetActive(true);
+		HallwayToLivingRoomFog.gameObject.SetActive(true);
 	}
 	public void EnableKitchenFog()
 	{
-		KitchenFog.SetActive(true);
+		KitchenFog.gameObject.SetActive(true);
 	}
 	public void EnableAll()
 	{
@@ -63,19 +63,19 @@ public class TimelinePersistentState : MonoBehaviour
 	
 	public void DisableHallwayToKitchenFog()
 	{
-		HallwayToKitchenFog.SetActive(false);
+		HallwayToKitchenFog.gameObject.SetActive(false);
 	}
 	public void DisableHallwayToLivingRoomFog()
 	{
-		HallwayToLivingRoomFog.SetActive(false);
+		HallwayToLivingRoomFog.gameObject.SetActive(false);
 	}
 	public void DisableKitchenToHallwayFog()
 	{
-		KitchenToHallwayFog.SetActive(false);
+		KitchenToHallwayFog.gameObject.SetActive(false);
 	}
 	public void DisableKitchenFog()
 	{
-		KitchenFog.SetActive(false);
+		KitchenFog.gameObject.SetActive(false);
 	}
 	public void DisableAll()
 	{
@@ -88,19 +88,19 @@ public class TimelinePersistentState : MonoBehaviour
 	// Toggle
 	public void ToogleHallwayToKitchenFog()
 	{
-		HallwayToKitchenFog.SetActive(!HallwayToKitchenFog.activeInHierarchy);
+		HallwayToKitchenFog.gameObject.SetActive(!HallwayToKitchenFog.gameObject.activeInHierarchy);
 	}
 	public void ToggleKitchenToHallwayFog()
 	{
-		KitchenToHallwayFog.SetActive(!KitchenToHallwayFog.activeInHierarchy);
+		KitchenToHallwayFog.gameObject.SetActive(!KitchenToHallwayFog.gameObject.activeInHierarchy);
 	}
 	public void ToogleHallwayToLivingRoomFog()
 	{
-		HallwayToLivingRoomFog.SetActive(!HallwayToLivingRoomFog.activeInHierarchy);
+		HallwayToLivingRoomFog.gameObject.SetActive(!HallwayToLivingRoomFog.gameObject.activeInHierarchy);
 	}
 	public void ToogleKitchenFog()
 	{
-		KitchenFog.SetActive(!KitchenFog.activeInHierarchy);
+		KitchenFog.gameObject.SetActive(!KitchenFog.gameObject.activeInHierarchy);
 	}
 	public void ToggleAll()
 	{
