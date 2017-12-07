@@ -78,7 +78,11 @@ public class StoryEventController : Singleton<StoryEventController>
 			return;
 		}
 
-		try{
+        Debug.Log("I get here");
+        SubToolXML.Instance.InitSubs(StoryEvent);
+
+        try
+        {
 			StoryEvent se = StoryEvents.First(o => o.StoryEventID == StoryEvent);
 
 			if (se.StoryEventID.Equals(StoryEvent))

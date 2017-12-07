@@ -82,6 +82,22 @@ public class SubToolXML : Singleton<SubToolXML>
         }
     }
 
+    public void InitSubs(string eventName)
+    {
+        LocalizationItem.Language language =
+       (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
+        if (language == LocalizationItem.Language.ENGLISH)
+        {
+            XMLReader(eventName);
+        }
+        else
+        {
+            string addDK = eventName;
+            addDK = addDK + "_da";
+            XMLReader(addDK);
+        }
+    }
+
     void XMLReader(string eventName)
     {
         if (subtitles != null)
