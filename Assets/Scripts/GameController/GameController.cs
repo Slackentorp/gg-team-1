@@ -28,6 +28,7 @@ public class GameController : Singleton<GameController>
 	public CameraController cameraController;
 	public FragmentParticleController fragParticleController;
 	public bool hasReachedPointOfNoReturn;
+	public bool hasGamePlayReachedPointOfNoReturn;
 
     [Header("Camera Attributes")]
     [Tooltip("Determines the camera's turn speed on it's y-axis")]
@@ -216,8 +217,9 @@ public class GameController : Singleton<GameController>
         }
     }
 
-	public void InvokePointOfNoReturn()
+	public void InvokeWwisePointOfNoReturn()
 	{
+		hasReachedPointOfNoReturn = true;
 		if(OnPointOfNoReturn != null)
 		{
 			OnPointOfNoReturn();	
