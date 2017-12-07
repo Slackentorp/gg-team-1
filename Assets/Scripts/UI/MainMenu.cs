@@ -46,6 +46,7 @@ public class MainMenu : MonoBehaviour
     private GameObject currentMenu;
     private SpriteRenderer[] puzzleSprites;
     private Text[] menuTexts;
+    private LocalizationManager localizationManager;
 
     AsyncOperation bootstrapLoad;
     AsyncOperation soundScapeLoad;
@@ -75,6 +76,8 @@ public class MainMenu : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        localizationManager = new LocalizationManager();
+
         bootstrapLoad =
     SceneManager.LoadSceneAsync("Bootstrap", LoadSceneMode.Single);
         soundScapeLoad =
@@ -93,8 +96,17 @@ public class MainMenu : MonoBehaviour
         newGameButton.onClick.AddListener(() => StartGame(0));
         tapToStartButton.onClick.AddListener(() => StartGame(0));
 
-        dkButton.onClick.AddListener(() => SetLang(0));
-        enButton.onClick.AddListener(() => SetLang(1));
+        dkButton.onClick.AddListener(() =>
+        {
+            SetLang(0);
+            localizationManager.SetDanish();
+        });
+
+        enButton.onClick.AddListener(() =>
+        {
+            SetLang(1);
+            localizationManager.SetEnglish();
+        });
 
         // Don't show Continue Button if there is nothing to continue
         if (!SaveLoad.SavegameExists())
@@ -134,10 +146,10 @@ public class MainMenu : MonoBehaviour
 
     private void SetLang(int lang)
     {
-        PlayerPrefs.SetInt("LANGUAGE", lang);
         languageSelect.SetActive(false);
         StartCoroutine(HeadphonesCanvas(false));
     }
+
 
     IEnumerator HeadphonesCanvas(bool toPuzzle)
     {
