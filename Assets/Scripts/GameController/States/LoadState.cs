@@ -43,9 +43,9 @@ public class LoadState : GameState
         gm.mothSounds = new MothSounds(gm.GameCamera.transform, gm.mothBehaviour, gm.Moth.transform);
         gm.cameraHeading = gm.GameCamera.transform.position - gm.Moth.transform.position;
 
-        fragmentPositions = GameObject.FindObjectsOfType<Fragment>();
-        gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.Moth.transform,
-                                                                    gm.DissolveAmount, gm.MainTexEmission);
+		fragmentPositions = GameObject.FindObjectsOfType<Fragment>();
+		gm.fragParticleController = new FragmentParticleController(fragmentPositions, gm.Moth.transform,
+																	gm.DissolveAmount, gm.MainTexEmission, gm.EmissionInt);
 
         if (SceneManager.GetSceneByName("Apartment").isLoaded)
         {

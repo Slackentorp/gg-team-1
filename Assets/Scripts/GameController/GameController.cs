@@ -97,7 +97,8 @@ public class GameController : Singleton<GameController>
     public AnimationCurve FragmentToLightSourceCurve;
 	public AnimationCurve DissolveAmount;
 	public AnimationCurve MainTexEmission;
-    [Space(15)]
+	public AnimationCurve EmissionInt;
+	[Space(15)]
 
 	[HideInInspector]
 	public Vector3 cameraHeading;

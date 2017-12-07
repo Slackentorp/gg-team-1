@@ -108,7 +108,6 @@ public class Fragment : Interactable
         {
             if (uPosition > realDuration)
             {
-                Debug.Log("we are two seconds before the shit is done");
                 AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
                 fragmentIsOnn = false;
                 return;
