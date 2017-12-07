@@ -98,7 +98,7 @@ public class RunState : GameState
         cameraController.Update();
         gm.mothBehaviour.Update();
         gm.mothSounds.UpdateMothSounds();
-        gm.HeadsetStateUIText.text = gm.InputManager.GetHeadsetState() ? "Headset plugged in" : "Headset not plugged in";
+        //gm.HeadsetStateUIText.text = gm.InputManager.GetHeadsetState() ? "Headset plugged in" : "Headset not plugged in";
 		gm.fragParticleController.Update();
 	}
 
