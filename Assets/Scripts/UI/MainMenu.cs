@@ -42,6 +42,8 @@ public class MainMenu : MonoBehaviour
     private SpriteRenderer bgImage;
     [SerializeField]
     private MenuPuzzle puzzle;
+    [SerializeField]
+    private GameObject feedforwardObjs; 
 
     private GameObject currentMenu;
     private SpriteRenderer[] puzzleSprites;
@@ -133,6 +135,7 @@ public class MainMenu : MonoBehaviour
     private void OnPuzzleSolved()
     {
         ShowMenu();
+        feedforwardObjs.SetActive(false); 
     }
 
     // Update is called once per frame

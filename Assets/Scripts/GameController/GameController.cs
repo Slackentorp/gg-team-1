@@ -21,7 +21,6 @@ public class GameController : Singleton<GameController>
 	public LocalizationManager localization;
 	public LightController LightController;
 	public InputManager InputManager;
-	public Text HeadsetStateUIText;
 	public MothBehaviour mothBehaviour;
 	public MothSounds mothSounds;
 	public InputHandlerSettings InputSettings;
