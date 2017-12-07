@@ -140,6 +140,25 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="MOTH_LANDING" ID="{172215A7-0356-48A9-9EF8-A00DC5B70CE0}">
+							<ChildrenList>
+								<Action Name="" ID="{38C6D3F5-CC83-41E3-B921-28D2F62FE2A9}" ShortID="133547919">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Moth landing" ID="{1580B7FB-B12F-491D-9A87-C89FEBB6F215}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Ambience" ID="{CB63D89D-9A5B-4F67-BE53-36CC1D55B2DE}" ShortID="586050579">
@@ -1971,6 +1990,7 @@
 								<Action Name="" ID="{AC3EDF16-3203-4AA1-B9FA-366B2352B7BB}" ShortID="218627797">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1985,6 +2005,7 @@
 								<Action Name="" ID="{8C67F1F1-CAB6-4D1D-82E1-C98505ABC647}" ShortID="238655563">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2108,6 +2129,7 @@
 								<Action Name="" ID="{C7B94B6C-C3F0-4905-A51B-AD2F39723FDF}" ShortID="567512849">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2186,6 +2208,16 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Whisper" ID="{C2BB8BDD-F78F-4DCD-A962-AC6F6ACBB111}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{B04A676A-151E-4F3A-AEB4-FE120C94C390}" ShortID="373614589">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="22"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="EXPLORATION" ID="{07EFFC64-55C8-4412-BBEB-547FE8846445}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -3044,7 +3076,7 @@
 								<Action Name="" ID="{16045A69-5470-4649-9417-7297C0F3EDFC}" ShortID="316308002">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="0.5"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
