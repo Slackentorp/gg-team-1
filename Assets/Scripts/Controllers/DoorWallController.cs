@@ -37,7 +37,7 @@ public class DoorWallController : MonoBehaviour
     }
 
     [Button]
-    void Lampcheckheck()
+    public void Refresh()
     {
         LampChecker(true);
     }
@@ -89,7 +89,7 @@ public class DoorWallController : MonoBehaviour
 
     private void EndOfEvent()
     {
-        print("Door EOE called");
+//        print("Door EOE called");
         gameObject.SetActive(false);
         AkSoundEngine.PostEvent("FOGWALL_DISABLE", gameObject);
     }
