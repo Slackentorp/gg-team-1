@@ -646,10 +646,12 @@
 													<ChildrenList>
 														<AudioFileSource Name="SW010_New_York_City_Room_Tone_Lower_Eastside_Window" ID="{A39469F3-0113-4A20-9AFD-8AB8ECBEAFB5}" ShortID="109303465">
 															<PropertyList>
-																<Property Name="CrossfadeDuration" Type="Real64" Value="2"/>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="79"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="3.10660654981552"/>
 																<Property Name="LoopBegin" Type="Real64" Value="69.3464615245665"/>
-																<Property Name="LoopEnd" Type="Real64" Value="358.898353504335"/>
+																<Property Name="LoopEnd" Type="Real64" Value="178.940537269373"/>
 																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="191.677624123616"/>
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>SW010_New_York_City_Room_Tone_Lower_Eastside_Window.WAV</AudioFile>
@@ -679,10 +681,11 @@
 													<ChildrenList>
 														<AudioFileSource Name="ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic" ID="{2572E714-9C1A-4B71-8CDE-B3E8DEE34F10}" ShortID="62958245">
 															<PropertyList>
-																<Property Name="CrossfadeDuration" Type="Real64" Value="2"/>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="61"/>
 																<Property Name="LoopBegin" Type="Real64" Value="8.78244897037572"/>
-																<Property Name="LoopEnd" Type="Real64" Value="177.979016889451"/>
+																<Property Name="LoopEnd" Type="Real64" Value="124.980353374691"/>
 																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="128.240289437269"/>
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>ALY04_AMBIENCE_ALLEY_Downtown_HVAC_Distant traffic.wav</AudioFile>
@@ -5246,6 +5249,13 @@
 				<Folder Name="Interaction" ID="{D5C64084-F381-47FE-815C-DEC098607F84}" ShortID="115543730">
 					<ChildrenList>
 						<ActorMixer Name="Menu" ID="{B7A3E426-0BA3-464D-A429-E174A7092156}" ShortID="758899988">
+							<PropertyList>
+								<Property Name="UserAuxSendVolume0" Type="Real64">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -5253,9 +5263,19 @@
 								<Reference Name="OutputBus">
 									<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="Reverb_livingroom" ID="{15279453-A672-4F5D-8661-BDBC44113891}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<RandomSequenceContainer Name="Menu button press" ID="{0ED17D2F-63B1-4032-BC6E-FB331294F5E8}" ShortID="826957596">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
@@ -6212,6 +6232,11 @@
 										<Value>28</Value>
 									</ValueList>
 								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
 								<Property Name="UserAuxSendVolume0" Type="Real64">
 									<ValueList>
 										<Value>-12</Value>
@@ -6224,7 +6249,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-22</Value>
+										<Value>-23</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6245,9 +6270,9 @@
 							<ChildrenList>
 								<AudioFileSource Name="PUZZLE_OPENING" ID="{D88FC305-4AE1-42E9-BC1D-C76EC2E18598}" ShortID="907124145">
 									<PropertyList>
-										<Property Name="FadeInDuration" Type="Real64" Value="0.932225485520161"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.921258126866983"/>
 										<Property Name="FadeOutDuration" Type="Real64" Value="0.625139443231167"/>
-										<Property Name="TrimBegin" Type="Real64" Value="0.0679976236497059"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.109673586531784"/>
 										<Property Name="TrimEnd" Type="Real64" Value="1.72406878027964"/>
 									</PropertyList>
 									<Language>SFX</Language>
@@ -6274,7 +6299,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-7</Value>
+								<Value>-9</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
