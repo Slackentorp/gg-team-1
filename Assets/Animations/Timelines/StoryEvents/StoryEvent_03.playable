@@ -19,6 +19,8 @@ MonoBehaviour:
   - {fileID: 114809944450746360}
   - {fileID: 114680841982002322}
   - {fileID: 114671390361586120}
+  - {fileID: 114869257596434912}
+  - {fileID: 114181284716642982}
   m_FixedDuration: 0
   m_EditorSettings:
     fps: 60
@@ -1942,6 +1944,32 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 1
   m_Events: []
+--- !u!114 &114038035887530570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05e5f3d79c8b90409653d450c5dc767, type: 3}
+  m_Name: EventsPlayable
+  m_EditorClassIdentifier: 
+  template:
+    ClipEventHandler_ClipStart: None
+    ClipEventHandler_ClipEnd: TimelinePersistentState.EnableHallwayToLivingRoomFog
+    TrackEventHandler_ClipStart: 
+    TrackEventHandler_ClipEnd: 
+    EnableTrackEvents: 0
+    EnableClipEvents: 1
+    InvokeEventsInEditMode: 0
+    TargetObject: {fileID: 0}
+    TrackTargetObject: {fileID: 0}
+    ClipStartTime: 0
+    ClipEndTime: 0
+  TargetObject:
+    exposedName: 538b82ca27882004297797a190874f35
+    defaultValue: {fileID: 0}
 --- !u!114 &114149284149392380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2047,6 +2075,82 @@ MonoBehaviour:
   m_ApplyOffsets: 0
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
+--- !u!114 &114181284716642982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3776b1a59de6d1f43ae91e79bb843289, type: 3}
+  m_Name: Events Track (1)
+  m_EditorClassIdentifier: 
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_AnimClip: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips:
+  - m_Start: 0
+    m_ClipIn: 0
+    m_Asset: {fileID: 114038035887530570}
+    m_UnderlyingAsset: {fileID: 114820222479723244}
+    m_Duration: 53.35
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 114181284716642982}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: 0
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: Enable HallwayToLivingRoomFog
+    m_Version: 1
 --- !u!114 &114498806626179878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2177,3 +2281,105 @@ MonoBehaviour:
   m_ApplyOffsets: 0
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
+--- !u!114 &114820222479723244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05e5f3d79c8b90409653d450c5dc767, type: 3}
+  m_Name: EventsPlayable
+  m_EditorClassIdentifier: 
+  template:
+    ClipEventHandler_ClipStart: None
+    ClipEventHandler_ClipEnd: TimelinePersistentState.EnableKitchenToHallwayFog
+    TrackEventHandler_ClipStart: 
+    TrackEventHandler_ClipEnd: 
+    EnableTrackEvents: 0
+    EnableClipEvents: 1
+    InvokeEventsInEditMode: 0
+    TargetObject: {fileID: 0}
+    TrackTargetObject: {fileID: 0}
+    ClipStartTime: 0
+    ClipEndTime: 0
+  TargetObject:
+    exposedName: f6cc2e6ec77116b499d77f18fe4d8ccb
+    defaultValue: {fileID: 0}
+--- !u!114 &114869257596434912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3776b1a59de6d1f43ae91e79bb843289, type: 3}
+  m_Name: Events Track
+  m_EditorClassIdentifier: 
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_AnimClip: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips:
+  - m_Start: 0
+    m_ClipIn: 0
+    m_Asset: {fileID: 114820222479723244}
+    m_UnderlyingAsset: {fileID: 114820222479723244}
+    m_Duration: 53.35
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 114869257596434912}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: 0
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: Enable KitchenToHallwayFog
+    m_Version: 1

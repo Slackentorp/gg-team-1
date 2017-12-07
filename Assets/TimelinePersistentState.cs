@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimelinePersistentState : MonoBehaviour
 {
-	private GameObject HallwayToKitchenFog, HallwayToLivingRoomFog, KitchenFog, KitchenToHallwayFog;
+	public GameObject HallwayToKitchenFog, HallwayToLivingRoomFog, KitchenFog, KitchenToHallwayFog;
 	DoorWallController[] dwcs;
 
 	void OnEnable()
@@ -22,17 +22,17 @@ public class TimelinePersistentState : MonoBehaviour
 		Scene appartment = SceneManager.GetSceneByName("Apartment");
 		if(scene == appartment && dwcs.Length == 0)
 		{
-			dwcs = GameObject.FindObjectsOfType<DoorWallController>();
+			dwcs = GameObject.Find("FogWalls").GetComponentsInChildren<DoorWallController>();
 		}
 	}
 
 	private void Awake()
 	{
-		dwcs = GameObject.FindObjectsOfType<DoorWallController>();
+		dwcs = GameObject.Find("FogWalls").GetComponentsInChildren<DoorWallController>();
 		if(dwcs.Length == 0) return;
-		HallwayToKitchenFog = dwcs.First(d => d.fogIdentifier == "HallwayToKitchenFog").gameObject;
+	//	HallwayToKitchenFog = dwcs.First(d => d.fogIdentifier == "HallwayToKitchenFog").gameObject;
 		HallwayToLivingRoomFog = dwcs.First(d => d.fogIdentifier == "HallwayToLivingRoomFog").gameObject;
-		KitchenFog = dwcs.First(d => d.fogIdentifier == "KitchenFog").gameObject;
+	//	KitchenFog = dwcs.First(d => d.fogIdentifier == "KitchenFog").gameObject;
 		KitchenToHallwayFog = dwcs.First(d => d.fogIdentifier == "KitchenToHallwayFog").gameObject;
 	}
 
