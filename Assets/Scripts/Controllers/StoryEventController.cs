@@ -93,18 +93,15 @@ public class StoryEventController : Singleton<StoryEventController>
                 }
                 if (StoryEvent.Equals("STORYEVENT_2"))
                 {
-                    Debug.Log("STORYEVENT_1");
+                    Debug.Log("STORYEVENT_2");
                     StoryEventLightCall(2);
                 }
                 if (StoryEvent.Equals("STORYEVENT_3"))
                 {
-                    Debug.Log("STORYEVENT_1");
+                    Debug.Log("STORYEVENT_3");
                     StoryEventLightCall(3);
                 }
-                if (StoryEvent.Equals("STORYEVENT_4"))
-				{
-					HandlePointOfNoReturn();
-				} else if(StoryEvent.Equals("STORYEVENT_END"))
+				else if(StoryEvent.Equals("STORYEVENT_END"))
 				{
 					HandleEnd();
 				}
@@ -153,11 +150,19 @@ public class StoryEventController : Singleton<StoryEventController>
 			director.playableAsset = null;
 			currentStoryEvent.StoryEventGroup.SetActive(false);
 			AkSoundEngine.StopAll(gameObject);
+			if(GameController.Instance != null)
+			{
+				GameController.Instance.SetState(new RunState(GameController.Instance));
+			}
 			if(currentCallback != null)
 			{
+				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_3"))
+				{
+					Invoke(() => HandleGamePlayPointOfNoReturn(), Time.deltaTime);
+				}
 				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_4"))
 				{
-					GameController.instance.InvokePointOfNoReturn();
+					GameController.instance.InvokeWwisePointOfNoReturn();
 				}
 				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_END"))
 				{
@@ -171,16 +176,12 @@ public class StoryEventController : Singleton<StoryEventController>
 				currentCallback.Invoke();
 			}
 
-			if(GameController.Instance != null)
-			{
-				GameController.Instance.SetState(new RunState(GameController.Instance));
-			}
 			currentStoryEvent = nullStoryEvent;
 			currentCallback = null;
 		}
 	}
 
-	private void HandlePointOfNoReturn()
+	private void HandleGamePlayPointOfNoReturn()
 	{
 		GameController.Instance.SetState(new PointOfNoReturnState(GameController.instance));
 	}
