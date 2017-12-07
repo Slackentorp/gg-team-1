@@ -110,7 +110,7 @@ public class LightSourceInput : MonoBehaviour
 	{
 		fragmentToLightsourceCurve = GameController.Instance.FragmentToLightSourceCurve;
 		firstTimeFlickerCheck = true;
-		FragmentCheckerSwitch(interactables[0]); // set tutorial lamp to Flicker
+		FragmentCheckerSwitch(interactables[0], false); // set tutorial lamp to Flicker
 	}
 
 	public void FragmentCheckerLerp(Interactable sender, bool beingLoaded)
@@ -134,16 +134,26 @@ public class LightSourceInput : MonoBehaviour
 						{
 							if (sender != null && IEParticle == null)
 							{
-								IEParticle = ParticleLerp(sender);
-								StartCoroutine(IEParticle);
+								if(beingLoaded)
+								{
+									FragmentCheckerSwitch(sender, beingLoaded);
+								} else {
+									IEParticle = ParticleLerp(sender, beingLoaded);
+									StartCoroutine(IEParticle);
+								}
 							}
 						}
 						else if (numPlayedFragments == interactables.Length - 2)
 						{
 							if (sender != null && IEParticle == null)
 							{
-								IEParticle = ParticleLerp(sender);
-								StartCoroutine(IEParticle);
+								if(beingLoaded)
+								{
+									FragmentCheckerSwitch(sender, beingLoaded);
+								} else {
+									IEParticle = ParticleLerp(sender, beingLoaded);
+									StartCoroutine(IEParticle);
+								}
 							}
 						}
 					}
@@ -153,15 +163,26 @@ public class LightSourceInput : MonoBehaviour
 						{
 							if (sender != null && IEParticle == null)
 							{
-								IEParticle = ParticleLerp(sender);
-								StartCoroutine(IEParticle);
+								if(beingLoaded)
+								{
+									FragmentCheckerSwitch(sender, beingLoaded);
+								} else {
+									IEParticle = ParticleLerp(sender, beingLoaded);
+									StartCoroutine(IEParticle);
+								}
 							}
 						}
 						else if (numPlayedFragments == 0)
 						{
 							if (sender != null)
 							{
-								StartCoroutine(ParticleLerp(sender));
+								if(beingLoaded)
+								{
+									FragmentCheckerSwitch(sender, beingLoaded);
+								} else {
+									IEParticle = ParticleLerp(sender, beingLoaded);
+									StartCoroutine(IEParticle);
+								}
 							}
 						}
 					}
@@ -172,7 +193,7 @@ public class LightSourceInput : MonoBehaviour
 		LightSourceCallz(beingLoaded);
 	}
 
-	public void FragmentCheckerSwitch(Interactable sender)
+	public void FragmentCheckerSwitch(Interactable sender, bool beingLoaded)
 	{
 		int numPlayedFragments = interactables.Count(f => f.HasPlayed);
 
@@ -189,8 +210,8 @@ public class LightSourceInput : MonoBehaviour
 				{
 					if (numPlayedFragments >= interactables.Length - 1)
 					{
+						print("Set lamp on");
 						LampON();
-
 					}
 					else if (numPlayedFragments == interactables.Length - 2)
 					{
@@ -202,8 +223,8 @@ public class LightSourceInput : MonoBehaviour
 				{
 					if (numPlayedFragments == interactables.Length)
 					{
+						print("Set lamp on");
 						LampON();
-
 					}
 					else if (numPlayedFragments == 0)
 					{
@@ -213,7 +234,7 @@ public class LightSourceInput : MonoBehaviour
 
 			}
 		}
-	//	LightSourceCallz();
+		LightSourceCallz(beingLoaded);
 	}
 
 
@@ -272,7 +293,7 @@ public class LightSourceInput : MonoBehaviour
 		InvokeLightMapSwitch(lampStateCheck, lampFlickerCheck, lightMapIndex);
 	}
 
-	private IEnumerator ParticleLerp(Interactable interactable)
+	private IEnumerator ParticleLerp(Interactable interactable, bool beingLoaded)
 	{
 		float time = 0;
 		float endTime = 1;
@@ -288,22 +309,25 @@ public class LightSourceInput : MonoBehaviour
 		ParticleSystem explosionSystem = particle.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
 		AkSoundEngine.PostEvent("PARTICLE_APPEAR_FRAGMENT", particle);
 
-		while (time < endTime)
+		if(!beingLoaded)
 		{
-			float t = time;
-			if(fragmentToLightsourceCurve != null)
+			while (time < endTime)
 			{
-				t = fragmentToLightsourceCurve.Evaluate(time);
+				float t = time;
+				if(fragmentToLightsourceCurve != null)
+				{
+					t = fragmentToLightsourceCurve.Evaluate(time);
+				}
+
+				particle.transform.position = Vector3.Lerp(interactable.transform.position, transform.position + lerpParticleOffset, t);
+
+				time += Time.deltaTime;
+				yield return null;
 			}
-
-			particle.transform.position = Vector3.Lerp(interactable.transform.position, transform.position + lerpParticleOffset, t);
-
-			time += Time.deltaTime;
-			yield return null;
 		}
 
 		particle.transform.GetChild(1).gameObject.SetActive(true);
-		FragmentCheckerSwitch(interactable);
+		FragmentCheckerSwitch(interactable, beingLoaded);
 		AkSoundEngine.PostEvent("PARTICLE_ENTER_LAMP", particle);
 		yield return new WaitForSeconds(explosionSystem.main.duration + explosionSystem.main.startLifetime.constant + explosionSystem.main.startLifetime.constant / 2);
 		Destroy(particle);
