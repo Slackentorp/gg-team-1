@@ -9,7 +9,7 @@ public abstract class Interactable : MonoBehaviour
     [ReadOnly]
     public string uniqueGUID;
 
-    public delegate void InteractableAction(Interactable sender);
+    public delegate void InteractableAction(Interactable sender, bool beingLoaded);
     public static event InteractableAction InteractableCall;
     public delegate void TUTInteractableAction(Interactable sender);
     public static event TUTInteractableAction TUTInteractableCall;
@@ -102,14 +102,7 @@ public abstract class Interactable : MonoBehaviour
     {
         gameObject.layer = LayerMask.NameToLayer("Touch Object");
     }
-
-    public void InvokeInteractableCall()
-    {
-        if (InteractableCall != null)
-        {
-            InteractableCall(this);
-        }
-    }
+    
 
     [ContextMenu("Generate GUID")]
     private void GenerateGUID()
@@ -120,7 +113,15 @@ public abstract class Interactable : MonoBehaviour
             uniqueGUID = System.Guid.NewGuid().ToString();
         }
     }
-
+    
+    public void InvokeInteractableCall(bool beingLoaded)
+    {
+        if (InteractableCall != null)
+        {
+            InteractableCall(this, beingLoaded);
+        }
+    }
+    
     private void OnDrawGizmos()
     {
         Gizmos.DrawIcon(transform.position + cameraPosition, "CameraIcon.tif");

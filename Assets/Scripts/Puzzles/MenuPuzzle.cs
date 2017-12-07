@@ -19,6 +19,7 @@ public class MenuPuzzle : MonoBehaviour
 
     private Camera inputCamera;
     private GameObject currentPiece;
+    private Vector3 distanceWorldPos;
 
     private Dictionary<GameObject, Vector3> piecesPos;
 
@@ -72,6 +73,7 @@ public class MenuPuzzle : MonoBehaviour
                 if (piecesPos.ContainsKey(hit.transform.gameObject))
                 {
                     currentPiece = hit.transform.gameObject;
+                    distanceWorldPos = inputCamera.ScreenToWorldPoint(Input.mousePosition) - currentPiece.transform.position;
                     AkSoundEngine.PostEvent("PIECE_PICK", currentPiece);
                 }
             }
@@ -91,6 +93,7 @@ public class MenuPuzzle : MonoBehaviour
                     OnPuzzleSolved();
                 }
             }
+            distanceWorldPos = Vector3.zero;
             currentPiece = null;
         }
 
@@ -104,6 +107,7 @@ public class MenuPuzzle : MonoBehaviour
     {
         Vector3 result;
         result = inputCamera.ScreenToWorldPoint(Input.mousePosition);
+        result -= distanceWorldPos;
         result.z = 0f;
         return result;
     }

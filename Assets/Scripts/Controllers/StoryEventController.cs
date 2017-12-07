@@ -83,6 +83,7 @@ public class StoryEventController : Singleton<StoryEventController>
 
 			if (se.StoryEventID.Equals(StoryEvent))
 			{
+				print("Starting StoryEvent: " +StoryEvent);
 				currentStoryEvent = se;
 				currentCallback = Callback;
                 if (StoryEvent.Equals("STORYEVENT_1"))
@@ -106,6 +107,11 @@ public class StoryEventController : Singleton<StoryEventController>
 				} else if(StoryEvent.Equals("STORYEVENT_END"))
 				{
 					HandleEnd();
+				}
+
+				if(GameController.Instance != null)
+				{
+					Invoke(() => GameController.Instance.SetState(new PauseGameState(GameController.Instance)), Time.deltaTime);
 				}
 				
 				director.Stop();
@@ -165,6 +171,10 @@ public class StoryEventController : Singleton<StoryEventController>
 				currentCallback.Invoke();
 			}
 
+			if(GameController.Instance != null)
+			{
+				GameController.Instance.SetState(new RunState(GameController.Instance));
+			}
 			currentStoryEvent = nullStoryEvent;
 			currentCallback = null;
 		}

@@ -67,7 +67,7 @@ public class InteractableState : GameState
                 if(((Puzzle) currentInteractable).LastPuzzle && ((Puzzle)currentInteractable).IsSolved)
                 {
                     currentInteractable.HasPlayed = true;
-                    currentInteractable.InvokeInteractableCall();
+                    currentInteractable.InvokeInteractableCall(false);
                   //  gm.SetState(new RunState(gm));
                     lerpOut = true;
                 }
@@ -150,7 +150,7 @@ public class InteractableState : GameState
         {
             return;
         }
-        currentInteractable.InvokeInteractableCall();
+        currentInteractable.InvokeInteractableCall(false);
         keepMothLandingState = false;
         gm.mothBehaviour.SetMothAnimationState("Flying", "Landing");
         gm.StartCoroutine(Leaving(leavingEarly));
