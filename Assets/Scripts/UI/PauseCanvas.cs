@@ -30,6 +30,10 @@ public class PauseCanvas : MonoBehaviour
     [SerializeField]
     private Slider contrastSlider;
 
+    [SerializeField]
+    private Text langSetting;
+    private Text subtSetting;
+
     private bool subtitlesIsOn = true;
     private bool englishLanguage;
 
@@ -90,15 +94,20 @@ public class PauseCanvas : MonoBehaviour
                 OnLanguageButtonPressed(englishLanguage);
                 SoundPress();
             });
-            languageButton.GetComponentInChildren<Text>().text = "language: " + (!englishLanguage ? "english" : "dansk");
+            langSetting = languageButton.GetComponentsInChildren<Text>()[1];
+            langSetting.text = (!englishLanguage ? "english" : "dansk");
         }
 
         if (subtitleButton != null)
+
+        {
             subtitleButton.onClick.AddListener(() =>
             {
                 OnSubtitleButtonPressed(subtitlesIsOn);
                 SoundPress();
             });
+            subtSetting = subtitleButton.GetComponentsInChildren<Text>()[1];
+        }
 
         if (menuButton != null)
             menuButton.onClick.AddListener(() =>
@@ -124,7 +133,7 @@ public class PauseCanvas : MonoBehaviour
     {
         englishLanguage = !englishLanguage;
         PlayerPrefs.SetInt("LANGUAGE", englishLanguage ? 0 : 1);
-        button.GetComponent<Text>().text = "language: " + (englishLanguage ? "english" : "dansk");
+        button.GetComponent<Text>().text = (englishLanguage ? "english" : "dansk");
     }
 
     public void SoundPress()
@@ -190,7 +199,7 @@ public class PauseCanvas : MonoBehaviour
     {
         Debug.Log("Language button pressed");
         englishLanguage = !englishLanguage;
-        languageButton.GetComponentInChildren<Text>().text = "language: " + (isEnglish ? "english" : "dansk");
+        langSetting.text = (isEnglish ? "english" : "dansk");
 
         if (isEnglish)
             GameController.Instance.SetEnglish();
@@ -208,7 +217,11 @@ public class PauseCanvas : MonoBehaviour
     private void OnSubtitleButtonPressed(bool isOn)
     {
         subtitlesIsOn = !subtitlesIsOn;
-        subtitleButton.GetComponentInChildren<Text>().text = "subtitles: " + (!subtitlesIsOn ? "on" : "off");
+        if (englishLanguage)
+            subtSetting.text = (!subtitlesIsOn ? "til" : "fra");
+        else
+            subtSetting.text = (!subtitlesIsOn ? "on" : "off");
+
 
         if (OnSubtitleButton != null)
         {

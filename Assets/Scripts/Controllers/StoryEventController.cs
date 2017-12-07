@@ -83,6 +83,7 @@ public class StoryEventController : Singleton<StoryEventController>
 
 			if (se.StoryEventID.Equals(StoryEvent))
 			{
+				print("Starting StoryEvent: " +StoryEvent);
 				currentStoryEvent = se;
 				currentCallback = Callback;
                 if (StoryEvent.Equals("STORYEVENT_1"))
@@ -92,20 +93,22 @@ public class StoryEventController : Singleton<StoryEventController>
                 }
                 if (StoryEvent.Equals("STORYEVENT_2"))
                 {
-                    Debug.Log("STORYEVENT_1");
+                    Debug.Log("STORYEVENT_2");
                     StoryEventLightCall(2);
                 }
                 if (StoryEvent.Equals("STORYEVENT_3"))
                 {
-                    Debug.Log("STORYEVENT_1");
+                    Debug.Log("STORYEVENT_3");
                     StoryEventLightCall(3);
                 }
-                if (StoryEvent.Equals("STORYEVENT_4"))
-				{
-					HandlePointOfNoReturn();
-				} else if(StoryEvent.Equals("STORYEVENT_END"))
+				else if(StoryEvent.Equals("STORYEVENT_END"))
 				{
 					HandleEnd();
+				}
+
+				if(GameController.Instance != null)
+				{
+					Invoke(() => GameController.Instance.SetState(new PauseGameState(GameController.Instance)), Time.deltaTime);
 				}
 				
 				director.Stop();
@@ -147,11 +150,19 @@ public class StoryEventController : Singleton<StoryEventController>
 			director.playableAsset = null;
 			currentStoryEvent.StoryEventGroup.SetActive(false);
 			AkSoundEngine.StopAll(gameObject);
+			if(GameController.Instance != null)
+			{
+				GameController.Instance.SetState(new RunState(GameController.Instance));
+			}
 			if(currentCallback != null)
 			{
+				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_3"))
+				{
+					Invoke(() => HandleGamePlayPointOfNoReturn(), Time.deltaTime);
+				}
 				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_4"))
 				{
-					GameController.instance.InvokePointOfNoReturn();
+					GameController.instance.InvokeWwisePointOfNoReturn();
 				}
 				if(currentStoryEvent.StoryEventID.Equals("STORYEVENT_END"))
 				{
@@ -170,7 +181,7 @@ public class StoryEventController : Singleton<StoryEventController>
 		}
 	}
 
-	private void HandlePointOfNoReturn()
+	private void HandleGamePlayPointOfNoReturn()
 	{
 		GameController.Instance.SetState(new PointOfNoReturnState(GameController.instance));
 	}

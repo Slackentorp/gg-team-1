@@ -2,14 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class TimelinePersistentState : MonoBehaviour
 {
 	private GameObject HallwayToKitchenFog, HallwayToLivingRoomFog, KitchenFog, KitchenToHallwayFog;
+	DoorWallController[] dwcs;
+
+	void OnEnable()
+	{
+		SceneManager.sceneLoaded += HandleApartmentLoad;
+	}
+
+	void OnDisable(){
+		SceneManager.sceneLoaded -= HandleApartmentLoad;
+	}
+
+	void HandleApartmentLoad(Scene scene, LoadSceneMode mode){
+		Scene appartment = SceneManager.GetSceneByName("Apartment");
+		if(scene == appartment && dwcs.Length == 0)
+		{
+			dwcs = GameObject.FindObjectsOfType<DoorWallController>();
+		}
+	}
 
 	private void Awake()
 	{
-		DoorWallController[] dwcs = GameObject.FindObjectsOfType<DoorWallController>();
+		dwcs = GameObject.FindObjectsOfType<DoorWallController>();
+		if(dwcs.Length == 0) return;
 		HallwayToKitchenFog = dwcs.First(d => d.fogIdentifier == "HallwayToKitchenFog").gameObject;
 		HallwayToLivingRoomFog = dwcs.First(d => d.fogIdentifier == "HallwayToLivingRoomFog").gameObject;
 		KitchenFog = dwcs.First(d => d.fogIdentifier == "KitchenFog").gameObject;
@@ -32,6 +52,13 @@ public class TimelinePersistentState : MonoBehaviour
 	{
 		KitchenFog.SetActive(true);
 	}
+	public void EnableAll()
+	{
+		foreach (var item in dwcs)
+		{
+			item.gameObject.SetActive(true);
+		}
+	}
 
 	
 	public void DisableHallwayToKitchenFog()
@@ -50,6 +77,13 @@ public class TimelinePersistentState : MonoBehaviour
 	{
 		KitchenFog.SetActive(false);
 	}
+	public void DisableAll()
+	{
+		foreach (var item in dwcs)
+		{
+			item.gameObject.SetActive(false);
+		}
+	}
 
 	// Toggle
 	public void ToogleHallwayToKitchenFog()
@@ -67,5 +101,12 @@ public class TimelinePersistentState : MonoBehaviour
 	public void ToogleKitchenFog()
 	{
 		KitchenFog.SetActive(!KitchenFog.activeInHierarchy);
+	}
+	public void ToggleAll()
+	{
+		foreach (var item in dwcs)
+		{
+			item.gameObject.SetActive(!item.gameObject.activeInHierarchy);
+		}
 	}
 }
