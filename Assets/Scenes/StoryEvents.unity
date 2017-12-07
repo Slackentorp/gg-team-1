@@ -505,7 +505,7 @@ PlayableDirector:
   m_GameObject: {fileID: 156943489}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 49a9e9eb53e76524ea04ad2577fecca4, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 4b29a35f12c714147965e50bd2625c5a, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -755,6 +755,10 @@ PlayableDirector:
     value: {fileID: 156943489}
   - key: {fileID: 114181284716642982, guid: 49a9e9eb53e76524ea04ad2577fecca4, type: 2}
     value: {fileID: 156943489}
+  - key: {fileID: 114898394772515902, guid: 4b29a35f12c714147965e50bd2625c5a, type: 2}
+    value: {fileID: 2115085469}
+  - key: {fileID: 114319121212942722, guid: 4b29a35f12c714147965e50bd2625c5a, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 6065213543ecc5943bee26778e43d95e: {fileID: 270234002}
@@ -3315,6 +3319,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2115085470}
+  - component: {fileID: 2115085472}
+  - component: {fileID: 2115085471}
   m_Layer: 0
   m_Name: StoryEvent_END
   m_TagString: Untagged
@@ -3336,6 +3342,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115085471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2115085469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fc354bfe28e41649cc18628c12dc5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveAmount: 0
+  fogwallObjectName: fogwall_05
+--- !u!95 &2115085472
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2115085469}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2116856491
 GameObject:
   m_ObjectHideFlags: 0

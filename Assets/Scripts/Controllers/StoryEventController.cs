@@ -86,7 +86,7 @@ public class StoryEventController : Singleton<StoryEventController>
         }
 
         GameController.Instance.CinemaBars.gameObject.SetActive(true);
-        SubToolXML.Instance.InitSubs(StoryEvent);
+    //    SubToolXML.Instance.InitSubs(StoryEvent);
 
         try
         {
