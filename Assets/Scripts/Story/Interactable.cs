@@ -27,19 +27,19 @@ public abstract class Interactable : MonoBehaviour
     }
     public float InternalInteractionDistance { get { return Mathf.Sqrt(interactionDistance); } }
     public bool HasPlayed { get { return hasPlayed; } set { hasPlayed = value; } }
-	private bool HashasPlayed;
-	public bool HasHasPlayed
-	{
-		get
-		{
-			return HashasPlayed;
-		}
-		set
-		{
-			HashasPlayed = value;
-		}
-	}
-	public string StoryFragment { get { return storyFragment; } }
+    private bool HashasPlayed;
+    public bool HasHasPlayed
+    {
+        get
+        {
+            return HashasPlayed;
+        }
+        set
+        {
+            HashasPlayed = value;
+        }
+    }
+    public string StoryFragment { get { return storyFragment; } }
     public Vector3 LandingPosition { get { return landingPosition; } }
     public Vector3 MothResetPosition { get { return resetPosition; } }
 
@@ -67,9 +67,16 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField]
     private bool hasPlayed;
 
+    // Variables for handling a Wwise event two seconds before it ends
+    private uint interactableMarkerID;
+    // #DescriptiveNaming
+    private bool interactableHasReachedTwoSecondsBeforeEnd;
+    protected uint interactableWwiseFrameCounter;
+    protected float eventDuration;
+
     public virtual void Play(Interactable.EasyWwiseCallback Callback)
     {
-		if (string.IsNullOrEmpty(StoryFragment))
+        if (string.IsNullOrEmpty(StoryFragment))
         {
             Debug.LogWarning("StoryFragment: \"" + StoryFragment + "\" does not exist");
             Callback();
@@ -80,26 +87,34 @@ public abstract class Interactable : MonoBehaviour
             TUTInteractableCall(this);
         }
         Debug.Log("Story fragment - " + StoryFragment + " - ACTIVATE!");
-        
-        uint markerId = AkSoundEngine.PostEvent(StoryFragment, gameObject,
-                            (uint)AkCallbackType.AK_EnableGetSourcePlayPosition | (uint)AkCallbackType.AK_Duration
-                          | (uint)AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
-        SubToolXML.Instance.InitSubs(markerId, StoryFragment);
-        EndFragments(markerId, StoryFragment);
 
+        // Save the Wwise Marker ID to keep track of the duration later on
+        interactableMarkerID = AkSoundEngine.PostEvent(StoryFragment, gameObject,
+            (uint) AkCallbackType.AK_EnableGetSourcePlayPosition | (uint) AkCallbackType.AK_Duration |
+            (uint) AkCallbackType.AK_EndOfEvent, EndOfEventCallback, Callback);
+        SubToolXML.Instance.InitSubs(interactableMarkerID, StoryFragment);
+
+        // Alow the Coroutine to run
+        interactableHasReachedTwoSecondsBeforeEnd = false;
+        interactableWwiseFrameCounter = 0;
+        eventDuration = 0;
+        StartCoroutine(WwiseUpdate());
     }
 
-// #Kiril
-    public int counter = 0;
-    private float[] fragmentDurations = new float[3];
-    public bool fragmentIsOn = false;
-    public uint markerr;
-    public string storyFragmentt;
-    public int realDuration;
-    public float durationn;
-    public bool fragmentIsOnn = false;
-    public GameObject thePlayedFragment;
-    int uPosition;
+
+    IEnumerator WwiseUpdate()
+    {
+        while (!interactableHasReachedTwoSecondsBeforeEnd)
+        {
+            int duration;
+            AkSoundEngine.GetSourcePlayPosition(interactableMarkerID, out duration);
+            if(eventDuration > 1 && eventDuration - (float)duration <= 2000)
+            {
+                HandleTwoSecondsBeforeEnd(duration);
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
 
     public virtual void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
     {
@@ -107,85 +122,22 @@ public abstract class Interactable : MonoBehaviour
 
         if (t != null && callbackType == AkCallbackType.AK_EndOfEvent)
         {
+            interactableHasReachedTwoSecondsBeforeEnd = true;
             HasPlayed = true;
             t.Invoke();
-        } 
-        else if (callbackType == AkCallbackType.AK_Duration)
-        {
-            var i = info as AkDurationCallbackInfo;
-            fragmentDurations[counter] = i.fDuration;
-            
-                if (counter == 2)
-                {
-                    fragmentIsOn = true;
-                    Durations(fragmentDurations[2], fragmentIsOn, gameObject);
-                }
-
-                counter++;
-
-                if (counter == 3)
-                {
-                    fragmentIsOn = false;
-                    counter = 0;
-                }
-            }
-
-    }
-
-     private int ClipDuration(int time)
-    {
-        return (int)(time) - 20;
-    }
-
-    private bool WwiseEventDoesntExist(string eventName)
-    {
-        return AkSoundEngine.PrepareEvent(PreparationType.Preparation_Load, new string[] { eventName }, 1) == AKRESULT.AK_IDNotFound;
-
-    }
-    public void EndFragments(uint marker, string storyFragment)
-    {
-        markerr = marker;
-        storyFragmentt = storyFragment;
-
-    }
-
-    public void TwoSecondsBeforeEnd()
-    {
-        AkSoundEngine.GetSourcePlayPosition(markerr, out uPosition);
-        uPosition = uPosition / 10;
-       // Debug.Log(uPosition);
-        LocalizationItem.Language language =
-           (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
-
-        if (fragmentIsOnn)
-        {
-            if (uPosition > realDuration)
-            {
-                Debug.Log("we are two seconds before the shit is done");
-                AkSoundEngine.PostEvent("FRAGMENT_END", thePlayedFragment);
-                fragmentIsOnn = false;
-                return;
-            }
         }
     }
 
-    public void Durations(float duration, bool fragmentIsOn, GameObject playedFragment)
+    void HandleTwoSecondsBeforeEnd(int duration)
     {
-        thePlayedFragment = playedFragment;
-        fragmentIsOnn = fragmentIsOn;
-        durationn = duration / 10;
-        realDuration = (int)durationn;
-        realDuration = realDuration - 20;
-
-       // Debug.Log(realDuration);
+        AkSoundEngine.PostEvent("FRAGMENT_END", gameObject);
+        interactableHasReachedTwoSecondsBeforeEnd = true;
     }
-    
 
     public virtual void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Touch Object");
     }
-    
 
     [ContextMenu("Generate GUID")]
     private void GenerateGUID()
@@ -196,7 +148,7 @@ public abstract class Interactable : MonoBehaviour
             uniqueGUID = System.Guid.NewGuid().ToString();
         }
     }
-    
+
     public void InvokeInteractableCall(bool beingLoaded)
     {
         if (InteractableCall != null)
@@ -204,7 +156,7 @@ public abstract class Interactable : MonoBehaviour
             InteractableCall(this, beingLoaded);
         }
     }
-    
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawIcon(transform.position + cameraPosition, "CameraIcon.tif");

@@ -86,8 +86,6 @@ public class Puzzle : Interactable
 
         piecePlaced = new bool[puzzlePieces.Count];
         PositionPieceCorrectly(0);
-
-        //PuzzleChecker();
     }
 
     private void Update()
@@ -95,11 +93,6 @@ public class Puzzle : Interactable
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SolvePuzzleNow();
-        }
-
-        if (fragmentIsOnn == true)
-        {
-            TwoSecondsBeforeEnd();
         }
     }
 
@@ -151,6 +144,20 @@ public class Puzzle : Interactable
             {
                 PositionPieceCorrectly(i);
             }
+        }
+    }
+
+    public override void EndOfEventCallback(object sender, AkCallbackType callbackType, object info)
+    {
+        base.EndOfEventCallback(sender, callbackType, info);
+        if (callbackType == AkCallbackType.AK_Duration)
+        {
+            var i = info as AkDurationCallbackInfo;
+            if (interactableWwiseFrameCounter == 2)
+            {
+                eventDuration = i.fDuration;
+            }
+            interactableWwiseFrameCounter++;
         }
     }
 
