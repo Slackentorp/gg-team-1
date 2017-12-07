@@ -83,6 +83,7 @@ public class StoryEventController : Singleton<StoryEventController>
 
 			if (se.StoryEventID.Equals(StoryEvent))
 			{
+				print("Starting StoryEvent: " +StoryEvent);
 				currentStoryEvent = se;
 				currentCallback = Callback;
                 if (StoryEvent.Equals("STORYEVENT_1"))
