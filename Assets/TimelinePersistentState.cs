@@ -20,15 +20,17 @@ public class TimelinePersistentState : MonoBehaviour
 
 	void HandleApartmentLoad(Scene scene, LoadSceneMode mode){
 		Scene appartment = SceneManager.GetSceneByName("Apartment");
-		if(scene == appartment && dwcs.Length == 0)
+		if(scene == appartment && (dwcs == null || dwcs.Length == 0))
 		{
-			dwcs = GameObject.Find("FogWalls").GetComponentsInChildren<DoorWallController>();
+			Awake();
 		}
 	}
 
 	private void Awake()
 	{
-		dwcs = GameObject.Find("FogWalls").GetComponentsInChildren<DoorWallController>();
+		GameObject fogWalls = GameObject.Find("FogWalls");
+		if(fogWalls == null) return;
+		dwcs = fogWalls.GetComponentsInChildren<DoorWallController>(true);
 		if(dwcs.Length == 0) return;
 		HallwayToKitchenFog = dwcs.FirstOrDefault(d => d.fogIdentifier == "HallwayToKitchenFog");
 		HallwayToLivingRoomFog = dwcs.FirstOrDefault(d => d.fogIdentifier == "HallwayToLivingRoomFog");
