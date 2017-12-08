@@ -186,6 +186,11 @@ public class MainMenu : MonoBehaviour
 
     private void StartGame(int saveload)
     {
+        foreach(Button button in GetComponentsInChildren<Button>())
+        {
+            button.enabled = false; 
+        }
+
         continueButton.enabled = false;
         newGameButton.enabled = false;
         tapToStartButton.enabled = false;
