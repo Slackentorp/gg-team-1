@@ -61,13 +61,13 @@ public class InteractableState : GameState
                 if (((Puzzle) currentInteractable).IsSolved && !gm.hasGamePlayReachedPointOfNoReturn && !((Puzzle) currentInteractable).LastPuzzle)
                 {
                     lerpOut = true;
+                    gm.CinemaBars.gameObject.SetActive(true);
                     currentInteractable.Play(EndOfFragmentCallback);
                 }
                 if(((Puzzle) currentInteractable).LastPuzzle && ((Puzzle)currentInteractable).IsSolved)
                 {
                     currentInteractable.HasPlayed = true;
                     currentInteractable.InvokeInteractableCall(false);
-                  //  gm.SetState(new RunState(gm));
                     lerpOut = true;
                 }
             }
@@ -100,7 +100,10 @@ public class InteractableState : GameState
         if (!currentInteractable.HasPlayed && !gm.hasGamePlayReachedPointOfNoReturn)
         {
             gm.mothBehaviour.SetFragmentMode(true);
-            gm.CinemaBars.gameObject.SetActive(true);
+            if(currentInteractable is Fragment)
+            {
+                gm.CinemaBars.gameObject.SetActive(true);
+            }
         }
 
         Vector3 newMothPos = currentInteractable.transform.position + currentInteractable.LandingPosition;
