@@ -220,7 +220,7 @@ public class StoryEventController : Singleton<StoryEventController>
         _anim = EndSceneFadeout.GetComponent<Animator>();        
         
         Debug.Log("IT'S TOTALLY HAPPENING");
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(0);
         Debug.Log("ALMOST THERE 40 SECONDS");
          yield return new WaitForSeconds(40);
 
