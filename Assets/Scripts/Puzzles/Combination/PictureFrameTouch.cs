@@ -40,6 +40,7 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
             return;
 
         distanceWorldPos = worldPos - transform.position;
+        transform.SetY(startY+.01f);
         PlayEvent(pickupWwiseEvent);
     }
 
@@ -65,10 +66,6 @@ public class PictureFrameTouch : MonoBehaviour, ITouchInput
         if (!Directions.X)
         {
             newPosition.x = transform.position.x;
-        }
-        if (!Directions.Y)
-        {
-            newPosition.y = transform.position.y;
         }
         if (!Directions.Z)
         {
