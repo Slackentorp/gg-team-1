@@ -70,6 +70,7 @@
 											<ChildrenList>
 												<MusicTrack Name="Hallways_PIANO_91bpm" ID="{105D994D-F818-4835-B4A6-27FDDF10FBC9}" ShortID="44804136">
 													<PropertyList>
+														<Property Name="OverrideConversion" Type="bool" Value="True"/>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
 																<Value>-9</Value>
@@ -77,6 +78,77 @@
 														</Property>
 													</PropertyList>
 													<ReferenceList>
+														<Reference Name="Conversion">
+															<Custom CreatedFrom="{1FA4B052-37BF-4E0E-8157-1C5FD4091E72}">
+																<Conversion Name="Really compressed stereo (Custom)" ID="{C3C06D2F-7477-4AFC-BC46-88D256B4A6E4}">
+																	<PropertyList>
+																		<Property Name="Channels" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">1</Value>
+																				<Value Platform="Windows">4</Value>
+																				<Value Platform="Mac">4</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="LRMix" Type="Real64">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="MaxSampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">22050</Value>
+																				<Value Platform="Windows">22050</Value>
+																				<Value Platform="Mac">22050</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="MinSampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="SampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="UseDither" Type="bool">
+																			<ValueList>
+																				<Value>True</Value>
+																			</ValueList>
+																		</Property>
+																	</PropertyList>
+																	<ConversionPluginInfoList>
+																		<ConversionPluginInfo Platform="Android">
+																			<ConversionPlugin Name="" ID="{5E394F24-4F77-4BB5-951A-A16DC135D77E}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																		<ConversionPluginInfo Platform="Windows">
+																			<ConversionPlugin Name="" ID="{E586D67F-D63D-4670-9838-A7731FB63B18}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																		<ConversionPluginInfo Platform="Mac">
+																			<ConversionPlugin Name="" ID="{E4536609-F172-42E8-92AD-E31341877536}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																	</ConversionPluginInfoList>
+																</Conversion>
+															</Custom>
+														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 														</Reference>
