@@ -2411,6 +2411,11 @@
 								</BlendContainer>
 								<ActorMixer Name="Lamp" ID="{C2A98379-14BB-481D-AFD6-84C937C2D859}" ShortID="669392134">
 									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>13</Value>
+											</ValueList>
+										</Property>
 										<Property Name="OverrideConversion" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
@@ -2822,6 +2827,7 @@
 										</RandomSequenceContainer>
 										<Sound Name="Laser_Sword_Movements_PSEM_156" ID="{EB7B7A91-F7F2-4207-951D-3C7E1970A4C9}" ShortID="883175853">
 											<PropertyList>
+												<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
 														<Value>660</Value>
@@ -2837,6 +2843,11 @@
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
+												<Property Name="UserAuxSendVolume0" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-20</Value>
@@ -2849,6 +2860,9 @@
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -2868,7 +2882,11 @@
 										</Sound>
 										<Sound Name="Shot_Laser_Very Light_PSEM_227" ID="{F49E87F5-3CCF-482E-B82B-44BDD15A5628}" ShortID="353768758">
 											<PropertyList>
+												<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>330</Value>
+													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
 															<Modifier Name="" ID="{608849E5-4786-4505-A7E8-E0C8826345BA}">
@@ -2881,9 +2899,14 @@
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
+												<Property Name="UserAuxSendVolume0" Type="Real64">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-19</Value>
+														<Value>-26</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2893,6 +2916,9 @@
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Reverb_livingroom" ID="{15279453-A672-4F5D-8661-BDBC44113891}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -3273,8 +3299,49 @@
 										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-17</Value>
+												<Value>-15</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{3372EEFC-2B77-41A7-8F7C-0D741B3FD8D8}" ShortID="1047112526">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="ANGLE" ID="{0EFDC948-5A46-4806-9CB6-DBD7F8CBE19A}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{3AE8A16E-8324-4E2F-8906-C09B9AA36437}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-180</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>-90</XPos>
+																<YPos>-200</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>-0.48913</XPos>
+																<YPos>-0.01181</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>89.02174</XPos>
+																<YPos>-200</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>180</XPos>
+																<YPos>-200</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -10770,13 +10837,13 @@
 														<Flags>5</Flags>
 													</Point>
 													<Point>
-														<XPos>-99.29348</XPos>
-														<YPos>-200</YPos>
+														<XPos>-50.86957</XPos>
+														<YPos>-34.32007</YPos>
 														<Flags>0</Flags>
 													</Point>
 													<Point>
-														<XPos>-63.09783</XPos>
-														<YPos>0.01103</YPos>
+														<XPos>-20.54349</XPos>
+														<YPos>-0.0728</YPos>
 														<Flags>0</Flags>
 													</Point>
 													<Point>
@@ -10785,12 +10852,12 @@
 														<Flags>0</Flags>
 													</Point>
 													<Point>
-														<XPos>59.1847826086956</XPos>
-														<YPos>-0.0152430054477251</YPos>
+														<XPos>20.05436</XPos>
+														<YPos>-0.01524</YPos>
 														<Flags>0</Flags>
 													</Point>
 													<Point>
-														<XPos>96.84783</XPos>
+														<XPos>61.63044</XPos>
 														<YPos>-200</YPos>
 														<Flags>0</Flags>
 													</Point>
