@@ -2413,10 +2413,16 @@
 									<PropertyList>
 										<Property Name="OverrideConversion" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
+										<Property Name="UserAuxSendVolume0" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1</Value>
+												<Value>-3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2425,7 +2431,7 @@
 											<Custom>
 												<Attenuation Name="Attenuation (Custom)" ID="{C75294FA-CAB2-44D1-9D04-2AE98EA77174}" ShortID="822184846">
 													<PropertyList>
-														<Property Name="RadiusMax" Type="Real64" Value="6"/>
+														<Property Name="RadiusMax" Type="Real64" Value="5"/>
 													</PropertyList>
 													<CurveUsageInfoList>
 														<VolumeDryUsage>
@@ -2441,17 +2447,17 @@
 																			<Flags>5</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>1.73708571428571</XPos>
-																			<YPos>-1.7278</YPos>
+																			<XPos>0.56337</XPos>
+																			<YPos>-1.05575</YPos>
 																			<Flags>0</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>5.9988</XPos>
+																			<XPos>4.2723</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>0</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>6</XPos>
+																			<XPos>5</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>37</Flags>
 																		</Point>
@@ -2487,6 +2493,9 @@
 										<Reference Name="OutputBus">
 											<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Reverb_livingroom" ID="{15279453-A672-4F5D-8661-BDBC44113891}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
 									</ReferenceList>
 									<ChildrenList>
 										<RandomSequenceContainer Name="Turn on" ID="{8E256CAF-46EA-43F4-95E4-D2D71C8B9434}" ShortID="16772953">
@@ -2494,7 +2503,7 @@
 												<Property Name="EnablePositioning" Type="bool" Value="False"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>10</Value>
+														<Value>-1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2597,14 +2606,14 @@
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-1</Value>
+														<Value>-9</Value>
 													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
 															<Modifier Name="" ID="{601E50F4-A766-4F3D-8738-3A2F1AC552DF}">
 																<PropertyList>
 																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Min" Type="Real64" Value="-8"/>
+																	<Property Name="Min" Type="Real64" Value="-4"/>
 																</PropertyList>
 															</Modifier>
 														</ModifierInfo>
@@ -2716,7 +2725,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-13</Value>
+														<Value>-11</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2768,6 +2777,11 @@
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
 														<Value>450</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2825,7 +2839,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-8</Value>
+														<Value>-20</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2869,7 +2883,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-2</Value>
+														<Value>-19</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2965,7 +2979,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-1</Value>
+														<Value>-2</Value>
 													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
@@ -2984,7 +2998,7 @@
 													<Custom>
 														<Attenuation Name="Attenuation (Custom)" ID="{0D0D801B-5DB8-453B-AE7B-D003F0B6C0FF}" ShortID="135931316">
 															<PropertyList>
-																<Property Name="RadiusMax" Type="Real64" Value="4"/>
+																<Property Name="RadiusMax" Type="Real64" Value="5"/>
 															</PropertyList>
 															<CurveUsageInfoList>
 																<VolumeDryUsage>
@@ -3000,12 +3014,12 @@
 																					<Flags>5</Flags>
 																				</Point>
 																				<Point>
-																					<XPos>3.01407</XPos>
+																					<XPos>3.7675875</XPos>
 																					<YPos>-200</YPos>
 																					<Flags>0</Flags>
 																				</Point>
 																				<Point>
-																					<XPos>4</XPos>
+																					<XPos>5</XPos>
 																					<YPos>-200</YPos>
 																					<Flags>37</Flags>
 																				</Point>
@@ -5476,7 +5490,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-18</Value>
+										<Value>-19</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -10472,7 +10486,7 @@
 								<Property Name="PriorityDistanceFactor" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-30</Value>
+										<Value>-28</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{7D7A7147-3CC5-4FAA-A8C9-98A5A29CF0DF}" ShortID="666779863">
@@ -10736,8 +10750,59 @@
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-7</Value>
+										<Value>-9</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{6B0678C2-68BC-4CDC-8D5C-9FF4CDB4792F}" ShortID="419655750">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="ANGLE" ID="{0EFDC948-5A46-4806-9CB6-DBD7F8CBE19A}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{3984DDB6-F77B-41A6-B423-65F246F49FB3}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>-180</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>-99.29348</XPos>
+														<YPos>-200</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>-63.09783</XPos>
+														<YPos>0.01103</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-0.02272</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>59.1847826086956</XPos>
+														<YPos>-0.0152430054477251</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>96.84783</XPos>
+														<YPos>-200</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>180</XPos>
+														<YPos>-200</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -11967,7 +12032,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-28</Value>
+										<Value>-23</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -12006,12 +12071,25 @@
 						</RandomSequenceContainer>
 						<Sound Name="PARTICLE_FLY_LOOP" ID="{543C3647-F447-4120-9A94-2A6321BB8E67}" ShortID="36762281">
 							<PropertyList>
+								<Property Name="InitialDelay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{826B5217-F3F6-41F4-B398-B789039C2388}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="0.2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="Spatialization" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-20</Value>
+										<Value>-19</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -12085,9 +12163,10 @@
 						</Sound>
 						<Sound Name="PARTICLE__MERGE_FLY" ID="{3B4027B2-F246-497C-A1EF-FDE95DFA7CA3}" ShortID="60699363">
 							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-20</Value>
+										<Value>-17</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -12113,7 +12192,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-19</Value>
+										<Value>-16</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
