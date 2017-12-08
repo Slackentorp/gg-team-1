@@ -85,7 +85,10 @@ public class PauseCanvas : MonoBehaviour
     {
         sfxSliderPrev = sfxSlider.value;
         musicSliderPrev = musicSlider.value;
-        englishLanguage = (PlayerPrefs.GetInt("LANGUAGE") == 0 ? true : false);
+        englishLanguage = (PlayerPrefs.GetInt("LANGUAGE", 0) == 1 ? true : false);
+        subtitlesIsOn = PlayerPrefs.GetInt("SUBTITLESON", 0) == 0 ? true : false;
+        musicSlider.value = PlayerPrefs.GetFloat("MUSIC", 1f);
+        sfxSlider.value = PlayerPrefs.GetFloat("SFX", 1f);
 
         if (languageButton != null)
         {
@@ -95,7 +98,8 @@ public class PauseCanvas : MonoBehaviour
                 SoundPress();
             });
             langSetting = languageButton.GetComponentsInChildren<Text>()[1];
-            langSetting.text = (!englishLanguage ? "english" : "dansk");
+            langSetting.text = (englishLanguage ? "english" : "dansk");
+            //OnLanguageButtonPressed(englishLanguage);
         }
 
         if (subtitleButton != null)
@@ -107,6 +111,10 @@ public class PauseCanvas : MonoBehaviour
                 SoundPress();
             });
             subtSetting = subtitleButton.GetComponentsInChildren<Text>()[1];
+            if (englishLanguage)
+                subtSetting.text = (subtitlesIsOn ? "til" : "fra");
+            else
+                subtSetting.text = (subtitlesIsOn ? "on" : "off");
         }
 
         if (menuButton != null)
@@ -132,7 +140,7 @@ public class PauseCanvas : MonoBehaviour
     public void SetLang(GameObject button)
     {
         englishLanguage = !englishLanguage;
-        PlayerPrefs.SetInt("LANGUAGE", englishLanguage ? 0 : 1);
+        PlayerPrefs.SetInt("LANGUAGE", englishLanguage ? 1 : 0);
         button.GetComponent<Text>().text = (englishLanguage ? "english" : "dansk");
     }
 
@@ -171,6 +179,7 @@ public class PauseCanvas : MonoBehaviour
         AkSoundEngine.SetRTPCValue("SFX_VOLUME", sfxSlider.value);
         AkSoundEngine.PostEvent("SLIDER_SFX_RELEASE", this.gameObject);
         sfxSliderPrev = sfxSlider.value;
+        PlayerPrefs.SetFloat("SFX", sfxSlider.value);
     }
 
     public void MusicSlider()
@@ -187,6 +196,7 @@ public class PauseCanvas : MonoBehaviour
         AkSoundEngine.SetRTPCValue("MUSIC_VOLUME", musicSlider.value);
         AkSoundEngine.PostEvent("SLIDER_MUSIC_RELEASE", this.gameObject);
         musicSliderPrev = musicSlider.value;
+        PlayerPrefs.SetFloat("MUSIC", musicSlider.value);
     }
 
     private void GoToMenu()
@@ -198,19 +208,41 @@ public class PauseCanvas : MonoBehaviour
     private void OnLanguageButtonPressed(bool isEnglish)
     {
         Debug.Log("Language button pressed");
-        englishLanguage = !englishLanguage;
-        langSetting.text = (isEnglish ? "english" : "dansk");
 
-        if (isEnglish)
-            GameController.Instance.SetEnglish();
+        englishLanguage = !englishLanguage;
+        langSetting.text = (!englishLanguage ? "english" : "dansk");
+        PlayerPrefs.SetInt("LANGUAGE", englishLanguage ? 1 : 0);
+
+        if (GameController.Instance != null)
+        {
+            if (isEnglish)
+                GameController.Instance.SetEnglish();
+            else
+                GameController.Instance.SetDanish();
+        }
         else
-            GameController.Instance.SetDanish();
+        {
+            LocalizationManager localizationManager = new LocalizationManager();
+            if (isEnglish)
+            {
+                subtSetting.text = (subtitlesIsOn ? "on" : "off");
+                localizationManager.SetEnglish();
+            }
+            else
+            {
+                subtSetting.text = (subtitlesIsOn ? "til" : "fra");
+                localizationManager.SetDanish(); 
+            }
+        }
 
         AkSoundEngine.PostEvent("MENUBUTTON_PRESS", this.gameObject);
 
+        //PlayerPrefs.SetInt("LANGUAGE", isEnglish ? 0 : 1);
+
+
         if (OnLanguageButton != null)
         {
-            OnLanguageButton(isEnglish);
+            OnLanguageButton(englishLanguage);
         }
     }
 
@@ -218,10 +250,11 @@ public class PauseCanvas : MonoBehaviour
     {
         subtitlesIsOn = !subtitlesIsOn;
         if (englishLanguage)
-            subtSetting.text = (!subtitlesIsOn ? "til" : "fra");
+            subtSetting.text = (subtitlesIsOn ? "til" : "fra");
         else
-            subtSetting.text = (!subtitlesIsOn ? "on" : "off");
+            subtSetting.text = (subtitlesIsOn ? "on" : "off");
 
+        PlayerPrefs.SetInt("SUBTITLESON", subtitlesIsOn ? 0 : 1);
 
         if (OnSubtitleButton != null)
         {

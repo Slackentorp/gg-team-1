@@ -68,6 +68,7 @@ public class SubToolXML : Singleton<SubToolXML>
 
     public void InitSubs(uint markerId, string eventName)
     {
+        subtitlesIsOn = PlayerPrefs.GetInt("SUBTITLESON", 0) == 0; 
         LocalizationItem.Language language =
            (LocalizationItem.Language)PlayerPrefs.GetInt("LANGUAGE");
         if (language == LocalizationItem.Language.ENGLISH)
