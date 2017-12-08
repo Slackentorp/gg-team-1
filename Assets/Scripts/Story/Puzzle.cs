@@ -59,15 +59,15 @@ public class Puzzle : Interactable
             {
                 puzzlePieces.Add(child.gameObject);
                 correctPositions.Add(child.position);
-                Vector3 newRandomPos = new Vector3(
-                    Random.Range(transform.localPosition.x - (boundingBoxSize.x + boundingBoxOffset.x) / 2f,
-                        transform.position.x + (boundingBoxSize.x + boundingBoxOffset.x) / 2f),
+			    Vector3 newRandomPos = new Vector3(
+                    Random.Range(transform.localPosition.x - (boundingBoxSize.x / 2f) + boundingBoxOffset.x,
+                        transform.localPosition.x + (boundingBoxSize.x / 2f) + boundingBoxOffset.x),
                     puzzlePieces[i].transform.position.y,
-                    Random.Range(transform.localPosition.z - (boundingBoxSize.z + boundingBoxOffset.z) / 2f,
-                        transform.localPosition.z + (boundingBoxSize.z + boundingBoxOffset.z) / 2f)
-                );
-                puzzlePieces[i].transform.position = newRandomPos;
-                correctPuzzle.Add(puzzlePieces[i], correctPositions[i]);
+                    Random.Range(transform.localPosition.z - (boundingBoxSize.z / 2f) + boundingBoxOffset.z,
+                        transform.localPosition.z + (boundingBoxSize.z / 2f) + boundingBoxOffset.z)
+				);
+				puzzlePieces[i].transform.position = newRandomPos;
+				correctPuzzle.Add(puzzlePieces[i], correctPositions[i]);
             }
             else if (transform.GetChild(i).CompareTag("PuzzleFeedforward"))
             {
@@ -106,9 +106,9 @@ public class Puzzle : Interactable
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireCube(transform.position + boundingBoxOffset, boundingBoxSize);
+        Gizmos.DrawWireCube(transform.localPosition + boundingBoxOffset, boundingBoxSize);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, mercyDistance);
+        Gizmos.DrawWireSphere(transform.localPosition, mercyDistance);
     }
 
     private void OnSolved(GameObject puzzleObj)
