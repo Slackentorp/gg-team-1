@@ -11,13 +11,16 @@ public class EasyWwiseEvent : MonoBehaviour
 
     private bool postedBefore;
 
+    [SerializeField]
+    private bool isPhoneTrigger;
+
     void Awake()
     {
-        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        if (!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
         {
             return;
         }
-        if(PostOnlyOnce && postedBefore)
+        if (PostOnlyOnce && postedBefore)
         {
             return;
         }
@@ -31,11 +34,11 @@ public class EasyWwiseEvent : MonoBehaviour
 
     void Start()
     {
-        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        if (!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
         {
             return;
         }
-        if(PostOnlyOnce && postedBefore)
+        if (PostOnlyOnce && postedBefore)
         {
             return;
         }
@@ -49,11 +52,11 @@ public class EasyWwiseEvent : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        if (!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
         {
             return;
         }
-        if(PostOnlyOnce && postedBefore)
+        if (PostOnlyOnce && postedBefore)
         {
             return;
         }
@@ -61,17 +64,18 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
-            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
+            if (isPhoneTrigger)
+                SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
     void OnTriggerStay(Collider other)
     {
-        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        if (!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
         {
             return;
         }
-        if(PostOnlyOnce && postedBefore)
+        if (PostOnlyOnce && postedBefore)
         {
             return;
         }
@@ -79,17 +83,17 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
-            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
+            //SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        if (!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
         {
             return;
         }
-        if(PostOnlyOnce && postedBefore)
+        if (PostOnlyOnce && postedBefore)
         {
             return;
         }
@@ -97,17 +101,17 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
-            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
+            //SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        if (!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
         {
             return;
         }
-        if(PostOnlyOnce && postedBefore)
+        if (PostOnlyOnce && postedBefore)
         {
             return;
         }
@@ -115,17 +119,17 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
-            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
+            //SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
     void OnCollisionStay(Collision other)
     {
-        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        if (!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
         {
             return;
         }
-        if(PostOnlyOnce && postedBefore)
+        if (PostOnlyOnce && postedBefore)
         {
             return;
         }
@@ -133,17 +137,17 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
-            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
+            //SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 
     void OnCollisionExit(Collision other)
     {
-        if(!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
+        if (!GameController.Instance.hasReachedPointOfNoReturn && PostOnlyAfterPointOfNoReturn)
         {
             return;
         }
-        if(PostOnlyOnce && postedBefore)
+        if (PostOnlyOnce && postedBefore)
         {
             return;
         }
@@ -151,7 +155,7 @@ public class EasyWwiseEvent : MonoBehaviour
         {
             AkSoundEngine.PostEvent(WwiseEventID, other.gameObject);
             postedBefore = true;
-            SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
+            //SubToolXML.Instance.InitSubs("TRIGGEREDSOUND_ANSWERING");
         }
     }
 

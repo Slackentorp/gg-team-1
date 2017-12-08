@@ -6,7 +6,7 @@ using Gamelogic.Extensions;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 [RequireComponent(typeof(PlayableDirector))]
 public class StoryEventController : Singleton<StoryEventController>
 {
@@ -14,7 +14,8 @@ public class StoryEventController : Singleton<StoryEventController>
 
     [SerializeField]
     List<StoryEvent> StoryEvents;
-
+    private GameObject EndSceneFadeout;
+    private Animator _anim;
     StoryEvent currentStoryEvent;
     StoryEvent nullStoryEvent;
     Action currentCallback;
@@ -178,15 +179,15 @@ public class StoryEventController : Singleton<StoryEventController>
                 {
                     GameController.instance.InvokeWwisePointOfNoReturn();
                 }
-                if (currentStoryEvent.StoryEventID.Equals("STORYEVENT_END"))
-                {
-                    GameObject outroParent = GameObject.FindGameObjectWithTag("OutroParent");
-                    outroParent.GetComponent<PlayableDirector>().Play();
-                    foreach (var item in outroObjects)
-                    {
-                        item.SetActive(false);
-                    }
-                }
+                //if (currentStoryEvent.StoryEventID.Equals("STORYEVENT_END"))
+                //{
+                //    GameObject outroParent = GameObject.FindGameObjectWithTag("OutroParent");
+                //    outroParent.GetComponent<PlayableDirector>().Play();
+                //    foreach (var item in outroObjects)
+                //    {
+                //        item.SetActive(false);
+                //    }
+                //}
                 currentCallback.Invoke();
             }
 
@@ -204,11 +205,28 @@ public class StoryEventController : Singleton<StoryEventController>
         print("Handling end");
         GameObject outroParent = GameObject.FindGameObjectWithTag("OutroParent");
         outroParent.GetComponent<PlayableDirector>().Play();
+        StartCoroutine(WaitingForAnimationToStop());
+
         foreach (var item in outroObjects)
         {
             item.SetActive(true);
         }
     }
+  
+    
+    IEnumerator WaitingForAnimationToStop()
+    {
+        EndSceneFadeout = GameObject.FindGameObjectWithTag("FadeOutCredits");
+        _anim = EndSceneFadeout.GetComponent<Animator>();        
+        
+        yield return new WaitForSeconds(20);
+         yield return new WaitForSeconds(40);
+
+        _anim.SetBool("GameIsFinished", true);
+        // EndSceneFadeout.SetActive(true);
+    }
+
+
 
     [System.Serializable]
     public struct StoryEvent
