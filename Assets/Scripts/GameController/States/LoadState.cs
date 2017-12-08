@@ -27,6 +27,7 @@ public class LoadState : GameState
         if (PlayerPrefs.GetInt("saveload", -1) == 1)
         {
             StoryEventController.isMuted = true;
+            AkSoundEngine.SetRTPCValue("SFX_VOLUME", 0);
             AkSoundEngine.PostEvent("SFX_MUTE", gm.gameObject);
             loadedGame = SaveLoad.Load(gm);
             int storyeventReached = PlayerPrefs.GetInt("SE_REACHED", 0);
@@ -88,7 +89,11 @@ public class LoadState : GameState
     public override void OnStateExit()
     {
         gm.LoadingPanel.SetActive(false);
+
+        // Delay SFX_unmute to let sound effects play to finish
         AkSoundEngine.PostEvent("SFX_UNMUTE", gm.gameObject);
+        AkSoundEngine.SetRTPCValue("SFX_VOLUME", .5f); 
+        
         SceneManager.sceneLoaded -= OnSceneLoaded;
         StoryEventController.isMuted = false;
 
@@ -117,6 +122,5 @@ public class LoadState : GameState
         }
     }
 
-    public override void Tick()
-    { }
+    public override void Tick() { }
 }
