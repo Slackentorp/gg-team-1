@@ -332,6 +332,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID ANGLE = 1105939986U;
         static const AkUniqueID DIALOGUE_VOLUME = 725232568U;
         static const AkUniqueID FLICKER_VOLUME = 2867585400U;
         static const AkUniqueID MAP_BUTTON_NUMBER = 3594118836U;

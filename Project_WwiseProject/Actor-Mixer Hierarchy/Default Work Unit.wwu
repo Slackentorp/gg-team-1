@@ -2411,12 +2411,23 @@
 								</BlendContainer>
 								<ActorMixer Name="Lamp" ID="{C2A98379-14BB-481D-AFD6-84C937C2D859}" ShortID="669392134">
 									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>13</Value>
+											</ValueList>
+										</Property>
 										<Property Name="OverrideConversion" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
+										<Property Name="UserAuxSendVolume0" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1</Value>
+												<Value>-3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2425,7 +2436,7 @@
 											<Custom>
 												<Attenuation Name="Attenuation (Custom)" ID="{C75294FA-CAB2-44D1-9D04-2AE98EA77174}" ShortID="822184846">
 													<PropertyList>
-														<Property Name="RadiusMax" Type="Real64" Value="6"/>
+														<Property Name="RadiusMax" Type="Real64" Value="5"/>
 													</PropertyList>
 													<CurveUsageInfoList>
 														<VolumeDryUsage>
@@ -2441,17 +2452,17 @@
 																			<Flags>5</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>1.73708571428571</XPos>
-																			<YPos>-1.7278</YPos>
+																			<XPos>0.56337</XPos>
+																			<YPos>-1.05575</YPos>
 																			<Flags>0</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>5.9988</XPos>
+																			<XPos>4.2723</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>0</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>6</XPos>
+																			<XPos>5</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>37</Flags>
 																		</Point>
@@ -2487,6 +2498,9 @@
 										<Reference Name="OutputBus">
 											<ObjectRef Name="SFX" ID="{747AB279-BA9B-421A-9517-B70BBFD69A28}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Reverb_livingroom" ID="{15279453-A672-4F5D-8661-BDBC44113891}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+										</Reference>
 									</ReferenceList>
 									<ChildrenList>
 										<RandomSequenceContainer Name="Turn on" ID="{8E256CAF-46EA-43F4-95E4-D2D71C8B9434}" ShortID="16772953">
@@ -2494,7 +2508,7 @@
 												<Property Name="EnablePositioning" Type="bool" Value="False"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>10</Value>
+														<Value>-1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2597,14 +2611,14 @@
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-1</Value>
+														<Value>-9</Value>
 													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
 															<Modifier Name="" ID="{601E50F4-A766-4F3D-8738-3A2F1AC552DF}">
 																<PropertyList>
 																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Min" Type="Real64" Value="-8"/>
+																	<Property Name="Min" Type="Real64" Value="-4"/>
 																</PropertyList>
 															</Modifier>
 														</ModifierInfo>
@@ -2716,7 +2730,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-13</Value>
+														<Value>-11</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2770,6 +2784,11 @@
 														<Value>450</Value>
 													</ValueList>
 												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -2808,6 +2827,7 @@
 										</RandomSequenceContainer>
 										<Sound Name="Laser_Sword_Movements_PSEM_156" ID="{EB7B7A91-F7F2-4207-951D-3C7E1970A4C9}" ShortID="883175853">
 											<PropertyList>
+												<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
 														<Value>660</Value>
@@ -2823,9 +2843,14 @@
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
+												<Property Name="UserAuxSendVolume0" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-8</Value>
+														<Value>-20</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2835,6 +2860,9 @@
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Memory_Verb" ID="{854A0C87-F20F-48F7-BED6-DE9B60C88C77}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -2854,7 +2882,11 @@
 										</Sound>
 										<Sound Name="Shot_Laser_Very Light_PSEM_227" ID="{F49E87F5-3CCF-482E-B82B-44BDD15A5628}" ShortID="353768758">
 											<PropertyList>
+												<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>330</Value>
+													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
 															<Modifier Name="" ID="{608849E5-4786-4505-A7E8-E0C8826345BA}">
@@ -2867,9 +2899,14 @@
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
+												<Property Name="UserAuxSendVolume0" Type="Real64">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-2</Value>
+														<Value>-26</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2879,6 +2916,9 @@
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Reverb_livingroom" ID="{15279453-A672-4F5D-8661-BDBC44113891}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -2965,7 +3005,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-1</Value>
+														<Value>-2</Value>
 													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
@@ -2984,7 +3024,7 @@
 													<Custom>
 														<Attenuation Name="Attenuation (Custom)" ID="{0D0D801B-5DB8-453B-AE7B-D003F0B6C0FF}" ShortID="135931316">
 															<PropertyList>
-																<Property Name="RadiusMax" Type="Real64" Value="4"/>
+																<Property Name="RadiusMax" Type="Real64" Value="5"/>
 															</PropertyList>
 															<CurveUsageInfoList>
 																<VolumeDryUsage>
@@ -3000,12 +3040,12 @@
 																					<Flags>5</Flags>
 																				</Point>
 																				<Point>
-																					<XPos>3.01407</XPos>
+																					<XPos>3.7675875</XPos>
 																					<YPos>-200</YPos>
 																					<Flags>0</Flags>
 																				</Point>
 																				<Point>
-																					<XPos>4</XPos>
+																					<XPos>5</XPos>
 																					<YPos>-200</YPos>
 																					<Flags>37</Flags>
 																				</Point>
@@ -3259,8 +3299,49 @@
 										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-17</Value>
+												<Value>-15</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{3372EEFC-2B77-41A7-8F7C-0D741B3FD8D8}" ShortID="1047112526">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="ANGLE" ID="{0EFDC948-5A46-4806-9CB6-DBD7F8CBE19A}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{3AE8A16E-8324-4E2F-8906-C09B9AA36437}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-180</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>-90</XPos>
+																<YPos>-200</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>-0.48913</XPos>
+																<YPos>-0.01181</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>89.02174</XPos>
+																<YPos>-200</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>180</XPos>
+																<YPos>-200</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -5273,6 +5354,11 @@
 										<Value>-13</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5471,7 +5557,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-18</Value>
+										<Value>-19</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -9157,6 +9243,11 @@
 											<PropertyList>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.842293144564099"/>
 												<Property Name="TrimEnd" Type="Real64" Value="14.792773351407"/>
+												<Property Name="VolumeOffset" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>POLAROID_2_da.wav</AudioFile>
@@ -9201,12 +9292,21 @@
 											</ConvertedFileIDList>
 										</AudioFileSource>
 										<AudioFileSource Name="POLAROID_2" ID="{AC21B139-97D0-40AC-A7B9-58A456589E0F}" ShortID="112413551">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.199605927487847"/>
+												<Property Name="TrimEnd" Type="Real64" Value="14.5427175741145"/>
+												<Property Name="VolumeOffset" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>POLAROID_2.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="POLOROID_2" ID="{EEDF5C8F-F20B-4CD8-BEBA-B64F15E8D79D}" Platform="Linked"/>
+										<ActiveSource Name="POLAROID_2" ID="{AC21B139-97D0-40AC-A7B9-58A456589E0F}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -10453,7 +10553,7 @@
 								<Property Name="PriorityDistanceFactor" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-33</Value>
+										<Value>-28</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{7D7A7147-3CC5-4FAA-A8C9-98A5A29CF0DF}" ShortID="666779863">
@@ -10717,8 +10817,59 @@
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-7</Value>
+										<Value>-9</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{6B0678C2-68BC-4CDC-8D5C-9FF4CDB4792F}" ShortID="419655750">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="ANGLE" ID="{0EFDC948-5A46-4806-9CB6-DBD7F8CBE19A}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{3984DDB6-F77B-41A6-B423-65F246F49FB3}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>-180</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>-50.86957</XPos>
+														<YPos>-34.32007</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>-20.54349</XPos>
+														<YPos>-0.0728</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-0.02272</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>20.05436</XPos>
+														<YPos>-0.01524</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>61.63044</XPos>
+														<YPos>-200</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>180</XPos>
+														<YPos>-200</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -11656,7 +11807,7 @@
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>-5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11847,7 +11998,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-27</Value>
+										<Value>-24</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11948,7 +12099,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-28</Value>
+										<Value>-23</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11987,12 +12138,25 @@
 						</RandomSequenceContainer>
 						<Sound Name="PARTICLE_FLY_LOOP" ID="{543C3647-F447-4120-9A94-2A6321BB8E67}" ShortID="36762281">
 							<PropertyList>
+								<Property Name="InitialDelay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{826B5217-F3F6-41F4-B398-B789039C2388}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="0.2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="Spatialization" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-22</Value>
+										<Value>-19</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -12066,9 +12230,10 @@
 						</Sound>
 						<Sound Name="PARTICLE__MERGE_FLY" ID="{3B4027B2-F246-497C-A1EF-FDE95DFA7CA3}" ShortID="60699363">
 							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-22</Value>
+										<Value>-17</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -12094,7 +12259,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-19</Value>
+										<Value>-16</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
