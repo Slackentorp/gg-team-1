@@ -21,7 +21,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.04622622, g: 0.20131478, b: 0.33088237, a: 1}
+  m_AmbientSkyColor: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -14204,6 +14204,26 @@ Prefab:
       value: 
       objectReference: {fileID: 111300000, guid: fa47ac8e37c7ea6419d00da982a1e95f,
         type: 2}
+    - target: {fileID: 23182491921650416, guid: 21187a9be9623384c899de05c44fd8c2,
+        type: 2}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23498348912951522, guid: 21187a9be9623384c899de05c44fd8c2,
+        type: 2}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23669730306361424, guid: 21187a9be9623384c899de05c44fd8c2,
+        type: 2}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23358199675655442, guid: 21187a9be9623384c899de05c44fd8c2,
+        type: 2}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21187a9be9623384c899de05c44fd8c2, type: 2}
   m_IsPrefabParent: 0
@@ -15948,7 +15968,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 831367815}
-  - component: {fileID: 749965229}
   m_Layer: 8
   m_Name: light_table_01_prefab 1
   m_TagString: Wall
@@ -15956,38 +15975,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967293
   m_IsActive: 1
---- !u!114 &749965229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114385064142279960, guid: 5f66b144b19d58049ae3379e39953bb4,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 749965228}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc1a45fd9a6cef45a7909ab1bf3a3b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsLit: 0
-  isSwitchable: 0
-  interactables:
-  - {fileID: 0}
-  lampMaterialOn: {fileID: 2100000, guid: 3fe3efdb4ed1d024fac90d59f8b472f6, type: 2}
-  lampMaterialOff: {fileID: 2100000, guid: 5b163e43efbc76d409e017d56e95e212, type: 2}
-  lampStateCheck: 0
-  lightMapIndex: 0
-  lerpParticleOffset: {x: 0, y: 0.3, z: 0}
-  isActivated: 0
-  lampFullOn: 0
-  flickTimeLongMin: 0.5
-  flickTimeLongMax: 3
-  flickTimeShortMin: 0.05
-  flickTimeShortMax: 0.1
-  nrOfFlicksMin: 2
-  nrOfFlicksMax: 3
-  LongONSequenceMin: 1
-  LongOnSequenceMax: 4
-  LongOnSequenceOutOF: 6
 --- !u!1001 &752017074
 Prefab:
   m_ObjectHideFlags: 0
@@ -17476,6 +17463,14 @@ Prefab:
     - target: {fileID: 1448708893588494, guid: 5774eb744cfd9e14c8a9f7be7daf6fc0, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789270475712542, guid: 5774eb744cfd9e14c8a9f7be7daf6fc0, type: 2}
+      propertyPath: m_TagString
+      value: OutroObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610782989927420, guid: 5774eb744cfd9e14c8a9f7be7daf6fc0, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5774eb744cfd9e14c8a9f7be7daf6fc0, type: 2}
@@ -20227,6 +20222,10 @@ Prefab:
     - target: {fileID: 4579084994090410, guid: 066b262c771f660498f7595e05d0ad68, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743091416515768, guid: 066b262c771f660498f7595e05d0ad68, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 066b262c771f660498f7595e05d0ad68, type: 2}
@@ -31588,6 +31587,58 @@ Prefab:
       value: 
       objectReference: {fileID: 111300000, guid: fa47ac8e37c7ea6419d00da982a1e95f,
         type: 2}
+    - target: {fileID: 4536537127913440, guid: c2a149c219a450743ba2b085a1a47b2d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100059122428808, guid: c2a149c219a450743ba2b085a1a47b2d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667523601114394, guid: c2a149c219a450743ba2b085a1a47b2d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 23808762497268438, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23964238789930246, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23022159180258608, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23482868991585740, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23808762497268438, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23022159180258608, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23964238789930246, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23482868991585740, guid: c2a149c219a450743ba2b085a1a47b2d,
+        type: 2}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2a149c219a450743ba2b085a1a47b2d, type: 2}
   m_IsPrefabParent: 0
@@ -34109,7 +34160,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1337057198}
-  - component: {fileID: 1518829665}
   m_Layer: 8
   m_Name: light_table_01_prefab 1 (1)
   m_TagString: Wall
@@ -34117,38 +34167,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967293
   m_IsActive: 1
---- !u!114 &1518829665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114385064142279960, guid: 5f66b144b19d58049ae3379e39953bb4,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1518829664}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc1a45fd9a6cef45a7909ab1bf3a3b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsLit: 0
-  isSwitchable: 0
-  interactables:
-  - {fileID: 0}
-  lampMaterialOn: {fileID: 2100000, guid: 3fe3efdb4ed1d024fac90d59f8b472f6, type: 2}
-  lampMaterialOff: {fileID: 2100000, guid: 5b163e43efbc76d409e017d56e95e212, type: 2}
-  lampStateCheck: 0
-  lightMapIndex: 0
-  lerpParticleOffset: {x: 0, y: 0.3, z: 0}
-  isActivated: 0
-  lampFullOn: 0
-  flickTimeLongMin: 0.5
-  flickTimeLongMax: 3
-  flickTimeShortMin: 0.05
-  flickTimeShortMax: 0.1
-  nrOfFlicksMin: 2
-  nrOfFlicksMax: 3
-  LongONSequenceMin: 1
-  LongOnSequenceMax: 4
-  LongOnSequenceOutOF: 6
 --- !u!1001 &1519663308
 Prefab:
   m_ObjectHideFlags: 0
