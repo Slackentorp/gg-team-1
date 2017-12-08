@@ -14,7 +14,8 @@ public class StoryEventController : Singleton<StoryEventController>
 
     [SerializeField]
     List<StoryEvent> StoryEvents;
-
+    private GameObject EndSceneFadeout;
+    private Animator _anim;
     StoryEvent currentStoryEvent;
     StoryEvent nullStoryEvent;
     Action currentCallback;
@@ -211,17 +212,14 @@ public class StoryEventController : Singleton<StoryEventController>
             item.SetActive(true);
         }
     }
-    [SerializeField]
-    private GameObject EndSceneFadeout;
-    public  Animator _anim;
+  
+    
     IEnumerator WaitingForAnimationToStop()
     {
         EndSceneFadeout = GameObject.FindGameObjectWithTag("FadeOutCredits");
         _anim = EndSceneFadeout.GetComponent<Animator>();        
         
-        Debug.Log("IT'S TOTALLY HAPPENING");
-        yield return new WaitForSeconds(0);
-        Debug.Log("ALMOST THERE 40 SECONDS");
+        yield return new WaitForSeconds(20);
          yield return new WaitForSeconds(40);
 
         _anim.SetBool("GameIsFinished", true);
