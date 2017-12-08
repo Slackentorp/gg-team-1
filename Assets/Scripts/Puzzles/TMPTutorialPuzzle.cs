@@ -1,0 +1,42 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(BoxCollider))]
+public class TMPTutorialPuzzle : MonoBehaviour, ITouchInput 
+{
+    public bool solved = false;
+
+    [SerializeField]
+    private GameObject particles; 
+    public void OnTap()
+    {
+        solved = true;
+  //      GameController.Instance.SolveTutorial();
+        particles.SetActive(true);
+    }
+
+    public void OnTouchDown(Vector3 worldPos)
+    {
+
+    }
+
+    public void OnTouchUp()
+    {
+
+    }
+
+    public void OnToucHold(Vector3 worldPos)
+    {
+
+    }
+
+    public void OnTouchExit()
+    {
+
+    }
+
+    public void OnSwipe( TouchDirection direction)
+    {
+    }
+}

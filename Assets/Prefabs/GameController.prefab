@@ -20,6 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4890751284746952}
   - component: {fileID: 114763383372758958}
+  - component: {fileID: 114389460041015088}
+  - component: {fileID: 114666657061998794}
+  - component: {fileID: 114240016538977712}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -40,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114763383372758958
+--- !u!114 &114240016538977712
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,7 +51,121 @@ MonoBehaviour:
   m_GameObject: {fileID: 1933261129836944}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d567436c661794a9576b62d800a62c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightMapRoom1ID_1:
+  - {fileID: 0}
+  - {fileID: 0}
+  lightMapRoom1ID_2:
+  - {fileID: 0}
+  - {fileID: 0}
+  lightMapRoom1ID_3:
+  - {fileID: 0}
+  - {fileID: 0}
+  lightMap1ID_4:
+  - {fileID: 0}
+  - {fileID: 0}
+  lightMap1ID_5:
+  - {fileID: 0}
+  - {fileID: 0}
+  lightMap1ID_6:
+  - {fileID: 0}
+  - {fileID: 0}
+  lightMap1ID_7:
+  - {fileID: 0}
+  - {fileID: 0}
+  lightMap1ID_8:
+  - {fileID: 0}
+  - {fileID: 0}
+  lightMapRoom2ID_1: []
+  lightMapRoom2ID_2: []
+  lightMapRoom2ID_3: []
+  lightMap2ID_4: []
+  lightMap2ID_5: []
+  lightMap2ID_6: []
+  lightMap2ID_7: []
+  lightMap2ID_8: []
+  lightMapRoom3ID_1: []
+  lightMapRoom3ID_2: []
+  lightMapRoom3ID_3: []
+  lightMap3ID_4: []
+  lightMap3ID_5: []
+  lightMap3ID_6: []
+  lightMap3ID_7: []
+  lightMap3ID_8: []
+  lightMapRoom4ID_1: []
+  lightMapRoom4ID_2: []
+  lightMapRoom4ID_3: []
+  lightMap4ID_4: []
+  lightMap4ID_5: []
+  lightMap4ID_6: []
+  lightMap4ID_7: []
+  lightMap4ID_8: []
+  lightMapRoom5ID_1: []
+  lightMapRoom5ID_2: []
+  lightMapRoom5ID_3: []
+  lightMap5ID_4: []
+  lightMap5ID_5: []
+  lightMap5ID_6: []
+  lightMap5ID_7: []
+  lightMap5ID_8: []
+  roomIndex: 5
+  lightsOn: []
+  getPuzzelChecker: {fileID: 0}
+  lightsDirOn: []
+  lightsOff: []
+  lightsDirOff: []
+  lightNumber: 0
+  sceneLights: []
+  getLamps: []
+--- !u!114 &114389460041015088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1933261129836944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f26dd362b0d50994ba9212992dc7c086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSources: []
+  mainLights: []
+  lightsOn: 
+--- !u!114 &114666657061998794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1933261129836944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ba6703419d79b4f9f07869f9b6a1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SolvedPuzzels: 
+  puzzels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  endLight: {fileID: 0}
+  cameraObject: {fileID: 1039801403661518, guid: 2f2e41f2ebcfbc94cba04cd986ab815a,
+    type: 2}
+  getGameController: {fileID: 114763383372758958}
+  endLightPosition: {x: 0, y: 0, z: 0}
+  mothPosition: {x: 0, y: 0, z: 0}
+  endGameCanvas: {fileID: 0}
+--- !u!114 &114763383372758958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1933261129836944}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b18f7808c7237ae41b20794a58d3a8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLight: {fileID: 0}
+  __messageText: 

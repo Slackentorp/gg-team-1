@@ -6,11 +6,11 @@
 				<SoundcasterSession Name="Ambience" ID="{7BEA1518-C743-4401-9C0D-7448E2F77E77}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="AMBIENCE_CITY" ID="{27FD9E2A-3722-4927-9C92-A36C7A658416}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<ObjectRef Name="STREET" ID="{27FD9E2A-3722-4927-9C92-A36C7A658416}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="CAR_PASS" ID="{0DA6AEB2-DB75-445E-B125-1782D0AF67D8}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<ObjectRef Name="CARS" ID="{0DA6AEB2-DB75-445E-B125-1782D0AF67D8}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
 							<Position X="1" Y="0"/>
 						</Module>
 					</ModuleList>
@@ -32,14 +32,55 @@
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Puzzles" ID="{857C52F5-B477-4EE8-BC3F-B8634EFF9822}">
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}"/>
+							<Value>44</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+							<Value>-48</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFX_VOLUME" ID="{DD2FA790-5B47-47E9-8B9A-7BF350D45065}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}"/>
+							<Value>0.9</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MUSIC_VOLUME" ID="{2516B5BA-68F0-4E04-9F17-B0414481BF14}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="OBJECT_SPEED" ID="{3152E94B-B9B8-4F41-A102-C62BE0E7E47F}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}"/>
+							<Value>0.681440443213296</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="BULB_1" ID="{D928315A-AC32-404B-B2BB-5DE1A80E0C0E}"/>
+						<CurrentStateRef Name="None" ID="{5A181DF4-3020-4459-84E9-8E4B5A661292}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Moth" ID="{11A76492-0094-47BC-ACC3-1E9029C8B68B}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="PAINTING_STARTTURNING" ID="{E56B8409-2161-4DE7-989D-CB0431C64C1B}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<ObjectRef Name="MOTH_START_FLIGHT" ID="{42DDC5BA-946A-4A80-8D37-64684D345CA2}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="PAINTING_STOPTURNING" ID="{631CD828-853D-45AE-A08F-219BDA121047}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
-							<Position X="1" Y="0"/>
+							<ObjectRef Name="MOTH_END_FLIGHT" ID="{55124FC1-C5D1-41D4-8A94-2636E35D9F51}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -48,8 +89,281 @@
 							<Value>44</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+							<Value>-48</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFX_VOLUME" ID="{DD2FA790-5B47-47E9-8B9A-7BF350D45065}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MUSIC_VOLUME" ID="{2516B5BA-68F0-4E04-9F17-B0414481BF14}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}"/>
 							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="OBJECT_SPEED" ID="{3152E94B-B9B8-4F41-A102-C62BE0E7E47F}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}"/>
+							<Value>0</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="PIECE_4" ID="{4677F6B7-0588-40BB-AAB4-DCE2F0E8F6EC}"/>
+						<CurrentStateRef Name="INSIDE" ID="{93846049-8C3A-4A3D-A925-FAE4963F37E7}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Lamp" ID="{6046E165-AE80-4812-A9E1-FAF5E3841FEA}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Music" ID="{B8FBD82A-3406-4A57-95E3-7BAA3495DB0D}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_TATTOO" ID="{F2167923-AA66-4428-A204-4F0F454DDAFD}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_BIRTHDAY" ID="{E53DF958-F7BF-43F9-BC11-EF71E8CD306A}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_CLOCK" ID="{C3EC89ED-5C28-49F2-8A98-22B997437474}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_END" ID="{DA185ABF-394C-4E37-87D9-B6179BD28503}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="5"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Menu Puzzle" ID="{AA6D2D6D-A0F6-4832-9D2D-C5CE156D1FA7}" WorkUnitID="{85359BBF-5FF1-4DCC-BBAB-F7D0738CCB52}"/>
+							<Position X="0" Y="6"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_POLAROID1" ID="{3DFB69FD-5340-40F8-8517-0D649FC1DEAA}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_POSTER" ID="{17CAD062-F2B7-4C75-8441-FC4F8BD6E5AF}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="TRIGGEREDSOUND_ANSWERING" ID="{7863DC47-3622-4919-AED8-D64684CF3AF4}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="ANSWERING_TRIGGER" ID="{6C22D995-312B-4427-AE35-FBBEA51AB7D6}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PARTICLE_APPEAR_FRAGMENT" ID="{B28D9386-FB5A-4351-8FFA-4DF78B6991AC}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="5"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="STORYEVENT_3" ID="{44882B9E-FD17-44CE-8780-5C35A953B1C3}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_NEWYEARS" ID="{005421FB-9909-40F9-A1B2-14E4587DF489}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_TIRED" ID="{4F7B729B-EAF1-4315-B324-029CF1F6BF7D}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_WORLDMAP1" ID="{8DE25AEB-B7B2-484E-9D88-042E391EEA99}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="2" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PARTICLE_ENTER_LAMP" ID="{A1C91C38-B395-4867-B46A-3685C93BD0E8}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="2" Y="5"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="STORYEVENT_1" ID="{7C9076E5-D2BD-4DB4-ABB8-45E9C60BAE60}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="2" Y="6"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_TV1" ID="{0BB3A6F0-75FE-4F7D-9CCE-22616D7D01FF}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_PARENTS1" ID="{9CCFF272-77AE-4D04-A4A9-E26C198EE322}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_WEDNESDAYWINE" ID="{B5898CF0-4BE5-421A-9A32-4D8B257838BF}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="3" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_SMOKING1" ID="{16B76AF3-562D-47B5-8360-9B6FE44405BB}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="3" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_WORLDMAP2" ID="{34753A5A-7A2D-4C5E-8320-9D52CF944427}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="3" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="STORYEVENT_1" ID="{7C9076E5-D2BD-4DB4-ABB8-45E9C60BAE60}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="3" Y="5"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PARTICLE_ENTER_FOGWALL" ID="{415C8E1D-D422-4249-BC82-D0E243FF547F}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="3" Y="6"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_TV2" ID="{171B61B0-D89D-43B3-9D85-08BCD11658CD}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="4" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_PARENTS2" ID="{B9C12700-71CF-49A7-960E-CC7A49E1D293}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="4" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FRAGMENT_SMOKING2" ID="{C87BC886-8624-4449-AFC8-D4CBF38725B3}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="4" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PIECE_PLACED_RIGHT" ID="{7029520A-2FA4-44F4-B33D-1A908B0EFD48}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="4" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MAINMENU_OPEN" ID="{F57412A0-CBED-4E0E-B4C5-358AA27E86A0}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="5" Y="3"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}"/>
+							<Value>44</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="FLICKER_VOLUME" ID="{55301302-5A4B-43B0-AC6A-A9AD2368252D}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="PICTUREPUZZLE_STATE" ID="{40A0EEB6-4948-4594-8DFA-4974BD810844}"/>
+							<Value>4.18</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+							<Value>-48</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFX_VOLUME" ID="{DD2FA790-5B47-47E9-8B9A-7BF350D45065}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="ANGLE" ID="{0EFDC948-5A46-4806-9CB6-DBD7F8CBE19A}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MUSIC_VOLUME" ID="{2516B5BA-68F0-4E04-9F17-B0414481BF14}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="OBJECT_SPEED" ID="{3152E94B-B9B8-4F41-A102-C62BE0E7E47F}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}"/>
+							<Value>1.84782608695652</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="PIECE_0" ID="{7A2772C0-D900-4047-BABE-3BE42AE785E1}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{DF72C0AE-0259-443D-9E40-E7B526F3B6C8}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{F5E61A55-63CB-463B-A6DF-8838C4890254}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{B1D1BB4D-45FD-4B45-9A17-63EECDE55CFD}"/>
+						<CurrentStateRef Name="FINALE" ID="{5C5D6D0F-506B-4766-A9ED-5D198D6FB590}"/>
+						<CurrentStateRef Name="ENGLISH" ID="{3A2BE52B-5BBF-405C-9CD2-175EDB012F37}"/>
+						<CurrentStateRef Name="Silent" ID="{84B7082D-A327-4B85-8344-6103AF1519E9}"/>
+						<CurrentStateRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
+						<CurrentStateRef Name="LAMP_1" ID="{5CD9C236-0FC1-49C7-8F9E-196D0B304E8E}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{47BC3F36-4959-4257-A3B3-1F335671B78E}"/>
+						<CurrentStateRef Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="PIECE_0" ID="{79E69D9C-FF78-410A-B13E-4AE9BCD5B932}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Storyevent" ID="{F2FB5FF2-F3B7-4BD2-9FB2-061A62C9A2F3}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="PARTICLE_ENTER_FOGWALL" ID="{415C8E1D-D422-4249-BC82-D0E243FF547F}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PARTICLE_APPEAR_FRAGMENT" ID="{B28D9386-FB5A-4351-8FFA-4DF78B6991AC}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PARTICLE_APPEAR_LAMP" ID="{EBD4BEE7-EC68-4836-8268-DE85780BF9B1}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PARTICLE_ENTER_LAMP" ID="{A1C91C38-B395-4867-B46A-3685C93BD0E8}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PARTICLE_MERGE" ID="{7D1D34C7-0D33-46F6-93D9-BADDA22B2014}" WorkUnitID="{5B946481-3CC7-4F30-A881-530D9C8A41CC}"/>
+							<Position X="4" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MOTH_DOPPLER" ID="{274015FC-77BB-4283-AF63-386BBCBDECB2}"/>
+							<Value>44</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="FLICKER_VOLUME" ID="{55301302-5A4B-43B0-AC6A-A9AD2368252D}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="PICTUREPUZZLE_STATE" ID="{40A0EEB6-4948-4594-8DFA-4974BD810844}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DIALOGUE_VOLUME" ID="{95D447AB-E144-47B8-AA04-315EFB7B3B73}"/>
+							<Value>-48</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFX_VOLUME" ID="{DD2FA790-5B47-47E9-8B9A-7BF350D45065}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MUSIC_VOLUME" ID="{2516B5BA-68F0-4E04-9F17-B0414481BF14}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="TENSION" ID="{EE80229F-5F53-4E4F-BF18-881CBB9AA15C}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="OBJECT_SPEED" ID="{3152E94B-B9B8-4F41-A102-C62BE0E7E47F}"/>
+							<Value>50</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="MOTH_SPEED" ID="{7056CEEF-1B3A-4F6E-A1BA-4CB6022BC8EF}"/>
@@ -57,9 +371,21 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="SOLVED" ID="{3FB38530-87CA-45FF-ADC0-13F7A8116496}"/>
+						<CurrentStateRef Name="PIECE_0" ID="{7A2772C0-D900-4047-BABE-3BE42AE785E1}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{DF72C0AE-0259-443D-9E40-E7B526F3B6C8}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{F5E61A55-63CB-463B-A6DF-8838C4890254}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{B1D1BB4D-45FD-4B45-9A17-63EECDE55CFD}"/>
+						<CurrentStateRef Name="FINALE" ID="{5C5D6D0F-506B-4766-A9ED-5D198D6FB590}"/>
+						<CurrentStateRef Name="DANISH" ID="{A171AFA3-B345-41C0-A29A-1FFDCDB8899A}"/>
+						<CurrentStateRef Name="Happy_2" ID="{F9CA9C3B-6F3F-4595-BACB-A2AE05AFBFB8}"/>
+						<CurrentStateRef Name="FRAGMENT" ID="{400B8F62-9145-4571-871B-BA2E959326B8}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{D215C82D-B5A0-4238-BC70-EDE9F6F52976}"/>
+						<CurrentStateRef Name="LAMP_0" ID="{47BC3F36-4959-4257-A3B3-1F335671B78E}"/>
+						<CurrentStateRef Name="LIVINGROOM" ID="{E26D6746-B454-41B4-9858-AACB91DD359E}"/>
 					</CurrentStateList>
-					<CurrentSwitchList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Done" ID="{74D0208A-9436-4570-9A15-98DBA9AAF737}"/>
+					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>

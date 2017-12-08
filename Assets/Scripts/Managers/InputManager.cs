@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Gamelogic.Extensions;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 #pragma warning disable 649
 
@@ -10,83 +11,72 @@ namespace Assets.Scripts.Managers
     /// Manager class that watches and keeps track of touch events and sends commands to the appropiate objects
     /// when OnTouchDown, OnTouchHold, OnTouchUp, OnTap, and swipe is being detected.
     /// </summary>
-    public class InputManager : MonoBehaviour
+    public class InputManager
     {
-        [SerializeField]
-        private InputHandlerSettings settings;
+        public static bool isTouchingObject;
+        public static bool pauseShown;
 
-        private LayerMask touchInputMask;
-        private float tapTimeThreshold = 1f;
-        private float swipeSquaredDistanceThreshold = 1f;
-        private float swipeStraightness = 1f;
-        private float swipeTimeThreshold = 1f;
+        private readonly LayerMask touchInputMask;
+        private readonly float tapTimeThreshold = 1f;
 
-        private Camera mainCamera;
-        private readonly Dictionary<GameObject, TouchState> frameTouches = new Dictionary<GameObject, TouchState>();
+        private readonly Camera mainCamera;
         private readonly Dictionary<GameObject, TouchState> objectOnTouchDownState = new Dictionary<GameObject, TouchState>();
 
-        [SerializeField]
-        private float lastMouseClick;
         private Vector2 lastMousePos;
         private string debugLastInput;
 
         // Use this for initialization
-        void Start()
+
+        public InputManager(InputHandlerSettings settings, Camera camera)
         {
-            mainCamera = Camera.main;
+            mainCamera = camera;
             touchInputMask = settings._TouchInputMask;
             tapTimeThreshold = settings._TapTimeThreshold;
-            swipeSquaredDistanceThreshold =
-                settings._SwipeSquaredDistanceThreshold;
-            swipeStraightness = settings._SwipeStraightness;
-            swipeTimeThreshold = settings._SwipeTimeThreshold;
         }
 
         // Update is called once per frame
-        void Update()
+        public InputEvent CheckInput()
         {
 #if UNITY_EDITOR
             if (UnityEditor.EditorApplication.isRemoteConnected)
             {
-                CheckTouch();
+                return CheckTouch();
             }
             else
             {
-                CheckMouse();
+                return CheckMouse();
             }
 #else
-        CheckTouch();
+            return CheckTouch();
 #endif
         }
 
-        void OnGUI()
+        public void OnGUI()
         {
             GUI.contentColor = Color.cyan;
             GUI.Label(new Rect(0, 0, 200, 200), debugLastInput);
         }
 
-        void CheckTouch()
+        InputEvent CheckTouch()
         {
-            Dictionary<GameObject, TouchState> previousFrameTouches = new Dictionary<GameObject, TouchState>(frameTouches);
-            frameTouches.Clear();
+            isTouchingObject = false;
+            InputEvent ie = new InputEvent();
+            if(pauseShown)
+            {
+                return ie;
+            }
 
             foreach (Touch t in Input.touches)
             {
                 Ray ray = mainCamera.ScreenPointToRay(t.position);
                 RaycastHit hit;
-               
-                if (Physics.Raycast(ray, out hit, touchInputMask))
+
+                                if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
-                    Debug.DrawLine(mainCamera.ScreenToWorldPoint(t.position), hit.point);
                     GameObject touchObject = hit.transform.gameObject;
-                    ITouchInput touchInput =
-                        touchObject.GetComponent<ITouchInput>();
-                    if (touchInput == null)
-                    {
-                        continue;
-                    }
-                    
-                    frameTouches[touchObject] = new TouchState(Time.time, t);
+                    ie.GameObject = touchObject;
+                    ie.TouchPosition = hit.point;
+                    ie.RaycastHit = hit;
 
                     TouchState ts;
                     objectOnTouchDownState.TryGetValue(touchObject,
@@ -96,73 +86,66 @@ namespace Assets.Scripts.Managers
                     if (t.phase == TouchPhase.Ended && ts.onTouchTime > 0 &&
                         Time.time - ts.onTouchTime <= tapTimeThreshold)
                     {
-                        touchInput.OnTap(t);
-                        debugLastInput = "Tap";
+                        ie.InputType = InputType.TAP;
                         objectOnTouchDownState.Remove(touchObject);
                     }
                     else
                     {
-                        switch (t.phase) {
+                        switch (t.phase)
+                        {
                             case TouchPhase.Began:
-                                debugLastInput = "Down";
-                                touchInput.OnTouchDown(t);
-                                objectOnTouchDownState[touchObject] = new TouchState(Time.time, t);
+                                TouchState tmp;
+                                if (!objectOnTouchDownState.TryGetValue(
+                                        touchObject, out tmp))
+                                {
+                                    ie.InputType = InputType.TOUCH_DOWN;
+                                    objectOnTouchDownState.Add(touchObject,
+                                        new TouchState(Time.time, t));
+                                }
+                                else
+                                {
+                                    RefreshDictionary(touchObject);
+                                }
                                 break;
                             case TouchPhase.Moved:
-                                debugLastInput = "Hold";
-                                touchInput.OnToucHold(t);
+                                ie.InputType = InputType.TOUCH_HOLD;
                                 break;
                             case TouchPhase.Ended:
-                                debugLastInput = "Ended";
-                                HandleOnTouchExit(touchObject, touchInput, new TouchState(Time.time, t));
+                                ie.InputType = HandleOnTouchExit(touchObject, new TouchState(Time.time, t));
                                 break;
                             case TouchPhase.Stationary:
-                                debugLastInput = "Hold";
-                                touchInput.OnToucHold(t);
+                                ie.InputType = InputType.TOUCH_HOLD;
                                 break;
                             case TouchPhase.Canceled:
-                                debugLastInput = "Exit";
-                                HandleOnTouchExit(touchObject, touchInput, new TouchState(Time.time, t));
+                                ie.InputType = HandleOnTouchExit(touchObject, new TouchState(Time.time, t));
                                 break;
                         }
                     }
                 }
             }
 
-            // Check whether more objects were touched in the previous frame
-            // indicating that a touch was canceled
-            foreach (var oldObject in previousFrameTouches)
-            {
-                if (!frameTouches.ContainsKey(oldObject.Key))
-                {
-                    // On Touch up should always have been called at this point, but the object still lingers
-                    if (oldObject.Value.onTouchObject.phase != TouchPhase.Ended)
-                    {
-                        HandleOnTouchExit(oldObject.Key, oldObject.Key.GetComponent<ITouchInput>(), oldObject.Value);
-                    }
-                    
-                }
-            }
+            return ie;
         }
 
-        void CheckMouse()
+        InputEvent CheckMouse()
         {
-            Dictionary<GameObject, TouchState> previousFrameTouches =
-                new Dictionary<GameObject, TouchState>(frameTouches);
-            frameTouches.Clear();
-            
+            isTouchingObject = false;
+            InputEvent ie = new InputEvent();
+            if(pauseShown)
+            {
+                return ie;
+            }
 
             if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) ||
                 Input.GetMouseButtonUp(0))
             {
                 Touch t = new Touch
                 {
-                    position = Input.mousePosition
+                position = Input.mousePosition
                 };
                 if (Input.GetMouseButtonDown(0))
                 {
                     t.phase = TouchPhase.Began;
-                    lastMouseClick = Time.time;
                     lastMousePos = Input.mousePosition.To2DXY();
                 }
                 else if (Input.GetMouseButton(0))
@@ -179,19 +162,21 @@ namespace Assets.Scripts.Managers
                         lastMousePos - Input.mousePosition.To2DXY();
                 }
 
+                if (EventSystem.current.IsPointerOverGameObject())
+                {
+                    ie.GameObject = null;
+                    return ie;
+                }
+
                 Ray ray = mainCamera.ScreenPointToRay(t.position);
                 RaycastHit hit;
 
                 if (Physics.Raycast(ray, out hit, touchInputMask))
                 {
                     GameObject touchObject = hit.transform.gameObject;
-                    ITouchInput touchInput =
-                        touchObject.GetComponent<ITouchInput>();
-                    if (touchInput == null)
-                    {
-                        return;
-                    }
-                    frameTouches.Add(touchObject, new TouchState(Time.time, t));
+                    ie.GameObject = touchObject;
+                    ie.TouchPosition = hit.point;
+                    ie.RaycastHit = hit;
 
                     TouchState ts;
                     objectOnTouchDownState.TryGetValue(touchObject,
@@ -201,7 +186,7 @@ namespace Assets.Scripts.Managers
                     if (t.phase == TouchPhase.Ended && ts.onTouchTime > 0 &&
                         Time.time - ts.onTouchTime <= tapTimeThreshold)
                     {
-                        touchInput.OnTap(t);
+                        ie.InputType = InputType.TAP;
                         objectOnTouchDownState.Remove(touchObject);
                     }
                     else
@@ -209,90 +194,60 @@ namespace Assets.Scripts.Managers
                         switch (t.phase)
                         {
                             case TouchPhase.Began:
-                                touchInput.OnTouchDown(t);
-                                objectOnTouchDownState.Add(touchObject,
-                                    new TouchState(Time.time, t));
+                                TouchState tmp;
+                                if (!objectOnTouchDownState.TryGetValue(
+                                        touchObject, out tmp))
+                                {
+                                    ie.InputType = InputType.TOUCH_DOWN;
+                                    objectOnTouchDownState.Add(touchObject,
+                                        new TouchState(Time.time, t));
+                                }
+                                else
+                                {
+                                    RefreshDictionary(touchObject);
+                                }
                                 break;
                             case TouchPhase.Moved:
-                                touchInput.OnToucHold(t);
+                                ie.InputType = InputType.TOUCH_HOLD;
                                 break;
                             case TouchPhase.Ended:
-                                HandleOnTouchExit(touchObject, touchInput,
-                                    new TouchState(Time.time, t));
+                                ie.InputType = HandleOnTouchExit(touchObject, new TouchState(Time.time, t));
                                 break;
                             case TouchPhase.Stationary:
-                                touchInput.OnToucHold(t);
+                                ie.InputType = InputType.TOUCH_HOLD;
                                 break;
                             case TouchPhase.Canceled:
-                                HandleOnTouchExit(touchObject, touchInput,
-                                    new TouchState(Time.time, t));
+                                ie.InputType = HandleOnTouchExit(touchObject, new TouchState(Time.time, t));
                                 break;
                         }
                     }
                 }
             }
 
-            // Check whether more objects were touched in the previous frame
-            // indicating that a touch was canceled
-            foreach (var oldObject in previousFrameTouches)
-            {
-                if (!frameTouches.ContainsKey(oldObject.Key))
-                {
-                    // On Touch up should always have been called at this point, but the object still lingers
-                    if (oldObject.Value.onTouchObject.phase != TouchPhase.Ended)
-                    {
-                        HandleOnTouchExit(oldObject.Key,
-                            oldObject.Key.GetComponent<ITouchInput>(),
-                            oldObject.Value);
-                    }
-                }
-            }
+            return ie;
         }
 
-        void HandleOnTouchExit(GameObject touchObject, ITouchInput touchInput, TouchState touchState)
+        InputType HandleOnTouchExit(GameObject touchObject, TouchState touchState)
         {
-            TouchState onTapState = new TouchState(0, new Touch());
-            objectOnTouchDownState.TryGetValue(touchObject, out onTapState);
-
-            // Detect a swipe
-            // Accounts for how straight the swipe is, and the magnitude^2 of the swipe vector
-            if (FixTouchDelta(touchState.onTouchObject).sqrMagnitude >
-                swipeSquaredDistanceThreshold && touchState.onTouchTime - onTapState.onTouchTime < swipeTimeThreshold)
-            {
-                Vector2 normalizedDelta = touchState.onTouchObject.deltaPosition.normalized;
-                if (normalizedDelta.y >= swipeStraightness)
-                {
-                    touchInput.OnSwipe(touchState.onTouchObject, TouchDirection.Up);
-                }
-                else if (normalizedDelta.x >= swipeStraightness)
-                {
-                    touchInput.OnSwipe(touchState.onTouchObject, TouchDirection.Right);
-                }
-                else if (normalizedDelta.y <= -1 * swipeStraightness)
-                {
-                    touchInput.OnSwipe(touchState.onTouchObject, TouchDirection.Down);
-                }
-                else if (normalizedDelta.x <= -1 * swipeStraightness)
-                {
-                    touchInput.OnSwipe(touchState.onTouchObject, TouchDirection.Left);
-                }
-            }
-            else
-            {
-                if (touchState.onTouchObject.phase == TouchPhase.Ended)
-                {
-                    touchInput.OnTouchUp(touchState.onTouchObject);
-                }
-                else
-                {
-                    touchInput.OnTouchExit();
-                }
-                
-            }
-            if (objectOnTouchDownState.ContainsKey(touchObject))
+            TouchState onTapState;
+            if (!objectOnTouchDownState.TryGetValue(touchObject, out onTapState))
             {
                 objectOnTouchDownState.Remove(touchObject);
             }
+            objectOnTouchDownState.Clear();
+            if (touchState.onTouchObject.phase == TouchPhase.Ended)
+            {
+                return InputType.TOUCH_UP;
+            }
+            else
+            {
+                return InputType.TOUCH_EXIT;
+            }
+        }
+
+        public void RefreshDictionary(GameObject go)
+        {
+            objectOnTouchDownState.Remove(go);
         }
 
         public struct TouchState
@@ -320,6 +275,49 @@ namespace Assets.Scripts.Managers
                 dt = 1.0f;
             }
             return input.deltaPosition * dt;
+        }
+
+        public bool GetHeadsetState()
+        {
+#if UNITY_EDITOR
+            return false;
+#endif
+#if UNITY_ANDROID
+            using(var unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+            using(var context = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity"))
+            using(var AudioManager = context.Call<AndroidJavaObject>("getSystemService", "audio"))
+            {
+
+                if (AudioManager != null)
+                {
+                    return AudioManager.Call<bool>("isWiredHeadsetOn");
+                }
+            }
+#endif
+            return false;
+        }
+    }
+
+    public enum InputType
+    {
+        TOUCH_DOWN,
+        TOUCH_UP,
+        TOUCH_HOLD,
+        TOUCH_EXIT,
+        TAP,
+        SWIPE
+    }
+    public struct InputEvent
+    {
+        public GameObject GameObject;
+        public InputType InputType;
+        public TouchDirection TouchDirection;
+        public Vector3 TouchPosition;
+        public RaycastHit RaycastHit;
+
+        public override string ToString()
+        {
+            return string.Format("GameObject: {0} - InputType: {1} - TouchDirection: {2} - TouchPosition: {3}", GameObject, InputType, TouchDirection, TouchPosition);
         }
     }
 }
