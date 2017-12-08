@@ -6,7 +6,7 @@ using Gamelogic.Extensions;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 [RequireComponent(typeof(PlayableDirector))]
 public class StoryEventController : Singleton<StoryEventController>
 {
@@ -19,7 +19,7 @@ public class StoryEventController : Singleton<StoryEventController>
     StoryEvent nullStoryEvent;
     Action currentCallback;
     PlayableDirector director;
-    bool isPosting;
+    public bool isPosting;
 
     private GameObject[] outroObjects;
     public delegate void StoryEventLightAction(int index);
@@ -80,6 +80,7 @@ public class StoryEventController : Singleton<StoryEventController>
 
     public void PostStoryEvent(string StoryEvent, Action Callback)
     {
+//        print("StoryEvent System: isPosting: " +isPosting +" - isMuted: " +isMuted);
         if (isPosting || isMuted)
         {
             return;
@@ -177,15 +178,15 @@ public class StoryEventController : Singleton<StoryEventController>
                 {
                     GameController.instance.InvokeWwisePointOfNoReturn();
                 }
-                if (currentStoryEvent.StoryEventID.Equals("STORYEVENT_END"))
-                {
-                    GameObject outroParent = GameObject.FindGameObjectWithTag("OutroParent");
-                    outroParent.GetComponent<PlayableDirector>().Play();
-                    foreach (var item in outroObjects)
-                    {
-                        item.SetActive(false);
-                    }
-                }
+                //if (currentStoryEvent.StoryEventID.Equals("STORYEVENT_END"))
+                //{
+                //    GameObject outroParent = GameObject.FindGameObjectWithTag("OutroParent");
+                //    outroParent.GetComponent<PlayableDirector>().Play();
+                //    foreach (var item in outroObjects)
+                //    {
+                //        item.SetActive(false);
+                //    }
+                //}
                 currentCallback.Invoke();
             }
 
@@ -203,11 +204,31 @@ public class StoryEventController : Singleton<StoryEventController>
         print("Handling end");
         GameObject outroParent = GameObject.FindGameObjectWithTag("OutroParent");
         outroParent.GetComponent<PlayableDirector>().Play();
+        StartCoroutine(WaitingForAnimationToStop());
+
         foreach (var item in outroObjects)
         {
             item.SetActive(true);
         }
     }
+    [SerializeField]
+    private GameObject EndSceneFadeout;
+    public  Animator _anim;
+    IEnumerator WaitingForAnimationToStop()
+    {
+        EndSceneFadeout = GameObject.FindGameObjectWithTag("FadeOutCredits");
+        _anim = EndSceneFadeout.GetComponent<Animator>();        
+        
+        Debug.Log("IT'S TOTALLY HAPPENING");
+        yield return new WaitForSeconds(0);
+        Debug.Log("ALMOST THERE 40 SECONDS");
+         yield return new WaitForSeconds(40);
+
+        _anim.SetBool("GameIsFinished", true);
+        // EndSceneFadeout.SetActive(true);
+    }
+
+
 
     [System.Serializable]
     public struct StoryEvent

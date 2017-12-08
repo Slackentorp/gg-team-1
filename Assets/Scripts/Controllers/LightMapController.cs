@@ -15,6 +15,8 @@ public class LightMapController : MonoBehaviour
     [SerializeField]
     private bool[] LampsStates, flickStates;
     private bool flickerCheckPass;
+	[SerializeField]
+	private int bigAtlasNr;
     //[SerializeField]
     //private int nrOfLamps;
     //private LightSourceInput[] lamps;
@@ -36,6 +38,10 @@ public class LightMapController : MonoBehaviour
     {
         LampsStates = new bool[lightMapTexturesOFF.Length];
         flickStates = new bool[lightMapTexturesOFF.Length];
+		for(int i = 0; i < lightMapTexturesOFF.Length; i++) 
+		{
+			LampsStates[bigAtlasNr] = true;
+		}
         LightMapAssigner();
     }
 

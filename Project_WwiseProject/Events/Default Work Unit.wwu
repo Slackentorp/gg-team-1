@@ -388,32 +388,6 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Event Name="TESTMAPBUTTON" ID="{470764D5-ABA0-4A32-8980-20FB1D7F2F43}">
-					<ChildrenList>
-						<Action Name="" ID="{6A39E047-F878-4A9C-83AA-74FD5A95D627}" ShortID="969984776">
-							<PropertyList>
-								<Property Name="AbsoluteOrRelative" Type="int16" Value="1"/>
-								<Property Name="ActionType" Type="int16" Value="38"/>
-								<Property Name="GameParameterValue" Type="Real64" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="MAP_BUTTON_NUMBER" ID="{C2FB0E6E-99FF-4CA5-AD06-67A9D5CBDF50}" WorkUnitID="{0D32B7F8-CB12-4BF1-9842-127058DEFAC0}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{0F09D926-9559-4312-A963-DE52EEB7B7A1}" ShortID="782365914">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Press Pin" ID="{79268D88-83BE-4BD4-B74A-4BDFFABD5C77}" WorkUnitID="{1FD1FD3C-F62B-4E8E-87CF-2FD54CE2B442}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="Menu" ID="{94258F84-A1BE-446C-BE7E-92C9D07FF104}" ShortID="129051626">
 					<ChildrenList>
 						<Event Name="INGAMEMENU_OPEN" ID="{659A4558-69D7-4BFA-9DEE-01EF3CF51783}">
@@ -1990,7 +1964,7 @@
 								<Action Name="" ID="{AC3EDF16-3203-4AA1-B9FA-366B2352B7BB}" ShortID="218627797">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="0.5"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2005,7 +1979,6 @@
 								<Action Name="" ID="{8C67F1F1-CAB6-4D1D-82E1-C98505ABC647}" ShortID="238655563">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
-										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2027,7 +2000,7 @@
 								<Action Name="" ID="{938931E5-9154-40F8-9EB9-1252FBD9C2C3}" ShortID="941078146">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="57"/>
+										<Property Name="Delay" Type="Real64" Value="30"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2038,6 +2011,7 @@
 								<Action Name="" ID="{FB108B78-19C0-4842-9ED8-3EEAD8203140}" ShortID="736198729">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="0.6"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2096,7 +2070,7 @@
 								<Action Name="" ID="{448A0B6C-D650-4270-964A-FB2A434D934B}" ShortID="388779368">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="51"/>
+										<Property Name="Delay" Type="Real64" Value="30"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -2194,6 +2168,7 @@
 										<Action Name="" ID="{67DC2BBC-E62A-4337-81D3-248F7A85502D}" ShortID="310078741">
 											<PropertyList>
 												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="Delay" Type="Real64" Value="1"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
@@ -2214,6 +2189,7 @@
 										<Action Name="" ID="{B04A676A-151E-4F3A-AEB4-FE120C94C390}" ShortID="373614589">
 											<PropertyList>
 												<Property Name="ActionType" Type="int16" Value="22"/>
+												<Property Name="Delay" Type="Real64" Value="0.5"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
@@ -2342,6 +2318,11 @@
 										<Action Name="" ID="{3BE25D97-8EAB-44F5-A901-0E630A28F1CE}" ShortID="656387737">
 											<PropertyList>
 												<Property Name="ActionType" Type="int16" Value="1"/>
+												<Property Name="Inclusion" Type="bool">
+													<ValueList>
+														<Value>False</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
@@ -3069,6 +3050,22 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{FF74E950-B1D5-405C-B111-AB69FBB17C3F}" ShortID="843800099">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="0.1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="CUTSCENE" ID="{CF65DA72-4E24-4B9E-A64C-5AF3DBBFE3F7}" WorkUnitID="{1FC29E54-AEAE-4EC4-8C2B-2BBD213888AE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="PARTICLE_ENTER_LAMP" ID="{A1C91C38-B395-4867-B46A-3685C93BD0E8}">
@@ -3076,7 +3073,7 @@
 								<Action Name="" ID="{16045A69-5470-4649-9417-7297C0F3EDFC}" ShortID="316308002">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
-										<Property Name="Delay" Type="Real64" Value="0.5"/>
+										<Property Name="Delay" Type="Real64" Value="0.1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -3138,6 +3135,7 @@
 										<Property Name="ActionType" Type="int16" Value="2"/>
 										<Property Name="Delay" Type="Real64" Value="1"/>
 										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
