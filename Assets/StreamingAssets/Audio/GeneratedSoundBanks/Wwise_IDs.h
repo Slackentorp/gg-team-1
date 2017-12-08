@@ -103,7 +103,6 @@ namespace AK
         static const AkUniqueID STORYEVENT_ON = 761090164U;
         static const AkUniqueID STREET = 4142189312U;
         static const AkUniqueID TAP_PARTICLE = 3809097629U;
-        static const AkUniqueID TESTMAPBUTTON = 3443637649U;
         static const AkUniqueID TRIGGEREDSOUND_ANSWERING = 3021174106U;
         static const AkUniqueID WALKMAN = 760300722U;
     } // namespace EVENTS
@@ -332,6 +331,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID ANGLE = 1105939986U;
         static const AkUniqueID DIALOGUE_VOLUME = 725232568U;
         static const AkUniqueID FLICKER_VOLUME = 2867585400U;
         static const AkUniqueID MAP_BUTTON_NUMBER = 3594118836U;
