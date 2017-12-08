@@ -192,6 +192,7 @@
 												</MusicTrack>
 												<MusicTrack Name="Hallways_PAD_91bpm" ID="{2F4D4E3C-4C7C-4BB7-90F4-4DE339596BDC}" ShortID="625156348">
 													<PropertyList>
+														<Property Name="OverrideConversion" Type="bool" Value="True"/>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
 																<Value>-2</Value>
@@ -200,7 +201,7 @@
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
+															<ObjectRef Name="Really compressed stereo" ID="{1FA4B052-37BF-4E0E-8157-1C5FD4091E72}" WorkUnitID="{67D4EFEE-622B-423E-96B0-3BAC205ECFB0}"/>
 														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
@@ -333,7 +334,81 @@
 											</ReferenceList>
 											<ChildrenList>
 												<MusicTrack Name="No light" ID="{6C7452FC-7E5F-435D-B07D-609CCFEF4AB9}" ShortID="408020507">
+													<PropertyList>
+														<Property Name="OverrideConversion" Type="bool" Value="True"/>
+													</PropertyList>
 													<ReferenceList>
+														<Reference Name="Conversion">
+															<Custom CreatedFrom="{1FA4B052-37BF-4E0E-8157-1C5FD4091E72}">
+																<Conversion Name="Really compressed stereo (Custom)" ID="{629104F8-5305-49FE-ACD0-614CE739F607}">
+																	<PropertyList>
+																		<Property Name="Channels" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">1</Value>
+																				<Value Platform="Windows">4</Value>
+																				<Value Platform="Mac">4</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="LRMix" Type="Real64">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="MaxSampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">22050</Value>
+																				<Value Platform="Windows">22050</Value>
+																				<Value Platform="Mac">22050</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="MinSampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="SampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="UseDither" Type="bool">
+																			<ValueList>
+																				<Value>True</Value>
+																			</ValueList>
+																		</Property>
+																	</PropertyList>
+																	<ConversionPluginInfoList>
+																		<ConversionPluginInfo Platform="Android">
+																			<ConversionPlugin Name="" ID="{DC39F42C-D7FD-4BC3-ACA9-0D69A2739020}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																		<ConversionPluginInfo Platform="Windows">
+																			<ConversionPlugin Name="" ID="{27626110-523B-4138-9B1E-93BA699BA424}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																		<ConversionPluginInfo Platform="Mac">
+																			<ConversionPlugin Name="" ID="{6CE7CC61-3696-4073-AF64-A8B3D43414BD}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																	</ConversionPluginInfoList>
+																</Conversion>
+															</Custom>
+														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 														</Reference>
@@ -693,6 +768,7 @@
 												</MusicTrack>
 												<MusicTrack Name="Living_Pad_80bpm" ID="{4FB0FC14-80D9-4B58-B64D-43AC27EE1E6B}" ShortID="302790851">
 													<PropertyList>
+														<Property Name="OverrideConversion" Type="bool" Value="True"/>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
 																<Value>-3</Value>
@@ -700,6 +776,77 @@
 														</Property>
 													</PropertyList>
 													<ReferenceList>
+														<Reference Name="Conversion">
+															<Custom CreatedFrom="{1FA4B052-37BF-4E0E-8157-1C5FD4091E72}">
+																<Conversion Name="Really compressed stereo (Custom)" ID="{3F7441B7-79ED-4E19-9D4A-0316FAFE3979}">
+																	<PropertyList>
+																		<Property Name="Channels" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">1</Value>
+																				<Value Platform="Windows">4</Value>
+																				<Value Platform="Mac">4</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="LRMix" Type="Real64">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="MaxSampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">22050</Value>
+																				<Value Platform="Windows">22050</Value>
+																				<Value Platform="Mac">22050</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="MinSampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="SampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="UseDither" Type="bool">
+																			<ValueList>
+																				<Value>True</Value>
+																			</ValueList>
+																		</Property>
+																	</PropertyList>
+																	<ConversionPluginInfoList>
+																		<ConversionPluginInfo Platform="Android">
+																			<ConversionPlugin Name="" ID="{E7C3CE34-EDE8-4EFC-B795-768BBA19797B}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																		<ConversionPluginInfo Platform="Windows">
+																			<ConversionPlugin Name="" ID="{DA8F8377-92D1-417A-ABBD-6BF2DB6A4BDF}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																		<ConversionPluginInfo Platform="Mac">
+																			<ConversionPlugin Name="" ID="{5FFE5C0C-281E-4D12-B6C4-B3721551F8C0}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																	</ConversionPluginInfoList>
+																</Conversion>
+															</Custom>
+														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 														</Reference>
@@ -804,6 +951,7 @@
 												</MusicTrack>
 												<MusicTrack Name="Living_Piano_80bpm" ID="{C6109C89-16B4-4850-8D30-6568EE92E12C}" ShortID="982307282">
 													<PropertyList>
+														<Property Name="OverrideConversion" Type="bool" Value="True"/>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
 																<Value>-10</Value>
@@ -811,6 +959,77 @@
 														</Property>
 													</PropertyList>
 													<ReferenceList>
+														<Reference Name="Conversion">
+															<Custom CreatedFrom="{1FA4B052-37BF-4E0E-8157-1C5FD4091E72}">
+																<Conversion Name="Really compressed stereo (Custom)" ID="{576704D2-BA16-4650-981F-12A8EC9473A3}">
+																	<PropertyList>
+																		<Property Name="Channels" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">1</Value>
+																				<Value Platform="Windows">4</Value>
+																				<Value Platform="Mac">4</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="LRMix" Type="Real64">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="MaxSampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">22050</Value>
+																				<Value Platform="Windows">22050</Value>
+																				<Value Platform="Mac">22050</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="MinSampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="SampleRate" Type="int32">
+																			<ValueList>
+																				<Value Platform="Android">0</Value>
+																				<Value Platform="Windows">0</Value>
+																				<Value Platform="Mac">0</Value>
+																			</ValueList>
+																		</Property>
+																		<Property Name="UseDither" Type="bool">
+																			<ValueList>
+																				<Value>True</Value>
+																			</ValueList>
+																		</Property>
+																	</PropertyList>
+																	<ConversionPluginInfoList>
+																		<ConversionPluginInfo Platform="Android">
+																			<ConversionPlugin Name="" ID="{91486501-5EB4-463D-BB71-B20F69FAF5AD}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																		<ConversionPluginInfo Platform="Windows">
+																			<ConversionPlugin Name="" ID="{B5B231FB-6540-44F5-BF23-A7621F7F8DD6}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																		<ConversionPluginInfo Platform="Mac">
+																			<ConversionPlugin Name="" ID="{70A638F7-0763-43AA-A553-8817D50CDD6D}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																				<PropertyList>
+																					<Property Name="QualityFactor" Type="Real32" Value="1"/>
+																				</PropertyList>
+																			</ConversionPlugin>
+																		</ConversionPluginInfo>
+																	</ConversionPluginInfoList>
+																</Conversion>
+															</Custom>
+														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AEFA858-9085-4EEB-BAC0-241662F05877}"/>
 														</Reference>
