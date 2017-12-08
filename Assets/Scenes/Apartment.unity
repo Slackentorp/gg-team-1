@@ -43989,6 +43989,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 320981331086285280, guid: ff1cc638293c58a45841b47be892d7af,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.size
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4225159798687708, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.5059893
@@ -44031,7 +44036,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1399413570668266, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
       propertyPath: m_TagString
-      value: OutroObject
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1613653300203896, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
       propertyPath: m_TagString
@@ -45385,7 +45390,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1659492340199628, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4258061357233302, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
       propertyPath: m_LocalPosition.z
@@ -45441,6 +45446,32 @@ Prefab:
       propertyPath: m_Shadows.m_Type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 320981331086285280, guid: ff1cc638293c58a45841b47be892d7af,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[10].key
+      value: 
+      objectReference: {fileID: 114046219705729656, guid: 478d13758500a4e4c8dd33fc954d9485,
+        type: 2}
+    - target: {fileID: 320981331086285280, guid: ff1cc638293c58a45841b47be892d7af,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[11].key
+      value: 
+      objectReference: {fileID: 114134380682721096, guid: 478d13758500a4e4c8dd33fc954d9485,
+        type: 2}
+    - target: {fileID: 1425744166593642, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
+      propertyPath: m_TagString
+      value: OutroObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 320981331086285280, guid: ff1cc638293c58a45841b47be892d7af,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[10].value
+      value: 
+      objectReference: {fileID: 1261101944}
+    - target: {fileID: 320981331086285280, guid: ff1cc638293c58a45841b47be892d7af,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[11].value
+      value: 
+      objectReference: {fileID: 1591598787}
     m_RemovedComponents:
     - {fileID: 81283421007382952, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
     - {fileID: 81965245005677416, guid: ff1cc638293c58a45841b47be892d7af, type: 2}
@@ -45823,6 +45854,11 @@ Transform:
   m_Father: {fileID: 1655949168}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 279.534, z: 0}
+--- !u!1 &1591598787 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1530932374251632, guid: 7df94c8fef9d1c147bdf981f631d7acc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1110769728}
 --- !u!4 &1591765984 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4646271020929424, guid: cd7833509c1742446814c1ee6273d0d7,
@@ -58479,7 +58515,7 @@ Prefab:
     - target: {fileID: 114196409437184672, guid: 47920560ca05fbe4e9bb59ac322aed22,
         type: 2}
       propertyPath: fogIdentifier
-      value: KitchenFog
+      value: HallwayToKitchenFog
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47920560ca05fbe4e9bb59ac322aed22, type: 2}
