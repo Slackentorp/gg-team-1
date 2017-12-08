@@ -103,7 +103,6 @@ namespace AK
         static const AkUniqueID STORYEVENT_ON = 761090164U;
         static const AkUniqueID STREET = 4142189312U;
         static const AkUniqueID TAP_PARTICLE = 3809097629U;
-        static const AkUniqueID TESTMAPBUTTON = 3443637649U;
         static const AkUniqueID TRIGGEREDSOUND_ANSWERING = 3021174106U;
         static const AkUniqueID WALKMAN = 760300722U;
     } // namespace EVENTS
