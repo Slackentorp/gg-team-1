@@ -19,7 +19,7 @@ public class StoryEventController : Singleton<StoryEventController>
     StoryEvent nullStoryEvent;
     Action currentCallback;
     PlayableDirector director;
-    bool isPosting;
+    public bool isPosting;
 
     private GameObject[] outroObjects;
     public delegate void StoryEventLightAction(int index);
@@ -80,6 +80,7 @@ public class StoryEventController : Singleton<StoryEventController>
 
     public void PostStoryEvent(string StoryEvent, Action Callback)
     {
+//        print("StoryEvent System: isPosting: " +isPosting +" - isMuted: " +isMuted);
         if (isPosting || isMuted)
         {
             return;
